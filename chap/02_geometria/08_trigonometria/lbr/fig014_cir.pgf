@@ -1,0 +1,40 @@
+% (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
+
+\begin{tikzpicture}[x=19mm,y=19mm, font=\small]
+\begin{scope}[->]
+\draw (-1.2,0) -- (6,0) node [below right] {$x$};
+\draw (1.5,-1.2) -- (1.5,1.2) node [above left] {$y$};
+\end{scope}
+
+\node[below left] at (1.5,0) {0};
+\foreach \x/\xtext in {1.83/30\grado,2.5/90\grado,3.5/180\grado,4.5/270\grado,5.5/360\grado}
+\node[below] at(\x,0) {$\xtext$};
+
+\foreach \xi in {2.5,3.5,4.5,5.5}
+\draw (\xi,1.5pt) -- (\xi,-1.5pt);
+
+\begin{scope}[Maroon, thick, ->]
+\foreach \z in {0,30,65,90,130,180,205,270,310}
+\draw[rotate=\z] (0,0)--(1,0 );
+\end{scope}
+
+\draw[dotted] (0,0) circle (1);
+\node [above left] at (0,1) {$C$};
+\node [above right] at (1,0) {$B$};
+
+\begin{scope}[dashed]
+\draw(.87,.5)--(1.83,.5);
+\draw (0,1) -- (1.5,1);
+\draw (1.83,0) -- (1.83,.5);
+\end{scope}
+\begin{scope}[fill=CornflowerBlue, draw=black]
+\filldraw (1,0) circle (1.5pt);
+\filldraw[rotate=30] (1,0) circle (1.5pt) node (A)[above right] {$A$};
+\filldraw (0,1) circle (1.5pt);
+\end{scope}
+
+\begin{scope}[fill=OliveGreen, draw=black]
+\filldraw (1.5,1) circle (1.5pt)node [right] {$P_1(0\grado,1)$};
+\filldraw (1.83,.5) circle (1.5pt)node [right] {$P_2(30\grado,0.5)$};
+\end{scope}
+\end{tikzpicture}

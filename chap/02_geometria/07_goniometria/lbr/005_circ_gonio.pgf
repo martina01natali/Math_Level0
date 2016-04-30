@@ -1,0 +1,60 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\begin{tikzpicture}[scale=2.0, cap=round, >=latex]
+
+\input{\folder lbr/lib_circ_gon.pgf}
+
+\clip(-1.2, -1.3) rectangle (1.5, 1.4);
+
+\circonferenzagoniometrica {40} {$\alpha$} {$\sin \alpha$}
+                            {$\cos \alpha$} {$\tan \alpha$}
+
+\end{tikzpicture}
+
+% \begin{tikzpicture}[scale=2.7, cap=round, >=latex]
+%   % Local definitions
+%   \def\angle{40}
+%   \def\alfangle{20}
+%   \def\sinangle{0.6427876}
+%   \def\cosangle{0.7660444}
+% 
+%   % Colors
+%   \colorlet{anglecolor}{green!50!black}
+%   \colorlet{sincolor}{blue!50!black}
+%   \colorlet{tancolor}{orange!70!black}
+%   \colorlet{coscolor}{red!50!black}
+% 
+% \input{\folder lbr/lib_circ_gon00.pgf}
+% 
+% \draw (0, 0) node [below left] {$O$} [fill] circle(0.4pt);
+% \draw (\cosangle, 0) node [below] {$H$} [fill] circle(0.4pt);
+% \draw (1, 0) node [below right] {$K$} [fill] circle(0.4pt);
+% 
+% \node at (.38, .45) {$1$};
+% 
+% \draw[style=help lines] (1, -1.2) -- (1, 1.3);
+% 
+% \begin{scope}[very thick]
+%  \begin{scope}[->, green!50!black]
+%   \draw (0.3, 0) arc(0:\angle:0.3);
+%   \draw (1.0, 0) arc(0:\angle:1.0);
+%  \end{scope}
+%  \draw (\alfangle:.2) node[anglecolor] {$\alpha$};
+%  
+%  \draw [sincolor]
+%     (\angle:1) node [above] {$P$} circle(0.5pt)-- 
+%                node[left=0pt,fill=white] {$\sin \alpha$} +(0, -\sinangle);
+% 
+%  \draw [coscolor]
+%     (0,0) -- node[below=2pt,fill=white] {$\cos \alpha$} (\cosangle, 0);
+% 
+%   \draw [tancolor] (1,0) --
+%     node [right=1pt,fill=white] {$\displaystyle \tan \alpha$} 
+%      (intersection of 0,0 -- \angle:1 and 1,0--1,1) [below right] node {$T$}
+%       circle(0.5pt); % coordinate (t);
+% 
+%  \draw [Maroon!50!black, rotate=\angle] (0, 0)--(1.8, 0);
+%  
+% \end{scope}
+% 
+% \end{tikzpicture}

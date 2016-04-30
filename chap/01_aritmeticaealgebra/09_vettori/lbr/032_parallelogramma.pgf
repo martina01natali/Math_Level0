@@ -1,0 +1,35 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\parallelogramma}[3]{%
+  \def \pu{#1}
+  \def \palpha{#2}
+  \def \pv{#3}
+  \coordinate (a) at (0, 0);
+  \coordinate (b) at (\pu, 0);
+  \coordinate (d) at (\palpha:\pv);
+  \coordinate (h) at (d |- b);
+  \coordinate (c) at ([xshift=\pu cm] d); % se cambia la scala questo punto sballa
+  \begin{scope}[black]
+    \draw (a) node [below left] {$A$};
+    \draw (b) node [below right] {$B$};
+    \draw (c) node [above right] {$C$};
+    \draw (d) node [above left] {$D$};
+    \draw (h) node [below] {$H$};
+  \end{scope}
+%   \draw [fill, green!50] 
+%       (0, 0) --++ (\u, 0) --++ (\alpha:\v) --++ (-\u, 0) -- cycle;
+  \draw [fill, green!50] (a) -- (b) -- (c) -- (d) -- cycle;
+  \begin{scope}[very thick]
+    \draw [->, OliveGreen!80!black] (0, 0) -- node [below right] {$\vec{u}$} (b);
+    \draw [->, Maroon!80!black] (0, 0) -- node [above left] {$\vec{v}$} (d);
+    \draw [gray, dashed] (d) -- node [right] {$h=v \cdot \sin \alpha$} (h);
+    \draw [orange!80!black] (0.5, 0) arc(0:\palpha:0.5);
+    \draw [orange!80!black] (0,0) (\palpha / 2:0.8) node {$\alpha$};
+  \end{scope}
+}
+
+\begin{tikzpicture}[x=10mm,y=10mm, >=latex]
+
+\parallelogramma{3}{50}{2}
+
+\end{tikzpicture}

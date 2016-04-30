@@ -1,0 +1,47 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\colorlet{anglecolor}{green!50!black}
+% \colorlet{sincolor}{blue!50!black}
+\colorlet{coscolor}{red!50!black}
+% \colorlet{tancolor}{orange!70!black}
+
+\def \_deg2rad{0.01745329252}
+
+\newcommand{\circgoncos}[2]{%
+% Circonferenza goniometrica con cos x = 0,9.
+
+% Parametri
+  \def \pcos{#1}
+  \def \psin{#2}
+
+\clip (-.08, -.65) rectangle (1.15, .65);
+
+% Griglia
+    \draw[gray!50, very thin, step=.1] (-0.15, -.63) grid (1.2, .63);
+% Assi
+  \begin{scope}[-{Stealth[length=2mm, open, round]}]
+    \draw (-0.1, 0) -- (1.1, 0) node [below] {$x$}; % Asse x
+    \draw (0, -.63) -- (0, .63) node [left] {$y$}; % Asse y
+  \end{scope}
+% Circonferenza
+  \coordinate (centro) at (0, 0);
+  \coordinate (p) at (1, 0);
+  \draw (p) arc(0:55:1);  
+  \draw (p) arc(0:-55:1); 
+  \draw (\pcos, 0) [fill] circle(2pt) node [below left] {$\pcos$};
+  \draw (\pcos, -.8) -- (\pcos, .8);
+% Angoli
+  \begin{scope}[anglecolor, very thick]
+  \draw (\pcos, -\psin) [fill] circle(2pt);
+  \draw (\pcos, \psin) [fill] circle(2pt);
+    \draw (0, 0) -- (\pcos*2, \psin*2);
+    \draw (0, 0) -- (\pcos*2, -\psin*2);
+  \end{scope}
+% Angoli di riferimento
+  \foreach \z in {-75, -60, ..., +75}
+ \draw [->, thin,  Maroon, rotate=\z] (0, 0) -- (1, 0) node [right] {$\z$};
+}
+
+\begin{tikzpicture}[x=50mm,y=50mm, font=\small, cap=round, >=latex]
+\circgoncos{0.9}{0.435889894354}
+\end{tikzpicture}

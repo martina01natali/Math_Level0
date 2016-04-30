@@ -1,0 +1,47 @@
+% (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
+% (c) 2015 Daniele Zambelli - daniel.zambelli@gmail.com
+
+\begin{tikzpicture}[font=\small, %minimum size=6mm,
+data/.style={
+rectangle,
+minimum size=6mm,
+top color=white,
+bottom color=red!50!black!20,
+% font=\small
+},
+interm/.style={
+rectangle,
+minimum size=6mm,
+draw=black,
+% font=\small
+},
+result/.style={
+rectangle, rounded corners=3mm,
+minimum size=6mm,
+draw=black,
+% font=\small
+}]
+% \begin{tikzpicture}[font=\small]
+
+\matrix  (a) [matrix of  nodes, anchor=south, minimum width=9mm,
+              nodes={text depth=0mm}]{
+\node[result, data]{$+3$}; & \node[data]{$+8$}; & \node[data]{$+9$}; & 
+\node[data]{$ +4$}; & \node[data]{$ -5$};  & {} &$ 1   $ & \node[data]{$+2$};    &  {}   &  {}  \\
+$-3$ & \node[interm]{$-6$}; &  {}  &  {}   & {} &  {}   & $ 3$ & $+2$ & $+5$ & $ -6$\\
+ {}    & \node[result]{$+2$}; & $+9$ &   {}   & {} & \\
+ {}    & $-2$ & \node[interm]{$-4$}; &   {}   & {} &  {}   &   {}    &  R$=+7$\\
+ {}    &  {}  & \node[result]{$+5$}; & $ +4$ &   {} & {} &\\
+ {}    &  {}  & $-5$ & \node[interm]{$-10$}; &   {} & {} &\\
+ {}    &  {}  & ${}$ & \node[result]{$ -6$}; & $ -5$ & {} &\\
+ {}    &  {}  & ${}$ & $ +6$ & \node[interm]{$+12$}; & {} &\\
+ {}    &  {}  & ${}$ & $ {}$ & \node[result]{$+7$}; & {} &\\
+};
+
+\draw(a-1-6.north east)--(a-9-6.south east);
+\draw(a-2-7.north west)--(a-2-10.north east);
+\draw (a-2-1.south west) -- (a-2-3.south east);
+\draw (a-4-2.south west) -- (a-4-4.south east);
+\draw (a-6-3.south west) -- (a-6-5.south east);
+\draw (a-8-4.south west) -- (a-8-6.south east);
+%  \draw (a-4-2.south west) -- (a-4-4.south east);
+\end{tikzpicture}

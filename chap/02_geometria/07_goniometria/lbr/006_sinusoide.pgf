@@ -1,0 +1,47 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+% \tiny
+% \scriptsize
+% \footnotesize
+
+\begin{tikzpicture}[x=17mm,y=17mm, font=\small, cap=round, >=latex]
+
+\begin{scope}[-{Stealth[length=2mm, open, round]}]
+% Asse x
+\draw (-1.1,0) -- (7.2, 0) node [below] {$x$};
+% Asse y
+\draw (1, -1.3) -- (1, 1.3) node [left] {$y$};
+\end{scope}
+
+% Circonferenza
+\draw [thin] (0, 0) circle (1);
+
+\begin{scope}[font=\tiny]
+% Tacche asse x
+\foreach \x/\xtext in {
+    1/0, 1.5/30, 2/60, 2.5/90, 
+    3/120, 3.5/150, 4/180, 4.5/210, 
+    5/240, 5.5/270, 6/300, 6.5/330, 
+    7/360}
+\node[below] at(\x, 0) {$\xtext \grado$};
+\end{scope}
+
+% Tacche asse x e vettori
+\begin{scope}[font=\tiny]
+\foreach \x/\z in {
+    1/0, 1.25/15, 1.5/30, 1.75/45, 
+    2/60, 2.25/75, 2.5/90, 2.75/105, 
+    3/120, 3.25/135, 3.5/150, 3.75/165, 
+    4/180, 4.25/195, 4.5/210, 4.75/225, 
+    5/240, 5.25/255, 5.5/270, 5.75/285, 
+    6/300, 6.25/315, 6.5/330, 6.75/345, 
+    7/360}
+{\draw [black] (\x, -0.02) -- (\x, +0.05) node (a) {};
+ \draw [->, Maroon, rotate=\z] (0, 0) -- (1, 0) node (b) {};
+%  \coordinate (c) at (a |- b);
+ \draw [thin, dotted, green!50!black] (b) -- (a |- b) -- (a);
+ \draw [black] (a |- b) circle(1pt);
+}
+\end{scope}
+
+\end{tikzpicture}

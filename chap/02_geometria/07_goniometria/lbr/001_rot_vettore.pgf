@@ -1,0 +1,56 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\begin{tikzpicture}[x=20mm,y=20mm, >=latex]
+
+% Griglia
+\draw[gray!50, very thin, step=1] (-1.2, -1.2) grid (1.2, 1.2);
+
+\input{\folder lbr/lib_circ_gon00.pgf}
+
+\begin{scope}[->, very thick]
+\draw [Maroon!50!black, rotate=65] (0,0)--(1,0 );
+\draw [orange] (0, 0) (20:1.3) arc (20:70:1.3);
+\draw [orange] (0, 0) (160:1.3) arc (160:110:1.3);
+\draw [green!50!black] (.3, 0) arc(0:65:.3);
+\draw [green!50!black] (1, 0) arc(0:65:1);
+\end{scope}
+
+\draw [black] (1.1, 1.1) node {$+$};
+\draw [black] (-1.1, 1.1) node {$-$};
+
+
+% \begin{scope}[->]
+% \draw (-1.2,0) -- (1.2,0) node [below right] {$x$};
+% \draw (0,-1.2) -- (0,1.2) node [above left] {$y$};
+% % 
+% \foreach \x/\xtext in {-1/-1,1/1}
+% \node[below] at(\x,0) {$\xtext$};
+% 
+% \foreach \xi in {-1,1}
+% \draw (\xi,1.5pt) -- (\xi,-1.5pt);
+% 
+% \foreach \yi in {-1,1}
+% \draw(1.5pt,\yi)--(-1.5pt,\yi);
+% 
+% \foreach \y/\ytext in {-1/-1,1/1}
+% \node[right] at(0,\y) {$\ytext$};
+% 
+% \begin{scope}[Maroon, thick, ->]
+% \foreach \z in {0,35,65,90,130,180,205,270,310}
+% \draw[rotate=\z] (0,0)--(1,0 );
+% \end{scope}
+% \draw[dotted] (0,0) circle (1);
+% 
+% \node [above left] at (0,1) {$B_1$};
+% \node [above left] at (-1,0) {$B_2$};
+% \node [below left] at (0,-1) {$B_3$};
+% \node [above right] at (1,0) {$B_4$};
+% 
+% \draw[->,semithick, orange] (20:1.2) arc[radius=1.2, start angle=20, end angle=70];
+% \begin{scope}[fill=CornflowerBlue, draw=black]
+% \filldraw (1,0) circle (1.5pt);
+% \filldraw (0,1) circle (1.5pt);
+% \filldraw (-1,0) circle (1.5pt);
+% \filldraw (0,-1) circle (1.5pt);
+% \end{scope}
+\end{tikzpicture}

@@ -1,0 +1,97 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+% \begin{tikzpicture}[x=17mm,y=17mm, font=\small, cap=round, >=latex]
+
+\colorlet{anglecolor}{green!50!black}
+\colorlet{sincolor}{blue!50!black}
+% \colorlet{coscolor}{red!50!black}
+% \colorlet{tancolor}{orange!70!black}
+
+\def \_deg2rad{0.01745329252}
+
+\newcommand{\diseqsin}[8]{%
+% Soluzione della disequazione $\sin x \in [a;~b]$ 
+% nella circonferenza goniometrica e nella sinusoide.
+% Chiamata tipica: \diseqsin{-.5}{1.73205080757 / 2}{0}{60}{120}{210}{330}{360}
+
+% Parametri
+  \def \psina{#1}
+  \def \psinb{#2}
+  \def \padeg{#3}
+  \def \pbdeg{#4}
+  \def \pcdeg{#5}
+  \def \pddeg{#6}
+  \def \parad{#3*\_deg2rad}
+  \def \pbrad{#4*\_deg2rad}
+  \def \pcrad{#5*\_deg2rad}
+  \def \pdrad{#6*\_deg2rad}
+% Assi
+  \begin{scope}[-{Stealth[length=2mm, open, round]}]
+    \draw (-2.1,0) -- (6.5, 0) node [below] {$x$}; % Asse x
+    \draw (-1, -1.3) -- (-1, 1.3) node [left] {$y'$}; % Asse y'
+    \draw (0, -1.3) -- (0, 1.3) node [left] {$\sin x$}; % Asse y
+    \foreach \y in {-1, -.5, +.5, +1}{
+      \draw [-] (-0.02, \y) -- (+0.05, \y);}
+  \end{scope}
+% Circonferenza
+  \coordinate (a) at (-1, 0);
+  \coordinate (b) at (0, 0);
+  \node(c0) at (a)[draw, circle through=(b)] {};  
+% Tacche con etichetta asse x
+  \begin{scope}[font=\tiny]
+  \foreach \x/\xtext in {
+      0.0/0, 0.5236/30, 1.047/60, 1.571/90, 2.094/120, 2.618/150, 
+      3.142/180, 3.665/210, 4.189/240, 4.712/270, 5.236/300, 5.76/330, 6.283/360}
+  \node[below] at(\x, 0) {$\xtext \grado$};
+  \end{scope}
+% Tacche asse x
+  \begin{scope}[font=\tiny]
+  \foreach \x in { 
+      0.0, 0.2618, 0.5236, 0.7854, 1.047, 1.309, 1.571, 1.833, 
+      2.094, 2.356, 2.618, 2.88, 3.142, 3.403, 3.665, 3.927, 
+      4.189, 4.451, 4.712, 4.974, 5.236, 5.498, 5.76, 6.021, 6.283}
+  {\draw [black] (\x, -0.02) -- (\x, +0.05) node (a) {};}
+  \end{scope}
+%Sinusoide
+  \tkzInit[xmin=0,xmax=+6.5,ymin=-1.1,ymax=+1.1]
+  \tkzFct[domain=0:+6.5, thick]{sin(x)}
+% Segmenti
+  \begin{scope}[sincolor, thick]
+  \foreach \x in {-1, 0} 
+    {\draw [decorate, decoration=snake] (\x, \psina) -- (\x, \psinb);}
+  \foreach \x in {-1, 0} 
+    {\draw (\x, \psina) [fill] circle(2pt) {}; 
+     \draw (\x, \psinb) [fill] circle(2pt) {};}
+  \draw (-2.1, \psina) coordinate (pt0a) -- (+6.5, \psina) coordinate (pt1a);
+  \draw (-2.1, \psinb) coordinate (pt0b) -- (+6.5, \psinb) coordinate (pt1b);
+  \end{scope}
+% Intersezioni
+  \coordinate (ca) at (intersection 1 of c0 and pt0a--pt1a);
+  \coordinate (cb) at (intersection 1 of c0 and pt1a--pt0a);
+  \coordinate (cc) at (intersection 1 of c0 and pt0b--pt1b);
+  \coordinate (cd) at (intersection 1 of c0 and pt1b--pt0b);
+  \begin{scope}[anglecolor]
+  \foreach \p in {(ca), (cb), (cc), (cd)}
+    {\draw (-1, 0) -- \p [fill] circle(1.5pt);}
+% Soluzioni
+    \draw (\parad, 0) [fill] circle(1.5pt) -- 
+          (\parad, \psina) [fill] circle(1.5pt);
+    \draw (\pbrad, 0) [fill] circle(1.5pt) -- 
+          (\pbrad, \psinb) [fill] circle(1.5pt);
+    \draw (\pcrad, 0) [fill] circle(1.5pt) -- 
+          (\pcrad, \psinb) [fill] circle(1.5pt);
+    \draw (\pdrad, 0) [fill] circle(1.5pt) -- 
+          (\pdrad, \psina) [fill] circle(1.5pt);
+    \draw [decorate, decoration=snake] (\parad, 0) -- (\pbrad, 0);
+    \draw [decorate, decoration=snake] (\pcrad, 0) -- (\pdrad, 0);
+    
+    \draw (\parad, 0) [fill] circle(2pt); 
+    \draw (\pbrad, 0) [fill] circle(2pt);
+    \draw (\pcrad, 0) [fill] circle(2pt); 
+    \draw (\pdrad, 0) [fill] circle(2pt);
+% Angoli
+    \draw [decorate, decoration=snake] (ca) arc(\padeg:\pbdeg:1);
+    \draw [decorate, decoration=snake] (cd) arc(\pcdeg:\pddeg:1);
+  \end{scope}
+
+}

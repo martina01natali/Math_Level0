@@ -1,0 +1,40 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\begin{tikzpicture}[scale=1.5, cap=round, >=latex]
+% Local definitions
+  \def\angle{20}
+  \def\alfangle{\angle / 2}
+% Colors
+  \colorlet{anglecolor}{green!50!black}
+  \colorlet{sincolor}{blue!50!black}
+  \colorlet{tancolor}{orange!70!black}
+  \colorlet{coscolor}{red!50!black}
+
+\input{\folder lbr/lib_circ_gon00.pgf}
+
+% Disegno primo angolo
+ 
+\coordinate (origin) at (0, 0);
+
+\begin{scope}[->, anglecolor, very thick]
+  \draw (0.5, 0) arc(0:\angle:0.5);
+  \draw (1.0, 0) arc(0:\angle:1.0);
+\end{scope}
+ \draw (\alfangle:.6) node [anglecolor] {$\alpha$};
+
+% Disegno angoli associati
+ 
+\begin{scope}[very thick]
+\draw [->, anglecolor, rotate=\angle] (0, 0) -- (1, 0) node (b) {};
+\draw [sincolor] (b) -- (b |- origin);
+\draw [coscolor] (origin) -- (b |- origin);
+\begin{scope}[->, anglecolor]
+\foreach \z in {
+    90-\angle, 90+\angle, 180-\angle, 180+\angle, 270-\angle, 270+\angle,
+    -\angle
+    }
+{\draw [rotate=\z] (0, 0) -- (1, 0) node (b) {};}
+\end{scope}
+\end{scope}
+
+\end{tikzpicture}

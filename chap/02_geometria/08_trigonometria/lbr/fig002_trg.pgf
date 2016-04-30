@@ -1,0 +1,25 @@
+% (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
+
+\begin{tikzpicture}[x=10mm,y=10mm, font=\small]
+
+\coordinate (B) at (0,0);
+\coordinate (A) at ($(B)+(0:-2.5)$);
+\coordinate (C) at ($(B)+(90:2.5)$);
+\draw (A) node[below left]{$A$} -- (B) node[below right]{$B$}node[midway,below]{$l$} -- (C)node[above right]{$C$} -- (A)node[midway,left]{$d$};
+
+\node[above left]at (-2.5,2.5) {$D$};
+\tkzMarkAngle[ fill=LimeGreen ,draw, size=.3](B,A,C)
+
+\tkzLabelAngle[below, pos=1](C,A,B){$\alpha=45\grado$}
+\begin{scope}[fill=CornflowerBlue, draw=black]
+\filldraw (0,0) circle (1pt);
+\filldraw (0,2.5) circle (1pt);
+\filldraw (-2.5,0) circle (1pt);
+\filldraw (-2.5,2.5) circle (1pt);
+\end{scope}
+
+\begin{scope}[dotted]
+\draw (-2.5,0) -- (-2.5,2.5)-- (0,2.5);
+\end{scope}
+
+\end{tikzpicture}

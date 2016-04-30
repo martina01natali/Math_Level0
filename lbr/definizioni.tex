@@ -44,3 +44,79 @@
 
 % Per contrassegnare e sostituire i blocchi inacessibili ai ciechi.
 \newenvironment{inaccessibleblock}[1][]{}{}
+
+% % \usepackage{enumerate}
+% \usepackage{fancyhdr} % per intestazioni e pie di pagina
+% \setlength{\columnseprule}{1pt}
+% \def\columnseprulecolor{\color{black}}
+% % \usepackage{widetable} % Per tabelle con larghezza fissa
+
+%--------------------------
+% Nuovi comandi di testo:
+
+%--------------------------
+% Insiemi numerici:
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{R}^*}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+
+%--------------------------
+% varianti di lettere greche:
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\rho}{\varrho}
+\renewcommand{\phi}{\varphi}
+
+%--------------------------
+% Delimitatori e parentesi:
+\newcommand{\tonda}[1]{\left( #1 \right)}
+\newcommand{\quadra}[1]{\left[ #1 \right]}
+\newcommand{\graffa}[1]{\left \{ #1 \right \}}
+\newcommand{\abs}[1]{\left \lvert #1 \right \rvert}
+\newcommand{\modulo}[1]{\left| #1 \right|}
+
+%--------------------------
+% Sisteni, vettori, matrici:
+\newcommand{\sistema}[1]{\left\{\begin{array}{lcl}#1\end{array}\right.}
+\newcommand{\fcerotto}[1]{\left\{\begin{array}{lclcl}#1\end{array}\right.}
+\newcommand{\vettore}[1]{\left(\begin{array}{c}#1\end{array}\right)}
+\newcommand{\matrice}[2]{\tonda{\begin{array}{#1}#2\end{array}}}
+
+%--------------------------
+% sen invece che sin:
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\st}{st}
+
+%--------------------------
+% Punto date le coordinate:
+\newcommand{\punto}[2]{\tonda{#1;~#2}}
+
+%--------------------------
+% Elenco numerato. Esempio di chiamata: 
+% \elenconumerato{{$3+2$, $4 \cdot 5$, {con, VIRGOLE, $5^3$}}{\vspace{1cm}}}
+\newcommand{\elenconumerato}[2]{%
+\begin{enumerate}
+ \foreach \x in #1 {\item \x #2}
+\end{enumerate}
+}
+
+%--------------------------
+% Centra un elemento utile nelle tabelle centra anche verticalmente: 
+\newcommand{\centra}[1]{\begin{center}#1\end{center}}
+
+% \newcommand{\piedipagina}[3]{% scrive il piedipagina
+%   \def \sinistra{#1}
+%   \def \centro{#2}
+%   \def \destra{#3}
+%   \pagestyle{fancy}
+%   \renewcommand{\headrulewidth}{0pt}
+%   \renewcommand{\footrulewidth}{0pt}
+%   \lfoot{\scriptsize \sinistra}
+%   \cfoot{\scriptsize \centro}
+%   \rfoot{\scriptsize \destra}
+% }

@@ -1,0 +1,84 @@
+% (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
+% (c) 2015 Daniele Zambelli - daniel.zambelli@gmail.com
+
+\begin{tikzpicture}[font=\small, %minimum size=6mm,
+data/.style={
+rectangle,
+minimum size=6mm,
+top color=white,
+bottom color=red!50!black!20,
+% font=\small
+},
+interm/.style={
+rectangle,
+minimum size=6mm,
+draw=black,
+% font=\small
+},
+result/.style={
+rectangle, rounded corners=3mm,
+minimum size=6mm,
+draw=black,
+% font=\small
+},
+x=10mm, y=10mm, minimum size=10mm]
+
+
+% \begin{tikzpicture}[font=\small,x=8mm, y=8mm, minimum size=10mm]
+
+\node (a0) at (0,0) {};
+\node [data](a1) at (1,0) {};
+\node [data](a2) at (2,0) {};
+\node [data](a3) at (3,0) {};
+\node [data](a4) at (4,0) {};
+\node [data](a5) at (5,0) {};
+
+\node [data](a6) at (0,-1) {};
+\node (a7) at (1,-1) {};
+\node [interm](a8) at (2,-1) {};
+\node [interm](a9) at (3,-1) {};
+\node [interm](a10) at (4,-1) {};
+\node [interm](a11) at (5,-1) {};
+
+\node (a12) at (0,-2) {};
+\node [result](a13) at (1,-2) {};
+\node [result](a14) at (2,-2) {};
+\node [result](a15) at (3,-2) {};
+\node [result](a16) at (4,-2) {};
+\node [result](a17) at (5,-2) {};
+
+% \draw (a0.north east)--(a12.south east);
+%  \draw (a6.south west)--(a11.south east);
+% \draw (a4.north east)--(a16.south east);
+
+\begin{scope}[blue]
+\draw (a0.north east)--(a12.south east);
+ \draw (a6.south west)--(a11.south east);
+% \draw (a4.north east)--(a16.south east);
+\draw (4.5, 0.5)--(4.5, -2.5);
+\end{scope}
+
+\draw [-{Stealth[length=3mm, open, round]}, 
+       green, loosely dashed, line width=2pt](1.4, 0) -- (1.4, -2);
+\draw [-{Stealth[length=3mm, open, round]}, 
+       red!50, dotted, line width=2pt] 
+       (0.3, -1.2) -- (1, -1.8) -- (1.7, -1.2);
+\draw [-{Stealth[length=3mm, open, round]}, 
+       green, loosely dashed, line width=2pt](2.4, 0) -- (2.4, -2);
+\draw [-{Stealth[length=3mm, open, round]}, 
+       red!50, dotted, line width=2pt] 
+       (0.3, -1.2) -- (2, -1.8) -- (2.7, -1.2);
+\draw [-{Stealth[length=3mm, open, round]}, 
+       green, loosely dashed, line width=2pt](3.4, 0) -- (3.4, -2);
+\draw [-{Stealth[length=3mm, open, round]}, 
+       red!50, dotted, line width=2pt] 
+       (0.3, -1.2) -- (3, -1.8) -- (3.7, -1.2);
+\draw [-{Stealth[length=3mm, open, round]}, 
+       green, loosely dashed, line width=2pt](4.4, 0) -- (4.4, -2);
+\draw [-{Stealth[length=3mm, open, round]}, 
+       red!50, dotted, line width=2pt] 
+       (0.3, -1.2) -- (4, -1.8) -- (4.7, -1.2);
+\draw [-{Stealth[length=3mm, open, round]}, 
+       green, loosely dashed, line width=2pt](5.4, 0) -- (5.4, -2);
+
+\end{tikzpicture}
