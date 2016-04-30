@@ -9,8 +9,8 @@ Questo lavoro è partito da Matematica $C^3$ il testo libero edito da
 [matematicamente.it](www.matematicamente.it)
 
 Dopo alcuni anni di uso nel liceo economico sociale e nel liceo classico, 
-Il suo uso si sta allargando anche ad altri corsi scolastici. 
-Così il progetto è stato ristrutturato in modo da facilitare la realizzazione di testi diversi a partire da un deposito di materiale 
+il testo si sta diffondendo anche ad altri indirizzi scolastici. 
+Così il progetto è stato ristrutturato in modo da facilitare la realizzazione di testi diversi a partire da un deposito di materiale. 
 
 ## Collaborazione
 
@@ -28,19 +28,20 @@ compilando il form che si apre cliccando sul pulsante in alto a destra:
 ## Descrizione
 
 Si può comporre il proprio testo elencando in un file .tex i suoi 
-capitoli. Il contenuto di ogni capitolo si trova nella directory 
-*chap*. La sintassi è abbastanza semplice e 
-lo si può fare partendo da un testo già funzionante ad esempio: *m_d_1_les.tex*.
+capitoli. 
+Il contenuto di ogni capitolo si trova nella directory *chap*. 
+La sintassi è abbastanza semplice e 
+lo si può fare partendo da un testo già funzionante ad esempio: 
+*m_d_1_les.tex*.
 
 Una volta composto il proprio testo basta dare il comando: 
 *creapdf.py <nome_del_testo>* 
+(o utilizzare il proprio compilatore LaTeX) 
 per ottenere il testo in formato *.pdf*.
 
 Chiunque abbia materiale, idee, tempo da offrire per contribuire 
 all'opera, e anche osservazioni e critiche, è pregato di contattare 
 il coordinatore del progetto all'indirizzo sotto riportato.
-
-Con la speranza che questo testo possa contribuire a far amare la matematica.
 
 ## Download
 
@@ -67,4 +68,12 @@ CC-BY-SA.
 
 Indirizzo per comunicare con il coordinatore del progetto:
 daniele.zambelli@gmail.com
+
+---
+
+Con la speranza che questo testo possa 
+contribuire a far amare la matematica
+
+Daniele
+
 
