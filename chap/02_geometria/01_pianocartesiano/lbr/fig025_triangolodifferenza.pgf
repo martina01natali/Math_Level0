@@ -1,0 +1,32 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+%%%
+% Aree di un triangolo ottenuta come differenza di aree
+%%%%
+ 
+\begin{tikzpicture}[x=5mm, y=5mm, smooth]
+
+\coordinate (a) at (-4, -3);
+\coordinate (b) at (3, -1);
+\coordinate (c) at (2, 4);
+\coordinate (d) at (3, -3);
+\coordinate (e) at (3, 4);
+\coordinate (f) at (-4, 4);
+
+\fill [top color=green!80!black!05,bottom color=green!40!black!20] 
+ (a) -- (d) -- (e) -- (f) -- cycle;
+
+\fill [top color=red!40!black!20,bottom color=red!80!black!05] 
+ (a) -- (b) -- (c) -- cycle;
+
+\input{\folder lbr/lib03_pc05.pgf}
+
+\draw [-] (a) -- (b) --(c) -- cycle;
+\filldraw (a) circle (1.5pt) node [below left] {A};
+\filldraw (b) circle (1.5pt) node [below right] {B};
+\filldraw (c) circle (1.5pt) node [above right] {C};
+\filldraw (d) circle (1.5pt) node [below left] {D};
+\filldraw (e) circle (1.5pt) node [below right] {E};
+\filldraw (f) circle (1.5pt) node [above right] {F};
+
+\end{tikzpicture}

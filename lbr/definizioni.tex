@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%
+% Claudoio Carboncini
+%%%
+
+\theoremstyle{plain}
+% le seguenti due righe ora danno un errore penso vadano semplicemente tolte:
+% \newshadetheorem{postulato}{\thmcolor{Postulato}}[chapter]
+% \newshadetheorem{proposizione}{\thmcolor{Proposizione}}[chapter]
+
+%%%%%%%%%%%%%
+% Daniele Zambelli
+%%%
+
+% per 05_02_tarta
+\usepackage{listings}             % Include the listings-package
+%
+% per mantenere allineati i riferimenti presenti
+% negli esercizi e nelle soluzioni.
+\newcommand{\numnameref}[1]{\ref{#1} \nameref{#1}}
+%
+% per disegnare il simbolo >>>
+% in 05_02_tartaruga.
+\newcommand{\tggg}[0]{\textgreater\textgreater\textgreater}
+
+% Inizializza la ``variabile globale'' folder
+\newcommand{\folder}{./}
+
+% Crea una nuova parte
+\newcommand{\parte}[2]{
+  \renewcommand{\folder}{#1}
+  \graphicspath{\folder}
+  \include{\folder #2}
+}
+
+% Crea un nuovo capitolo
+\newcommand{\capitolo}[2]{
+  \renewcommand{\folder}{#1}
+  \graphicspath{{\folder}}
+  \include{\folder #2}
+  \newpage
+  \include{\folder #2_ese}
+  \cleardoublepage
+}
+
+% Per contrassegnare e sostituire i blocchi inacessibili ai ciechi.
+\newenvironment{inaccessibleblock}[1][]{}{}

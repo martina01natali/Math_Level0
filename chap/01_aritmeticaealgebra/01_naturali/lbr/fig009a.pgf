@@ -1,0 +1,26 @@
+% (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
+\begin{tikzpicture}[level/.style={sibling distance=30mm/#1, level distance=5mm}]
+\Tree 
+[.{$\quad \quad \quad \quad \quad 315 = 3^2 \cdot 5 \cdot 7$}
+  [.5 ]
+  [.63 
+    [.3 ]
+    [.21 
+      [.7 ] 
+      [.3 ] ] ] ];
+
+\begin{scope}[xshift=3cm]
+\Tree 
+[.{$\quad \quad \quad \quad \quad 435 = 3 \cdot 5 \cdot 29$}
+  [.5 ]
+  [.87 
+    [.3 ]
+    [.29 ] ] ];
+\end{scope}
+
+\begin{scope}[xshift=6cm,yshift=-4cm,every node/.style={minimum size=1cm},on grid]
+    \draw[step=10mm, black, dashed] (0,0) grid (6,5);
+    \fill[gray, opacity=.4] (5,4) rectangle (6,5);
+    \draw[black,very thick] (0,0) rectangle (6,5);
+\end{scope}
+\end{tikzpicture}

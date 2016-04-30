@@ -1,0 +1,2156 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+% \lstset{language=Python}
+
+% per disegnare il simbolo >>> in 05_02_tartaruga.
+%\newcommand{\tggg}[0]{\textgreater\textgreater\textgreater}
+%
+
+\chapter{Geometria interattiva}
+
+\section{Introduzione}
+\label{sec:introduzione}
+
+\emph{Cos'è la geometria interattiva, i primi oggetti.}
+
+La geometria interattiva permette di creare gli oggetti della geometria
+euclidea:
+\begin{itemize*}
+\item punti;
+\item rette;
+\item circonferenze.
+\end{itemize*}
+
+I punti possono essere:
+
+\begin{itemize*}
+\item liberi;
+\item vincolati a una linea;
+\item intersezioni di due linee.
+\end{itemize*}
+
+Le rette possono essere anche:
+\begin{itemize*}
+\item semirette;
+\item segmenti.
+\end{itemize*}
+
+I punti base possono essere trascinati con il mouse quindi, se ho realizzato
+una costruzione geometrica a partire da alcuni punti, quando muovo questi
+punti tutta la costruzione si muove.
+
+La Geometria interattiva mette in evidenza quali sono le caratteristiche
+invarianti e quali quelle variabili di una certa costruzione.
+
+Esistono molti programmi che permettono di operare con la geometria
+interattiva, a questo indirizzo se ne possono trovare ben 36:
+
+\url{http://en.wikipedia.org/wiki/List_of_interactive_geometry_software}
+
+In questo testo propongo l'uso del linguaggio
+Python con la libreria \texttt{pyig}.
+
+È comunque possibile seguire il percorso proposto anche con un programma
+\emph{punta e clicca} invece che con un linguaggio.
+
+Per l'installazione di Python e della libreria Pygraph, che contiene anche
+Pyig, vedi l'introduzione alla geometria della tartaruga nel volume
+precedente.
+
+\subsection{Installiamo un interprete}
+\label{sec:05_02installazione}
+
+\emph{Cosa installare per lavorare con la geometria interattiva.}
+
+\subsubsection{Python}
+
+Chi usa come sistema operativo Windows può installare \texttt{Python} 
+a partire dal sito:
+
+\url{www.python.org/downloads}
+
+E installare la versione più recente della serie 3.x.x.
+
+Chi utilizza altri sistemi operativi può installarlo partendo dal proprio
+gestore di pacchetti installando \texttt{Python3} e anche \texttt{IDLE}.
+
+\subsubsection{\texttt{pygraph}}
+
+Si può scaricare l'intero pacchetto da:
+
+\url{bitbucket.org/zambu/pygraph/downloads}
+
+A questo punto bisogna fare a mano alcune operazioni che dipendono dal 
+proprio sistema operativo:
+
+\subsubsection*{Windows}
+
+\begin{itemize*}
+\item {} Scompattare il file scaricato.
+\item {} Entrare nella cartella \texttt{pygraph}.
+\item {} Selezionare il file \texttt{pygraph.pth} e la cartella 
+  \texttt{pygraph} lì presenti.
+\item {} Copiarli nella cartella 
+\texttt{C:\textbackslash Python3x\textbackslash Lib\textbackslash site-package}
+\end{itemize*}
+
+Dove ``Python3x'' potrebbe essere: ``Python34'', ``Python35'' ...
+
+\subsubsection*{MacOSX}
+
+\begin{itemize*}
+\item {} Scompattare il file scaricato.
+\item {} Entrare nella cartella \texttt{pygraph}.
+\item {} Selezionare il file \texttt{pygraph.pth} e la cartella 
+  \texttt{pygraph} lì presenti.
+\item {} Copiarli nella cartella \texttt{HD/libreria/python/3.x/site-package}
+\end{itemize*}
+
+Se in ``HD/libreria/python/'' non è presente la cartella 
+``3.4/site-packages'', bisogna crearla.
+
+\subsubsection*{GNU/Linux}
+
+\begin{itemize*}
+\item {} Scompattare il file scaricato.
+\item {} Entrare nella directory \texttt{pygraph}.
+\item {} Aprire un terminale in questa directory.
+\item {} Copiare la cartella \texttt{pygraph} e il file \texttt{pygraph.pth}
+  nella cartella
+  
+  \texttt{/usr/lib/python3/dist-packages/}
+  
+  Dato che in Linux, per modificare le directory di sistema bisogna essere 
+  amministratori, il comando da dare assomiglierà a questo:
+  
+  \texttt{sudo cp -R python* /usr/lib/python3/dist-packages/}
+\end{itemize*}
+
+A questo punto se tutto è andato bene dovremmo essere in grado di avviare 
+Python-IDLE e dare il comando:
+
+\texttt{import pyig as ig}
+
+Se non succede nulla vuol dire che tutto è andato a buon fine, 
+se invece appare una scritta rossa, bisogna leggere almeno l'ultima riga
+e cercare di capire cosa non è andato bene. Magari ci si può far aiutare
+da qualcuno esperto nell'installazione di programmi.
+
+Se tutto è andato per il verso giusto possiamo procedere.
+
+\textbf{Riassumendo}
+\begin{itemize*}
+\item La geometria interattiva permette di creare e di muovere gli oggetti 
+della geometria euclidea.
+
+\item Ci sono molti programmi che permettono di giocare con la geometria
+interattiva, noi utilizzeremo il linguaggio Python con la libreria 
+\texttt{pyig}.
+
+\item Gli oggetti di base sono:
+\begin{itemize*}
+\item punti:
+\begin{itemize*}
+\item liberi,
+\item vincolati,
+\item intersezioni;
+\end{itemize*}
+
+\item rette:
+\begin{itemize*}
+\item rette,
+\item semirette,
+\item segmenti;
+\end{itemize*}
+
+\item circonferenze.
+
+\end{itemize*}
+
+\end{itemize*}
+
+\textbf{Prova tu}
+\begin{enumerate*}
+\item Installa Python.
+
+\item Installa la libreria pygraph.
+
+\end{enumerate*}
+
+
+\section{Elementi fondamentali}
+\label{sec:elementi-fondamentali}
+\emph{Come creare un piano vuoto, dei punti, delle rette e altri
+oggetti geometrici.}
+
+La geometria interattiva permette di visualizzare facilmente elementi
+varianti e invarianti di una certa costruzione geometrica.
+
+\subsection{Strumenti}
+
+In questo capitolo utilizzeremo i seguenti strumenti di Pyig:
+\begin{itemize*}
+\item \texttt{Point(x, y)} crea un punto con date coordinate.
+
+\item \texttt{Line(p0, p1)} crea una retta passante per p0 e p1.
+
+\item \texttt{Ray(p0, p1)} crea una semiretta con origine in p0 passante per p1.
+
+\item \texttt{Segment(p0, p1)} crea un segmento di estremi p0 e p1.
+
+\item \texttt{Circle(centro, punto)} crea una circonferenza dati il centro e 
+un suo punto.
+
+\end{itemize*}
+
+
+\subsection{Problema}
+
+Crea un piano e disegna i quattro vertici di un quadrato, poi
+disegna i quattro lati del quadrato.
+Modifica poi la figura trascinando i punti base con il mouse.
+
+\subsection{Soluzione guidata}
+
+\begin{enumerate*}
+\item Crea un nuovo programma e salvarlo con il nome: \texttt{gi01\_elementi.py}.
+Per creare un nuovo programma:
+\begin{enumerate*}
+\item avvia IDLE (in Windows: menu-programmi-Python-IDLE);
+
+\item crea un nuovo editor: menu-file-new window;
+
+\item salvalo nella tua cartella con il nome desiderato: menu-file-save;
+
+\end{enumerate*}
+
+\item Incomincia a scrivere il programma.
+\begin{enumerate*}
+\item Scrivi un'intestazione fatta da commenti che contenga le informazioni:
+
+\begin{itemize*}
+\item data,
+
+\item nome,
+
+\item titolo del programma;
+
+\end{itemize*}
+\end{enumerate*}
+
+Esegui il programma in modo da controllare che non ci siano errori 
+(\textless{}F5\textgreater{}).
+
+\item Il programma vero e proprio è fatto da tre parti:
+\begin{enumerate*}
+\item la lettura delle librerie;
+
+\item il programma principale;
+
+\item l'attivazione della finestra grafica.
+
+\end{enumerate*}
+
+A questo punto il programma assomiglierà a:
+
+\begin{lstlisting}
+# <data>
+# <autore>
+# Elementi di base della geometria
+
+"""
+Problema: Disegna i quattro vertici di un quadrato.
+Disegna i quattro lati del quadrato.
+"""
+
+# lettura delle librerie
+
+# programma principale
+
+# attivazione della finestra grafica
+\end{lstlisting}
+
+\item Fin qui abbiamo scritto solo commenti, ora incominciamo a scrivere 
+comandi:
+\begin{enumerate*}
+\item Leggo la libreria Pyig e le do un nome più breve, ``ig'':
+
+\end{enumerate*}
+\begin{quote}
+
+import pyig
+\end{quote}
+\begin{enumerate*}
+\item Il programma principale consiste, per ora, in una sola istruzione,
+creo un ``InteractivePlane'' della libreria ``ig'' e associo questo
+oggetto all'identificatore (=alla parola) ``ip'':
+
+\end{enumerate*}
+\begin{quote}
+ip = pyig.InteractivePlane()
+\end{quote}
+\begin{enumerate*}
+\item Rendo attiva la finestra grafica:
+
+\end{enumerate*}
+\begin{quote}
+ip.mainloop()
+\end{quote}
+
+\item Aggiungi le istruzioni sotto ai commenti:
+
+\begin{lstlisting}
+# <data>
+# <nome>
+# Elementi di base della geometria
+
+"""
+Problema: Disegna i quattro vertici di un quadrato.
+Disegna i quattro lati del quadrato.
+"""
+
+# lettura delle librerie
+import pyig as ig
+
+# programma principale
+ip = ig.InteractivePlane()
+
+# attivazione della finestra grafica
+ip.mainloop()
+\end{lstlisting}
+
+\item Prova il programma premendo il tasto: 
+\texttt{\textless{}Ctrl-F5\textgreater{}} o cliccando su
+\texttt{menu-Run-Run module}.
+Deve apparire una finestra grafica con un riferimento cartesiano e una
+griglia di punti.
+La finestra grafica è attiva, risponde al mouse e si può chiudere.
+Se non avviene questo, probabilmente è apparso un messaggio di errore in
+rosso nella shell di \texttt{IDLE},
+leggi il messaggio, correggi l'errore e ritenta.
+
+\end{enumerate*}
+
+Ora incominciamo ad aggiungere al programma principale le istruzioni per
+risolvere il problema. Incominciamo creando un punto.
+Aggiungiamo al programma principale il comando della libreria \texttt{pyig}  che
+crea un punto associando l'oggetto appena creato all'identificatore ``p\_0'':
+
+\begin{lstlisting}
+p_0 = ig.Point(3, 4)
+\end{lstlisting}
+
+È possibile trascinare con il mouse il punto nel suo piano: il punto non cambia
+cambiando la sua posizione.
+
+In geometria un punto non dovrebbe avere altre caratteristiche oltre la propria
+posizione, ma a noi fa comodo poter dare ai punti anche altre caratteristiche
+come: uno spessore, un colore, un'etichetta:
+
+\begin{lstlisting}
+p_0 = ig.Point(3, 4, color='red', width=6, name='A')
+\end{lstlisting}
+
+In generale a tutti gli oggetti di pyig che possono essere visualizzati si
+possono assegnare le seguenti caratteristiche:
+\begin{itemize*}
+\item colore: color=\textless{}una stringa di colore\textgreater{};
+
+\item spessore: width=\textless{}un numero\textgreater{};
+
+\item etichetta: name=\textless{}una stringa\textgreater{};
+
+\item visibilità: visible=\textless{}True\textgreater{} o 
+\textless{}False\textgreater{}.
+
+\end{itemize*}
+
+La sintassi del costruttore dell'oggetto \texttt{Point} è:
+
+\begin{lstlisting}
+Point(<x>, <y>
+      [, visible=True][, color='green'][, width=3][, name=''])
+\end{lstlisting}
+
+I primi due parametri, \texttt{x} e \texttt{y}, sono obbligatori, quelli messi 
+tra parentesi quadre sono opzionali e, se non specificati, hanno il valore
+riportato sopra.
+
+Passiamo alla seconda richiesta del problema: disegnare una retta.Per poter
+tracciare una retta abbiamo bisogno di due punti infatti due punti individuano
+univocamente una retta (per due punti passa una e una sola retta).
+Possiamo utilizzare i due punti già disegnati e creare la retta passante per
+\texttt{p\_0} e \texttt{p\_1}:
+
+\begin{lstlisting}
+s_0 = ig.Segment(p_0, p_1)
+\end{lstlisting}
+
+Anche in questo caso possiamo modificare ``colore'' e ``spessore'' del 
+segmento:
+
+\begin{lstlisting}
+s_0 = ig.Segment(p_0, p_1, color='pink', width=6)      # lati
+\end{lstlisting}
+
+La sintassi del costruttore dell'oggetto \texttt{Segment} è:
+
+\begin{lstlisting}
+Segment(<punto_0>, <punto_1>
+      [, visible=True][, color='blue'][, width=3][, name=''])
+\end{lstlisting}
+
+È possibile trascinare con il mouse i punti base del segmento, ma il segmento
+continuerà a passare per quei due punti.
+
+Le sintassi dei costruttori di alcuni altri oggetti della geometria interattiva:
+
+\begin{lstlisting}
+Line(<punto_0>, <punto_1>
+     [, visible=True][, color='blue'][, width=3][, name=''])
+    
+Ray(<punto_0>, <punto_1>
+    [, visible=True][, color='blue'][, width=3][, name=''])
+
+Circle(<centro>, <uunto>
+       [, visible=True][, color='blue'][, width=3][, name=''])
+\end{lstlisting}
+
+Ora crea tu una retta, una semiretta e una circonferenza.
+
+\textbf{Riassumendo}
+\begin{itemize*}
+\item Per lavorare con la geometria interattiva dobbiamo far caricare a Python
+la relativa \emph{libreria} ad esempio con il comando:
+
+\begin{lstlisting}
+import pyig
+\end{lstlisting}
+
+\item Un programma è composto (per ora) dalle seguenti parti:
+
+\begin{lstlisting}
+<intestazione>
+<lettura delle librerie>
+<programma principale>
+<attivazione della finestra grafica>
+\end{lstlisting}
+
+\item La sintassi dei costruttori degli oggetti base della geometria è:
+
+\begin{lstlisting}
+Point(<x>, <y>
+      [, visible=True][, color='green'][, width=3][, name=''])
+
+Line(<punto_0>, <punto_1>
+      [, visible=True][, color='blue'][, width=3][, name=''])
+
+Ray(<punto_0>, <punto_1>
+    [, visible=True][, color='blue'][, width=3][, name=''])
+
+Segment(<punto_0>, <punto_1>
+        [, visible=True][, color='blue'][, width=3][, name=''])
+    
+Circle(<centro>, <punto>
+        [, visible=True][, color='blue'][, width=3][, name=''])
+\end{lstlisting}
+
+\end{itemize*}
+
+\textbf{Prova tu}
+\begin{enumerate*}
+\item Crea un nuovo programma che disegni un segmento di colore viola,
+con due estremi rosa, grandi a piacere.
+
+\item Crea un programma che disegni un rettangolo. Muovendo i punti base
+continua a rimanere un rettangolo?
+
+\item Crea un programma che disegni un triangolo. Muovendo i punti base
+continua a rimanere un triangolo?
+
+\item Crea un programma che disegni un quadrilatero delimitato da semirette.
+
+\item Crea un programma che disegni tre punti \texttt{A}, \texttt{B} e 
+\texttt{C}, disegna poi le tre circonferenze:
+
+\begin{itemize*}
+\item di centro \texttt{A} e passante per \texttt{B};
+
+\item di centro \texttt{B} e passante per \texttt{C};
+
+\item di centro \texttt{C} e passante per \texttt{A};
+
+\end{itemize*}
+
+\item Disegna due circonferenze concentriche. Muovendo i punti base, si 
+mantiene la proprietà ``essere concentriche''?
+
+\end{enumerate*}
+
+
+\section{Intersezioni}
+\label{sec:intersezioni}
+
+\emph{Come usare intersezioni tra oggetti.}
+
+Oltre a quelli visti nel capitolo precedente, per poter realizzare costruzioni
+geometriche abbiamo bisogno di poter creare l'intersezione tra due rette,
+tra una retta e una circondìferenza o tra due circonferenze.
+
+
+\subsection{Strumenti}
+
+In questo capitolo utilizzeremo i seguenti strumenti di Pyig:
+\begin{itemize*}
+\item \texttt{Point(x, y)} crea un punto con date coordinate.
+
+\item \texttt{Line(p0, p1)} crea una retta passante per p0 e p1.
+
+\item \texttt{Segment(p0, p1)} crea un segmento di estremi p0 e p1.
+
+\item \texttt{Intersection(oggetto\_0, oggetto\_1, {[}which{]})} crea un punto 
+di intersezione tra due oggetti.
+
+\end{itemize*}
+
+
+\subsection{Problema}
+
+Crea un piano e inserisci:
+\begin{itemize*}
+\item due rette nel terzo e quarto quadrante
+e il segmento che congiunge la loro intersezione con l'origine;
+
+\item una retta e una circonferenza nel secondo quadrante 
+e i segmenti che congiungono le loro intersezioni con l'origine;
+
+\item due circonferenze nel primo quadrante 
+e i segmenti che congiungono le loro intersezione con l'origine;
+
+\end{itemize*}
+
+
+\subsection{Soluzione guidata}
+
+\begin{enumerate*}
+\item Crea un nuovo programma e salvarlo con il nome: 
+\texttt{gi02\_intersezioni.py}.
+Per creare un nuovo programma: vedi la soluzione guidata del capitolo
+precedente.
+
+\item Scrivi un'intestazione adeguata.
+
+\item Scrivi lo scheletro del programma:
+\begin{enumerate*}
+\item la lettura delle librerie,
+
+\item il programma principale,
+
+\item l'attivazione della finestra grafica;
+
+\end{enumerate*}
+
+e verifica che tutto funzioni.
+
+\item Ora scriviamo dei commenti che indicano come intendiamo risolvere il
+problema:
+
+\begin{lstlisting}
+# Creo le due rette
+# Creo un punto nell'origine degli assi
+# Creo l'intersezione tra le due rette
+# Creo il segmento che congiunge l'origine all'intersezione
+\end{lstlisting}
+
+\item A questo punto il programma dovrebbe apparire circa così:
+
+\begin{lstlisting}
+# <data>
+# <nome>
+# Intersezioni
+
+# lettura delle librerie
+import pyig as ig
+
+# programma principale
+ip = ig.InteractivePlane()
+
+# Creo le due rette
+# Creo un punto nell'origine degli assi
+# Creo l'intersezione tra le due rette
+# Creo il segmento che congiunge l'origine all'intersezione
+
+
+# attivazione della finestra grafica
+ip.mainloop()
+\end{lstlisting}
+
+\item Ora iniziamo a popolare di istruzioni il programma principale creando le
+due rette:
+
+\begin{lstlisting}
+r_0 = ig.Line(ig.Point(-6, -4, width=6), ig.Point(2, -6, width=6))
+r_1 = ig.Line(ig.Point(-11, -9, width=6), ig.Point(-3, -8, width=6))
+\end{lstlisting}
+
+Eseguiamo il programma controllando che rispetti le specifiche.
+
+\item Ora dobbiamo creare un segmento con un estremo nell'origine, quindi 
+dobbiamo creare un punto nell'origine:
+
+\begin{lstlisting}
+origine = ig.Point(0, 0, visible=False)
+\end{lstlisting}
+
+e siccome vogliamo che nessuno possa muoverlo, lo facciamo invisibile.
+
+\item L'altro estremo è l'intersezione delle due rette:
+
+\begin{lstlisting}
+i_0 = ig.Intersection(r_0, r_1, color='red')
+\end{lstlisting}
+
+\item Infine creiamo il segmento:
+
+\begin{lstlisting}
+s_0 = ig.Segment(origine, i_0, color='#505010')
+\end{lstlisting}
+
+\item A questo punto il programma dovrebbe apparire circa così:
+
+\begin{lstlisting}
+# <data>
+# <nome>
+# Intersezioni
+
+# lettura delle librerie
+import pyig as ig
+
+# programma principale
+ip = ig.InteractivePlane()
+
+# Creo le due rette
+r_0 = ig.Line(ig.Point(-6, -4, width=6), ig.Point(2, -6, width=6))
+r_1 = ig.Line(ig.Point(-11, -9, width=6), ig.Point(-3, -8, width=6))
+# Creo un punto nell'origine degli assi
+origine = ig.Point(0, 0, visible=False)
+# Creo l'intersezione tra le due rette
+i_0 = ig.Intersection(r_0, r_1, color='red')
+# Creo il segmento che congiunge l'origine all'intersezione
+s_0 = ig.Segment(origine, i_0, color='#505010')
+
+# attivazione della finestra grafica
+ip.mainloop()
+\end{lstlisting}
+
+\item Proviamo il programma e controlliamo che rispetti le specifiche richieste
+dal problema. Cosa succede quando muovo i punti base di una retta?
+
+\item Se tutto funziona regolarmente possiamo passare alla seconda parte
+del problema:
+
+\begin{lstlisting}
+# Creo una retta
+# Creo una circonferenza
+# Creo le intersezioni tra la retta e la circonferenza
+# Creo i segmenti
+\end{lstlisting}
+
+\item Per quanto riguarda i primi due punti non dovrebbero esserci problemi,
+per il terzo invece presenta una novità rispetto a quanto visto per
+l'intersezione di due rette, infatti una retta interseca una circonferenza
+in due punti (e non sempre) e noi dobbiamo indicare a Python quale delle
+due intersezioni vogliamo:
+
+\begin{lstlisting}
+i_1 = ig.Intersection(r_2, c_0, -1, color='red')
+i_2 = ig.Intersection(r_2, c_0, +1, color='red')
+\end{lstlisting}
+
+\item Dopo aver controllato che fin qui il programma funzioni, disegniamo i due
+segmenti. la seconda parte dovrebbe assomigliare a questa:
+
+\begin{lstlisting}
+# Creo una retta
+r_2 = ig.Line(ig.Point(-11, 9, width=6), ig.Point(-6, 1, width=6))
+# Creo una circonferenza
+c_0 = ig.Circle(ig.Point(-6, 7), ig.Point(-5, 2))
+# Creo le intersezioni tra la retta e la circonferenza
+i_1 = ig.Intersection(r_2, c_0, -1, color='red')
+i_2 = ig.Intersection(r_2, c_0, +1, color='red')
+# Creo i segmenti
+s_1 = ig.Segment(origine, i_1, color='#10a010')
+s_2 = ig.Segment(origine, i_2, color='#10a080')
+\end{lstlisting}
+
+\item Proviamo il programma e controlliamo che rispetti le specifiche richieste
+dal problema. Cosa succede quando muovo i punti base della retta?
+
+\item Completiamo il programma per risolvere anche la terza parte del problema.
+
+\end{enumerate*}
+
+\textbf{Riassumendo}
+\begin{itemize*}
+\item pyig mette a disposizione un oggetto intersezione. L'intersezione tra 
+rette non ha bisogno di ulteriori informazioni, quella tra una retta e una
+circonferenza o tra due circonferenze richiede un ulteriore argomento:
+con \texttt{-1} si indica un'intersezione, con \texttt{+1} si indica l'altra.
+La sintassi del costruttore di un'intersezione è:
+
+\begin{lstlisting}
+Intersection(oggetto_0, oggetto_1 [, which] 
+              [, visible=True] [, color='blue'] [, width=3] [, name=''])
+\end{lstlisting}
+
+\end{itemize*}
+
+\textbf{Prova tu}
+\begin{enumerate*}
+\item Disegna una circonferenza \texttt{c\_0} con il centro nell'origine,
+una retta \texttt{r\_0} e un'altra circonferenza \texttt{c\_1}.
+Disegna in modo evidente le intersezioni tra la retta \texttt{r\_0} e la
+circonferenza \texttt{c\_0} e tra la circonferenza \texttt{c\_1} e la
+circonferenza \texttt{c\_0}.
+
+\item Disegna una circonferenza e una retta. Poi disegna un'intersezione tra
+la retta e la circonferenza e assegna a questa intersezione il nome:
+``Ciao''. Poi disegna una circonferenza che ha centro nell'intersezione
+e passa per il punto (3; 1).
+
+\item Disegna le intersezioni tra due circonferenze che hanno centro in un 
+estremo di un segmento e passano per l'altro estremo del segmento.
+
+\end{enumerate*}
+
+
+\section{Costruzioni geometriche}
+\label{sec:costruzioni}
+
+\emph{Come usare intersezioni tra oggetti.}
+
+Lo strumento base della geometria greca era lo spago:
+\begin{itemize*}
+\item tenendo teso un pezzo di corda si poteva rappresentare un segmento
+allungabile a piacere;
+
+\item tenendo fisso un estremo e facendo ruotare l'altro, si poteva 
+rappresentare una circonferenza.
+
+\end{itemize*}
+
+Con questo strumento hanno costruito la geometria euclidea e risolto
+innumerevoli problemi.
+
+
+\subsection{Strumenti}
+
+In questo capitolo utilizzeremo i seguenti strumenti di Pyig:
+\begin{itemize*}
+\item \texttt{Point(x, y)} crea un punto con date coordinate.
+
+\item \texttt{Line(p0, p1)} crea una retta passante per p0 e p1.
+
+\item \texttt{Segment(p0, p1)} crea un segmento di estremi p0 e p1.
+
+\item \texttt{Intersection(oggetto\_0, oggetto\_1, {[}which{]})} crea un 
+punto di intersezione tra due oggetti.
+
+\item \texttt{Polygon((punto0, punto1, punto2, ...))} crea un poligono dati 
+i vertici.
+
+\end{itemize*}
+
+
+\subsection{Problema}
+
+Crea un piano e disegna:
+\begin{itemize*}
+\item nel primo quadrante: 
+ due punti e il triangolo equilatero costruito su quei due punti;
+\item nel secondo quadrante: 
+ un segmento e l'asse di quel segmento;
+\item nel terzo quadrante: 
+ un angolo e la bisettrice di quell'angolo;
+\item nel quarto quadrante: 
+ due punti e il quadrato costruito su quei due punti.
+\end{itemize*}
+
+
+\subsection{Soluzione guidata}
+
+\begin{enumerate*}
+\item Crea un nuovo programma e salvarlo con il nome: 
+ \texttt{gi03\_costruzioni.py}.
+ Per creare un nuovo programma: vedi la soluzione guidata del primo capitolo.
+
+\item Scrivi un'intestazione adeguata.
+
+\item Scrivi lo scheletro del programma.
+
+\item Ora scriviamo dei commenti che indicano come intendiamo risolvere il
+problema:
+
+\begin{lstlisting}
+# Disegno tre punti disposti accuratamente
+# Disegno il poligono che passa per i tre punti
+\end{lstlisting}
+
+\item Risolviamo la prima parte del problema ottenendo un programma principale
+simile a questo:
+
+\begin{lstlisting}
+# programma principale
+ip = ig.InteractivePlane()
+
+# Disegno tre punti disposti accuratamente
+p_0 = ig.Point(1, 2, width=6)
+p_1 = ig.Point(11, 2, width=6)
+p_2 = ig.Point(6, 10.66, width=6)
+# Disegno il poligono che passa per i tre punti
+triequi = ig.Polygon((p_0, p_1, p_2),
+                    width=5, color='green', intcolor='gold')
+\end{lstlisting}
+
+Osservate che il costruttore di \texttt{Poligon} vuole un primo argomento 
+formato da una sequenza di punti per cui i vertici del poligono devono essere
+racchiusi tra parentesi.
+
+\item Proviamo il programma e controlliamo che rispetti le specifiche richieste
+dal problema. Cosa succede quando muovo i punti base?
+
+Accidenti, il triangolo è equilatero all'inizio, ma non lo è più quando
+sposto uno dei punti base.
+
+Dobbiamo affrontare il problema in un altro modo. Il terzo vertice va
+costruito partendo dai primi due:
+
+\begin{lstlisting}
+# Disegno due punti in una posizione qualunque
+# Disegno le due circonferenze che hanno centro in un punto e 
+# passano per l'altro
+# Trovo un'intersezione delle due circonferenze
+# Disegno il poligono che ha per vertici i due punti e l'intersezione
+\end{lstlisting}
+
+\item Dovremmo ottenere un programma che assomiglia a questo:
+
+\begin{lstlisting}
+# programma principale
+ip = ig.InteractivePlane()
+
+# Disegno due punti in una posizione qualunque
+p_0 = ig.Point(1, 2, width=6)
+p_1 = ig.Point(11, 2, width=6)
+# Disegno le due circonferenze che hanno centro in un punto e 
+# passano per l'altro
+c_0 = ig.Circle(p_0, p_1, width=1)
+c_1 = ig.Circle(p_1, p_0, width=1)
+# Trovo un'intersezione delle due circonferenze
+p_2 = ig.Intersection(c_0, c_1, +1, width=6)
+# Disegno il poligono che ha per vertici i due punti e l'intersezione
+triequi = ig.Polygon((p_0, p_1, p_2),
+                     width=5, color='green', intcolor='gold')
+\end{lstlisting}
+
+Osservate che è buona norma tenere le linee di costruzione più sottili
+rispetto alle altre, o addirittura renderle invisibili \texttt{visible=False}.
+
+Si può osservare che questa volta i punti liberi sono solo due, il terzo
+vertice è vincolato alla posizione di questi due dalla nostra costruzione.
+Ora, se muoviamo i punti base il nostro triangolo cambia posizione e
+dimensioni, ma resta sempre un triangolo equilatero come era richiesto dal
+problema.
+
+\item A questo punto cerca su un libro di disegno su internet come risolvere
+gli altri tre problemi. Risolvili con riga e compasso, poi con \texttt{pyig}.
+Di seguito riporto le tre tracce di soluzione.
+
+\item Asse di un segmento:
+
+\begin{lstlisting}
+# Disegno due punti
+# Disegno il segmento
+# Disegno le due circ. che hanno centro in un estremo e passano per l'altro
+# Chiamo i_0 e i_1 le due intersezioni delle circonferenze
+# L'asse e' la retta passante per i_0 e i_1
+\end{lstlisting}
+
+\item Bisettrice di un angolo:
+
+\begin{lstlisting}
+# Disegno tre punti: p_0, vertice, p_1
+# Disegno i due lati dell'angolo: r_0 e r_1
+# Disegno una circ. che ha centro nel vertice e passa per p_0
+# Chiamo i_1 l'intersezione della circonferenze con il lato r_1
+# Disegno le circonferenze di centro p_0 e i_1 passanti per il vertice
+# Chiamo i_2 l'intersezione delle due circonferenze
+# La retta vertice - i_2 e' la bisettrice cercata
+\end{lstlisting}
+
+\item Quadrato dati due vertici consecutivi:
+
+\begin{lstlisting}
+# Disegno due punti: p_0, p_1
+# c_0 e' la circ. che ha centro in p_0 e passa per p_1
+# c_1 e' la circ. che ha centro in p_1 e passa per p_0
+# i_0 e' l'intersezione di queste due circonferenze c_0 e c_1
+# c_2 e' la circ. che ha centro in i_0 e passa per p_0
+# i_1 e' l'intersezione delle circonferenze c_0 e c_2
+# c_3 e' la circonferenza di centro i_1 passante per p_0
+# i_2 e' l'intersezione delle circonferenze c_3 e c_2
+# r_0 e' la retta passante per p_0 e i_2
+# p_3 e' l'intersezione della retta r_0 con la circonferenza c_0
+# c_4 e' la circonferenza di centro i_3 passante per p_0
+# p_2 e' l'intersezione della circonferenza c_4 con la circonferenza c_1
+# Il quadrato cercato e il poligono di vertici: (p_0, p_1, p_2, p_3)
+\end{lstlisting}
+
+Quando il programma e complicato, come in quest'ultimo caso è importante
+eseguire il programma ogni volta che si aggiunge un'istruzione in modo
+da individuare immediatamente eventuali errori sia sintattici sia logici.
+
+\item Completiamo il programma per risolvere anche la terza parte del problema.
+
+\end{enumerate*}
+
+\textbf{Riassumendo}
+\begin{itemize*}
+\item Polygon permette di disegnare un poligono data una sequenza di punti.
+La sintassi del costruttore di \texttt{Polygon} è:
+
+\begin{lstlisting}
+Polygon(sequenza di punti [, intcolor=white]
+        [, visible=True] [, color='blue'] [, width=3] [, name=''])
+\end{lstlisting}
+
+\item Per affrontare problemi complicati: prima pianifica la soluzione
+descrivendola per mezzo di commenti, poi scrivi le istruzioni per risolvere
+il problema eseguendo il programma ad ogni modifica.
+
+\item Nei libri d disegno, o in internet, si possono trovare molte costruzioni
+geometriche che si possono realizzare con rette, circonferenze e
+intersezioni.
+
+\end{itemize*}
+
+\textbf{Prova tu}
+\begin{enumerate*}
+\item Disegna un quadrato dati due vertici opposti.
+
+\item Disegna un esagono regolare dati due vertici consecutivi.
+
+\item Disegna un esagono regolare dato il centro e un vertice.
+
+\item Disegna un pentagono regolare dati due vertici consecutivi.
+
+\item Disegna un parallelogramma dati tre vertici consecutivi.
+
+\end{enumerate*}
+
+
+\section{Strumenti di uso comune}
+\label{sec:strumenti-di-uso-comune}
+\emph{Quali altri oggetti abbiamo a disposizione.}
+
+Nel paragrafo precedente abbiamo visto come realizzare oggetti nuovi come
+assi, bisettrici, triangoli, quadrati, ...
+Ma se ho bisogno di vari assi per realizzare una costruzione complessa,
+non è comodo per ognuno di questi ripetere tutta la costruzione.
+Alcuni oggetti di uso comune sono già prefabbricati e vengono messi a
+disposizione dalla libreria pyig, basta chiamarli.
+
+Nei prossimi paragrafi riporto quelli di uso più comune, l'elenco completo
+si trova nel manuale di Pygraph che è stato scaricato assieme alle librerie.
+
+\subsection{Lettura della libreria}
+
+Nel seguito si dà per sottinteso che all'inizio del programma sia stata 
+caricata la libreria con l'istruzione:
+
+\begin{lstlisting}
+import pyig as ig
+\end{lstlisting}
+
+\subsection{\texttt{InteractivePlane}}
+%\label{sub:interactiveplane}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\texttt{InteractivePlane} Crea il piano interattivo nel fare questa operazione 
+si possono decidere alcune caratteristiche.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+<nome_variabile> = InteractivePlane([<parametri>])
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+Il costruttore presenta molti parametri tutti con un valore predefinito.
+Nel momento in cui si crea un piano cartesiano si possono quindi decidere
+le sue caratteristiche. Vediamole in dettaglio:
+\begin{itemize*}
+\item titolo della finestra, valore predefinito: ``Interactive geometry'';
+
+\item dimensione, valori predefiniti: larghezza=600, altezza=600;
+
+\item scala di rappresentazione, valori predefiniti: una unità = 20 pixel;
+
+\item posizione dell'origine, valore predefinito: il centro della finestra;
+
+\item rappresentazione degli assi cartesiani, valore predefinito: 
+ \texttt{True};
+
+\item rappresentazione di una griglia di punti, valore predefinito: 
+ \texttt{True};
+
+\item colore degli assi valore predefinito: `\#808080' (grigio).
+
+\item colore della griglia valore predefinito: `\#808080'.
+
+\item riferimento alla finestra che contiene il piano cartesiano,
+valore predefinito: \texttt{None}.
+
+\end{itemize*}
+
+Poiché tutti i parametri hanno un valore predefinito, possiamo creare un
+oggetto della classe \texttt{InteractivePlane} senza specificare alcun 
+argomento: verranno usati tutti i valori predefiniti. 
+Oppure possiamo specificare per
+nome gli argomenti che vogliamo siano diversi dal comportamento predefinito,
+si vedano di seguito alcuni esempi.
+
+\textbf{Esempio}
+
+Si vedano tutti gli esempi seguenti.
+
+
+\subsection{\texttt{Point}} 
+% \label{pippo}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+% \label{sub:point}               %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Crea un \emph{punto libero} date le coordinate della sua posizione iniziale.
+
+Questo oggetto è la base di ogni costruzione; dai punti liberi dipendono,
+direttamente o indirettamente, gli altri oggetti grafici.
+
+Quando il puntatore del mouse si sovrappone ad un punto libero questo cambia
+colore.
+Trascinando un punto libero, con il mouse, tutti gli oggetti che dipendono
+da lui, verranno modificati.
+
+\texttt{Point} essendo un oggetto che può essere trascinato con il mouse ha un
+colore predefinito diverso da quello degli altri oggetti.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+Point(x, y[, visible][, color][, width][, name])
+\end{lstlisting}
+
+\emph{Nota}: 
+Spesso nella pratica è necessario assegnare l'oggetto creato ad un
+identificatore in modo da poter fare riferimento ad un oggetto nella
+costruzione di altri oggetti:
+
+\begin{lstlisting}
+<identificatore> = Point(x, y[, visible][, color][, width][, name])
+\end{lstlisting}
+
+Si vedano gli esempi seguenti.
+
+\textbf{Osservazioni}
+\begin{itemize*}
+\item \texttt{x} e \texttt{y} sono due numeri, \texttt{x} è l'ascissa e 
+\texttt{y} l'ordinata del punto.
+
+\item Per quanto riguarda i parametri non obbligatori si veda quanto scritto nel
+paragrafo relativo agli attributi degli oggetti visibili.
+
+\end{itemize*}
+
+\emph{Nota}: 
+Nel resto del manuale riporterò solo gli argomenti obbligatori, è sottinteso
+che tutti gli oggetti che possono essere visualizzati hanno anche i
+parametri: \texttt{visible}, \texttt{color}, \texttt{width}, \texttt{name}.
+
+\textbf{Esempio}
+
+Funzione definita in N ad andamento casuale.
+
+\begin{lstlisting}
+import random
+ip = ig.InteractivePlane('Point')
+y = 0
+for x in range(-14, 14):
+    y += random.randrange(-1, 2)
+    ig.Point(x, y, color='red')
+\end{lstlisting}
+
+
+\subsection{Attributi degli oggetti geometrici}
+% \label{sub:attributi-degli-oggetti-geometrici}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+\texttt{Point}, come tutti gli oggetti geometrici ha degli attributi che 
+possono essere determinati nel momento della creazione dell'oggetto stesso o in
+seguito. Questi attributi definiscono alcune caratteristiche degli oggetti che
+possono essere visualizzati.
+\begin{itemize*}
+\item \texttt{visible} stabilisce se l'oggetto sarà visibili o invisibile;
+
+\item \texttt{color} imposta il colore dell'oggetto;
+
+\item \texttt{width} imposta la larghezza dell'oggetto.
+
+\item \texttt{name} imposta il nome dell'oggetto.
+
+\end{itemize*}
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+<oggetto>.visible = v
+<oggetto>.color = c
+<oggetto>.width = w
+<oggetto>.name = s
+\end{lstlisting}
+
+\textbf{Osservazioni}
+\begin{itemize*}
+\item \texttt{v} è un valore booleano, può essere True o False.
+
+\item \texttt{w} è un numero che indica la larghezza in pixel.
+
+\item \texttt{c} può essere:
+\begin{itemize*}
+\item una stringa nel formato: ``\#rrggbb'' dove rr, gg e bb sono numeri
+esadecimali di due cifre che rappresentano rispettivamente le componenti
+rossa, verde, e blu del colore;
+
+\item Una stringa contenente il nome di un colore;
+
+\item Una terna di numeri nell'intervallo 0-1 rappresentanti le componenti
+rossa verde e blu.
+
+\end{itemize*}
+
+\item \texttt{s} è una stringa
+
+\end{itemize*}
+
+\textbf{Esempio}
+
+Disegna tre punti: uno con i valori di default,
+uno con colore dimensione e nome definiti quando viene creato,
+uno con valori cambiati dopo essere stato creato.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('attributi')
+a = ig.Point(-5, 3)
+b = ig.Point(2, 3, color='indian red', width=8, name='B')
+c = ig.Point(9, 3)
+c.color = 'dark orange'
+c.width = 8
+c.name = 'C'
+\end{lstlisting}
+
+
+\subsection{Metodi degli oggetti geometrici}
+% \label{sub:metodi-degli-oggetti-geometrici}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Tutti gli oggetti geometrici hanno anche dei metodi che danno come risultato
+alcune informazioni relative all'oggetto stesso.
+\begin{itemize*}
+\item \texttt{xcoord} l'ascissa;
+
+\item \texttt{ycoord} l'ordinata;
+
+\item \texttt{coords} le coordinate.
+
+\end{itemize*}
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+<oggetto>.xcoord()
+<oggetto>.ycoord()
+<oggetto>.coords()
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+Non richiedono argomenti e restituiscono un particolare oggetto che può essere
+utilizzato all'interno di un testo variabile.
+
+\textbf{Esempio}
+
+Scrivi ascissa, ordinata e posizione di un punto.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('coords, xcoord, ycoord')
+a = ig.Point(-5, 8, name='A')
+ig.VarText(-5, -1, 'ascissa di A: {0}', a.xcoord())
+ig.VarText(-5, -2, 'ordinata di A: {0}', a.ycoord())
+ig.VarText(-5, -3, 'posizione di A: {0}', a.coords())
+\end{lstlisting}
+
+
+\subsection{\texttt{Segment}}
+% \label{sub:segment}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Crea un segmento dati i due estremi, i due estremi sono \emph{punti}.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+<identificatore> = Segment(point0, point1)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+\texttt{point0} e \texttt{point1} sono due punti.
+
+\textbf{Esempio}
+
+Disegna un triangolo con i lati colorati in modo differente.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Segment')
+# creo i 3 vertici
+v0 = ig.Point(-4, -3, width=5)
+v1 = ig.Point( 5, -1, width=5)
+v2 = ig.Point( 2,  6, width=5)
+# creo i 3 lati
+l0 = ig.Segment(v0, v1, color='steel blue')
+l1 = ig.Segment(v1, v2, color='sea green')
+l2 = ig.Segment(v2, v0, color='saddle brown')
+\end{lstlisting}
+
+
+\subsection{\texttt{length}}
+% \label{sub:length}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+È il metodo della classe \texttt{Segment} che restituisce un oggetto 
+\texttt{data}
+contenente la lunghezza del segmento stesso.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+<obj>.length()
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+La lunghezza è la distanza tra \texttt{point0} e \texttt{point1}.
+
+\textbf{Esempio}
+
+Disegna un segmento e scrivi la sua lunghezza.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('length')
+p0 = ig.Point(-4, 7, width=5, name='A')
+p1 = ig.Point(8, 10, width=5, name='B')
+seg = ig.Segment(p0, p1)
+ig.VarText(-5, -5, 'lunghezza di AB = {0}', seg.length())
+\end{lstlisting}
+
+
+\subsection{\texttt{MidPoints}}
+% \label{sub:midpoints}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Crea il punto medio tra due punti.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+MidPoints(point0, point1)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+\texttt{point0} e \texttt{point1} sono due punti.
+
+\textbf{Esempio}
+
+Punto medio tra due punti.
+
+\begin{lstlisting}
+    ip = ig.InteractivePlane('MidPoints')
+    # creo due punti
+    p0 = ig.Point(-2, -5)
+    p1 = ig.Point(4, 7)
+    # cambio i loro attributi
+    p0.color = "#00a600"
+    p0.width = 5
+    p1.color = "#006a00"
+    p1.width = 5
+    # creao il punto medio tra p0 e p1
+    m = ig.MidPoints(p0, p1, name='M')
+    # cambio gli attributi di m
+    m.color = "#f0f000"
+    m.width = 10
+\end{lstlisting}
+
+
+\subsection{\texttt{MidPoint}}
+% \label{sub:midpoint}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Crea il punto medio di un segmento
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+MidPoint(segment)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+\texttt{segment} è un oggetto che ha un \texttt{point0} e un \texttt{point1}.
+
+\textbf{Esempio}
+
+Punto medio di un segmento.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('MidPoint')
+# creo un segmento
+s = ig.Segment(ig.Point(-2, -1, color="#a60000", width=5),
+                ig.Point(5, 7, color="#6a0000", width=5), 
+                color="#a0a0a0")
+# creo il suo punto medio
+ig.MidPoint(s, color="#6f6f00", width=10, name=\'M\')
+\end{lstlisting}
+
+
+\subsection{\texttt{Line}}
+% \label{sub:line}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Crea una retta per due punti.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+Line(point0, point1)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+\texttt{point0} e \texttt{point1} sono, indovina un po', due punti.
+
+Vedi anche i metodi delle classi \emph{linea} presentati nella classe 
+\texttt{Segment}.
+
+\textbf{Esempio}
+
+Triangolo delimitato da rette.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Line')
+# creo i 3 punti
+a = ig.Point(0, 0)
+b = ig.Point(1, 5)
+c = ig.Point(5, 1)
+# creo i 3 lati
+ig.Line(a, b, color="#dead34")
+ig.Line(b, c, color="#dead34")
+ig.Line(c, a, color="#dead34")
+\end{lstlisting}
+
+
+\subsection{\texttt{Ray}}
+% \label{sub:ray}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Traccia una semiretta con l'origine in un punto e passante per un altro
+punto.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+Ray(point0, point1)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+\texttt{point0} è l'origine della semiretta che passa per \texttt{point1}.
+
+Vedi anche i metodi delle classi \emph{linea} presentati nella classe 
+\texttt{Segment}.
+
+\textbf{Esempio}
+
+Triangolo delimitato da semirette.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Ray')
+# creo i 3 punti
+a = ig.Point(0, 0)
+b = ig.Point(1, 5)
+c = ig.Point(5, 1)
+# creo i 3 lati
+ig.Ray(a, b, color="#de34ad")
+ig.Ray(b, c, color="#de34ad")
+ig.Ray(c, a, color="#de34ad")
+\end{lstlisting}
+
+
+\subsection{\texttt{Orthogonal}}
+% \label{sub:orthogonal}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Crea la retta perpendicolare ad una retta data passante per un punto.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+Orthogonal(line, point)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+\texttt{line} è la retta alla quale si costruisce la perpendicolare passante 
+per \texttt{point}.
+
+Vedi anche i metodi delle classi \emph{linea} presentati nella classe 
+\texttt{Segment}.
+
+\textbf{Esempio}
+
+Disegna la perpendicolare ad una retta data passante per un punto.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Orthogonal')
+retta = ig.Line(ig.Point(-4, -1, width=5), 
+                ig.Point(6, 2, width=5), 
+                width=3, color='DarkOrange1', name='r')
+punto = ig.Point(-3, 5, width=5, name='P')
+ig.Orthogonal(retta, punto)
+\end{lstlisting}
+
+
+\subsection{\texttt{Parallel}}
+% \label{sub:parallel}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Crea la retta parallela ad una retta data passante per un punto.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+Parallel(line, point)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+\texttt{line} è la retta alla quale si costruisce la parallela passante per
+\texttt{point}.
+
+Vedi anche i metodi delle classi \emph{linea} presentati nella classe 
+\texttt{Segment}.
+
+\textbf{Esempio}
+
+Disegna la parallela ad una retta data passante per un punto.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Parallel')
+retta = ig.Line(ig.Point(-4, -1, width=5), 
+                ig.Point(6, 2, width=5), 
+                width=3, color='DarkOrange1', name='r')
+punto = ig.Point(-3, 5, width=5, name='P')
+ig.Parallel(retta, punto)
+\end{lstlisting}
+
+
+\subsection{\texttt{Polygon}}
+% \label{sub:polygon}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Crea un poligono data una sequenza di vertici.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+Polygon(points)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+\texttt{points} è una sequenza di punti, può essere una lista (delimitata da
+parentesi quadre) o una tupla (delimitata da parentesi tonde).
+
+\textbf{Esempio}
+
+Disegna un poligono date le coordinate dei vertici.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('24: Polygon')
+# Lista di coordinate
+coords = ((-8, -3), (-6, -2), (-5, -2), (-4, 2), (-2, 3), (0, 4),
+          (2, 3), (4, 2), (5, -2), (6, -2), (8, -3))
+# Costruzione di una lista di punti partendo da una lista di coordinate:
+# listcompreension
+ip.defwidth = 5
+points = [ig.Point(x, y) for x,y in coords]
+ig.Polygon(points, color='HotPink3')
+\end{lstlisting}
+
+
+\subsection{\texttt{perimeter} e \texttt{surface}}
+% \label{sub:perimeter-e-surface}                   %%%%%%%%%%%%%%%%% ????????????????????
+\textbf{Scopo}
+
+Sono metodi presenti in tutte le classi \emph{figura}, restituiscono
+la lunghezza del contorno e l'area della superficie dell'oggetto.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+<figura>.perimeter()
+<figura>.surface()
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+Sono metodi degli oggetti che sono \emph{figure piane} e non richiede argomenti.
+
+\textbf{Esempio}
+
+Scrive alcune informazioni relative a un poligono.
+
+\begin{lstlisting}
+poli = ig.Polygon((ig.Point(-7, -3, width=5, name="A"),
+                    ig.Point(5, -5, width=5, name="B"),
+                    ig.Point(-3, 8, width=5, name="C")),
+                    width=4, color='magenta', intcolor='olive drab')
+ig.VarText(-3, -6, "perimetro={0}", poli.perimeter(), color=\'magenta\')
+ig.VarText(-3, -7, "area={0}", poli.surface(), color=\'olive drab\')
+\end{lstlisting}
+
+
+\subsection{\texttt{Circle}}
+\label{sub:circle}
+\textbf{Scopo}
+
+Circonferenza dato il centro e un punto o il centro e il raggio (un segmento).
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+Circle(center, point)
+Circle(center, segment)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+\texttt{center} è il centro della circonferenza passante per \texttt{point} o di raggio
+segment.
+
+Vedi anche i metodi delle classi \emph{figure piane} presentati nella classe
+\texttt{Polygon}.
+
+\textbf{Esempio}
+
+Circonferenze con centro nell'origine.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Circle(Point, Point)')
+origine = ig.Point(0, 0, visible=False, name="O")
+p0 = ig.Point(-7, -3, width=5, name="P")
+ig.Circle(origine, p0, color="#c0c0de", width=4)
+raggio = ig.Segment(ig.Point(-7, 9, width=5, name="A"),
+                    ig.Point(-4, 9, width=5, name="B"))
+ig.Circle(origine, raggio, color="#c0c0de", width=4)
+\end{lstlisting}
+
+\subsection{\texttt{Intersection}}
+% \label{sub:intersection}  %%%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Crea il punto di intersezione tra due oggetti.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+Intersection(obj0, obj1)
+Intersection(obj0, obj1, which)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+% 
+\texttt{obj0} e \texttt{obj1} possono essere rette o circonferenze. Se uno dei due
+oggetti è una circonferenza è necessario specificare quale delle due
+intersezioni verrà restituita indicando come terzo parametro \texttt{+1} o \texttt{-1}.
+
+\textbf{Esempio}
+
+Disegna una circonferenza tangente a una retta.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Intersection line line')
+# Disegno retta e punto
+retta = ig.Line(ig.Point(-4, -1, width=5), 
+                ig.Point(6, 2, width=5), 
+                width=3, color='DarkOrange1', name='r')
+punto = ig.Point(-3, 5, width=5, name='P')
+# trovo il punto di tangenza
+perpendicolare = ig.Orthogonal(retta, punto, width=1)
+p_tang = ig.Intersection(retta, perpendicolare, width=5)
+# disegno la circonferenza
+ig.Circle(punto, p_tang, width=4, color='IndianRed')
+\end{lstlisting}
+
+Disegna il simmetrico di un punto rispetto ad una retta.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Intersection line circle')
+# disegno l'asse di simmetria e il punto
+asse = ig.Line(ig.Point(-4, -11, width=5), 
+               ig.Point(-2, 12, width=5), 
+               width=3, color='DarkOrange1', name='r')
+punto = Point(-7, 3, width=5, name='P')
+# disegno la perpendicolare all'asse passante per il punto
+perp = ig.Orthogonal(asse, punto, width=1)
+# trovo l'intersezione tra la perpendicolare e l'asse
+piede = ig.Intersection(perp, asse)
+# disegno la circonferenza di centro piede e passante per punto
+circ = ig.Circle(piede, punto, width=1)
+# trovo il simmetrico di punto rispetto a asse
+ig.Intersection(perp, circ, -1, width=5, color=\'DebianRed\', name="P\'")
+\end{lstlisting}
+
+Disegna un triangolo equilatero.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Intersection circle circle')
+# Disegno i due primi vertici
+v0 = ig.Point(-2, -1, width=5, name='A')
+v1 = ig.Point(3, 2, width=5, name='B')
+# Disegno le due circonferenze di centro p0 e p1 e passanti per p1 e p0
+c0 = ig.Circle(v0, v1, width=1)
+c1 = ig.Circle(v1, v0, width=1)
+# terzo vertice: intersezione delle due circonferenze
+v2 = ig.Intersection(c0, c1, 1, width=5, name='C')
+# triangolo per i 3 punti
+ig.Polygon((v0, v1, v2), width=4, color='DarkSeaGreen4')
+\end{lstlisting}
+
+\subsection{\texttt{Text}}
+% \label{sub:text}    %%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Crea un testo posizionato in un punto del piano.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+Text(x, y, text[, iplane=None])
+\end{lstlisting}
+
+\textbf{Osservazioni}
+\begin{itemize*}
+\item \texttt{x} e \texttt{y} sono due numeri interi o razionali relativi; 
+\texttt{x} è l'ascissa e \texttt{y} l'ordinata del punto.
+
+\item \texttt{text} è la stringa che verrà visualizzata.
+
+\item Se sono presenti più piani interattivi, si può specificare l'argomento
+\texttt{iplane} per indicare in quale di questi la scritta deve essere
+visualizzata.
+
+\end{itemize*}
+
+\textbf{Esempio}
+
+Scrive un titolo in due finestre grafiche.
+
+\begin{lstlisting}
+ip0 = ig.InteractivePlane('Text pale green', w=400, h=200)
+ip1 = ig.InteractivePlane('Text blue violet', w=400, h=200)
+ig.Text(-2, 2, "Prove di testo blue violet", 
+        color='blue violet', width=20)
+ig.Text(-2, 2, "Prove di testo pale green", 
+        color='pale green', width=20, iplane=ip0)
+\end{lstlisting}
+
+
+\subsection{\texttt{VarText}}
+% \label{sub:vartext}    %%%%%%%%%%%%%%%%%%%%%%% PERCHE`??????????????????????????????????
+\textbf{Scopo}
+
+Crea un testo variabile. Il testo contiene dei ``segnaposto'' che verranno
+sostituiti con i valori prodotti dai dati presenti nel parametro variables.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+VarText(x, y, text, variables[, iplane=None])
+\end{lstlisting}
+
+\textbf{Osservazioni}
+\begin{itemize*}
+\item \texttt{x} e \texttt{y} sono due numeri interi o razionali relativi \texttt{x} è l'ascissa
+e \texttt{y} l'ordinata del punto.
+
+\item \texttt{text} è la stringa che contiene la parte costante e i segnaposto.
+
+\item In genere i \emph{segnaposto} saranno nella forma: ``\{0\}'' che indica a Python di
+convertire in stringa il risultato prodotto dal dato.
+
+\item \texttt{variables} è un dato o una tupla di dati.
+
+\item Se sono presenti più piani interattivi, si può specificare l'argomento
+\texttt{iplane} per indicare in quale di questi la scritta deve essere
+visualizzata.
+
+\end{itemize*}
+
+\textbf{Esempio}
+
+Un testo che riporta la posizione dei un punto.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('VarText')
+p0 = ig.Point(7, 3, color='green', width=10, name='A')
+ig.VarText(-4, -3, "Posizione del punto A: ({0}; {1})",
+           (p0.xcoord(), p0.ycoord()),
+           color='green', width=10)
+\end{lstlisting}
+
+
+\subsection{\texttt{PointOn}}
+% \label{sub:pointon}
+\textbf{Scopo}
+
+Punto disegnato su un oggetto in una posizione fissa.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+PointOn(obj, parameter)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+L'oggetto deve essere una linea o una retta o una circonferenza,
+\texttt{parameter} è un numero che individua una precisa posizione sull'oggetto.
+Sia le rette sia le circonferenze hanno una loro metrica che è legata ai punti
+base dell'oggetto. Su una retta una semiretta o un segmento \texttt{point0}
+corrisponde al parametro 0 mentre \texttt{point1} corrisponde al parametro 1.
+Nelle circoferenze il punto di base della circonferenza stessa corrisponde
+al parametro 0 l'intera circonferenza vale 2.
+Il punto creato con \texttt{PointOn} non può essere trascinato con il mouse.
+
+\textbf{Esempio}
+
+Disegna il simmetrico di un punto rispetto ad una retta.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('PointOn')
+# disegno l'asse di simmetria e il punto
+asse = ig.Line(ig.Point(-4, -11, width=5), 
+               ig.Point(-2, 12, width=5), 
+               width=3, color='DarkOrange1', name='r')
+punto = ig.Point(-7, 3, width=5, name='P')
+# disegno la perpendicolare all'asse passante per il punto
+perp = ig.Orthogonal(asse, punto, width=1)
+# trovo il simmetrico di punto rispetto a asse
+ig.PointOn(perp, -1, width=5, color=\'DebianRed\', name="P\'")
+ig.Text(-5, -6, """P\' e\' il simmetrico di P.""")
+\end{lstlisting}
+
+
+\subsection{\texttt{ConstrainedPoint}}
+% \label{sub:constrainedpoint}
+\textbf{Scopo}
+
+Punto legato ad un oggetto.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+ConstrainedPoint(obj, parameter)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+Per quanto riguarda \texttt{parameter}, valgono le osservazioni fatte per
+\texttt{PoinOn}.
+Questo punto però può essere trascinato con il mouse pur restando sempre
+sull'oggetto. Dato che può essere trascinato con il mouse
+ha un colore di default diverso da quello degli altri oggetti.
+
+\textbf{Esempio}
+
+Circonferenza e proiezioni sugli assi.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('ConstrainedPoint', sx=200)
+# Circonferenza
+origine = ig.Point(0, 0, visible=False)
+unix = ig.Point(1, 0, visible=False)
+uniy = ig.Point(0, 1, visible=False)
+circ = ig.Circle(origine, unix, color="gray10")
+# Punto sulla circonferenza
+cursore = ig.ConstrainedPoint(circ, 0.25, color='magenta', width=20)
+# assi
+assex = Line(origine, unix, visible=False)
+assey = Line(origine, uniy, visible=False)
+# proiezioni
+py = ig.Parallel(assey, cursore, visible=False)
+hx = ig.Intersection(assex, py, color='red', width=8)
+px = ig.Parallel(assex, cursore, visible=False)
+hy = ig.Intersection(assey, px, color='blue', width=8)
+\end{lstlisting}
+
+
+\subsection{\texttt{parameter}}
+% \label{sub:parameter}
+\textbf{Scopo}
+
+I punti legati agli oggetti hanno un metodo che permette di ottenere il
+parametro.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+<constrained point>.parameter()
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+In \texttt{PointOn} il parametro è fissato nel momento della costruzione
+dell'oggetto. In \texttt{ConstrainedPoint} il parametro può essere variato
+trascinando il punto con il mouse.
+
+\textbf{Esempio}
+
+Scrivi i dati relativi a un punto collegato a un oggetto.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('parameter')
+c0 = ig.Circle(ig.Point(-6, 6, width=6), ig.Point(-1, 5, width=6))
+c1 = ig.Circle(ig.Point(6, 6, width=6), ig.Point(1, 5, width=6))
+a = ig.PointOn(c0, 0.5, name='A')
+b = ig.ConstrainedPoint(c1, 0.5, name='B')
+ig.VarText(-5, -1, 'ascissa di A: {0}', a.xcoord())
+ig.VarText(-5, -2, 'ordinata di A: {0}', a.ycoord())
+ig.VarText(-5, -3, 'posizione di A: {0}', a.coords())
+ig.VarText(-5, -4, 'parametro di A: {0}', a.parameter())
+ig.VarText(5, -1, 'ascissa di B: {0}', b.xcoord())
+ig.VarText(5, -2, 'ordinata di B: {0}', b.ycoord())
+ig.VarText(5, -3, 'posizione di B: {0}', b.coords())
+ig.VarText(5, -4, 'parametro di B: {0}', b.parameter())
+\end{lstlisting}
+
+
+\subsection{\texttt{Angle}}
+% \label{sub:angle}
+\textbf{Scopo}
+
+Angolo dati tre punti o due punti e un altro angolo.
+Il secondo punto rappresenta il vertice. Il verso di costruzione dell'angolo
+è quello antiorario.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+Angle(point0, vertex, point1[, sides])
+Angle(point0, vertex, angle[, sides])
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+L'argomento \texttt{sides} può valere:
+\begin{itemize*}
+\item \texttt{True} (o \texttt{(0, 1)}): vengono disegnati i lati;
+
+\item \texttt{0}: viene disegnato il lato 0;
+
+\item \texttt{1}: viene disegnato il lato 1;
+
+\end{itemize*}
+
+\texttt{Angle} fornisce i seguenti metodi dal significato piuttosto evidente:
+
+\begin{itemize*}
+\item \texttt{extent}: ampiezza dell'angolo;
+\item \texttt{bisector}: bisettrice.
+\end{itemize*}
+
+\textbf{Esempio}
+
+Disegna un angolo e un angolo con i lati.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Angle(Point, Point, Point)')
+ip.defwidth = 5
+a = ig.Point(-2, 4, color="#40c040", name="A")
+b = ig.Point(-5, -2, color="#40c040", name="B")
+c = ig.Point(-8, 6, color="#40c040", name="C")
+d = ig.Point(8, 6, color="#40c040", name="D")
+e = ig.Point(5, -2, color="#40c040", name="E")
+f = ig.Point(2, 4, color="#40c040", name="F")
+# angolo senza i lati
+ig.Angle(a, b, c, color="#40c040")
+# angolo con i lati
+ig.Angle(d, e, f, color="#c04040", sides=True)
+\end{lstlisting}
+
+Somma di due angoli.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Angle(Point, Point, Angle)')
+# i 2 angoli di partenza
+a = ig.Angle(ig.Point(-3, 7, width=6),
+             ig.Point(-7, 5, width=6),
+             ig.Point(-6, 8, width=6),
+             sides=(0, 1), color="#f09000", name=\'alfa\')
+b = ig.Angle(ig.Point(9, 2, width=6),
+             ig.Point(2, 3, width=6),
+             ig.Point(6, 4, width=6),
+             sides=(0, 1), color="#0090f0", name=\'beta\')
+# Punti di base dell'angolo somma di a b
+v = ig.Point(-11, -8, width=6)
+p0 = ig.Point(3, -10, width=6)
+# la somma degli angoli
+b1 = ig.Angle(p0, v, b, (0, 1), color="#0090f0")
+p1 = b1.point1()
+a1 = ig.Angle(p1, v, a, sides=True, color="#f09000")
+ig.Text(-4, -12, "Somma di due angoli")
+\end{lstlisting}
+
+
+\subsection{\texttt{Bisector}}
+% \label{sub:bisector}
+\textbf{Scopo}
+
+Retta bisettrice di un angolo.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+<Bisector>(<angle>)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+
+Vedi \texttt{Ray}.
+
+\textbf{Esempio}
+
+Disegna l'incentro di un triangolo.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Bisector')
+# I tre vertici del triangolo
+a = ig.Point(-7, -3, color="#40c040", width=5, name="A")
+b = ig.Point(5, -5, color="#40c040", width=5, name="B")
+c = ig.Point(-3, 8, color="#40c040", width=5, name="C")
+# Il triangolo
+ig.Polygon((a, b, c))
+# Due angoli del triangolo
+cba = ig.Angle(c, b, a)
+bac = ig.Angle(b, a, c)
+# Le bisettrici dei due angoli
+b1 = ig.Bisector(cba, color="#a0c040")
+b2 = ig.Bisector(bac, color="#a0c040")
+# L'incentro
+ig.Intersection(b1, b2, color="#c040c0", width=5, name="I")
+\end{lstlisting}
+
+
+\subsection{\texttt{Calc}}
+% \label{sub:calc}
+\textbf{Scopo}
+
+Dato che contiene il risultato di un calcolo.
+
+\textbf{Sintassi}
+
+\begin{lstlisting}
+Calc(function, variables)
+\end{lstlisting}
+
+\textbf{Osservazioni}
+\begin{itemize*}
+\item \texttt{function} è una funzione python, al momento del calcolo, alla
+funzione vengono passati come argomenti il contenuto di \texttt{variables}.
+
+\item \texttt{variables} è un oggetto \texttt{Data} o una tupla che contiene 
+oggetti \texttt{Data}. 
+Il risultato è memorizzato all'interno dell'oggetto \texttt{Calc} e può
+essere visualizzato con \texttt{VarText} o utilizzato per definire la posizione
+di un punto.
+
+\end{itemize*}
+
+\textbf{Esempio}
+
+Calcola il quadrato di un lato e la somma dei quadrati degli altri due di
+un triangolo.
+
+\begin{lstlisting}
+ip = ig.InteractivePlane('Calc')
+ig.Circle(ig.Point(2, 4), ig.Point(-3, 4), width=1)
+ip.defwidth = 5
+a = ig.Point(-3, 4, name="A")
+b = ig.Point(7, 4, name="B")
+c = ig.Point(-1, 8, name="C")
+ab = ig.Segment(a, b, color="#40c040")
+bc = ig.Segment(b, c, color="#c04040")
+ca = ig.Segment(c, a, color="#c04040")
+q1 = ig.Calc(lambda a: a*a, ab.length())
+q2 = ig.Calc(lambda a, b: a*a+b*b, (bc.length(), ca.length()))
+ig.VarText(-5, -5, "ab^2 = {0}", q1, color="#40c040")
+ig.VarText(-5, -6, "bc^2 + ca^2 = {0}", q2, color="#c04040")
+\end{lstlisting}
+
+\textbf{Riassumendo}
+\begin{itemize*}
+\item In questo paragrafo sono stati presentati i seguenti oggetti.
+\begin{itemize*}
+\item \texttt{Angle}
+Angolo dati tre punti o due punti e un angolo, il secondo punto
+rappresenta il vertice.
+Il verso di costruzione dell'angolo è quello antiorario.
+
+\item \texttt{Bisector}
+Retta bisettrice di un angolo.
+
+\item \texttt{Circle}
+Circonferenza dato il centro e un punto o il centro e un raggio
+(un segmento).
+
+\item \texttt{ConstrainedPoint}
+Punto legato ad un oggetto.
+
+\item \texttt{Calc}
+Dato che contiene il risultato di un calcolo.
+
+\item \texttt{InteractivePlane}
+Crea il piano cartesiano e inizializza gli attributi del \emph{piano}.
+
+\item \texttt{Intersection}
+Crea il punto di intersezione tra due rette.
+
+\item \texttt{Line}
+Crea una retta per due punti.
+
+\item \texttt{MidPoint}
+Crea il punto medio di un segmento
+
+\item \texttt{MidPoints}
+Crea il punto medio tra due punti.
+
+\item \texttt{Orthogonal}
+Crea la retta perpendicolare ad una retta data passante per un punto.
+
+\item \texttt{Parallel}
+Crea la retta parallela ad una retta data passante per un punto.
+
+\item \texttt{Point}
+Crea un \emph{punto libero} date le coordinate della sua posizione iniziale.
+
+\item \texttt{PointOn}
+Punto disegnato su un oggetto in una posizione fissa.
+
+\item \texttt{Polygon}
+Crea un poligono data una sequenza di vertici.
+
+\item \texttt{Ray}
+Traccia una semiretta con l'origine in un punto e passante per un altro
+punto.
+
+\item \texttt{Segment}
+Crea un segmento dati i due estremi, i due estremi sono \emph{punti}.
+
+\item \texttt{Text}
+Crea un testo posizionato in un punto del piano.
+
+\item \texttt{VarText}
+Crea un testo variabile. Il testo contiene dei ``segnaposto'' che verranno
+sostituiti con i valori prodotti dai dati presenti nel parametro variables.
+
+\end{itemize*}
+
+\item In questo paragrafo sono stati presentati i seguenti attributi.
+\begin{itemize*}
+\item \texttt{\textless{}oggetto\_visibile\textgreater{}.color}
+Attributo degli oggetti geometrici: imposta il colore dell'oggetto;
+
+\item \texttt{\textless{}oggetto\_visibile\textgreater{}.name}
+Attributo degli oggetti geometrici: imposta il nome dell'oggetto.
+
+\item \texttt{\textless{}oggetto\_visibile\textgreater{}.visible}
+Attributo degli oggetti geometrici: stabilisce se l'oggetto sarà
+visibili o invisibile;
+
+\item \texttt{\textless{}oggetto\_visibile\textgreater{}.width}
+Attributi degli oggetti geometrici: imposta la larghezza dell'oggetto.
+
+\end{itemize*}
+
+\item In questo paragrafo sono stati presentati i seguenti metodi.
+\begin{itemize*}
+\item \texttt{\textless{}circonferenza\textgreater{}.radius}
+Metodo delle classi \emph{circonferenza} che  restituisce un oggetto 
+\texttt{data} che contiene la lunghezza del raggio della circonferenza.
+
+\item \texttt{\textless{}figura\textgreater{}.perimeter}
+Metodo delle classi \emph{figura} che  restituisce un oggetto \texttt{data}
+contenete la lunghezza del contorno dell'oggetto.
+
+\item \texttt{\textless{}figura\textgreater{}.surface}
+Metodo delle classi \emph{figura} che  restituisce un oggetto \texttt{data}
+contenete l'area della superficie dell'oggetto.
+
+\item \texttt{\textless{}oggetto\_visibile\textgreater{}.coords}
+Restituisce un dato che contiene le coordinate.
+
+\item \texttt{\textless{}oggetto\_visibile\textgreater{}.xcoord}
+Metodo degli oggetti visualizzabili: restituisce un dato che contiene
+l'ascissa.
+
+\item \texttt{\textless{}oggetto\_visibile\textgreater{}.ycoord}
+Metodo degli oggetti visualizzabili: restituisce un dato che contiene
+l'ordinata.
+
+\item \texttt{\textless{}punto\_legato\textgreater{}.parameter}
+Metodo dei punti legati agli oggetti che restituisce un oggetto \texttt{data}
+contenete il parametro.
+
+\item \texttt{\textless{}segmento\textgreater{}.length}
+Metodo della classe \texttt{Segment} che restituisce un oggetto \texttt{data}
+contenete la lunghezza del segmento stesso.
+
+\end{itemize*}
+
+\end{itemize*}
+
+\textbf{Prova tu}
+\begin{enumerate*}
+\item Ricopia e modifica alcuni esempi del manuale.
+
+\item Disegna un triangolo con evidenziati i punti medi dei lati.
+
+\item Disegna un quadrato usando gli oggetti: \texttt{Orthogonal} e 
+ \texttt{Parallel}.
+
+\item Disegna un esagono regolare dato il centro e un vertice.
+
+\item Disegna un poligono regolare dato il centro, un vertice e il numero di 
+ lati.
+
+\item Disegna un poligono regolare e tutte le sue diagonali.
+
+\end{enumerate*}

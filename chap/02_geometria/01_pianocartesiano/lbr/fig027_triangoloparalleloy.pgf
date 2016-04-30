@@ -1,0 +1,25 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+%%%
+% Aree di un triangolo con la formula di Erone
+%%%%
+ 
+\begin{tikzpicture}[x=5mm, y=5mm, smooth]
+
+%\clip (-10.3, -1.5) rectangle (10.9, 10.9);
+
+\coordinate (a) at (-4, 4);
+\coordinate (b) at (-4, 1);
+\coordinate (c) at (3, -4);
+
+\fill [top color=red!30!black!20,bottom color=red!50!black!10] 
+ (a) -- (b) -- (c) -- cycle;
+
+\input{\folder lbr/lib03_pc05.pgf}
+
+\draw [-] (a) -- (b) --(c) -- cycle;
+\filldraw (a) circle (1.5pt) node [below left] {A};
+\filldraw (b) circle (1.5pt) node [below right] {B};
+\filldraw (c) circle (1.5pt) node [above right] {C};
+
+\end{tikzpicture}

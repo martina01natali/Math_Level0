@@ -1,0 +1,643 @@
+% (c) 2012-2013 Claudio Carboncini - claudio.carboncini@gmail.com
+% (c) 2012-2014 Dimitrios Vrettos - d.vrettos@gmail.com
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\chapter{Il piano cartesiano}
+
+\section{Un po' di storia}
+\label{sec:01_storia}
+
+Nel~$II$~secolo~\aC\ Ipparco compilò il primo catalogo stellare in cui 
+precisò la posizione di circa~850 stelle sulla sfera celeste mediante due 
+numeri: latitudine e longitudine. La posizione di un punto era dunque 
+individuata attraverso una coppia di numeri.
+Ancora oggi attraverso latitudine e longitudine viene individuato un punto 
+sulla superficie terrestre.
+I romani nel fondare una città segnavano due solchi perpendicolari ai quali 
+riferivano la posizione di case, monumenti, strade.
+
+Nonostante queste intuizioni, per migliaia di anni la geometria e l'algebra 
+sono state due discipline completamente separate nella matematica.
+
+Nel~$XVII$~secolo con le opere di Pierre de Fermat e di René Descartes il 
+metodo di rappresentare punti con coppie di numeri. 
+Il \emph{piano cartesiano} è uno strumento che permette di trattare elementi 
+geometrici con metodi algebrici ed elementi algebrici con metodi geometrici.
+Così, a volte,  problemi algebrici difficili possono a trovare una soluzione 
+geometrica semplice e viceversa.
+In matematica, ma anche nelle altre scienze, quando si riesce a trovare un 
+collegamento tra due rami della disciplina che fino a quel momento erano
+rimasti separati, si fa un grande passo avanti.
+
+La geometria analitica permette di descrivere enti geometrici attraverso 
+numeri, equazioni, disequazioni e tradurre le relazioni tra elementi della 
+geometria in relazioni tra enti dell'algebra e viceversa.
+
+\section{Asse cartesiano}
+\label{sec:02_asse}
+
+Lo strumento che ci permette di fare tutto ciò è il 
+\emph{riferimento cartesiano}. L'idea di base è che su una retta ci sono 
+infiniti punti e anche i numeri sono infiniti possiamo quindi far 
+corrispondere ai punti della retta tutti gli elementi di un insieme numerico.
+Possiamo farlo a fantasia o seguendo un metodo che permette a tutti di 
+disporre i numeri esattamente nello stesso modo.
+
+\begin{inaccessibleblock}[Figura: TODO]
+ \begin{figure}[h]
+ \centering
+ \begin{minipage}[t]{.45\textwidth}
+  \centering\input{\folder lbr/fig001_asse0.pgf}
+ \end{minipage}\hfil
+ \begin{minipage}[t]{.45\textwidth}
+  \centering\input{\folder lbr/fig002_asse1.pgf}
+ \end{minipage}
+\end{figure}
+\end{inaccessibleblock}
+
+Per farlo in modo preciso abbiamo bisogno di aggiungere ad una retta alcuni 
+elementi ottenendo così un asse cartesiano:
+
+\begin{definizione}
+  Un \emph{asse cartesiano} è una retta dotata di:
+  \begin{itemize}
+   \item \emph{origine}, un punto della retta che rappresenta lo zero, 
+    a questo punto normalmente viene dato il nome ``O'';
+   \item \emph{verso}, una freccia che indica da quale parte i numeri 
+    aumentano;
+   \item \emph{unità di misura}, un segmento che indica la distanza tra 
+    un numero intero e il successivo.
+  \end{itemize}
+\end{definizione}
+
+\begin{center} \input{\folder lbr/fig003_asse2.pgf} \end{center}
+
+Normalmente, invece di indicare l'unità di misura al di fuori dell'asse
+indichiamo sull'asse i punti~0~e~1. 
+
+\begin{center} \input{\folder lbr/fig004_asse3.pgf} \end{center}
+
+Quando lavoriamo su un foglio a quadretti, indichiamo esplicitamente 
+l'unità solo se è diversa dal quadretto e evitiamo anche di tracciare tutti 
+i trattini verticali.
+
+\begin{center} \input{\folder lbr/fig005_asse4.pgf} \end{center}
+
+In questo modo possiamo far corrispondere ad ogni numero un punto della retta 
+e ad ogni punto della retta un numero \emph{reale}. Il numero che corrisponde 
+al punto si chiama \emph{coordinata} del punto.
+
+\begin{center} \input{\folder lbr/fig006_asse5.pgf} \end{center}
+
+\section{Problemi sulla retta}
+\label{sec:03_problemiretta}
+
+\subsection{Convenzioni}
+
+Nei testi si trovano di solito queste convenzioni:
+
+\begin{itemize}
+ \item
+  Agli assi cartesiani di solito si dà un nome di una lettera prendendo le 
+  lettere tra le ultime dell'alfabeto: \emph{asse x}, \emph{asse y} o 
+  \emph{asse z}.
+ \item 
+  Ai punti diamo come nome delle lettere maiuscole: P, A, B, ...
+ \item 
+  La coordinata di P sull'asse x viene indicata con $x_P$.
+ \item 
+  Per indicare il punto P che ha coordinata a scriviamo P(a;)
+\end{itemize}
+
+\begin{exrig}
+ \begin{esempio}
+  \label{ex:D.11}
+  Trova le coordinate dei punti.
+  
+  \begin{center} \input{\folder lbr/fig007_asse_punti.pgf} \end{center}
+
+  Con riferimento alla figura precedente possiamo dire che:
+
+$x_A=\dots \quad \quad$ $x_B=\dots \quad \quad$ $x_C=\dots \quad \quad$  
+$x_D=\dots \quad \quad$ $x_E=\dots \quad \quad$ $x_F=\dots \quad \quad$  
+ \end{esempio}
+ \begin{esempio}
+  \label{ex:D.11}
+  Date le coordinate disegna i punti.
+
+  \begin{center} \input{\folder lbr/fig004_asse3.pgf} \end{center}
+
+  In questo altro asse cartesiano inserisci i seguenti punti:
+
+  $A(7;); \quad B(2;); \quad C(-4;); \quad 
+  D(-1;); \quad E(6,5;); \quad F(-5,5;)$.
+ \end{esempio}
+\end{exrig}
+
+\subsection{Lunghezza di un segmento}
+
+Un primo problema che possiamo affrontare e risolvere avendo un 
+riferimento cartesiano è quello di trovare la lunghezza di un segmento
+date le coordinate dei suoi estremi. Andiamo per gradi.
+
+\subsubsection*{Primo caso: gli estremi sono entrambi positivi} 
+
+Disegniamo su un asse cartesiano i due punti:~$A(2;)$~e~$B(9;)$.
+Il segmento~$AB$ si ottiene togliendo dal segmento~$OB$ il 
+segmento~$OA$:~$AB=OB-OA$.
+
+\begin{center} \input{\folder lbr/fig008_distanza1.pgf} \end{center}
+
+Le distanze di~$A$~e~$B$ dall'origine si trovano senza calcoli, sono
+proprio le coordinate dei due punti e quindi la distanza di~$A$~da~$B$ si 
+ottiene calcolando la differenza delle coordinate di B e di A:
+
+$\overline{AB} = x_B - x_A = 9 - 2 = 7$
+
+Risultato che possiamo verificare facilmente.
+
+\subsubsection*{Secondo caso: gli estremi sono entrambi negativi} 
+
+Consideriamo ora due punti negativi ad esempio:~$A(-8;)$~e~$B(-3;)$. 
+
+\begin{center} \input{\folder lbr/fig009_distanza2.pgf} \end{center}
+
+La lunghezza del segmento~AB si ottiene togliendo dalla lunghezza di~AO 
+la lunghezza di~BO. La lunghezza di~AO è l'opposto della coordinata di~A 
+e la lunghezza di~BO è l'opposto della coordinata di~B, quindi:
+
+$\overline{AB} = (-x_A) - (-x_B) = x_B - x_A = -3 - (-8) = -3 + 8 = 5$
+
+Dopo aver verificato il risultato nel disegno osserviamo che la formula usata 
+è identica a quella utilizzata nel caso precedente.
+
+\subsubsection*{Terzo caso: gli estremi sono uno negativo e uno positivo} 
+
+Ora prendiamo un punto negativo e uno positivo:~$A(-5;)$~e~$B(7;)$. 
+
+\begin{center} \input{\folder lbr/fig010_distanza3.pgf} \end{center}
+
+È chiaro che il segmento~AB si ottiene sommando i due segmenti:~AO~e~OB. 
+Ma la lunghezza di~AO è l'opposto della sua coordinata, quindi otteniamo:
+
+$\overline{AB} = -x_A + x_B = x_B - x_A = 7 + 5 = 12$
+
+Anche qui possiamo verificare facilmente il risultato ottenuto.
+
+\subsubsection*{Situazione strana: segmento di lunghezza negativa} 
+
+Abbiamo visto che in tutti questi casi la formula:
+
+$\overline{AB} = x_B - x_A$ funziona quindi non dobbiamo preoccuparci del 
+segno delle coordinate per trovare la lunghezza di un segmento facciamo 
+sempre la coordinata del secondo punto meno la coordinata del primo.
+
+Ma cosa succede se questa regola la applichiamo al 
+segmento:~$A(7;)$~e~$B(2;)$?
+
+\begin{center} \input{\folder lbr/fig011_distanza4.pgf} \end{center}
+
+Applicando la solita regola:
+$\overline{AB} = x_B - x_A = 2 - 7 = -5$
+otteniamo un numero negativo, strano per una lunghezza! 
+I matematici, piuttosto che complicare la formuletta preferiscono dare un 
+senso anche alle lunghezze negative parlando di \emph{segmento orientato}.
+Un segmento orientato ha lunghezza positiva se il verso del segmento è
+uguale al verso del sistema di riferimento, ha lunghezza negativa se
+il verso del segmento è opposto a quello del sistema di riferimento.
+Qualche volta questo meccanismo può risultare scomodo, in questo caso si 
+applica la funzione \emph{valore assoluto} al risultato ottenuto, cioè, se è 
+negativo gli si cambia il segno.
+
+\subsection{Punto medio di un segmento}
+
+Un altro problema che possiamo affrontare e risolvere avendo un riferimento 
+cartesiano è quello di trovare il punto medio~M date le coordinate degli 
+estremi.
+
+Disegniamo su un asse cartesiano i due punti:~$A(3;)$~e~$b(9;)$.
+
+\begin{center} \input{\folder lbr/fig012_puntomedio.pgf} \end{center}
+
+Per trovare la coordinata del punto medio dobbiamo sommare alla 
+coordinata di~A la lunghezza di metà segmento:
+
+$x_M = x_A + \frac{\overline{AB}}{2}$
+
+Riprendendo la formula precedente:
+
+$x_M = x_A + \frac{x_B - x_A}{2} = \frac{2 x_A + x_B - x_A}{2} = 
+\frac{x_A + x_B}{2}$
+
+Detto a parole: \emph{La coordinata del punto medio è uguale alla media delle 
+coordinate degli estremi}.
+
+Verifica questa formula con le coppie di punti degli esempi precedenti.
+
+\section{Piano cartesiano}
+\label{sec:04_pianocartesiano}
+
+Abbiamo visto qualche problema sull'asse cartesiano, ma in realtà un solo 
+asse non è molto interessante. Se invece prendiamo due assi cartesiani non 
+paralleli la situazione diventa più complessa, interessante e divertente.
+
+Due assi non paralleli permettono di realizzare una corrispondenza biunivoca 
+tra i punti del piano e le coppie ordinate di numeri: ad ogni punto 
+corrisponde una ben precisa coppia di numeri e ad ogni coppia di numeri un 
+ben preciso punto. La coppia ordinata di numeri prende il nome di 
+\emph{coordinate} del punto.
+
+\begin{inaccessibleblock}[Figura: TODO]
+ \begin{figure}[h]
+ \centering
+ \begin{minipage}[t]{.40\textwidth}
+  \centering\input{\folder lbr/fig013_assistrani.pgf}
+  \caption{Riferimento cartesiano.}\label{fig:assistrani}
+ \end{minipage}\hfil
+ \begin{minipage}[t]{.50\textwidth}
+  \centering\input{\folder lbr/fig014_pc.pgf}
+  \caption{Rif. cart. ortogonale monometrico.}\label{fig:pc}
+ \end{minipage}
+\end{figure}
+\end{inaccessibleblock}
+
+In entrambi questi riferimenti cartesiani al punto~P corrisponde la coppia
+di numeri~(2;~3). Pur essendo validi entrambi, per noi sarà molto più comodo 
+usare il secondo riferimento cartesiano. Cioè un riferimento in cui gli assi:
+
+\begin{itemize}
+ \item hanno l'origine in comune;
+ \item sono perpendicolari;
+ \item hanno la stessa unità di misura.
+\end{itemize}
+
+Un asse, di solito quello orizzontale, si chiama asse delle \emph{ascisse} 
+o asse \emph{x}; l'altro asse di solito quello verticale, si chiama asse 
+delle \emph{ordinate} o asse \emph{y}. La prima delle due coordinate
+si riferisce alla coordinata dell'asse~$x$, la seconda alla coordinata 
+dell'asse~$y$:~$(x;~y)$.
+
+Un riferimento di questo tipo si chiama: 
+\emph{Riferimento Cartesiano Ortogonale Monometrico}, (\emph{rcom}). 
+E noi d'ora in poi, quando parleremo di piano cartesiano o di riferimento 
+cartesiano, ci riferiremo sempre ad un \emph{rcom}.
+
+Riassumendo possiamo dare la seguente definizione:
+
+\begin{definizione}
+Si chiama \emph{riferimento cartesiano ortogonale monometrico} 
+la coppia di assi cartesiani perpendicolari, con l'origine in comune e 
+dotati di uguale unità di misura.
+\end{definizione}
+
+Gli assi dividono il piano in quattro zone chiamate quadranti che sono 
+numerati come in figura~\ref{fig:quadranti}.
+
+Tutti i punti che appartengono all'asse~$x$ hanno l'ordinata (la~$y$) uguale 
+a zero.
+Tutti i punti che appartengono all'asse~$y$ hanno l'ascissa (la~$x$) uguale 
+a zero.
+L'intersezione degli assi, l'origine, ha coordinate~$(0; 0)$
+
+\begin{inaccessibleblock}[Figura: TODO]
+ \begin{figure}[h]
+ \centering
+ \begin{minipage}[t]{.45\textwidth}
+ \centering\input{\folder lbr/fig015_quadranti.pgf}
+ \caption{I quattro quadranti.}\label{fig:quadranti}
+ \end{minipage}\hfil
+ \begin{minipage}[t]{.45\textwidth}
+ \centering\input{\folder lbr/fig016_segni.pgf}
+ \caption{Collocazione delle coordinate positive e negative.}
+ \label{fig:segni}
+ \end{minipage}
+\end{figure}
+\end{inaccessibleblock}
+
+Per rappresentare un punto~$P$ date le sue coordinate~$(x_p; y_p)$ si 
+procede nel seguente modo:
+
+\begin{itemize*}
+\item determiniamo sull'asse~$x$ il punto~$A$ immagine del numero reale~$x_P~$
+\item da~$A$ tracciamo la retta parallela all'asse~$y$
+\item determiniamo sull'asse~$y$ il punto~$B$ immagine del numero reale~$y_P~$
+\item da~$B$ tracciamo la retta parallela all'asse~$x$.
+\end{itemize*}
+
+L'intersezione delle parallele tracciate, è il punto~$P$ che ha per coordinate
+la coppia ordinata~$(x_P; y_P)$.
+
+Il procedimento inverso permette di passare da un punto del piano alle sue 
+coordinate,
+
+\begin{exrig}
+\begin{esempio}
+ \label{ex:D.12}
+  Determiniamo l'immagine delle coppie ordinate~$(2;3)$,~$(-1;4)$,~$(-3;-2)$, 
+  e~$(4;-3)$.
+
+  Nella figura~\ref{fig:puntineiquadranti} sono riportati i punti:~$A$ che è 
+  l'immagine della coppia~$(2;~3)$, $B$ immagine della coppia~$(-1;~4)$,
+  $C$ immagine della coppia~$(3;~-2)$ e $D$ della coppia~$(4;~-3)$.
+\end{esempio}
+
+\begin{esempio}
+ \label{ex:D.13}
+  Determiniamo l'immagine delle seguenti 
+  coppie:~$R(0;4)$, $S(0;-2)$, $H(-4;0)$, $K(3;0)$.
+
+  Osserviamo (figura~\ref{fig:puntisugliassi}) che il punto immagine dello zero 
+  sull'asse~$x$ coincide con~$O$, quindi la coppia~$(0;~4)$ sarà associata al 
+  punto~$R$ dell'asse~$y$ 
+  e la coppia~$(0;~-2)$ al punto~$S$ dello stesso asse. 
+  Analogamente le coppie~$(-4;~0)$ e~$(3;~0)$ sono associate rispettivamente 
+  ai punti~$H$ e~$K$ dell'asse~$x$.
+\end{esempio}
+ 
+\begin{inaccessibleblock}[Figura: TODO]
+ \begin{figure}[h]
+ \centering
+ \begin{minipage}[t]{.45\textwidth}
+  \centering\input{\folder lbr/fig017_puntineiquadranti.pgf}
+  \caption{Punti interni ai quadranti.}\label{fig:puntineiquadranti}
+ \end{minipage}\hfil
+ \begin{minipage}[t]{.45\textwidth}
+  \centering\input{\folder lbr/fig018_puntisugliassi.pgf}
+  \caption{Punti sugli assi.}\label{fig:puntisugliassi}
+ \end{minipage}\hfil
+\end{figure}
+\end{inaccessibleblock}
+
+\end{exrig}
+
+\section{Problemi nel piano cartesiano}
+\label{sec:05_problemipiano}
+
+\subsection{Punto medio di un segmento}
+
+Utilizzando i risultati ottenuti nel caso dei punti posti su un asse 
+cartesiano possiamo osservare che anche per quanto riguarda un segmento 
+posto nel piano le coordinate del punto medio sono le medie aritmetiche 
+delle coordinate degli estremi.
+
+Conoscendo le coordinate degli estremi~$A(x_A; y_A$ e~$B(x_B; y_B)$ 
+le coordinate del suo punto medio sono (figura~\ref{fig:puntomedio}):
+
+\begin{inaccessibleblock}[Figura: TODO]
+ \begin{figure}[h]
+ \centering
+ \begin{minipage}[]{.50\textwidth}
+  \centering\input{\folder lbr/fig019_puntomedio.pgf}
+  \caption{Il punto medio.}\label{fig:puntomedio}
+ \end{minipage}
+ \begin{minipage}[]{.40\textwidth}
+  \[x_{M}=\frac{x_{A}+x_{B}}{2};\, y_{M}=\frac{y_{A}+y_{B}}{2}.\]
+  o
+  \[M=\left(\dfrac{x_{A}+x_{B}}{2};\, y_{M}=\dfrac{y_{A}+y_{B}}{2} \right).\]
+ \end{minipage}
+\end{figure}
+\end{inaccessibleblock}
+
+\begin{exrig}
+ \begin{esempio}
+\label{ex:D.18}
+  In un piano cartesiano disegna i punti:~$A(-3; -2)$~e~$B(5; 7)$. Trova 
+  il punto medio usando il righello disegnalo e assegnagli l'etichetta ``M''.
+  Poi calcola le coordinate del punto medio con la formula precedente e 
+  controlla che le coordinate ottenute siano proprio quelle del punto trovato 
+  precedentemente.
+ \end{esempio}
+
+ \begin{esempio}
+  In un piano cartesiano disegna i punti:~$A(-9; 8)$~e~$M(-6; 7)$. 
+  Usando il righello trova il punto~$B$ in modo che~$M$ sia il punto medio 
+  del segmento~$AB$. Applica la formula precedente per verificare la 
+  correttezza di quanto trovato.
+ \end{esempio}
+\end{exrig}
+
+\subsection{Lunghezza di un segmento}
+
+Vogliamo ora determinare la misura~$\overline{AB}$ di un segmento~$AB$, 
+date le coordinate degli estremi.
+
+\begin{inaccessibleblock}[Figura: TODO]
+ \begin{figure}[h]
+ \centering
+ \begin{minipage}[t]{.45\textwidth}
+  \centering\input{\folder lbr/fig020_lungsegpar.pgf}
+  \caption{Lunghezza segmenti paralleli agli assi.}\label{fig:lungsegpar}
+ \end{minipage}\hfil
+ \begin{minipage}[t]{.45\textwidth}
+  \centering\input{\folder lbr/fig021_lungseg.pgf}
+  \caption{Lunghezza di un segmento.}\label{fig:lungseg}
+ \end{minipage}\hfil
+\end{figure}
+\end{inaccessibleblock}
+
+Possiamo distinguere due casi:
+
+\subsection*{Primo caso: segmenti paralleli agli assi} i due punti hanno la 
+stessa ascissa o la stessa ordinata (figura~\ref{fig:lungsegpar}). 
+È facile osservare in questo caso che il problema si riduce a quello analogo
+risolto per segmenti su un asse cartesiano. Se i due punti hanno la stessa 
+ordinata, la stessa~$y$:
+
+$\overline{AB} = x_B - x_A$.
+
+Se hanno la stessa ascissa, la stessa~$x$:
+
+$\overline{CD} = y_D - y_C$.
+
+\subsection*{Secondo caso: segmento qualunque} è questo il caso generale, 
+il segmento ha una 
+direzione diversa da quella degli assi coordinati (figura~\ref{fig:lungseg}).
+
+\emph{Dati}:~$E(x_E; y_E)$, $F(x_F;y_F)$.
+
+\emph{Obiettivo}:~$\overline{EF}$.
+
+\emph{Procedura risolutiva}: tracciando da~$E$ la parallela all'asse~$x$ 
+e da~$F$ la parallela all'asse~$y$ si determina il vertice~$G$ del triangolo 
+rettangolo~$EGF$ di cui~$EF$ è l'ipotenusa.
+Per il teorema di Pitagora si 
+ottiene:~$\overline{EF}=\sqrt{\overline{EG}^2 + \overline{GF}^2}=
+\sqrt{\left(x_E-x_G \right)^2+\left(y_G-y_F \right)^2}$. %----figura18
+
+Poiché $x_{G}=x_{F}$ e~$y_{G}=y_{E}$ sostituendo si ha:
+$\overline{AB}=\sqrt{\left(x_{E}-x_{F}\right)^{2}+\left(y_{E}-y_{F}\right)^{2}}$.
+
+In conclusione, la \emph{misura del segmento} $AB$, \emph{note le coordinate} 
+dei suoi estremi è:
+
+\[\overline{EF}=\sqrt{\left(x_{E}-x_{F}\right)^{2}+\left(y_{E}-y_{F}\right)^{2}}.\]
+
+
+\subsection{Area sottesa a un segmento}
+
+Dati gli estremi di un segmento trovare la superficie compresa tra il 
+segmento e l'asse~$x$. Partiamo da una situazione particolare:
+i punti~$A$~e~$B$ non appartengono all'asse~$x$ e il segmento~$AB$ non 
+è parallelo all'asse~$x$.
+
+\begin{center} \input{\folder lbr/fig022_areasottesa.pgf} \end{center}
+
+Che forma ha l'area sottesa a questo segmento? È un quadrilatero, ha solo due 
+lati paralleli ha due angoli retti... questa è la descrizione di un trapezio!
+Forse non hai mai disegnato un trapezio messo in questo modo. Puoi verificare 
+facilmente che è un trapezio, ti basta ruotare il quaderno do 90°. 
+L'area del trapezio è uguale alla somma delle basi per l'altezza diviso due:
+
+\[Area_{trapezio}= \frac{(B+b)h}{2}\]
+
+Ma quali sono le basi e quale è l'altezza? Nel trapezio le basi sono i due 
+lati paralleli e l'altezza è la distanza tra i due lati paralleli.
+Uno dei lati paralleli è~$AA'$ cioè l'ordinata di~$A$ (la~$y_A$) 
+e l'altro è~$BB'$ cioè l'ordinata di~$B$ (la~$y_B$).
+L'altezza del trapezio è la lunghezza del segmento~$A'B'$ 
+cioè~$x_B - x_A$.
+
+Mettendo assieme tutti gli ingredienti otteniamo che l'area sottesa al 
+segmento~$AB$ è:
+
+\[\mathcal{A}_{AB} = \frac{(y_B + y_A) (x_B - x_A)}{2}\]
+
+E se il segmento è messo in un altro modo?
+Anche limitandoci al primo quadrante possiamo osservare che ci sono svariati casi:
+
+\begin{center} \input{\folder lbr/fig023_areesottese.pgf} \end{center}
+
+L'area sottesa al segmento~$AB$ è un trapezio rettangolo, 
+l'area sottesa al segmento~$CD$ è un rettangolo, 
+l'area sottesa al segmento~$EF$ è un triangolo rettangolo.
+
+Nel paragrafo precedente abbiamo risolto il primo caso, quello del trapezio,
+dovremo ripetere tutti quei ragionamenti anche per gli altri due? No! 
+I matematici, che sono un po strani, ritengono che:
+
+\begin{itemize}
+ \item 
+  un triangolo rettangolo
+  non sia altro che un trapezio rettangolo con una base lunga zero;
+ \item 
+  un rettangolo
+  non sia altro che un trapezio rettangolo con le basi uguali.
+\end{itemize}
+
+A questo punto non dobbiamo preoccuparci di casi diversi, la formula trovata 
+per il trapezio rettangolo risolverà anche gli altri casi
+
+\begin{exrig}
+ \begin{esempio}
+\label{ex:D.18}
+  Dopo aver trovato le coordinate dei punti della figura precedente calcola
+  le aree sottese ai tre segmenti sia usando le formule della geometria
+  sia usando la formula dell'area sottesa e confronta i risultati.
+ \end{esempio}
+
+ \begin{esempio}
+  In un piano cartesiano disegna i punti:~$A(3; -2)$~e~$B(8; -6)$. 
+  Calcola l'area sottesa a questo segmento sia usando la formula 
+  dell'area del trapezio sia usando la formula dell'area sottesa...
+  Cosa puoi osservare?
+ \end{esempio}
+\end{exrig}
+
+Anche per le aree sottese abbiamo una situazione strana: in certi casi 
+l'area di una figura risulta negativa. Questo fatto può essere irritante, 
+ma in certi casi risulterà comodo.
+
+Ci sono certi segmenti che formano con l'asse~$x$ una figura con una 
+superficie diversa da zero ma che hanno area sottesa uguale a zero.
+Quando avviene questo?
+
+\subsection{Area di un triangolo}
+
+Date le coordinate dei vertici di un triangolo trova l'area della sua 
+superficie.
+
+\begin{inaccessibleblock}[Figura: TODO]
+ \begin{figure}[h]
+ \centering
+ \begin{minipage}[t]{.45\textwidth}
+  \centering\input{\folder lbr/fig024_triangoloerone.pgf}
+  \caption{Area con la formula di Erone.}\label{fig:triangoloerone}
+ \end{minipage}\hfil
+ \begin{minipage}[t]{.45\textwidth}
+  \centering\input{\folder lbr/fig025_triangolodifferenza.pgf}
+  \caption{Area come differenza di superfici.}\label{fig:triangolodifferenza}
+ \end{minipage}\hfil
+\end{figure}
+\end{inaccessibleblock}
+
+\subsection*{Formula di Erone}
+Se conosciamo le coordinate dei tre vertici possiamo trovare le lunghezze dei 
+tre lati e conoscendo le lunghezze dei lati di un triangolo possiamo trovare
+la sua area utilizzando la formula di Erone. Chiamando:~$a$,~$b$~e~$c$ i tre 
+lati e~$p$ il semiperimetro:
+
+\[\mathcal{A}_{triangolo} = \sqrt{p(p-a)(p-b)(p-c)}\]
+
+Ma spesso le lunghezze dei lati sono numeri approssimati e quindi la formula
+di Erone, già complicata di suo, risulta piuttosto scomoda.
+
+\subsection*{Differenza di superfici}
+Un altro metodo consiste nell'iscrivere il triangolo in un rettangolo, 
+trovare l'area del rettangolo e sottrarre da questa le aree dei tre triangoli 
+complementari.
+
+\[\mathcal{A}_{triangolo} = \mathcal{A}_{rettangolo}-\mathcal{A}_{tri1}
+                                                    -\mathcal{A}_{tri2}
+                                                    -\mathcal{A}_{tri3}\]
+
+\subsection*{Casi particolari}
+
+\begin{inaccessibleblock}[Figura: TODO]
+ \begin{figure}[h]
+ \centering
+ \begin{minipage}[t]{.45\textwidth}
+  \centering\input{\folder lbr/fig026_triangoloparallelox.pgf}
+  \caption{Area con la formula di Erone.}\label{fig:triangoloparallelox}
+ \end{minipage}\hfil
+ \begin{minipage}[t]{.45\textwidth}
+  \centering\input{\folder lbr/fig027_triangoloparalleloy.pgf}
+  \caption{Area come differenza di superfici.}\label{fig:triangoloparalleloy}
+ \end{minipage}\hfil
+\end{figure}
+\end{inaccessibleblock}
+
+Se il triangolo ha un lato parallelo ad uno degli assi allora è facile 
+calcolare l'altezza rispetto a questo lato e quindi si può usare la 
+solita formula:
+
+\[\mathcal{A}_{triangolo} = \frac{b \cdot h}{2}\]
+
+\begin{exrig}
+ Dopo aver trovato le coordinate dei vertici delle figure precedenti:
+
+ \begin{esempio}
+ \label{ex:D.18}
+  Con riferimento alla figura~\ref{fig:triangoloerone} calcola 
+  la lunghezza dei lati e l'area del triangolo con la formula di Erone.
+ \end{esempio}
+
+ \begin{esempio}
+  Con riferimento alla figura~\ref{fig:triangolodifferenza} calcola 
+  l'area del triangolo come differenza di aree.
+  Confronta poi il risultato con quello ottenuto nel calcolo precedente.
+ \end{esempio}
+
+ \begin{esempio}
+  Con riferimento alla figura~\ref{fig:triangoloparallelox} calcola 
+  l'area del triangolo in due modi diversi e confronta i risultati.
+ \end{esempio}
+
+ \begin{esempio}
+  Con riferimento alla figura~\ref{fig:triangoloparalleloy} calcola 
+  l'area del triangolo in due modi diversi e confronta i risultati.
+ \end{esempio}
+\end{exrig}
+
+% \newpage
+% \input{./02_01_pianocartesiano_ese}
+% \cleardoublepage

@@ -1,0 +1,34 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+%%%
+% Area sottesa a un segmento
+%%%%
+ 
+\begin{tikzpicture}[x=5mm, y=5mm, smooth]
+
+\clip (-1.5, -1.5) rectangle (10.9, 10.9);
+
+\coordinate (a) at (1, 3);
+\coordinate (xa) at (1, 0);
+\coordinate (ya) at (0, 3);
+\coordinate (b) at (7, 8);
+\coordinate (xb) at (7, 0);
+\coordinate (yb) at (0, 8);
+
+\fill [top color=green!30!black!20,bottom color=green!50!black!10] 
+ (a) -- (b) -- (xb) -- (xa) -- cycle;
+
+\input{\folder lbr/lib04_pc10.pgf}
+
+\draw [-] (a) -- (b);
+\filldraw (a) circle (1.5pt) node [below right] {A};
+\filldraw (b) circle (1.5pt) node [below right] {B};
+
+\begin{scope}[dotted]
+\draw [-] (a) -- (xa) node [below] {$A'$};
+\draw [-] (a) -- (ya) node [left] {$y_A$};
+\draw [-] (b) -- (xb) node [below] {$B'$};
+\draw [-] (b) -- (yb) node [left] {$y_B$};
+\end{scope}
+
+\end{tikzpicture}
