@@ -1,0 +1,45 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+%%%
+% Rapporto incrementale tra vari punti di una retta
+%%%%
+ 
+\begin{tikzpicture}[x=5mm, y=5mm, smooth]
+
+\clip (-5.3, -5.5) rectangle (5.7, 5.8);
+
+\input{\folder lbr/lib03_pc05.pgf}
+
+\coordinate (a0) at (-5, -7);
+\coordinate (a) at (-3, -4);
+\coordinate (b) at (-1, -1);
+\coordinate (c) at (1, 2);
+\coordinate (d) at (3, 5);
+\coordinate (d1) at (5, 8);
+
+\draw [-] [ultra thick, green!50!black] (a0) -- (d1);
+
+\draw[very thick, red!90!black]
+(d) -- node[fill=white, scale=.5] {$y_D - y_A$} (d |- a);
+\draw [red!90!black] (d |- a) -- +(0, -1.2);
+
+\draw[very thick,blue!90!black]
+(d |- a) -- node[below=12pt, xshift=0, fill=white, scale=.5] {$x_D - x_A$} (a);
+
+\draw[very thick,red!70!black]
+(c) -- node[fill=white, scale=.5] {$y_C - y_A$} (c |- a);
+\draw [red!70!black] (c |- a) -- +(0, -.8);
+\draw[very thick,blue!70!black]
+(c |- a) -- node[below=6pt, xshift=0, fill=white, scale=.5] {$x_C - x_A$} (a);
+
+\draw[very thick,red!50!black]
+(b) -- node[fill=white, scale=.5] {$y_B - y_A$} (b |- a);
+\draw [red!50!black] (b |- a) -- +(0, -.4);
+\draw[very thick,blue!50!black]
+(b |- a) -- node[below=0pt, xshift=0, fill=white, scale=.5] {$x_B - x_A$} (a);
+
+% Con etichetta
+\foreach \p/\lab in {a/A, b/B, c/C, d/D}
+ \filldraw [red!50!black] (\p) circle (1.5pt) node[above left] {\lab};
+
+\end{tikzpicture}
