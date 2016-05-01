@@ -48,8 +48,8 @@ il coordinatore del progetto all'indirizzo sotto riportato.
 Dalla sezione Download 
 (icona a nuvoletta, barra a sinistra ultima in basso)
 si possono scaricare sia i testi in formato pdf (quando pronti)
-sia tutto il sorgente in formato Latex per modificare sul proprio
-computer e testo e compilarne il *.pdf".
+sia tutto il sorgente in formato Latex per modificare e compilare
+un testo sul proprio computer.
 
 ## Link
 
