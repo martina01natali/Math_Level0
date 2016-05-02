@@ -25,6 +25,8 @@ import os
 def topdf(filename):
     """Compile with: pdflatex <filename>."""
     os.system('pdflatex ' + filename)
+    os.system('pdflatex ' + filename)
+    os.system('make clean')
 
 def main(argv):
     inputfile = ''
