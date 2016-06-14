@@ -24,8 +24,8 @@ import os
 
 def topdf(filename):
     """Compile with: pdflatex <filename>."""
-    os.system('pdflatex ' + filename)
-    os.system('pdflatex ' + filename)
+    os.system('pdflatex --shell-escape ' + filename)
+    os.system('pdflatex --shell-escape ' + filename)
     os.system('make clean')
 
 def main(argv):

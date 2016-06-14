@@ -6,9 +6,9 @@
 # (c) 2013 Dimitrios Vrettos - d.vrettos@gmail.com
 # v1.0
 #
-NAME = m_d_1_les
+NAME = m_d_les_3
 
-SHORT_NAME = m_d_1_les
+SHORT_NAME = m_d_les_3
 
 TEX = $(NAME).tex
 
