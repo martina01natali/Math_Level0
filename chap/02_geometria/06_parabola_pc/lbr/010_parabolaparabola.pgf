@@ -1,21 +1,15 @@
 % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
 %%%
-% Varie prove per il disegno di una parabola nel piano cartesiano.
+% Intersezione tra due parabole.
 %%%%
-%  
-\begin{tikzpicture}[x=5mm, y=5mm, smooth, color=Blue!50!black]]
 
-\tkzInit[xmin=-10.5,xmax=+10.5,ymin=-10.5,ymax=+15.5]
-
-\clip (-3.3, -6.3) rectangle (5.7, 10.7);
-
-\input{\folder lbr/lib_pc05_10.pgf}
-
-\tkzFct[domain=-10:+10, ultra thick]{-x*x+2*x+8}
-\tkzFct[domain=-10:+10, ultra thick]{5./4.*x*x-19./4.*x-1}
-
+\disegno{
+\rcom{-3}{+5}{-6}{+10}{gray!50, very thin, step=1}
+\tkzInit[xmin=-3.3,xmax=+5.3,ymin=-6.3,ymax=+10.3]
+\tkzFct[domain=-3.3:+5.3, ultra thick, color=Blue!50!black]{-x*x+2*x+8}
+\tkzFct[domain=-3.3:+5.3, ultra thick, color=Red!50!black]{5./4.*x*x-19./4.*x-1}
 \filldraw (-1, +5) circle (1.5pt);
 \filldraw (+4, 0) circle (1.5pt);
 
-\end{tikzpicture}
+}

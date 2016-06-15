@@ -1,24 +1,16 @@
 % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
 %%%
-% Varie prove per il disegno di una parabola nel piano cartesiano.
-%%%%
-%  
-\begin{tikzpicture}[x=5mm, y=5mm, smooth, color=Blue!50!black]]
+% Parabola e tangenti.
+%%
 
-\tkzInit[xmin=-10.5,xmax=+10.5,ymin=-10.5,ymax=+15.5]
-
-\clip (-10.3, -6.3) rectangle (10.7, 10.7);
-
-\input{\folder lbr/lib_pc10_10.pgf}
-
-\tkzFct[domain=-10:+10, ultra thick]{-1./4.*x*x+2*x+1}
-
-\tkzFct[domain=-10:+10, ultra thick, color=Green!50!black]{x+2}
-
-\tkzFct[domain=-10:+10, ultra thick, color=Green!50!black]{3*x+2}
-
-\tkzFct[domain=-10:+10, ultra thick, color=Red!50!black]{-2.*x+17}
+\disegno{
+\rcom{-5}{+10}{-6}{+11}{gray!50, very thin, step=1}
+\tkzInit[xmin=-5.3,xmax=+10.3,ymin=-6.3,ymax=+11.3]
+\tkzFct[domain=-10:+10.3, ultra thick, color=Blue!50!black]{-1./4.*x*x+2*x+1}
+\tkzFct[domain=-10:+10.3, ultra thick, color=Green!50!black]{x+2}
+\tkzFct[domain=-10:+10.3, ultra thick, color=Green!50!black]{3*x+2}
+\tkzFct[domain=-10:+10.3, ultra thick, color=Red!50!black]{-2.*x+17}
 
 \begin{scope}[color=Green!50!black]
 \coordinate (a) at (0, +2);
@@ -36,9 +28,7 @@
 \coordinate (b) at (+5, -2);
 \filldraw (b) circle (1.5pt); 
 \node at (b) [xshift=+7pt] {$C$};
-
 \filldraw (+2, +4) circle (1.5pt); 
 \filldraw (-2, -4) circle (1.5pt); 
 \end{scope}
-
-\end{tikzpicture}
+}

@@ -1,33 +1,27 @@
 % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
 %%%
-% Varie prove per il disegno di una parabola nel piano cartesiano.
+% Parabole con diversi coefficienti del termine di 2° grado.
 %%%%
-%  
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
 
-\tkzInit[xmin=-10.5,xmax=+10.5,ymin=-10.5,ymax=+15.5]
-
-\clip (-10.3, -10.3) rectangle (10.7, 10.7);
-
-\input{\folder lbr/lib_pc10_10.pgf}
-
-\tkzFct[domain=-10:+10, ultra thick, color=Maroon!50!black]{2*x*x+x+2}
-% \tkzFct[domain=-10:+10, ultra thick, color=Maroon!50!black]{x*x+x+2}
-\tkzFct[domain=-10:+10, ultra thick, color=Maroon!50!black]{0.5*x*x+x+2}
-\tkzFct[domain=-10:+10, ultra thick, color=Maroon!50!black]{0.1*x*x+x+2}
-\tkzFct[domain=-10:+10, ultra thick, color=Maroon!50!black]{0.01*x*x+x+2}
-\tkzFct[domain=-10:+10, ultra thick, color=Green!50!black]{-0.01*x*x+x+2}
-\tkzFct[domain=-10:+10, ultra thick, color=Green!50!black]{-0.1*x*x+x+2}
-\tkzFct[domain=-10:+10, ultra thick, color=Green!50!black]{-0.5*x*x+x+2}
-% \tkzFct[domain=-10:+10, ultra thick, color=Green!50!black]{-x*x+x+2}
-\tkzFct[domain=-10:+10, ultra thick, color=Green!50!black]{-2*x*x+x+2}
-\node [black] at (-1.5, 9.5) {a};
-\node [black] at (-4, 8.5) {b};
-\node [black] at (-9, 2) {c};
-\node [black] at (-9, -5.5) {d};
-\node [black] at (-8, -7.5) {e};
-\node [black] at (-5.6, -8.5) {f};
-\node [black] at (-3.5, -9.5) {g};
-\node [black] at (-1.5, -9.5) {h};
-\end{tikzpicture}
+\disegno{
+\rcom{-10}{+10}{-10}{10}{gray!50, very thin, step=1}
+\begin{scope}[domain=-10:+10, ultra thick, color=Maroon!50!black]
+\tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
+\tkzFct{2*x*x+x+2}
+\tkzFct{0.5*x*x+x+2}
+\tkzFct{0.1*x*x+x+2}
+\tkzFct{0.01*x*x+x+2}
+\begin{scope}[color=Green!50!black]
+\tkzFct{-0.01*x*x+x+2}
+\tkzFct{-0.1*x*x+x+2}
+\tkzFct{-0.5*x*x+x+2}
+\tkzFct{-2*x*x+x+2}
+\end{scope}
+\end{scope}
+\begin{scope}[color=black]
+\draw (-1.5, 9.5) node {a} (-4, 8.5) node {b} (-9, 2) node {c} 
+      (-9, -5.5) node {d} (-8, -7.5) node {e} (-5.6, -8.5) node {f}
+      (-3.5, -9.5) node {g} (-1.5, -9.5) node {h};
+\end{scope}
+}

@@ -3,14 +3,12 @@
 %%%
 % Varie prove per il disegno di una parabola nel piano cartesiano.
 %%%%
-%  
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
 
+\disegno{
 \tkzInit[xmin=-5.5,xmax=+5.5,ymin=-5.5,ymax=+15.5]
 
 \clip (-5.3, -1.3) rectangle (5.7, 13.8);
-
-\input{\folder lbr/lib_pc05_13.pgf}
+\rcom{-5}{+5}{-1}{13}{gray!50, very thin, step=1}
 
 \coordinate (a0) at (0, 0); \coordinate (a0p) at (1, 0); 
 \coordinate (a1) at (1, 1); \coordinate (a1p) at (2, 1);
@@ -70,5 +68,4 @@
 \draw node [left, scale=.7, xshift=+9pt] at ($ (a3)!.5!(a2p) $) {$+5$};
 
 \end{scope}
-
-\end{tikzpicture}
+}

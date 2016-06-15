@@ -1,21 +1,14 @@
 % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
 %%%
-% Varie prove per il disegno di una parabola nel piano cartesiano.
+% Parabola per tre punti.
 %%%%
-%  
-\begin{tikzpicture}[x=5mm, y=5mm, smooth, color=Blue!50!black]]
 
-\tkzInit[xmin=-10.5,xmax=+10.5,ymin=-10.5,ymax=+15.5]
-
-\clip (-5.3, -9.3) rectangle (5.7, 10.7);
-
-\input{\folder lbr/lib_pc05_10.pgf}
-
-\tkzFct[domain=-10:+10, ultra thick]{1./2.*x*x+2*x-7}
-
-\filldraw (-4, -7) circle (1.5pt);
-\filldraw (+2, -1) circle (1.5pt);
-\filldraw (+4, +9) circle (1.5pt);
-
-\end{tikzpicture}
+\disegno{
+\rcom{-5}{+5}{-9}{+10}{gray!50, very thin, step=1}
+\tkzInit[xmin=-5.3,xmax=+5.3,ymin=-9.3,ymax=+10.3]
+\tkzFct[domain=-10:+10, ultra thick, color=Blue!50!black]{1./2.*x*x+2*x-7}
+\filldraw (-4, -7) circle (1.5pt) node [xshift=-9pt] {$P_0$};
+\filldraw (+2, -1) circle (1.5pt) node [xshift=9pt] {$P_1$};
+\filldraw (+4, +9) circle (1.5pt) node [xshift=9pt] {$P_2$};
+}
