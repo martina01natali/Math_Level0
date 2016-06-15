@@ -1,0 +1,269 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+% 
+% Tutti i grafici per il capitolo relativo alle parabole
+%
+
+\input{lbr/definizioni_tikz}
+
+\newcommand{\puntia}{% 
+    % Alcuni punti di una parabola.
+    \disegno{
+    \rcom{-5}{+5}{-4}{13}{gray!50, very thin, step=1}
+    \foreach \pi in {
+    % (-4, 22), 
+    (-3, 13), (-2, 6), (-1, 1), 
+    (0, -2), (1, -3), (2, -2), (3, 1), (4, 6), (5, 13)}
+    \filldraw [Maroon!50!black] \pi circle (1.5pt);
+    }
+}
+
+\newcommand{\puntib}{% 
+    % Altri punti di una parabola.
+    \disegno{
+    \rcom{-5}{+5}{-4}{13}{gray!50, very thin, step=1}
+    \foreach \pi in {
+    (-3, 13), (-2, 6), (-1, 1), (0, -2), (1, -3), (2, -2), (3, 1), 
+    (4, 6), (5, 13),
+    (-2.5, 9.25), (-1.5, 3.25), (-0.5, -0.75), (0.5, -2.75), 
+    (1.5, -2.75), (2.5, -0.75), (3.5, 3.25), (4.5, 9.25) 
+    }
+    \filldraw [Maroon!50!black] \pi circle (1.5pt);
+    }
+}
+
+\newcommand{\graficotrinomio}{% 
+    % Grafico di un trinomio di secondo grado.
+    \disegno{
+    \rcom{-5}{+5}{-4}{13}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-4.3,ymax=+13.3]
+    \tkzFct[domain=-5:+6, ultra thick, color=Maroon!50!black]{x*x-2*x-2}
+    }
+}
+
+\newcommand{\coefficientea}{% 
+    % Parabole con diversi coefficienti del termine di 2° grado.
+    \disegno{
+    \rcom{-10}{+10}{-10}{10}{gray!50, very thin, step=1}
+    \begin{scope}[domain=-10:+10, ultra thick, color=Maroon!50!black]
+    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
+    \tkzFct{2*x*x+x+2}
+    \tkzFct{0.5*x*x+x+2}
+    \tkzFct{0.1*x*x+x+2}
+    \tkzFct{0.01*x*x+x+2}
+    \begin{scope}[color=Green!50!black]
+    \tkzFct{-0.01*x*x+x+2}
+    \tkzFct{-0.1*x*x+x+2}
+    \tkzFct{-0.5*x*x+x+2}
+    \tkzFct{-2*x*x+x+2}
+    \end{scope}
+    \end{scope}
+    \begin{scope}[color=black]
+    \draw (-1.5, 9.5) node {a} (-4, 8.5) node {b} (-9, 2) node {c} 
+        (-9, -5.5) node {d} (-8, -7.5) node {e} (-5.6, -8.5) node {f}
+        (-3.5, -9.5) node {g} (-1.5, -9.5) node {h};
+    \end{scope}
+    }
+}
+
+\newcommand{\quadrati}{% 
+    % Numeri quadrati
+    \disegno{
+    \draw[gray!50, very thin, step=1] (-1, 1) grid (27, 7); % Griglia
+    \draw (-.5, 0) node{0};
+    \foreach \n in {1, ..., 4} {
+        \pgfmathparse{\n * \n / 2 + \n * 3 / 2}
+        \xdef\corner{\pgfmathresult}
+        \fill[fill=green,fill opacity=0.3] (\corner, \n + 1) --
+                                            (\corner - \n, \n + 1) --
+                                            (\corner - \n, \n) --
+                                            (\corner - 1, \n) --
+                                            (\corner - 1, 1) --
+                                            (\corner, 1) -- cycle; 
+        \foreach \j in {1, ..., \n} {
+            \foreach \i in {1, ..., \n} { 
+                \fill[blue!40!white] (\n * \n / 2 + \n / 2 -.5 + \i, \j+.5) 
+                                    circle (.4);
+            }
+        }
+    }
+    \foreach \n in {1, ..., 6} {
+        \pgfmathparse{int(\n * \n)}
+        \xdef\square{\pgfmathresult}
+        \draw (\n * \n / 2 + \n  , 0) node{\square};
+    }
+    \draw (.5, -1) node{1} (2.6  , -1) node{3} (5.9  , -1) node{5}
+        (10, -1.3) node{\ldots} (15, -1.3) node{\ldots}
+        (21, -1.3) node{\ldots} (26, -1.3) node{\ldots};
+    }
+}
+
+\newcommand{\disrapido}{% 
+    % Metodo rapido per il disegno di parabole.
+    \disegno{
+    \tkzInit[xmin=-5.5,xmax=+5.5,ymin=-5.5,ymax=+15.5]
+
+    \clip (-5.3, -1.3) rectangle (5.7, 13.8);
+    \rcom{-5}{+5}{-1}{13}{gray!50, very thin, step=1}
+
+    \coordinate (a0) at (0, 0); \coordinate (a0p) at (1, 0); 
+    \coordinate (a1) at (1, 1); \coordinate (a1p) at (2, 1);
+    \coordinate (a2) at (2, 4); \coordinate (a2p) at (3, 4);
+    \coordinate (a3) at (3, 9);
+    \coordinate (i0m) at (-1, 0);
+    \coordinate (i1) at (-1, 1); \coordinate (i1m) at (-2, 1);
+    \coordinate (i2) at (-2, 4); \coordinate (i2m) at (-3, 4);
+    \coordinate (i3) at (-3, 9);
+
+    \begin{scope}[red!50!black]
+    % Senza etichetta
+    \foreach \p in {a0, a1, a2, a3, i1, i2, i3}
+    \filldraw (\p) circle (1.5pt);
+
+    \tkzFct[domain=-5:+5, ultra thick]{x*x}
+
+    \draw (i3) 
+    .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+    .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+    .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+    .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+    .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+    .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+    .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+    .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+    .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+    .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+    .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+    .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+    
+    .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+    .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+    .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+    .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+    .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+    .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+    .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+    .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+    .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+    .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+    .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+    .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1);
+
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (a0)!.5!(i0m) $) {$-1$};
+    \draw node [left, scale=.7, xshift=+10pt] at ($ (i1)!.5!(i0m) $) {$+1$};
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (i2m)!.5!(i2m) $) {$-1$};
+    \draw node [left, scale=.7, xshift=+10pt] at ($ (i2)!.5!(i1m) $) {$+3$};
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (i1m)!.5!(i1m) $) {$-1$};
+    \draw node [left, scale=.7, xshift=+10pt] at ($ (i3)!.5!(i2m) $) {$+5$};
+
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (a0)!.5!(a0p) $) {$+1$};
+    \draw node [left, scale=.7, xshift=+9pt] at ($ (a1)!.5!(a0p) $) {$+1$};
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (a2p)!.5!(a2p) $) {$+1$};
+    \draw node [left, scale=.7, xshift=+9pt] at ($ (a2)!.5!(a1p) $) {$+3$};
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (a1p)!.5!(a1p) $) {$+1$};
+    \draw node [left, scale=.7, xshift=+9pt] at ($ (a3)!.5!(a2p) $) {$+5$};
+
+    \end{scope}
+    }
+}
+
+\newcommand{\piancart}{% 
+    % Piano cartesiano  per il disegno di alcune parabole
+    \disegno{
+    \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
+
+    % \tkzInit[xmin=-10.5,xmax=+10.5,ymin=-10.5,ymax=+10.5]
+    % \tkzFct[domain=-10:+10, ultra thick, color=Maroon!50!black]{-x*x}
+    % \tkzFct[domain=-10:+10, ultra thick, color=Maroon!50!black]{-0.5*x*x+2*x+8}
+    % \tkzFct[domain=-10:+10, ultra thick, color=Maroon!50!black]{2*x*x+24*x+64}
+    }
+}
+
+\newcommand{\parabolaerette}{% 
+    % Una parabola e tre rette nel piano cartesiano.
+    \disegno{
+    \rcom{-7}{+5}{-7}{+10}{gray!50, very thin, step=1}
+
+    \tkzInit[xmin=-7.3,xmax=+5.7,ymin=-7.5,ymax=+10.5]
+
+    \begin{scope}[color=Red!50!black]
+    \tkzFct[domain=-10:+10, ultra thick]{-x*x+4}
+    \node at (2.5, -5.3) {p};
+    \end{scope}
+    \begin{scope}[color=Blue!50!black]
+    \tkzFct[domain=-10:+10, ultra thick]{2*x+9}
+    \tkzFct[domain=-10:+10, ultra thick]{2*x+5}
+    \tkzFct[domain=-10:+10, ultra thick]{2*x+1}
+    \node at (-6.2, -2.3) {r};
+    \node at (-5.5, -5.3) {t};
+    \node at (-4.2, -6.5) {s};
+    \end{scope}
+    }
+}
+
+\newcommand{\parabolaetangenti}{% 
+    % Parabola e tangenti.
+    \disegno{
+    \rcom{-5}{+10}{-6}{+11}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-5.3,xmax=+10.3,ymin=-6.3,ymax=+11.3]
+    \tkzFct[domain=-10:+10.3, ultra thick, color=Blue!50!black]{-1./4.*x*x+2*x+1}
+    \tkzFct[domain=-10:+10.3, ultra thick, color=Green!50!black]{x+2}
+    \tkzFct[domain=-10:+10.3, ultra thick, color=Green!50!black]{3*x+2}
+    \tkzFct[domain=-10:+10.3, ultra thick, color=Red!50!black]{-2.*x+17}
+
+    \begin{scope}[color=Green!50!black]
+    \coordinate (a) at (0, +2);
+    \filldraw  (a) circle (1.5pt); 
+    \node at (a) [xshift=-9pt] {$A$};
+    \end{scope}
+
+    \begin{scope}[color=Red!50!black]
+    \coordinate (b) at (+8, +1);
+    \filldraw (b) circle (1.5pt); 
+    \node at (b) [xshift=+7pt] {$B$};
+    \end{scope}
+
+    \begin{scope}[color=Blue!50!black]
+    \coordinate (b) at (+5, -2);
+    \filldraw (b) circle (1.5pt); 
+    \node at (b) [xshift=+7pt] {$C$};
+    \filldraw (+2, +4) circle (1.5pt); 
+    \filldraw (-2, -4) circle (1.5pt); 
+    \end{scope}
+    }
+}
+
+\newcommand{\intersezioniparabole}{% 
+    % Intersezione tra due parabole.
+    \disegno{
+    \rcom{-3}{+5}{-6}{+10}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-3.3,xmax=+5.3,ymin=-6.3,ymax=+10.3]
+    \tkzFct[domain=-3.3:+5.3, ultra thick, color=Blue!50!black]{-x*x+2*x+8}
+    \tkzFct[domain=-3.3:+5.3, ultra thick, color=Red!50!black]{5./4.*x*x-19./4.*x-1}
+    \filldraw (-1, +5) circle (1.5pt) node [xshift=-9pt] {$I_0$};
+    \filldraw (+4, 0) circle (1.5pt) 
+        node [xshift=9pt, yshift=6pt] {$I_1$};
+    }
+}
+
+\newcommand{\parabolapertrepunti}{% 
+    % Parabola per tre punti.
+    \disegno{
+    \rcom{-5}{+5}{-9}{+10}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-9.3,ymax=+10.3]
+    \tkzFct[domain=-10:+10, ultra thick, color=Blue!50!black]{1./2.*x*x+2*x-7}
+    \filldraw (-4, -7) circle (1.5pt) node [xshift=-9pt] {$P_0$};
+    \filldraw (+2, -1) circle (1.5pt) node [xshift=9pt] {$P_1$};
+    \filldraw (+4, +9) circle (1.5pt) node [xshift=9pt] {$P_2$};
+    }
+}
+
+\newcommand{\parabolaverticepunto}{% 
+    % Equazione della parabola dati vertice e punto.
+    \disegno{
+    \rcom{-1}{+10}{-6}{+8}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-1.3,xmax=+10.3,ymin=-6.3,ymax=+8.3]
+    \tkzFct[domain=-10:+10, ultra thick, color=Blue!50!black]{-1./3.*x*x+2*x+4}
+    \filldraw (+3, +7) circle (1.5pt) node [yshift=9pt] {$V$};
+    \filldraw (+9, -5) circle (1.5pt) node [xshift=9pt] {$P$};
+    }
+}
