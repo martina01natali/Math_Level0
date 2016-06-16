@@ -1,0 +1,48 @@
+% Copyright (c) 2015 Daniele Masini - d.masini.it@gmail.com
+
+\begin{tikzpicture}[scale=1,font=\small]
+\usetikzlibrary{calc}
+
+
+\begin{scope}
+\draw[fill] (0,0.2) circle (1pt) node[above] {$A$};
+\draw[fill] (1.5,1) circle (1pt) node[above] {$B$};
+\draw[fill] (1,-0.3) circle (1pt) node[above] {$C$};
+\node at(.75,-1.2){punti};
+\end{scope}
+
+\begin{scope}[xshift=2.5cm]
+\coordinate (d) at (0,0);
+\path (d) -- +(20:1) coordinate (e);
+\path (d) -- +(20:3) coordinate (f);
+\path (d) -- +(20:4) coordinate (g);
+\draw[dashed] (d) -- (e);
+\draw[dashed] (f) -- (g);
+\draw (e) -- node[above] {$r$} (f);
+
+\coordinate (d) at (0.5,-.7);
+\path (d) -- +(30:1) coordinate (e);
+\path (d) -- +(30:3) coordinate (f);
+\path (d) -- +(30:4) coordinate (g);
+
+\draw[dashed] (d) -- (e);
+\draw[dashed] (f) -- (g);
+\draw (e) -- node[below] {$s$} (f);
+
+\node at(2.1,-1.2){rette};
+\end{scope}
+
+
+\begin{scope}[xshift=4cm]
+\coordinate (h) at (3,-0.75);
+\path (h) -- +(60:2.2) coordinate (i);
+\path (i) -- +(0:3) coordinate (l);
+\path (h) -- +(0:3) coordinate (m);
+\draw[fill=blue!10] (h)--(i)--(l)--(m)--cycle;
+\node at(4.7,-1.2){piano};
+\node at(6.5,.9){$\pi$};
+
+\end{scope}
+
+
+\end{tikzpicture}

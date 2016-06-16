@@ -1,0 +1,24 @@
+% Copyright (c) 2015 Daniele Masini - d.masini.it@gmail.com
+
+\begin{tikzpicture}[scale=.7,font=\small]
+\usetikzlibrary{calc,intersections}
+
+\begin{scope}
+\pgfmathsetmacro{\raggio}{1.7}
+\clip (-\raggio-0.1,-\raggio-0.15) rectangle (2.9,\raggio+.4);
+\coordinate (o) at (0,0);
+
+\draw[name path=Circle1, thick] (o) circle (\raggio);
+\draw[fill] (o) circle (1.2pt) node[left] {$O$};
+
+\coordinate (r1) at (\raggio,1.8);
+\coordinate (r2) at (\raggio,-1.8);
+
+\draw[name path=Retta, thick] (r1) -- (r2);
+
+\draw[thick] (r1) node[right] {$m$} -- (r2);
+\draw[blue] (o) -- node[black, above, midway, sloped] {$d=r$} ($(r1)!(o)!(r2)$) node[black, right] {$H$};
+
+\end{scope}
+
+\end{tikzpicture}
