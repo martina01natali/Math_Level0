@@ -32,6 +32,14 @@
   \include{\folder #2}
 }
 
+% Crea un nuova parte di intestazione
+\newcommand{\intestazione}[2]{
+  \renewcommand{\folder}{#1}
+  \graphicspath{{\folder}}
+  \include{\folder #2}
+  \cleardoublepage
+}
+
 % Crea un nuovo capitolo
 \newcommand{\capitolo}[2]{
   \renewcommand{\folder}{#1}
