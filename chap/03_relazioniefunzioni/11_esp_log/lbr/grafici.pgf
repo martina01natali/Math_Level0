@@ -94,6 +94,19 @@
     }
 }
 
+\newcommand{\dissolincl}[2]{% 
+    % Grafico di un trinomio di secondo grado.
+    \def \finoa{#1}
+    \def \lab{#2}
+    \disegno{\coordinate (a) at (0, 0);
+    \coordinate (b) at (\finoa, 0);
+    \assex{-6}{+6}
+    \node [above, color=Black] at (0, +.2) {\lab};
+    \draw [-, decorate, decoration=snake, blue, thick] (a) -- (b);
+    \draw[fill, blue] (a) circle (3pt);
+    }
+}
+
 \newcommand{\piancart}{% 
     % Piano cartesiano  per il disegno di alcune parabole
     \disegno{
