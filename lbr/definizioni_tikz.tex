@@ -4,21 +4,25 @@
 %--------------------------
 % Inizializza Tikz con unità di misura 5mm, e realizza un disegno:
 \newcommand{\disegno}[1]{
+  % Esempio di chiamata:
+  %% 
 \begin{tikzpicture}[x=5mm, y=5mm, smooth]
   #1
 \end{tikzpicture}
 }
 
 \newcommand{\vettoreNOTEXTdraw}[3]{% Disegna un vettore.
+  % Esempio di chiamata:
+  %% 
   \def \inizio{#1}
   \def \fine{#2}
   \def \parametri{#3}
   \draw [#3] [->] (\inizio) --++ (\fine);
 }
-% Esempio
-% 
 
 \newcommand{\vettoredraw}[4]{% Disegna un vettore con un nome.
+  % Esempio di chiamata:
+  %% 
   \def \inizio{#1}
   \def \fine{#2}
   \def \etichetta{#3}
@@ -26,10 +30,10 @@
   \coordinate [label=$\Vec{\etichetta}$] (v) at ($((\inizio)+0.5*(\fine)$);
   \draw [#4] [->] (\inizio) --++ (\fine);
 }
-% Esempio
-% 
 
 \newcommand{\vettoreABdraw}[5]{% Disegna un vettore con un nome.
+  % Esempio di chiamata:
+  %% 
   \def \etichettainizio{#1}
   \def \inizio{#2}
   \def \etichettafine{#3}
@@ -41,10 +45,18 @@
   \coordinate [label=$\etichettafine$] (B) at (\fine);
   \draw [#5] [->] (\inizio) -- (\fine);
 }
-% Esempio
-% 
+
+\newcommand{\assex}[2]{% Asse x.
+  % Esempio di chiamata:
+  %% \disegno{\assex{-7}{+7}}
+  \def \xmi{#1}
+  \def \xma{#2}
+\draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
+\node [below] at (\xma, 0)  {$x$};
+}
 
 \newcommand{\rcom}[5]{% Riferimento Cartesiano Ortogonale Monometrico: x-y.
+  % Esempio di chiamata:
   %% \disegno{\RCOM{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}
 % \begin{tikzpicture}[x=5mm, y=5mm, smooth]
   \def \xmi{#1}
@@ -77,6 +89,7 @@
 % 
 
 \newcommand{\rcomvario}[7]{% Rif. Cart. Ort. Mon.: v_ind-v_dip.
+  % Esempio di chiamata:
   %% \disegno{\RCOMvario{0}{6}{0}{6}{gray!50, very thin, step=1}{t}{v}}
   \def \xmi{#1}
   \def \xma{#2}
@@ -91,10 +104,10 @@
   \coordinate [label=$\vdip$] (y) at (0, \yma);     
   \draw [-{Stealth[length=2mm, open, round]}] (0, \ymi) -- (0, \yma);
 }
-Esempio
-
 
 \newcommand{\testodraw}[3]{% Scrive un testo.
+  % Esempio di chiamata:
+  %% 
 	\def \testo{#1}
 	\def \posizione{#2}
 	\def \parametri{#3}
@@ -104,16 +117,18 @@ Esempio
 % 
 
 \newcommand{\angolodraw}[4]{% Disegna un arco.
+  % Esempio di chiamata:
+  %% 
 	\def \centro{#1}
 	\def \angoloi{#2}
 	\def \raggio{#3}
 	\def \angolof{#4}
 	\draw (\centro) ++(\angoloi:\angolof) arc (\angoloi:\raggio:\angolof);
 }
-% Esempio
-% 
 
 \newcommand{\molla}[4]{% Disegna una molla.
+  % Esempio di chiamata:
+  %% 
 	\def \posizione{#1}
 	\def \lunghezza{#2}
 	\def \ampiezza{#3}
@@ -124,5 +139,3 @@ Esempio
 	shift={(\posizione)}] 
 	({\lunghezza*0.0001388*\t}, {\ampiezza*(sin(\t)^2-0.5)});
 }
-% Esempio
-% 
