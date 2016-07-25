@@ -161,48 +161,8 @@
     }
 }
 
-
-%%%
-% Da portare nella libreria generale
-%%%%
-
-\newcommand{\disfratta}{% 
-  % Studio dei segni di una frazione.
-  \disegno{
-    \segnitreassiduepunti{5}{1.2}
-                         {\(8x-1\)}{\(x+1\)}{\(f(x)\)}
-                         {\(-1\)}{\(\frac{1}{8}\)}
-    \def \posx{3}
-    \def \posy{.5}
-    \draw (-\posx, \posy) node {\(+\)} (0, \posy) node {\(+\)} 
-    (+\posx, \posy) node {\(-\)};
-    \cerchietto{5/3}{\posy}
-    \def \posy{-.7}
-    \draw (-\posx, \posy) node {\(-\)} (0, \posy) node {\(+\)} 
-    (+\posx, \posy) node {\(+\)};
-    \crocetta{-5/3}{\posy}
-    \def \posy{-1.9}
-    \draw (-\posx, \posy) node {\(-\)} (0, \posy) node {\(+\)} 
-    (+\posx, \posy) node {\(+\)};
-    \crocetta{-5/3}{\posy}
-    \cerchietto{5/3}{\posy}
-    \def \posy{-2.4}
-    \coordinate (a) at (-5, \posy);
-    \coordinate (b) at (-5/3, \posy);
-    \coordinate (c) at (+5/3, \posy);
-    \coordinate (d) at (+5, \posy);
-    \begin{scope}[blue,thick]
-      \draw [-,decorate, decoration=snake] (a) -- (b);
-      \draw[fill=white] (b) circle (2pt);
-      \draw [-,decorate, decoration=snake] (c) -- (d);
-      \draw[fill] (c) circle (2pt);
-    \end{scope}
-
-  }
-}
-
-\newcommand{\dissistema}{% 
-    % Sistema di disequazioni -1 < x < 2/7 e ( x<-1 o x>= 1/8)
+\newcommand{\dissistemaa}{% 
+    % Sistema di disequazioni -1 < x < 2/7 e x>= 1/8
   \disegno{
     \sistematreassitrepunti{5}{1.2}
                            {\(D_1\)}{\(D_2\)}{\(D_1 \wedge D_2\)}
@@ -214,8 +174,8 @@
       \draw[fill=white] (-\posx, \posy) circle (2pt);
       \draw[fill=white] (+\posx, \posy) circle (2pt);
     \def \posy{-1.2}
-      \draw [-,decorate, decoration=snake] (-5, \posy) -- (-\posx, \posy);
-      \draw[fill=white] (-\posx, \posy) circle (2pt);
+%       \draw [-,decorate, decoration=snake] (-5, \posy) -- (-\posx, \posy);
+%       \draw[fill=white] (-\posx, \posy) circle (2pt);
       \draw [-,decorate, decoration=snake] (0, \posy) -- (+5, \posy);
       \draw[fill] (0, \posy) circle (2pt);
     \def \posy{-2.4}
@@ -226,4 +186,66 @@
 
   }
 }
+
+
+% \newcommand{\disfratta}{% 
+%   % Studio dei segni di una frazione.
+%   \disegno{
+%     \segnitreassiduepunti{5}{1.2}
+%                          {\(8x-1\)}{\(x+1\)}{\(f(x)\)}
+%                          {\(-1\)}{\(\frac{1}{8}\)}
+%     \def \posx{3}
+%     \def \posy{.5}
+%     \draw (-\posx, \posy) node {\(+\)} (0, \posy) node {\(+\)} 
+%     (+\posx, \posy) node {\(-\)};
+%     \cerchietto{5/3}{\posy}
+%     \def \posy{-.7}
+%     \draw (-\posx, \posy) node {\(-\)} (0, \posy) node {\(+\)} 
+%     (+\posx, \posy) node {\(+\)};
+%     \crocetta{-5/3}{\posy}
+%     \def \posy{-1.9}
+%     \draw (-\posx, \posy) node {\(-\)} (0, \posy) node {\(+\)} 
+%     (+\posx, \posy) node {\(+\)};
+%     \crocetta{-5/3}{\posy}
+%     \cerchietto{5/3}{\posy}
+%     \def \posy{-2.4}
+%     \coordinate (a) at (-5, \posy);
+%     \coordinate (b) at (-5/3, \posy);
+%     \coordinate (c) at (+5/3, \posy);
+%     \coordinate (d) at (+5, \posy);
+%     \begin{scope}[blue,thick]
+%       \draw [-,decorate, decoration=snake] (a) -- (b);
+%       \draw[fill=white] (b) circle (2pt);
+%       \draw [-,decorate, decoration=snake] (c) -- (d);
+%       \draw[fill] (c) circle (2pt);
+%     \end{scope}
+% 
+%   }
+% }
+% 
+% \newcommand{\dissistema}{% 
+%     % Sistema di disequazioni -1 < x < 2/7 e ( x<-1 o x>= 1/8)
+%   \disegno{
+%     \sistematreassitrepunti{5}{1.2}
+%                            {\(D_1\)}{\(D_2\)}{\(D_1 \wedge D_2\)}
+%                            {\(-1\)}{\(\frac{1}{8}\)}{\(\frac{2}{7}\)}
+%     \def \posx{5/2}
+%     \begin{scope}[blue,thick]
+%     \def \posy{0}
+%       \draw [-,decorate, decoration=snake] (-\posx, \posy) -- (+\posx, \posy);
+%       \draw[fill=white] (-\posx, \posy) circle (2pt);
+%       \draw[fill=white] (+\posx, \posy) circle (2pt);
+%     \def \posy{-1.2}
+%       \draw [-,decorate, decoration=snake] (-5, \posy) -- (-\posx, \posy);
+%       \draw[fill=white] (-\posx, \posy) circle (2pt);
+%       \draw [-,decorate, decoration=snake] (0, \posy) -- (+5, \posy);
+%       \draw[fill] (0, \posy) circle (2pt);
+%     \def \posy{-2.4}
+%       \draw [-,decorate, decoration=snake] (0, \posy) -- (+\posx, \posy);
+%       \draw[fill] (0, \posy) circle (2pt);
+%       \draw[fill=white] (+\posx, \posy) circle (2pt);
+%     \end{scope}
+% 
+%   }
+% }
 
