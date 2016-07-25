@@ -49,7 +49,7 @@
     }
 }
 
-\newcommand{\diversebasi}{% 
+\newcommand{\espdiversebasi}{% 
     % Esponenziali con basi diverse.
     \disegno{
     \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
@@ -84,7 +84,7 @@
     \def \base{#1}
     \def \lab{#2}
     \def \pospiu{#3}
-    \disegno{\assex{-6}{+6}
+    \disegno{\assex{-6}{+6}{0}
     \tkzInit[xmin=-6.3,xmax=+6.3,ymin=-1.3,ymax=+3.3]
     \tkzFct[domain=-6:+6, ultra thick, color=Maroon!50!black]{(\base)**x-1}
     \draw [thick, color=Blue!50!black] (0, -.2) -- (0, +.2);
@@ -100,111 +100,130 @@
     \def \lab{#2}
     \disegno{\coordinate (a) at (0, 0);
     \coordinate (b) at (\finoa, 0);
-    \assex{-6}{+6}
+    \assex{-6}{+6}{0}
     \node [above, color=Black] at (0, +.2) {\lab};
     \draw [-, decorate, decoration=snake, blue, thick] (a) -- (b);
     \draw[fill, blue] (a) circle (3pt);
     }
 }
 
-\newcommand{\piancart}{% 
-    % Piano cartesiano  per il disegno di alcune parabole
+\newcommand{\simmetriayx}{% 
+    % Simmetria rispetto a y=x.
     \disegno{
-    \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
-
-    % \tkzInit[xmin=-10.5,xmax=+10.5,ymin=-10.5,ymax=+10.5]
-    % \tkzFct[domain=-10:+10, ultra thick, color=Maroon!50!black]{-x*x}
-    % \tkzFct[domain=-10:+10, ultra thick, color=Maroon!50!black]{-0.5*x*x+2*x+8}
-    % \tkzFct[domain=-10:+10, ultra thick, color=Maroon!50!black]{2*x*x+24*x+64}
+    \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-6.3,xmax=+5.3,ymin=-5.3,ymax=+5.3]
+    \tkzFct[domain=-10:+10.3, ultra thick, color=red!50!black]{x}
+    \foreach \pi/\n in {(-4, -1)/A, (2, 3)/B,(-2, 4)/C}
+  \filldraw [Maroon!50!black] \pi circle (2pt) node [below left] {\n};
+    \foreach \pi/\n in {(-1, -4)/A', (3, 2)/B', (4, -2)/C'}
+    \filldraw [Blue!50!black] \pi circle (2pt) node [below right] {\n};
     }
 }
 
-\newcommand{\parabolaerette}{% 
-    % Una parabola e tre rette nel piano cartesiano.
+\newcommand{\graficologaritmica}{% 
+    % Grafico di un trinomio di secondo grado.
     \disegno{
-    \rcom{-7}{+5}{-7}{+10}{gray!50, very thin, step=1}
-
-    \tkzInit[xmin=-7.3,xmax=+5.7,ymin=-7.5,ymax=+10.5]
-
-    \begin{scope}[color=Red!50!black]
-    \tkzFct[domain=-10:+10, ultra thick]{-x*x+4}
-    \node at (2.5, -5.3) {p};
-    \end{scope}
-    \begin{scope}[color=Blue!50!black]
-    \tkzFct[domain=-10:+10, ultra thick]{2*x+9}
-    \tkzFct[domain=-10:+10, ultra thick]{2*x+5}
-    \tkzFct[domain=-10:+10, ultra thick]{2*x+1}
-    \node at (-6.2, -2.3) {r};
-    \node at (-5.5, -5.3) {t};
-    \node at (-4.2, -6.5) {s};
-    \end{scope}
+    \rcom{-4}{+8}{-4}{+8}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-4.3,xmax=+8.3,ymin=-4.3,ymax=+8.3]
+    \tkzFct[domain=-10:+10.3, ultra thick, color=red!50!black, dotted]{x}
+    \tkzFct[domain=-4.3:+4, ultra thick, color=Blue!50]{2**x}
+    \tkzFct[domain=0:+8.3, ultra thick, color=Maroon!50!black]{log(x)/log(2)}
     }
 }
 
-\newcommand{\parabolaetangenti}{% 
-    % Parabola e tangenti.
+\newcommand{\logdiversebasi}{% 
+    % Esponenziali con basi diverse.
     \disegno{
-    \rcom{-5}{+10}{-6}{+11}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-5.3,xmax=+10.3,ymin=-6.3,ymax=+11.3]
-    \tkzFct[domain=-10:+10.3, ultra thick, color=Blue!50!black]{-1./4.*x*x+2*x+1}
-    \tkzFct[domain=-10:+10.3, ultra thick, color=Green!50!black]{x+2}
-    \tkzFct[domain=-10:+10.3, ultra thick, color=Green!50!black]{3*x+2}
-    \tkzFct[domain=-10:+10.3, ultra thick, color=Red!50!black]{-2.*x+17}
-
+    \rcom{-1}{+10}{-10}{10}{gray!50, very thin, step=1}
+    \begin{scope}[ultra thick, color=Maroon!50!black]
+    \tkzInit[xmin=-1.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
+    \tkzFct[domain=0:+10.3]{log(x)/log(3)}
+    \tkzFct[domain=0:+10.3]{log(x)/log(2)}
+    \tkzFct[domain=0:+10.3]{log(x)/log(3./2)}
+    \tkzFct[domain=0:+10.3]{log(x)/log(5./4)}
+    \foreach \pi in {(3, 1), (2, 1), (3./2, 1), (5./4, 1)}
+      \filldraw \pi circle (1.2pt);
     \begin{scope}[color=Green!50!black]
-    \coordinate (a) at (0, +2);
-    \filldraw  (a) circle (1.5pt); 
-    \node at (a) [xshift=-9pt] {$A$};
+    \tkzFct[domain=0:+10.3]{log(x)/log(1./3)}
+    \tkzFct[domain=0:+10.3]{log(x)/log(1./2)}
+    \tkzFct[domain=0:+10.3]{log(x)/log(2./3)}
+    \tkzFct[domain=0:+10.3]{log(x)/log(4./5)}
+    \foreach \pi in {(3, -1), (2, -1), (3./2, -1), (5./4, -1)}
+      \filldraw \pi circle (1.2pt);
     \end{scope}
-
-    \begin{scope}[color=Red!50!black]
-    \coordinate (b) at (+8, +1);
-    \filldraw (b) circle (1.5pt); 
-    \node at (b) [xshift=+7pt] {$B$};
     \end{scope}
-
-    \begin{scope}[color=Blue!50!black]
-    \coordinate (b) at (+5, -2);
-    \filldraw (b) circle (1.5pt); 
-    \node at (b) [xshift=+7pt] {$C$};
-    \filldraw (+2, +4) circle (1.5pt); 
-    \filldraw (-2, -4) circle (1.5pt); 
+    \begin{scope}[color=black]
+    \draw (7.5, 9.5) node{a} (9.5, 5.2) node{b} 
+          (9.5, 2.8) node{c} (9.5, 1.5) node{d}; 
+    \draw (9.5, -1.5) node{e} (9.5, -2.8) node{f} 
+          (9.5, -5.2) node{g} (7.5, -9.5) node{h};
     \end{scope}
     }
 }
 
-\newcommand{\intersezioniparabole}{% 
-    % Intersezione tra due parabole.
-    \disegno{
-    \rcom{-3}{+5}{-6}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-3.3,xmax=+5.3,ymin=-6.3,ymax=+10.3]
-    \tkzFct[domain=-3.3:+5.3, ultra thick, color=Blue!50!black]{-x*x+2*x+8}
-    \tkzFct[domain=-3.3:+5.3, ultra thick, color=Red!50!black]{5./4.*x*x-19./4.*x-1}
-    \filldraw (-1, +5) circle (1.5pt) node [xshift=-9pt] {$I_0$};
-    \filldraw (+4, 0) circle (1.5pt) 
-        node [xshift=9pt, yshift=6pt] {$I_1$};
-    }
+
+%%%
+% Da portare nella libreria generale
+%%%%
+
+\newcommand{\disfratta}{% 
+  % Studio dei segni di una frazione.
+  \disegno{
+    \segnitreassiduepunti{5}{1.2}
+                         {\(8x-1\)}{\(x+1\)}{\(f(x)\)}
+                         {\(-1\)}{\(\frac{1}{8}\)}
+    \def \posx{3}
+    \def \posy{.5}
+    \draw (-\posx, \posy) node {\(+\)} (0, \posy) node {\(+\)} 
+    (+\posx, \posy) node {\(-\)};
+    \cerchietto{5/3}{\posy}
+    \def \posy{-.7}
+    \draw (-\posx, \posy) node {\(-\)} (0, \posy) node {\(+\)} 
+    (+\posx, \posy) node {\(+\)};
+    \crocetta{-5/3}{\posy}
+    \def \posy{-1.9}
+    \draw (-\posx, \posy) node {\(-\)} (0, \posy) node {\(+\)} 
+    (+\posx, \posy) node {\(+\)};
+    \crocetta{-5/3}{\posy}
+    \cerchietto{5/3}{\posy}
+    \def \posy{-2.4}
+    \coordinate (a) at (-5, \posy);
+    \coordinate (b) at (-5/3, \posy);
+    \coordinate (c) at (+5/3, \posy);
+    \coordinate (d) at (+5, \posy);
+    \begin{scope}[blue,thick]
+      \draw [-,decorate, decoration=snake] (a) -- (b);
+      \draw[fill=white] (b) circle (2pt);
+      \draw [-,decorate, decoration=snake] (c) -- (d);
+      \draw[fill] (c) circle (2pt);
+    \end{scope}
+
+  }
 }
 
-\newcommand{\parabolapertrepunti}{% 
-    % Parabola per tre punti.
-    \disegno{
-    \rcom{-5}{+5}{-9}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-9.3,ymax=+10.3]
-    \tkzFct[domain=-10:+10, ultra thick, color=Blue!50!black]{1./2.*x*x+2*x-7}
-    \filldraw (-4, -7) circle (1.5pt) node [xshift=-9pt] {$P_0$};
-    \filldraw (+2, -1) circle (1.5pt) node [xshift=9pt] {$P_1$};
-    \filldraw (+4, +9) circle (1.5pt) node [xshift=9pt] {$P_2$};
-    }
+\newcommand{\dissistema}{% 
+    % Sistema di disequazioni -1 < x < 2/7 e ( x<-1 o x>= 1/8)
+  \disegno{
+    \sistematreassitrepunti{5}{1.2}
+                           {\(D_1\)}{\(D_2\)}{\(D_1 \wedge D_2\)}
+                           {\(-1\)}{\(\frac{1}{8}\)}{\(\frac{2}{7}\)}
+    \def \posx{5/2}
+    \begin{scope}[blue,thick]
+    \def \posy{0}
+      \draw [-,decorate, decoration=snake] (-\posx, \posy) -- (+\posx, \posy);
+      \draw[fill=white] (-\posx, \posy) circle (2pt);
+      \draw[fill=white] (+\posx, \posy) circle (2pt);
+    \def \posy{-1.2}
+      \draw [-,decorate, decoration=snake] (-5, \posy) -- (-\posx, \posy);
+      \draw[fill=white] (-\posx, \posy) circle (2pt);
+      \draw [-,decorate, decoration=snake] (0, \posy) -- (+5, \posy);
+      \draw[fill] (0, \posy) circle (2pt);
+    \def \posy{-2.4}
+      \draw [-,decorate, decoration=snake] (0, \posy) -- (+\posx, \posy);
+      \draw[fill] (0, \posy) circle (2pt);
+      \draw[fill=white] (+\posx, \posy) circle (2pt);
+    \end{scope}
+
+  }
 }
 
-\newcommand{\parabolaverticepunto}{% 
-    % Equazione della parabola dati vertice e punto.
-    \disegno{
-    \rcom{-1}{+10}{-6}{+8}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-1.3,xmax=+10.3,ymin=-6.3,ymax=+8.3]
-    \tkzFct[domain=-10:+10, ultra thick, color=Blue!50!black]{-1./3.*x*x+2*x+4}
-    \filldraw (+3, +7) circle (1.5pt) node [yshift=9pt] {$V$};
-    \filldraw (+9, -5) circle (1.5pt) node [xshift=9pt] {$P$};
-    }
-}

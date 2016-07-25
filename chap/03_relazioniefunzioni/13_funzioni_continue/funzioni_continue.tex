@@ -62,11 +62,11 @@ Massimi e minimi
     Corollario
 
 \end{comment}
-
-\newcommand{\intervcc}[2]{\left[#1;~#2\right]}
-\newcommand{\intervac}[2]{\left]#1;~#2\right]}
-\newcommand{\intervca}[2]{\left[#1;~#2\right[}
-\newcommand{\intervaa}[2]{\left]#1;~#2\right[}
+% 
+% \newcommand{\intervcc}[2]{\left[#1;~#2\right]}
+% \newcommand{\intervac}[2]{\left]#1;~#2\right]}
+% \newcommand{\intervca}[2]{\left[#1;~#2\right[}
+% \newcommand{\intervaa}[2]{\left]#1;~#2\right[}
 
 \section{Limiti}
 \label{sec:cont_limiti}
@@ -220,10 +220,10 @@ Le funzioni costanti sono continue.
 \begin{proof}
 Per la definizione di continuità vogliamo dimostrare che 
 \[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
-Poniamo \(x_0=x+\epsilon\), ma, essendo la funzione costante, anche 
+Poniamo \(x_0=x+\epsilon\), essendo la funzione costante, anche 
 \[f(x+\epsilon)=k\] 
 che, ovviamente, è infinitamente vicino a \(k\). In simboli:
-\[f(x+\epsilon) = k \approx k = f(x)\] 
+\[f(x_0) = f(x+\epsilon) = k \approx k = f(x)\] 
 \end{proof}
 
 \begin{teorema}[Continuità della funzione identica]
@@ -235,7 +235,7 @@ La funzione identica (\(y=x\)) è continua.
 \begin{proof}
 Per la definizione di continuità vogliamo dimostrare che 
 \[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
-Poniamo \(x_0=x+\epsilon\), \(f(x+\epsilon)=x+\epsilon\). 
+Poniamo \(x_0=x+\epsilon\), \(f(x_0) = f(x+\epsilon)=x+\epsilon\). 
 Dato che la differenza:
 \[f(x+\epsilon)-f(x) = x+\epsilon-x= \epsilon\]
 è un infinitesimo, allora i due valori sono infinitamente vicini. In simboli:
@@ -251,7 +251,14 @@ La funzione seno (\(y=\sen x\)) è continua.
 \begin{proof}
 Usando la prima proprietà delle potenze:
 \[f(x+\epsilon) =
-\sen{x+\epsilon} = TODO\]
+\sen{(x+\epsilon)} = \sen x \cos \epsilon - \cos x \sen \epsilon\]
+Se un angolo è infinitamente vicino a zero avrà il coseno infinitamente vicino 
+a uno e il seno infinitamente vicino a zero. Quindi:
+\[\sen{(x+\epsilon)} = \sen x + \delta\]
+Perciò:
+\[f(x+\epsilon) =
+\sen{(x+\epsilon)} = \sen{(x+\epsilon)} = 
+\sen x + \delta \approx \sen x = f(x)\]
 \end{proof}
 
 \begin{teorema}[Continuità della funzione esponenziale]
@@ -263,8 +270,7 @@ La funzione esponenziale (\(y=a^x\)) è continua.
 \begin{proof}
 Usando la prima proprietà delle potenze:
 \[f(x+\epsilon) =
-a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} \approx a^{x} \cdot 1 = a^{x}
-f(x)\]
+a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} \approx a^{x} \cdot 1 = a^{x} = f(x)\]
 \end{proof}
 
 Oltre alle funzioni precedenti, anche altre funzioni elementari sono continue, 
@@ -556,7 +562,7 @@ Possiamo fare alcune osservazioni sugli Iperinteri:
 La somma algebrica di due numeri Iperinteri è un numero Iperintero.
  \item 
 Ogni numero Iperreale si trova tra due numeri Iperinteri:
-\[\forall x \in \IR \quadra{x} \geqslant x \geqslant \quadra{x}+1\]
+\[\forall x \in \IR \quadra{x} \leqslant x < \quadra{x}+1\]
 \end{enumerate}
 
 Possiamo usare gli Interi per dividere un intervallo Reale \([a;~b]\)
@@ -564,13 +570,13 @@ in \(n\) parti uguali. Ciascuna di queste \(n\) parti
 uguali è lunga \(l=\frac{b-a}{n}\).
 
 Gli \(n\) sotto intervalli che si ottengono sono:
-\[\left[a;~a+t \right[,~[a+t;~a+2t[,~\dots,~
-[a+jt;~a+(j+1)t[,~\dots,~
-[a+\tonda{n-1}t;~a+nt=b]\]
+\[\left[a;~a+l \right[,~[a+l;~a+2l[,~\dots,~
+[a+jl;~a+(j+1)l[,~\dots,~
+[a+\tonda{n-1}l;~a+nl=b]\]
 
 Gli estremi di questi intervalli sono chiamati punti di partizione 
 dell'intervallo:
-\[a;~a+t;~a+2t;~a+3t;~\dots;~a+\tonda{n-1}t;~a+nt=b\]
+\[a;~a+l;~a+2l;~a+3l;~\dots;~a+\tonda{n-1}l;~a+nl=b\]
 
 Possiamo ora estendere questo procedimento ai numeri Iperreali.
 Scegliamo un numero infinito iperintero \(H\) e dividiamo in parti 
@@ -583,7 +589,7 @@ Gli \(H\) sotto intervalli che si ottengono sono:
 [a+\tonda{H-1}\delta;~a+H\delta=b]\]
 
 e i punti di partizione sono:
-\[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b]\]
+\[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b\]
 cioè i punti \(a+j\delta\) con \(j\) che varia da~0 a~\(H\).
 
 Ogni numero iperreale \(x\) appartenente all'intervallo \(\intervca{a}{b}\)
@@ -640,9 +646,9 @@ aperto~\(\intervaa{a}{b}\).
 Supponiamo che \(f(a)<0\) e \(f(b)>0\), posto \(H\) un Iperintero 
 infinito, dividiamo l'intervallo iperreale~\(\intervcc{a}{b}\) in~\(H\) 
 parti uguali
-\[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b]\]
+\[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b\]
 Chiamiamo \(k\) l'indice per il quale:
-\[f(a+k\delta)<0 \leqslant f(a+(k+1)\delta)\]
+\[f(a+k\delta) \leqslant 0 < f(a+(k+1)\delta)\]
 % Ma \(a+k\delta\) è infinitamente vicino a \(a+(k+1)\delta\), quindi hanno la 
 % stessa parte standard che chiamiamo \(c\):
 % \[c=\pst{a+k\delta}=\pst{a+(k+1)\delta}\]
@@ -658,7 +664,7 @@ In modo analogo si dimostra il caso in cui \(f(a)>0>f(b)\).
 \end{proof}
 
 Il teorema dimostra che in \(\intervcc{a}{b}\) c'è almeno uno zero della 
-funzione non dice nulla sul numero degli zeri.
+funzione, ma non dice nulla sul numero degli zeri.
 
 La dimostrazione di questo teorema permette di dimostrarne facilmente degli 
 altri: 
@@ -671,7 +677,7 @@ compresi tra \(f(a)\) e \(f(b)\).
 
 \begin{proof}
 Suggerimento: 
-supponiamo che \(f(a) < h \leqslant f(b)\), 
+supponiamo che \(f(a) \leqslant h < f(b)\), 
 costruiamo una nuova funzione: \(g(x)=f(x)-h\).
 La funzione \(g\) soddisfa tutte le ipotesi del teorema precedente per cui:
 \[\exists~c \in \intervaa{a}{b} \text{ tale che } g(c)=0\]
@@ -686,9 +692,9 @@ intervallo \(\intervcc{a}{b}\) e
 allora:
 \begin{enumerate}[nosep]
  \item se \(f(c)<0\) per un qualunque \(c \in \intervcc{a}{b}\)
- allora \(f(x)<0 \forall x \in \intervcc{a}{b}\);
+ allora \(f(x)<0 \quad \forall x \in \intervcc{a}{b}\);
  \item se \(f(c)>0\) per un qualunque \(c \in \intervcc{a}{b}\)
- allora \(f(x)>0 \forall x \in \intervcc{a}{b}\).
+ allora \(f(x)>0 \quad \forall x \in \intervcc{a}{b}\).
 \end{enumerate}
 \end{corollario}
 
@@ -748,7 +754,7 @@ Dimostriamo la prima tesi.
 
 Operiamo una divisione infinita dell'intervallo \(\intervcc{a}{b}\)
 ottenendo i punti di partizione: 
-\[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b]\]
+\[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b\]
 Per il principio di tranfer posso confrontare tra di loro tutti i valori della 
 funzione in questi punti e troverò che uno di questi è maggiore o uguale a 
 tutti gli altri, supponiamo che questo punto sia: \(a+(k+1)\delta\):
@@ -799,8 +805,8 @@ Si possono distinguere 3 casi:
  La funzione \(f\) nel punto \(c\) soddisfa tutte le ipotesi del teorema 
  del punto critico, 
 \begin{enumerate}[noitemsep]
- \item \(f\) è una funzione continua nell'intervallo chiuso \(intervcc{a}{b}\);
- \item \(c\) appartiene all'intervallo aperto \(intervaa{a}{b}\);
+ \item \(f\) è una funzione continua nell'intervallo chiuso \(\intervcc{a}{b}\);
+ \item \(c\) appartiene all'intervallo aperto \(\intervaa{a}{b}\);
  \item \(f(c)\) è un massimo;
  \item \(f\) è derivabile in \(c\).
 \end{enumerate}
@@ -874,16 +880,21 @@ Questa nuova funzione soddisfa tutte le ipotesi del teorema di Rolle:
 punto di un certo intervallo \(I\), allora la funzione è crescente in tutto 
 l'intervallo.
 \end{corollario}
+% 
+% \newcommand{\sand}{~ \wedge ~}
+% \newcommand{\sor}{~ \vee ~}
+% \newcommand{\sRarrow}{~ \Rightarrow ~}
 
 \begin{proof}
-Posti \(x_0 < x_1 \forall x_0, x_1 \in I\) per il teorema della pendenza 
-media:
-\[f'(c) = \dfrac{f(x_1)-f(x_0)}{x_1-x_0}\]
-dato che 
-\[\forall c \in I \Rightarrow f'(c) > 0 \wedge x_1 - x_0 > 0\]
+Consideriamo due punti \(x_0 < x_1 ~ \in I\), 
+per il teorema della pendenza media:
+\[\exists c \in I \text { tale che } f'(c) = \dfrac{f(x_1)-f(x_0)}{x_1-x_0}\]
+Dato che 
+\[\forall c \in I \Rightarrow f'(c) > 0\]
 si ha:
-\[\dfrac{f(x_1)-f(x_0)}{x_1-x_0}>0 \Rightarrow f(x_1)-f(x_0)>0
-\Rightarrow f(x_1)>f(x_0)\]
+\[\dfrac{f(x_1)-f(x_0)}{x_1-x_0}>0 \]
+E poiché il denominatore è positivo, \(x_1 - x_0 > 0\)
+\[f(x_1)-f(x_0)>0 \sRarrow f(x_1)>f(x_0)\]
 \end{proof}
 
 % \begin{teorema}[De L'H\^opital]

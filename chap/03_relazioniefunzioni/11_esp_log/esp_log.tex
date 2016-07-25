@@ -2,8 +2,10 @@
 
 \input{\folder lbr/grafici.pgf}
 
-\chapter[Esponenziali e logaritmi]{Funzioni, equazioni e disequazioni 
-esponenziali e logaritmiche}
+\chapter[Esponenziali e logaritmi]{Esponenziali e logaritmi}
+
+% \begin{comment}
+ 
 
 \section{TODO}
 
@@ -87,7 +89,7 @@ stesso modo anche al di fuori dell'acqua, quanto tempo impiegherà a ricoprire
 tutta la terra?
 \end{enumerate}
 
-\section{Funzioni, equazioni e disequazioni esponenziali}
+\section{Esponenziali}
 \label{sec:esplog_esponenziali}
 
 Il fenomeno riportato nel problema precedente, trova un proprio modello nelle 
@@ -391,8 +393,7 @@ Se la base si avvicina a~0 o all'infinito, la funzione si avvicina agli assi.
 \begin{figure}[h]
 \begin{minipage}{.69\textwidth}
  \begin{inaccessibleblock}[Grafici di funzioni esponenziali con basi diverse.]
-  \diversebasi
-  \caption{Esponenziali con diverse basi.} \label{fig:diversebasi}
+  \espdiversebasi
 \end{inaccessibleblock}
 \end{minipage}
 \hspace{12pt}
@@ -408,6 +409,7 @@ Se la base si avvicina a~0 o all'infinito, la funzione si avvicina agli assi.
    \item :~$y=...$
  \end{enumerate}
 \end{minipage}
+  \caption{Esponenziali con diverse basi.} \label{fig:diversebasi}
 \end{figure}
 
 \begin{enumerate*}
@@ -688,9 +690,528 @@ Se mi ricordo di cambiar verso al predicato, quando necessario, questo metodo
 risulta decisamente più rapido.
 \end{esempio}
 
+\section{Logaritmi}
+\label{sec:esplog_logaritmi}
 
-\section{Funzioni, equazioni e disequazioni logaritmiche}
-\label{sec:esplog_logaritmiche}
+Ora vediamo una nuova funzione: la funzione \emph{logaritmica} con un andamento 
+molto diverso dalla funzione \emph{esponenziale}, ma strettamente legata a 
+questa.
+
+\subsection{Le operazioni inverse e la potenza}
+\label{subsec:esplog_operazioni_inverse}
+
+Fin dalle elementari abbiamo imparato che alcune operazioni sono tra loro 
+inverse: se ad un numero ne aggiungo un altro e poi lo tolgo ritorno al numero 
+di partenza. Quindi l'operazione inversa dell'addizione è la sottrazione:
+\[7 + 5 = 12 \sRarrow 12 - 5 = 7 \sand 12 - 7 = 5\]
+E fin qui è semplice, ma qual è l'operazione inversa della sottrazione?
+Spontaneamente diremmo: l'addizione! Proviamo:
+\[15 - 7 = 8 \sRarrow 8 + 7 = 15 \sand 8 + 15 = 7\]
+C'è qualcosa che non va! Perché i conti tornino dobbiamo scrivere:
+\[15 - 7 = 8 \sRarrow 8 + 7 = 15 \sand 15 - 8 = 7\]
+L'addizione ha un'operazione inversa, la sottrazione 
+ne ha due a seconda se dobbiamo trovare il primo operando (detto minuendo) o il 
+secondo (detto sottraendo). Questo comportamento è dovuto al fatto che 
+l'addizione è \emph{commutativa} mentre la sottrazione non lo è.
+
+È possibile fare una discorso analogo per la moltiplicazione e per la 
+divisione, ma qui vogliamo concentrarci sulla potenza. Se di una potenza 
+conosciamo il risultato e l'esponente per calcolare la base possiamo utilizzare 
+l'operazione di radice:
+\[2^3 = 8 \sRarrow \sqrt[3]{8} = 2 \]
+Ma se conosciamo il risultato e la base come facciamo a calcolare l'esponente?
+La radice non ci serve in questo caso:
+\[2^3 = 8 \sRarrow \sqrt[2]{8} = 3 \]
+Il risultato è chiaramente sbagliato. Per risolvere questo problema dobbiamo 
+utilizzare una nuova operazione: il \emph{logaritmo}.
+
+\begin{definizione}[Logaritmo]
+ Si dice \emph{logaritmo} di un numero in una determinata base l'esponente da 
+dare alla base per ottenere il numero:
+\[\log_a {b} = c \sLRarrow a^c = b\]
+\(a\) si chiama \emph{base} e \(b\) \emph{argomento} \(c\) che è il risultato 
+dell'operazione logaritmo si chiama \emph{logaritmo}.
+\end{definizione}
+
+È importante tenere presente che il logaritmo è un esponente. 
+
+\subsubsection{Le proprietà dei logaritmi}
+\label{subsubsec:esplog_proprieta_logaritmi}
+
+Su questa nuova operazione possiamo fare alcune osservazioni:
+
+\begin{enumerate}
+ \item La base dovrà, come per le esponenziali essere un numero positivo e 
+dovrà anche essere diverso da uno altrimenti, non riuscirò a trovare nessun 
+esponente che mi permetta di ottenere un numero diverso da uno. Quindi il 
+logaritmo è definito solo per basi maggiori di zero e diverse da uno.
+ \item L'argomento dovrà essere per forza un numero positivo, perché non esiste 
+nessun esponente che dato ad una base positiva possa far ottenere un numero 
+negativo. Quindi il logaritmo è definito solo per argomenti maggiori di zero.
+ \item Nel logaritmo, come nella potenza, non valgono né la proprietà 
+associativa né la proprietà commutativa.
+ \item Quindi il logaritmo non ha un elemento neutro.
+\end{enumerate}
+
+Ma allora nei logaritmi vale qualche proprietà?
+
+Dalle proprietà delle potenze viste dal punto di vista degli 
+esponenti si ricavano tre proprietà dei logaritmi:
+% 
+% \begin{enumerate} 
+%  \item Da \(a^m \cdot a^n = a^{m+n}\) si ricava:
+%  \[log_a {b} + log_a {c} = log_a \tonda{b \cdot c} \]
+% \paragraph{Dimostrazione} 
+% Poniamo \(a^m = b\) e \(a^n = c\) 
+% allora: \(m = log_a {b}\) e \(n = log_a {c}\) possiamo allora costruire la 
+% seguente catena di uguaglianze:
+% \[log_a {b} + log_a {c} =
+% m + n =  
+% log_a {a^{m + n}} =
+% log_a \tonda{{a^m \cdot a^n}}  =
+% log_a \tonda{{b \cdot c}}\]
+%  \item Da \(a^m \div a^n = a^{m-n}\) si ricava:
+%  \[log_a {b} - log_a {c} = log_a \tonda{\frac{b}{c}} \]
+% \paragraph{Dimostrazione} 
+% Poniamo \(a^m = b\) e \(a^n = c\) 
+% allora: . . . . . . . . . . . e . . . . . . . . . . . 
+% possiamo allora costruire la seguente catena di uguaglianze:
+% \[\dots\]
+%  \item Da \(\tonda{a^m}^n = a^{mn}\) si ricava:
+%  \[log_a {b} \cdot log_a {c} = log_a \tonda{{b}^{c}} \]
+% \paragraph{Dimostrazione} Scrivila tu sul margine della pagina.
+%  \item Da \(a^0 = 1\) si ricava:
+%  \[log_a {1} = 0\]
+%  \item Combinando le proprietà~4 e~2 si ottiene:
+%  \[-log_a {b} = log_a {\frac{1}{b}}\]
+%  \item Si può anche dimostrare che:
+%  \[-log_a {b} = log_{\frac{1}{a}} b\]
+%  \item Un'ultima importante proprietà che ci permette di convertire un 
+% logaritmo da una base in un'altra è:
+%  \[log_a {b} = \frac{log_c b}{log_c a}\]
+% \end{enumerate}
+
+\begin{enumerate} 
+ \item Da \quad \(a^m \cdot a^n = a^{m+n}\) \quad si ricava: \quad
+ \(log_a {b} + log_a {c} = log_a \tonda{b \cdot c} \)
+\paragraph{Dimostrazione} 
+Poniamo \(a^m = b\) e \(a^n = c\) 
+allora: \(m = log_a {b}\) e \(n = log_a {c}\) possiamo allora costruire la 
+seguente catena di uguaglianze:
+\[log_a {b} + log_a {c} =
+m + n =  
+log_a {a^{m + n}} =
+log_a \tonda{{a^m \cdot a^n}}  =
+log_a \tonda{{b \cdot c}}\]
+ \item Da \quad \(a^m \div a^n = a^{m-n}\) \quad si ricava: \quad
+ \(log_a {b} - log_a {c} = log_a \tonda{\frac{b}{c}}\)
+\paragraph{Dimostrazione} 
+Poniamo \(a^m = b\) e \(a^n = c\) 
+allora: . . . . . . . . . . . e . . . . . . . . . . . 
+possiamo allora costruire la seguente catena di uguaglianze:
+\[\dots\]
+ \item Da \quad \(\tonda{a^m}^n = a^{mn}\) \quad si ricava: \quad
+ \(log_a {b} \cdot log_a {c} = log_a \tonda{{b}^{c}} \)
+\paragraph{Dimostrazione} Scrivila tu sul margine della pagina.
+ \item Da \quad \(a^0 = 1\) \quad si ricava: \quad
+ \(log_a {1} = 0\)
+ \item Combinando le proprietà~4 e~2 si ottiene: \quad
+ \(-log_a {b} = log_a {\frac{1}{b}}\)
+ \item Si può anche dimostrare che: \quad
+ \(-log_a {b} = log_{\frac{1}{a}} b\)
+ \item Un'ultima importante proprietà che ci permette di convertire un 
+logaritmo da una base in un'altra è: \quad
+ \(log_a {b} = \frac{log_c b}{log_c a}\)
+\end{enumerate}
+
+\noindent
+Dato che è sempre possibile cambiare base a un logaritmo, spesso si 
+usano logaritmi in particolari basi. Quelle più diffuse e presenti in tutte le 
+calcolatrici scientifiche sono: 
+\begin{itemize}
+ \item 
+la base~10 che dà origine ai logaritmi decimali anche scritti: \(Log\);
+ \item 
+la base~\(e = \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} \dots = 
+2,71828 18284 59045 23536\dots \) che dà origine ai logaritmi naturali anche 
+scritti: \(\ln\).
+\end{itemize}
+
+\begin{esempio}
+ Utilizzando la definizione di logaritmo verifica che: \(\log_2 32 = 5\)
+\end{esempio}
+
+\begin{esempio}
+ Utilizzando la definizione di logaritmo verifica che: \(Log~1000 = 3\)
+\end{esempio}
+
+\begin{esempio}
+ Usando la calcolatrice verifica che: \(Log~4 = 0,602059991\)
+\end{esempio}
+
+\begin{esempio}
+ Usando la calcolatrice verifica che: \(\ln 4 = 1,386294361\)
+\end{esempio}
+
+\begin{esempio}
+ Usando la calcolatrice verifica che: \(\ln 7 + \ln 4 = \ln 28\)
+\end{esempio}
+
+\begin{esempio}
+ Usando la calcolatrice verifica che: \(Log~43 = \dfrac{\ln 43}{\ln 10}\)
+\end{esempio}
+
+\subsubsection{La funzione logaritmo}
+\label{subsubsec:esplog_funzione_logaritmo}
+Prima di disegnare per punti la funzione logaritmo, riprendiamo una 
+trasformazione geometrica.
+
+\noindent
+\begin{minipage}[]{.48\textwidth}
+La simmetria rispetto alla bisettrice del primo e terzo quadrante:~\(y=x\).
+
+Confrontando le coordinate di A e A', B e B', \dots si può osservare che per 
+passare da un punto al suo simmetrico basta semplicemente scambiare l'ascissa 
+con l'ordinata:
+\[\sistema{x'=y \\ y'=x}\]
+\end{minipage} \hspace{.04\textwidth}
+\begin{minipage}[]{.48\textwidth}
+\begin{center}
+\begin{inaccessibleblock}[Bisettrice del primo e terzo quadrante e 
+alcuni punti simmetrici rispetto a questa retta]
+  \simmetriayx
+%   \caption{...e i corrispondenti punti.} \label{fig:potdue0}
+\end{inaccessibleblock}
+\end{center}
+\end{minipage} 
+% \vspace{12pt}
+
+Ma se in una funzione esponenziale: \(y=a^x\) scambiamo~x e~y 
+otteniamo: \(x=a^y\) e esplicitando~y: \(y=\log_a x\). Possiamo quindi 
+osservare che la funzione logaritmo è la funzione inversa della funzione 
+esponenziale. il suo grafico si otterrà quindi applicando alla funzione 
+esponenziale la simmetria di asse: \(y=x\).
+
+\noindent
+\begin{minipage}[]{.48\textwidth}
+\begin{center}
+\begin{inaccessibleblock}[Grafico di una funzione esponenziale e 
+il suo simmetrico rispetto a y=x]
+  \graficologaritmica
+%   \caption{...e i corrispondenti punti.} \label{fig:potdue0}
+\end{inaccessibleblock}
+\end{center}
+\end{minipage} \hspace{.04\textwidth}
+\begin{minipage}[]{.48\textwidth}
+% \begin{osservazione}
+Possiamo fare alcune osservazioni.
+\begin{enumerate}
+ \item Il dominio è l'intervallo: \(\intervaa{0}{\infty}\)
+ \item Se la base è maggiore di~1 la funzione è crescente, 
+ se è compresa tra~0 e~1 la funzione è decrescente.
+ \item Il grafico interseca l'asse~\(x\) nel punto~1.
+ \item Si può trovare la base del logaritmo individuando il punto di 
+ ordinata~1 (o~\(-1\)).
+ \item Quando x è un infinitesimo positivo, y è un infinito (negativo o 
+positivo).
+ \item Quando x è un infinito positivo, y è un infinito (positivo o negativo).
+\end{enumerate}
+
+% \end{osservazione}
+\end{minipage} 
+\vspace{12pt}
+
+Al variare della base cambia il grafico della funzione, 
+se la base si avvicina a~1, rimanendo maggiore di~1, la funzione si avvicina 
+alla retta~\(x=1\). 
+Se la base si avvicina a~0 o all'infinito, la funzione si avvicina agli assi.
+Scrivi le equazioni dei grafici di figura \ref{fig:log_diversebasi}.
+
+\begin{figure}[!h]
+\begin{minipage}{.58\textwidth}
+ \begin{enumerate} [label=\alph*]
+   \item :~$y=...$ \vspace{12pt}
+   \item :~$y=...$ \vspace{12pt}
+   \item :~$y=...$ \vspace{12pt}
+   \item :~$y=...$ \vspace{12pt}
+   \item :~$y=...$ \vspace{12pt}
+   \item :~$y=...$ \vspace{12pt}
+   \item :~$y=...$ \vspace{12pt}
+   \item :~$y=...$ \vspace{12pt}
+ \end{enumerate}
+\end{minipage}
+\hspace{12pt}
+\begin{minipage}{.40\textwidth}
+ \begin{inaccessibleblock}[Grafici di funzioni logaritmiche con basi diverse.]
+  \logdiversebasi
+%   \caption{Funzioni logaritmiche con diverse basi.} \label{fig:diversebasi}
+\end{inaccessibleblock}
+\end{minipage}
+  \caption{Funzioni logaritmiche con diverse basi.} \label{fig:log_diversebasi}
+\end{figure}
+
+\subsection{Le equazioni logaritmiche}
+\label{subsec:esplog_equazionilogaritmiche}
+
+\begin{definizione}[Equazioni logaritmiche]{
+Le equazioni logaritmiche sono quelle equazioni nelle quali l'incognita appare 
+nell'argomento di un logaritmo.
+}
+\end{definizione}
+
+Vediamo alcuni tipi di equazioni logaritmiche che si possono risolvere 
+abbastanza facilmente.
+
+\subsubsection{Equazioni logaritmiche elementari}
+\label{subsubsec:esplog_eq_log_elementari}
+
+Sono le equazioni nella forma:
+\[\log_a{f(x)} = \log_a{g(x)} \sRarrow f(x) = g(x)\]
+Se sono uguali le basi e uguali i logaritmi saranno equivalenti gli argomenti.
+
+\begin{esempio}
+ \(\log_2{x} = 8\) ricordando la definizione di logaritmo posso calcolare 
+facilmente il valore di \(x\): \(x = 2^8 = 256\)
+\end{esempio}
+
+\begin{esempio}
+ \(\log_{3,6}{x} = 4 \sRarrow x = 3,6^4 = 167,9616\)
+\end{esempio}
+
+\begin{esempio}
+ \(\log_{3}\tonda{2x-7} = 2 \sRarrow 2x -7 = 9 \sRarrow 2x = 16 \sRarrow x = 8\)
+\end{esempio}
+
+\begin{esempio}
+ Riprendiamo il primo esempio: \(\log_2{x} = 8\), possiamo osservare che 
+ \(8 = \log_2{256}\) quindi, sostituendo, 
+ otteniamo: \(\log_2{x} = \log_2{256}\). Ma se due logaritmi sono uguali e 
+hanno la stessa base, i loro argomenti dovranno essere equivalenti, quindi:
+\(x = 256\)
+\end{esempio}
+%\(\log_{}\tonda{} \)
+\begin{esempio}
+ \[\log_{\frac{1}{2}}\tonda{5x -7} = \log_{\frac{1}{2}}\tonda{9x +15}\]
+ Uguali i logaritmi, uguali le basi:
+ \[5x -7 = 9x +15 \sRarrow -4x = 22 \sRarrow x = \frac{2}{11}\]
+\end{esempio}
+
+\subsubsection{Equazioni logaritmiche con l'uso delle proprietà}
+\label{subsubsec:esplog_eq_log_proprieta}
+
+Se dovessimo risolvere un'equazione di questo tipo:
+\[\log_2\tonda{5x -7} + \log_2{2x}= \log_2\tonda{2x -4}\]
+non possiamo semplicemente far finta che non ci siano i logaritmi e scrivere:
+\[5x -7 + 2x = 2x -4\]
+infatti, mentre questa uguaglianza è vera:
+\[\log_2 32 -\log_2 4 = \log_2 8\]
+quest'altra non lo è:
+\[32 -4 = 8\]
+Per risolvere queste equazioni bisogna:
+\begin{enumerate}
+ \item ricorrere alle proprietà dei logaritmi presentate sopra;
+ \item considerare la condizione di esistenza del logaritmo 
+ (argomento maggiore di zero).
+\end{enumerate}
+
+\begin{esempio}
+ \(\ln\tonda{3x - 1} + \ln\tonda{2x +2} = \ln 5 + \ln\tonda{x^2 +2}\)
+ 
+Ricordando la prima proprietà, l'equazione è equivalente a:
+
+\(\ln\tonda{\tonda{3x - 1} \tonda{2x +2}}= \ln\tonda{5\tonda{x^2 +2}}\)
+  
+Tenendo conto anche delle condizioni di esistenza dei vari logaritmi, 
+l'equazione logaritmica precedente è equivalente a:
+
+\(\sistema{
+3x - 1 > 0 \\
+2x +2 > 0 \\
+5 > 0 \quad \text {sempre vera}\\
+x^2 +2 > 0 \quad \text {sempre vera, perché?}\\
+\tonda{3x - 1} \tonda{2x +2} = 5x^2 +10}\)
+
+Ora, alcune delle disequazioni sono sempre vere e in un sistema non cambiano il 
+risultato, possiamo ometterle; sviluppando qualche calcolo otteniamo:
+
+\(\sistema{
+x > \frac{1}{3} \\
+x > -1 \\
+6x^2 +6x -2x -2 -5x^2 -10 = 0}\)
+
+e riducendo ulteriormente:
+
+\(\sistema{
+x > \frac{1}{3} \quad \text {se è maggiore di }
+\frac{1}{3}
+\text{ sarà anche maggiore di -1}\\
+x^2 +4x -12 = 0}\)
+
+Per risolvere l'equazione di secondo grado possiamo scomporre in fattori il 
+primo membro:
+
+\(\sistema{
+x > \frac{1}{3} \\
+\tonda{x +6} \tonda{x -2} = 0}\)
+
+Applicando poi la legge di annullamento del prodotto e tenendo 
+conto della condizione otteniamo la soluzione:
+\[x_1 = -6 \slarrow \text{ Soluzione Non Accettabile;} \quad 
+  x_2 = +2 \slarrow \text{ Soluzione Accettabile}\]
+\end{esempio}
+
+\begin{esempio}
+ \(\log_2{2x} + \log_2\tonda{5x -7} = \log_2\tonda{2x -4}\)
+ 
+Usando le prima proprietà:
+
+\(\log_2\tonda{2x \tonda{5x -7}}= \log_2\tonda{2x -4}\)
+  
+Eliminando i logaritmi:
+
+\(\sistema{
+2x > 0 \\
+5x - 7 > 0 \\
+2x - 4 > 0 \\
+10x^2 - 14x - 2x + 4 = 0}\)
+
+Sviluppiamo i calcoli:
+
+\(\sistema{
+x > 0 \\
+x > \frac{7}{5} \\
+x > 2 \\
+10x^2 - 16x + 4 = 0}\)
+
+e riducendo ulteriormente:
+
+\(\sistema{
+x > 2 \\
+5x^2 - 8x + 2 = 0}\)
+
+Risolviamo l'equazione di secondo grado:
+
+\(x_{1,2} = \frac{4 \mp \sqrt{16-10}}{5} = \frac{4 \mp \sqrt{6}}{5}\)
+
+E tenendo conto della condizione otteniamo la soluzione:
+\[x_1 = \frac{4 - \sqrt{6}}{5} \approx 0,310102051 \slarrow
+  \text{ Soluzione Non Accettabile} \] 
+\[x_2 = \frac{4 + \sqrt{6}}{5} \approx 1,289897949 \slarrow
+  \text{ Soluzione Non Accettabile}\]
+\end{esempio}
+
+% \end{comment}
+
+\subsection{Le disequazioni logaritmiche}
+\label{subsubsec:esplog_disequazionilogaritmiche}
+
+Ricordiamo che, come la funzione esponenziale anche quella logaritmica è 
+crescente se la base è maggiore di 1 e decrescente se la base è compresa tra 
+zero e uno.
+Le disequazioni logaritmiche si possono quindi risolvere in modo analogo a 
+quelle esponenziali.
+
+\begin{esempio}
+ \(\log_{\frac{2}{3}} \tonda{4x -6} \leqslant \log_{\frac{2}{3}} \tonda{x -3}\)
+
+Eliminando i logaritmi e tenendo conto delle condizioni di esistenza:
+
+\(\sistema{
+4x -6 > 0 \\
+x -3 > 0 \\
+4x -6 \geqslant x -3} \quad \text{il verso del predicato è cambiato, perché?}\) 
+
+Riducendo:
+
+\(\sistema{
+x > \frac{6}{4} \\
+x > 3 \\
+3x -3 \geqslant 0}\)
+
+E riducendo ancora:
+
+\(\sistema{
+x > 3 \\
+x \geqslant 1}\)
+
+Otteniamo: \quad \(x > 3\)
+
+\end{esempio}
+
+\begin{esempio}
+ \(\ln \tonda{-7x+2} - \ln \tonda{x +1} \leqslant 0\)
+ 
+Tenendo presente che \(0 = ln 1\) e applicando la seconda proprietà 
+dei logaritmi, l'equazione precedente diventa:
+
+\(\ln \dfrac{-7x+2}{x +1} \leqslant \ln 1\)
+
+Dato che la base è maggiore di zero:
+
+\(\sistema{
+-7x+2 > 0 \\
+x +1 > 0 \\
+\dfrac{-7x+2}{x +1} \leqslant 1}\)
+
+E riducendo:
+
+\(\sistema{
+x < \frac{2}{7} \\
+x > -1 \\
+\dfrac{-7x+2}{x +1} - \dfrac{x +1}{x +1} \leqslant 0}\)
+
+\(\sistema{
+-1 < x < \frac{2}{7} \\
+\dfrac{-8x+1}{x +1} \leqslant 0}\)
+
+\noindent
+\begin{minipage}{.48\textwidth}
+\vspace*{-12pt}
+Soluzione grafica dell'ultima disequazione:
+
+\begin{inaccessibleblock}[Studio del segno e soluzione della disequazione
+(-8x + 1)/(x +1).]
+  \disfratta
+\end{inaccessibleblock}
+\end{minipage}
+\hspace{.04\textwidth}
+\begin{minipage}{.48\textwidth}
+Soluzione grafica del sistema:
+
+\begin{inaccessibleblock}[Soluzione grafica di un sistema di disequazioni.]
+  \dissistema
+\end{inaccessibleblock}
+\end{minipage}
+
+Per cui la soluzione della disequazione logaritmica è:
+
+\[\intervca{\frac{1}{8}}{\frac{2}{7}} \qquad \text{ o } \qquad 
+  \frac{1}{8} \leqslant x < \frac{2}{7}\]
+
+\end{esempio}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -46,64 +46,94 @@
   \draw [#5] [->] (\inizio) -- (\fine);
 }
 
-\newcommand{\assex}[2]{% Asse x.
+%--------------------------
+% Assi e piano cartesiano
+\newcommand{\asse}[4]{% Asse.
   % Esempio di chiamata:
-  %% \disegno{\assex{-7}{+7}}
+  %% \disegno{\assex{-7}{+7}{0}{\(x\)}
   \def \xmi{#1}
   \def \xma{#2}
-\draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
-\node [below] at (\xma, 0)  {$x$};
+  \def \posy{#3}
+  \def \var{#4}
+\draw [-{Stealth[length=2mm, open, round]}] (\xmi, \posy) -- (\xma, \posy);
+\node [below] at (\xma, \posy) {\var};
 }
 
-\newcommand{\rcom}[5]{% Riferimento Cartesiano Ortogonale Monometrico: x-y.
+\newcommand{\assex}[3]{% Asse x.
   % Esempio di chiamata:
-  %% \disegno{\RCOM{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}
-% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+  %% \disegno{\assex{-5}{+5}{0}}
+  \asse{#1}{#2}{#3}{\(x\)};
+}
+
+\newcommand{\rcomvar}[7]{% Riferimento Cartesiano Ortogonale Monometrico.
+  % Esempio di chiamata:
+  %% \disegno{\rcomvar{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}{t}{s}
   \def \xmi{#1}
   \def \xma{#2}
   \def \ymi{#3}
   \def \yma{#4}
   \def \griglia{#5}
-\draw[#5] (\xmi-0.3, \ymi-0.3) grid (\xma+0.3, \yma+0.3); % Griglia
-\begin{scope}[-{Stealth[length=2mm, open, round]}, black] % Assi
- \draw (\xmi-0.3, 0) -- (\xma+0.3, 0) node [below] {$x$};
- \draw (0, \ymi-0.3) -- (0, \yma+0.3) node [left] {$y$};
-\end{scope}
-% \end{tikzpicture}
+  \def \vascissa{#6}
+  \def \vordinata{#7}
+  \draw[#5] (\xmi-0.3, \ymi-0.3) grid (\xma+0.3, \yma+0.3); % Griglia
+  \begin{scope}[-{Stealth[length=2mm, open, round]}, black] % Assi
+    \draw (\xmi-0.3, 0) -- (\xma+0.3, 0) node [below] {\vascissa};
+    \draw (0, \ymi-0.3) -- (0, \yma+0.3) node [left] {\vordinata};
+  \end{scope}
+}
+\newcommand{\rcom}[5]{% Riferimento Cartesiano Ortogonale Monometrico: x-y.
+  % Esempio di chiamata:
+  %% \disegno{\rcom{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}
+  \rcomvar{#1}{#2}{#3}{#4}{#5}{\(x\)}{\(y\)}
+}
 
-% \newcommand{\RCOM}[5]{% Coordinate cartesiane ortogonali: x-y.
-% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% \newcommand{\rcom}[5]{% Riferimento Cartesiano Ortogonale Monometrico: x-y.
+%   % Esempio di chiamata:
+%   %% \disegno{\RCOM{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}
+% % \begin{tikzpicture}[x=5mm, y=5mm, smooth]
 %   \def \xmi{#1}
 %   \def \xma{#2}
 %   \def \ymi{#3}
 %   \def \yma{#4}
 %   \def \griglia{#5}
-%   \coordinate [label=$x$] (x) at (\xma, 0);     
-%   \draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
-%   \coordinate [label=$y$] (y) at (0, \yma);	
-%   \draw [-{Stealth[length=2mm, open, round]}] (0, \ymi) -- (0, \yma);
-%   \draw [#5] (\xmi, \ymi) grid (\xma, \yma);
-% \end{tikzpicture}
-}
-% Esempio
+%   \draw[#5] (\xmi-0.3, \ymi-0.3) grid (\xma+0.3, \yma+0.3); % Griglia
+%   \begin{scope}[-{Stealth[length=2mm, open, round]}, black] % Assi
+%     \draw (\xmi-0.3, 0) -- (\xma+0.3, 0) node [below] {$x$};
+%     \draw (0, \ymi-0.3) -- (0, \yma+0.3) node [left] {$y$};
+%   \end{scope}
+% % \end{tikzpicture}
 % 
+% % \newcommand{\RCOM}[5]{% Coordinate cartesiane ortogonali: x-y.
+% % \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% %   \def \xmi{#1}
+% %   \def \xma{#2}
+% %   \def \ymi{#3}
+% %   \def \yma{#4}
+% %   \def \griglia{#5}
+% %   \coordinate [label=$x$] (x) at (\xma, 0);     
+% %   \draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
+% %   \coordinate [label=$y$] (y) at (0, \yma);	
+% %   \draw [-{Stealth[length=2mm, open, round]}] (0, \ymi) -- (0, \yma);
+% %   \draw [#5] (\xmi, \ymi) grid (\xma, \yma);
+% % \end{tikzpicture}
+% }
 
-\newcommand{\rcomvario}[7]{% Rif. Cart. Ort. Mon.: v_ind-v_dip.
-  % Esempio di chiamata:
-  %% \disegno{\RCOMvario{0}{6}{0}{6}{gray!50, very thin, step=1}{t}{v}}
-  \def \xmi{#1}
-  \def \xma{#2}
-  \def \ymi{#3}
-  \def \yma{#4}
-  \def \griglia{#5}
-  \def \vind{#6}
-  \def \vdip{#7}
-  \draw [#5] (\xmi, \ymi) grid (\xma, \yma);
-  \coordinate [label=$\vind$] (x) at (\xma, 0);     
-  \draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
-  \coordinate [label=$\vdip$] (y) at (0, \yma);     
-  \draw [-{Stealth[length=2mm, open, round]}] (0, \ymi) -- (0, \yma);
-}
+% \newcommand{\rcomvario}[7]{% Rif. Cart. Ort. Mon.: v_ind-v_dip.
+%   % Esempio di chiamata:
+%   %% \disegno{\RCOMvario{0}{6}{0}{6}{gray!50, very thin, step=1}{t}{v}}
+%   \def \xmi{#1}
+%   \def \xma{#2}
+%   \def \ymi{#3}
+%   \def \yma{#4}
+%   \def \griglia{#5}
+%   \def \vind{#6}
+%   \def \vdip{#7}
+%   \draw [#5] (\xmi, \ymi) grid (\xma, \yma);
+%   \coordinate [label=$\vind$] (x) at (\xma, 0);     
+%   \draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
+%   \coordinate [label=$\vdip$] (y) at (0, \yma);     
+%   \draw [-{Stealth[length=2mm, open, round]}] (0, \ymi) -- (0, \yma);
+% }
 
 \newcommand{\testodraw}[3]{% Scrive un testo.
   % Esempio di chiamata:
@@ -113,8 +143,6 @@
 	\def \parametri{#3}
 	\coordinate [label={ #3 $\testo$}] (T) at (\posizione);
 }
-% Esempio
-% 
 
 \newcommand{\angolodraw}[4]{% Disegna un arco.
   % Esempio di chiamata:
@@ -138,4 +166,81 @@
 	\draw plot [variable=\t, domain=45:7245, smooth, rotate=\angolo, 
 	shift={(\posizione)}] 
 	({\lunghezza*0.0001388*\t}, {\ampiezza*(sin(\t)^2-0.5)});
+}
+
+%--------------------------
+% Funzioni per i grafi delle disequazioni
+\newcommand{\cerchietto}[2]{% Cerchietto
+  % Esempio di chiamata:
+  %% \cerchietto{-5/3}{0}
+  \def \parposx{#1}
+  \def \parposy{#2}
+  \def \dim{.25}
+  \draw (\parposx, \parposy) circle (\dim);
+}
+
+\newcommand{\crocetta}[2]{% Crocetta
+  % Esempio di chiamata:
+  %% \crocetta{+5/3}{0}
+  \def \parposx{#1}
+  \def \parposy{#2}
+  \def \dim{.25}
+  \draw (\parposx-\dim,  \parposy-\dim) -- (\parposx+\dim, \parposy+\dim) 
+        (\parposx-\dim,  \parposy+\dim) -- (\parposx+\dim, \parposy-\dim);
+}
+
+\newcommand{\segnitreassiduepunti}[7]{% Grafo calcolo del segno con tre assi
+  % Esempio di chiamata:
+  %% \segnitreassiduepunti{5}{1.2}
+  %%                      {\(8x-1\)}{\(x+1\)}{\(f(x)\)}
+  %%                      {\(-1\)}{\(\frac{1}{8}\)}
+  \def \dimx{#1}
+  \def \dimy{#2}
+  \def \primaesp{#3}
+  \def \secondaesp{#4}
+  \def \terzaesp{#5}
+  \def \primoval{#6}
+  \def \secondoval{#7}
+  \def \posx{\dimx / 3}
+  \def \posy{0}          % \posy inchioda la compilazione!!!!!!!!!!!??????????
+  \def \posv{0}
+  \assex{-\dimx}{+\dimx}{\posv}
+  \draw (-\dimx, \posv) node [above] {\primaesp};
+  \def \posv{-\dimy}
+  \assex{-\dimx}{+\dimx}{\posv}
+  \draw (-\dimx, \posv) node [above] {\secondaesp};
+  \def \posv{-2*\dimy}
+  \assex{-\dimx}{+\dimx}{\posv}
+  \draw (-\dimx, \posv) node [above] {\terzaesp};
+  \draw [-] (-\posx, \posv) -- (-\posx, \dimy) node [above] {\primoval};
+  \draw [-] (+\posx, \posv) -- (+\posx, \dimy) node [above] {\secondoval};
+}
+
+\newcommand{\sistematreassitrepunti}[8]{% Grafo per un sistema di disequazioni
+  % Esempio di chiamata:
+  %% \sistematreassitrepunti{5}{1.2}
+  %%                        {\(D_1\)}{\(D_2\)}{\(D_1 \wedge D_2\)}
+  %%                        {\(-1\)}{\(\frac{1}{8}\)}{\(\frac{2}{7}\)}
+  \def \dimx{#1}
+  \def \dimy{#2}
+  \def \primaesp{#3}
+  \def \secondaesp{#4}
+  \def \terzaesp{#5}
+  \def \primoval{#6}
+  \def \secondoval{#7}
+  \def \terzoval{#8}
+  \def \posx{\dimx / 2}
+  \def \posy{0}          % \posy inchioda la compilazione!!!!!!!!!!!??????????
+  \def \posv{0}
+  \assex{-\dimx}{+\dimx}{\posv}
+  \draw (-\dimx, \posv) node [left] {\primaesp};
+  \def \posv{-\dimy}
+  \assex{-\dimx}{+\dimx}{\posv}
+  \draw (-\dimx, \posv) node [left] {\secondaesp};
+  \def \posv{-2*\dimy}
+  \assex{-\dimx}{+\dimx}{\posv}
+  \draw (-\dimx, \posv) node [left] {\terzaesp};
+  \draw [-] (-\posx, \posv) -- (-\posx, \dimy) node [above] {\primoval};
+  \draw [-] (0, \posv) -- (0, \dimy) node [above] {\secondoval};
+  \draw [-] (+\posx, \posv) -- (+\posx, \dimy) node [above] {\terzoval};
 }
