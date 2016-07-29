@@ -1,12 +1,5 @@
 % (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 
-\chapter{Complementi di algebra}
-
-\section{TODO}
-
-\section{Funzioni, Equazioni e disequazioni irrazionali}
-\label{sec:01_irrazionali}
-
 % \begin{wrapfloat}{figure}{r}{0pt}
 % \includegraphics[scale=0.35]{img/fig000_.png}
 % \caption{...}
@@ -15,6 +8,246 @@
 % 
 % \begin{center} \input{\folder lbr/fig000_.pgf} \end{center}
 
-\section{Funzioni, Equazioni e disequazioni con valore assoluto}
-\label{sec:02_valass}
+% \subsection{Funzioni, Equazioni e disequazioni con valore assoluto}
+% \label{sec:irvalass_}
 
+\chapter{Complementi di algebra}
+
+\section{Equazioni di grado superiore al secondo}
+% \label{sec:irvalass_supsec}
+
+A questo punto siamo in grado di risolvere equazioni di primo e secondo 
+grado. Impareremo ora come comportarci nel caso, più generale, di 
+equazioni polinomiali di grado superiore.
+
+\subsection{Equazioni che si possono risolvere tramite scomposizione}
+% \label{subsec:irvalass_supsec_scomp}
+
+Pensiamo, ad esempio, di dover risolvere un'equazione polinomiale del 
+tipo $P(x)=0$, lo sappiamo già fare? Certo, se possiamo applicare la 
+tecnica della scomposizione (raccoglimenti totali e parziali, prodotti 
+notevoli, regola di Ruffini...). Scomponiamo il polinomio $P(x)$  
+scrivendolo come  prodotto di più polinomi di grado minore e poi, 
+mediante la legge dell'annullamento del prodotto, risolviamo le equazioni 
+che abbiamo trovato.
+
+Prima di procedere ricordiamo la legge dell'annullamento del prodotto:
+
+\begin{definizione}
+Legge dell'annullamento del prodotto: il prodotto di due o più fattori è 
+uguale a zero quando almeno uno dei fattori è nullo.   
+\end{definizione}
+
+\begin{esempio}
+$x^3-4x=0$
+\begin{center}
+\begin{tabular}{ll}
+raccogliamo a fattore comune la $x$: & $x(x^2-4)=0$\\
+applichiamo la legge dell'annullamento del prodotto: & $x=0 \sor (x^2-4)=0$\\
+risolviamo le due equazioni ottenute: & $x=0 \sor x=\pm 2$
+\end{tabular}
+\end{center}
+\end{esempio}
+
+\begin{esempio}
+$3x^3-2x^2-3x+2=0$
+\begin{center}
+\begin{tabular}{ll}
+facciamo un primo raccoglimento parziale: & $3x(x^2-1)-2(x^2-1)=0$\\
+raccogliamo a fattore comune la $x$: & $(x^2-1)(3x-2)=0$\\
+applichiamo la legge dell'annullamento del prodotto: & $x^2-1=0 \sor 3x-2=0$\\
+risolviamo le due equazioni ottenute: $x=\pm 1\sor x=\frac{2}{3}$& 
+\end{tabular}
+\end{center}
+\end{esempio}
+
+\begin{esempio}
+$x^4-3x^3+2x^2=0$
+\begin{center}
+\begin{tabular}{ll}
+raccogliamo a fattore comune la $x$: & $x^2(x^2-3x+2)=0$\\
+applichiamo la legge dell'annullamento del prodotto: & $x^2=0 \sor x^2-3x+2=0$\\
+risolviamo le due equazioni ottenute: & $x=0 \sor x=1 \sor x=2$
+\end{tabular}
+\end{center}
+\end{esempio}
+
+\subsection{Equazioni monomie}
+
+\begin{definizione}[Equazione monomia]
+Un'equazione si dice \textbf{monomia} se può essere scritta nella forma:
+$$ax^n=0$$      
+\end{definizione}
+
+Ricordando che $$x^n=0$$
+equivale a $$\underbrace{x\cdot x\cdot x\cdot x \dots \cdot x}_{\text{$n$ 
+volte}}=0$$
+e per la legge dell'annullamento del prodotto, abbiamo $$x=0 \sor x=0 
+\sor x=0 \sor x=0 \sor \cdots \sor x=0 $$
+Si può dire quindi che l'equazione $ax^n=0$ ha $n$ soluzioni 
+\emph{coincidenti} uguali a 0.
+
+\subsection{Equazioni binomie}
+
+\begin{definizione}[Equazione binomia]
+Un'equazione si dice \textbf{binomia} se può essere scritta nella forma:
+$$ax^n+b=0$$
+dove $n$ è un numero \emph{intero positivo} e $a$ e $b$  \emph{numeri 
+reali}  non nulli.  
+\end{definizione}
+
+Il numero delle soluzioni dipende da $n$ e dal segno di $a$ e $b$.
+Infatti se riscriviamo l'equazione
+$$ax^n+b=0$$
+e risolviamo rispetto a $x^n$, otteniamo l'equazione equivalente:
+$$x^n=-\frac{b}{a}$$
+
+\begin{itemize}
+\item se $n$ è \textbf{pari} l'equazione ammette soluzioni reali 
+solo se  $-\frac{b}{a}>0$ e le soluzioni saranno date da:
+$$x=\pm \sqrt[n]{-\frac{b}{a}}$$
+se $-\frac{b}{a}<0$ l'equazione non ammette radici reali in 
+quanto non esiste la radice di indice pari di un numero negativo.
+\item se $n$ \textbf{dispari} l'equazione ammette sempre 
+una sola soluzione reale data da  $$x= \sqrt[n]{-\frac{b}{a}}$$ 
+\end{itemize}
+
+\begin{esempio}
+$8x^3+1=0$
+\begin{center}
+\begin{tabular}{ll}
+Risolviamo rispetto a $x^3$ e otteniamo l'equazione equivalente: & 
+$x^3=-\frac{1}{8}$\\
+estraiamo quindi la radice cubica: & $x=\sqrt[3]{-\frac{1}{8}} = -2$
+\end{tabular}
+\end{center}
+\end{esempio}
+
+\begin{esempio}
+$4x^2-9=0$
+\begin{center}
+\begin{tabular}{ll}
+Risolviamo rispetto a $x^2$ e otteniamo l'equazione equivalente: & 
+$x^2=\frac{9}{4}$\\
+le soluzioni di questa equazione sono due: & 
+$x=\pm \sqrt{\frac{9}{4}}=\pm\frac{3}{2}$
+\end{tabular}
+\end{center}
+\end{esempio}    
+
+\begin{esempio}
+$2x^2 +50=0$
+
+Risolviamo rispetto a $x^2$ e otteniamo l'equazione equivalente: 
+
+$x^2=-\frac{50}{2}=-25$
+
+poiché non ci sono numeri reali che elevati alla seconda diano un risultato 
+negativo: 
+
+\emph{L'equazione Non Ha Soluzioni Reali}
+\end{esempio}    
+
+\begin{esempio}
+$-\frac{2}{3}x^6+2=0$
+\begin{center}
+\begin{tabular}{ll}
+Risolviamo rispetto a $x^6$ e otteniamo l'equazione equivalente: & 
+$x^6=-\frac{-2}{-\frac{2}{3}}=3$\\
+semplifichiamo: & $x^6=3$\\
+le soluzioni di questa equazione sono due: & $x=\pm \sqrt[6]{3}$
+\end{tabular}
+\end{center}
+\end{esempio}
+
+\subsection{Equazioni trinomie particolari}
+
+\begin{definizione}[Equazione trinomia particolare]
+Un'equazione si dice \textbf{trinomia particolare} se può essere scritta nella 
+forma:
+$$ax^{2n}+bx^n+c=0$$
+dove $n$ è un numero intero positivo e $a$, $b$ e $c$  numeri reali  non 
+nulli. 
+\end{definizione}
+
+Possiamo distinguere tre casi:
+\begin{itemize}
+\item se $n=1$ l'equazione diventa $ax^{2}+bx+c=0$, si riduce 
+quindi a un'equazione di secondo grado.
+\item se $n=2$ l'equazione diventa $ax^{4}+bx^2+c=0$, con $a$, 
+$b$ e $c$ numeri reali  non nulli e viene chiamata \textbf{equazione 
+biquadratica}.
+\item se $n\geq 2$ le equazioni trinomie si possono ricondurre a 
+equazioni di secondo grado tramite una semplice sostituzione:\\
+ponendo infatti $x^n=z$ e quindi $x^{2n}=(x^n)^2=z^2$, l'equazione 
+di partenza
+$$ax^{2n}+bx^n+c=0$$
+diventa:
+$$az^{2}+bz+c=0$$
+ora non resta che risolvere questa equazione, se non troviamo 
+soluzioni reali, neppure quella di partenza ammette soluzioni reali, se 
+invece ammette soluzioni reali, ad esempio $z_1$ e $z_2$  le soluzioni 
+dell'equazione originaria saranno le soluzioni delle due equazioni 
+binomie:
+\begin{center}
+  $x^n=z_1$ e $x^n=z_2$.
+\end{center}
+\end{itemize}
+
+
+\begin{comment}
+\begin{esempio}
+
+\begin{center}
+\begin{tabular}{ll}
+: & \\
+: & \\
+: & 
+\end{tabular}
+\end{center}
+\end{esempio}
+\end{comment}
+
+\begin{esempio}
+  $x^6+9x^3+8=0$
+
+  Poniamo $x^3=z$, l'equazione diventa: $z^2+9z+8=0$
+
+  Risolviamo questa equazione: 
+  $\tonda{z+8}\tonda{z+1}=0 \sRarrow z_1=-8 \sor z_2=-1$
+
+  Ritorniamo ora alla variabile $x$:
+  \begin{itemize} [nosep]
+    \item $x^3=z_1=-8 \sRarrow x_1=\sqrt[3]{-8}=-2$ 
+    \item $x^3=z_2=-1 \sRarrow x_2=\sqrt[3]{-1}=-1$
+  \end{itemize}
+\end{esempio}
+
+\begin{esempio}
+  $x^4+x^2-6=0$
+  
+  Poniamo $x^2=z$, l'equazione diventa $z^2+z+-6=0$ 
+  
+  Questa equazione ha soluzioni:
+  $\tonda{z+3}\tonda{z-2}=0 \sRarrow z_1=-3 \sor z_2=+2$
+  
+  Ritorniamo ora alla variabile $x$:
+  \begin{itemize} [nosep]
+    \item $x^2=z_1 \sRarrow x=-3$ che non ha soluzioni reali
+    \item $x^2=z_2 \sRarrow x=+2$ che soluzioni $x_{1,2}=\pm \sqrt[]{2}$
+  \end{itemize}
+\end{esempio}
+
+\begin{esempio}
+  $x^{10}-10x^5+25=0$ 
+  
+  Poniamo $x^5=z$, l'equazione diventa $z^2-10z+25=0$
+  
+  Questa equazione ha soluzioni:
+  $z_1=5$
+  
+  Ritorniamo ora alla variabile $x$:
+  \begin{itemize} [nosep]
+    \item $x^5=z_1 \sRarrow x=5$ che ha soluzione $x=\sqrt[5]{5}$
+  \end{itemize}
+\end{esempio}
