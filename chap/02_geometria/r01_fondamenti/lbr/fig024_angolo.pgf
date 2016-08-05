@@ -1,0 +1,28 @@
+% Copyright (c) 2015 Daniele Masini - d.masini.it@gmail.com
+
+\begin{tikzpicture}
+%angolo1
+\tkzDefPoint(0,0){H}
+\tkzDefPoint(0,3){I}
+\tkzDefShiftPoint[H](0:6){M}
+\tkzDefShiftPoint[I](0:6){L}
+\tkzDefPoint(2,1.5){V}
+\tkzDefMidPoint(V,L)	\tkzGetPoint{M1}
+\tkzDefMidPoint(V,M)	\tkzGetPoint{M2}
+\tkzDrawSegments(V,L V,M)
+\tkzFillPolygon[yellow!30](L,V,M,H,I)
+\tkzFillPolygon[blue!30,opacity=.25](L,V,M)
+%\tkzDrawSegment[style=dashed](C,M)
+\tkzDrawPoint(V)
+
+\begin{scope}
+\clip(0,0) rectangle (3,3);
+\tkzDefShiftPoint[H](0:-3){M1}
+\tkzDefShiftPoint[I](0:-3){L1}
+\tkzDrawSegments[dotted](V,M1 V,L1)
+\end{scope}
+
+\tkzLabelPoint[above right](0.7,.3){angolo concavo}
+\tkzLabelPoint[right](3,1.5){angolo convesso}
+
+\end{tikzpicture}

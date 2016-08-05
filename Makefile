@@ -47,6 +47,7 @@ pdf: $(TEX)
 	$(PDFLATEX) $<
 
 clean: $(CLEAN_DIRS)
+
 $(CLEAN_DIRS):
 	@for i in $(FILE_CLEAN); \
 	 do \
