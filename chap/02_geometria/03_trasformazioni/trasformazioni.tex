@@ -8,7 +8,7 @@
 Nei prossimi capitoli studieremo alcune trasformazioni geometriche nel piano.
 
 Delle trasformazioni cercheremo di capire:
-\begin{enumerate}
+\begin{enumerate} [noitemsep]
 \item se cambiano la forma o le dimensioni delle figure che trasformano;
 \item se esistono delle figure che non si modificano nella trasformazione,
  cioè se la trasformazione ha degli elementi uniti;
@@ -35,29 +35,34 @@ un qualunque altro software di geometria.
 Per esplorare le trasformazioni nel piano useremo i seguenti strumenti della
 geometria interattiva con Python:
 
-\begin{itemize}
+\begin{itemize} [nosep]
 \item \texttt{Point(x, y)} crea un punto con date coordinate.
 \item \texttt{Line(p0, p1)} crea una retta passante per \texttt{p0} 
- e~\texttt{p1}.
+ e \texttt{p1}.
 \item \texttt{Parallel(retta, punto)} crea una retta parallela a \texttt{retta}
  passante per \texttt{punto}.
 \item \texttt{Orthogonal(retta, punto)} crea una retta perpendicolare 
-a~\texttt{retta} passante per \texttt{punto}.
-\item \texttt{PointOn(oggetto, parametro)} crea un punto fissato su oggetto nella
-posizione definita da parametro.
-\item \texttt{Segment(p0, p1)} crea un segmento di estremi \texttt{p0} e \texttt{p1}.
+a \texttt{retta} passante per \texttt{punto}.
+\item \texttt{PointOn(oggetto, parametro)} crea un punto fissato su oggetto 
+nella posizione definita da parametro.
+\item \texttt{Segment(p0, p1)} crea un segmento di estremi \texttt{p0} e 
+\texttt{p1}.
 \item \texttt{MidPoint(segmento)} crea il punto medio di segmento.
-\item \texttt{ConstrainedPoint(object, parameter)} crea un punto vincolato a oggetto
+\item \texttt{ConstrainedPoint(object, parameter)} crea un punto vincolato a 
+oggetto
 nella posizione iniziale definita da parametro.
 \item \texttt{Polygon(vertici)} crea un poligono data una sequenza di punti.
-\item \texttt{Circle(centro, punto)} crea una circonferenza di centro \texttt{centro},
+\item \texttt{Circle(centro, punto)} crea una circonferenza di centro 
+\texttt{centro},
 passante per \texttt{punto}.
-\item \texttt{\textless{}poligono\textgreater{}.vertices} contiene la lista dei vertici del poligono.
-\item \texttt{\textless{}segmento\textgreater{}.length()} restituisce la lunghezza di un segmento.
-\item \texttt{\textless{}oggetto\textgreater{}.coords()} restituisce le coordinate di oggetto.
+\item \texttt{\textless{}poligono\textgreater{}.vertices} contiene la lista dei 
+vertici del poligono.
+\item \texttt{\textless{}segmento\textgreater{}.length()} restituisce la 
+lunghezza di un segmento.
+\item \texttt{\textless{}oggetto\textgreater{}.coords()} restituisce le 
+coordinate di oggetto.
 \item \texttt{VarText(x, y, stringa, variabili)} crea un testo variabile nella
 posizione \texttt{x}, \texttt{y}.
-
 \end{itemize}
 
 Se ci sono dei dubbi sul loro significato conviene dare un'occhiata alla
@@ -68,21 +73,25 @@ parte sull'informatica o al manuale di \texttt{pygraph}.
 \label{sec:traslazione}
 
 In questo capitolo si affrontano i seguenti argomenti:
-\begin{enumerate}
+\begin{enumerate} [noitemsep]
 \item Cos'è una traslazione e quali sono le sue proprietà.
 \item Cosa sono gli elementi uniti in una traslazione.
 \item Cosa dice l'algebra sulle traslazioni.
-
 \end{enumerate}
 
+\def \tqs{\textquotesingle~}
+
+% \newcommand{\tqs}{\textquotesingle~}
 
 \subsection{Definizione}
 
 Nella geometria euclidea, una traslazione è una trasformazione che sposta,
 di una distanza fissa, tutti i punti nella stessa direzione.
 
-In altre parole, dato un vettore, diremo che un punto P' è il traslato del
-punto P se il segmento \texttt{PP'} ha la stessa direzione, lo stesso verso e la stessa
+In altre parole, dato un vettore, diremo che un punto P\tqs è il 
+traslato del
+punto P se il segmento~PP\tqs ha la 
+stessa direzione, lo stesso verso e la stessa
 lunghezza del vettore.
 
 La funzione principale che realizzeremo è quella che, dato un punto e
@@ -93,11 +102,11 @@ Si dovrà poterla chiamare in questo modo:
 p_1 = traslapunto(p_0, traslazione)
 \end{lstlisting}
 
-Ovviamente \texttt{p\_0} e \texttt{traslazione} dovranno essere rispettivamente un
-punto e
-un vettore creati precedentemente.
-Dopo la chiamata, \texttt{p\_1} conterrà il riferimento al traslato di \texttt{p\_0}
-della quantità indicata da \texttt{vettore}.
+% Ovviamente {\ttfamily p\_0} e {\ttfamily traslazione} 
+Ovviamente \lstinline{p_0} e \lstinline{traslazione} 
+dovranno essere rispettivamente un punto e un vettore creati precedentemente.
+Dopo la chiamata, \lstinline{p_1} conterrà il riferimento al traslato di 
+\lstinline{p_0} della quantità indicata da \lstinline{vettore}.
 Un frammento completo di programma potrebbe essere:
 
 \begin{lstlisting}
@@ -107,16 +116,16 @@ trasl = ig.Vector(ig.Point(-13, 10, width=6),
 
 # Punto A, il suo traslato
 a_0 = ig.Point(-3, 9, width=6, name="A")
-a_1 = traslapunto(a_0, trasl, width=6, name="A\'")
+a_1 = traslapunto(a_0, trasl, width=6, name="A'")
 \end{lstlisting}
 
-La funzione \texttt{traslapunto(punto, traslazione)} dovrà:
-\begin{enumerate}
-\item Creare una retta invisibile parallela a \texttt{traslazione}
-passante per \texttt{punto}.
+\noindent La funzione \lstinline{traslapunto(punto, traslazione)} dovrà:
+
+\begin{enumerate} [noitemsep]
+\item Creare una retta invisibile parallela a {\ttfamily traslazione}
+passante per \lstinline{punto}.
 \item Creare su questa retta un punto fisso nella posizione +1.
 \item Dare come risultato questo punto.
-
 \end{enumerate}
 
 Una possibile soluzione:
@@ -129,10 +138,11 @@ def traslapunto(punto, traslazione, **kargs):
 \end{lstlisting}
 
 Avviato IDLE crea una nuova finestra (menu-File-New window) e 
-salvala, in una nostra cartella, con il nome \texttt{trasla01\_proprieta.py}.
+salvala, in una nostra cartella, con il nome 
+\lstinline{trasla01\_proprieta.py}.
 Inizia questo programma
 con un'intestazione adeguata: alcuni commenti che contengano la data, il
-tuo nome e un titolo (ad esempio: \texttt{Traslazioni: proprietà}).
+tuo nome e un titolo (ad esempio: \lstinline{Traslazioni: proprieta'}).
 
 Scrivi ora un programma che disegni un vettore, un punto e il
 suo traslato.
@@ -162,40 +172,43 @@ Il programma potrà assomigliare a questo:
 
   # Punto A e il suo punto traslato e il vettore AA'
   a_0 = ig.Point(-5, 6, width=6, name="A")
-  a_1 = traslapunto(a_0, trasl, width=6, name="A\'")
+  a_1 = traslapunto(a_0, trasl, width=6, name="A'")
   v_a = ig.Vector(a_0, a_1, width=1)
   
   # attivazione della finestra grafica
   ip.mainloop()
 \end{lstlisting}
 
-Esegui il programma, muovi i punti base, il punto \texttt{A'} deve rimanere
-sempre il traslato di \texttt{A} secondo il vettore dato.
+Esegui il programma, muovi i punti base, il punto \lstinline{A'} deve 
+rimanere
+sempre il traslato di \lstinline{A} secondo il vettore dato.
 Se tutto funziona sei pronto per esplorare le caratteristiche delle
 simmetrie assiali.
 
 
 \subsection{Proprietà}
 
-Crea il vettore \texttt{AA'}, con spessore 1.
-Esegui il programma e muovi il punto \texttt{A}: cosa puoi dire del segmento
-\texttt{AA'}?
+Crea il vettore~\lstinline{AA'}, con spessore 1.
+Esegui il programma e muovi il punto~\lstinline{A}: cosa puoi dire del segmento
+\lstinline{AA'}?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Costruisci ora un nuovo punto \texttt{B}, il suo traslato \texttt{B'} e
-il vettore \texttt{BB'} (spessore 1).
+Costruisci ora un nuovo punto~\lstinline{B}, il suo traslato~\lstinline{B'} e
+il vettore~\lstinline{BB'} (spessore 1).
 
-Costruisci i segmenti \texttt{AB} e \texttt{A'B'}
+Costruisci i segmenti \lstinline{AB} e~\lstinline{A'B'}
+% Costruisci i segmenti~\lstinline{AB} e~\lstinline{A\tqs B\tqs}
 (di un colore diverso dagli altri oggetti realizzati).
-Visualizza le misure di \texttt{AB} e \texttt{A'B'} usando la classe VarText:
+Visualizza le misure di~\lstinline{AB} e~\lstinline{A'B'} usando la classe 
+\lstinline{VarText}:
 
 \begin{lstlisting}
   ab = ig.Segment(a_0, b_0, width=6, color='violet')
   a1b1 = ig.Segment(a_1, b_1, width=6, color='violet')
   ig.VarText(-7, -7, "AB = {}", ab.length())
-  ig.VarText(-7, -8, "A\'B\' = {}", ab.length())
+  ig.VarText(-7, -8, "A'B' = {}", ab.length())
 \end{lstlisting}
 
 Muovi i punti base, cosa osservi?
@@ -203,7 +216,7 @@ Muovi i punti base, cosa osservi?
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Puoi formulare la congettura: \texttt{A'B'} è congruente ad \texttt{AB} e
+Puoi formulare la congettura: \lstinline{A'B'} è congruente ad~\lstinline{AB} e
 prova a dimostrarla.
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -215,34 +228,34 @@ prova a dimostrarla.
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Costruisci un punto \texttt{P} vincolato al segmento \texttt{AB} e il suo
-traslato \texttt{P'}:
+Costruisci un punto~\lstinline{P} vincolato al segmento~\lstinline{AB} e il suo
+traslato~\lstinline{P'}:
 
 \begin{lstlisting}
-p_0 = ig.ConstrainedPoint(ab, .3, width=6, color=\'green\', name="P")
-p_1 = traslapunto(p_0, trasl, width=6, color=\'green\', name="P\'")
+p_0 = ig.ConstrainedPoint(ab, .3, width=6, color='green', name="P")
+p_1 = traslapunto(p_0, trasl, width=6, color='green', name="P'")
 \end{lstlisting}
 
-Muovi il punto \texttt{P}, cosa osservi?
+Muovi il punto~\lstinline{P}, cosa osservi?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Costruisci un nuovo punto \texttt{C} il suo simmetrico \texttt{C'},
-costruisci il poligono \texttt{ABC} e il poligono \texttt{A'B'C'}.
-Cosa si può concludere circa i triangoli \texttt{ABC} e  \texttt{A'B'C'}?
+Costruisci un nuovo punto~\lstinline{C} il suo simmetrico~\lstinline{C'},
+costruisci il poligono~\lstinline{ABC} e il poligono~\lstinline{A'B'C'}.
+Cosa si può concludere circa i triangoli~\lstinline{ABC} e ~\lstinline{A'B'C'}?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Cosa puoi dire sull'orientamento dei vertici del triangolo \texttt{ABC} e del suo
-trasformato \texttt{A'B'C'}?
+Cosa puoi dire sull'orientamento dei vertici del triangolo~\lstinline{ABC} e 
+del suo trasformato~\lstinline{A'B'C'}?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 \textbf{Riassumendo}
-\begin{itemize}
+\begin{itemize} [noitemsep]
 \item La traslazione è una trasformazione geometrica che trasforma segmenti
 in segmenti congruenti, perciò è una \emph{isometria}.
 \item La traslazione mantiene il verso dei poligoni.
@@ -271,29 +284,29 @@ trasl = ig.Vector(ig.Point(-13, 10, width=6),
 
 # Punto A e il suo punto traslato
 a_0 = ig.Point(-5, 6, width=6, name="A")
-a_1 = traslapunto(a_0, trasl, width=6, name="A\'")
+a_1 = traslapunto(a_0, trasl, width=6, name="A'")
 v_a = ig.Vector(a_0, a_1, width=1)
 
 # Punto B, B', il vettore BB' e il punto medio
 b_0 = ig.Point(-7, 0, width=6, name="B")
-b_1 = traslapunto(b_0, trasl, width=6, name="A\'")
+b_1 = traslapunto(b_0, trasl, width=6, name="A'")
 v_b = ig.Vector(b_0, b_1, width=1)
 
 # Segmento AB e A'B'
 ab =ig.Segment(a_0, b_0, width=6, color='violet')
 a1b1 =ig.Segment(a_1, b_1, width=6, color='violet')
 ig.VarText(-7, -7, "AB = {}", ab.length())
-ig.VarText(-7, -8, "A\'B\' = {}", ab.length())
+ig.VarText(-7, -8, "A'B' = {}", ab.length())
 
 # P vincolato alla retta AB
 p_0 = ig.ConstrainedPoint(ab, .3, width=6, 
-                          color=\'olive drab\', name="P")
+                          color='olive drab', name="P")
 p_1 = traslapunto(p_0, trasl, width=6, 
-                  color=\'olive drab\', name="P\'")
+                  color='olive drab', name="P'")
 
 # Punto C, C' e i triangoli ABC e A'B'C'
 c_0 = ig.Point(1, 5, width=6, name="B")
-c_1 = traslapunto(c_0, trasl, width=6, name="A\'")
+c_1 = traslapunto(c_0, trasl, width=6, name="A'")
 ig.Polygon((a_0, b_0, c_0), width=4, 
            color='violet', intcolor='gold')
 ig.Polygon((a_1, b_1, c_1), width=4, 
@@ -311,8 +324,9 @@ ip.mainloop()
 Un elemento unito è un oggetto geometrico che viene trasformato in se stesso
 da una trasformazione.
 
-Avvia un nuovo programma e salvarlo con il nome: \texttt{trasla02\_elementiuniti.py}
-e scrivi  funzione \texttt{traslapunto(punto, traslazione, **kargs)}
+Avvia un nuovo programma e salvarlo con il nome: 
+\lstinline{trasla02\_elementiuniti.py}
+e scrivi  funzione~\lstinline{traslapunto(punto, traslazione, **kargs)}
 che restituisce il traslato di un punto.
 Nel programma principale crea un punto e il suo traslato.
 Il programma dovrebbe assomigliare a:
@@ -338,7 +352,7 @@ trasl = ig.Vector(ig.Point(-13, 10, width=6),
 
 # Punto A e il suo traslato
 a_0 = ig.Point(-5, 6, width=6, name="A")
-a_1 = traslapunto(a_0, trasl, width=6, name="A\'")
+a_1 = traslapunto(a_0, trasl, width=6, name="A'")
 
 # attivazione della finestra grafica
 ip.mainloop()
@@ -351,25 +365,23 @@ Sono pochi gli elementi uniti in una traslazione, solo le rette parallele
 al vettore traslazione. Crea:
 \begin{itemize}
 \item una retta con uno spessore maggiore passante
-per \texttt{A} e parallela al vettore traslazione.
+per~\lstinline{A} e parallela al vettore traslazione.
 \item una retta con uno spessore minore e di un altro colore passante
-per \texttt{A'} e parallela al vettore traslazione.
+per~\lstinline{A'} e parallela al vettore traslazione.
 
 \end{itemize}
 
-Qualunque sia la traslazione e qualunque sia il punto \texttt{A},
-ottieni due rette sovrapposte: cioè \texttt{r'} coincide con \texttt{r}.
+Qualunque sia la traslazione e qualunque sia il punto~\lstinline{A},
+ottieni due rette sovrapposte: cioè~\lstinline{r'} coincide con~\lstinline{r}.
 
 \textbf{Riassumendo}
-\begin{itemize}
+\begin{itemize} [noitemsep]
 \item In una trasformazione un elemento si dice unito se viene trasformato in se
 stesso.
 \item In una traslazione, sono elementi uniti  solo:
 \begin{itemize}
 \item le rette . . . . . . . . . . . . . . .
-
 \end{itemize}
-
 \end{itemize}
 
 
@@ -379,7 +391,7 @@ Un vettore è completamente determinato dalla differenza delle coordinate
 tra il punto iniziale e il punto finale di un segmento orientato.
 
 Avvia una nuova finestra di editor e salvarla con il
-nome: \texttt{trasla03\_equazioni.py}.
+nome:~\lstinline{trasla03\_equazioni.py}.
 In questa finestra ricopia il seguente programma:
 
 \begin{lstlisting}
@@ -430,30 +442,31 @@ ma questi rappresentano un solo vettore.
 \end{gather}
 rappresentano un solo numero razionale.
 
-Nel programma principale crea un punto \texttt{P(5, 5)}, il suo traslato e
+Nel programma principale crea un punto~\lstinline{P(5, -1)}, il suo traslato e
 aggiungi alcune istruzioni che visualizzino le
-componenti del vettore \texttt{v} e le coordinate del punto \texttt{P} e \texttt{P'}:
+componenti del vettore~\lstinline{v} e le coordinate del punto~\lstinline{P} e 
+\lstinline{P'}:
 
 \begin{lstlisting}
 # Relazione tra componenti della traslazione e
 # coordinate del punto traslato
 p_0 = ig.Point(5, 5, width=6, name="P")
-p_1 = traslapunto(a_0, v, width=6, name="P\'")
+p_1 = traslapunto(a_0, v, width=6, name="P'")
 
 ig.VarText(-7, -10, "v = {}", v.components())
 ig.VarText(-7, -11, "P = {}", p_0.coords())
-ig.VarText(-7, -12, "P\' = {}", p_1.coords())
+ig.VarText(-7, -12, "P' = {}", p_1.coords())
 \end{lstlisting}
 
-Modifica il vettore \texttt{v} e completa la seguente tabella
-lasciando fisso il punto \texttt{P(5, 5)}:
+Modifica il vettore~\lstinline{v} e completa la seguente tabella
+lasciando fisso il punto~\lstinline{P(5, -1)}:
 
 \begin{tabular}{|c|c|}
 \hline
 
 traslazione
  & 
-simmetrico rispetto asse x
+Traslato di P
 \\
 \hline
 v (4; 3)
@@ -468,7 +481,7 @@ P'(. . . . . ; . . . . .)
 \hline
 v (. . ; . . )
  & 
-P'(x\_p . . . ; y\_p . . .)
+P'( . . . ;  . . .)
 \\
 \hline
 v (a; b)
@@ -478,10 +491,10 @@ P'(. . . . . ; . . . . .)
 \hline\end{tabular}
 
 
-Nella traslazione di componenti \texttt{(a, b)}:
-l'ascissa del generico punto \texttt{P'} traslato di \texttt{P}
+Nella traslazione di componenti~\lstinline{(a, b)}:
+l'ascissa del generico punto~\lstinline{P'} traslato di~\lstinline{P}
 è . . . . . . . . . . . . . . . ;
-l'ordinata del generico punto \texttt{P'},
+l'ordinata del generico punto~\lstinline{P'},
 è . . . . . . . . . . . . . . . .
 
 La traslazione si può tradurre nel sistema di equazioni:
@@ -493,7 +506,7 @@ y' =
 
 \textbf{Riassumendo}
 \begin{itemize}
-\item L'equazione della traslazione di vettore \texttt{v(a; b)} è:
+\item L'equazione della traslazione di vettore~\lstinline{v(a; b)} è:
 
 \(\tau \left \{
 \begin{array}{l} x' = x + a \\ y' = y + b \end{array} \right .\)
@@ -503,38 +516,40 @@ y' =
 \textbf{Prova tu}
 
 Sul quaderno completa le seguenti frasi.
-\begin{enumerate}
+\begin{enumerate} [noitemsep]
 \item Una traslazione è
 \item In una traslazione figure corrispondenti sono
 \item In una traslazione sono unite
-\item Le equazioni della traslazione di componenti \texttt{(a; b)} è:
-
+\item Le equazioni della traslazione di componenti~\lstinline{(a; b)} è:
 \end{enumerate}
 
 
 \section{Simmetria assiale}
 \label{sec:simmetria-assiale}
 In questo capitolo si affrontano i seguenti argomenti:
-\begin{enumerate}
+\begin{enumerate} [noitemsep]
 \item Cos'è una simmetria assiale e quali sono le sue proprietà.
 \item Cosa sono gli elementi uniti in una simmetria assiale.
 \item Cosa sono gli assi di simmetria in un poligono.
 \item Cosa dice l'algebra sulle simmetrie assiali.
-
 \end{enumerate}
 
 
 \subsection{Definizione}
 
-Una simmetria assiale di asse \texttt{asse} è una trasformazione che manda un punto
-\texttt{P} in un punto \texttt{P'} appartenente alla retta perpendicolare all'asse di
-simmetria in modo tale che la distanza di \texttt{P} dall'asse
-sia uguale alla distanza di \texttt{P'} dall'asse.
+Una simmetria assiale di asse~\lstinline{asse} è una trasformazione che manda 
+un punto
+\lstinline{P} in un punto~\lstinline{P'} appartenente alla retta perpendicolare 
+all'asse di
+simmetria in modo tale che la distanza di~\lstinline{P} dall'asse
+sia uguale alla distanza di~\lstinline{P'} dall'asse.
 
 In altre parole,
-un punto P' è simmetrico del punto \texttt{P} rispetto alla retta \texttt{asse} se il
-segmento \texttt{PP'} è perpendicolare a \texttt{asse} e \texttt{asse} taglia a metà il
-segmento \texttt{PP'}.
+un punto \lstinline{P'} è simmetrico del punto~\lstinline{P} rispetto alla 
+retta~\lstinline{asse} 
+se il
+segmento~\lstinline{PP'} è perpendicolare a~\lstinline{asse} e~\lstinline{asse} 
+taglia a metà il segmento~\lstinline{PP'}.
 
 La funzione principale che realizzeremo è quella che, dato un punto e una
 retta, costruisce il simmetrico del punto rispetto alla retta.
@@ -544,27 +559,27 @@ Si dovrà poterla chiamare in questo modo:
 p_1 = simmpunto(p_0, asse)
 \end{lstlisting}
 
-Ovviamente \texttt{p\_0} e \texttt{asse} dovranno essere rispettivamente un punto e
-una retta creati precedentemente.
-Dopo la chiamata, \texttt{p\_1} conterrà il riferimento al simmetrico di \texttt{p\_0}
-rispetto a \texttt{asse}.
+Ovviamente~\lstinline{p_0} e~\lstinline{asse} dovranno essere rispettivamente 
+un punto e una retta creati precedentemente.
+Dopo la chiamata,~\lstinline{p_1} conterrà il riferimento al simmetrico di 
+\lstinline{p_0} rispetto a~\lstinline{asse}.
 
-La funzione \texttt{simmpunto(punto, asse)} dovrà:
-\begin{enumerate}
-\item Creare una retta invisibile ortogonale a \texttt{asse} passante per \texttt{punto}.
-\item Creare su questa retta un punto fisso nella posizione -1.
+La funzione~\lstinline{simmpunto(punto, asse)} dovrà:
+
+\begin{enumerate} [noitemsep]
+\item Creare una retta invisibile ortogonale a~\lstinline{asse} passante per 
+\lstinline{punto}.
+\item Creare su questa retta un punto fisso nella posizione~-1.
 \item Dare come risultato questo punto.
-
 \end{enumerate}
 
 Una possibile soluzione:
 
 \begin{lstlisting}
-def simmpunto(punto, asse):
+def simmpunto(punto, asse, **kargs):
     """Restituisce il simmetrico di punto rispetto a asse."""
     perpendicolare = ig.Orthogonal(asse, punto, False)
-    puntosimmetrico = ig.PointOn(perpendicolare, -1)
-    return puntosimmetrico
+    return ig.PointOn(perpendicolare, -1, **kargs)
 \end{lstlisting}
 
 La funzione proposta nel programma a fine capitolo è un po' più concisa e,
@@ -574,13 +589,13 @@ numero variabile di parametri definiti per chiave.
 In questo modo si possono effettuare chiamate di questo tipo:
 
 \begin{lstlisting}
-a_1 = simmpunto(a_0, asse, name="A\'")
-b_1 = simmpunto(a_0, asse, name="B\'", color="navy")
-c_1 = simmpunto(a_0, asse, name="C\'", width=7)
+a_1 = simmpunto(a_0, asse, name="A'")
+b_1 = simmpunto(a_0, asse, name="B'", color="navy")
+c_1 = simmpunto(a_0, asse, name="C'", width=7)
 \end{lstlisting}
 
 Avviato IDLE crea una nuova finestra (menu-File-New window) e salvala,
-in una tua cartella, con il nome \texttt{simass01\_proprieta.py}.
+in una tua cartella, con il nome~\lstinline{simass01\_proprieta.py}.
 Inizia questo programma con un'intestazione adeguata: alcuni commenti che 
 contengano la \emph{data}, il tuo \emph{nome} e un \emph{titolo}.
 
@@ -609,44 +624,47 @@ asse = ig.Line(ig.Point(-3, -12, width=6),
 
 # Punto A, il suo punto simmetrico
 a_0 = ig.Point(-3, 9, width=6, name="A")
-a_1 = simmpunto(a_0, asse, width=6, name="A\'")
+a_1 = simmpunto(a_0, asse, width=6, name="A'")
 
 # attivazione della finestra grafica
 ip.mainloop()
 \end{lstlisting}
 
-Esegui il programma, muovi i punti base, il punto \texttt{A'} deve rimanere
-sempre simmetrico di \texttt{A}. Se tutto funziona sei pronto per
+Esegui il programma, muovi i punti base, il punto~\lstinline{A'} deve rimanere
+sempre simmetrico di~\lstinline{A}. Se tutto funziona sei pronto per
 esplorare le caratteristiche delle simmetrie assiali.
 
 
 \subsection{Proprietà}
 
-Crea il segmento \texttt{AA'}, con spessore 1, e costruisci il punto medio \texttt{M}.
-Esegui il programma e muovi il punto \texttt{A}: cosa puoi dire del segmento \texttt{AA'}
+Crea il segmento~\lstinline{AA'}, con spessore~1, e costruisci il punto medio 
+\lstinline{M}.
+Esegui il programma e muovi il punto~\lstinline{A}: cosa puoi dire del segmento 
+\lstinline{AA'}
 e del suo punto medio?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Costruisci ora un nuovo punto \texttt{B} dalla stessa parte di \texttt{A}
-e il suo simmetrico \texttt{B'} rispetto alla retta \texttt{asse},
-costruisci il segmento \texttt{BB'} (spessore 1) e il suo punto medio
-chiamandolo \texttt{N}.
-Puoi prevedere il comportamento di \texttt{N}?
+Costruisci ora un nuovo punto~\lstinline{B} dalla stessa parte di~\lstinline{A}
+e il suo simmetrico~\lstinline{B'} rispetto alla retta~\lstinline{asse},
+costruisci il segmento~\lstinline{BB'} (spessore 1) e il suo punto medio
+chiamandolo~\lstinline{N}.
+Puoi prevedere il comportamento di~\lstinline{N}?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Costruisci i segmenti \texttt{AB} e \texttt{A'B'}
+Costruisci i segmenti~\lstinline{AB} e~\lstinline{A'B'}
 (di un colore diverso dagli altri oggetti realizzati).
-Visualizza le misure di \texttt{AB} e \texttt{A'B'} usando la classe VarText:
+Visualizza le misure di~\lstinline{AB} e~\lstinline{A'B'} usando la classe 
+\lstinline{VarText}:
 
 \begin{lstlisting}
 ab = ig.Segment(a, b, width=6, color='violet')
 a1b1 = ig.Segment(a1, b1, width=6, color='violet')
 ig.VarText(-7, -7, "AB = {}", ab.length())
-ig.VarText(-7, -8, "A\'B\' = {}", ab.length())
+ig.VarText(-7, -8, "A'B' = {}", ab.length())
 \end{lstlisting}
 
 Muovi i punti base, cosa osservi?
@@ -654,8 +672,8 @@ Muovi i punti base, cosa osservi?
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Puoi formulare la congettura: \texttt{A'B'} è congruente ad \texttt{AB}.
-Aggiungi i due segmenti: \texttt{MB} e \texttt{MB'} e prova a dimostrarla.
+Puoi formulare la congettura:~\lstinline{A'B'} è congruente ad~\lstinline{AB}.
+Aggiungi i due segmenti:~\lstinline{MB} e~\lstinline{MB'} e prova a dimostrarla.
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -666,36 +684,38 @@ Aggiungi i due segmenti: \texttt{MB} e \texttt{MB'} e prova a dimostrarla.
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Costruisci un punto \texttt{P} vincolato al segmento \texttt{AB} e il suo
-simmetrico \texttt{P'}:
+Costruisci un punto~\lstinline{P} vincolato al segmento~\lstinline{AB} e il suo
+simmetrico~\lstinline{P'}:
 
 \begin{lstlisting}
-p = ig.ConstrainedPoint(ab, .3, width=6, color=\'olive drab\', name="P")
-p1 = simmpunto(p, asse, width=6, color=\'olive drab\', name="P\'")
+p = ig.ConstrainedPoint(ab, .3, width=6, color='olive drab', name="P")
+p1 = simmpunto(p, asse, width=6, color='olive drab', name="P'")
 \end{lstlisting}
 
-Muovi il punto \texttt{P}, cosa osservi?
+Muovi il punto~\lstinline{P}, cosa osservi?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Costruisci un nuovo punto \texttt{C} dalla stessa parte di \texttt{A} e \texttt{B} rispetto
-a \texttt{asse} e il suo simmetrico \texttt{C'}, costruisci il poligono \texttt{ABC},
-e il poligono \texttt{A'B'C'}.
-Cosa si può concludere circa i triangoli \texttt{ABC} e  \texttt{A'B'C'}?
+Costruisci un nuovo punto~\lstinline{C} dalla stessa parte di~\lstinline{A} e 
+\lstinline{B} rispetto
+a~\lstinline{asse} e il suo simmetrico~\lstinline{C'}, costruisci il poligono 
+\lstinline{ABC}, e il poligono~\lstinline{A'B'C'}.
+Cosa si può concludere circa i triangoli~\lstinline{ABC} e ~\lstinline{A'B'C'}?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Cosa puoi dire sull'orientamento dei vertici del triangolo \texttt{ABC} e del suo
-trasformato \texttt{A'B'C'}?
+Cosa puoi dire sull'orientamento dei vertici del triangolo~\lstinline{ABC} e 
+del suo trasformato~\lstinline{A'B'C'}?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 \textbf{Riassumendo}
-\begin{itemize}
-\item La simmetria assiale è una trasformazione geometrica che trasforma segmenti
+\begin{itemize} [noitemsep]
+\item La simmetria assiale è una trasformazione geometrica che trasforma 
+segmenti
 in segmenti congruenti, perciò è una \emph{isometria}.
 \item La simmetria assiale inverte il verso dei poligoni.
 \item Se un punto appartiene ad un segmento, il suo simmetrico appartiene al
@@ -723,14 +743,14 @@ asse = ig.Line(ig.Point(-3, -12, width=6),
 
 # Punto A, il suo simmetrico
 a_0 = ig.Point(-3, 9, width=6, name="A")
-a_1 = simmpunto(a_0, asse, width=6, name="A\'")
+a_1 = simmpunto(a_0, asse, width=6, name="A'")
 # Il segmento AA' e il punto medio
 sa =ig.Segment(a_0, a_1, width=1)
 m = ig.MidPoint(sa, width=6, color=\'red\', name="M")
 
 # Punto B, il suo punto simmetrico
 b_0 = ig.Point(-7, 3, width=6, name="B")
-b_1 = simmpunto(b_0, asse, width=6, name="B\'")
+b_1 = simmpunto(b_0, asse, width=6, name="B'")
 # Il segmento BB' e il punto medio
 sb =ig.Segment(b_0, b_1, width=1)
 n = ig.MidPoint(sb, width=6, color=\'red\', name="N")
@@ -747,11 +767,11 @@ mb1 =ig.Segment(m, b_1, width=1)
 p_0 = ig.ConstrainedPoint(ab, .3, width=6, 
                           color=\'olive drab\', name="P")
 p_11 = simmpunto(p_0, asse, width=6, 
-                 color=\'olive drab\', name="P\'")
+                 color=\'olive drab\', name="P'")
 
 # Punto C, il suo punto simmetrico, i triangoli ABC e A'B'C'
 c_0 = ig.Point(-10, 5, width=6, name="B")
-c_1 = simmpunto(c_0, asse, width=6, name="B\'")
+c_1 = simmpunto(c_0, asse, width=6, name="B'")
 ig.Polygon((a_0, b_0, c_0), 
            width=4, color='violet', intcolor='gold')
 ig.Polygon((a_1, b_1, c_1), 
@@ -766,9 +786,10 @@ ip.mainloop()
 
 \subsection{Elementi uniti}
 
-Avvia un nuovo programma e salvarlo con il nome: \texttt{simmass02\_elementiuniti.py}
-e scrivi  funzione \texttt{simmpunto(punto, asse, **kags)} che restituisce il
-simmetrico di un punto rispetto a una retta.
+Avvia un nuovo programma e salvarlo con il nome: 
+\lstinline{simmass02\_elementiuniti.py}
+e scrivi la funzione~\lstinline{simmpunto(punto, asse, **kags)} che restituisce 
+il simmetrico di un punto rispetto a una retta.
 Nel programma principale crea tre punti e i loro simmetrici.
 Il programma dovrebbe assomigliare a:
 
@@ -795,9 +816,9 @@ asse = ig.Line(ig.Point(-3, -12, width=6),
 a_0 = ig.Point(-3, 9, width=6, name="A")
 b_0 = ig.Point(-7, 3, width=6, name="B")
 c_0 = ig.Point(-9, 6, width=6, name="C")
-a_1 = simmpunto(a_0, asse, width=6, name="A\'")
-b_1 = simmpunto(b_0, asse, width=6, name="B\'")
-c_1 = simmpunto(c_0, asse, width=6, name="B\'")
+a_1 = simmpunto(a_0, asse, width=6, name="A'")
+b_1 = simmpunto(b_0, asse, width=6, name="B'")
+c_1 = simmpunto(c_0, asse, width=6, name="B'")
 
 # attivazione della finestra grafica
 ip.mainloop()
@@ -806,28 +827,32 @@ ip.mainloop()
 Esegui il programma, muovi i punti base, se tutto funziona puoi iniziare
 l'esplorazione degli elementi uniti della simmetria assiale.
 
-Sposta uno dei punti sulla retta \texttt{asse}. Cosa osservi?
+Sposta uno dei punti sulla retta~\lstinline{asse}. Cosa osservi?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-In una trasformazione geometrica un punto viene detto \emph{unito} se, trasformato,
-corrisponde a se stesso. Puoi concludere che:
+In una trasformazione geometrica un punto viene detto \emph{unito} se, 
+trasformato, corrisponde a se stesso. Puoi concludere che:
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-In generale, in una trasformazione geometrica, una figura viene detta \emph{unita}
+In generale, in una trasformazione geometrica, una figura viene detta 
+\emph{unita}
 quando è trasformata in se stessa (anche se non ogni suo punto è unito).
 
-Un segmento che ha gli estremi su \texttt{asse} è . . . . . . . . . . . . . . . . .
+Un segmento che ha gli estremi su~\lstinline{asse} 
+è . . . . . . . . . . . . . . . . .
 rispetto alla simmetria e è
 costituito da . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Costruisci un triangolo \texttt{ABC} e il suo simmetrico \texttt{A'B'C'}.
-Muovi i punti \texttt{ABC} in modo che il triangolo simmetrico si sovrapponga al
-triangolo \texttt{A'B'C'}.
-Come deve essere il triangolo \texttt{ABC} per essere unito rispetto alla simmetria?
+Costruisci un triangolo~\lstinline{ABC} e il suo simmetrico~\lstinline{A'B'C'}.
+Muovi i punti~\lstinline{ABC} in modo che il triangolo simmetrico si sovrapponga 
+al
+triangolo~\lstinline{A'B'C'}.
+Come deve essere il triangolo~\lstinline{ABC} per essere unito rispetto alla 
+simmetria?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -859,29 +884,30 @@ Costruisci e descrivi altri elementi uniti rispetto alla simmetria.
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 \textbf{Riassumendo}
-\begin{itemize}
+
+\begin{itemize} [noitemsep]
 \item In una trasformazione un elemento si dice unito se viene trasformato in se
 stesso.
 \item In una simmetria assiale sono elementi uniti:
-\begin{itemize}
+\begin{itemize} [noitemsep]
 \item i punti . . . . . . . . . . . . . . .
 \item i segmenti . . . . . . . . . . . . . . .
 \item le rette . . . . . . . . . . . . . . .
 \item le circonferenze . . . . . . . . . . . . . . .
 \item i triangoli . . . . . . . . . . . . . . .
 \item i poligoni . . . . . . . . . . . . . . .
-
 \end{itemize}
-
 \end{itemize}
 
 
 \subsection{Poligoni simmetrici}
 
-Avvia un nuovo programma e salvarlo con il nome: \texttt{simass03\_poligoni.py}.
-Scrivi la solita funzione \texttt{simmpunto}.
+Avvia un nuovo programma e salvarlo con il 
+nome:~\lstinline{simass03\_poligoni.py}.
+Scrivi la solita funzione~\lstinline{simmpunto}.
 
-Scrivi una funzione che, dati \texttt{centro}, \texttt{vertice} e \texttt{numlati},
+Scrivi una funzione che, dati~\lstinline{centro},~\lstinline{vertice} e 
+\texttt{numlati},
 costruisca il poligono regolare. Lo schema potrebbe essere:
 
 \begin{lstlisting}
@@ -895,7 +921,7 @@ def polreg(centro, vertice, numlati, **kargs):
     # restituisci il poligono costruito con questi vertici
 \end{lstlisting}
 
-Scrivi la funzione che, dati \texttt{poligono} e \texttt{asse},
+Scrivi la funzione che, dati~\lstinline{poligono} e~\lstinline{asse},
 costruisca il poligono simmetrico. Lo schema potrebbe essere:
 
 \begin{lstlisting}
@@ -908,20 +934,21 @@ def simmpoli(poligono, asse, **params):
 \end{lstlisting}
 
 Nel programma principale crea:
-\begin{itemize}
+\begin{itemize} [noitemsep]
 \item un piano interattivo;
 \item crea il punto O di coordinate (6, 3);
 \item l'asse passante per quel punto e il punto (6, 7);
 \item il triangolo equilatero di centro O e passante per (4, 3), usa la
-funzione \texttt{polreg};
-\item il simmetrico del triangolo (usa la funzione \texttt{simmpoli}).
+funzione~\lstinline{polreg};
+\item il simmetrico del triangolo (usa la funzione~\lstinline{simmpoli}).
 
 \end{itemize}
 
-Una figura è simmetrica rispetto ad un \emph{asse} se resta unita nella simmetria.
+Una figura è simmetrica rispetto ad un \emph{asse} se resta unita nella 
+simmetria.
 
-Agendo con il mouse, muovi la retta \texttt{asse} facendo in modo che il triangolo
-trasformato si sovrapponga al triangolo originale.
+Agendo con il mouse, muovi la retta~\lstinline{asse} facendo in modo che il 
+triangolo trasformato si sovrapponga al triangolo originale.
 
 Sono tre e sono quelle in cui l'asse passa per . . . . . . . . . . . . . . .
 
@@ -943,13 +970,14 @@ Cosa puoi osservare?
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 \textbf{Riassumendo}
-\begin{itemize}
+\begin{itemize} [noitemsep]
 \item Una figura si dice simmetrica se esiste una simmetria che la trasforma in
 se stessa.
 \item Una figura può avere più assi di simmetria.
 \item I poligoni regolari hanno tanti assi di simmetria quante sono i lati del
 poligono.
-\item La funzione \texttt{polreg(centro, vertice, numlati, **kargs)} può essere
+\item La funzione~\lstinline{polreg(centro, vertice, numlati, **kargs)} può 
+essere
 realizzata in questo modo:
 
 \begin{lstlisting}
@@ -968,7 +996,7 @@ def polreg(centro, vertice, numlati, **kargs):
     # restituisci il poligono costruito con questi vertici
     return ig.Polygon(vertici, **kargs)
 \end{lstlisting}
-\item La funzione \texttt{simmpoli(poligono, asse, **kargs)} può essere
+\item La funzione~\lstinline{simmpoli(poligono, asse, **kargs)} può essere
 realizzata in questo modo:
 
 \begin{lstlisting}
@@ -990,18 +1018,19 @@ def simmpoli(poligono, asse, **kargs):
 
 \subsection{Equazioni di alcune simmetrie assiali}
 
-Avvia un nuovo programma e salvarlo con il nome: \texttt{simmas04\_equazioni.py}.
-Scrivi la solita funzione \texttt{simmpunto}.
+Avvia un nuovo programma e salvarlo con il nome: 
+\lstinline{simmas04\_equazioni.py}.
+Scrivi la solita funzione~\lstinline{simmpunto}.
 
 Nel programma principale crea:
-\begin{itemize}
+\begin{itemize} [noitemsep]
 \item un piano interattivo;
 \item una retta x sovrapposta all'asse x;
 \item una retta y sovrapposta all'asse y;
-\item un punto \texttt{P} e visualizza le sue coordinate;
-\item il punto \texttt{P'} simmetrico di \texttt{P} rispetto all'asse x
+\item un punto~\lstinline{P} e visualizza le sue coordinate;
+\item il punto~\lstinline{P'} simmetrico di~\lstinline{P} rispetto all'asse x
 e visualizza le sue coordinate;
-\item il punto \texttt{P'{'}} simmetrico di \texttt{P} rispetto all'asse y
+\item il punto~\lstinline{P''} simmetrico di~\lstinline{P} rispetto all'asse y
 e visualizza le sue coordinate;
 \item muovi il punto P in varie posizioni e completa la seguente tabella:
 
@@ -1047,10 +1076,14 @@ P'`(. . . . . ; . . . . .)
 \hline\end{tabular}
 
 
-Nella simmetria rispetto all'asse delle \texttt{x}:
-l'ascissa del generico punto P' simmetrico di \texttt{P} è . . . . . . . . . . . . . . .
-all'ascissa di \texttt{P}; l'ordinata del generico punto \texttt{P'}, è . . . . . . . . . . . . .
-all'ordinata di \texttt{P}.
+Nella simmetria rispetto all'asse delle~\lstinline{x}:
+l'ascissa del generico punto \lstinline{P'} simmetrico di~\lstinline{P} è . . . 
+. . . . . . . . 
+. . . .
+all'ascissa di~\lstinline{P}; l'ordinata del generico punto~\lstinline{P'}, è . 
+. . . 
+. . . . . . . . .
+all'ordinata di~\lstinline{P}.
 
 La simmetria rispetto all'asse x si può tradurre nel sistema di equazioni:
 \(\sigma_{y = 0} \left \{
@@ -1075,7 +1108,8 @@ y' = {}
 \end{array} \right .\)
 
 Modifica il programma in modo che gli assi di simmetria coincidano con le
-bisettrici dei quadranti, muovi il punto P e completa la seguente tabella:
+bisettrici dei quadranti, muovi il punto \lstinline{P} e completa la seguente 
+tabella:
 
 \begin{tabular}{|c|c|c|}
 \hline
@@ -1118,9 +1152,9 @@ P'`(. . . . . ; . . . . .)
 
 
 Nella simmetria rispetto alla bisettrice del 1° e 3° quadrante:
-l'ascissa del generico punto \texttt{P'}, simmetrico di \texttt{P}
-è . . . . . . . . . . . . . . . . . . . . . . . . . . \texttt{P};
-l'ordinata del generico punto \texttt{P'},
+l'ascissa del generico punto~\lstinline{P'}, simmetrico di~\lstinline{P}
+è . . . . . . . . . . . . . . . . . . . . . . . . . .~\lstinline{P};
+l'ordinata del generico punto~\lstinline{P'},
 è . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 La simmetria rispetto alla bisettrice del 1° e 3° quadrante si può tradurre
@@ -1158,7 +1192,7 @@ punto
  & 
 simm. x = 3
  & 
-simm. bis. y = 4
+simm. rispetto a y = 4
 \\
 \hline
 A (-6; 3)
@@ -1190,11 +1224,13 @@ P'`(. . . . . ; . . . . .)
 \\
 \hline\end{tabular}
 
-
 Nella simmetria rispetto alla retta x=3:
-l'ascissa del generico punto P', simmetrico di P è . . . . . . . . . . . . . .
-. . . . . . . . . . . . P; l'ordinata del generico punto P', è . . . . . . . .
-. . . . . . . . . . . . . . . . . . . . .
+l'ascissa del generico punto \lstinline{P'}, 
+simmetrico di \lstinline{P} 
+è . . . . . . . . . . . . . . . . . . . . . . . . . .
+\lstinline{P}; 
+l'ordinata del generico punto \lstinline{P'}, 
+è . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 La simmetria rispetto alla retta x=3 si può tradurre nel sistema di equazioni:
 \(\sigma_{x = 3} \left \{
@@ -1251,10 +1287,12 @@ L'equazione di questa simmetria funziona anche se k=0? Cosa puoi osservare?
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 \textbf{Riassumendo}
-\begin{itemize}
-\item Certe simmetrie assiali possono essere tradotte con un sistema di equazioni
+\begin{itemize} [noitemsep]
+\item Certe simmetrie assiali possono essere tradotte con un sistema di 
+equazioni
 abbastanza semplice.
-\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+% \begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\begin{itemize} [noitemsep]
 \item \(\sigma_{y = 0} \left \{
 \begin{array}{l} x' = x \\ y' = -y \end{array} \right .\)
 \item \(\sigma_{x = 0} \left \{
@@ -1275,37 +1313,33 @@ abbastanza semplice.
 \textbf{Prova tu}
 
 Sul quaderno completa le seguenti frasi.
-\begin{enumerate}
+\begin{enumerate} [noitemsep]
 \item Una simmetria assiale (s.a.) è
 \item In una s.a. figure corrispondenti sono
 \item In una s.a.:
-\begin{enumerate}
+\begin{enumerate} [noitemsep]
 \item sono punti uniti
 \item sono rette unite
 \item sono segmenti uniti
 \item esiste una retta formata da tutti punti uniti, è:
-
 \end{enumerate}
 \item I poligoni regolari hanno tanti assi di simmetria ...
 \item Assi di simmetria...
-\begin{enumerate}
+\begin{enumerate} [noitemsep]
 \item il cerchio ha
 \item il rettangolo ha
 \item il rombo ha
 \item il triangolo isoscele ha
 \item il trapezio isoscele ha
 \item Un parallelogramma che non sia rombo o rettangolo
-
 \end{enumerate}
 \item Le equazioni della s.a.
-\begin{enumerate}
+\begin{enumerate} [noitemsep]
 \item rispetto all'asse x
 \item rispetto all'asse y
 \item rispetto alla bisettrice del 1° e 3° quadrante
 \item rispetto alla bisettrice del 2° e 4° quadrante
-
 \end{enumerate}
-
 \end{enumerate}
 
 
@@ -1313,7 +1347,8 @@ Sul quaderno completa le seguenti frasi.
 \label{sec:rotazione}
 
 In questo capitolo si affrontano i seguenti argomenti:
-\begin{enumerate}
+
+\begin{enumerate} [noitemsep]
 \item Cos'è una rotazione e quali sono le sue proprietà.
 \item Cosa sono gli elementi uniti in una rotazione.
 \item Cosa sono le rotazione di un poligono regolare.
@@ -1324,8 +1359,8 @@ In questo capitolo si affrontano i seguenti argomenti:
 
 \subsection{Definizione}
 
-Una rotazione rispetto a un centro \texttt{O} è una trasformazione che fa
-ruotare attorno a \texttt{O}, ogni punto del piano di uno stesso angolo,
+Una rotazione rispetto a un centro~\lstinline{O} è una trasformazione che fa
+ruotare attorno a~\lstinline{O}, ogni punto del piano di uno stesso angolo,
 
 Una rotazione è determinata dal centro e dall'angolo.
 
@@ -1336,18 +1371,21 @@ e un \emph{angolo} costruisce la rotazione del punto. Per cui:
 p_1 = RuotaPunto(punto, centro, angolo)
 \end{lstlisting}
 
-Ovviamente \texttt{punto}, \texttt{centro} e \texttt{angolo} dovranno essere
-rispettivamente il punto da trasformare, il centro di rotazione
+Ovviamente~\lstinline{punto},~\lstinline{centro} e~\lstinline{angolo} dovranno 
+essere rispettivamente il punto da trasformare, il centro di rotazione
 e l'angolo di rotazione creati precedentemente.
-Dopo la chiamata, \texttt{p\_1} conterrà il riferimento al punto immagine di
-\texttt{p\_0} nella rotazione.
+Dopo la chiamata,~\lstinline{p_1} conterrà il riferimento al punto immagine di
+\lstinline{p_0} nella rotazione.
 
-La funzione \texttt{RuotaPunto(punto, centro, ang)} dovrà:
-\begin{enumerate}
-\item creare una semiretta invisibile passante per \texttt{centro} e \texttt{p\_0};
+La funzione~\lstinline{RuotaPunto(punto, centro, ang)} dovrà:
+
+\begin{enumerate} [noitemsep]
+\item creare una semiretta invisibile passante per~\lstinline{centro} e 
+\lstinline{p_0};
 \item su questa semiretta riportare l'angolo;
-\item intersecare questa semiretta con una circonferenza centrata in \texttt{centro}
-e passante per \texttt{p\_0};
+\item intersecare questa semiretta con una circonferenza centrata in 
+\lstinline{centro}
+e passante per~\lstinline{p_0};
 \item dare come risultato questa intersezione.
 
 \end{enumerate}
@@ -1365,7 +1403,7 @@ def ruotapunto(punto, centro, angolo, **kargs):
 \end{lstlisting}
 
 Avviato IDLE crea una nuova finestra (menu-File-New window) e salvala,
-in una tua cartella, con il nome \texttt{rota01\_proprieta.py}.
+in una tua cartella, con il nome~\lstinline{rota01\_proprieta.py}.
 Inizia questo programma con un'intestazione adeguata: alcuni commenti che 
 contengano la \emph{data}, il tuo \emph{nome} e un \emph{titolo}.
 
@@ -1399,14 +1437,14 @@ angolo.side1(width=1)
 
 # Punto A e il suo punto ruotato
 a_0 = ig.Point(6, -1, width=6, name="A")
-a_1 = ruotapunto(a_0, centro, angolo, width=6, name="A\'")
+a_1 = ruotapunto(a_0, centro, angolo, width=6, name="A'")
 
 # attivazione della finestra grafica
 ip.mainloop()
 \end{lstlisting}
 
-Esegui il programma, muovi i punti base, il punto \texttt{A'} deve
-corrispondere al punto \texttt{A} nella rotazione.
+Esegui il programma, muovi i punti base, il punto~\lstinline{A'} deve
+corrispondere al punto~\lstinline{A} nella rotazione.
 Se tutto funziona sei pronto per esplorare le caratteristiche delle
 rotazioni.
 
@@ -1421,9 +1459,11 @@ Cambia l'angolo di rotazione, cosa avviene quando è di 360°?
 Quando l'angolo di rotazione è un multiplo di 360° la rotazione diventa una
 particolare trasformazione: l'\emph{identità}.
 
-Costruisci ora un nuovo punto \texttt{B} e \texttt{B'}, il suo trasformato nella
-rotazione. Poi crea i segmenti \texttt{AB} e \texttt{A'B'} e visualizzane la misura.
-Puoi formulare la congettura: \texttt{A'B'} è congruente ad \texttt{AB}.
+Costruisci ora un nuovo punto~\lstinline{B} e~\lstinline{B'}, il suo trasformato 
+nella rotazione. 
+Poi crea i segmenti~\lstinline{AB} e~\lstinline{A'B'} e visualizzane 
+la misura.
+Puoi formulare la congettura:~\lstinline{A'B'} è congruente ad~\lstinline{AB}.
 Prova a dimostrarla.
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -1435,34 +1475,36 @@ Prova a dimostrarla.
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Costruisci un punto \texttt{P} vincolato al segmento \texttt{AB} e il suo
-simmetrico \texttt{P'}:
+Costruisci un punto~\lstinline{P} vincolato al segmento~\lstinline{AB} e il suo
+simmetrico~\lstinline{P'}:
 
 \begin{lstlisting}
 p = ig.ConstrainedPoint(ab, .3, width=6, color=\'olive drab\', name="P")
-p1 = simmpunto(p, asse, width=6, color=\'olive drab\', name="P\'")
+p1 = simmpunto(p, asse, width=6, color=\'olive drab\', name="P'")
 \end{lstlisting}
 
-Muovi il punto \texttt{P}, cosa osservi?
+Muovi il punto~\lstinline{P}, cosa osservi?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Costruisci un nuovo punto \texttt{C} e \texttt{C'}, costruisci il 
-poligono \texttt{ABC}, e il poligono \texttt{A'B'C'}.
-Cosa si può concludere circa i triangoli \texttt{ABC} e  \texttt{A'B'C'}?
+Costruisci un nuovo punto~\lstinline{C} e~\lstinline{C'}, costruisci il 
+poligono~\lstinline{ABC}, e il poligono~\lstinline{A'B'C'}.
+Cosa si può concludere circa i triangoli~\lstinline{ABC} e ~\lstinline{A'B'C'}?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-Cosa puoi dire sull'orientamento dei vertici del triangolo \texttt{ABC} e del suo
-trasformato \texttt{A'B'C'}?
+Cosa puoi dire sull'orientamento dei vertici del triangolo~\lstinline{ABC} e 
+del 
+suo
+trasformato~\lstinline{A'B'C'}?
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 \textbf{Riassumendo}
-\begin{itemize}
+\begin{itemize} [noitemsep]
 \item La rotazione è una trasformazione geometrica che trasforma segmenti
 in segmenti congruenti, perciò è una \emph{isometria}.
 \item La rotazione mantiene il verso dei poligoni.
@@ -1498,41 +1540,40 @@ angolo.side1(width=1)
 
 # Punto A e A'
 a_0 = ig.Point(6, -1, width=6, name="A")
-a_1 = ruotapunto(a_0, centro, angolo, width=6, name="A\'")
+a_1 = ruotapunto(a_0, centro, angolo, width=6, name="A'")
 
 # Punto B e B'
 b_0 = ig.Point(7, 3, width=6, name="B")
-b_1 = ruotapunto(b_0, centro, angolo, width=6, name="B\'")
+b_1 = ruotapunto(b_0, centro, angolo, width=6, name="B'")
 
 # I segmenti AB, A'B' e le loro misure
 ab =ig.Segment(a_0, b_0, width=6, color='violet')
 a1b1 =ig.Segment(a_1, b_1, width=6, color='violet')
 ig.VarText(-7, -7, "AB = {}", ab.length())
-ig.VarText(-7, -8, "A\'B\' = {}", a1b1.length())
+ig.VarText(-7, -8, "A'B' = {}", a1b1.length())
 
 # P vincolato alla retta AB
 p_0 = ig.ConstrainedPoint(ab, .3, width=6,
-                          color=\'olive drab\', name="P")
+                          color='olive drab', name="P")
 p_1 = ruotapunto(p_0, centro, angolo, width=6,
-                 color=\'olive drab\', name="P\'")
+                 color='olive drab', name="P'")
 
 # Punto C, C', i triangoli ABC e A'B'C'
 c_0 = ig.Point(-1, 1, width=6, name="B")
-c_1 = ruotapunto(c_0, centro, angolo, width=6, name="C\'")
+c_1 = ruotapunto(c_0, centro, angolo, width=6, name="C'")
 ig.Polygon((a_0, b_0, c_0), width=4, color='navy', intcolor='gold')
 ig.Polygon((a_1, b_1, c_1), width=4, color='navy', intcolor='gold')
 
 # attivazione della finestra grafica
 ip.mainloop()
 \end{lstlisting}
-
 \end{itemize}
-
 
 \subsection{Elementi uniti}
 
-Avvia un nuovo programma e salvalo con il nome: \texttt{rota02\_elementiuniti.py}
-e scrivi  funzione \texttt{ruotapunto(punto, centro, angolo, **kargs)} che
+Avvia un nuovo programma e salvalo con il nome: 
+\lstinline{rota02\_elementiuniti.py}
+e scrivi  funzione~\lstinline{ruotapunto(punto, centro, angolo, **kargs)} che
 restituisce il corrispondente di un punto nella rotazione.
 Questa volta fa le linee di costruzione invisibili.
 
@@ -1545,32 +1586,33 @@ Quali sono gli elementi uniti di una rotazione?
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 \textbf{Riassumendo}
-\begin{itemize}
+
+\begin{itemize} [noitemsep]
 \item In una trasformazione un elemento si dice unito se viene trasformato in se
 stesso.
 \item In una rotazione sono elementi uniti:
-\begin{itemize}
+\begin{itemize} [noitemsep]
 \item il punto . . . . . . . . . . . . . . .
 \item le circonferenze . . . . . . . . . . . . . . .
-
 \end{itemize}
-
 \end{itemize}
 
 
 \subsection{Equazioni di alcune rotazioni}
 
-Avvia un nuovo programma e salvarlo con il nome: \texttt{rota03\_equazioni.py}.
-Scrivi la solita funzione \texttt{ruotapunto(punto, centro, angolo, **kargs)}.
+Avvia un nuovo programma e salvarlo con il 
+nome:~\lstinline{rota03\_equazioni.py}.
+Scrivi la solita 
+funzione~\lstinline{ruotapunto(punto, centro, angolo, **kargs)}.
 
 Nel programma principale crea:
-\begin{itemize}
+\begin{itemize} [noitemsep]
 \item un piano interattivo;
 \item il centro di rotazione nell'origine degli assi;
 \item l'angolo di rotazione di 90°;
-\item un punto \texttt{P} e visualizza le sue coordinate;
-\item il punto \texttt{P'} e visualizza le sue coordinate;
-\item muovi il punto \texttt{P} in varie posizioni e completa la seguente 
+\item un punto~\lstinline{P} e visualizza le sue coordinate;
+\item il punto~\lstinline{P'} e visualizza le sue coordinate;
+\item muovi il punto~\lstinline{P} in varie posizioni e completa la seguente 
  tabella:
 
 \end{itemize}
@@ -1606,8 +1648,8 @@ P'(. . . . . ; . . . . .)
 
 
 Nella rotazione di 90° con centro nell'origine degli assi:
-l'ascissa del generico punto \texttt{P'} è . . . . . . . . . . . . . . . ;
-l'ordinata del generico punto \texttt{P'}, è . . . . . . . . . . . . . .
+l'ascissa del generico punto~\lstinline{P'} è . . . . . . . . . . . . . . . ;
+l'ordinata del generico punto~\lstinline{P'}, è . . . . . . . . . . . . . .
 
 La rotazione di 90° con centro nell'origine si può tradurre nel sistema di
 equazioni:
@@ -1629,9 +1671,9 @@ In modo analogo esplora le rotazioni di 180°, 270° e 360°.
 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 \textbf{Riassumendo}
-\begin{itemize}
-\item il programma per studiare le rotazioni di 90° può essere fatto così:
 
+\begin{itemize} [noitemsep]
+\item il programma per studiare le rotazioni di 90° può essere fatto così:
 \begin{lstlisting}
 # Rotazioni: equazioni della rotazione
 
@@ -1660,9 +1702,9 @@ angolo.side1(width=1)
 
 # Punto P e P' e le loro coordinate
 p_0 = ig.Point(6, -1, width=6, name="P")
-p_1 = ruotapunto(p_0, centro, angolo, width=6, name="P\'")
+p_1 = ruotapunto(p_0, centro, angolo, width=6, name="P'")
 ig.VarText(-7, -11, "P = {}", p_0.coords())
-ig.VarText(-7, -12, "P\' = {}", p_1.coords())
+ig.VarText(-7, -12, "P' = {}", p_1.coords())
 
 # attivazione della finestra grafica
 ip.mainloop()
@@ -1678,24 +1720,20 @@ abbastanza semplice.
 \begin{array}{l} x' =  \\ y' =  \end{array} \right .\)
 \item \(\rho_{360} \left \{
 \begin{array}{l} x' =  \\ y' =  \end{array} \right .\)
-
 \end{itemize}
-
 \end{itemize}
 
 \textbf{Prova tu}
 
 Sul quaderno completa le seguenti frasi.
-\begin{enumerate}
+\begin{enumerate} [noitemsep]
 \item Una rotazione è
 \item In una rotazione figure corrispondenti sono
 \item In una rotazione:
-\begin{enumerate}
+\begin{enumerate} [noitemsep]
 \item sono punti uniti
 \item sono circonferenze unite
-
 \end{enumerate}
 \item Le equazioni di alcune rotazioni sono:
-
 \end{enumerate}
 
