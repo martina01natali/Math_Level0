@@ -31,7 +31,7 @@ pyig.Line(pyig.Point(-3, -8, width=6, name='D'),
      
 ## circonferenza
 pyig.Circle(pyig.Point(6, -5, width=6, name='Centro'),
-            pyig.Point(7, -1, width=6, name='P'))
+            pyig.Point(7, -1, width=6, name='P')
 
-# attivazione della finestra grafica
+## attivazione della finestra grafica
 ip.mainloop()
