@@ -11,6 +11,5 @@ import pyig
 
 # programma principale
 ip = pyig.InteractivePlane()
-
 ## attivazione della finestra grafica
 ip.mainloop()

@@ -268,13 +268,13 @@ la data di creazione, l'autore o gli autori, un titolo.
 % \end{multicols}
  \item [linea 4]
  Una riga vuota può aiutare a rendere più leggibile il codice (vedi anche le 
-linee:~8,~11,~14).
+linee:~8,~11).
  \item [linee 5-7]
  Questa è una stringa che si estende su più righe; inizia e termina con tre 
 caratteri di virgolette doppie. In questa stringa mettiamo una descrizione di 
 cosa fa il programma, nel nostro caso, scriviamo qui il problema che vogliamo 
 risolvere con questo programma.
- \item [linee 9, 12, 15]
+ \item [linee 9, 12, 14]
  Sono dei commenti che servono da \emph{titolo} alle righe seguenti.
  \item [linea 10]
  Questa è la prima istruzione che viene effettivamente eseguita 
@@ -289,7 +289,7 @@ piano interattivo devo devo scrivere il nome della libreria seguito da un punto
 seguito dal nome della classe di cui voglio creare un oggetto. Se 
 questa linea dà un errore bisogna controllare di aver rispettato le maiuscole e 
 minuscole e di aver messo le parentesi tonde. 
- \item [linea 16]
+ \item [linea 15]
  Questa istruzione rende attiva (e interattiva) la finestra grafica. È 
 importante che resti sempre l'ultima istruzione del programma.
 \end{description}
@@ -359,39 +359,39 @@ Spiegazione del programma:
  \item [Struttura] 
  Il programma ha la stessa struttura del precedente:
 \begin{itemize} [nosep]
- \item un'intestazione con alcune informazioni, 
- \item la descrizione del problema che risolve,
- \item la lettura delle librerie
- \item il programma principale,
- \item l'ultima istruzione del programma principale che rende attiva la 
-finestra grafica.
+ \item un'intestazione con alcune informazioni (linee 1-3); 
+ \item la descrizione del problema che risolve (linee 5-12);
+ \item la lettura delle librerie (linea 15);
+ \item il programma principale (linee 17-32);
+ \item notare sempre l'ultima istruzione del programma principale che rende 
+attiva la finestra grafica.
 \end{itemize}
- \item [linea 21]
+ \item [linea 20]
  Viene creato un oggetto {\ttfamily Point} della libreria {\ttfamily pyig}. 
 In questa istruzione vengono anche precisati: un colore e uno spessore e 
 un'etichetta.
 Queste due informazioni non sono strettamente necessarie si può creare un punto 
 anche fornendo solo le coordinate che indicano dove disegnarlo:
 {\ttfamily pyig.Point(3,5)}
- \item [linee 24-26]
+ \item [linee 22-24]
  Per disegnare un segmento ({\ttfamily pyig.Segment}) ho bisogno di indicare i 
 suoi due estremi che sono due punti quindi devo prima creare i due punti, 
 associarli a due identificatori e poi passare questa informazione al costruttore 
 del segmento. 
 \begin{itemize} [nosep]
- \item la linea 24 crea un punto e lo associa all'identificatore 
+ \item la linea 22 crea un punto e lo associa all'identificatore 
  {\ttfamily p\_1}
- \item la linea 25 crea un punto e lo associa all'identificatore 
+ \item la linea 23 crea un punto e lo associa all'identificatore 
  {\ttfamily p\_2}
- \item la linea 26 crea un segmento che va da 
+ \item la linea 24 crea un segmento che va da 
  {\ttfamily p\_1} a {\ttfamily p\_1}
 \end{itemize}
- \item [linee 29-30]
+ \item [linee 26-27]
  Per disegnare una retta ({\ttfamily pyig.Line}) ho bisogno di indicare due suoi
 punti quindi posso seguire lo stesso meccanismo usato per il segmento:
 \begin{lstlisting}
-p_3 = pyig.Point(-3, -8, width=6, name='D')
-p_4 = pyig.Point(-8, -5, width=6, name='E')
+p_3 = pyig.Point(-3, -8, width=6, name="D")
+p_4 = pyig.Point(-8, -5, width=6, name="E")
 pyig.Line(p_3, p_4)
 \end{lstlisting}
 ma il metodo proposto nell'esempio è equivalente e un po' più rapido.
@@ -400,7 +400,7 @@ ci sono due parentesi tonde: la prima per chiudere la costruzione del secondo
 punto, la seconda per chiudere la costruzione della retta.
 Se avete dei dubbi provate a cancellare le due parentesi e a riscriverle 
 prestando ben attenzione a cosa avviene nell'editor.
- \item [linee 33-34]
+ \item [linee 29-30]
  Per disegnare una circonferenza ({\ttfamily pyig.Circle}) ci sono diversi modi 
 quello usato qui richiede che siano passati al costruttore il centro e un punto 
 della circonferenza. Lo si può fare con il metodo usato per il segmento, ma 
@@ -429,73 +429,107 @@ possono assumere?
 
 \subsection{Intersezioni}
 \label{subsec:geo_int_intersezioni}
-Disegniamo la retta passante per \(A\punto{-2}{3}\) e \(B\punto{-2}{3}\) 
-Con lo stesso procedimento utilizzato sopra, scrivi il seguente programma e 
-correggilo finché non funziona.
+Disegniamo:
+\begin{itemize} [nosep]
+ \item la retta passante per \(\punto{-2}{7}\) e \(\punto{5}{7}\); 
+ \item la circonferenza c, di centro \(\punto{2}{-5}\) e 
+ passante per \(\punto{4}{0}\);
+ \item la retta s, passante per \(\punto{-3}{2}\) e \(\punto{4}{2}\);
+ \item l'intersezione tra le due rette s e r;
+ \item le intersezioni tra la retta s e la circonferenza c. 
+\end{itemize}
 
 \paragraph{copiare}
+{~}
 
-\lstinputlisting[language=Python]{\folder lbr/01oggetti_di_base.py}
+\lstinputlisting[language=Python]{\folder lbr/02intersezioni.py}
 
 \paragraph{capire}
-Spiegazione del programma:
 
 \begin{description}
  \item [Struttura] 
- Il programma ha la stessa struttura del precedente:
- \item [linea ]
- 
- \item [linee ]
- 
- \item [linee ]
+ Il programma ha sempre la stessa struttura;
+ \item [linee 18-28]
+Vengono create le due rette e la circonferenza, da notare che viene data 
+un'etichetta a questi oggetti, non ai punti.
+ \item [linea 30]
+Viene creata l'intersezione tra le due rette assegnando a questo punto il 
+colore verde.
+ \item [linee 32-33]
+Vengono create le due intersezione della retta con la circonferenza. 
+{\ttfamily pyig} permette di creare un'intersezione alla volta quindi per 
+distinguere le due intersezioni è obbligatorio aggiungere un argomento che può 
+valere solo~\(-1\) o~\(+1\), se ci dimentichiamo di precisare quale 
+intersezione vogliamo, Python ci segnala un errore
  \item [linee ]
 \end{description}
 
 \begin{osservazione}
+Provate a muovere la retta s, quando questa incontra l'altra retta o la 
+circonferenza, appaiono i punti di intersezione.
 
+Provate a muovere gli altri due oggetti\dots non c'è modo di farlo perché i 
+punti su cui si basano sono stati creati con il parametro {\ttfamily visible} 
+posto a {\ttfamily False}.
 \end{osservazione}
 
 \paragraph{modificare}
 
+\begin{enumerate} [noitemsep]
+ \item Rendi modificabili anche la retta r e la circonferenza.
+ \item Rendi un po' più visibili i punti di intersezione.
+\end{enumerate}
+
 \subsection{Altri oggetti primitivi}
 \label{subsec:geo_int_altrioggetti}
-Disegniamo 
+Disegniamo, nei diversi quadranti: una semiretta, un angolo, un angolo con un 
+solo lato visibile, un angolo con entrambi i lati visibili.
 
 \paragraph{copiare}
+{~}
 
-\lstinputlisting[language=Python]{\folder lbr/01oggetti_di_base.py}
+\lstinputlisting[language=Python]{\folder lbr/03altri_oggetti.py}
 
 \paragraph{capire}
-Spiegazione del programma:
 
 \begin{description}
- \item [Struttura] 
- Il programma ha la stessa struttura del precedente:
- \item [linea ]
- 
- \item [linee ]
- 
- \item [linee ]
- \item [linee ]
+ \item [linee 20-21]
+La costruzione di una semiretta avviene in modo molto simile a quella di una 
+retta.
+ \item [linee 23-25]
+Un modo per costruire un angolo è quello di dare un punto dl primo lato, il 
+vertice e un punto del secondo lato. Se non viene specificato altro i lati non 
+vengono disegnati ma appare solo l'archetto che indica l'angolo.
+ \item [linee 27-29]
+Per far disegnare il primo lato faccio seguire ai tre punti, necessari per la 
+costruzione, una lista che contiene il numero zero: [0].
+ \item [linee 31-33]
+Per far disegnare entrambi i lati faccio seguire ai tre punti, una lista che 
+contiene i numeri zero e uno: [0, 1].
 \end{description}
 
 \begin{osservazione}
-
+L'ultimo dei tre angoli può un po' stupire. Osservate bene qual è il primo lato 
+e quale il secondo e ricordatevi che l'angolo procede sempre in verso 
+antiorario dal primo al secondo. Provate a muovere il punto~C più a sinistra 
+del punto ~D.
 \end{osservazione}
 
 \paragraph{modificare}
 \begin{enumerate} [noitemsep]
- \item 
- \item 
+ \item Cambia il colore e lo spessore della semiretta.
+ \item Cambia il colore e lo spessore dell'angolo.
+ \item Cambia la costruzione del secondo angolo in modo che venga visualizzato 
+il secondo lato.
 \end{enumerate}
 
 \subsection{Poligoni}
 \label{subsec:geo_int_poligoni}
-Disegniamo 
+Disegniamo un triangolo nel primo quadrante, un quadrilatero nel secondo, un 
+pentagono nel terzo e un esagono nel quarto.
 
 \paragraph{copiare}
-Con lo stesso procedimento utilizzato sopra, scrivi il seguente programma e 
-correggilo finché non funziona.
+{~}
 
 \lstinputlisting[language=Python]{\folder lbr/01oggetti_di_base.py}
 
