@@ -3,7 +3,7 @@
 # Un piano vuoto
 
 """
-Problema: Disegna solo un piano.
+Disegna solo un piano.
 """
 
 # lettura delle librerie 

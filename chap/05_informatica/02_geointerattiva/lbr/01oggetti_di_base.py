@@ -3,12 +3,8 @@
 # Elementi di base della geometria interattiva
 
 """
-Problema:
-Disegna:
-- un punto nel primo quadrante,
-- un segmento nel secondo,
-- una retta nel terzo,
-- una circonferenza nel quarto.
+Disegna: un punto nel primo quadrante, un segmento nel secondo,
+una retta nel terzo, una circonferenza nel quarto.
 """
 
 # lettura delle librerie 

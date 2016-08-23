@@ -3,13 +3,12 @@
 # Intersezioni
 
 """
-Problema:
 Disegna:
 - la retta r, passante per (-2; 7) e (5; 7);
 - la circonferenza c, di centro (2; -5) e passante per (4; 0);
 - la retta s, passante per (-3; 2) e (4; 2);
-- l"intersezione tra le due rette s e r;
-- l"intersezione tra la retta s e la circonferenza c.
+- l'intersezione tra le due rette s e r;
+- l'intersezione tra la retta s e la circonferenza c.
 """
 
 # lettura delle librerie 

@@ -193,7 +193,7 @@ e cercare di capire cosa non è andato bene. Magari ci si può far aiutare
 da qualcuno esperto nell'installazione di programmi.
 Se tutto è andato per il verso giusto possiamo procedere.
 
-\paragraph{Riassumendo}
+\subsubsection{Riassumendo}
 \begin{itemize} [nosep]
 \item La geometria interattiva permette di creare e di muovere gli oggetti 
 della geometria euclidea.
@@ -202,7 +202,7 @@ interattiva, noi utilizzeremo il linguaggio Python con la libreria
 \texttt{pyig}.
 \end{itemize}
 
-\paragraph{Prova tu}
+\subsubsection{Prova tu}
 \begin{enumerate} [nosep]
 \item Installa Python.
 \item Installa la libreria pygraph.
@@ -229,12 +229,13 @@ in dettaglio.
 \subsection{Un piano vuoto}
 \label{subsec:geo_int_pianovuoto}
 
-\paragraph{problema}
+\subsubsection{problema}
+
 Il primo problema che ci poniamo è quello di disegnare un piano vuoto. Il 
 risultato ha poco di geometrico (anzi niente), ma ci permette di chiarire come 
 è fatto un programma minimale.
 
-\paragraph{copiare}
+\subsubsection{copiare}
 
 \begin{procedura}
 Scrivi il programma.
@@ -248,9 +249,10 @@ riferimento cartesiano vuoto.
 \end{enumerate}
 \end{procedura}
 
-\lstinputlisting[language=Python]{\folder lbr/00piano_vuoto.py}
+\lstinputlisting{\folder lbr/00piano_vuoto.py}
 
-\paragraph{capire}
+\subsubsection{capire}
+
 Spiegazione del programma:
 
 \begin{description}
@@ -278,13 +280,13 @@ risolvere con questo programma.
  Sono dei commenti che servono da \emph{titolo} alle righe seguenti.
  \item [linea 10]
  Questa è la prima istruzione che viene effettivamente eseguita 
-dall'interprete Python: Legge la libreria {\ttfamily pyig} cioè estende ciò 
+dall'interprete Python: Legge la libreria \lstinline{pyig} cioè estende ciò 
 che sa fare Python con tutto ciò che è contenuto in questa libreria. 
  \item [linea 13]
  Questa è la prima istruzione del programma principale, serve per creare un 
 piano interattivo. Il piano creato viene associato all'\emph{identificatore}
-{\ttfamily ip}. La \emph{classe} {\ttfamily InteractivePlane} è definita 
-all'interno della libreria {\ttfamily pyig} è per questo che per creare un 
+\lstinline{ip}. La \emph{classe} \lstinline{InteractivePlane} è definita 
+all'interno della libreria \lstinline{pyig} è per questo che per creare un 
 piano interattivo devo devo scrivere il nome della libreria seguito da un punto 
 seguito dal nome della classe di cui voglio creare un oggetto. Se 
 questa linea dà un errore bisogna controllare di aver rispettato le maiuscole e 
@@ -294,9 +296,11 @@ minuscole e di aver messo le parentesi tonde.
 importante che resti sempre l'ultima istruzione del programma.
 \end{description}
 
-\begin{osservazione}
+\subsubsection{osservazioni}
 
- È normale ottenere degli errori quando si crea un programma. Gli errori che si 
+\begin{itemize}
+ \item È normale ottenere degli errori quando si crea un programma. Gli errori 
+che si 
 ottengono sono di due tipi:
 \begin{description} [noitemsep]
  \item [Sintattici]
@@ -308,24 +312,22 @@ dall'editor dove è stato scritto il programma.
  \item [Semantici]
  Certe istruzioni, se pur formalmente corrette, non possono essere eseguite.
  Questi errori vengono riportati nella finestra della \emph{Shell} di IDLE, in 
-rosso.
-L'ultima riga dà un'indicazione del motivo dell'errore, quelle subito 
+rosso. L'ultima riga dà un'indicazione del motivo dell'errore, quelle subito 
 precedenti indicano l'istruzione che ha creato l'errore e la sua posizione nel 
 programma.
 \end{description}
+ \item Per semplificare la correzione degli errori, organizzate il vostro 
+desktop in modo da avere sempre in vista contemporaneamente sia il programma 
+sia la finestra della \emph{shell} dove appaiono gli errori.
+\end{itemize}
 
-Per semplificare la correzione degli errori, organizzate il vostro desktop in 
-modo da avere sempre in vista contemporaneamente sia il programma sia la 
-finestra della \emph{shell} dove appaiono gli errori.
+\subsubsection{modificare}
 
-\end{osservazione}
-
-\paragraph{modificare}
 \begin{enumerate} [noitemsep]
  \item Commenta, ponendo un cancelletto ('\#') a inizio riga, una alla volta le 
 tre istruzioni del programma e osserva cosa succede.
  \item Nella shell di Idle scrivi le seguenti istruzioni:
- \begin{lstlisting}
+ \begin{lstlisting}[numbers=none]
 >>> import pyig
 >>> help(pyig.InteractivePlane.__init__)
  \end{lstlisting}
@@ -333,7 +335,7 @@ Quello che ottieni è la descrizione dei parametri che possono essere passati al
 costruttore del piano interattivo.
 Prova a modificare la finestra grafica cambiando la riga 13 del programma in 
 questo modo:
- \begin{lstlisting}
+ \begin{lstlisting}[firstnumber=13]
 ip = pyig.InteractivePlane(name='il MIO piano')
  \end{lstlisting}
  \item Personalizza il piano cartesiano modificando altri parametri.
@@ -341,55 +343,57 @@ ip = pyig.InteractivePlane(name='il MIO piano')
 
 \subsection{Oggetti di base}
 \label{subsec:geo_int_oggetti_base}
+
 Disegniamo alcuni elementi di base: un punto, un segmento, una retta, una 
 circonferenza.
 
-\paragraph{copiare}
+\subsubsection{copiare}
 
 Con lo stesso procedimento utilizzato sopra, scrivi il seguente programma e 
 correggilo finché non funziona.
 
-\lstinputlisting[language=Python]{\folder lbr/01oggetti_di_base.py}
+\lstinputlisting{\folder lbr/01oggetti_di_base.py}
 
 
-\paragraph{capire}
-Spiegazione del programma:
+\subsubsection{capire}
+
 
 \begin{description}
  \item [Struttura] 
  Il programma ha la stessa struttura del precedente:
 \begin{itemize} [nosep]
  \item un'intestazione con alcune informazioni (linee 1-3); 
- \item la descrizione del problema che risolve (linee 5-12);
- \item la lettura delle librerie (linea 15);
- \item il programma principale (linee 17-32);
+ \item la descrizione del problema che risolve (linee 5-8);
+ \item la lettura delle librerie (linea 11);
+ \item il programma principale (linee 14-28);
  \item notare sempre l'ultima istruzione del programma principale che rende 
 attiva la finestra grafica.
 \end{itemize}
- \item [linea 20]
- Viene creato un oggetto {\ttfamily Point} della libreria {\ttfamily pyig}. 
+ \item [linea 16]
+ Viene creato un oggetto \lstinline{Point} della libreria \lstinline{pyig}. 
 In questa istruzione vengono anche precisati: un colore e uno spessore e 
 un'etichetta.
 Queste due informazioni non sono strettamente necessarie si può creare un punto 
 anche fornendo solo le coordinate che indicano dove disegnarlo:
-{\ttfamily pyig.Point(3,5)}
- \item [linee 22-24]
- Per disegnare un segmento ({\ttfamily pyig.Segment}) ho bisogno di indicare i 
+\lstinline{pyig.Point(3,5)}
+ \item [linee 18-20]
+ Per disegnare un segmento (\lstinline{pyig.Segment}) ho bisogno di indicare i 
 suoi due estremi che sono due punti quindi devo prima creare i due punti, 
-associarli a due identificatori e poi passare questa informazione al costruttore 
+associarli a due identificatori e poi passare questa informazione al 
+costruttore 
 del segmento. 
 \begin{itemize} [nosep]
- \item la linea 22 crea un punto e lo associa all'identificatore 
- {\ttfamily p\_1}
- \item la linea 23 crea un punto e lo associa all'identificatore 
- {\ttfamily p\_2}
- \item la linea 24 crea un segmento che va da 
- {\ttfamily p\_1} a {\ttfamily p\_1}
+ \item la linea 18 crea un punto e lo associa all'identificatore 
+ \lstinline{p_1}
+ \item la linea 19 crea un punto e lo associa all'identificatore 
+ \lstinline{p_2}
+ \item la linea 20 crea un segmento che va da 
+ \lstinline{p_1} a \lstinline{p_1}
 \end{itemize}
- \item [linee 26-27]
- Per disegnare una retta ({\ttfamily pyig.Line}) ho bisogno di indicare due suoi
+ \item [linee 22-23]
+ Per disegnare una retta (\lstinline{pyig.Line}) ho bisogno di indicare due suoi
 punti quindi posso seguire lo stesso meccanismo usato per il segmento:
-\begin{lstlisting}
+\begin{lstlisting}[numbers=none]
 p_3 = pyig.Point(-3, -8, width=6, name="D")
 p_4 = pyig.Point(-8, -5, width=6, name="E")
 pyig.Line(p_3, p_4)
@@ -400,27 +404,30 @@ ci sono due parentesi tonde: la prima per chiudere la costruzione del secondo
 punto, la seconda per chiudere la costruzione della retta.
 Se avete dei dubbi provate a cancellare le due parentesi e a riscriverle 
 prestando ben attenzione a cosa avviene nell'editor.
- \item [linee 29-30]
- Per disegnare una circonferenza ({\ttfamily pyig.Circle}) ci sono diversi modi 
+ \item [linee 25-26]
+ Per disegnare una circonferenza (\lstinline{pyig.Circle}) ci sono diversi modi 
 quello usato qui richiede che siano passati al costruttore il centro e un punto 
 della circonferenza. Lo si può fare con il metodo usato per il segmento, ma 
 dato che richiede una riga di codice in meno, io preferisco il metodo usato per 
 la retta.
 \end{description}
 
-\begin{osservazione}
+\subsubsection{osservazioni}
 
-Può sembrare una banalità preferire il metodo utilizzato per disegnare la 
-retta al metodo usato per il segmento, si risparmia solo una riga di codice. 
+\begin{itemize}
+ \item Può sembrare una banalità preferire il metodo utilizzato per disegnare 
+la retta al metodo usato per il segmento, si risparmia solo una riga di codice. 
 Ma una riga su tre equivale al 33\% che non è poco, e inoltre è 
 preferibile non introdurre degli identificatori se non servono. Una regola 
 generale recita: ``Quello che non c'è non si può rompere'', meno istruzioni ci 
 sono in un programma e meno errori avrò.
 
-Muovi i punti base del disegno e osserva come si comportano gli oggetti grafici.
-\end{osservazione}
+ \item Muovi i punti base del disegno e osserva come si comportano gli oggetti 
+grafici.
+\end{itemize}
 
-\paragraph{modificare}
+\subsubsection{modificare}
+
 \begin{enumerate} [noitemsep]
  \item Cambia a tuo piacere i colori dei vari elementi grafici. Quali colori 
 possono assumere?
@@ -429,6 +436,7 @@ possono assumere?
 
 \subsection{Intersezioni}
 \label{subsec:geo_int_intersezioni}
+
 Disegniamo:
 \begin{itemize} [nosep]
  \item la retta passante per \(\punto{-2}{7}\) e \(\punto{5}{7}\); 
@@ -439,41 +447,42 @@ Disegniamo:
  \item le intersezioni tra la retta s e la circonferenza c. 
 \end{itemize}
 
-\paragraph{copiare}
-{~}
+\subsubsection{copiare}
 
-\lstinputlisting[language=Python]{\folder lbr/02intersezioni.py}
+\lstinputlisting{\folder lbr/02intersezioni.py}
 
-\paragraph{capire}
+\subsubsection{capire}
 
 \begin{description}
  \item [Struttura] 
  Il programma ha sempre la stessa struttura;
- \item [linee 18-28]
+ \item [linee 20-27]
 Vengono create le due rette e la circonferenza, da notare che viene data 
 un'etichetta a questi oggetti, non ai punti.
- \item [linea 30]
+ \item [linea 29]
 Viene creata l'intersezione tra le due rette assegnando a questo punto il 
 colore verde.
- \item [linee 32-33]
+ \item [linee 31-32]
 Vengono create le due intersezione della retta con la circonferenza. 
-{\ttfamily pyig} permette di creare un'intersezione alla volta quindi per 
+\lstinline{pyig} permette di creare un'intersezione alla volta quindi per 
 distinguere le due intersezioni è obbligatorio aggiungere un argomento che può 
 valere solo~\(-1\) o~\(+1\), se ci dimentichiamo di precisare quale 
 intersezione vogliamo, Python ci segnala un errore
  \item [linee ]
 \end{description}
 
-\begin{osservazione}
-Provate a muovere la retta s, quando questa incontra l'altra retta o la 
+\subsubsection{osservazioni}
+
+\begin{itemize}
+ \item Provate a muovere la retta s, quando questa incontra l'altra retta o la 
 circonferenza, appaiono i punti di intersezione.
+ \item Provate a muovere gli altri due oggetti\dots non c'è modo di farlo 
+perché i punti su cui si basano sono stati creati con il parametro 
+\lstinline{visible} 
+posto a \lstinline{False}.
+\end{itemize}
 
-Provate a muovere gli altri due oggetti\dots non c'è modo di farlo perché i 
-punti su cui si basano sono stati creati con il parametro {\ttfamily visible} 
-posto a {\ttfamily False}.
-\end{osservazione}
-
-\paragraph{modificare}
+\subsubsection{modificare}
 
 \begin{enumerate} [noitemsep]
  \item Rendi modificabili anche la retta r e la circonferenza.
@@ -482,40 +491,44 @@ posto a {\ttfamily False}.
 
 \subsection{Altri oggetti primitivi}
 \label{subsec:geo_int_altrioggetti}
+
 Disegniamo, nei diversi quadranti: una semiretta, un angolo, un angolo con un 
 solo lato visibile, un angolo con entrambi i lati visibili.
 
-\paragraph{copiare}
-{~}
+\subsubsection{copiare}
 
-\lstinputlisting[language=Python]{\folder lbr/03altri_oggetti.py}
+\lstinputlisting{\folder lbr/03altri_oggetti.py}
 
-\paragraph{capire}
+\subsubsection{capire}
 
 \begin{description}
- \item [linee 20-21]
+ \item [linee 16-17]
 La costruzione di una semiretta avviene in modo molto simile a quella di una 
 retta.
- \item [linee 23-25]
+ \item [linee 19-21]
 Un modo per costruire un angolo è quello di dare un punto dl primo lato, il 
 vertice e un punto del secondo lato. Se non viene specificato altro i lati non 
 vengono disegnati ma appare solo l'archetto che indica l'angolo.
- \item [linee 27-29]
+ \item [linee 23-25]
 Per far disegnare il primo lato faccio seguire ai tre punti, necessari per la 
 costruzione, una lista che contiene il numero zero: [0].
- \item [linee 31-33]
+ \item [linee 27-29]
 Per far disegnare entrambi i lati faccio seguire ai tre punti, una lista che 
 contiene i numeri zero e uno: [0, 1].
 \end{description}
 
-\begin{osservazione}
-L'ultimo dei tre angoli può un po' stupire. Osservate bene qual è il primo lato 
+\subsubsection{osservazioni}
+
+\begin{itemize}
+ \item L'ultimo dei tre angoli può un po' stupire. Osservate bene qual è 
+il primo lato 
 e quale il secondo e ricordatevi che l'angolo procede sempre in verso 
 antiorario dal primo al secondo. Provate a muovere il punto~C più a sinistra 
-del punto ~D.
-\end{osservazione}
+del punto~D.
+\end{itemize}
 
-\paragraph{modificare}
+\subsubsection{modificare}
+
 \begin{enumerate} [noitemsep]
  \item Cambia il colore e lo spessore della semiretta.
  \item Cambia il colore e lo spessore dell'angolo.
@@ -525,327 +538,291 @@ il secondo lato.
 
 \subsection{Poligoni}
 \label{subsec:geo_int_poligoni}
+
 Disegniamo un triangolo nel primo quadrante, un quadrilatero nel secondo, un 
 pentagono nel terzo e un esagono nel quarto.
 
-\paragraph{copiare}
-{~}
+\subsubsection{copiare}
 
-\lstinputlisting[language=Python]{\folder lbr/01oggetti_di_base.py}
+\lstinputlisting{\folder lbr/04poligoni.py}
 
-\paragraph{capire}
-Spiegazione del programma:
+\subsubsection{capire}
 
-\begin{description}
- \item [Struttura] 
- Il programma ha la stessa struttura del precedente:
- \item [linea ]
- 
- \item [linee ]
- 
- \item [linee ]
- \item [linee ]
-\end{description}
-
-\begin{osservazione}
-
-\end{osservazione}
-
-\paragraph{modificare}
-\begin{enumerate} [noitemsep]
- \item 
- \item 
-\end{enumerate}
-
-
-\subsection{}
-\label{subsec:geo_int_}
-Disegniamo 
-
-\paragraph{copiare}
-Con lo stesso procedimento utilizzato sopra, scrivi il seguente programma e 
-correggilo finché non funziona.
-
-\lstinputlisting[language=Python]{\folder lbr/01oggetti_di_base.py}
-
-\paragraph{capire}
-Spiegazione del programma:
+In questo programma vengono usati metodi diversi per fare la stessa cosa; dato 
+che tutti funzionano, non è essenziale capirli tutti.
 
 \begin{description}
- \item [Struttura] 
- Il programma ha la stessa struttura del precedente:
- \item [linea ]
- 
- \item [linee ]
- 
- \item [linee ]
- \item [linee ]
+ \item [linee 16-21]
+Vengono disegnati, prima tre punti, poi i tre segmenti che li congiungono 
+formando un triangolo.
+ \item [linee 23-26]
+Vengono disegnati 4 punti.
+ \item [linee 27-28]
+Viene disegnato il poligono che ha questi 4 punti come vertici.
+Il primo argomento passato a \lstinline{pyig.Polygon} è una lista che contiene 
+tutti i vertici.
+Gli altri argomenti sono: lo spessore del bordo, il suo colore e il colore 
+dell'interno.
+ \item [linee 30-32]
+Viene creata una lista di cinque punti e viene associata all'identificatore 
+\lstinline{vertici_p}.
+ \item [linea 33]
+Viene creato un poligono a cui viene passato come primo argomento la lista di 
+punti associata a \lstinline{vertici_p}.
+ \item [linea 35]
+Viene creata una lista di coordinate (coppie di numeri).
+ \item [linea 36]
+Con un metodo che si chiama ``list comprehension'' viene creata una lista di 
+punti partendo dalla lista di coordinate.
+ \item [linea 37]
+Viene creato il poligono passando come primo argomento: la lista di vertici.
 \end{description}
 
-\begin{osservazione}
+\subsubsection{osservazioni}
 
-\end{osservazione}
-
-\paragraph{modificare}
-\begin{enumerate} [noitemsep]
+\begin{itemize}
+ \item Il metodo usato per disegnare il triangolo permette di scegliere colori 
+diversi per i diversi lati, ma non di colorare la superficie del poligono.
+ \item Il quadrilatero potrebbe sembrare un quadrato, e in effetti inizialmente 
+lo è, ma non è una proprietà della figura infatti con il mouse è facile 
+deformarla.
  \item 
- \item 
-\end{enumerate}
-
-\subsection{Strumenti}
-
-In questo capitolo utilizzeremo i seguenti strumenti di Pyig:
-\begin{itemize} [noitemsep]
-\item \texttt{Point(x, y)} crea un punto con date coordinate.
-\item \texttt{Line(p0, p1)} crea una retta passante per p0 e p1.
-\item \texttt{Ray(p0, p1)} crea una semiretta con origine in p0 passante per p1.
-\item \texttt{Segment(p0, p1)} crea un segmento di estremi p0 e p1.
-\item \texttt{Circle(centro, punto)} crea una circonferenza dati il centro e 
-un suo punto.
-
+Il primo argomento di un poligono deve essere una sequenza di punti, se 
+l'istruzione delle righe 27-27 l'avessi scritta così:
+\begin{lstlisting}[firstnumber=27]
+pyig.Polygon(p_0, p_1, p_2, p_3,
+             width=6, color="dark green", intcolor="light steel blue")
+\end{lstlisting}
+cioè senza le parentesi che raggruppano i punti, non avremmo ottenuto un 
+quadrilatero, ma un errore.
+ \item La ``list comprehension'' è un potente strumento, presente in alcuni 
+linguaggi di programmazione, che permette di costruire delle liste di oggetti a 
+partire da altre liste di oggetti. Nel nostro esempio trasforma una lista di 
+coppie di numeri in una lista di punti.
 \end{itemize}
 
-
-\subsection{Problema}
-
-Crea un piano e disegna i quattro vertici di un quadrato, poi
-disegna i quattro lati del quadrato.
-Modifica poi la figura trascinando i punti base con il mouse.
-
-\subsection{Soluzione guidata}
+\subsubsection{modificare}
 
 \begin{enumerate} [noitemsep]
-\item Crea un nuovo programma e salvarlo con il nome: 
-\texttt{gi01\_elementi.py}.
-Per creare un nuovo programma:
-
-\begin{enumerate} [noitemsep]
-\item avvia IDLE (in Windows: menu-programmi-Python-IDLE);
-\item crea un nuovo editor: menu-file-new window;
-\item salvalo nella tua cartella con il nome desiderato: menu-file-save;
+ \item Muovi, con il mouse, i poligoni in modo che siano contenuti uno 
+nell'altro.
+ \item Cambia il colore dei vertici del pentagono, cambia il colore dei vertici 
+dell'esagono. Quali differenze puoi notare nei due casi?
+ \item Disegna, sempre nel primo quadrante un altro triangolo ma utilizzando, 
+questa volta, l'oggetto \lstinline{pyig.Polygon}.
+ \item Disegna un poligono con la superficie colorata e con i lati di colori 
+diversi.
 \end{enumerate}
 
-\item Incomincia a scrivere il programma.
-\begin{enumerate} [noitemsep]
-\item Scrivi un'intestazione fatta da commenti che contenga le informazioni:
+\section{Costruzioni geometriche}
+\label{sec:geo_int_costruzioni_geometriche}
 
-\begin{itemize} [noitemsep]
-\item data,
-\item nome,
-\item titolo del programma;
-\end{itemize}
-\end{enumerate}
+Di seguito affronteremo alcuni problemi di costruzioni geometriche. Verranno 
+posti alcuni problemi, fornite alcune indicazioni per la soluzione, presentata 
+una possibile soluzione e proposti dei problemi analoghi
 
-Esegui il programma in modo da controllare che non ci siano errori 
-(\textless{}F5\textgreater{}).
-\item Il programma vero e proprio è fatto da tre parti:
+\subsection{Asse di un segmento}
+\label{subsec:geo_int_asse_segmento}
 
-\begin{enumerate} [noitemsep]
-\item la lettura delle librerie;
-\item il programma principale;
-\item l'attivazione della finestra grafica.
-\end{enumerate}
+\subsubsection{Problema}
 
-A questo punto il programma assomiglierà a:
+Dati due punti disegna il punto che sta esattamente a metà tra i due.
 
-\begin{lstlisting}
-# <data>
-# <autore>
-# Elementi di base della geometria
+\subsubsection{Indicazioni}
 
-"""
-Problema: Disegna i quattro vertici di un quadrato.
-Disegna i quattro lati del quadrato.
-"""
+Attenzione che non basta che l'asse sia giusto all'inizio, deve 
+continuare a essere un asse anche quando muovo i due punti di partenza.
 
-# lettura delle librerie
+\subsubsection{Una soluzione}
 
-# programma principale
+\lstinputlisting{\folder lbr/05asse.py}
 
-# attivazione della finestra grafica
-\end{lstlisting}
+\subsubsection{Altri problemi}
 
-\item Fin qui abbiamo scritto solo commenti, ora incominciamo a scrivere 
-comandi:
-\begin{enumerate} [noitemsep]
-\item Leggo la libreria Pyig e le do un nome più breve, ``ig'':
-\end{enumerate}
-\begin{quote}
- import pyig
-\end{quote}
-\begin{enumerate} [noitemsep]
-\item Il programma principale consiste, per ora, in una sola istruzione,
-creo un ``InteractivePlane'' della libreria ``ig'' e associo questo
-oggetto all'identificatore (=alla parola) ``ip'':
 
-\end{enumerate}
-\begin{quote}
-ip = pyig.InteractivePlane()
-\end{quote}
-\begin{enumerate} [noitemsep]
-\item Rendo attiva la finestra grafica:
+\subsection{Punto medio}
+\label{subsec:geo_int_punto_medio}
 
-\end{enumerate}
-\begin{quote}
-ip.mainloop()
-\end{quote}
+\subsubsection{Problema}
 
-\item Aggiungi le istruzioni sotto ai commenti:
+Dati due punti disegna il punto che sta esattamente a metà tra i due.
 
-\begin{lstlisting}
-# <data>
-# <nome>
-# Elementi di base della geometria
+\subsubsection{Indicazioni}
 
-"""
-Problema: Disegna i quattro vertici di un quadrato.
-Disegna i quattro lati del quadrato.
-"""
+Attenzione che non basta che il punto se ne stia in mezzo all'inizio, deve 
+continuare a stare in mezzo anche quando muovo i due punti di partenza.
 
-# lettura delle librerie
-import pyig as ig
+\subsubsection{Una soluzione}
 
-# programma principale
-ip = ig.InteractivePlane()
+\lstinputlisting{\folder lbr/06puntomedio.py}
 
-# attivazione della finestra grafica
-ip.mainloop()
-\end{lstlisting}
+\subsubsection{Altri problemi}
 
-\item Prova il programma premendo il tasto: 
-\texttt{\textless{}Ctrl-F5\textgreater{}} o cliccando su
-\texttt{menu-Run-Run module}.
-Deve apparire una finestra grafica con un riferimento cartesiano e una
-griglia di punti.
-La finestra grafica è attiva, risponde al mouse e si può chiudere.
-Se non avviene questo, probabilmente è apparso un messaggio di errore in
-rosso nella shell di \texttt{IDLE},
-leggi il messaggio, correggi l'errore e ritenta.
+\subsection{Triangolo equilatero}
+\label{subsec:geo_int_tri_equi}
 
-\end{enumerate}
+\subsubsection{Problema}
 
-Ora incominciamo ad aggiungere al programma principale le istruzioni per
-risolvere il problema. Incominciamo creando un punto.
-Aggiungiamo al programma principale il comando della libreria \texttt{pyig}  che
-crea un punto associando l'oggetto appena creato all'identificatore ``p\_0'':
+Dati due punti disegna il punto che sta esattamente a metà tra i due.
 
-\begin{lstlisting}
-p_0 = ig.Point(3, 4)
-\end{lstlisting}
+\subsubsection{Indicazioni}
 
-È possibile trascinare con il mouse il punto nel suo piano: il punto non cambia
-cambiando la sua posizione.
+Attenzione che non basta che il punto se ne stia in mezzo all'inizio, deve 
+continuare a stare in mezzo anche quando muovo i due punti di partenza.
 
-In geometria un punto non dovrebbe avere altre caratteristiche oltre la propria
-posizione, ma a noi fa comodo poter dare ai punti anche altre caratteristiche
-come: uno spessore, un colore, un'etichetta:
+\subsubsection{Una soluzione}
 
-\begin{lstlisting}
-p_0 = ig.Point(3, 4, color='red', width=6, name='A')
-\end{lstlisting}
+\lstinputlisting{\folder lbr/07triequi.py}
 
-In generale a tutti gli oggetti di pyig che possono essere visualizzati si
-possono assegnare le seguenti caratteristiche:
+\subsubsection{Altri problemi}
 
-\begin{itemize} [noitemsep]
-\item colore: color=\textless{}una stringa di colore\textgreater{};
-\item spessore: width=\textless{}un numero\textgreater{};
-\item etichetta: name=\textless{}una stringa\textgreater{};
-\item visibilità: visible=\textless{}True\textgreater{} o 
-\textless{}False\textgreater{}.
-\end{itemize}
+\subsection{Triangolo isoscele}
+\label{subsec:geo_int_tri_iso}
 
-La sintassi del costruttore dell'oggetto \texttt{Point} è:
+\subsubsection{Problema}
 
-\begin{lstlisting}
-Point(<x>, <y>
-      [, visible=True][, color='green'][, width=3][, name=''])
-\end{lstlisting}
+Dati due punti disegna il punto che sta esattamente a metà tra i due.
 
-I primi due parametri, \texttt{x} e \texttt{y}, sono obbligatori, quelli messi 
-tra parentesi quadre sono opzionali e, se non specificati, hanno il valore
-riportato sopra.
+\subsubsection{Indicazioni}
 
-Passiamo alla seconda richiesta del problema: disegnare una retta.Per poter
-tracciare una retta abbiamo bisogno di due punti infatti due punti individuano
-univocamente una retta (per due punti passa una e una sola retta).
-Possiamo utilizzare i due punti già disegnati e creare la retta passante per
-\texttt{p\_0} e \texttt{p\_1}:
+Attenzione che non basta che il punto se ne stia in mezzo all'inizio, deve 
+continuare a stare in mezzo anche quando muovo i due punti di partenza.
 
-\begin{lstlisting}
-s_0 = ig.Segment(p_0, p_1)
-\end{lstlisting}
+\subsubsection{Una soluzione}
 
-Anche in questo caso possiamo modificare ``colore'' e ``spessore'' del 
-segmento:
+\lstinputlisting{\folder lbr/08triiso.py}
 
-\begin{lstlisting}
-s_0 = ig.Segment(p_0, p_1, color='pink', width=6)      # lati
-\end{lstlisting}
+\subsubsection{Altri problemi}
 
-La sintassi del costruttore dell'oggetto \texttt{Segment} è:
+\subsection{Bisettrice}
+\label{subsec:geo_int_bisettrice}
 
-\begin{lstlisting}
-Segment(<punto_0>, <punto_1>
-      [, visible=True][, color='blue'][, width=3][, name=''])
-\end{lstlisting}
+\subsubsection{Problema}
 
-È possibile trascinare con il mouse i punti base del segmento, ma il segmento
-continuerà a passare per quei due punti.
+Dati due punti disegna il punto che sta esattamente a metà tra i due.
 
-Le sintassi dei costruttori di alcuni altri oggetti della geometria interattiva:
+\subsubsection{Indicazioni}
 
-\begin{lstlisting}
-Line(<punto_0>, <punto_1>
-     [, visible=True][, color='blue'][, width=3][, name=''])
-    
-Ray(<punto_0>, <punto_1>
-    [, visible=True][, color='blue'][, width=3][, name=''])
+Attenzione che non basta che il punto se ne stia in mezzo all'inizio, deve 
+continuare a stare in mezzo anche quando muovo i due punti di partenza.
 
-Circle(<centro>, <uunto>
-       [, visible=True][, color='blue'][, width=3][, name=''])
-\end{lstlisting}
+\subsubsection{Una soluzione}
 
-Ora crea tu una retta, una semiretta e una circonferenza.
+\lstinputlisting{\folder lbr/09bisettrice.py}
 
-\textbf{Riassumendo}
-\begin{itemize} [noitemsep]
-\item Per lavorare con la geometria interattiva dobbiamo far caricare a Python
-la relativa \emph{libreria} ad esempio con il comando:
+\subsubsection{Altri problemi}
 
-\begin{lstlisting}
-import pyig
-\end{lstlisting}
+\subsection{Angolo retto}
+\label{subsec:geo_int_angolo_retto}
 
-\item Un programma è composto (per ora) dalle seguenti parti:
+\subsubsection{Problema}
 
-\begin{lstlisting}
-<intestazione>
-<lettura delle librerie>
-<programma principale>
-<attivazione della finestra grafica>
-\end{lstlisting}
+Dati due punti disegna il punto che sta esattamente a metà tra i due.
 
-\item La sintassi dei costruttori degli oggetti base della geometria è:
+\subsubsection{Indicazioni}
 
-\begin{lstlisting}
-Point(<x>, <y>
-      [, visible=True][, color='green'][, width=3][, name=''])
+Attenzione che non basta che il punto se ne stia in mezzo all'inizio, deve 
+continuare a stare in mezzo anche quando muovo i due punti di partenza.
 
-Line(<punto_0>, <punto_1>
-      [, visible=True][, color='blue'][, width=3][, name=''])
+\subsubsection{Una soluzione}
 
-Ray(<punto_0>, <punto_1>
-    [, visible=True][, color='blue'][, width=3][, name=''])
+\lstinputlisting{\folder lbr/10angoloretto.py}
 
-Segment(<punto_0>, <punto_1>
-        [, visible=True][, color='blue'][, width=3][, name=''])
-    
-Circle(<centro>, <punto>
-        [, visible=True][, color='blue'][, width=3][, name=''])
-\end{lstlisting}
+\subsubsection{Altri problemi}
 
-\end{itemize}
+\subsection{Triangolo rettangolo}
+\label{subsec:geo_int_tri_rett}
+
+\subsubsection{Problema}
+
+Dati due punti disegna il punto che sta esattamente a metà tra i due.
+
+\subsubsection{Indicazioni}
+
+Attenzione che non basta che il punto se ne stia in mezzo all'inizio, deve 
+continuare a stare in mezzo anche quando muovo i due punti di partenza.
+
+\subsubsection{Una soluzione}
+
+\lstinputlisting{\folder lbr/11trirett.py}
+
+\subsubsection{Altri problemi}
+
+\subsection{Baricentro}
+\label{subsec:geo_int_baricentro}
+
+\subsubsection{Problema}
+
+Dati due punti disegna il punto che sta esattamente a metà tra i due.
+
+\subsubsection{Indicazioni}
+
+Attenzione che non basta che il punto se ne stia in mezzo all'inizio, deve 
+continuare a stare in mezzo anche quando muovo i due punti di partenza.
+
+\subsubsection{Una soluzione}
+
+\lstinputlisting{\folder lbr/12baricentro.py}
+
+\subsubsection{Altri problemi}
+
+\subsection{Ortocentro}
+\label{subsec:geo_int_ortocentro}
+
+\subsubsection{Problema}
+
+Dati due punti disegna il punto che sta esattamente a metà tra i due.
+
+\subsubsection{Indicazioni}
+
+Attenzione che non basta che il punto se ne stia in mezzo all'inizio, deve 
+continuare a stare in mezzo anche quando muovo i due punti di partenza.
+
+\subsubsection{Una soluzione}
+
+\lstinputlisting{\folder lbr/13ortocentro.py}
+
+\subsubsection{Altri problemi}
+
+\subsection{Circocentro}
+\label{subsec:geo_int_circocentro}
+
+\subsubsection{Problema}
+
+Dati due punti disegna il punto che sta esattamente a metà tra i due.
+
+\subsubsection{Indicazioni}
+
+Attenzione che non basta che il punto se ne stia in mezzo all'inizio, deve 
+continuare a stare in mezzo anche quando muovo i due punti di partenza.
+
+\subsubsection{Una soluzione}
+
+\lstinputlisting{\folder lbr/14circocentro.py}
+
+\subsubsection{Altri problemi}
+
+\subsection{Incentro}
+\label{subsec:geo_int_punto_medio}
+
+\subsubsection{Problema}
+
+Dati due punti disegna il punto che sta esattamente a metà tra i due.
+
+\subsubsection{Indicazioni}
+
+Attenzione che non basta che il punto se ne stia in mezzo all'inizio, deve 
+continuare a stare in mezzo anche quando muovo i due punti di partenza.
+
+\subsubsection{Una soluzione}
+
+\lstinputlisting{\folder lbr/15incentro.py}
+
+\subsubsection{Altri problemi}
+
+
+
+
 
 \textbf{Prova tu}
 
@@ -899,217 +876,6 @@ mantiene la proprietà ``essere concentriche''?
 
 
 
-\section{Intersezioni}
-\label{sec:intersezioni}
-
-\emph{Come usare intersezioni tra oggetti.}
-
-Oltre a quelli visti nel capitolo precedente, per poter realizzare costruzioni
-geometriche abbiamo bisogno di poter creare l'intersezione tra due rette,
-tra una retta e una circondìferenza o tra due circonferenze.
-
-
-\subsection{Strumenti}
-
-In questo capitolo utilizzeremo i seguenti strumenti di Pyig:
-
-\begin{itemize} [noitemsep]
-\item \texttt{Point(x, y)} crea un punto con date coordinate.
-\item \texttt{Line(p0, p1)} crea una retta passante per p0 e p1.
-\item \texttt{Segment(p0, p1)} crea un segmento di estremi p0 e p1.
-\item \texttt{Intersection(oggetto\_0, oggetto\_1, {[}which{]})} crea un punto 
-di intersezione tra due oggetti.
-\end{itemize}
-
-
-\subsection{Problema}
-
-Crea un piano e inserisci:
-
-\begin{itemize} [noitemsep]
-\item due rette nel terzo e quarto quadrante
-e il segmento che congiunge la loro intersezione con l'origine;
-\item una retta e una circonferenza nel secondo quadrante 
-e i segmenti che congiungono le loro intersezioni con l'origine;
-\item due circonferenze nel primo quadrante 
-e i segmenti che congiungono le loro intersezione con l'origine;
-\end{itemize}
-
-
-\subsection{Soluzione guidata}
-
-\begin{enumerate} [noitemsep]
-
-\item Crea un nuovo programma e salvarlo con il nome: 
-\texttt{gi02\_intersezioni.py}.
-Per creare un nuovo programma: vedi la soluzione guidata del capitolo
-precedente.
-
-\item Scrivi un'intestazione adeguata.
-
-\item Scrivi lo scheletro del programma:
-
-\begin{enumerate} [noitemsep]
-\item la lettura delle librerie,
-\item il programma principale,
-\item l'attivazione della finestra grafica;
-\end{enumerate}
-
-e verifica che tutto funzioni.
-
-\item Ora scriviamo dei commenti che indicano come intendiamo risolvere il
-problema:
-
-\begin{lstlisting}
-# Creo le due rette
-# Creo un punto nell'origine degli assi
-# Creo l'intersezione tra le due rette
-# Creo il segmento che congiunge l'origine all'intersezione
-\end{lstlisting}
-
-\item A questo punto il programma dovrebbe apparire circa così:
-
-\begin{lstlisting}
-# <data>
-# <nome>
-# Intersezioni
-
-# lettura delle librerie
-import pyig as ig
-
-# programma principale
-ip = ig.InteractivePlane()
-
-# Creo le due rette
-# Creo un punto nell'origine degli assi
-# Creo l'intersezione tra le due rette
-# Creo il segmento che congiunge l'origine all'intersezione
-
-
-# attivazione della finestra grafica
-ip.mainloop()
-\end{lstlisting}
-
-\item Ora iniziamo a popolare di istruzioni il programma principale creando le
-due rette:
-
-\begin{lstlisting}
-r_0 = ig.Line(ig.Point(-6, -4, width=6), ig.Point(2, -6, width=6))
-r_1 = ig.Line(ig.Point(-11, -9, width=6), ig.Point(-3, -8, width=6))
-\end{lstlisting}
-
-Eseguiamo il programma controllando che rispetti le specifiche.
-
-\item Ora dobbiamo creare un segmento con un estremo nell'origine, quindi 
-dobbiamo creare un punto nell'origine:
-
-\begin{lstlisting}
-origine = ig.Point(0, 0, visible=False)
-\end{lstlisting}
-
-e siccome vogliamo che nessuno possa muoverlo, lo facciamo invisibile.
-
-\item L'altro estremo è l'intersezione delle due rette:
-
-\begin{lstlisting}
-i_0 = ig.Intersection(r_0, r_1, color='red')
-\end{lstlisting}
-
-\item Infine creiamo il segmento:
-
-\begin{lstlisting}
-s_0 = ig.Segment(origine, i_0, color='#505010')
-\end{lstlisting}
-
-\item A questo punto il programma dovrebbe apparire circa così:
-
-\begin{lstlisting}
-# <data>
-# <nome>
-# Intersezioni
-
-# lettura delle librerie
-import pyig as ig
-
-# programma principale
-ip = ig.InteractivePlane()
-
-# Creo le due rette
-r_0 = ig.Line(ig.Point(-6, -4, width=6), ig.Point(2, -6, width=6))
-r_1 = ig.Line(ig.Point(-11, -9, width=6), ig.Point(-3, -8, width=6))
-# Creo un punto nell'origine degli assi
-origine = ig.Point(0, 0, visible=False)
-# Creo l'intersezione tra le due rette
-i_0 = ig.Intersection(r_0, r_1, color='red')
-# Creo il segmento che congiunge l'origine all'intersezione
-s_0 = ig.Segment(origine, i_0, color='#505010')
-
-# attivazione della finestra grafica
-ip.mainloop()
-\end{lstlisting}
-
-\item Proviamo il programma e controlliamo che rispetti le specifiche richieste
-dal problema. Cosa succede quando muovo i punti base di una retta?
-
-\item Se tutto funziona regolarmente possiamo passare alla seconda parte
-del problema:
-
-\begin{lstlisting}
-# Creo una retta
-# Creo una circonferenza
-# Creo le intersezioni tra la retta e la circonferenza
-# Creo i segmenti
-\end{lstlisting}
-
-\item Per quanto riguarda i primi due punti non dovrebbero esserci problemi,
-per il terzo invece presenta una novità rispetto a quanto visto per
-l'intersezione di due rette, infatti una retta interseca una circonferenza
-in due punti (e non sempre) e noi dobbiamo indicare a Python quale delle
-due intersezioni vogliamo:
-
-\begin{lstlisting}
-i_1 = ig.Intersection(r_2, c_0, -1, color='red')
-i_2 = ig.Intersection(r_2, c_0, +1, color='red')
-\end{lstlisting}
-
-\item Dopo aver controllato che fin qui il programma funzioni, disegniamo i due
-segmenti. la seconda parte dovrebbe assomigliare a questa:
-
-\begin{lstlisting}
-# Creo una retta
-r_2 = ig.Line(ig.Point(-11, 9, width=6), ig.Point(-6, 1, width=6))
-# Creo una circonferenza
-c_0 = ig.Circle(ig.Point(-6, 7), ig.Point(-5, 2))
-# Creo le intersezioni tra la retta e la circonferenza
-i_1 = ig.Intersection(r_2, c_0, -1, color='red')
-i_2 = ig.Intersection(r_2, c_0, +1, color='red')
-# Creo i segmenti
-s_1 = ig.Segment(origine, i_1, color='#10a010')
-s_2 = ig.Segment(origine, i_2, color='#10a080')
-\end{lstlisting}
-
-\item Proviamo il programma e controlliamo che rispetti le specifiche richieste
-dal problema. Cosa succede quando muovo i punti base della retta?
-
-\item Completiamo il programma per risolvere anche la terza parte del problema.
-
-\end{enumerate}
-
-\textbf{Riassumendo}
-\begin{itemize} [noitemsep]
-\item pyig mette a disposizione un oggetto intersezione. L'intersezione tra 
-rette non ha bisogno di ulteriori informazioni, quella tra una retta e una
-circonferenza o tra due circonferenze richiede un ulteriore argomento:
-con \texttt{-1} si indica un'intersezione, con \texttt{+1} si indica l'altra.
-La sintassi del costruttore di un'intersezione è:
-
-\begin{lstlisting}
-Intersection(oggetto_0, oggetto_1 [, which] 
-              [, visible=True] [, color='blue'] [, width=3] [, name=''])
-\end{lstlisting}
-
-\end{itemize}
-
 \textbf{Prova tu}
 \begin{enumerate} [noitemsep]
 \item Disegna una circonferenza \texttt{c\_0} con il centro nell'origine,
@@ -1129,36 +895,6 @@ estremo di un segmento e passano per l'altro estremo del segmento.
 \end{enumerate}
 
 
-\section{Costruzioni geometriche}
-\label{sec:costruzioni}
-
-\emph{Come usare intersezioni tra oggetti.}
-
-Lo strumento base della geometria greca era lo spago:
-
-\begin{itemize} [noitemsep]
-\item tenendo teso un pezzo di corda si poteva rappresentare un segmento
-allungabile a piacere;
-\item tenendo fisso un estremo e facendo ruotare l'altro, si poteva 
-rappresentare una circonferenza.
-\end{itemize}
-
-Con questo strumento hanno costruito la geometria euclidea e risolto
-innumerevoli problemi.
-
-\subsection{Strumenti}
-
-In questo capitolo utilizzeremo i seguenti strumenti di Pyig:
-
-\begin{itemize} [noitemsep]
-\item \texttt{Point(x, y)} crea un punto con date coordinate.
-\item \texttt{Line(p0, p1)} crea una retta passante per p0 e p1.
-\item \texttt{Segment(p0, p1)} crea un segmento di estremi p0 e p1.
-\item \texttt{Intersection(oggetto\_0, oggetto\_1, {[}which{]})} crea un 
-punto di intersezione tra due oggetti.
-\item \texttt{Polygon((punto0, punto1, punto2, ...))} crea un poligono dati 
-i vertici.
-\end{itemize}
 
 \subsection{Problema}
 
@@ -1174,163 +910,6 @@ Crea un piano e disegna:
  due punti e il quadrato costruito su quei due punti.
 \end{itemize}
 
-\subsection{Soluzione guidata}
-
-\begin{enumerate} [noitemsep]
-\item Crea un nuovo programma e salvarlo con il nome: 
- \texttt{gi03\_costruzioni.py}.
- Per creare un nuovo programma: vedi la soluzione guidata del primo capitolo.
-
-\item Scrivi un'intestazione adeguata.
-
-\item Scrivi lo scheletro del programma.
-
-\item Ora scriviamo dei commenti che indicano come intendiamo risolvere il
-problema:
-
-\begin{lstlisting}
-# Disegno tre punti disposti accuratamente
-# Disegno il poligono che passa per i tre punti
-\end{lstlisting}
-
-\item Risolviamo la prima parte del problema ottenendo un programma principale
-simile a questo:
-
-\begin{lstlisting}
-# programma principale
-ip = ig.InteractivePlane()
-
-# Disegno tre punti disposti accuratamente
-p_0 = ig.Point(1, 2, width=6)
-p_1 = ig.Point(11, 2, width=6)
-p_2 = ig.Point(6, 10.66, width=6)
-# Disegno il poligono che passa per i tre punti
-triequi = ig.Polygon((p_0, p_1, p_2),
-                    width=5, color='green', intcolor='gold')
-\end{lstlisting}
-
-Osservate che il costruttore di \texttt{Poligon} vuole un primo argomento 
-formato da una sequenza di punti per cui i vertici del poligono devono essere
-racchiusi tra parentesi.
-
-\item Proviamo il programma e controlliamo che rispetti le specifiche richieste
-dal problema. Cosa succede quando muovo i punti base?
-
-Accidenti, il triangolo è equilatero all'inizio, ma non lo è più quando
-sposto uno dei punti base.
-
-Dobbiamo affrontare il problema in un altro modo. Il terzo vertice va
-costruito partendo dai primi due:
-
-\begin{lstlisting}
-# Disegno due punti in una posizione qualunque
-# Disegno le due circonferenze che hanno centro in un punto e 
-# passano per l'altro
-# Trovo un'intersezione delle due circonferenze
-# Disegno il poligono che ha per vertici i due punti e l'intersezione
-\end{lstlisting}
-
-\item Dovremmo ottenere un programma che assomiglia a questo:
-
-\begin{lstlisting}
-# programma principale
-ip = ig.InteractivePlane()
-
-# Disegno due punti in una posizione qualunque
-p_0 = ig.Point(1, 2, width=6)
-p_1 = ig.Point(11, 2, width=6)
-# Disegno le due circonferenze che hanno centro in un punto e 
-# passano per l'altro
-c_0 = ig.Circle(p_0, p_1, width=1)
-c_1 = ig.Circle(p_1, p_0, width=1)
-# Trovo un'intersezione delle due circonferenze
-p_2 = ig.Intersection(c_0, c_1, +1, width=6)
-# Disegno il poligono che ha per vertici i due punti e l'intersezione
-triequi = ig.Polygon((p_0, p_1, p_2),
-                     width=5, color='green', intcolor='gold')
-\end{lstlisting}
-
-Osservate che è buona norma tenere le linee di costruzione più sottili
-rispetto alle altre, o addirittura renderle invisibili \texttt{visible=False}.
-
-Si può osservare che questa volta i punti liberi sono solo due, il terzo
-vertice è vincolato alla posizione di questi due dalla nostra costruzione.
-Ora, se muoviamo i punti base il nostro triangolo cambia posizione e
-dimensioni, ma resta sempre un triangolo equilatero come era richiesto dal
-problema.
-
-\item A questo punto cerca su un libro di disegno su internet come risolvere
-gli altri tre problemi. Risolvili con riga e compasso, poi con \texttt{pyig}.
-Di seguito riporto le tre tracce di soluzione.
-
-\item Asse di un segmento:
-
-\begin{lstlisting}
-# Disegno due punti
-# Disegno il segmento
-# Disegno le due circ. che hanno centro in un estremo e passano per l'altro
-# Chiamo i_0 e i_1 le due intersezioni delle circonferenze
-# L'asse e' la retta passante per i_0 e i_1
-\end{lstlisting}
-
-\item Bisettrice di un angolo:
-
-\begin{lstlisting}
-# Disegno tre punti: p_0, vertice, p_1
-# Disegno i due lati dell'angolo: r_0 e r_1
-# Disegno una circ. che ha centro nel vertice e passa per p_0
-# Chiamo i_1 l'intersezione della circonferenze con il lato r_1
-# Disegno le circonferenze di centro p_0 e i_1 passanti per il vertice
-# Chiamo i_2 l'intersezione delle due circonferenze
-# La retta vertice - i_2 e' la bisettrice cercata
-\end{lstlisting}
-
-\item Quadrato dati due vertici consecutivi:
-
-\begin{lstlisting}
-# Disegno due punti: p_0, p_1
-# c_0 e' la circ. che ha centro in p_0 e passa per p_1
-# c_1 e' la circ. che ha centro in p_1 e passa per p_0
-# i_0 e' l'intersezione di queste due circonferenze c_0 e c_1
-# c_2 e' la circ. che ha centro in i_0 e passa per p_0
-# i_1 e' l'intersezione delle circonferenze c_0 e c_2
-# c_3 e' la circonferenza di centro i_1 passante per p_0
-# i_2 e' l'intersezione delle circonferenze c_3 e c_2
-# r_0 e' la retta passante per p_0 e i_2
-# p_3 e' l'intersezione della retta r_0 con la circonferenza c_0
-# c_4 e' la circonferenza di centro i_3 passante per p_0
-# p_2 e' l'intersezione della circonferenza c_4 con la circonferenza c_1
-# Il quadrato cercato e il poligono di vertici: (p_0, p_1, p_2, p_3)
-\end{lstlisting}
-
-Quando il programma e complicato, come in quest'ultimo caso è importante
-eseguire il programma ogni volta che si aggiunge un'istruzione in modo
-da individuare immediatamente eventuali errori sia sintattici sia logici.
-
-\item Completiamo il programma per risolvere anche la terza parte del problema.
-
-\end{enumerate}
-
-\textbf{Riassumendo}
-\begin{itemize} [noitemsep]
-\item Polygon permette di disegnare un poligono data una sequenza di punti.
-La sintassi del costruttore di \texttt{Polygon} è:
-
-\begin{lstlisting}
-Polygon(sequenza di punti [, intcolor=white]
-        [, visible=True] [, color='blue'] [, width=3] [, name=''])
-\end{lstlisting}
-
-\item Per affrontare problemi complicati: prima pianifica la soluzione
-descrivendola per mezzo di commenti, poi scrivi le istruzioni per risolvere
-il problema eseguendo il programma ad ogni modifica.
-
-\item Nei libri d disegno, o in internet, si possono trovare molte costruzioni
-geometriche che si possono realizzare con rette, circonferenze e
-intersezioni.
-
-\end{itemize}
-
 \textbf{Prova tu}
 
 \begin{enumerate} [noitemsep]
@@ -1341,6 +920,7 @@ intersezioni.
 \item Disegna un parallelogramma dati tre vertici consecutivi.
 \end{enumerate}
 
+\begin{comment}
 
 \section{Strumenti di uso comune}
 \label{sec:strumenti-di-uso-comune}
@@ -2485,3 +2065,5 @@ contenete la lunghezza del segmento stesso.
  lati.
 \item Disegna un poligono regolare e tutte le sue diagonali.
 \end{enumerate}
+
+\end{comment}

@@ -3,12 +3,8 @@
 # altri oggetti
 
 """
-Problema:
-Disegna:
-- una semiretta,
-- un angolo,
-- un angolo con un solo lato visibile,
-- un angolo con entrambi i lati visibili.
+Disegna: una semiretta, un angolo, un angolo con un solo lato visibile,
+un angolo con entrambi i lati visibili.
 """
 
 # lettura delle librerie 
