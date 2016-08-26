@@ -1,0 +1,933 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\begin{comment}
+% per disegnare il simbolo >>> in 05_02_tartaruga.
+%\newcommand{\tggg}[0]{\textgreater\textgreater\textgreater}
+%
+
+Con riga e compasso.
+
+\begin{procedura}[<Nome procedura>]\label{proc:geoint2_}
+  <Descrizione problema>:
+  \begin{enumerate} [nosep]
+    \item 
+    Traccia i punti A e B.
+    \item 
+    Traccia la circonferenza di centro A e passante per B.
+    \item 
+    Traccia la circonferenza di centro B e passante per A.
+    \item 
+    Individua un punto C di intersezione delle due circonferenze.
+    \item 
+    Il poligono ABC è il triangolo richiesto.    
+  \end{enumerate}
+\end{procedura}
+
+Con la geometria interattiva.
+
+\lstinputlisting[firstline=2]{\folder src/.py}
+
+
+\subsection{\lstinline{Bisector}}
+\label{sub:geoint_bisector}
+
+\begin{description}
+ \item [Scopo] 
+ \item [Sintassi] 
+ \item [Osservazioni]
+
+ \item [Esempio] 
+
+\end{description}
+
+
+\end{comment}
+
+% Forse è meglio mettere questa istruzione nel file delle intestazioni dopo la 
+% lettura della libreia??????????????
+\lstset{numbers=left, numberstyle=\tiny, frame=trbl, frameround=ftff,
+        language=Python}
+
+\chapter{Approfondimenti di Geometria interattiva}
+
+\section{Altri strumenti della la geometria interattiva}
+\label{sec:introduzione}
+
+\emph{Come fare le stesse cose in modo più semplice.}
+
+Nella prima parte della geometria interattiva abbiamo scritto alcuni programmi 
+per realizzare degli oggetti semplici: triangoli equilateri, punti medi, 
+bisettrici, rette parallele, rette perpendicolari, ...
+Alcuni di questi oggetti sono utili per costruire degli oggetti più complessi 
+ad esempio per costruire un quadrato posso:
+
+\begin{procedura}[Quadrato]
+ Dato il segmento AB costruire il quadrato che ha AB come lato.
+  \begin{enumerate} [nosep]
+    \item 
+    Traccia i punti A e B e il segmento AB.
+    \item 
+    Traccia la circonferenza di centro A e passante per B.
+    \item 
+    Traccia la perpendicolare a AB passante per A.
+    \item 
+    Individua un punto D di intersezione della circonferenza e 
+    della perpendicolare.
+    \item 
+    Traccia la perpendicolare a AB passante per B.
+    \item 
+    Traccia la perpendicolare a AD passante per D.
+    \item 
+    Individua un punto C di intersezione della circonferenza e 
+    della perpendicolare.
+    \item 
+    Il poligono ABCD è il quadrato richiesto.    
+  \end{enumerate}
+\end{procedura}
+
+Ora abbiamo imparato a tracciare la perpendicolare ad una retta passante per un 
+punto: è un'operazione che richiede 4 o 5 operazioni semplici, ma nella 
+procedura precedente dobbiamo eseguirla 3 volte. Un programma fatto così 
+diventa lungo noioso e soggetto facilmente ad errori. Chi ha progettato la 
+libreria \lstinline{pyig} ha pensato di mettere a disposizione anche altre 
+classi oltre a quelle già presentate. In articolare esiste la classe che 
+permette di costruire una retta perpendicolare: 
+\lstinline{pyig.Orthogonal(<line>, <point>, ...)} 
+Usando questo oggetto al posto della sequenza di operazioni vista in precedenza 
+la costruzione del quadrato diventa:
+
+\lstinputlisting[firstline=2]{\folder src/11quadrato.py}
+
+Vediamo di seguito alcuni nuovi strumenti che la libreria ci fornisce come 
+``primitivi'' ma che noi abbiamo già o possiamo comunque costruire con 
+``riga e compasso''.
+
+\subsection{\lstinline{Orthogonal}}
+\label{sub:geoint_orthogonal}
+
+\begin{description}
+ \item [Scopo] Crea la retta perpendicolare ad una retta data passante per un 
+punto.
+ \item [Sintassi] \lstinline{Orthogonal(line, point, ...)}
+%  \item [Osservazioni] 
+% 
+% \lstinline{line} è la retta alla quale si costruisce la perpendicolare 
+% passante per \lstinline{point}.
+% 
+% Vedi anche i metodi delle classi \emph{linea} presentati nella classe 
+% \lstinline{Segment}.
+
+ \item [Esempio] Disegna la perpendicolare ad una retta data passante per un 
+punto.
+
+\begin{lstlisting}
+# lettura delle librerie 
+import pyig
+# programma principale
+ip = pyig.InteractivePlane('Orthogonal')
+retta = pyig.Line(pyig.Point(-4, -1, width=5, name="A"), 
+                  pyig.Point(6, 2, width=5, name="B"), 
+                  width=3, color='DarkOrange1', name='r')
+punto = pyig.Point(-3, 5, width=5, name='P')
+pyig.Orthogonal(retta, punto)
+## attivazione della finestra grafica
+ip.mainloop()
+\end{lstlisting}
+
+\end{description}
+
+\begin{exrig}
+ 
+\textbf{Nota}: 
+in tutti gli esempi seguenti, per motivi di spazio, saranno omesse 
+le seguenti righe, prima dell'esempio:
+
+\begin{lstlisting}
+# lettura delle librerie 
+import pyig
+# programma principale
+ip = pyig.InteractivePlane('Orthogonal')
+\end{lstlisting}
+e dopo l'esempio:
+\begin{lstlisting}
+## attivazione della finestra grafica
+ip.mainloop()
+\end{lstlisting}
+
+Per eseguire l'esempio bisogna ricordarsi di aggiungerle.
+
+\end{exrig}
+
+\subsection{\lstinline{Parallel}}
+\label{sub:geoint_parallel}
+
+\begin{description}
+ \item [Scopo] Crea la retta parallela ad una retta data passante per un punto.
+ \item [Sintassi] \lstinline{Parallel(line, point, ...)}
+%  \item [Osservazioni] 
+% 
+% \lstinline{line} è la retta alla quale si costruisce la parallela passante per
+% \lstinline{point}.
+% 
+% Vedi anche i metodi delle classi \emph{linea} presentati nella classe 
+% \lstinline{Segment}.
+
+ \item [Esempio] Disegna la parallela ad una retta data passante per un punto.
+\begin{lstlisting}
+retta = pyig.Line(pyig.Point(-4, -1, width=5), 
+                  pyig.Point(6, 2, width=5), 
+                  width=3, color='DarkOrange1', name='r')
+punto = pyig.Point(-3, 5, width=5, name='P')
+pyig.Parallel(retta, punto)
+\end{lstlisting}
+
+\end{description}
+
+\subsection{\lstinline{MidPoints}}
+\label{sub:geoint_midpoints}
+
+\begin{description}
+ \item [Scopo] Crea il punto medio tra due punti.
+ \item [Sintassi] \lstinline{MidPoints(point0, point1, ...)}
+%  \item [Osservazioni] 
+% 
+% \lstinline{point0} e \lstinline{point1} sono due punti.
+
+ \item [Esempio]Punto medio tra due punti.
+
+\begin{lstlisting}
+# creo due punti
+p_0 = pyig.Point(-2, -5)
+p_1 = pyig.Point(4, 7)
+# cambio i loro attributi
+p_0.color = "#00a600"
+p_0.width = 5
+p_1.color = "#006a00"
+p_1.width = 5
+# creao il punto medio tra p0 e p1
+m = pyig.MidPoints(p0, p1, name='M')
+# cambio gli attributi di m
+m.color = "#f0f000"
+m.width = 10
+\end{lstlisting}
+
+\end{description}
+
+\subsection{\lstinline{MidPoint}}
+\label{sub:geoint_midpoint}
+
+\begin{description}
+ \item [Scopo] Crea il punto medio di un segmento
+ \item [Sintassi] \lstinline{MidPoint(segment)}
+%  \item [Osservazioni] 
+% 
+% \lstinline{segment} è un oggetto che ha un \lstinline{point0} e un 
+% \lstinline{point1}.
+
+ \item [Esempio] Punto medio di un segmento.
+
+\begin{lstlisting}
+# creo un segmento
+s = pyig.Segment(pyig.Point(-2, -1, color="#a60000", width=5),
+                pyig.Point(5, 7, color="#6a0000", width=5), 
+                color="#a0a0a0")
+# creo il suo punto medio
+pyig.MidPoint(s, color="#6f6f00", width=10, name=\'M\')
+\end{lstlisting}
+
+\end{description}
+
+\subsection{\lstinline{Bisector}}
+\label{sub:geoint_bisector}
+
+\begin{description}
+ \item [Scopo] Retta bisettrice di un angolo.
+ \item [Sintassi] \lstinline{Bisector(angolo, ...)}
+%  \item [Osservazioni]
+
+ \item [Esempio] Disegna l'incentro di un triangolo.
+
+\begin{lstlisting}
+p_a = pyig.Point(-7, -3, color="#40c040", width=5, name="A")
+p_b = pyig.Point(5, -5, color="#40c040", width=5, name="B")
+p_c = pyig.Point(-3, 8, color="#40c040", width=5, name="C")
+pyig.Polygon((p_a, p_b, p_c))      # Il triangolo
+cba = pyig.Angle(p_c, p_b, p_a)  # Due angoli del triangolo
+bac = pyig.Angle(p_b, p_a, p_c)
+b1 = pyig.Bisector(cba, color="#a0c040") # Le bisettrici
+b2 = pyig.Bisector(bac, color="#a0c040")
+pyig.Intersection(b1, b2, color="#c040c0", width=5, name="Incentro")
+\end{lstlisting}
+
+\end{description}
+
+\subsection{\lstinline{PointOn}}
+\label{sub:geoint_pointon}
+
+\begin{description}
+ \item [Scopo] Punto disegnato su un oggetto in una posizione fissa.
+ \item [Sintassi] \lstinline{PointOn(obj, parameter)}
+ \item [Osservazioni]
+L'oggetto deve essere una linea o una retta o una circonferenza,
+\lstinline{parameter} è un numero che individua una precisa posizione 
+sull'oggetto.
+Sia le rette sia le circonferenze hanno una loro metrica che è legata ai punti
+base dell'oggetto. Su una retta una semiretta o un segmento \lstinline{point0}
+corrisponde al parametro 0 mentre \lstinline{point1} corrisponde al parametro 1.
+Nelle circonferenze il punto di base della circonferenza stessa corrisponde
+al parametro 0 l'intera circonferenza vale 2.
+Il punto creato con \lstinline{PointOn} non può essere trascinato con il mouse.
+
+ \item [Esempio] Disegna il simmetrico di un punto rispetto ad una retta.
+
+\begin{lstlisting}
+asse = pyig.Line(pyig.Point(-4, -11, width=5), 
+                 pyig.Point(-2, 12, width=5), 
+                 width=3, color='DarkOrange1', name='r')
+punto = pyig.Point(-7, 3, width=5, name='P')
+perpendicolare = pyig.Orthogonal(asse, punto, width=1)
+pyig.PointOn(perpendicolare, -1, width=5, color="DebianRed", name="P'")
+\end{lstlisting}
+
+\end{description}
+
+\subsection{\lstinline{ConstrainedPoint}}
+\label{sub:geoint_constrainedpoint}
+
+\begin{description}
+ \item [Scopo] Punto legato ad un oggetto.
+ \item [Sintassi] \lstinline{ConstrainedPoint(obj, parameter)}
+ \item [Osservazioni] Per quanto riguarda \lstinline{parameter}, valgono le 
+osservazioni fatte per \lstinline{PoinOn}.
+Questo punto però può essere trascinato con il mouse pur restando sempre
+sull'oggetto. Dato che può essere trascinato con il mouse
+ha un colore di default diverso da quello degli altri oggetti.
+
+ \item [Esempio] Circonferenza e proiezioni sugli assi.
+
+\begin{lstlisting}
+circ = pyig.Circle(pyig.Point(0, 0, visible=False),
+                   pyig.Point(10, 0, visible=False), color="gray10")
+cursor = pyig.ConstrainedPoint(circ, .25, name='cursor', width=5)
+pyig.Point(cursor.xcoord(), 0, width=5, color='dark turquoise')
+pyig.Point(0, cursor.ycoord(), width=5, color='pink')
+\end{lstlisting}
+
+\end{description}
+
+\subsection{\lstinline{parameter}}
+\label{sub:geoint_parameter}
+
+\begin{description}
+ \item [Scopo] I punti legati agli oggetti hanno un metodo che permette di 
+ottenere il parametro relativo alla loro posizione.
+
+ \item [Sintassi] \lstinline{<constrained point>.parameter()}
+ \item [Osservazioni]
+In \lstinline{PointOn} il parametro è fissato nel momento della costruzione
+dell'oggetto e non è modificabile. In \lstinline{ConstrainedPoint} il parametro 
+può essere variato trascinando il punto con il mouse.
+
+ \item [Esempio] Scrivi i dati relativi a un punto collegato a un oggetto.
+
+\begin{lstlisting}
+c0 = pyig.Circle(pyig.Point(-6, 6, width=6), pyig.Point(-1, 5, width=6))
+c1 = pyig.Circle(pyig.Point(6, 6, width=6), pyig.Point(1, 5, width=6))
+a = pyig.PointOn(c0, 0.5, width=6, name='A')
+b = pyig.ConstrainedPoint(c1, 0.5, width=6, name='B')
+pyig.VarText(-5, -1, 'ascissa di A: {0}', a.xcoord())
+pyig.VarText(-5, -2, 'ordinata di A: {0}', a.ycoord())
+pyig.VarText(-5, -3, 'posizione di A: {0}', a.coords())
+pyig.VarText(-5, -4, 'parametro di A: {0}', a.parameter())
+pyig.VarText(5, -1, 'ascissa di B: {0}', b.xcoord())
+pyig.VarText(5, -2, 'ordinata di B: {0}', b.ycoord())
+pyig.VarText(5, -3, 'posizione di B: {0}', b.coords())
+pyig.VarText(5, -4, 'parametro di B: {0}', b.parameter())
+\end{lstlisting}
+
+\end{description}
+
+
+\subsection{\lstinline{Text}}
+\label{sub:geoint_text}
+
+\begin{description}
+ \item [Scopo] Crea un testo posizionato in un punto del piano.
+ \item [Sintassi] \lstinline{Text(x, y, text, ...)}
+%  \item [Osservazioni] 
+% \begin{itemize} [noitemsep]
+% \item \lstinline{x} e \lstinline{y} sono due numeri interi o razionali 
+% relativi; 
+% \lstinline{x} è l'ascissa e \lstinline{y} l'ordinata del punto.
+% \item \lstinline{text} è la stringa che verrà visualizzata.
+% \item Se sono presenti più piani interattivi, si può specificare l'argomento
+% \lstinline{iplane} per indicare in quale di questi la scritta deve essere
+% visualizzata.
+% \end{itemize}
+
+ \item [Esempio] Scrive due frasi.
+
+\begin{lstlisting}
+pyig.Text(-2, 2, "Prove di testo blue violet", 
+          color='blue violet', width=20)
+pyig.Text(-2, -2, "Prove di testo pale green", 
+          color='pale green', width=20)
+\end{lstlisting}
+
+\end{description}
+
+
+\subsection{\lstinline{VarText}}
+\label{sub:geoint_vartext}
+
+\begin{description}
+ \item [Scopo] Crea un testo variabile. 
+ Il testo contiene dei ``segnaposto'' che verranno sostituiti con i valori 
+prodotti dai dati presenti nel parametro \lstinline{variables}.
+ \item [Sintassi] \lstinline{VarText(x, y, text, variables, ...)}
+ \item [Osservazioni] ~\\
+\begin{itemize} [nosep]
+\item \lstinline{text} è la stringa che contiene la parte costante e i 
+segnaposto.
+\item In genere i \emph{segnaposto} saranno nella forma: ``\{0\}'' che indica a 
+Python di convertire in stringa il risultato prodotto dal dato.
+\item \lstinline{variables} è un dato o una tupla di dati.
+visualizzata.
+\end{itemize}
+
+ \item [Esempio] Un testo che riporta la posizione dei un punto.
+
+\begin{lstlisting}
+p0 = pyig.Point(7, 3, color='green', width=10, name='A')
+pyig.VarText(-4, -3, "Posizione del punto A: ({0}; {1})",
+             (p0.xcoord(), p0.ycoord()),
+             color='green', width=10)
+\end{lstlisting}
+
+\end{description}
+
+% pyig.Text(-7, 13, """PointD""", color='#408040', width=12)
+% circ = pyig.Circle(pyig.Point(0, 0, visible=False),
+%                    pyig.Point(10, 0, visible=False), color="gray10")
+% cursor = pyig.ConstrainedPoint(circ, .25, name='cursor', width=5)
+% pyig.Point(cursor.xcoord(), 0, width=5, color='dark turquoise')
+% pyig.Point(0, cursor.ycoord(), width=5, color='pink')
+% pyig.VarText(-5, -4, "x = {0}", cursor.xcoord(), color='olive drab')
+% pyig.VarText(-5, -5, "y = {0}", cursor.ycoord(), color='olive drab')
+
+\subsection{\lstinline{Calc}}
+\label{sub:geoint_calc}
+
+\begin{description}
+ \item [Scopo] È un oggetto \lstinline{Dato} che contiene il risultato di un 
+calcolo.
+ \item [Sintassi] \lstinline{Calc(function, variables)}
+ \item [Osservazioni]  ~\\
+\begin{itemize} [nosep]
+\item \lstinline{function} è una funzione Python, al momento del calcolo, alla
+funzione vengono passati come argomenti il contenuto di \lstinline{variables}.
+\item \lstinline{variables} è un oggetto \lstinline{Data} o una \emph{tupla} 
+che contiene oggetti \lstinline{Data}. 
+Il risultato è memorizzato all'interno dell'oggetto \lstinline{Calc} e può
+essere visualizzato con \lstinline{VarText} o utilizzato per definire la 
+posizione di un punto.
+\end{itemize}
+
+ \item [Esempio] Calcola il quadrato di un lato e la somma dei quadrati degli 
+altri due lati di
+un triangolo.
+
+\begin{lstlisting}
+circ = pyig.Circle(pyig.Point(2, 4), pyig.Point(-3, 4), width=1)
+ip.defwidth = 5
+p_a = pyig.PointOn(circ, 0, name="A")
+p_b = pyig.PointOn(circ, 1, name="B")
+p_c = pyig.Point(-1, 8, name="C")
+ab = pyig.Segment(p_a, p_b, color="#40c040")
+bc = pyig.Segment(p_b, p_c, color="#c04040")
+ca = pyig.Segment(p_c, p_a, color="#c04040")
+q1 = pyig.Calc(lambda a: a*a, ab.length())
+q2 = pyig.Calc(lambda a, b: a*a+b*b, (bc.length(), ca.length()))
+pyig.VarText(-5, -5, "ab^2 = {0}", q1, color="#40c040")
+pyig.VarText(-5, -6, "bc^2 + ca^2 = {0}", q2, color="#c04040")
+\end{lstlisting}
+
+\end{description}
+
+% pyig.Text(-7, 13, """PointD""", color='#408040', width=12)
+% a0 = pyig.Point(0, -2, visible=False, name="0")
+% b0 = pyig.Point(1, -2, visible=False, name="1")
+% line0 = pyig.Line(a0, b0)
+% cursor = pyig.ConstrainedPoint(line0, 1, name='cursor', width=5)
+% par = pyig.Calc(lambda x: 0.5*x*x, cursor.parameter())
+% pyig.Point(cursor.parameter(), par, width=5, color='dark turquoise')
+% pyig.VarText(-5, -4, "x = {0}", cursor.parameter(),
+%              color='olive drab')
+% pyig.VarText(-5, -5, "y = 0,5*x**2 = {0}", par, color='olive drab')
+
+La Libreria \lstinline{pyig} mette a disposizione molte altre classi e altri 
+metodi con cui si possono creare vari oggetti utili nelle costruzioni 
+geometriche. 
+
+Per avere informazioni sugli oggetti messi a disposizione dalla libreria 
+possiamo dare i seguenti comandi:
+ \begin{lstlisting}[numbers=none]
+>>> import pyig
+>>> help(pyig)
+ \end{lstlisting}
+
+Allargando il numero di strumenti che sappiamo usare possiamo risolvere 
+problemi più complessi.
+
+\subsection{Riassumendo}
+\begin{itemize} [noitemsep]
+\item Per affrontare problemi più complessi con la geometria interattiva è 
+utile conoscere anche altri strumenti messi a disposizione dalla libreria 
+\lstinline{pyig}.
+\begin{itemize}
+ \item \lstinline{Orthogonal(linea, punto, ...)} 
+ per tracciare rette perpendicolari.
+ \item \lstinline{Parallel(linea, punto, ...)} 
+ per tracciare rette parallele.
+ \item \lstinline{MidPoints(punto, punto, ...)} 
+ per tracciare il punto medio tra due punti.
+ \item \lstinline{MidPoint(segmento, ...)} 
+ per tracciare il punto medio di un segmento.
+ \item \lstinline{Bisector(angolo, ...)} 
+ per tracciare la bisettrice di un angolo.
+ \item \lstinline{PointOn(linea, parametro, ...)} 
+ per tracciare un punto in una posizione fissata di una linea.
+ \item \lstinline{ContrainedPoint(linea, parametro, ...)} 
+ per tracciare un punto vincolato ad una linea.
+ \item \lstinline{<punto_vincolato>.parameter()} 
+ per ottenere il parametro di un punto vincolato ad una linea.
+ \item \lstinline{Text(x, y, testo)} 
+ per scrivere un testo in una posizione del piano.
+ \item \lstinline{VarText(x, y, testo, variabili)} 
+ per scrivere un testo con delle parti variabili in una posizione del piano.
+ \item \lstinline{Calc(funzione, variabili)} 
+ per eseguire dei calcoli.
+\end{itemize}
+\item Per avere informazioni su tutti gli strumenti messi a disposizione della 
+libreria si può consultare il manale distribuito assieme alla libreria stessa 
+nella cartella \lstinline{docs} o visualizzare l'help in una finestra della 
+shell con le due istruzioni:
+ \begin{lstlisting}[numbers=none]
+>>> import pyig
+>>> help(pyig)
+ \end{lstlisting}
+\end{itemize}
+
+\section{Insegnare a pyig}
+\label{sec:geo_int_insegnare}
+
+\emph{Come insegnare nuove costruzioni a \lstinline{pyig}.}
+
+\subsection{Funzioni}
+\label{subsec:geo_int_funzioni}
+
+Partiamo da un problema:
+
+\subsubsection{problema}
+
+Costruire tre triangoli equilateri sui lati di un triangolo.
+
+Sappiamo già costruire triangoli, sappiamo costruire triangoli equilateri, 
+quindi la soluzione è abbastanza semplice.
+
+Con riga e compasso.
+
+\begin{procedura}[Triangolo con triangoli equilateri]\label{proc:geoint2_}
+  Costruire tre triangoli equilateri sui lati di un triangolo:
+  \begin{enumerate} [nosep]
+    \item 
+    Traccia i punti A, B, C.
+    \item 
+    Traccia il triangolo ABC.
+    \item 
+    Traccia il triangolo equilatero di lato AB.
+    \item 
+    Traccia il triangolo equilatero di lato BC.
+    \item 
+    Traccia il triangolo equilatero di lato CA.  
+  \end{enumerate}
+\end{procedura}
+
+Il problema è che per tracciare i vari triangoli equilateri devo ripetere una 
+sequenza di istruzioni (sempre le stesse) per tre volte. In questo caso posso 
+armarmi di pazienza e utilizzando il ``copia-incolla'' me la posso cavare 
+abbastanza presto. Ma se dovessi ripetere la stessa costruzione decine o 
+centinaia di volte? I computer sono fatti apposta per ripetere istruzioni 
+banali e gli informatici hanno inventato metodi proprio per evitare di doverlo 
+fare loro.
+
+Dobbiamo generalizzare la soluzione del sottoproblema di disegnare un triangolo 
+equilatero partendo da un suo lato. Per farlo dobbiamo:
+\begin{itemize} [nosep]
+ \item trovare un nome per questa funzione, in questo caso,  dato che il 
+risultato è un triangolo equilatero la chiameremo: \lstinline{triequi};
+ \item individuare i dati da cui parte la costruzione, in questo caso sono due 
+punti estremi del primo lato che potremmo chiamare:
+\lstinline{p_0} e \lstinline{p_1}.
+ \item decidere quale deve essere il risultato, in questo caso un poligono.
+\end{itemize}
+
+Di seguito riporto un programma che risolve il problema seguito dal suo 
+commento.
+
+\subsubsection{copiare}
+
+\lstinputlisting{\folder src/12triequi1.py}
+
+\subsubsection{capire}
+
+\begin{description}
+ \item [linea 1] 
+ L'intestazione del programma che contiene le solite tre informazioni.
+ \item [linee 2-5]
+ Descrizione del problema risolto da questo programma.
+ \item [linea 7]
+ Lettura della libreria.
+ \item [linee 9-15]
+ Definizione delle funzioni utilizzate dal programma principale.
+\begin{description}
+ \item [linea 10]
+ Prima riga della definizione di una funzione. È formata da queste parti:
+ \begin{itemize} [nosep]
+  \item la parola riservata ``\lstinline{def}'';
+  \item il nome della funzione in questo caso: ``\lstinline{triequi}'';
+  \item una sequenza di parametri:
+  \begin{itemize}
+   \item \lstinline{p_0} conterrà il primo estremo del lato,
+   \item \lstinline{p_1} conterrà il secondo estremo del lato,
+   \item \lstinline{**kargs} conterrà tutti gli altri argomenti passati alla 
+funzione.
+  \end{itemize}
+  \item il carattere duepunti: ``\lstinline{:}''.
+  \end{itemize}
+ \item [linea 11]
+ La \lstinline{docstring}, un testo che descrive cosa fa la funzione.
+ \item [linea 12-14]
+ Vengono create le solite due circonferenze e la loro intersezione.
+ \item [linea 15]
+ Viene creato il poligono che ha per vertici i due punti dati e l'intersezione 
+e questo poligono viene dato come risultato della funzione.
+\end{description}
+ \item [linea 18-26]
+ Programma principale.
+\begin{description}
+ \item [linea 18]
+ Creazione del piano interattivo.
+ \item [linea 19-21]
+ Creazione dei tre vertici del triangolo.
+ \item [linea 22-24]
+ Creazione dei tre triangoli equilateri.
+ \item [linea 26]
+ Attivazione della finestra grafica.
+\end{description}
+\end{description}
+
+\subsubsection{osservazioni}
+
+\begin{itemize} [noitemsep]
+ \item La definizione di una funzione è composta da un'intestazione seguita da 
+un blocco di istruzioni. Il \emph{blocco}di istruzioni è indicato 
+dall'\emph{indentazione} cioè dal rientro: tutte le istruzioni \emph{indentate} 
+fanno parte del blocco.
+ \item Quando la funzione \lstinline{triequi} viene chiamata le vengono passati 
+due argomenti che verranno messi nei due parametri \lstinline{p_0} e
+\lstinline{p_1} più eventuali altri argomenti che vengono riuniti tutti dentro 
+il contenitore \lstinline{kargs}.
+ \item La funzione \lstinline{triequi}  utilizza i due parametri 
+\lstinline{p_0} 
+e \lstinline{p_1} mentre non si interessa di cosa sia contenuto in 
+\lstinline{kargs} e passa il contenuto direttamente alla funzione che crea il 
+poligono.
+ \item Il risparmio di codice che si ottiene scrivendo una funzione, nel nostro 
+caso, è abbastanza ridotto, ma se dovessi creare centinaia di triangoli 
+equilateri, la differenza sarebbe sensibile. Non solo, ma da un punto di vista 
+informatico, avere del codice duplicato non è una buona idea. Supponiamo di 
+aver trovato un errore nella procedura che costruisce il triangolo, o di voler 
+modificarla, se ho scritto una funzione so esattamente dove modificare e i 
+cambiamenti valgono per tutto il programma, se ho ripetuto il codice in diversi 
+punti del programma devo trovarli tutti e eseguire in ognuno gli stessi 
+cambiamenti altrimenti il programma diventa incoerente.
+\end{itemize}
+
+\subsubsection{modificare}
+
+\begin{enumerate} [noitemsep]
+ \item Modifica la funzione \lstinline{triequi} in modo che vengano 
+visualizzati, con spessore 1 gli elementi di costruzione.
+ \item Modifica il programma in modo che la finestra grafica abbia un titolo e 
+che non visualizzi gli assi e la griglia.
+ \item Fa in maniera che sia colorato anche l'interno del triangolo di partenza.
+ \item Cambia lo spessore e il colore dei punti base e dei triangoli equilateri.
+\end{enumerate}
+
+\subsection{Riassumendo}
+\begin{itemize} [noitemsep]
+\item Quando un problema diventa complesso è buona norma suddividerlo in parti.
+Una funzione è un pezzo di programma che risolve una parte di problema.
+\item La sintassi per la definizione di una funzione è:
+\begin{lstlisting}[numbers=none]
+def <nome_funzione>(<parametri>):
+    <istruzioni>
+\end{lstlisting}
+\item Una funzione può dare come risultato un oggetto se c'è l'istruzione:
+\begin{lstlisting}[numbers=none]
+    return <oggetto>
+\end{lstlisting}
+\item Un programma Python generalmente è composto da queste sezioni:
+\begin{lstlisting}[numbers=none]
+# Intestazioni
+# Lettura delle librerie
+# Definizione delle funzioni
+# Programma principale
+\end{lstlisting}
+\end{itemize}
+
+\section{Iterazione}
+\label{subsec:geo_int_}
+
+\emph{Come sfruttare qualche ``trucco'' di Python.}
+
+Osservando il programma precedente possiamo vedere che ci sono alcune righe 
+praticamente uguali e questo non va bene. Python mette a disposizione 
+un'istruzione che permette di \emph{iterare}, cioè di ripetere, delle 
+istruzioni per tutti gli elementi di una sequenza. Vediamo come è possibile 
+eliminare le operazioni ripetute nel nostro programma. 
+
+\subsubsection{copiare}
+
+Riporto solo il programma principale, il resto rimane invariato.
+
+\lstinputlisting[firstline=17, firstnumber=17]{\folder src/12triequi2.py}
+
+\subsubsection{capire}
+
+\begin{description}
+ \item [linee -21] 
+ Fin qui il programma è invariato
+ \item [linea 22] 
+ È l'intestazione di un ciclo. Le due variabili \lstinline{p_0} e 
+\lstinline{p_1} assumono i valori delle coppie contenute nella sequenza 
+delimitata dalla parentesi tonda. Quindi nella prima iterazione \\
+\lstinline{p_0} sarà uguale a \lstinline{p_a} \quad e \quad
+\lstinline{p_1} sarà uguale a \lstinline{p_b}, \\
+nella seconda iterazione \\
+\lstinline{p_0} sarà uguale a \lstinline{p_b} \quad e \quad
+\lstinline{p_1} sarà uguale a \lstinline{p_c}, \\
+nella terza \\
+\lstinline{p_0} sarà uguale a \lstinline{p_c} \quad e \quad
+\lstinline{p_1} sarà uguale a \lstinline{p_a}. \\
+Poi non ci sono più elementi 
+nella sequenza e il ciclo termina.
+ \item [linea 23] 
+ Per ogni interazione vengono eseguite tutte le istruzioni del blocco indentato 
+che segue il comando \lstinline{for}, in questo caso una sola che crea un 
+triangolo equilatero. Ma quest'unica istruzione viene ripetuta tre volte.
+\end{description}
+
+\subsubsection{osservazioni}
+
+\begin{itemize} [noitemsep]
+ \item Tre righe di programma sono diventate due, ma ho tolto delle parti 
+ripetitive e anche dovessi disegnare centinaia di triangoli equilateri lo 
+potrei fare sempre con due righe di codice.
+\end{itemize}
+
+\subsubsection{modificare}
+
+\begin{enumerate} [noitemsep]
+ \item Cambia ora le caratteristiche dei triangoli, su quante linee di codce 
+devi intervenire.
+ \item È possibile, con questo meccanismo, modificare anche le caratteristiche 
+dei singoli triangoli equilateri. L'intestazione del ciclo potrebbe essere:
+\begin{lstlisting}[firstnumber=22]
+for p_0, p_1, intcol in ((p_a, p_b, "orchid1"), (p_b, p_c, "orchid2"),
+                         (p_c, p_a, "orchid3")): 
+...
+\end{lstlisting}
+In quale variabile va a finire il nome del colore? Come dovrà cambiare 
+l'istruzione che si trova nel corpo del ciclo?
+ \item In questo caso la lunghezza del programma non è diminuita, ma abbiamo 
+operato un altro miglioramento importante, abbiamo separato i dati 
+dall'algoritmo. Nell'intestazione c'è una sequenza che contiene i dati, il 
+blocco di istruzioni della sequenza è un algoritmo che lavora su dei dati 
+ricevuti dall'eterno.
+ \item Modifica il programma in modo che i tre triangoli abbiano diversi anche 
+i colori del bordo.
+\end{enumerate}
+
+È possibile sintetizzare anche le tre righe~19-21 in un ciclo, ma qui dobbiamo 
+usare un metodo un po' più complesso, infatti, non basta creare i tre punti, 
+dobbiamo anche mantenere un riferimento a ciascuno di loro per poterli 
+utilizzare in seguito.
+
+\subsubsection{copiare}
+
+Anche qui riporto solo il programma principale.
+
+\lstinputlisting[firstline=17, firstnumber=17]{\folder src/12triequi3.py}
+
+\subsubsection{capire}
+
+\begin{description}
+ \item [linea 19] 
+ All'identificatore \lstinline{vertici} viene associata una sequenza di coppie 
+di numeri, le coordinate dei punti.
+ \item [linea 22] 
+ Questa linea è complessa, analizziamo le sue parti:
+ \begin{description} [nosep]
+  \item [p\_a, p\_b, p\_c]
+  sono tre identificatori separati da una virgola a questi saranno associati i 
+tre oggetti prodotti dalla parte di istruzione che si trova a destra 
+dell'uguale.
+  \item [(pyig.Point(x, y, width=6) for x, y in vertici)]
+  produce una sequenza di punti le cui coordinate \lstinline{x} e 
+\lstinline{y} sono ricavate scorrendo la sequenza associata a 
+\lstinline{vertici}.
+ \end{description}
+ Questa linea realizza un ciclo \lstinline{for}, ma raccoglie tutti i risultati 
+in una sequenza. 
+\end{description}
+
+\subsubsection{osservazioni}
+
+\begin{itemize} [noitemsep]
+ \item Anche in questo caso, nel nostro programma, abbiamo risparmiato una sola 
+riga su tre, ma se \lstinline{vertici} fosse una sequenza di~200 coppie di 
+numeri, potremmo ottenere una sequenza di~200 punti con un'unica istruzione 
+(non male).
+ \item Se un programma richiede che siano costruiti diversi punti base da cui 
+partire per il resto della costruzione, questo può essere un buon modo per 
+crearli.
+\end{itemize}
+
+\subsubsection{modificare}
+
+\begin{enumerate} [noitemsep]
+ \item Cambia il colore dei punti base.
+ \item Cambia il programma in modo che i triangoli siano disegnati sui lati di 
+un quadrilatero.
+ \item Cambia il programma in modo che i triangoli siano disegnati sui lati di 
+un pentagono.
+\end{enumerate}
+
+
+\subsection{Poligoni regolari}
+\label{subsec:geo_int_}
+
+\emph{Come combinare una caratteristica di pyig con una di Python.}
+
+Problema vogliamo disegnare un ettagono regolare.
+
+\subsubsection{copiare}
+
+\lstinputlisting{\folder src/13polreg.py}
+
+\subsubsection{capire}
+
+\begin{description}
+ \item [linee 8] 
+ Meglio mettere il numero di lati desiderati in una variabile. In questo caso, 
+dato che non viene cambiata durante tutto il programma, la considereremo una 
+costante e per convenzione la scriviamo tutta in maiuscolo.
+ \item [linee 12-13] 
+ Viene creata una circonferenza
+ \item [linea 14] 
+ Ad ogni linea di \lstinline{pyig} è associata una metrica. Per convenzione una 
+circonferenza è lunga~2. In realtà sarebbe \(2\pi\), ma chi ha creato 
+\lstinline{pyig} ha pensato fosse più semplice usare la costante 2 come 
+lunghezza della circonferenza. Dividendo la lunghezza della circonferenza per 
+il numero di lati del poligono, trovo la lunghezza di ogni singolo arco.
+ \item [linee 15-16]
+ Queste due linee costruiscono una lista di punti posizionati sulla 
+circonferenza. Analizziamola partendo dal fondo.
+\begin{description}
+ \item [range(NUMLATI)] 
+ restituisce la sequenza di numeri da zero a NUMLATI 
+meno uno, nel nostro caso: (0, 1, 2, 3, 4, 5, 6).
+ \item [for cont]
+ Esegue un ciclo in cui \lstinline{cont} assume uno alla volta i valori da~0 
+ a~6.
+ \item [pyig.PointOn(c\_cp, arco*cont)]
+ Crea i punti fissati nella posizione \lstinline{arco*cont} sulla circonferenza 
+\lstinline{c_cp}.
+ \item [vertici = ]
+ Associa all'identificatore \lstinline{vertici} la lista di punti appena 
+creata.
+\end{description}
+ \item [linea 17]
+ Costruisce il poligono.
+\end{description}
+
+\subsubsection{osservazioni}
+
+\begin{itemize} [noitemsep]
+ \item Quando è possibile conviene usare ``costanti'' al posto di numeri.
+ \item La costruzione di liste (``listcomprehension'') è uno strumento di 
+Python molto potente, anche se non di immediata comprensione.
+ \item In \lstinline{pyig} le circonferenze hanno sempre ``lunghezza''~2 e le 
+rette hanno una lunghezza infinita dove però il primo punto di costruzione ha 
+coordinata~0 e il secondo coordinata~1.
+\end{itemize}
+
+\subsubsection{modificare}
+
+\begin{enumerate} [noitemsep]
+ \item Modifica colori e spessori degli elementi dell'ettagono.
+ \item Rendi invisibile la circonferenza di costruzione.
+ \item Disegna poligoni regolari con un diverso numero di lati.
+ \item Puoi disegnare un bilatero regolare? e un monolatero? e un zerolatero?
+\end{enumerate}
+
+\subsection{Riassumendo}
+\begin{itemize} [noitemsep]
+\item L'istruzione \lstinline{range(<num>)} restituisce una sequenza di numeri 
+che vanno da~\(0\) a \(\text{<num>}-1\).
+\item Un ciclo \lstinline{for} itera un'operazione per ogni elemento della 
+sequenza a cui è applicato.
+\item È possibile costruire delle sequenze per mezzo della 
+``listcomprehension''.
+\end{itemize}
+
+\section{Altri problemi}
+
+\begin{enumerate} [noitemsep]
+\item Scrivi la funzione che disegni un parallelogramma dati tre vertici.
+\item Scrivi la funzione che disegni un quadrato dati due vertici consecutivi.
+\item Scrivi la funzione che disegni un quadrato dati due vertici opposti.
+\item Scrivi la funzione che disegni un rettangolo dati una semiretta e due 
+segmenti.
+\item Scrivi la funzione che disegni un rombo dati una semiretta e due 
+segmenti.
+\item Scrivi la funzione che disegni un esagono dati due vertici consecutivi.
+\item Scrivi un programma che disegni nel primo quadrante un pentagono, nel 
+secondo un esagono, nel terzo un ettagono e nel quarto un ottagono tutti con lo 
+stesso raggio.
+\item Scrivi una funzione che, dati tre vertici, restituisca il baricentro del 
+triangolo.
+\item Scrivi una funzione che, dati tre vertici, restituisca il circocentro del 
+triangolo.
+\item Scrivi una funzione che, dati tre vertici, restituisca l'incentro del 
+triangolo.
+\item Scrivi una funzione che, dati tre vertici, restituisca l'ortocentro del 
+triangolo.
+\item Scrivi la funzione che, dati una circonferenza e un punto, disegni le 
+tangenti alla circonferenza per il punto.
+\item Scrivi la funzione che, dati un asse e un punto, restituisca il 
+simmetrico del punto rispetto all'asse.
+\item Scrivi la funzione che, dati un asse e un centro, restituisca il 
+simmetrico del punto rispetto al centro.
+\item Scrivi la funzione che, dati un punto e un vettore, e restituisca 
+il traslato del punto.
+\item Scrivi la funzione che, dati un punto, un centro e un angolo,  
+e restituisca punto ruotato.
+\item Scrivi la funzione che, dati un punto, un centro e un numero,  
+e restituisca punto omotetico.
+\item Scrivi un programma che illustri il teorema di Pitagora.
+\item Scrivi la funzione che dati gli estremi di un segmento ne individui la 
+sua sezione aurea.
+\end{enumerate}

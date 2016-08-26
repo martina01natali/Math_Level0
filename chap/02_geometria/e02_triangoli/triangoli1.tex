@@ -98,60 +98,92 @@ interni acuti.
 
 
 \begin{inaccessibleblock}[Figura: TODO]
- \begin{figure}[htb]
+\begin{figure}[htb]
 \centering\input{\folder lbr/fig003_triangolo.pgf}
-\caption{Classificazione di un triangolo rispetto agli 
-angoli}\label{fig:class_triangolo_angoli}
+\caption{Classificazione di un triangolo rispetto agli angoli}
+\label{fig:class_triangolo_angoli}
 \end{figure}
 \end{inaccessibleblock}
 
-\begin{procedura}
-	Costruzione di un triangolo equilatero di lato assegnato:
-	\begin{enumerate} [nosep]
-		\item 
-		Traccia un segmento di estremi A e B, lato del triangolo da costruire.
-		\item 
-		Traccia una circonferenza puntando il compasso in A, con apertura AB.  
-		\item 
-		Ripeti la stessa operazione, mantenendo la stessa apertura del compasso e puntandolo in B.  
-		\item 
-		Le circonferenze si intersecano in due punti: denominali C e D.  	
-		\item 
-		Traccia il triangolo equilatero ABC.	
-		\end{enumerate}
-		\textit{Anche ABD è un triangolo equilatero di lato congruente ad AB.}
+Abbiamo già costruito un triangolo equilatero 
+(vedi \ref{proc:fonda_equilatero}).
+
+\begin{comment}
+ 
+Con riga e compasso.
+
+\begin{procedura}[Triangolo equilatero]\label{proc:fonda_equilatero}
+  Dati due punti A e B, si deve costruire un punto C in modo che ABC sia un 
+triangolo equilatero:
+  \begin{enumerate} [nosep]
+    \item 
+    Traccia i punti A e B.
+    \item 
+    Traccia la circonferenza di centro A e passante per B.
+    \item 
+    Traccia la circonferenza di centro B e passante per A.
+    \item 
+    Individua un punto C di intersezione delle due circonferenze.
+    \item 
+    Il poligono ABC è il triangolo richiesto.    
+  \end{enumerate}
 \end{procedura}
 
+Con la geometria interattiva.
 
-    
+\lstinputlisting[firstline=2]{\folder src/11triequi.py} %, lastline=5]
+
+\end{comment}
+
+Vediamo ora come costruire triangoli isosceli. Se è data la base.
+
+Con riga e compasso.
+
 \begin{procedura}
-	Costruzione di un triangolo isoscele di base assegnata:
-	\begin{enumerate} [nosep]
-		\item 
-		Traccia un segmento di estremi A e B, base del triangolo da costruire.
-		\item 
-		Costruisci l'asse del segmento AB.
-		\item 
-		Prendi un punto sull'asse e denominalo C.
-		\item 
-		I segmenti AC e BC hanno la stessa lunghezza e quindi il triangolo ABC è isoscele.
-	\end{enumerate}
-\textit{ Con questa procedura, quanti triangoli isosceli di base assegnata AB puoi costruire?}	
+  Costruzione di un triangolo isoscele di base assegnata:
+  \begin{enumerate} [nosep]
+    \item 
+    Traccia un segmento di estremi A e B, base del triangolo da costruire.
+    \item 
+    Costruisci l'asse del segmento AB.
+    \item 
+    Prendi un punto sull'asse e denominalo C.
+    \item 
+    I segmenti AC e BC hanno la stessa lunghezza e quindi il triangolo ABC è 
+isoscele.
+  \end{enumerate}
+\textit{ Con questa procedura, quanti triangoli isosceli di base assegnata AB 
+puoi costruire?}  
 \end{procedura}
  
+Con la geometria interattiva.
+
+\lstinputlisting[firstline=2]{\folder src/01triiso_base.py} %, lastline=5]
+
+Se è dato il lato obliquo.
+
+Con riga e compasso.
+
  \begin{procedura}
- 	Costruzione di un triangolo isoscele di lato obliquo assegnato:
- 	\begin{enumerate} [nosep]
- 		\item 
- 		Traccia un segmento di estremi A e B, lato obliquo del triangolo da costruire.  
- 		\item 
- 		Traccia una circonferenza puntando il compasso in B, con apertura AB.  
- 		\item 
- 		Scegli un punto qualsiasi sulla circonferenza: denominalo C; il triangolo ABC è isoscele sulla base AC.  
- 	\end{enumerate}
- 	\textit{ Con questa procedura, quanti triangoli isosceli di lati assegnati congruenti ad AB puoi costruire?}	
+   Costruzione di un triangolo isoscele di lato obliquo assegnato:
+   \begin{enumerate} [nosep]
+     \item 
+     Traccia un segmento di estremi A e B, lato obliquo del triangolo da 
+costruire.  
+     \item 
+     Traccia una circonferenza puntando il compasso in B, con apertura AB.  
+     \item 
+     Scegli un punto qualsiasi sulla circonferenza: denominalo C; il triangolo 
+ABC è isoscele sulla base AC.  
+   \end{enumerate}
+   \textit{ Con questa procedura, quanti triangoli isosceli di lati assegnati 
+congruenti ad AB puoi costruire?}  
  \end{procedura}
  
+Con la geometria interattiva.
+
+\lstinputlisting[firstline=2]{\folder src/02triiso_lato.py} %, lastline=5]
+
 \section{Criteri di congruenza dei triangoli}
 \label{sect:primo_secondo_criterio_di_congruenza_triangoli}
 
@@ -222,16 +254,16 @@ lato tra essi compreso.
 \cong \beta'$.\tab Tesi:  $ABC \cong A'B'C'$.
 
 \begin{teorema}[3\textsuperscript{o} criterio di congruenza dei 
-	triangoli]
-	Due triangoli sono congruenti se hanno congruenti le tre coppie di 
-	lati.
+  triangoli]
+  Due triangoli sono congruenti se hanno congruenti le tre coppie di 
+  lati.
 \end{teorema}
 
 
 \begin{inaccessibleblock}[Figura: TODO]
-	\begin{figure}[htb]
-		\centering\input{\folder lbr/fig011_3crit_cong_tri.pgf}
-	\end{figure}
+  \begin{figure}[htb]
+    \centering\input{\folder lbr/fig011_3crit_cong_tri.pgf}
+  \end{figure}
 \end{inaccessibleblock}
 
 \noindent Ipotesi: $AB\cong A'B'$, $BC\cong B'C'$, $AC\cong 
@@ -460,12 +492,12 @@ bisettrice dell'angolo al vertice e mediana relativa alla base.
 
 Per ciascuna di esse scriviamo ipotesi e tesi.
 \begin{enumeratea}
-\item In $ABC$:	Ipotesi: $AC\cong CB$, $\alpha_1\cong \beta_1$, 
+\item In $ABC$:  Ipotesi: $AC\cong CB$, $\alpha_1\cong \beta_1$, 
 $A\widehat{C}J\cong B\widehat{C}J$. Tesi: $CJ\perp AB$, $AJ\cong JB$.
-\item In $DEF$:	\,Ipotesi: $DF\cong FE$, $\alpha_2\cong \beta_2$, 
+\item In $DEF$:  \,Ipotesi: $DF\cong FE$, $\alpha_2\cong \beta_2$, 
 $DK\cong KE$.\tab Tesi: $FK\perp DE$, $D\widehat{F}K\cong 
 E\widehat{F}K$.
-\item In $GHI$:	\,Ipotesi: $IG\cong IH$, $\alpha_3\cong \beta_3$, 
+\item In $GHI$:  \,Ipotesi: $IG\cong IH$, $\alpha_3\cong \beta_3$, 
 $IL\perp GH$.\tab Tesi: $GL\cong LH$, $G\widehat{I}L\cong 
 H\widehat{I}L$.
 \end{enumeratea}

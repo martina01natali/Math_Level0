@@ -108,14 +108,16 @@ nelle altre grazie alla nostra fantasia.
 \begin{center}
  \noindent\begin{minipage}{0.6\textwidth}
    \centering
-   \includegraphics[width=\textwidth]{\folder img/Tadpole_(PSF).png}
-   \caption{\emph{Line art representation of 
-w:Tadpole}\protect\footnotemark}\label{fig:tadpole}
+%    \includegraphics[width=\textwidth]{\folder img/Tadpole_(PSF).png}
+   \includegraphics[scale=.5]{\folder img/Tadpole_(PSF).png}
+   \caption{\emph{Line art representation of w:Tadpole}\protect\footnotemark}
+\label{fig:tadpole}
  \end{minipage}
 \hspace{7mm}
  \noindent\begin{minipage}{0.26\textwidth}
   \centering
-   \includegraphics[width=\textwidth]{\folder img/2000px-Tangram-man.png}
+%    \includegraphics[width=\textwidth]{\folder img/2000px-Tangram-man.png}
+   \includegraphics[scale=.04]{\folder img/2000px-Tangram-man.png}
    
 \caption{\emph{Tangram-man}\protect\footnotemark}
 \label{fig:tangramman}
@@ -374,6 +376,8 @@ associa ad un punto $P$ del piano il punto $P'$ tale che $K$ risulti
 il punto medio del segmento $PP'$.
 \end{definizione}
 
+Con riga e compasso.
+
 \begin{procedura}
   Costruzione con riga e compasso del simmetrico di un punto P rispetto ad un 
 centro K:
@@ -393,6 +397,10 @@ circonferenza.
     P' è il punto trasformato di P mediante la simmetria centrale di centro K.
   \end{enumerate}
 \end{procedura}
+
+Con la geometria interattiva.
+
+\lstinputlisting[firstline=2]{\folder src/01simm_centr.py} %, lastline=5]
 
 \noindent\begin{minipage}{0.65\textwidth}\parindent15pt
 Per determinare l'immagine di un segmento è sufficiente determinare 
@@ -490,11 +498,17 @@ coincide con la sua immagine $F'$, ovvero $F$ è unita in $S_K$.
 
 \subsection{La simmetria assiale}
 
+\noindent\begin{minipage}{0.65\textwidth}\parindent15pt
+
 Ricordiamo la definizione~\ref{def:asse_segmento} di asse di un 
 segmento, <<l'asse di un segmento $AB$ è la retta perpendicolare al 
 segmento nel suo punto medio $M$>> e studiamo una nuova 
 corrispondenza tra punti del piano.
-
+\end{minipage}\hfill
+\begin{minipage}{0.25\textwidth}
+  \centering \input{\folder lbr/fig013_simm_ass.pgf}
+\end{minipage}
+% \vspace{8pt}
 \begin{definizione}
 Fissata nel piano una retta $k$, chiamiamo \emph{simmetria assiale di 
 asse $k$} (indicata col simbolo $S_k$) la corrispondenza, nel piano, 
@@ -502,10 +516,7 @@ che associa ad un punto $P$ il punto $P'$ tale che $k$ risulti l'asse
 del segmento $PP'$.
 \end{definizione}
 
-\setlength{\intextsep}{3pt plus 2.0pt minus 2.0pt}
-\begin{wrapfigure}{r}{0.25\textwidth}
-  \centering\input{\folder lbr/fig013_simm_ass.pgf}
-\end{wrapfigure}
+Con riga e compasso.
 
 \begin{procedura}
   Costruzione con riga e compasso del simmetrico di un punto P rispetto ad un 
@@ -529,6 +540,10 @@ la circonferenza.
   \end{enumerate}
 \end{procedura}
 In questo modo si otterrà una figura simile a quella a fianco.
+
+Con la geometria interattiva.
+
+\lstinputlisting[firstline=2]{\folder src/02simm_ass.py} %, lastline=5]
 
 
 Lasciamo al lettore le verifiche delle seguenti affermazioni circa 
@@ -624,6 +639,8 @@ $\vec{v}$;
 sia equipollente a $\vec{v}$.
 \end{enumerate*}
 
+Con riga e compasso.
+
 \begin{procedura}
   Costruzione con riga e compasso del traslato di un punto P nella traslazione 
 di vettore $\vec{v}$:
@@ -648,6 +665,10 @@ vettore $\vec{v}$,
   cioè $T_{\vec{v}}:P\rightarrow P'$.
 \end{procedura}
 
+Con la geometria interattiva.
+
+\lstinputlisting[firstline=2]{\folder src/03trasla.py} %, lastline=5]
+
 \subsubsection{Gli elementi uniti}
 
 \begin{itemize*}
@@ -671,7 +692,6 @@ sono parallele.
 \end{teorema}
 
 Lasciamo al lettore la dimostrazione del teorema.
-\pagebreak
 
 \subsection{La rotazione}
 
@@ -743,9 +763,8 @@ rotazione, l'immagine del punto $P$ si determina con i seguenti passi:
 secondo lato dell'angolo $\alpha$.
 \end{enumerate*}
 
+% TODO: Procedura e programma
 
-    
-    
 \subsubsection{Gli elementi uniti}
 \begin{itemize*}
 \item <<Il centro è l'unico punto unito>>.
@@ -809,7 +828,7 @@ $\Phi_1\circ\Phi_2 \neq \Phi_2\circ\Phi_1$.
       
       
 \subsection{Composizione di isometrie dello stesso tipo}
-\pagebreak
+
 \begin{exrig}
 \noindent\begin{minipage}{0.6\textwidth}\parindent15pt
 \begin{esempio}
@@ -1171,7 +1190,7 @@ caso si dovrà dunque avere $x_K=\dfrac{x+x'}{2}$ e
 $y_K=\dfrac{y+y'}{2}$, da cui possiamo ricavare l'equazione cercata: 
 le coordinate del punto immagine $P'(x';y')$ sono date dall'equazione
 \[\begin{cases}x'=2x_K-x\\y'=2y_K-y\end{cases}.\]
-\pagebreak
+
 \begin{exrig}
   \begin{esempio}
     Determinare il simmetrico di $P(-1;3)$ nella simmetria centrale di 
@@ -1190,7 +1209,6 @@ le coordinate del punto immagine $P'(x';y')$ sono date dall'equazione
 %\noindent\begin{minipage}{0.65\textwidth}\parindent15pt
 \setlength{\intextsep}{3pt plus 2.0pt minus 2.0pt}
 \begin{wrapfigure}{r}{0.35\textwidth}
-  
   \centering\input{\folder lbr/fig021_es_piano_cartes_trasl.pgf}
 \end{wrapfigure}
 Pensiamo il piano, dotato di riferimento cartesiano ortogonale, come 
@@ -1201,11 +1219,6 @@ Studiamo la corrispondenza $T_{\vec{v}}$ tra i punti del piano $D$ e
 i punti del piano $C$ espressa dalla legge
 \[P(x_P;y_P)\in D \overset{T_{\vec{v}}}\rightarrow 
 P'(x_P+1;y_P+(-3))\in C.\]
-
-%\begin{figure*}[!htb]
-%  
-\centering\input{\folder lbr/fig021_es_piano_cartes_trasl.pgf}
-%\end{figure*}
 
 Se $P(1;5)$ è un punto di $D$ il suo corrispondente è $P'(2;2)$. 
 Determinate il corrispondente di ciascuno dei seguenti punti 
