@@ -15,7 +15,7 @@
 \chapter{Complementi di algebra}
 
 \section{Equazioni di grado superiore al secondo}
-% \label{sec:irvalass_supsec}
+\label{sec:irvalass_supsec}
 
 A questo punto siamo in grado di risolvere equazioni di primo e secondo 
 grado. Impareremo ora come comportarci nel caso, più generale, di 
@@ -254,8 +254,10 @@ binomie:
 \end{esempio}
 
 
-\section{Equazioni irrazionali}
-% \label{sec:irvalass_irraz}
+\section{Equazioni e disequazioni irrazionali}
+\label{sec:irvalass_irraz}
+
+\subsection{Equazioni irrazionali}
 
 Consideriamo le seguenti equazioni:
 \begin{enumerate}
@@ -388,7 +390,7 @@ fatto negli esempi precedenti.
 Un altro metodo consiste nel porre delle condizioni quando eliminiamo le radici 
 e accettare poi solo le soluzioni che le soddisfano.
 
-E' importante ricordare che:
+È importante ricordare che:
 \begin{enumerate}
  \item la radice di un numero negativo non è un numero reale;
  \item Se esiste, la radice di un numero è sempre positiva.
@@ -452,12 +454,155 @@ tutte le seguenti equazioni irrazionali non hanno soluzioni reali.
  \hfill perché: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 \end{enumerate}
 
+\subsection{Disequazioni irrazionali}
+\label{sec:irvalass_irrazionali}
+
+Se le disequazioni contengono l'incognita sotto una radice si dicono 
+disequazioni \emph{irrazionali}.
+
+Vediamo i casi che si possono presentare.
+
+\subsubsection{Radici con indice dispari}
+
+Le disequazioni irrazionali del tipo:
+
+\[\sqrt[n]{A(x)} \leqslant B(x) \text{ o } \sqrt[n]{A(x)} \geqslant B(x)\]
+
+con \(n\) dispari si risolvono semplicemente elevando ambo i membri della 
+disequazione allo stesso indice, ottenendo una disequazione razionale che 
+ammette le stesse soluzioni di quella di partenza.
+
+\begin{esempio}
+\(\sqrt[3]{-6x^2 +12x +1} \leqslant x -2\)
+\begin{center} \begin{tabular}{rl}
+elevando ambo i membri al cubo si ottiene: & 
+\(-6x^2 +12x +1 \leqslant x^3 -6x^2 +12x -8\)\\
+semplificando si ottiene: & \(x^3 -9 \leqslant 0\)\\
+che dà come soluzioni: & \(x \leqslant \sqrt[3]{9}\)
+\end{tabular} \end{center}
+\end{esempio}
+
+\begin{esempio}
+\(\sqrt[3]{x^3 -3x +2} > x -1\)
+\begin{center} \begin{tabular}{rl}
+elevando ambo i membri al cubo si ottiene: & 
+\(x^3 -3x +2 > x^3 -3x^2 +3x -1\)\\
+semplificando si ottiene: & \(3 \tonda{x -1}^2 > 0\)\\
+che dà come soluzioni: & \(\forall x \in \R \sand x \neq 0\) 
+\end{tabular} \end{center} 
+\end{esempio}
+
+\subsubsection{Radici con indice pari}
+
+In questo testo ci limiteremo al caso \(n=2\), ma il caso più 
+generale si affronta in modo analogo.
+
+Le disequazioni irrazionali del tipo:
+
+\[\sqrt[n]{A(x)} \leqslant B(x) \text{ o } \sqrt[n]{A(x)} \geqslant B(x)\]
+
+con \(n\) pari sono equivalenti a un sistema di disequazioni. Possiamo 
+distinguere due casi.
+
+\paragraph{Primo caso: \(\sqrt[n]{A(x)} \leqslant B(x)\)}
+~
+
+Osservazioni: 
+\begin{enumerate} 
+ \item Il radicando, deve sempre essere maggiore o uguale a zero. 
+Per la condizione di realtà (C.R.) dovrà quindi essere \({A(x)} \leqslant 0\).
+ \item Se il radicando è positivo, anche la radice è definita e sarà 
+positiva, quindi anche \({B(x)} \leqslant 0\)
+ \item Se i membri della disequazione sono entrambi positivi e il primo è 
+minore 
+del secondo allora anche il quadrato del primo membro deve essere minore del 
+quadrato del secondo membro: 
+\(\quadra{\sqrt[n]{A(x)}}^2 \leqslant \quadra{B(x)}^2\).
+\end{enumerate}
+Tradotte in simboli, queste osservazioni producono la seguente equivalenza tra 
+la disequazione irrazionale e un sistema di disequazioni razionali:
+
+\[\sqrt[n]{A(x)} \leqslant B(x) \sLRarrow 
+  \sistema{A(x) \geqslant 0 \\ 
+           B(x) \geqslant 0 \\ 
+           A(x) \leqslant \quadra{B(x)}^2}\]
+
+\begin{esempio}
+ \(\sqrt{x^2 -4} -4 \leqslant x\)
+\begin{center} \begin{tabular}{rl}
+riducendo in forma normale: & \(\sqrt{x^2 -4} \leqslant x +4\) \\ [12pt]
+equivalente al sistema razionale: &  
+\(\sistema{x^2 -4 \geqslant 0 \\ 
+           x +4 \geqslant 0 \\ 
+           x^2 -4 \leqslant x^2 + 8x +16}\) \\ \\
+che si riduce a: &  
+\(\sistema{x^2 -4 \geqslant 0 \\ 
+           x +4 \geqslant 0 \\ 
+           -8x -20 \leqslant 0} \sRarrow 
+  \sistema{x \leqslant -2 \sor x \geqslant +2 \\ 
+           x \geqslant +4 \\ 
+           x \geqslant \frac{5}{2}}\) \\ \\
+che dà come soluzioni: & 
+\(-\dfrac{5}{2} \leqslant x \leqslant -2 \sor x \geqslant 2\)
+\end{tabular} \end{center}
+\end{esempio}
+
+
+\paragraph{Secondo caso: \(\sqrt[n]{A(x)} \geqslant B(x)\)}
+~
+
+Abbiamo le seguenti due possibilità: 
+\begin{enumerate} 
+ \item Se \(B(x) < 0\) per verificare la disequazione basta che la 
+radice esista, perché essendo positiva sarà senz'altro maggiore di un numero 
+negativo.
+ \item Se invece \(B(x)\geqslant 0\) allora il radicando deve 
+essere maggiore o uguale al suo quadrato e, in questo caso, verifica anche la 
+condizione di esistenza della radice.
+\end{enumerate}
+Tradotte in simboli, queste osservazioni producono i seguenti due sistemi di 
+disequazioni razionali:
+
+\[\sqrt[n]{A(x)} \geqslant B(x) \sLRarrow 
+  \sistema{B(x) < 0 \\ 
+           A(x) \geqslant 0} \sor 
+  \sistema{B(x) \geqslant 0 \\ 
+           A(x) \geqslant \quadra{B(x)}^2}\]
+
+\begin{esempio}
+ \(\sqrt{4x^2 +3x -1} -2x > -3\)
+\begin{center} \begin{tabular}{rl}
+riducendo in forma normale: & \(\sqrt{4x^2 +3x -1} > 2x -3\) \\ [12pt]
+equivalente all'unione dei sistemi razionali: &  
+\(\sistema{2x -3 < 0 \\ 
+           4x^2 +3x -1 \geqslant 0} \sor 
+  \sistema{2x -3 \geqslant 0 \\ 
+           4x^2 +3x -1 > 4x^2 -12x +9}\) \\ \\
+che si riduce a: &    
+\(\sistema{2x -3 < 0 \\ 
+           4x^2 +3x -1 \geqslant 0} \sor 
+  \sistema{2x -3 \geqslant 0 \\ 
+           15x -10 > 0}\) \\ \\
+la soluzione del primo sistema è: & 
+\(x \leqslant -1 \sor \dfrac{1}{4} \leqslant x < \dfrac{3}{2}\) \\ \\
+la soluzione del secondo sistema è: & 
+\(x \geqslant \dfrac{3}{2}\) \\ \\
+e l'unione delle soluzioni è: & 
+\( x \leqslant -1 \sor x \geqslant -\dfrac{1}{4}\)
+\end{tabular} \end{center}
+\end{esempio}
+
+
 \section{Equazioni con valori assoluti}
+\label{sec:irvalass_valass}
+
 Per risolvere un'equazione nella quale compare il valore assoluto di qualche 
 termine , dobbiamo aver chiaro cosa significa \textbf{valore assoluto di un 
 numero reale}.
+
 \subsection{Definizione di valore assoluto}
-si definisce valore assoluto (o modulo) di un numero $x$, e si indica con 
+
+Si definisce valore assoluto (o modulo) di un numero $x$, e si indica con 
 $|x|$, 
 una funzione che associa a $x$ un numero reale non negativo. Infatti se $x$ è 
 un 
@@ -561,7 +706,9 @@ x^2-3x+2 & \text{se} & x\leq 1 \vee x\geq 2 \\
 \right.
 $
 \end{enumerate}
+
 \subsection{La funzione ``valore assoluto''}
+
 La funzione $y=|x|$ si chiama funzione valore assoluto ed ha il seguente 
 grafico:
 
@@ -848,143 +995,6 @@ dall'origine è $\geq 2$.
         ossia
         $$x\leq -1 \vee x\geq 3.$$
 \end{esempio}
-
-\subsection{Disequazioni irrazionali}
-
-Se le disequazioni contengono l'incognita sotto una radice si dicono 
-disequazioni \emph{irrazionali}.
-
-Vediamo i casi che si possono presentare.
-
-\subsubsection{Radici con indice dispari}
-
-Le disequazioni irrazionali del tipo:
-
-\[\sqrt[n]{A(x)} \leqslant B(x) \text{ o } \sqrt[n]{A(x)} \geqslant B(x)\]
-
-con \(n\) dispari si risolvono semplicemente elevando ambo i membri della 
-disequazione allo stesso indice, ottenendo una disequazione razionale che 
-ammette le stesse soluzioni di quella di partenza.
-
-\begin{esempio}
-\(\sqrt[3]{-6x^2 +12x +1} \leqslant x -2\)
-\begin{center} \begin{tabular}{rl}
-elevando ambo i membri al cubo si ottiene: & 
-\(-6x^2 +12x +1 \leqslant x^3 -6x^2 +12x -8\)\\
-semplificando si ottiene: & \(x^3 -9 \leqslant 0\)\\
-che dà come soluzioni: & \(x \leqslant \sqrt[3]{9}\)
-\end{tabular} \end{center}
-\end{esempio}
-
-\begin{esempio}
-\(\sqrt[3]{x^3 -3x +2} > x -1\)
-\begin{center} \begin{tabular}{rl}
-elevando ambo i membri al cubo si ottiene: & 
-\(x^3 -3x +2 > x^3 -3x^2 +3x -1\)\\
-semplificando si ottiene: & \(3 \tonda{x -1}^2 > 0\)\\
-che dà come soluzioni: & \(\forall x \in \R \sand x \neq 0\) 
-\end{tabular} \end{center} 
-\end{esempio}
-
-\subsubsection{Radici con indice pari}
-
-In questo testo ci limiteremo al caso \(n=2\), ma il caso più 
-generale si affronta in modo analogo.
-
-Le disequazioni irrazionali del tipo:
-
-\[\sqrt[n]{A(x)} \leqslant B(x) \text{ o } \sqrt[n]{A(x)} \geqslant B(x)\]
-
-con \(n\) pari sono equivalenti a un sistema di disequazioni. Possiamo 
-distinguere due casi.
-
-\paragraph{Primo caso: \(\sqrt[n]{A(x)} \leqslant B(x)\)}
-~
-
-Osservazioni: 
-\begin{enumerate} 
- \item Il radicando, deve sempre essere maggiore o uguale a zero. 
-Per la condizione di realtà (C.R.) dovrà quindi essere \({A(x)} \leqslant 0\).
- \item Se il radicando è positivo, anche la radice è definita e sarà 
-positiva, quindi anche \({B(x)} \leqslant 0\)
- \item Se i membri della disequazione sono entrambi positivi e il primo è minore 
-del secondo allora anche il quadrato del primo membro deve essere minore del 
-quadrato del secondo membro: 
-\(\quadra{\sqrt[n]{A(x)}}^2 \leqslant \quadra{B(x)}^2\).
-\end{enumerate}
-Tradotte in simboli, queste osservazioni producono la seguente equivalenza tra 
-la disequazione irrazionale e un sistema di disequazioni razionali:
-
-\[\sqrt[n]{A(x)} \leqslant B(x) \sLRarrow 
-  \sistema{A(x) \geqslant 0 \\ 
-           B(x) \geqslant 0 \\ 
-           A(x) \leqslant \quadra{B(x)}^2}\]
-
-\begin{esempio}
- \(\sqrt{x^2 -4} -4 \leqslant x\)
-\begin{center} \begin{tabular}{rl}
-riducendo in forma normale: & \(\sqrt{x^2 -4} \leqslant x +4\) \\ [12pt]
-equivalente al sistema razionale: &  
-\(\sistema{x^2 -4 \geqslant 0 \\ 
-           x +4 \geqslant 0 \\ 
-           x^2 -4 \leqslant x^2 + 8x +16}\) \\ \\
-che si riduce a: &  
-\(\sistema{x^2 -4 \geqslant 0 \\ 
-           x +4 \geqslant 0 \\ 
-           -8x -20 \leqslant 0} \sRarrow 
-  \sistema{x \leqslant -2 \sor x \geqslant +2 \\ 
-           x \geqslant +4 \\ 
-           x \geqslant \frac{5}{2}}\) \\ \\
-che dà come soluzioni: & 
-\(-\dfrac{5}{2} \leqslant x \leqslant -2 \sor x \geqslant 2\)
-\end{tabular} \end{center}
-\end{esempio}
-
-
-\paragraph{Secondo caso: \(\sqrt[n]{A(x)} \geqslant B(x)\)}
-~
-
-Abbiamo le seguenti due possibilità: 
-\begin{enumerate} 
- \item Se \(B(x) < 0\) per verificare la disequazione basta che la 
-radice esista, perché essendo positiva sarà senz'altro maggiore di un numero 
-negativo.
- \item Se invece \(B(x)\geqslant 0\) allora il radicando deve 
-essere maggiore o uguale al suo quadrato e, in questo caso, verifica anche la 
-condizione di esistenza della radice.
-\end{enumerate}
-Tradotte in simboli, queste osservazioni producono i seguenti due sistemi di 
-disequazioni razionali:
-
-\[\sqrt[n]{A(x)} \geqslant B(x) \sLRarrow 
-  \sistema{B(x) < 0 \\ 
-           A(x) \geqslant 0} \sor 
-  \sistema{B(x) \geqslant 0 \\ 
-           A(x) \geqslant \quadra{B(x)}^2}\]
-
-\begin{esempio}
- \(\sqrt{4x^2 +3x -1} -2x > -3\)
-\begin{center} \begin{tabular}{rl}
-riducendo in forma normale: & \(\sqrt{4x^2 +3x -1} > 2x -3\) \\ [12pt]
-equivalente all'unione dei sistemi razionali: &  
-\(\sistema{2x -3 < 0 \\ 
-           4x^2 +3x -1 \geqslant 0} \sor 
-  \sistema{2x -3 \geqslant 0 \\ 
-           4x^2 +3x -1 > 4x^2 -12x +9}\) \\ \\
-che si riduce a: &    
-\(\sistema{2x -3 < 0 \\ 
-           4x^2 +3x -1 \geqslant 0} \sor 
-  \sistema{2x -3 \geqslant 0 \\ 
-           15x -10 > 0}\) \\ \\
-la soluzione del primo sistema è: & 
-\(x \leqslant -1 \sor \dfrac{1}{4} \leqslant x < \dfrac{3}{2}\) \\ \\
-la soluzione del secondo sistema è: & 
-\(x \geqslant \dfrac{3}{2}\) \\ \\
-e l'unione delle soluzioni è: & 
-\( x \leqslant -1 \sor x \geqslant -\dfrac{1}{4}\)
-\end{tabular} \end{center}
-\end{esempio}
-
 
 
 
