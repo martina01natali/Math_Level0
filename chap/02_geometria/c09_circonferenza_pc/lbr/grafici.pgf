@@ -1,21 +1,39 @@
-% % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-% % 
-% % Tutti i grafici per il capitolo relativo alle parabole
-% %
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 % 
-% \input{lbr/definizioni_tikz}
-% 
-% \newcommand{\puntia}{% 
-%     % Alcuni punti di una parabola.
-%     \disegno{
-%     \rcom{-5}{+5}{-4}{13}{gray!50, very thin, step=1}
-%     \foreach \pi in {
-%     % (-4, 22), 
-%     (-3, 13), (-2, 6), (-1, 1), 
-%     (0, -2), (1, -3), (2, -2), (3, 1), (4, 6), (5, 13)}
-%     \filldraw [Maroon!50!black] \pi circle (1.5pt);
-%     }
-% }
+% Tutti i grafici per il capitolo relativo alle parabole
+%
+
+\input{lbr/definizioni_tikz}
+
+\newcommand{\circonfO}{% 
+    % Alcuni punti di una parabola.
+    \disegno{
+    \coordinate (origin) at (0, 0);
+    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
+    \draw (origin) [very thick, color=Red!50!black] circle (5);
+    \begin{scope}[very thick, color=Blue!50!black]
+    \draw (33:5) node (p) {} -- (p |- origin) node (h) {} -- (origin) -- cycle; 
+    \filldraw (p)  node [above right] {\(P(x;~y)\)} circle(1.5pt);
+    \draw (2.2, 0) node [below] {\(x\)};
+    \draw (3.8, 1.3) node {\(y\)};
+    \draw (2.2, 1.7) node {\(r\)};
+    \end{scope}
+    }
+}
+
+\newcommand{\circonfretta}{% 
+    % Alcuni punti di una parabola.
+    \disegno{
+    \coordinate (origin) at (0, 0);
+    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
+    \draw (origin) [very thick, color=Red!50!black] circle (5);
+    \begin{scope}[very thick, color=Blue!50!black]
+    \draw (-4, -6.3) -- (-4, +6.3); 
+    \filldraw (-4, -3)  node [below left] {\(P_0\)} circle(1.5pt);
+    \filldraw (-4, +3)  node [above left] {\(P_1\)} circle(1.5pt);
+    \end{scope}
+    }
+}
 
 % \newcommand{\puntib}{% 
 %     % Altri punti di una parabola.
