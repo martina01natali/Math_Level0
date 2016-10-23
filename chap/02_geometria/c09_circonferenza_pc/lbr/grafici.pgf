@@ -6,7 +6,7 @@
 \input{lbr/definizioni_tikz}
 
 \newcommand{\circonfO}{% 
-    % Alcuni punti di una parabola.
+    % Circonferenza con centro nell'origine.
     \disegno{
     \coordinate (origin) at (0, 0);
     \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
@@ -22,7 +22,7 @@
 }
 
 \newcommand{\circonfretta}{% 
-    % Alcuni punti di una parabola.
+    % Intersezioni circonferenza e retta.
     \disegno{
     \coordinate (origin) at (0, 0);
     \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
@@ -31,6 +31,58 @@
     \draw (-4, -6.3) -- (-4, +6.3); 
     \filldraw (-4, -3)  node [below left] {\(P_0\)} circle(1.5pt);
     \filldraw (-4, +3)  node [above left] {\(P_1\)} circle(1.5pt);
+    \end{scope}
+    }
+}
+
+\newcommand{\circtraslata}{% 
+    % Circonferenza traslata.
+    \disegno{
+    \coordinate (center) at (-3, 2);
+    \rcom{-8}{+3}{-3}{+7}{gray!50, very thin, step=1}
+    \draw (center) [very thick, color=Red!50!black] circle (4);
+    \filldraw (center) [very thick, color=Blue!50!black] circle (1.5pt);
+    }
+}
+
+\newcommand{\circrette}{% 
+    % Circonferenza traslata.
+    \disegno{
+    \tkzInit[xmin=-6.3,xmax=+6.3,ymin=-6.3,ymax=+6.3]
+    \coordinate (center) at (1, -2);
+    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
+    \draw (center) [very thick, color=Red!50!black] circle (3.60555);
+    \filldraw (center) [very thick, color=Blue!50!black] circle (1.5pt);
+    \begin{scope}[color=Blue!50!black]
+    \tkzFct[domain=-7:+7, ultra thick]{2./3*x+4}
+    \tkzFct[domain=-7:+7, ultra thick]{2./3*x+5./3}
+    \tkzFct[domain=-7:+7, ultra thick]{2./3*x-1}
+    \node at (-3.3, 2.3) {r};
+    \node at (-3.7, -.4) {t};
+    \node at (-3.3, -2.7) {s};
+    \end{scope}
+    }
+}
+
+\newcommand{\circtangenti}{% 
+    % Circonferenza traslata.
+    \disegno{
+    \tkzInit[xmin=-6.3,xmax=+6.3,ymin=-6.3,ymax=+6.3]
+    \coordinate (center) at (-2, -1);
+    \coordinate (point) at (3, 4);
+    \coordinate (pt0) at (-3, 2);
+    \coordinate (pt1) at (1, -2);
+    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
+    \draw (center) [very thick, color=Red!50!black] circle (3.162278);
+    \begin{scope}[ultra thick, color=Blue!50!black]
+    \filldraw (center) [very thick] circle (1.5pt) node [below left] {\(C\)};
+    \filldraw (point)  circle (1.5pt) node [above left] {\(P\)};
+    \filldraw (pt0)  circle (1.5pt) node [above left] {\(T_0\)};
+    \filldraw (pt1)  circle (1.5pt) node [below right] {\(T_1\)};
+    \tkzFct[domain=-7:+7]{1./3*x+3}
+    \tkzFct[domain=-7:+7]{3*x-5}
+    \node at (-5.5, 1.6) {\(t_0\)};
+    \node at (-0.6, -5.5) {\(t_1\)};
     \end{scope}
     }
 }
