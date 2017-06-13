@@ -19,7 +19,7 @@ def main():
     """Compile with: pdflatex <filename>."""
     filename = "m_d_licei_17_5.tex"
     os.system('pdflatex --shell-escape ' + filename)
-    os.system('pdflatex --shell-escape ' + filename)
+##    os.system('pdflatex --shell-escape ' + filename)
     os.system('make clean')
 
 if __name__ == "__main__":
