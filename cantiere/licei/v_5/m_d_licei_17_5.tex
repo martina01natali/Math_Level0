@@ -30,9 +30,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %========================
-% Variabili del progetto
+% Definizione delle directory
 %========================
-\input{matematicadolce/lbr/variabili}
+\newcommand{\basedir}{matematicadolce/}
+\newcommand{\depdir}{\basedir deposito/}
+\newcommand{\magdir}{\depdir magazzino/}
+\newcommand{\matdir}{\depdir materiali/}
+
+\input{\magdir variabili}
+
+% \input{matematicadolce/deposito/variabili}
 
 %========================
 % Variabili per questo volume
@@ -55,8 +62,8 @@
 %========================
 % Lettura preambolo
 %========================
-\input{matematicadolce/lbr/packages}
-\input{matematicadolce/lbr/definizioni}
+\input{\magdir packages}
+\input{\magdir definizioni}
 
 %========================
 % Caratteri sans serif
@@ -67,10 +74,10 @@
 %========================
 \begin{document}
 \frontmatter
-\intestazione{matematicadolce/chap/00_intestazioni/les/}{frontespizio}
-\intestazione{matematicadolce/chap/00_intestazioni/les/}{colophon}
-\intestazione{matematicadolce/chap/00_intestazioni/les/}{indice}
-\intestazione{matematicadolce/chap/00_intestazioni/les/}{prefazione}
+\intestazione{\matdir 00_intestazioni/les/}{frontespizio}
+\intestazione{\matdir 00_intestazioni/les/}{colophon}
+\intestazione{\matdir 00_intestazioni/les/}{indice}
+\intestazione{\matdir 00_intestazioni/les/}{prefazione}
 \mainmatter
 %..................................................
 %% --------------------------------
@@ -90,20 +97,20 @@
 % Integrali
 
 %..................................................
-\parte{matematicadolce/chap/01_aritmeticaealgebra/}{part_01_d}
-\capitolo{matematicadolce/chap/03_relazioniefunzioni/12_funzioni/}{funzioni}
-\capitolo{matematicadolce/chap/01_aritmeticaealgebra/10_insiemi_numerici/}
-{insiemi_numerici}
-\capitolo{matematicadolce/chap/03_relazioniefunzioni/14_differenziazione/}
-{differenziazione}
-\capitolo{matematicadolce/chap/03_relazioniefunzioni/15_funzionicontinue/}
-{funzionicontinue}
-\capitolo{matematicadolce/chap/03_relazioniefunzioni/16_studiofunzioni/}
-{studiofunzioni}
-\capitolo{matematicadolce/chap/04_datieprevisioni/07_modellieconomici/}
-{modellieconomici}
-\capitolo{matematicadolce/chap/03_relazioniefunzioni/17_integrazione/}
-{integrazione}
+\parte{\matdir 01_aritmeticaealgebra/}{part_01_d}
+\capitolo{\matdir 03_relazioniefunzioni/12_funzioni/}{funzioni}
+\capitolo{\matdir 01_aritmeticaealgebra/10_insiemi_numerici/}
+         {insiemi_numerici}
+\capitolo{\matdir 03_relazioniefunzioni/14_differenziazione/}
+         {differenziazione}
+\capitolo{\matdir 03_relazioniefunzioni/15_funzionicontinue/}
+         {funzionicontinue}
+\capitolo{\matdir 03_relazioniefunzioni/16_studiofunzioni/}
+         {studiofunzioni}
+\capitolo{\matdir 04_datieprevisioni/07_modellieconomici/}
+         {modellieconomici}
+\capitolo{\matdir 03_relazioniefunzioni/17_integrazione/}
+         {integrazione}
 %..................................................
 %%
 %% Azzeramento numerazione capitoli
