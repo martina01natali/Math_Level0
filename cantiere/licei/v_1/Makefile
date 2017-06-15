@@ -1,1 +1,1 @@
-/dati/daniele/progetti/m_d/licei/v_1/matematicadolce/Makefile
+/dati/daniele/progetti/matematicadolce/Makefile

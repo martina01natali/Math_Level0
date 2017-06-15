@@ -26,13 +26,21 @@
 %  -  m_d_1_les.tex (this file)
 %  -  createpdf.py
 %  -  readme.md
-%  -  the part of code of the files under chap/, img/  and lbr/ directories
+%  -  the part of code of the files under \matdir , img/  and lbr/ directories
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%========================
+% Definizione delle directory
+%========================
+% \newcommand{\basedir}{matematicadolce/}
+\newcommand{\depdir}{deposito/}
+\newcommand{\magdir}{\depdir magazzino/}
+\newcommand{\matdir}{\depdir materiali/}
 
 %========================
 % Variabili del progetto
 %========================
-\input{lbr/variabili}
+\input{\magdir variabili}
 
 %========================
 % Variabili per questo volume
@@ -56,8 +64,9 @@
 %========================
 % Lettura preambolo
 %========================
-\input{lbr/packages}
-\input{lbr/definizioni}
+\input{\magdir packages}
+\input{\magdir definizioni}
+
 %========================
 % Caratteri sans serif
 %========================
@@ -73,50 +82,51 @@
 %========================
 \begin{document}
 \frontmatter
-\intestazione{chap/00_intestazioni/les/}{frontespizio}
-\intestazione{chap/00_intestazioni/les/}{colophon}
-\intestazione{chap/00_intestazioni/les/}{indice}
-\intestazione{chap/00_intestazioni/les/}{prefazione}
+\intestazione{\matdir 00_intestazioni/les/}{frontespizio}
+\intestazione{\matdir 00_intestazioni/les/}{colophon}
+\intestazione{\matdir 00_intestazioni/les/}{indice}
+\intestazione{\matdir 00_intestazioni/les/}{prefazione}
 \mainmatter
 %..................................................
 %
 % Primo tema: Aritmetica e algebra
 % --------------------------------
-\parte{chap/01_aritmeticaealgebra/}{part_01_1_d}
-\capitolo{chap/01_aritmeticaealgebra/01_naturali/}{naturali}
-\capitolo{chap/01_aritmeticaealgebra/02_interi/}{interi}
-\capitolo{chap/01_aritmeticaealgebra/03_razionali/}{razionali}
-\capitolo{chap/01_aritmeticaealgebra/04_calcololetterale/}{calcololetterale}
+\parte{\matdir 01_aritmeticaealgebra/}{part_01_1_d}
+\capitolo{\matdir 01_aritmeticaealgebra/01_naturali/}{naturali}
+\capitolo{\matdir 01_aritmeticaealgebra/02_interi/}{interi}
+\capitolo{\matdir 01_aritmeticaealgebra/03_razionali/}{razionali}
+\capitolo{\matdir 
+01_aritmeticaealgebra/04_calcololetterale/}{calcololetterale}
 %..................................................
 %
 % Secondo tema: Geometria
 %
-\parte{chap/02_geometria/}{part_02_1_d}
-\capitolo{chap/02_geometria/e01_fondamenti/}{fondamenti1}
-\capitolo{chap/02_geometria/e02_triangoli/}{triangoli1}
-% \capitolo{chap/02_geometria/e08_isometrie/}{isometrie1}
-% \capitolo{chap/02_geometria/c01_pianocartesiano/}{pianocartesiano}
+\parte{\matdir 02_geometria/}{part_02_1_d}
+\capitolo{\matdir 02_geometria/e01_fondamenti/}{fondamenti1}
+\capitolo{\matdir 02_geometria/e02_triangoli/}{triangoli1}
+% \capitolo{\matdir 02_geometria/e08_isometrie/}{isometrie1}
+% \capitolo{\matdir 02_geometria/c01_pianocartesiano/}{pianocartesiano}
 ..................................................
 % 
 % Terzo tema: Relazioni e funzioni
 % 
-\parte{chap/03_relazioniefunzioni/}{part_03_1_d}
-\capitolo{chap/03_relazioniefunzioni/01_insiemi/}{insiemi}
-\capitolo{chap/03_relazioniefunzioni/02_equazioni/}{equazioni}
-\capitolo{chap/03_relazioniefunzioni/04_relazioni/}{relazioni}
+\parte{\matdir 03_relazioniefunzioni/}{part_03_1_d}
+\capitolo{\matdir 03_relazioniefunzioni/01_insiemi/}{insiemi}
+\capitolo{\matdir 03_relazioniefunzioni/02_equazioni/}{equazioni}
+\capitolo{\matdir 03_relazioniefunzioni/04_relazioni/}{relazioni}
 %..................................................
 %
 % Quarto tema: Dati e previsioni
 %
-\parte{chap/04_datieprevisioni/}{part_04_1_d}
-\capitolo{chap/04_datieprevisioni/01_statistica/}{statistica}
+\parte{\matdir 04_datieprevisioni/}{part_04_1_d}
+\capitolo{\matdir 04_datieprevisioni/01_statistica/}{statistica}
 %..................................................
 %
 % Quinto tema: Elementi di informatica
 %
-\parte{chap/05_informatica/}{part_05_1_d}
-\capitolo{chap/05_informatica/01_fogliodicalcolo/}{fogliodicalcolo}
-\capitolo{chap/05_informatica/02_geointerattiva/}{geointerattiva1}
+\parte{\matdir 05_informatica/}{part_05_1_d}
+\capitolo{\matdir 05_informatica/01_fogliodicalcolo/}{fogliodicalcolo}
+\capitolo{\matdir 05_informatica/02_geointerattiva/}{geointerattiva1}
 %..................................................
 %
 % Azzeramento numerazione capitoli
