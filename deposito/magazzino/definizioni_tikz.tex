@@ -6,8 +6,18 @@
 \newcommand{\disegno}[1]{
   % Esempio di chiamata:
   %% 
+  \def \grafico{#1}
 \begin{tikzpicture}[x=5mm, y=5mm, smooth]
-  #1
+  \grafico
+\end{tikzpicture}
+}
+\newcommand{\disegnod}[2]{
+  % Esempio di chiamata:
+  %% 
+  \def \dimensione{#1}
+  \def \grafico{#2}
+\begin{tikzpicture}[x=\dimensione mm, y=\dimensione mm, smooth]
+  \grafico
 \end{tikzpicture}
 }
 
@@ -50,7 +60,7 @@
 % Assi e piano cartesiano
 \newcommand{\asse}[4]{% Asse.
   % Esempio di chiamata:
-  %% \disegno{\assex{-7}{+7}{0}{\(x\)}
+  %% \disegno{\asse{-7}{+7}{0}{\(t\)}
   \def \xmi{#1}
   \def \xma{#2}
   \def \posy{#3}
