@@ -305,53 +305,80 @@
   \filldraw (0.33, -2.25) circle (1.5pt) node [below, yshift=-.1cm] {P};
 \end{tikzpicture}
 }
+% 
+% %%%
+% % Asse cartesiano con i trattini
+% %%%%
+% %\usepgflibrary{arrows.meta}
+%  
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% %Asse cartesiano con trattini
+% \input{\folder lbr/lib03_pc05.pgf}
+% \filldraw (2, 3) circle (1.5pt) node [below, yshift=-.1cm] {P};
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
-%%%
-% Asse cartesiano con i trattini
-%%%%
-%\usepgflibrary{arrows.meta}
- 
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
+\newcommand{\assinormali}{% Piano cartesiano ortogonale monometrico
+    \disegno{
+      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+      \filldraw (2, 3) circle (1.5pt) node [below, yshift=-.1cm] {P};
+    }
+}
 
-%Asse cartesiano con trattini
-\input{\folder lbr/lib03_pc05.pgf}
-\filldraw (2, 3) circle (1.5pt) node [below, yshift=-.1cm] {P};
+% %%%
+% % Asse cartesiano con i trattini
+% %%%%
+% %\usepgflibrary{arrows.meta}
+%  
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% %Asse cartesiano con trattini
+% \input{\folder lbr/lib03_pc05.pgf}
+% \node at (2.5, 2.5) {I quadrante};
+% \node at (-2.5, 2.5) {II quadrante};
+% \node at (-2.5, -2.5) {III quadrante};
+% \node at (2.5, -2.5) {IV quadrante};
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+\newcommand{\pianoconquadranti}{% Piano cartesiano con indicati i quadranti
+    \disegno{
+      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+      \node at (2.5, 2.5) {I quadrante};
+      \node at (-2.5, 2.5) {II quadrante};
+      \node at (-2.5, -2.5) {III quadrante};
+      \node at (2.5, -2.5) {IV quadrante};
+    }
+}
+
+% %%%
+% % Asse cartesiano con i trattini
+% %%%%
+% %\usepgflibrary{arrows.meta}
+%  
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% %Asse cartesiano con trattini
+% \input{\folder lbr/lib03_pc05.pgf}
+% \node at (2.5, 2.5) {$(+; +)$};
+% \node at (-2.5, 2.5) {$(-; +)$};
+% \node at (-2.5, -2.5) {$(-; -)$};
+% \node at (2.5, -2.5) {$(+; -)$};
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\pianoconsegni}{% Piano cartesiano con segni delle coordinate
+    \disegno{
+      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+      \node at (2.5, 2.5) {$(+; +)$};
+      \node at (-2.5, 2.5) {$(-; +)$};
+      \node at (-2.5, -2.5) {$(-; -)$};
+      \node at (2.5, -2.5) {$(+; -)$};
+    }
+}
 
 \begin{comment}
-
-%%%
-% Asse cartesiano con i trattini
-%%%%
-%\usepgflibrary{arrows.meta}
- 
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-%Asse cartesiano con trattini
-\input{\folder lbr/lib03_pc05.pgf}
-\node at (2.5, 2.5) {I quadrante};
-\node at (-2.5, 2.5) {II quadrante};
-\node at (-2.5, -2.5) {III quadrante};
-\node at (2.5, -2.5) {IV quadrante};
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-%%%
-% Asse cartesiano con i trattini
-%%%%
-%\usepgflibrary{arrows.meta}
- 
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-%Asse cartesiano con trattini
-\input{\folder lbr/lib03_pc05.pgf}
-\node at (2.5, 2.5) {$(+; +)$};
-\node at (-2.5, 2.5) {$(-; +)$};
-\node at (-2.5, -2.5) {$(-; -)$};
-\node at (2.5, -2.5) {$(+; -)$};
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
 %%%
 % Asse cartesiano con i trattini
