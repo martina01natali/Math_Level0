@@ -132,36 +132,35 @@
     }
 }
 
-%%%
-% Asse cartesiano con alcuni esempi di numeri
-%%%%
+% %%%
+% % Asse cartesiano con alcuni esempi di numeri
+% %%%%
+% 
+% \begin{tikzpicture}[x=10mm, y=10mm, smooth]
+% 
+% %Asse cartesiano con trattini
+% \input{\folder lbr/lib01_asse10.pgf}
+% 
+% \filldraw (-5, 0) circle (1.5pt) node [below, yshift=-.1cm] {-5};
+% \filldraw (-4, 0) circle (1.5pt) node [below, yshift=-.1cm] {-4};
+% \filldraw (-3, 0) circle (1.5pt) node [below, yshift=-.1cm] {-3};
+% \filldraw (-2, 0) circle (1.5pt) node [below, yshift=-.1cm] {-2};
+% \filldraw (-1, 0) circle (1.5pt) node [below, yshift=-.1cm] {-1};
+% \filldraw (1.4142, 0) circle (1.5pt) node [below, yshift=-.1cm] {$\sqrt{2}$};
+% \filldraw (2, 0) circle (1.5pt) node [below, yshift=-.1cm] {2};
+% \filldraw (3, 0) circle (1.5pt) node [below, yshift=-.1cm] {3};
+% \filldraw (3.5, 0) circle (1.5pt) node [below, yshift=-.1cm] {3,5};
+% \filldraw (4, 0) circle (1.5pt) node [below, yshift=-.1cm] {4};
+% \filldraw (5, 0) circle (1.5pt) node [below, yshift=-.1cm] {5};
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
-\begin{tikzpicture}[x=10mm, y=10mm, smooth]
-
-%Asse cartesiano con trattini
-\input{\folder lbr/lib01_asse10.pgf}
-
-\filldraw (-5, 0) circle (1.5pt) node [below, yshift=-.1cm] {-5};
-\filldraw (-4, 0) circle (1.5pt) node [below, yshift=-.1cm] {-4};
-\filldraw (-3, 0) circle (1.5pt) node [below, yshift=-.1cm] {-3};
-\filldraw (-2, 0) circle (1.5pt) node [below, yshift=-.1cm] {-2};
-\filldraw (-1, 0) circle (1.5pt) node [below, yshift=-.1cm] {-1};
-\filldraw (1.4142, 0) circle (1.5pt) node [below, yshift=-.1cm] {$\sqrt{2}$};
-\filldraw (2, 0) circle (1.5pt) node [below, yshift=-.1cm] {2};
-\filldraw (3, 0) circle (1.5pt) node [below, yshift=-.1cm] {3};
-\filldraw (3.5, 0) circle (1.5pt) node [below, yshift=-.1cm] {3,5};
-\filldraw (4, 0) circle (1.5pt) node [below, yshift=-.1cm] {4};
-\filldraw (5, 0) circle (1.5pt) node [below, yshift=-.1cm] {5};
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-\newcommand{\assed}{% Asse cartesiano con alcuni esempi di numeri
+\newcommand{\assef}{% Asse cartesiano con alcuni esempi di numeri
     \disegnod{10}{
-      \assex{-6.3}{6.3}{0}
-      \foreach \xi in {-6, -5, ..., 6}
-      \draw [-] (\xi, -.05) -- (\xi, .1);
-      \node [below] at (0, 0) {0};
-      \node [below] at (1, 0) {1};
+      \assed
+      \foreach \xi/\si in {-5, -4, ..., -1, 1.4142/\(\sqrt{2}\),
+                           2, 3, 3.5/\(\frac{7}{2}\), 4, 5}
+      \filldraw (\xi, 0)circle (1.5pt) node [below, yshift=-.1cm] {\xi};
     }
 }
 
@@ -251,35 +250,61 @@
 
 \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
-%%%
-% Asse cartesiano con i trattini
-%%%%
-%\usepgflibrary{arrows.meta}
- 
+\end{comment}
+
+% %%%
+% % Asse cartesiano con i trattini
+% %%%%
+% %\usepgflibrary{arrows.meta}
+%  
+% \begin{tikzpicture}[smooth]
+% 
+% %Assi non ortogonali monometrici
+% \usepgflibrary{arrows.meta}
+% 
+% \begin{scope}[x=10mm, y=10mm, xshift=9mm, rotate=-120]
+% \draw [-{Stealth[length=2mm, open, round]}] (-2.3, 0) -- (3.3, 0) node [below]  {$x$};
+% \draw [-] (0, -.05) -- (0, .1) node [below right] at (0, 0) {0};
+% \draw [-] (1, -.05) -- (1, .1) node [below right] at (1, 0) {1};
+% \draw [-] (2, -.05) -- (2, .1) node [below right] at (2, 0) {2};
+% \draw [-] [gray!50, rotate=-20](1.88, -2) -- (1.88, 2);
+% \end{scope}
+% 
+% \begin{scope}[x=5mm, y=5mm, rotate=-50]
+% \draw [-{Stealth[length=2mm, open, round]}] (-3.3, 0) -- (5.3, 0) node [below]  {$y$};
+% \draw [-] (0, -.05) -- (0, .1) node [below left] at (0, 0) {0};
+% \draw [-] (1, -.05) -- (1, .1) node [below left] at (1, 0) {1};
+% \draw [-] (3, -.05) -- (3, .1) node [below left] at (3, 0) {3};
+% \draw [-] [gray!50, rotate=20](2.83, -4) -- (2.83, 4);
+% \end{scope}
+% 
+% \filldraw (0.33, -2.25) circle (1.5pt) node [below, yshift=-.1cm] {P};
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\assistrani}{% Assi non ortogonali monometrici
 \begin{tikzpicture}[smooth]
+  \begin{scope}[x=10mm, y=10mm, xshift=9mm, rotate=-120]
+  \draw [-{Stealth[length=2mm, open, round]}] (-2.3, 0) -- (3.3, 0) node 
+  [below] {$x$};
+  \draw [-] (0, -.05) -- (0, .1) node [below right] at (0, 0) {0};
+  \draw [-] (1, -.05) -- (1, .1) node [below right] at (1, 0) {1};
+  \draw [-] (2, -.05) -- (2, .1) node [below right] at (2, 0) {2};
+  \draw [-] [gray!50, rotate=-20](1.88, -2) -- (1.88, 2);
+  \end{scope}
 
-%Assi non ortogonali monometrici
-\usepgflibrary{arrows.meta}
+  \begin{scope}[x=5mm, y=5mm, rotate=-50]
+  \draw [-{Stealth[length=2mm, open, round]}] (-3.3, 0) -- (5.3, 0) node 
+  [below] {$y$};
+  \draw [-] (0, -.05) -- (0, .1) node [below left] at (0, 0) {0};
+  \draw [-] (1, -.05) -- (1, .1) node [below left] at (1, 0) {1};
+  \draw [-] (3, -.05) -- (3, .1) node [below left] at (3, 0) {3};
+  \draw [-] [gray!50, rotate=20](2.83, -4) -- (2.83, 4);
+  \end{scope}
 
-\begin{scope}[x=10mm, y=10mm, xshift=9mm, rotate=-120]
-\draw [-{Stealth[length=2mm, open, round]}] (-2.3, 0) -- (3.3, 0) node [below]  {$x$};
-\draw [-] (0, -.05) -- (0, .1) node [below right] at (0, 0) {0};
-\draw [-] (1, -.05) -- (1, .1) node [below right] at (1, 0) {1};
-\draw [-] (2, -.05) -- (2, .1) node [below right] at (2, 0) {2};
-\draw [-] [gray!50, rotate=-20](1.88, -2) -- (1.88, 2);
-\end{scope}
-
-\begin{scope}[x=5mm, y=5mm, rotate=-50]
-\draw [-{Stealth[length=2mm, open, round]}] (-3.3, 0) -- (5.3, 0) node [below]  {$y$};
-\draw [-] (0, -.05) -- (0, .1) node [below left] at (0, 0) {0};
-\draw [-] (1, -.05) -- (1, .1) node [below left] at (1, 0) {1};
-\draw [-] (3, -.05) -- (3, .1) node [below left] at (3, 0) {3};
-\draw [-] [gray!50, rotate=20](2.83, -4) -- (2.83, 4);
-\end{scope}
-
-\filldraw (0.33, -2.25) circle (1.5pt) node [below, yshift=-.1cm] {P};
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+  \filldraw (0.33, -2.25) circle (1.5pt) node [below, yshift=-.1cm] {P};
+\end{tikzpicture}
+}
 
 %%%
 % Asse cartesiano con i trattini
@@ -293,6 +318,8 @@
 \filldraw (2, 3) circle (1.5pt) node [below, yshift=-.1cm] {P};
 
 \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\begin{comment}
 
 %%%
 % Asse cartesiano con i trattini
