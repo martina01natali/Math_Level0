@@ -97,11 +97,19 @@
 % \node [below] at (1, 0) {1};
 % % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
+% \newcommand{\assed}{% Asse cartesiano con i trattini
+%     \disegnod{10}{
+%       \assex{-6.3}{6.3}{0}
+%       \foreach \xi in {-6, -5, ..., 6}
+%       \draw [-] (\xi, -.05) -- (\xi, .1);
+%       \node [below] at (0, 0) {0};
+%       \node [below] at (1, 0) {1};
+%     }
+% }
+
 \newcommand{\assed}{% Asse cartesiano con i trattini
     \disegnod{10}{
-      \assex{-6.3}{6.3}{0}
-      \foreach \xi in {-6, -5, ..., 6}
-      \draw [-] (\xi, -.05) -- (\xi, .1);
+      \assecontrattini{-6.3}{6.3}{0}{}
       \node [below] at (0, 0) {0};
       \node [below] at (1, 0) {1};
     }
@@ -157,10 +165,11 @@
 
 \newcommand{\assef}{% Asse cartesiano con alcuni esempi di numeri
     \disegnod{10}{
-      \assed
-      \foreach \xi/\si in {-5, -4, ..., -1, 1.4142/\(\sqrt{2}\),
-                           2, 3, 3.5/\(\frac{7}{2}\), 4, 5}
-      \filldraw (\xi, 0)circle (1.5pt) node [below, yshift=-.1cm] {\xi};
+      \assecontrattini{-6.3}{6.3}{0}{}
+      \foreach \xi/\si in {-5, -4, ..., 1, 1.4142/\(\sqrt{2}\),
+                           2, 3, 3.5/\(\frac{7}{2}\), 4, 5, 
+                           -2.5/\(-\frac{5}{2}\)}
+      \filldraw (\xi, 0)circle (1.5pt) node [below, yshift=-.1cm] {\si};
     }
 }
 
@@ -378,302 +387,535 @@
     }
 }
 
+% %%%
+% % Asse cartesiano con i trattini
+% %%%%
+% %\usepgflibrary{arrows.meta}
+%  
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% %Asse cartesiano con trattini
+% \input{\folder lbr/lib03_pc05.pgf}
+% \filldraw (2, 3) circle (1.5pt) node [below right] {A};
+% \filldraw (-1, 4) circle (1.5pt) node [below right] {B};
+% \filldraw (-3, -2) circle (1.5pt) node [below right] {C};
+% \filldraw (4, -3) circle (1.5pt) node [below right] {D};
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\puntineiqadr}{% Piano cartesiano punti nei quadranti
+    \disegno{
+      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+      \foreach \pos/\lab in {(2, 3)/A, (-1, 4)/B, (-3, -2)/C, (4, -3)/D}
+        \filldraw \pos circle (1.5pt) node [below, xshift=5pt] {\lab};
+    }
+}
+
+% %%%
+% % Punti appartenenti agli assi
+% %%%%
+% 
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% \input{\folder lbr/lib03_pc05.pgf}
+% 
+% \filldraw (0, 4) circle (1.5pt) node [below right] {R};
+% \filldraw (0, -2) circle (1.5pt) node [below right] {S};
+% \filldraw (-4, 0) circle (1.5pt) node [below right] {H};
+% \filldraw (3, 0) circle (1.5pt) node [below right] {K};
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\puntisugliassi}{% Piano cartesiano punti sugli assi
+    \disegno{
+      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+      \foreach \pos/\lab in {(0, 4)/R, (0, -2)/S, (-4, 0)/H, (3, 0)/K}
+        \filldraw \pos circle (1.5pt) node [below, xshift=5pt] {\lab};
+    }
+}
+
+% %%%
+% % Asse cartesiano con i trattini
+% %%%%
+% %\usepgflibrary{arrows.meta}
+%  
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% \clip (-3.5, -1.9) rectangle (10.9, 10.9);
+% 
+% \input{\folder lbr/lib04_pc10.pgf}
+% 
+% \coordinate (a) at (2, 3);
+% \coordinate (b) at (8, 6);
+% \coordinate (m) at ($ (a)!.5!(b) $);
+% \draw [-] (a) -- (b);
+% \filldraw (a) circle (1.5pt) node [below right] {A};
+% \filldraw (b) circle (1.5pt) node [below right] {B};
+% 
+% \begin{scope}[dotted]
+% \draw [-] (a) -- (2, 0) node [below] {$x_A$};
+% \draw [-] (a) -- (0, 3) node [left] {$y_A$};
+% \draw [-] (b) -- (8, 0) node [below] {$x_B$};
+% \draw [-] (b) -- (0, 6) node [left] {$y_B$};
+% \begin{scope}[red]
+% \filldraw (m) circle (1.5pt) node [below right] {M};
+% \draw [-] (m) -- (5, 0) node [below] {$\dfrac{x_{A}+x_{B}}{2}$};
+% \draw [-] (m) -- (0, 4.5) node [left] {$\dfrac{y_{A}+y_{B}}{2}$};
+% \end{scope}
+% \end{scope}
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\puntomedio}{% Punto medio di un segmento
+    \disegno{
+      \rcom{-3}{+10}{-2}{+8}{gray!50, very thin, step=1}
+      \coordinate (a) at (2, 3);
+      \coordinate (b) at (8, 6);
+      \coordinate (m) at ($ (a)!.5!(b) $);
+      \draw [-] (a) -- (b);
+      \filldraw (a) circle (1.5pt) node [below right] {A};
+      \filldraw (b) circle (1.5pt) node [below right] {B};
+
+      \begin{scope}[dotted]
+      \draw [-] (a) -- (2, 0) node [below] {$x_A$};
+      \draw [-] (a) -- (0, 3) node [left] {$y_A$};
+      \draw [-] (b) -- (8, 0) node [below] {$x_B$};
+      \draw [-] (b) -- (0, 6) node [left] {$y_B$};
+      \begin{scope}[red]
+      \filldraw (m) circle (1.5pt) node [below right] {M};
+      \draw [-] (m) -- (5, 0) 
+        node [below, xshift=2pt] {$\dfrac{x_{A}+x_{B}}{2}$};
+      \draw [-] (m) -- (0, 4.5) 
+        node [left, yshift=2pt] {$\dfrac{y_{A}+y_{B}}{2}$};
+      \end{scope}
+      \end{scope}
+    }
+}
+
+% %%%
+% % Lunghezza di segmenti paralleli agli assi
+% %%%%
+% 
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% \input{\folder lbr/lib03_pc05.pgf}
+% 
+% \coordinate (a) at (-2, 4);
+% \coordinate (b) at (4, 4);
+% \draw [-] (a) -- (b);
+% \filldraw (a) circle (1.5pt) node [below right] {A};
+% \filldraw (b) circle (1.5pt) node [below right] {B};
+% 
+% \begin{scope}[dotted]
+% \draw [-] (a) -- (-2, 0) node [below] {$x_A$};
+% \draw [-] (b) -- (4, 0) node [below] {$x_B$};
+% \end{scope}
+% 
+% \coordinate (c) at (-4, -3);
+% \coordinate (d) at (-4, 2);
+% \draw [-] (c) -- (d);
+% \filldraw (c) circle (1.5pt) node [below right] {C};
+% \filldraw (d) circle (1.5pt) node [below right] {D};
+% 
+% \begin{scope}[dotted]
+% \draw [-] (c) -- (0, -3) node [right] {$y_C$};
+% \draw [-] (d) -- (0, 2) node [right] {$y_D$};
+% \end{scope}
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\segmentiparalleli}{% Segmenti parallelia agli assi
+    \disegno{
+      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+      \coordinate (a) at (-2, 3);
+      \coordinate (b) at (4, 3);
+      \draw [-] (a) -- (b);
+      \filldraw (a) circle (1.5pt) node [below right] {A};
+      \filldraw (b) circle (1.5pt) node [below right] {B};
+
+      \begin{scope}[dotted]
+      \draw [-] (a) -- (-2, 0) node [below] {$x_A$};
+      \draw [-] (b) -- (4, 0) node [below] {$x_B$};
+      \end{scope}
+
+      \coordinate (c) at (-4, -3);
+      \coordinate (d) at (-4, 2);
+      \draw [-] (c) -- (d);
+      \filldraw (c) circle (1.5pt) node [below right] {C};
+      \filldraw (d) circle (1.5pt) node [below right] {D};
+
+      \begin{scope}[dotted]
+      \draw [-] (c) -- (0, -3) node [right] {$y_C$};
+      \draw [-] (d) -- (0, 2) node [right] {$y_D$};
+      \end{scope}
+    }
+}
+
+% %%%
+% % Lunghezza di un segmento
+% %%%%
+% 
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% \input{\folder lbr/lib03_pc05.pgf}
+% 
+% \coordinate (e) at (-3, -1);
+% \coordinate (f) at (2, 4);
+% \coordinate (g) at (2, -1);
+% \draw [-] (e) -- (f);
+% \filldraw (e) circle (1.5pt) node [below right] {E};
+% \filldraw (f) circle (1.5pt) node [below right] {F};
+% \filldraw (g) circle (1.5pt) node [below right] {G};
+% 
+% \begin{scope}[dotted]
+% \draw [-] (e) -- (g) node [below, xshift=1mm] at ($(e)!.5!(g)$) {$x_F - x_E$};
+% \draw [-] (f) -- (g) node [below, xshift=8mm] at ($(f)!.5!(g)$) {$y_F - y_E$};
+% \end{scope}
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\lungseg}{% Segmento qualunque
+    \disegno{
+      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+      \foreach \pos/\lab in {(0, 4)/R, (0, -2)/S, (-4, 0)/H, (3, 0)/K}
+      \coordinate (e) at (-3, -4);
+      \coordinate (f) at (2, 4);
+      \coordinate (g) at (2, -4);
+      \draw [-] (e) -- (f);
+      \filldraw (e) circle (1.5pt) node [below right] {E};
+      \filldraw (f) circle (1.5pt) node [below right] {F};
+      \filldraw (g) circle (1.5pt) node [below right] {G};
+
+      \begin{scope}[dotted]
+      \draw [-] (e) -- (g) 
+        node [below, xshift=1mm] at ($(e)!.5!(g)$) {$x_F - x_E$};
+      \draw [-] (f) -- (g) 
+        node [below, xshift=8mm] at ($(f)!.5!(g)$) {$y_F - y_E$};
+      \end{scope}
+    }
+}
+
+% %%%
+% % Area sottesa a un segmento
+% %%%%
+%  
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% \clip (-1.5, -1.5) rectangle (10.9, 10.9);
+% 
+% \coordinate (a) at (1, 3);
+% \coordinate (xa) at (1, 0);
+% \coordinate (ya) at (0, 3);
+% \coordinate (b) at (7, 8);
+% \coordinate (xb) at (7, 0);
+% \coordinate (yb) at (0, 8);
+% 
+% \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
+%  (a) -- (b) -- (xb) -- (xa) -- cycle;
+% 
+% \input{\folder lbr/lib04_pc10.pgf}
+% 
+% \draw [-] (a) -- (b);
+% \filldraw (a) circle (1.5pt) node [below right] {A};
+% \filldraw (b) circle (1.5pt) node [below right] {B};
+% 
+% \begin{scope}[dotted]
+% \draw [-] (a) -- (xa) node [below] {$A'$};
+% \draw [-] (a) -- (ya) node [left] {$y_A$};
+% \draw [-] (b) -- (xb) node [below] {$B'$};
+% \draw [-] (b) -- (yb) node [left] {$y_B$};
+% \end{scope}
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\areasottesauno}{% Area sottesa a un segmento
+    \disegno{
+      \coordinate (a) at (1, 3);
+      \coordinate (xa) at (1, 0);
+      \coordinate (ya) at (0, 3);
+      \coordinate (b) at (7, 8);
+      \coordinate (xb) at (7, 0);
+      \coordinate (yb) at (0, 8);
+
+      \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
+      (a) -- (b) -- (xb) -- (xa) -- cycle;
+
+      \rcom{-1}{+9}{-1}{+9}{gray!50, very thin, step=1}
+      
+      \draw [-] (a) -- (b);
+      \filldraw (a) circle (1.5pt) node [below right] {A};
+      \filldraw (b) circle (1.5pt) node [below right] {B};
+
+      \begin{scope}[dotted]
+      \draw [-] (a) -- (xa) node [below] {$A'$};
+      \draw [-] (a) -- (ya) node [left] {$y_A$};
+      \draw [-] (b) -- (xb) node [below] {$B'$};
+      \draw [-] (b) -- (yb) node [left] {$y_B$};
+      \end{scope}
+    }
+}
+
+% %%%
+% % Aree sottese a diversi segmenti
+% %%%%
+% %\usepgflibrary{arrows.meta}
+%  
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% \clip (-10.3, -1.5) rectangle (10.9, 10.9);
+% 
+% \coordinate (a) at (-7, 3);
+% \coordinate (xa) at (-7, 0);
+% \coordinate (b) at (-4, 8);
+% \coordinate (xb) at (-4, 0);
+% \coordinate (c) at (2, 8);
+% \coordinate (xc) at (2, 0);
+% \coordinate (d) at (6, 0);
+% \coordinate (xd) at (6, 0);
+% 
+% \fill [top color=green!40!black!20,bottom color=green!80!black!05] 
+%  (a) -- (b) -- (xb) -- (xa) -- cycle;
+% \fill [top color=orange!80!black!05,bottom color=orange!40!black!20] 
+%  (b) -- (c) -- (xc) -- (xb) -- cycle;
+% \fill [top color=purple!40!black!20,bottom color=purple!80!black!05] 
+%  (c) -- (d) -- (xd) -- (xc) -- cycle;
+% 
+% \input{\folder lbr/lib04_pc10.pgf}
+% 
+% \draw [-] (a) -- (b) --(c) --(d);
+% \filldraw (a) circle (1.5pt) node [above] {A};
+% \filldraw (b) circle (1.5pt) node [above] {B};
+% \filldraw (c) circle (1.5pt) node [above] {C};
+% \filldraw (d) circle (1.5pt) node [above] {D};
+% 
+% \begin{scope}[dotted]
+% \draw [-] (a) -- (xa) node [below] {$A'$};
+% \draw [-] (b) -- (xb) node [below] {$B'$};
+% \draw [-] (c) -- (xc) node [below] {$C'$};
+% \draw [-] (d) -- (xd) node [below] {$D'$};
+% \end{scope}
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\areasottesamolti}{% Area sottesa a più segmenti
+    \disegno{
+      \coordinate (a) at (-7, 3);
+      \coordinate (xa) at (-7, 0);
+      \coordinate (b) at (-4, 8);
+      \coordinate (xb) at (-4, 0);
+      \coordinate (c) at (2, 8);
+      \coordinate (xc) at (2, 0);
+      \coordinate (d) at (6, 0);
+      \coordinate (xd) at (6, 0);
+
+      \fill [top color=green!40!black!20,bottom color=green!80!black!05] 
+      (a) -- (b) -- (xb) -- (xa) -- cycle;
+      \fill [top color=orange!80!black!05,bottom color=orange!40!black!20] 
+      (b) -- (c) -- (xc) -- (xb) -- cycle;
+      \fill [top color=purple!40!black!20,bottom color=purple!80!black!05] 
+      (c) -- (d) -- (xd) -- (xc) -- cycle;
+        
+      \rcom{-9}{+9}{-1}{+9}{gray!50, very thin, step=1}
+
+      \draw [-] (a) -- (b) --(c) --(d);
+      \filldraw (a) circle (1.5pt) node [above] {A};
+      \filldraw (b) circle (1.5pt) node [above] {B};
+      \filldraw (c) circle (1.5pt) node [above] {C};
+      \filldraw (d) circle (1.5pt) node [above] {D};
+
+      \begin{scope}[dotted]
+      \draw [-] (a) -- (xa) node [below] {$A'$};
+      \draw [-] (b) -- (xb) node [below] {$B'$};
+      \draw [-] (c) -- (xc) node [below] {$C'$};
+      \draw [-] (d) -- (xd) node [below] {$D'$};
+      \end{scope}
+    }
+}
+
+% %%%
+% % Aree di un triangolo con la formula di Erone
+% %%%%
+%  
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% %\clip (-10.3, -1.5) rectangle (10.9, 10.9);
+% 
+% \coordinate (a) at (-4, -3);
+% \coordinate (b) at (3, -1);
+% \coordinate (c) at (2, 4);
+% 
+% \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
+%  (a) -- (b) -- (c) -- cycle;
+% 
+% \input{\folder lbr/lib03_pc05.pgf}
+% 
+% \draw [-] (a) -- (b) --(c) -- cycle;
+% \filldraw (a) circle (1.5pt) node [below left] {A};
+% \filldraw (b) circle (1.5pt) node [below right] {B};
+% \filldraw (c) circle (1.5pt) node [above right] {C};
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\triangoloerone}{% Area triangolo con la formula di Erone
+    \disegno{
+      \coordinate (a) at (-4, -3);
+      \coordinate (b) at (3, -1);
+      \coordinate (c) at (2, 4);
+
+      \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
+      (a) -- (b) -- (c) -- cycle;
+
+      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+
+      \draw [-] (a) -- (b) --(c) -- cycle;
+      \filldraw (a) circle (1.5pt) node [below left] {A};
+      \filldraw (b) circle (1.5pt) node [below right] {B};
+      \filldraw (c) circle (1.5pt) node [above right] {C};
+    }
+}
+
+% %%%
+% % Aree di un triangolo ottenuta come differenza di aree
+% %%%%
+%  
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% \coordinate (a) at (-4, -3);
+% \coordinate (b) at (3, -1);
+% \coordinate (c) at (2, 4);
+% \coordinate (d) at (3, -3);
+% \coordinate (e) at (3, 4);
+% \coordinate (f) at (-4, 4);
+% 
+% \fill [top color=green!80!black!05,bottom color=green!40!black!20] 
+%  (a) -- (d) -- (e) -- (f) -- cycle;
+% 
+% \fill [top color=red!40!black!20,bottom color=red!80!black!05] 
+%  (a) -- (b) -- (c) -- cycle;
+% 
+% \input{\folder lbr/lib03_pc05.pgf}
+% 
+% \draw [-] (a) -- (b) --(c) -- cycle;
+% \filldraw (a) circle (1.5pt) node [below left] {A};
+% \filldraw (b) circle (1.5pt) node [below right] {B};
+% \filldraw (c) circle (1.5pt) node [above right] {C};
+% \filldraw (d) circle (1.5pt) node [below left] {D};
+% \filldraw (e) circle (1.5pt) node [below right] {E};
+% \filldraw (f) circle (1.5pt) node [above right] {F};
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\triangolodifferenza}{% Area triangolo ottenuto per differenza
+    \disegno{
+      \coordinate (a) at (-4, -3);
+      \coordinate (b) at (3, -1);
+      \coordinate (c) at (2, 4);
+      \coordinate (d) at (3, -3);
+      \coordinate (e) at (3, 4);
+      \coordinate (f) at (-4, 4);
+
+      \fill [top color=green!80!black!05,bottom color=green!40!black!20] 
+      (a) -- (d) -- (e) -- (f) -- cycle;
+
+      \fill [top color=red!40!black!20,bottom color=red!80!black!05] 
+      (a) -- (b) -- (c) -- cycle;
+
+      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+
+      \draw [-] (a) -- (b) --(c) -- cycle;
+      \filldraw (a) circle (1.5pt) node [below left] {A};
+      \filldraw (b) circle (1.5pt) node [below right] {B};
+      \filldraw (c) circle (1.5pt) node [above right] {C};
+      \filldraw (d) circle (1.5pt) node [below left] {D};
+      \filldraw (e) circle (1.5pt) node [below right] {E};
+      \filldraw (f) circle (1.5pt) node [above right] {F};
+    }
+}
+
+% %%%
+% % Aree di un triangolo con la formula di Erone
+% %%%%
+%  
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% %\clip (-10.3, -1.5) rectangle (10.9, 10.9);
+% 
+% \coordinate (a) at (-4, 4);
+% \coordinate (b) at (3, 4);
+% \coordinate (c) at (2, -3);
+% 
+% \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
+%  (a) -- (b) -- (c) -- cycle;
+% 
+% \input{\folder lbr/lib03_pc05.pgf}
+% 
+% \draw [-] (a) -- (b) --(c) -- cycle;
+% \filldraw (a) circle (1.5pt) node [below left] {A};
+% \filldraw (b) circle (1.5pt) node [below right] {B};
+% \filldraw (c) circle (1.5pt) node [above right] {C};
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\triangolopartuno}{% Triangolo con lato parallelo asse x
+    \disegno{
+      \coordinate (a) at (-4, 4);
+      \coordinate (b) at (3, 4);
+      \coordinate (c) at (2, -3);
+
+      \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
+      (a) -- (b) -- (c) -- cycle;
+
+      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+
+      \draw [-] (a) -- (b) --(c) -- cycle;
+      \filldraw (a) circle (1.5pt) node [below left] {A};
+      \filldraw (b) circle (1.5pt) node [below right] {B};
+      \filldraw (c) circle (1.5pt) node [above right] {C};
+    }
+}
+
+% %%%
+% % Aree di un triangolo con la formula di Erone
+% %%%%
+%  
+% \begin{tikzpicture}[x=5mm, y=5mm, smooth]
+% 
+% %\clip (-10.3, -1.5) rectangle (10.9, 10.9);
+% 
+% \coordinate (a) at (-4, 4);
+% \coordinate (b) at (-4, 1);
+% \coordinate (c) at (3, -4);
+% 
+% \fill [top color=red!30!black!20,bottom color=red!50!black!10] 
+%  (a) -- (b) -- (c) -- cycle;
+% 
+% \input{\folder lbr/lib03_pc05.pgf}
+% 
+% \draw [-] (a) -- (b) --(c) -- cycle;
+% \filldraw (a) circle (1.5pt) node [below left] {A};
+% \filldraw (b) circle (1.5pt) node [below right] {B};
+% \filldraw (c) circle (1.5pt) node [above right] {C};
+% 
+% \end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\newcommand{\triangolopartdue}{% Triangolo con lato parallelo asse y
+    \disegno{
+      \coordinate (a) at (-4, 4);
+      \coordinate (b) at (-4, 1);
+      \coordinate (c) at (3, -4);
+
+      \fill [top color=red!30!black!20,bottom color=red!50!black!10] 
+      (a) -- (b) -- (c) -- cycle;
+
+      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+
+      \draw [-] (a) -- (b) --(c) -- cycle;
+      \filldraw (a) circle (1.5pt) node [below left] {A};
+      \filldraw (b) circle (1.5pt) node [below right] {B};
+      \filldraw (c) circle (1.5pt) node [above right] {C};
+    }
+}
+
 \begin{comment}
-
-%%%
-% Asse cartesiano con i trattini
-%%%%
-%\usepgflibrary{arrows.meta}
- 
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-%Asse cartesiano con trattini
-\input{\folder lbr/lib03_pc05.pgf}
-\filldraw (2, 3) circle (1.5pt) node [below right] {A};
-\filldraw (-1, 4) circle (1.5pt) node [below right] {B};
-\filldraw (-3, -2) circle (1.5pt) node [below right] {C};
-\filldraw (4, -3) circle (1.5pt) node [below right] {D};
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-%%%
-% Punti appartenenti agli assi
-%%%%
-
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-\input{\folder lbr/lib03_pc05.pgf}
-
-\filldraw (0, 4) circle (1.5pt) node [below right] {R};
-\filldraw (0, -2) circle (1.5pt) node [below right] {S};
-\filldraw (-4, 0) circle (1.5pt) node [below right] {H};
-\filldraw (3, 0) circle (1.5pt) node [below right] {K};
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-%%%
-% Asse cartesiano con i trattini
-%%%%
-%\usepgflibrary{arrows.meta}
- 
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-\clip (-3.5, -1.9) rectangle (10.9, 10.9);
-
-\input{\folder lbr/lib04_pc10.pgf}
-
-\coordinate (a) at (2, 3);
-\coordinate (b) at (8, 6);
-\coordinate (m) at ($ (a)!.5!(b) $);
-\draw [-] (a) -- (b);
-\filldraw (a) circle (1.5pt) node [below right] {A};
-\filldraw (b) circle (1.5pt) node [below right] {B};
-
-\begin{scope}[dotted]
-\draw [-] (a) -- (2, 0) node [below] {$x_A$};
-\draw [-] (a) -- (0, 3) node [left] {$y_A$};
-\draw [-] (b) -- (8, 0) node [below] {$x_B$};
-\draw [-] (b) -- (0, 6) node [left] {$y_B$};
-\begin{scope}[red]
-\filldraw (m) circle (1.5pt) node [below right] {M};
-\draw [-] (m) -- (5, 0) node [below] {$\dfrac{x_{A}+x_{B}}{2}$};
-\draw [-] (m) -- (0, 4.5) node [left] {$\dfrac{y_{A}+y_{B}}{2}$};
-\end{scope}
-\end{scope}
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-%%%
-% Lunghezza di segmenti paralleli agli assi
-%%%%
-
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-\input{\folder lbr/lib03_pc05.pgf}
-
-\coordinate (a) at (-2, 4);
-\coordinate (b) at (4, 4);
-\draw [-] (a) -- (b);
-\filldraw (a) circle (1.5pt) node [below right] {A};
-\filldraw (b) circle (1.5pt) node [below right] {B};
-
-\begin{scope}[dotted]
-\draw [-] (a) -- (-2, 0) node [below] {$x_A$};
-\draw [-] (b) -- (4, 0) node [below] {$x_B$};
-\end{scope}
-
-\coordinate (c) at (-4, -3);
-\coordinate (d) at (-4, 2);
-\draw [-] (c) -- (d);
-\filldraw (c) circle (1.5pt) node [below right] {C};
-\filldraw (d) circle (1.5pt) node [below right] {D};
-
-\begin{scope}[dotted]
-\draw [-] (c) -- (0, -3) node [right] {$y_C$};
-\draw [-] (d) -- (0, 2) node [right] {$y_D$};
-\end{scope}
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-%%%
-% Lunghezza di un segmento
-%%%%
-
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-\input{\folder lbr/lib03_pc05.pgf}
-
-\coordinate (e) at (-3, -1);
-\coordinate (f) at (2, 4);
-\coordinate (g) at (2, -1);
-\draw [-] (e) -- (f);
-\filldraw (e) circle (1.5pt) node [below right] {E};
-\filldraw (f) circle (1.5pt) node [below right] {F};
-\filldraw (g) circle (1.5pt) node [below right] {G};
-
-\begin{scope}[dotted]
-\draw [-] (e) -- (g) node [below, xshift=1mm] at ($(e)!.5!(g)$) {$x_F - x_E$};
-\draw [-] (f) -- (g) node [below, xshift=8mm] at ($(f)!.5!(g)$) {$y_F - y_E$};
-\end{scope}
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-%%%
-% Area sottesa a un segmento
-%%%%
- 
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-\clip (-1.5, -1.5) rectangle (10.9, 10.9);
-
-\coordinate (a) at (1, 3);
-\coordinate (xa) at (1, 0);
-\coordinate (ya) at (0, 3);
-\coordinate (b) at (7, 8);
-\coordinate (xb) at (7, 0);
-\coordinate (yb) at (0, 8);
-
-\fill [top color=green!30!black!20,bottom color=green!50!black!10] 
- (a) -- (b) -- (xb) -- (xa) -- cycle;
-
-\input{\folder lbr/lib04_pc10.pgf}
-
-\draw [-] (a) -- (b);
-\filldraw (a) circle (1.5pt) node [below right] {A};
-\filldraw (b) circle (1.5pt) node [below right] {B};
-
-\begin{scope}[dotted]
-\draw [-] (a) -- (xa) node [below] {$A'$};
-\draw [-] (a) -- (ya) node [left] {$y_A$};
-\draw [-] (b) -- (xb) node [below] {$B'$};
-\draw [-] (b) -- (yb) node [left] {$y_B$};
-\end{scope}
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-%%%
-% Aree sottese a diversi segmenti
-%%%%
-%\usepgflibrary{arrows.meta}
- 
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-\clip (-10.3, -1.5) rectangle (10.9, 10.9);
-
-\coordinate (a) at (-7, 3);
-\coordinate (xa) at (-7, 0);
-\coordinate (b) at (-4, 8);
-\coordinate (xb) at (-4, 0);
-\coordinate (c) at (2, 8);
-\coordinate (xc) at (2, 0);
-\coordinate (d) at (6, 0);
-\coordinate (xd) at (6, 0);
-
-\fill [top color=green!40!black!20,bottom color=green!80!black!05] 
- (a) -- (b) -- (xb) -- (xa) -- cycle;
-\fill [top color=orange!80!black!05,bottom color=orange!40!black!20] 
- (b) -- (c) -- (xc) -- (xb) -- cycle;
-\fill [top color=purple!40!black!20,bottom color=purple!80!black!05] 
- (c) -- (d) -- (xd) -- (xc) -- cycle;
-
-\input{\folder lbr/lib04_pc10.pgf}
-
-\draw [-] (a) -- (b) --(c) --(d);
-\filldraw (a) circle (1.5pt) node [above] {A};
-\filldraw (b) circle (1.5pt) node [above] {B};
-\filldraw (c) circle (1.5pt) node [above] {C};
-\filldraw (d) circle (1.5pt) node [above] {D};
-
-\begin{scope}[dotted]
-\draw [-] (a) -- (xa) node [below] {$A'$};
-\draw [-] (b) -- (xb) node [below] {$B'$};
-\draw [-] (c) -- (xc) node [below] {$C'$};
-\draw [-] (d) -- (xd) node [below] {$D'$};
-\end{scope}
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-%%%
-% Aree di un triangolo con la formula di Erone
-%%%%
- 
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-%\clip (-10.3, -1.5) rectangle (10.9, 10.9);
-
-\coordinate (a) at (-4, -3);
-\coordinate (b) at (3, -1);
-\coordinate (c) at (2, 4);
-
-\fill [top color=green!30!black!20,bottom color=green!50!black!10] 
- (a) -- (b) -- (c) -- cycle;
-
-\input{\folder lbr/lib03_pc05.pgf}
-
-\draw [-] (a) -- (b) --(c) -- cycle;
-\filldraw (a) circle (1.5pt) node [below left] {A};
-\filldraw (b) circle (1.5pt) node [below right] {B};
-\filldraw (c) circle (1.5pt) node [above right] {C};
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-%%%
-% Aree di un triangolo ottenuta come differenza di aree
-%%%%
- 
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-\coordinate (a) at (-4, -3);
-\coordinate (b) at (3, -1);
-\coordinate (c) at (2, 4);
-\coordinate (d) at (3, -3);
-\coordinate (e) at (3, 4);
-\coordinate (f) at (-4, 4);
-
-\fill [top color=green!80!black!05,bottom color=green!40!black!20] 
- (a) -- (d) -- (e) -- (f) -- cycle;
-
-\fill [top color=red!40!black!20,bottom color=red!80!black!05] 
- (a) -- (b) -- (c) -- cycle;
-
-\input{\folder lbr/lib03_pc05.pgf}
-
-\draw [-] (a) -- (b) --(c) -- cycle;
-\filldraw (a) circle (1.5pt) node [below left] {A};
-\filldraw (b) circle (1.5pt) node [below right] {B};
-\filldraw (c) circle (1.5pt) node [above right] {C};
-\filldraw (d) circle (1.5pt) node [below left] {D};
-\filldraw (e) circle (1.5pt) node [below right] {E};
-\filldraw (f) circle (1.5pt) node [above right] {F};
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-%%%
-% Aree di un triangolo con la formula di Erone
-%%%%
- 
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-%\clip (-10.3, -1.5) rectangle (10.9, 10.9);
-
-\coordinate (a) at (-4, 4);
-\coordinate (b) at (3, 4);
-\coordinate (c) at (2, -3);
-
-\fill [top color=green!30!black!20,bottom color=green!50!black!10] 
- (a) -- (b) -- (c) -- cycle;
-
-\input{\folder lbr/lib03_pc05.pgf}
-
-\draw [-] (a) -- (b) --(c) -- cycle;
-\filldraw (a) circle (1.5pt) node [below left] {A};
-\filldraw (b) circle (1.5pt) node [below right] {B};
-\filldraw (c) circle (1.5pt) node [above right] {C};
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
-
-%%%
-% Aree di un triangolo con la formula di Erone
-%%%%
- 
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
-
-%\clip (-10.3, -1.5) rectangle (10.9, 10.9);
-
-\coordinate (a) at (-4, 4);
-\coordinate (b) at (-4, 1);
-\coordinate (c) at (3, -4);
-
-\fill [top color=red!30!black!20,bottom color=red!50!black!10] 
- (a) -- (b) -- (c) -- cycle;
-
-\input{\folder lbr/lib03_pc05.pgf}
-
-\draw [-] (a) -- (b) --(c) -- cycle;
-\filldraw (a) circle (1.5pt) node [below left] {A};
-\filldraw (b) circle (1.5pt) node [below right] {B};
-\filldraw (c) circle (1.5pt) node [above right] {C};
-
-\end{tikzpicture}% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
 %%%
 % Asse cartesiano con i trattini
