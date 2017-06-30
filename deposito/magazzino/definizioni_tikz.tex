@@ -69,6 +69,17 @@
 \node [below] at (\xma, \posy) {\var};
 }
 
+\newcommand{\assecontrattini}[4]{% Asse.
+  % Esempio di chiamata:
+  %% \disegno{\assecontrattini{-7}{+7}{0}{\(t\)}
+  \def \xmi{#1}
+  \def \xma{#2}
+  \def \posy{#3}
+  \def \var{#4}
+  \draw[gray!50, very thin, step=1] (\xmi, \posy-0.1) grid (\xma, \posy+0.1);
+  \asse{#1}{#2}{#3}{#4};
+}
+
 \newcommand{\assex}[3]{% Asse x.
   % Esempio di chiamata:
   %% \disegno{\assex{-5}{+5}{0}}
@@ -87,8 +98,10 @@
   \def \vordinata{#7}
   \draw[#5] (\xmi-0.3, \ymi-0.3) grid (\xma+0.3, \yma+0.3); % Griglia
   \begin{scope}[-{Stealth[length=2mm, open, round]}, black] % Assi
-    \draw (\xmi-0.3, 0) -- (\xma+0.3, 0) node [below] {\vascissa};
-    \draw (0, \ymi-0.3) -- (0, \yma+0.3) node [left] {\vordinata};
+    \draw (\xmi-0.3, 0) -- (\xma+0.5, 0) 
+      node [below, xshift=-3pt] {\vascissa};
+    \draw (0, \ymi-0.3) -- (0, \yma+0.5) 
+      node [left, yshift=-3pt] {\vordinata};
   \end{scope}
 }
 \newcommand{\rcom}[5]{% Riferimento Cartesiano Ortogonale Monometrico: x-y.
