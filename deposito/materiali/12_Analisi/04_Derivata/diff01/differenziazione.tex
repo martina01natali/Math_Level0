@@ -1,12 +1,6 @@
 % (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 
 \chapter{Derivate}
-
-\section{TODO}
-
-\section{Differenziale}
-\label{sec:01_esponenziali}
-
 % \begin{wrapfloat}{figure}{r}{0pt}
 % \includegraphics[scale=0.35]{img/fig000_.png}
 % \caption{...}
@@ -15,6 +9,276 @@
 % 
 % \begin{center} \input{\folder lbr/fig000_.pgf} \end{center}
 
+Il problema di determinare la velocità istntanea ci ha portati a conoscere 
+i numeri infinitesimi e, attraverso questi, l'insieme dei numeri iperreali.
+Ora siamo in grado di cercare la risposta alla domanda rimasta in sospeso: 
+come si determina la velocità istantanea?\\
+La risposta, che conosciamo nelle forme moderne da più di 400 anni,
+propone al nostro studio un nuovo potentissimo strumento di calcolo, adatto a 
+risolvere problemi in ogni ambito scientifico: la derivata.
+
+\section{Velocità di caduta}
+\label{04_diffvelcaduta}
+Nel Settecento fiorirono alcune leggende su Galileo Galilei. Una di queste racconta 
+che per dimostrare che i gravi cadono con la stessa velocità, gettò dalla Torre
+di Pisa due sfere di peso diverso, ma di uguali dimensioni. I due oggetti, come
+oggi possiamo immaginare, raggiunsero il suolo contemporaneamente.\\
+La Torre di Pisa è alta circa $56m$ e immaginiamo, per semplificare, che la 
+distanza percorsa dai due oggetti sia di $56m$ (ti lascio calcolare il 
+percorso effettivo: tieni presente che al giorno d'oggi l'inclinazione della 
+Torre è di $4,8^\circ$).\\
+Oggi sappiamo che un oggetto in caduta libera ha la seguente legge del moto:
+\(s=\frac{1}{2}gt^2\). Come al solito, $s$ è lo spazio in metri, $t$ è il 
+tempo in secondi, $g=9,81 m/s^2$ è l'accelerazione di gravità, costante nei
+pressi della superficie terrestre.\\
+Se cerchiamo la velocità media, basta dividere lo spazio percorso per il tempo
+impiegato:
+
+\begin{align*}
+ s_{tot}= & 56m;\quad \text{da }s=\frac{1}{2}gt^2\ \text{ si ha: }
+ t_{tot}=\sqrt{\frac{2s_{tot}}{g}}=\sqrt{\frac{2\times 56}{9,81}}=3,36 s.\\
+ v_m= & \frac{s_{tot}}{t_{tot}}=\frac{56 m}{3,36 s}=16,67 m/s,
+\end{align*}
+che corrispondono a circa $60 km/h$ di media.\\
+Ma gli oggetti partono fermi e arrivano velocissimi: è possibile sapere la
+progressione della loro velocità e quale è loro velocità finale? È il momento
+di usare le quantità infinitesime.\\
+Chiamiamo $dt$ un intervallo di tempo infinitesimo, fra due istanti successivi
+$t$ e $t+dt$.
+Lo spazio percorso nella caduta, in quell'intervallo di tempo, applicando la legge del 
+moto, sarà:
+\[
+ ds=\frac{1}{2}g\tonda{t+dt}^2-\frac{1}{2}gt^2=
+ \frac{1}{2}g\tonda{t^2+2tdt+dt^2}-\frac{1}{2}gt^2=
+ gtdt+\frac{1}{2}dt^2. 
+\]
+Dividendo il tutto per $dt$ si ottiene la velocità istantanea:
+\[
+ v=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt.
+\]
+Il numero $gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt$ è un iperreale, di tipo
+inn. Per avere un valore reale, applichiamo la parte standard:
+\[
+ \pst{9,81t+\frac{1}{2}dt}=9,81t
+\]
+Questa è la velocità istantanea che cerchiamo: dipende dal tempo $t$,
+cioè cresce con il passare dei secondi. $v=0$ all'inizio ($t=0$) e
+$v=9,81\times 3,36=32,96 m/s\approx 119 km/h$ alla fine, prima di fermarsi al suolo.\\
+La formula ci permette il calcolo della velocità a qualsiasi istante:
+in quale tempo intermedio la velocità sarà quella media, calcolata prima? 
+
+
+\section{Continuità}
+\label{04_diffcomtinuità}
+La semplicità dei calcoli precedenti lascia intuire la ragione del successo del
+calcolo con gli infinitesimi.  Questo tipo di calcolo fiorì per 150 anni a 
+partire dall'epoca di Newton e Leibniz. Ma suscitava vivaci polemiche fra
+gli specialisti, perché non si era in grado di spiegare come mai alla fine i 
+risultati, espressi in numeri infinitesimi, possono diventare numeri standard. 
+Oggi i matematici conoscono meglio la materia e queste difficoltà sono superate.
+Siamo quindi in grado di procedere nello studio dei questa nuova branca della 
+matematica, che si chiama analisi infinitesimale.
+
+\subsubsection{Continuità, intervalli, differenze}
+\label{04_diffcontinterv}
+C'è un punto critico nei ragionamenti svolti a proposito della caduta dei gravi,
+un punto che si dà sempre per scontato in fisica, ma non lo è per i matematici
+e per i logici.\\
+Tutto il ragionamento vale perché si presuppone che il tempo scorra in modo
+uniforme. Se il tempo scorresse a scatti, anche minuscoli, quei calcoli non
+sarebbero possibili. Si dice infatti che il tempo $t$ è una variabile
+continua, cioè assume tutti i valori, dal minimo al massimo, con regolarità,
+senza salti.
+
+\begin{definizione}
+ Una variabile continua assume con continuità tutti i valori per cui è definita,
+ dal minimo e al massimo.
+\end{definizione}
+
+Il più semplice esempio di una variabile continua in matematica è la 
+posizione $x$ sull'asse reale dei numeri. Infatti sappiamo che la retta reale non
+ha buchi. A maggior ragione, è una variabile continua anche la posizione sull'asse 
+degli Iperreali: $x,x\in\IR$. \\
+Una variabile discontinua si dice 
+\emph{variabile discreta}. Un semplice esempio di variabile discreta è $n, n\in \N$.\\
+Nel calcolo precedente, $t$ varia con continuità da $0$ a $3,6$,
+assumendone tutti i valori, dal minimo al massimo. In matematica si scrive così:
+\(t\in \quadra{0;\ 3,6}\). Le parentesi quadre sono importanti, indicano che gli estremi
+dell'intervallo sono valori possibili, sono inclusi.\\
+I tipi possibili di intervallo sono:
+
+\begin{center}
+\begin{tabular}{ccc}\toprule
+intervallo & sigla & significato\\\midrule
+chiuso &$\quadra{a,\ b}$  & estremi compresi\\
+aperto/chiuso & $(a,\ b]$ & a escluso, b compreso\\
+chiuso/aperto & $[a,\ b)$ & a compreso, b escluso\\
+aperto & $(a,\ b)$ & estremi esclusi\\\bottomrule
+\end{tabular}
+\label{tab:diff_tipiinterv}
+\end{center}
+
+Tutti i tipi di intervallo precedenti, della retta reale o iperreale, sono
+continui, a meno di indicazioni diverse. Se un intervallo $[a,\ b]$ contiene un punto
+(o più punti) di discontinuità, per esempio $d$, allora occorre usare indicazioni
+diverse: $[a,\ d)\cup(d,\ b]$\\ 
+Fra due numeri della retta iperreale $a, b \in \IR$ si può definire la differenza
+$a-b$, che può essere positiva, negativa o nulla. Indicheremo con $\Delta$ la 
+differenza fra due numeri standard, cioè una differenza finita, mentre, se la 
+differenza è infinitesima, sarà indicata con $\delta$ oppure $\epsilon$
+o altra lettera minuscola dell'alfabeto greco.\\
+In analisi infinitesimale, le differenze infinitesime sono protagoniste.
+
+\subsubsection{Continuità e funzioni}
+\label{04_diffcontfunzioni}
+Il tema della continuità è vasto e importante e viene trattato nei dettagli
+nel prossimo capitolo. Per ora ci limitiamo a considerazioni di carattere intuitivo 
+sulle funzioni continue.\\
+Se una funzione è continua, ne puoi tracciare il grafico nel piano cartesiano 
+senza staccare la matita dal foglio. Se ci fosse un punto (o più punti)
+di discontinuità, saresti obbligato a interrompere il disegno e riprenderlo
+da punti vicini.
+\begin{esempio}
+ La funzione $f(x)=x$, che ha per grafico la retta $y=x$ è evidentemente 
+ una funzione continua: puoi tracciarne il grafico senza interruzioni
+ nell'intervallo $(-M,\ M)$. Sono anche continue tutte le funzioni che hanno
+ per grafico una retta, come per esempio $f(x)=-\frac{4}{5}x+9$.
+\end{esempio}
+\begin{esempio}
+ La funzione $f(x)=\frac{1}{x}$ è continua ovunque, tranne che per $x=0$.
+ Infatti se $x=0$, $f(x)$ non è calcolabile, quindi nel piano cartesiano 
+ non puoi disegnare un punto  che rappresenta il valore standard 
+ $(1;\ \frac{1}{0})$. Il punto è comunque visibile nel piano iperreale, con un
+ telescopio.\\
+ \end{esempio}
+\begin{esempio}
+ Per ragioni simili, sono discontinue in uno o più punti le funzioni
+ (algebriche o trascendenti), per le quali occorra specificare condizioni 
+ di esistenza relative a questi punti.
+ Così $f(x)=\frac{1}{x^2-1}$ è discontinua per $x=\pm 1$, mentre 
+ $f(x)=\frac{1}{x^2+1}$ è continua.
+\end{esempio}
+
+Dagli esempi si capisce che \emph{la continuità delle funzioni è una condizione 
+di carattere locale}, cioè per punti. Infatti si possono riconoscere dei punti
+di discontinuità di una funzione, non degli insiemi di discontinuità.
+Se ci si accorge che un punto $(x_0;\ y_0)$ è di discontinuità
+per $f(x)$, allora si dice: \emph{$f(x)$ è discontinua per $x=x_0$},
+cioè si indica solo la coordinata $x$ che pone questo problema.
+\begin{esempio}
+ La funzione $f(x)= \tan x$ è discontinua per $x=\frac{\pi}{2}\pm k\pi$.
+\end{esempio}
+
+\begin{definizione}
+Se una funzione è continua in tutti i punti di un intervallo, allora si dice 
+continua in quell'intervallo.
+\end{definizione}
+\begin{esempio}
+ $f(x)=\ln x$ è definita per $x \in (0;\ M)$ ed è ivi continua.
+\end{esempio}
+
+
+
+
+
+\section{Differenziale}
+\label{sec:04_differenziale}
+Dato un numero iperreale $x\in\IR$, finito oppure infinitesimo, si può scrivere il 
+valore del numero a lui infinitamente vicino: si tratta di $x+\epsilon$. La differenza, 
+fra i due valori infinitmente vicini è $dx=(x+\epsilon)-x=\epsilon$.
+La sigla $dx$ (che si legge \emph{de x}) indica la differenza infinitesimale calcolata
+a partire dal punto $x$ e si chiama \emph{differenziale di $x$}.
+
+\begin{esempio}
+ Calcola il differenziale della varibile $x$ nel punto $x=-7$.\\
+ $dx_{|_7}=(7+\epsilon)-7=\epsilon$
+\end{esempio}
+
+\begin{esempio}
+ Calcola il differenziale di varibile $\frac{10}{13}x$ nel punto $x=9$.\\
+ $dx_{|_9}=\quadra{\frac{10}{13}\cdot(9+\epsilon)}-\frac{10}{13}\cdot 9=\frac{10}{13}\epsilon.$
+ \end{esempio}
+
+\begin{osservazione}
+ L'infinitesimo $\epsilon$ potrebbe anche essere negativo. Questo non cambierebbe 
+ il calcolo.
+\end{osservazione}
+
+\begin{definizione}
+ Il differenziale è la differenza infinitesimale.
+\end{definizione}
+
+Per calcolare il differenziale di una variabile, quindi, bisogna sapere a partire 
+da quale valore si vuole svolgere il calcolo e il risultato vale solo a partire 
+dal valore richiesto. Se tale valore è indifferente, allora si può evitare di 
+indicarlo. In tale caso il risultato vale in tutto l'intervallo continuo per il
+quale la variabile è definita (vedi i prossimi esempi).
+
+
+
+\subsection{Differenziale e funzioni}
+\label{subse:04:difffun}
+\begin{osservazione}
+ Il differenziale di una funzione è calcolabile solo negli intervalli in cui
+ la funzione è continua.
+\end{osservazione}
+
+Dato che $dx$ è il differenziale di $x$, allora $dx$ è il differenziale anche 
+della funzione identica $f(x)=x$. Il suo grafico nel piano cartesiano è dato 
+dalla retta $y=x$. Che significato dobbiamo dunque attribuire al differenziale $dy=dx$?
+
+disegno retta y=x 
+
+L'uguaglianza dei due differenziali ci indica che due punti  infinitamente
+vicini sulla retta individuano due uguali differenze infinitesime sugli assi.\\
+Succede la stessa cosa anche per altre funzioni che hanno per grafico una retta?
+\begin{esempio}
+ Proviamo ad esempio a differenziare la funzione $f(x)=\frac{2}{3}x$.\\
+\( df(x)=\frac{2}{3}(x+dx)-\frac{2}{3}x=\frac{2}{3}dx\).\\
+Questa volta il grafico della funzione $y=\frac{2}{3}x$ mostra che
+l'incremento infinitesimo dei valori $x$ provoca un incremento corrispondente 
+a $\frac{2}{3}$ sui valori $y$.
+\end{esempio}
+\begin{esempio}
+Proviamo con un'altra funzione che ha per grafico una retta: \(f(x)~=~-5x+2\):
+\[
+ df(x)= f(x+dx)-f(x)=-5(x+dx)+2-(-5x+2)=-5x-5dx+2+5x-2=-5dx
+\]
+Quindi $dy=-5dx$. 
+\end{esempio}
+
+Come si vede la costante $2$ differenziando sparisce. Infatti
+se la funzione è costante, cioè del tipo $f(x)=k$, il suo differenziale è nullo,
+perché essendo una funzione costante, i suoi valori non possono cambiare.
+
+\begin{teorema}
+Il differenziale di una costante è nullo.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(df(x)=0\).
+
+\begin{proof}
+\[
+ df(x)=f(x+dx)-f(x)=k-k=0
+\]
+\end{proof}
+
+
+% \begin{teorema}[Continuità delle costanti]
+% Le funzioni costanti sono continue.
+% \end{teorema}
+% 
+% \noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f(x)\) è continua.
+% 
+% \begin{proof}
+% Per la definizione di continuità vogliamo dimostrare che 
+% \[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
+% Poniamo \(x_0=x+\epsilon\), essendo la funzione costante, anche 
+% \[f(x+\epsilon)=k\] 
+% che, ovviamente, è infinitamente vicino a \(k\). In simboli:
+% \[f(x_0) = f(x+\epsilon) = k \approx k = f(x)\] 
+% \end{proof}
+ 
 \section{Derivata}
 \label{sec:02_logaritmiche}
 
