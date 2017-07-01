@@ -1,1 +1,1 @@
-/dati/daniele/progetti/matematicadolce/Makefile
+../../../Makefile
