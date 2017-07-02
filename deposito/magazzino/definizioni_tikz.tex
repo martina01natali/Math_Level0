@@ -58,7 +58,7 @@
 
 %--------------------------
 % Assi e piano cartesiano
-\newcommand{\asse}[4]{% Asse.
+\newcommand{\asse}[4]{% Asse orizzontale.
   % Esempio di chiamata:
   %% \disegno{\asse{-7}{+7}{0}{\(t\)}
   \def \xmi{#1}
@@ -109,54 +109,6 @@
   %% \disegno{\rcom{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}
   \rcomvar{#1}{#2}{#3}{#4}{#5}{\(x\)}{\(y\)}
 }
-
-% \newcommand{\rcom}[5]{% Riferimento Cartesiano Ortogonale Monometrico: x-y.
-%   % Esempio di chiamata:
-%   %% \disegno{\RCOM{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}
-% % \begin{tikzpicture}[x=5mm, y=5mm, smooth]
-%   \def \xmi{#1}
-%   \def \xma{#2}
-%   \def \ymi{#3}
-%   \def \yma{#4}
-%   \def \griglia{#5}
-%   \draw[#5] (\xmi-0.3, \ymi-0.3) grid (\xma+0.3, \yma+0.3); % Griglia
-%   \begin{scope}[-{Stealth[length=2mm, open, round]}, black] % Assi
-%     \draw (\xmi-0.3, 0) -- (\xma+0.3, 0) node [below] {$x$};
-%     \draw (0, \ymi-0.3) -- (0, \yma+0.3) node [left] {$y$};
-%   \end{scope}
-% % \end{tikzpicture}
-% 
-% % \newcommand{\RCOM}[5]{% Coordinate cartesiane ortogonali: x-y.
-% % \begin{tikzpicture}[x=5mm, y=5mm, smooth]
-% %   \def \xmi{#1}
-% %   \def \xma{#2}
-% %   \def \ymi{#3}
-% %   \def \yma{#4}
-% %   \def \griglia{#5}
-% %   \coordinate [label=$x$] (x) at (\xma, 0);     
-% %   \draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
-% %   \coordinate [label=$y$] (y) at (0, \yma);	
-% %   \draw [-{Stealth[length=2mm, open, round]}] (0, \ymi) -- (0, \yma);
-% %   \draw [#5] (\xmi, \ymi) grid (\xma, \yma);
-% % \end{tikzpicture}
-% }
-
-% \newcommand{\rcomvario}[7]{% Rif. Cart. Ort. Mon.: v_ind-v_dip.
-%   % Esempio di chiamata:
-%   %% \disegno{\RCOMvario{0}{6}{0}{6}{gray!50, very thin, step=1}{t}{v}}
-%   \def \xmi{#1}
-%   \def \xma{#2}
-%   \def \ymi{#3}
-%   \def \yma{#4}
-%   \def \griglia{#5}
-%   \def \vind{#6}
-%   \def \vdip{#7}
-%   \draw [#5] (\xmi, \ymi) grid (\xma, \yma);
-%   \coordinate [label=$\vind$] (x) at (\xma, 0);     
-%   \draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
-%   \coordinate [label=$\vdip$] (y) at (0, \yma);     
-%   \draw [-{Stealth[length=2mm, open, round]}] (0, \ymi) -- (0, \yma);
-% }
 
 \newcommand{\testodraw}[3]{% Scrive un testo.
   % Esempio di chiamata:

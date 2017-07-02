@@ -13,7 +13,7 @@ Il problema di determinare la velocità istntanea ci ha portati a conoscere
 i numeri infinitesimi e, attraverso questi, l'insieme dei numeri iperreali.
 Ora siamo in grado di cercare la risposta alla domanda rimasta in sospeso: 
 come si determina la velocità istantanea?\\
-La risposta, che conosciamo nelle forme moderne da più di 400 anni,
+La risposta, che conosciamo nelle forme moderne, da più di 400 anni,
 propone al nostro studio un nuovo potentissimo strumento di calcolo, adatto a 
 risolvere problemi in ogni ambito scientifico: la derivata.
 
@@ -35,13 +35,14 @@ Se cerchiamo la velocità media, basta dividere lo spazio percorso per il tempo
 impiegato:
 
 \begin{align*}
- s_{tot}= & 56m;\quad \text{da }s=\frac{1}{2}gt^2\ \text{ si ha: }
- t_{tot}=\sqrt{\frac{2s_{tot}}{g}}=\sqrt{\frac{2\times 56}{9,81}}=3,36 s.\\
- v_m= & \frac{s_{tot}}{t_{tot}}=\frac{56 m}{3,36 s}=16,67 m/s,
+ & s_{tot} = 56m\\
+ & s =\frac{1}{2}gt^2 \srarrow t_{tot}= \sqrt{\frac{2s_{tot}}{g}}=
+ \sqrt{\frac{2\times 56}{9,81}}=3,36 s.\\
+ & v_m= \frac{s_{tot}}{t_{tot}}=\frac{56 m}{3,36 s}=16,67 m/s,
 \end{align*}
 che corrispondono a circa $60 km/h$ di media.\\
-Ma gli oggetti partono fermi e arrivano velocissimi: è possibile sapere la
-progressione della loro velocità e quale è loro velocità finale? È il momento
+Ma gli oggetti partono fermi e arrivano velocissimi: 
+è possibile sapere quale è loro velocità in ogni istante? È il momento
 di usare le quantità infinitesime.\\
 Chiamiamo $dt$ un intervallo di tempo infinitesimo, fra due istanti successivi
 $t$ e $t+dt$.
@@ -56,16 +57,28 @@ Dividendo il tutto per $dt$ si ottiene la velocità istantanea:
 \[
  v=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt.
 \]
-Il numero $gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt$ è un iperreale, di tipo
-inn. Per avere un valore reale, applichiamo la parte standard:
+Il numero $gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt$ è un iperreale finito. 
+Per averne il valore reale, applichiamo la parte standard:
 \[
  \pst{9,81t+\frac{1}{2}dt}=9,81t
 \]
 Questa è la velocità istantanea che cerchiamo: dipende dal tempo $t$,
-cioè cresce con il passare dei secondi. $v=0$ all'inizio ($t=0$) e
-$v=9,81\times 3,36=32,96 m/s\approx 119 km/h$ alla fine, prima di fermarsi al suolo.\\
-La formula ci permette il calcolo della velocità a qualsiasi istante:
-in quale tempo intermedio la velocità sarà quella media, calcolata prima? 
+cioè cresce con il passare dei secondi. 
+
+\begin{center}
+\begin{tabular}{cc}\toprule
+$t$ (in $s$) & $v=9,81\times t$ (in $m/s$) \\\midrule
+$0$ & $0$  \\
+$1$ & $9,81\times 1 =9,81$ \\
+$2$ & $9,81\times 2 =19,62$ \\
+... & ... \\
+$3,6$ & $9,81\times 3,36= ...$\\\bottomrule
+\end{tabular}
+\label{tab:diff_velocita}
+\end{center}
+
+La formula $v=9,81\times t$ ci permette il calcolo della velocità per ogni valore di $t$.
+Per quale valore di \(t\) la velocità sarà uguale a quella media? 
 
 
 \section{Continuità}
@@ -73,11 +86,12 @@ in quale tempo intermedio la velocità sarà quella media, calcolata prima?
 La semplicità dei calcoli precedenti lascia intuire la ragione del successo del
 calcolo con gli infinitesimi.  Questo tipo di calcolo fiorì per 150 anni a 
 partire dall'epoca di Newton e Leibniz. Ma suscitava vivaci polemiche fra
-gli specialisti, perché non si era in grado di spiegare come mai alla fine i 
-risultati, espressi in numeri infinitesimi, possono diventare numeri standard. 
+gli specialisti, perché non si era in grado di spiegare come mai i 
+risultati, espressi attraverso numeri infinitesimi, alla fine diventano numeri
+``di uso comune``.
 Oggi i matematici conoscono meglio la materia e queste difficoltà sono superate.
 Siamo quindi in grado di procedere nello studio dei questa nuova branca della 
-matematica, che si chiama analisi infinitesimale.
+matematica, che si chiama \emph{Analisi infinitesimale}.
 
 \subsubsection{Continuità, intervalli, differenze}
 \label{04_diffcontinterv}
@@ -91,16 +105,26 @@ continua, cioè assume tutti i valori, dal minimo al massimo, con regolarità,
 senza salti.
 
 \begin{definizione}
- Una variabile continua assume con continuità tutti i valori per cui è definita,
- dal minimo e al massimo.
+ Una variabile è una grandezza che può assumere valori diversi.
+ L'insieme dei valori possibili costituisce il suo insieme di definizione.
+\end{definizione}
+
+\begin{definizione}
+ Una variabile continua è definita in un intervallo di valori continuo.
+ Le variazioni dei suoi valori possono essere arbitrariamente piccole.
 \end{definizione}
 
 Il più semplice esempio di una variabile continua in matematica è la 
 posizione $x$ sull'asse reale dei numeri. Infatti sappiamo che la retta reale non
 ha buchi. A maggior ragione, è una variabile continua anche la posizione sull'asse 
 degli Iperreali: $x,x\in\IR$. \\
-Una variabile discontinua si dice 
-\emph{variabile discreta}. Un semplice esempio di variabile discreta è $n, n\in \N$.\\
+Una variabile discontinua si dice \emph{variabile discreta}. 
+\begin{definizione}
+ Una variabile discreta assume valori che variano per quantità
+ finite.
+\end{definizione}
+
+Un semplice esempio di variabile discreta è $n, n\in \N$.\\
 Nel calcolo precedente, $t$ varia con continuità da $0$ a $3,6$,
 assumendone tutti i valori, dal minimo al massimo. In matematica si scrive così:
 \(t\in \quadra{0;\ 3,6}\). Le parentesi quadre sono importanti, indicano che gli estremi
@@ -110,20 +134,20 @@ I tipi possibili di intervallo sono:
 \begin{center}
 \begin{tabular}{ccc}\toprule
 intervallo & sigla & significato\\\midrule
-chiuso &$\quadra{a,\ b}$  & estremi compresi\\
-aperto/chiuso & $(a,\ b]$ & a escluso, b compreso\\
-chiuso/aperto & $[a,\ b)$ & a compreso, b escluso\\
-aperto & $(a,\ b)$ & estremi esclusi\\\bottomrule
+chiuso &$\intervcc{a}{b}$  & estremi compresi\\
+aperto/chiuso & $\intervac{a}{b}$ & a escluso, b compreso\\
+chiuso/aperto & $\intervca{a}{b}$ & a compreso, b escluso\\
+aperto & $\intervaa{a}{b}$ & estremi esclusi\\\bottomrule
 \end{tabular}
 \label{tab:diff_tipiinterv}
 \end{center}
 
-Tutti i tipi di intervallo precedenti, della retta reale o iperreale, sono
-continui, a meno di indicazioni diverse. Se un intervallo $[a,\ b]$ contiene un punto
+Tutti i tipi di intervallo precedenti, nella retta reale o iperreale, sono
+continui, a meno di indicazioni diverse. Se un intervallo $\intervcc{a}{b}$ contiene un punto
 (o più punti) di discontinuità, per esempio $d$, allora occorre usare indicazioni
-diverse: $[a,\ d)\cup(d,\ b]$\\ 
-Fra due numeri della retta iperreale $a, b \in \IR$ si può definire la differenza
-$a-b$, che può essere positiva, negativa o nulla. Indicheremo con $\Delta$ la 
+diverse: $\intervca{a}{d}\cup\intervac{d}{b}$\\ 
+La differenza $a-b$ fra due numeri della retta iperreale $a, b \in \IR$, 
+può essere positiva, negativa o nulla. Indicheremo con $\Delta$ la 
 differenza fra due numeri standard, cioè una differenza finita, mentre, se la 
 differenza è infinitesima, sarà indicata con $\delta$ oppure $\epsilon$
 o altra lettera minuscola dell'alfabeto greco.\\
@@ -132,24 +156,25 @@ In analisi infinitesimale, le differenze infinitesime sono protagoniste.
 \subsubsection{Continuità e funzioni}
 \label{04_diffcontfunzioni}
 Il tema della continuità è vasto e importante e viene trattato nei dettagli
-nel prossimo capitolo. Per ora ci limitiamo a considerazioni di carattere intuitivo 
-sulle funzioni continue.\\
-Se una funzione è continua, ne puoi tracciare il grafico nel piano cartesiano 
-senza staccare la matita dal foglio. Se ci fosse un punto (o più punti)
+nel prossimo capitolo. Per ora ci limitiamo a considerazioni di carattere intuitivo.\\
+\emph{Se una funzione è continua, ne puoi tracciare il grafico nel piano cartesiano 
+senza staccare la matita dal foglio}. Se ci fosse un punto (o più punti)
 di discontinuità, saresti obbligato a interrompere il disegno e riprenderlo
 da punti vicini.
 \begin{esempio}
  La funzione $f(x)=x$, che ha per grafico la retta $y=x$ è evidentemente 
  una funzione continua: puoi tracciarne il grafico senza interruzioni
  nell'intervallo $(-M,\ M)$. Sono anche continue tutte le funzioni che hanno
- per grafico una retta, come per esempio $f(x)=-\frac{4}{5}x+9$.
+ per grafico una retta, come per esempio $f(x)=-\frac{4}{5}x+9$.\\
+ Quindi anche la funzione costante $f(x)=k$, che ha per grafico una retta
+ orizzontale, è una funzione continua.
 \end{esempio}
 \begin{esempio}
  La funzione $f(x)=\frac{1}{x}$ è continua ovunque, tranne che per $x=0$.
  Infatti se $x=0$, $f(x)$ non è calcolabile, quindi nel piano cartesiano 
  non puoi disegnare un punto  che rappresenta il valore standard 
  $(1;\ \frac{1}{0})$. Il punto è comunque visibile nel piano iperreale, con un
- telescopio.\\
+ telescopio.
  \end{esempio}
 \begin{esempio}
  Per ragioni simili, sono discontinue in uno o più punti le funzioni
@@ -164,55 +189,83 @@ di carattere locale}, cioè per punti. Infatti si possono riconoscere dei punti
 di discontinuità di una funzione, non degli insiemi di discontinuità.
 Se ci si accorge che un punto $(x_0;\ y_0)$ è di discontinuità
 per $f(x)$, allora si dice: \emph{$f(x)$ è discontinua per $x=x_0$},
-cioè si indica solo la coordinata $x$ che pone questo problema.
+cioè si indica solo la coordinata $x$ che pone questo problema 
+(non si usa dire: $f(x_0)$ è discontinua).
 \begin{esempio}
  La funzione $f(x)= \tan x$ è discontinua per $x=\frac{\pi}{2}\pm k\pi$.
 \end{esempio}
 
 \begin{definizione}
-Se una funzione è continua in tutti i punti di un intervallo, allora si dice 
-continua in quell'intervallo.
+Se una funzione è continua in tutti i punti di un intervallo $\intervcc{a}{b}$,
+allora si dice continua in $\intervcc{a}{b}$.
 \end{definizione}
+\begin{osservazione}
+ Ovviamente la definizione non cambia se l'intervallo è di tipo diverso.
+\end{osservazione}
+
 \begin{esempio}
  $f(x)=\ln x$ è definita per $x \in (0;\ M)$ ed è ivi continua.
 \end{esempio}
 
 
-
-
-
 \section{Differenziale}
 \label{sec:04_differenziale}
-Dato un numero iperreale $x\in\IR$, finito oppure infinitesimo, si può scrivere il 
-valore del numero a lui infinitamente vicino: si tratta di $x+\epsilon$. La differenza, 
-fra i due valori infinitmente vicini è $dx=(x+\epsilon)-x=\epsilon$.
-La sigla $dx$ (che si legge \emph{de x}) indica la differenza infinitesimale calcolata
-a partire dal punto $x$ e si chiama \emph{differenziale di $x$}.
-
-\begin{esempio}
- Calcola il differenziale della varibile $x$ nel punto $x=-7$.\\
- $dx_{|_7}=(7+\epsilon)-7=\epsilon$
-\end{esempio}
-
-\begin{esempio}
- Calcola il differenziale di varibile $\frac{10}{13}x$ nel punto $x=9$.\\
- $dx_{|_9}=\quadra{\frac{10}{13}\cdot(9+\epsilon)}-\frac{10}{13}\cdot 9=\frac{10}{13}\epsilon.$
- \end{esempio}
-
-\begin{osservazione}
- L'infinitesimo $\epsilon$ potrebbe anche essere negativo. Questo non cambierebbe 
- il calcolo.
-\end{osservazione}
 
 \begin{definizione}
  Il differenziale è la differenza infinitesimale.
 \end{definizione}
 
+Dato un numero iperreale $x_0\in\IR$, finito oppure infinitesimo, si può scrivere il 
+valore del numero a lui infinitamente vicino: si tratta di $x_0+\epsilon$. La differenza, 
+fra i due valori infinitamente vicini è $dx|_{x=x_0}=(x_0+\epsilon)-x_0=\epsilon$.
+La sigla $dx$ (che si legge \emph{de x}) indica la differenza infinitesimale.
+È calcolata a partire dal punto $x_0$ e si chiama \emph{differenziale di $x$ nel punto $x_0$}.
+
+\begin{esempio}
+ Calcola il differenziale della variabile $x$ nel punto $x=-7$.\\
+ $dx|_{x=-7}=(-7+\epsilon)-(-7)=\epsilon$
+\end{esempio}
+
+\begin{esempio}
+ Calcola il differenziale di variabile $\frac{10}{13}x$ nel punto $x=9$.\\
+ $dx|_{x=9}=\quadra{\frac{10}{13}\cdot(9+\epsilon)}-\frac{10}{13}\cdot 9=\frac{10}{13}\epsilon.$
+ \end{esempio}
+
+\begin{osservazione}
+ L'infinitesimo $\epsilon$ potrebbe anche essere negativo. Questo non cambierebbe 
+ il calcolo.\\
+\end{osservazione}
+
 Per calcolare il differenziale di una variabile, quindi, bisogna sapere a partire 
-da quale valore si vuole svolgere il calcolo e il risultato vale solo a partire 
-dal valore richiesto. Se tale valore è indifferente, allora si può evitare di 
-indicarlo. In tale caso il risultato vale in tutto l'intervallo continuo per il
-quale la variabile è definita (vedi i prossimi esempi).
+da quale $x_0$ si vuole svolgere il calcolo. Al contrario di quanto avviene negli
+esempi precedenti, è facile mostrare che, al cambio di $x_0$, il risultato del 
+differenziale potrebbe cambiare.\\
+
+\begin{esempio}
+ Calcola $df(x)|_{x=5}$, con $f(x)=x^2$. Calcola poi $df(x)|_{x=-5}$ e infine $df(x)|_{x=2}$.
+ \begin{align*} 
+  d(x^2)|_{x=5} & =(5+\epsilon)^2-5^2=25+10\epsilon+\epsilon^2-25=10\epsilon+\epsilon^2\\
+  d(x^2)|_{x=-5}& =(-5+\epsilon)^2-(-5)^2=25-10\epsilon+\epsilon^2-25=-10\epsilon+\epsilon^2\ \\
+  d(x^2)|_{x=2} & =(2+\epsilon)^2-2^2=4+4\epsilon+\epsilon^2-4=4\epsilon+\epsilon^2\\\
+ \end{align*}
+
+\end{esempio}
+
+Se invece il risultato di $df(x)$ è indifferente da $x_0$, allora si evita di 
+indicare $|_{x=x_0}$. 
+\begin{esempio}
+ Riprendendo il primo degli esempi precedenti:
+ \begin{align*}
+  dx|_{x=-7} & =(-7+\epsilon)-(-7)=\epsilon\\
+  dx|_{x=3} & =(3+\epsilon)-3=\epsilon\\
+  dx|_{x=\frac{1}{4}} &= \tonda{\frac{1}{4}+\epsilon}-\frac{1}{4}=\epsilon\\
+  ...\quad &= \qquad ...\\
+  dx|_{x=a} & =(a+\epsilon)-a=\epsilon\\
+  dx|_{x=x_0} & =\ ...\ =\epsilon\\
+ \end{align*}
+ Ovvio concludere che se $f(x)=x$, allora $df(x)=\epsilon$.
+\end{esempio}
+
 
 
 
@@ -222,6 +275,13 @@ quale la variabile è definita (vedi i prossimi esempi).
  Il differenziale di una funzione è calcolabile solo negli intervalli in cui
  la funzione è continua.
 \end{osservazione}
+
+funzione costante $f(x)=k$
+
+
+funzione identica $f(x)=x$
+
+funzione lineare generica
 
 Dato che $dx$ è il differenziale di $x$, allora $dx$ è il differenziale anche 
 della funzione identica $f(x)=x$. Il suo grafico nel piano cartesiano è dato 
