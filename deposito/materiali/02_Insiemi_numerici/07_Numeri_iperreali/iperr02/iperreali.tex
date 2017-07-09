@@ -42,21 +42,23 @@ autorizzati a pensare la retta reale come una retta ``priva di buchi'':
 c'è almeno un punto
 in ogni posizione, anche osservando la retta al microscopio, 
 con qualsiasi ingrandimento (ingrandimento reale, come vedremo).\\
-Se usiamo la retta reale come disegno dell'insieme \(\R\) è perché
+Se usiamo la retta reale come immagine dell'insieme \(\R\) è perché
 si tratta di una rappresentazione efficace. Ma ricordiamoci sempre che un insieme 
 in matematica è un oggetto astratto, quindi la retta reale è solo
 un modello che ci aiuta a capire le proprietà dell'insieme \(\R\).\\
 Per esempio, a proposito dell'ordinamento in \(\R\), ci riesce facile
 posizionare i numeri sulla retta, in corripondenza di punti più vicini o più lontani 
 dall'origine. Così possiamo verificare anche un'ulteriore proprietà, la 
-\emph{proprietà archimedea}: per quanto piccolo sia un numero, si può moltiplicarlo 
-per un numero sufficiente di volte, così da superare un altro numero prefissato.
+\emph{proprietà archimedea}: per quanto piccolo sia un numero, si può 
+sempre trovare una moltiplicazione tale che il prodotto superi altro numero
+prefissato.
 Sulla retta: dati due segmenti con un estremo nell'origine, potrai sempre moltiplicare
 la lunghezza del più breve, in modo che diventi maggiore dell'altro.\\
 A causa della completezza di \(\R\), non è possibile inserire
-nella retta reale dei punti che non corrispondano a numeri reali. Se lo facciamo, 
-forzando la situazione, il modello cambia: 
-rispetto all'insieme dei reali si perde qualche proprietà e se ne acquisiscono di nuove.
+nella retta reale dei punti che non corrispondano a numeri reali. Se inseriamo numeri
+di nuovo tipo, il modello cambia. Il nuovo insieme e la nuova retta sono
+diversi dall'insieme dei reali e dalla retta reale: si perde qualche proprietà 
+e se ne acquisiscono di nuove.
 Infatti...
 
 % \vspace{24pt}
@@ -103,8 +105,9 @@ grandezza così semplice e evidente come la velocità di un oggetto in un dato
 istante.
 
 Servirebbe un insieme numerico con numeri positivi più piccoli di un 
-qualsiasi altro numero positivo, ma diversi da zero! Possibile trovare tali numeri 
-nell'insieme dei reali che, come abbiamo visto, è un insieme (già) completo?
+qualsiasi altro numero positivo, ma diversi da zero! Ma è possibile 
+trovare tali numeri nell'insieme dei reali che, come abbiamo visto, 
+è un insieme (già) completo?
 
 
 
@@ -163,7 +166,7 @@ reale;
  \item gli infiniti, nessun infinito ha una corrispondenza con i numeri reali.
 \end{itemize}
 
-Possiamo veder questo insieme anche come formato dai seguenti elementi:
+Possiamo vedere questo insieme anche come formato dai seguenti elementi:
 
 \begin{description} [noitemsep]
  \item \textbf{zero}
@@ -211,9 +214,14 @@ Iperreale finito:
 \end{definizione}
 
 Ogni numero finito può essere visto come la somma di un numero reale più un 
-Infinitesimo: se $x$ è finito allora $x = a + \epsilon$. Un numero Iperreale 
-finito non può essere infinitamente vicino a due numeri reali diversi quindi 
-esiste un solo numeri Reale infinitamente vicino ad un numero Iperreale. 
+Infinitesimo: se $x$ è finito allora $x = a + \epsilon$, quindi 
+$x=a+\epsilon\approx a$. Si può immaginare ogni Iperreale finito come una
+nuvola contenente un numero standard $a$ e tutti gli infinitesimi che lo 
+circondano, così vicini ad $a$ da non potersi confondere con altri infiniti
+infinitesimi di una nuvola vicina, appartenenti per esempio al numero Iperreale
+$y=b+\epsilon$. Un numero Iperreale finito non può essere infinitamente vicino 
+a due numeri reali diversi quindi esiste un solo numero Reale infinitamente 
+vicino ad un numero Iperreale. 
 Questo numero reale si chiama \emph{parte standard} del numeri Iperreale.
 
 \begin{definizione}
@@ -581,16 +589,15 @@ Vediamo allora come è possibile affrontare il problema del confronto tra
 Iperreali.
 
 \begin{osservazione}
-Viste le regole per il confronto di numeri con segno diverso o numeri 
-negativi, 
-è possibile concentrare l'attenzione sul confronto dei soli numeri positivi.
+Manteniamo valide le regole per il confronto di numeri con segno diverso o numeri 
+negativi. Possiamo quindi concentrare l'attenzione sul confronto dei soli numeri positivi.
 Nei prossimi paragrafi assumeremo che le variabili si riferiscano solo a numeri 
 positivi.
 \end{osservazione}
 
 Restringendo l'osservazione ai numeri positivi, possiamo affermare che:
 
-Innanzi tutto possiamo osservare che gli infinitesimi sono più piccoli dei non 
+Gli infinitesimi sono più piccoli dei non 
 infinitesimi e i finiti sono più piccoli degli infiniti:
 
 \[i \quad < \quad fni \quad < \quad I\]
@@ -611,65 +618,64 @@ l'ordinamento degli infinitesimi, cosa che faremo nel prossimo paragrafo.
 \subsubsection{Confronto tra infinitesimi}
 \label{subsubsec:insnum_confrontoreali}
 
-Zero è minore di qualunque infinitesimo.
+\begin{enumerate}
+ \item Zero è minore di qualunque infinitesimo.\\
+  Se sappiamo soltanto che $\epsilon$ e $\delta$ sono due infinitesimi 
+  non possiamo stabilire quale dei due sia il maggiore e quale il minore. 
+  Servono più informazioni. Vediamo alcuni esempi.
 
-Se sappiamo soltanto che $\epsilon$ e $\delta$ sono due infinitesimi 
-non possiamo stabilire quale dei due è il maggiore e quale il minore. 
-Servono più informazioni. 
-Vediamo alcuni esempi.
+  \begin{esempio}
+   Nel caso $\delta = \epsilon + \gamma$ con $\gamma$ infinitesimo positivo, 
+   dato che~$\delta-\epsilon=\epsilon+\gamma-\epsilon=\gamma>0$, 
+   $\delta$ sarà maggiore di $\epsilon$.
+  \end{esempio}
 
-\begin{esempio}
-Nel caso $\delta = \epsilon + \gamma$ con $\gamma$ infinitesimo positivo, 
-dato che~$\delta-\epsilon=\epsilon+\gamma-\epsilon=\gamma>0$, 
-$\delta$ sarà maggiore di $\epsilon$.
-\end{esempio}
+  \begin{esempio}
+   Nel caso $\delta = 2\epsilon$, 
+   dato che~$\delta-\epsilon=2\epsilon-\epsilon=\epsilon>0$, 
+   $\delta$ sarà maggiore di $\epsilon$.
+  \end{esempio}
 
-\begin{esempio}
-Nel caso $\delta = 2\epsilon$, 
-dato che~$\delta-\epsilon=2\epsilon-\epsilon=\epsilon>0$, 
-$\delta$ sarà maggiore di $\epsilon$.
-\end{esempio}
+  \begin{esempio}
+   Vediamo un altro modo per trattare il caso $\delta = 2\epsilon$, 
+   dato che~$\frac{\delta}{\epsilon}=\frac{2\epsilon}{\epsilon}=2>1$, 
+   $\delta$ sarà maggiore di $\epsilon$.
+  \end{esempio}
 
-\begin{esempio}
-Vediamo un altro modo per trattare il caso $\delta = 2\epsilon$, 
-dato che~$\frac{\delta}{\epsilon}=\frac{2\epsilon}{\epsilon}=2>1$, 
-$\delta$ sarà maggiore di $\epsilon$.
-\end{esempio}
+  Questo secondo metodo permette di ricavare delle informazioni interessanti. 
+  Vediamo alcuni esempi:
 
-Questo secondo metodo permette di ricavare delle informazioni interessanti. 
-Vediamo alcuni esempi:
+ \item Una parte infinitesima di un infinitesimo è più piccola di quell'infinitesimo.
+  \begin{esempio}
+   Se $\delta = \epsilon \cdot \gamma$, dato 
+   che~$\frac{\delta}{\epsilon}=\frac{\epsilon \cdot \gamma}{\epsilon}=\gamma<1$, 
+   $\delta$ sarà minore di $\epsilon$.
+  \end{esempio}
 
-\begin{esempio}
-Se $\delta = \epsilon \cdot \gamma$, dato 
-che~$\frac{\delta}{\epsilon}=\frac{\epsilon \cdot \gamma}{\epsilon}=\gamma<1$, 
-$\delta$ sarà minore di $\epsilon$.
+  \begin{osservazione}
+   In questo caso il rapporto non solo è più piccolo di~1 ma è addirittura un 
+   \emph{infinitesimo}. 
+   Quando il rapporto tra due infinitesimi è un infinitesimo 
+   possiamo dire che il primo è un infinitesimo di \emph{ordine superiore} e si 
+   scrive:~$\delta=o(\epsilon)$.
+  \end{osservazione}
 
-Una parte infinitesima di un infinitesimo è più piccola di quell'infinitesimo.
-\end{esempio}
+ \item Un infinitesimo è maggiore di una sua parte infinitesima.
 
-\begin{osservazione}
-In questo caso il rapporto non solo è più piccolo di~1 ma è addirittura un 
-\emph{infinitesimo}. 
-Quando il rapporto tra due infinitesimi è un infinitesimo 
-possiamo dire che il primo è un infinitesimo di \emph{ordine superiore} e si 
-scrive:~$\delta=o(\epsilon)$
-\end{osservazione}
+  \begin{esempio}
+   Se $\epsilon=\delta\cdot\gamma$, dato che 
+   $\frac{1}{\epsilon}=\frac{1}{\delta\cdot \gamma}$, si ha:
+   $\frac{\delta}{\gamma}=\frac{\delta}{\delta\cdot \gamma}=
+   \frac{1}{\gamma}=M>1$. Quindi $\delta $ sarà maggiore di $\epsilon$.
+  \end{esempio}
 
-\begin{esempio}
-Se $\epsilon = \delta \cdot \gamma$, dato 
-che~$\frac{\delta}{\epsilon}=\frac{\delta}{\delta \cdot \gamma}=
-\frac{1}{\gamma}=M>1$, quindi
-$\delta$ sarà maggiore di $\epsilon$.
-
-Un infinitesimo è maggiore di una sua parte infinitesima.
-\end{esempio}
-
-\begin{osservazione}
-In questo caso il rapporto non solo è più grande di~1 ma è addirittura un 
-\emph{infinito}. 
-Quando il rapporto tra due infinitesimi è un infinito 
-possiamo dire che il primo è un infinitesimo di \emph{ordine inferiore}.
-\end{osservazione}
+  \begin{osservazione}
+   In questo caso il rapporto non solo è più grande di~1 ma è addirittura un 
+   \emph{infinito}. 
+   Quando il rapporto tra due infinitesimi è un infinito 
+   possiamo dire che il primo infinitesimo è di \emph{ordine inferiore}.
+  \end{osservazione}
+ \end{enumerate}
 
 \subsubsection{Confronto tra infiniti}
 \label{subsubsec:insnum_confrontoreali}
@@ -724,7 +730,7 @@ scrivere:
 
 $\frac{M}{2^M} < \frac{M}{M^2} = \frac{1}{M} < 1$
 
-Quindi $M < 2^M$.
+Quindi $M^2 < 2^M$.
 
 Ma $\frac{1}{M}$ è un infinitesimo quindi possiamo affermare che $M$ è un 
 infinito di ordine inferiore di $2^M$.
@@ -793,34 +799,42 @@ rapporto tra la loro differenza e ciascuno di essi è un infinitesimo:
 numeri che vogliamo confrontare devono essere diversi da \emph{zero}.
 \end{osservazione}
 
-\begin{definizione}
-Due numeri finiti non infinitesimi sono indistinguibili se e solo se 
-sono infinitamente vicini:
+\begin{teorema}
+Due numeri $x$ e $y$, finiti non infinitesimi, sono indistinguibili se e solo se 
+sono infinitamente vicini
+\end{teorema}
+\begin{center}
+Ipotesi: $\tonda{x \sim y \wedge x,y:\ fni}\qquad \sLRarrow\qquad$ Tesi: $x\approx y$.
+\end{center}
 
-\[x \sim x+\epsilon \quad \text{ infatti } \quad
-\frac{x-\tonda{x+\epsilon}}{x} = \frac{\epsilon}{x}= \delta \quad \wedge \quad 
-\frac{x-\tonda{x+\epsilon}}{y} = \frac{\epsilon}{y}= \gamma
+\begin{proof}
+\[x \approx y \quad \text{ infatti } \quad
+\frac{x-y}{x} = \epsilon \quad \wedge \quad 
+\frac{x-y}{y} = \delta \sRarrow x=y+\epsilon x=y+\beta \quad \wedge \quad 
+y=x-\delta y=x+\alpha
 \]
-
-\end{definizione}
-
+\[x \sim x+\epsilon \quad \text{ infatti } \quad
+\frac{x-y}{x}=\frac{x-\tonda{x+\alpha}}{x} = \frac{\alpha}{x}= \xi \quad \wedge \quad 
+\frac{x-y}{x}=\frac{x-\tonda{x+\alpha}}{y} = \frac{\alpha}{y}= \gamma
+\]
+\end{proof}
 
 Per quanto riguarda gli infinitesimi, non basta che siano infinitamente vicini 
 per essere indistinguibili (d'altra parte tutti gli infinitesimi sono 
 infinitamente vicini).
 
-\begin{definizione}
+\begin{teorema}
 Due numeri infinitesimi sono indistinguibili se differiscono di un 
 infinitesimo di ordine superiore.
-\end{definizione}
+\end{teorema}
 
 Due numeri infiniti possono essere indistinguibili anche se differiscono di un 
 valore finito o addirittura infinito. 
 
-\begin{definizione}
+\begin{teorema}
 Due infiniti sono indistinguibili se 
 differiscono di un finito o di un infinito di ordine inferiore.
-\end{definizione}
+\end{teorema}
 
 
 \subsection{Postulato di Eudosso-Archimede}
@@ -990,13 +1004,14 @@ valori positivi $y\ge 0, \forall x\in \IR$;
 il grafico interseca l'asse $y$ nel punto $(0;1)$, dato che qualsiasi numero
 elevato alla 0 ...
 \end{itemize}
+Quindi, applicando la funzione esponenziale a valori non standard, avremo: 
+\[
+ a^{\pm\epsilon}=1\pm\delta, \quad a^X=Y,\quad a^{-X}=0 \text{ (sempre nel caso di X positivo)}
+\]
 Se $0<a<1$, il grafico è speculare e lascio a te la sua descrizione.\\
 Se $a=1$, il grafico non dovrebbe essere troppo difficile da immaginare ...
 
-Quindi, applicando la funzione esponenziale a valori non standard, avremo: 
-\[
- a^\epsilon=\delta, \quad a^X=Y,\quad a^{-X}=0 \text{ (sempre nel caso di X positivo)}
-\]
+
 
 \begin{osservazione}
  Analogamente al caso reale, vi sono situazioni speciali in cui non si capisce il 
@@ -1005,22 +1020,37 @@ Quindi, applicando la funzione esponenziale a valori non standard, avremo:
  \[
   0^0,\quad \epsilon^\epsilon, \quad M^0, \quad M^\epsilon, \quad 1^M,
  \]
-  sono detti forme di indecisione esponenziale e più avanti vedremo di risolverle.
-  Nota l'ultimo di questi casi e confrontalo con quanto scritto poche righe sopra.
+  sono detti forme di indecisione esponenziale e più avanti vedremo di risolvere
+  alcuni casi.
+  Nota l'ultima delle forme di indecisione precedentii e confrontalo con 
+  quanto scritto poche righe sopra.
 \end{osservazione}
 
 \subsubsection{Numero di Nepero $e$}
 \label{subsubsec:insnum_nepero}
-Uno dei casi che sembrerebbero riguardare la forma di indecisione $1^M$
-ha una soluzione importantissima. Si tratta della funzione
+La forma di indecisione $1^M$ ha una soluzione particolare in un caso 
+importantissimo. Si tratta della funzione
 \[
  f:\IR\mapsto \IR \text{, con } f(x)= \tonda{1+\frac{1}{x}}^x
 \]
-definita per $x\ne 0$. Si tratta di una funzione esponenziale particolare 
-e, se $x$ assume valori infiniti, la funzione approssima la forma di indecisione
-$1^M$.\\
-È possibile dimostrare, ma noi lo evitiamo, che in questo caso il calcolo
-ha un risultato esatto, il numero standard
+definita per $x\ne 0$. È una particolare funzione esponenziale che,
+se $x$ assume valori infiniti, dà luogo a risultati del tipo $1^M$.\\
+Cerchiamo di capire cosa succede facendo alcuni tentativi con numeri standard:
+\begin{esempio}
+ Calcolare $f(x)= \tonda{1+\frac{1}{x}}^x$, nei casi: $x=10$, $x=100$, 
+ $x=1000$, $x=10000$...\\
+ $f(1)=\tonda{1+\frac{1}{1}}^1=2$\\
+ $f(1)=\tonda{1+\frac{1}{10}}^{10}=2,5937424$...\\
+ $f(1)=\tonda{1+\frac{1}{100}}^{100}=2,7048138$...\\
+ $f(1)=\tonda{1+\frac{1}{1000}}^{1000}=2,71692393$...\\
+ $f(1)=\tonda{1+\frac{1}{10000}}^{10000}=2,71814592$...\\
+ $f(1)=\tonda{1+\frac{1}{100000}}^{100000}=2,71826824$...\\
+ $f(1)=\tonda{1+\frac{1}{1000000}}^{1000000}=2,71828047$...\\
+ ...
+\end{esempio}
+
+Al di là di ogni tentativo, è possibile dimostrare, ma noi lo evitiamo, 
+che per $x=M$ il calcolo ha un risultato esatto, il numero standard
 \[
  \st\tonda{1+\frac{1}{M}}^M=e.
 \]
@@ -1068,9 +1098,9 @@ senza mai appiattirsi del tutto quando $x$ diventa un numero infinito;
  \item 
 come si dimostra più avanti, il rallentamento di questa tendenza a crescere
 è più forte del rallentamento che ha il grafico di qualsiasi altra
-funzione di altro tipo (per esempio le funzioni potenza $x^{\frac{1}{n}}$);
+funzione di altro tipo (per esempio le funzioni potenza $x^{\frac{1}{n}}, \forall n$);
  \item
-a sinistra, cioè per $x\approx 0$ $f(x)\approx -M, (M>0)$ il grafico tende 
+a sinistra, cioè per $x=\epsilon 0$ $f(x)\approx -M, (M>0)$ il grafico tende 
 ad adagiarsi sull'asse verticale, toccandolo all'infinito. Si dice che l'asse
 $y$ negativo è asintoto sinistro per il grafico;
  \item
@@ -1085,20 +1115,21 @@ l'esponente vale $1$, quindi il grafico passa per il punto ... $\forall a$.
   \caption{Logaritmi con diverse basi.} \label{fig:diversebasi}
 \end{figure}
 
-Se $0<a<1$, il grafico è simmetrico rispetto all'asse $x$ e lascio a te la 
-sua descrizione.\\
-Se $a=1$, il grafico è un problema serio ...\\
 Quindi, applicando la funzione $\log_a$ a valori non standard, nel caso di $a>1$, 
 avremo: 
 \[
- \log_a \delta=-M, \quad \log_a (1\pm\epsilon)=\pm\delta,\quad \log_a X=Y 
+ \log_a \delta=-M, \quad \log_a (1+\epsilon)=+\delta,\quad \log_a X=Y 
  \text{ (sempre nel caso di X positivo)}
 \]
+Se $0<a<1$, il grafico è simmetrico rispetto all'asse $x$ e lascio a te la 
+sua descrizione.\\
+Se $a=1$, il grafico è un problema serio ...\\
+
 
 \begin{osservazione}
- Fra tutte le possibili basi dei logaritmi, due hnno una posizione privilegiata. 
- Per questo i logaritmi che usano queste basi hanno un tasto dedicato nelle calcolatrici
- scientifiche:
+ Fra tutte le possibili basi dei logaritmi, due hanno una posizione privilegiata. 
+ Per questo i logaritmi che usano queste basi hanno un tasto dedicato nelle 
+ calcolatrici scientifiche:
  \begin{itemize} [noitemsep]
  \item 
 base $10:\ Log(x)$.\\
@@ -1128,7 +1159,7 @@ Questo tornerà utile negli esempi e nelle applicazioni che seguono.
 \subsubsection{Forme di indecisione risolte grazie al numero $e$}
 \label{subsubsec:insnum_ind_e}
 Il risultato di uno dei calcoli precedenti, cioè 
-$\log_a (1\pm\epsilon)=\pm\delta$ diventa particolarmente semplice 
+$\log_a (1+\epsilon)=+\delta$ diventa particolarmente semplice 
 con l'uso dei logaritmi naturali. Infatti si dimostra
 che $\ln(1+\epsilon)\approx\epsilon$ e che quindi:
 \[
@@ -1136,8 +1167,10 @@ che $\ln(1+\epsilon)\approx\epsilon$ e che quindi:
 \]
 Come si vede, si tratta del rapporto fra due infinitesimi, un
 calcolo aperto a qualsiasi tipo di risultato.\\
-Con elementari passaggi algebrici e sfruttando sempre le proprietà dei 
-logaritmi si ottiene anche:
+Con alcuni passaggi algebrici e sfruttando le proprietà dei 
+logaritmi, da $\ln(1+\epsilon)\approx\epsilon$ si ottiene anche:
+$1+\epsilon\approx e^\epsilon \srarrow \epsilon\approx e^\epsilon-1$ 
+e quindi
 \[
 \st\tonda{\frac{e^\epsilon-1}{\epsilon}}=1.
 \]
@@ -1199,9 +1232,9 @@ L'uguaglianza può essere dimostrata anche per via geometrica.
 
 \subsubsection{Funzione coseno}
 \label{subsubsec:insnum_fcoseno}
-Analogamente al seno, sembra una forma di indecisione anche il rapporto
-\(\frac{1-cos \epsilon}{\epsilon}\).
-Ma non è così. Si può dimostrare con considerazioni geometriche che 
+Analogamente al seno, anche il rapporto \(\frac{1-cos \epsilon}{\epsilon}\)
+sembra una forma di indecisione. Ma non è così. 
+Si può dimostrare con considerazioni geometriche che 
 la quantità $(1-\cos x)$ si annulla più rapidamente di quanto non succeda ad 
 $x$ e quindi
 \[
@@ -1218,7 +1251,7 @@ metodi analitici che vedremo in seguito.
 
 \begin{osservazione}
 Se dovessimo stilare una graduatoria di infinitesimi, si dovrebbe dire che 
-che il seno è un'infinitesimo di ordine corrispondente al suo arco e che il coseno
+che il seno è un infinitesimo di ordine corrispondente al suo arco e che il coseno
 (nell'espressione $1-\cos x$) è infinitesimo di un grado superiore rispetto al seno.
 Quindi se l'arco è infinitesimo di primo grado, anche il seno lo è, mentre
 il coseno lo è di secondo grado.\\
