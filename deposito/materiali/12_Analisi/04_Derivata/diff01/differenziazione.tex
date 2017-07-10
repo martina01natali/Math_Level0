@@ -1,12 +1,9 @@
 % (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
+%  Bruno Stecca
+
+\input{\folder lbr/grafici.pgf}
 
 \chapter{Derivate}
-
-\section{TODO}
-
-\section{Differenziale}
-\label{sec:01_esponenziali}
-
 % \begin{wrapfloat}{figure}{r}{0pt}
 % \includegraphics[scale=0.35]{img/fig000_.png}
 % \caption{...}
@@ -15,8 +12,724 @@
 % 
 % \begin{center} \input{\folder lbr/fig000_.pgf} \end{center}
 
+Il problema di determinare la velocità istntanea ci ha portati a conoscere 
+i numeri infinitesimi e, attraverso questi, l'insieme dei numeri iperreali.
+Ora siamo in grado di cercare la risposta alla domanda rimasta in sospeso: 
+come si determina la velocità istantanea?\\
+La risposta, che conosciamo nelle forme moderne, da più di 400 anni,
+propone al nostro studio un nuovo potentissimo strumento di calcolo, adatto a 
+risolvere problemi in ogni ambito scientifico: la derivata.
+
+\section{Velocità di caduta}
+\label{04_diffvelcaduta}
+Nel Settecento fiorirono alcune leggende su Galileo Galilei. Una di queste racconta 
+che per dimostrare che i gravi cadono con la stessa velocità, gettò dalla Torre
+di Pisa due sfere di peso diverso, ma di uguali dimensioni. I due oggetti, come
+oggi possiamo immaginare, raggiunsero il suolo contemporaneamente.\\
+La Torre di Pisa è alta circa $56m$ e immaginiamo, per semplificare, che la 
+distanza percorsa dai due oggetti sia di $56m$ (ti lascio calcolare il 
+percorso effettivo: tieni presente che al giorno d'oggi l'inclinazione della 
+Torre è di $4,8^\circ$).\\
+Oggi sappiamo che un oggetto in caduta libera ha la seguente legge del moto:
+\(s=\frac{1}{2}gt^2\). Come al solito, $s$ è lo spazio in metri, $t$ è il 
+tempo in secondi, $g=9,81 m/s^2$ è l'accelerazione di gravità, costante nei
+pressi della superficie terrestre.\\
+Se cerchiamo la velocità media, basta dividere lo spazio percorso per il tempo
+impiegato:
+
+\begin{align*}
+ & s_{tot} = 56m\\
+ & s =\frac{1}{2}gt^2 \srarrow t_{tot}= \sqrt{\frac{2s_{tot}}{g}}=
+ \sqrt{\frac{2\times 56}{9,81}}=3,36 s.\\
+ & v_m= \frac{s_{tot}}{t_{tot}}=\frac{56 m}{3,36 s}=16,67 m/s,
+\end{align*}
+che corrispondono a circa $60 km/h$ di media.\\
+Ma gli oggetti partono fermi e arrivano velocissimi: 
+è possibile sapere quale è loro velocità in ogni istante? È il momento
+di usare le quantità infinitesime.\\
+Chiamiamo $dt$ un intervallo di tempo infinitesimo, fra due istanti successivi
+$t$ e $t+dt$.
+Lo spazio percorso nella caduta, in quell'intervallo di tempo, applicando la legge del 
+moto, sarà:
+\[
+ ds=\frac{1}{2}g\tonda{t+dt}^2-\frac{1}{2}gt^2=
+ \frac{1}{2}g\tonda{t^2+2tdt+(dt)^2}-\frac{1}{2}gt^2=
+ gtdt+\frac{1}{2}(dt)^2. 
+\]
+Dividendo il tutto per $dt$ si ottiene la velocità istantanea, quella che cambia
+in ogni istante $t$:
+\[
+ v(t)=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt.
+\]
+L'espressione $gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt$ diventa un numero ben
+preciso per ogni valore di $t$, un iperreale finito che è la
+somma di un numero standard e di un numero infinitesimo. 
+Per averne il valore reale, applichiamo la parte standard:
+\[
+ \pst{9,81t+\frac{1}{2}dt}=9,81t
+\]
+Questa è la velocità istantanea che cerchiamo: dipende dal tempo $t$,
+cioè cresce con il passare dei secondi. 
+
+\begin{center}
+\begin{tabular}{cc}\toprule
+$t$ (in $s$) & $v=9,81\times t$ (in $m/s$) \\\midrule
+$0$ & $0$  \\
+$1$ & $9,81\times 1 =9,81$ \\
+$2$ & $9,81\times 2 =19,62$ \\
+... & ... \\
+$3,6$ & $9,81\times 3,36= ...$\\\bottomrule
+\end{tabular}
+\label{tab:diff_velocita}
+\end{center}
+
+La formula $v=9,81\times t$ ci permette il calcolo della velocità per ogni valore di $t$.
+Per quale valore di \(t\) la velocità sarà uguale a quella media? 
+
+
+\section{Continuità}
+\label{04_diffcomtinuità}
+La semplicità dei calcoli precedenti lascia intuire la ragione del successo del
+calcolo con gli infinitesimi.  Questo tipo di calcolo fiorì per 150 anni a 
+partire dall'epoca di Newton e Leibniz. Ma suscitava vivaci polemiche fra
+gli specialisti, perché non si era in grado di spiegare come mai i 
+risultati, espressi attraverso numeri infinitesimi, alla fine diventano numeri
+``di uso comune``.
+Oggi i matematici conoscono meglio la materia e queste difficoltà sono superate.
+Siamo quindi in grado di procedere nello studio dei questa nuova branca della 
+matematica, che si chiama \emph{Analisi infinitesimale}.
+
+\subsubsection{Continuità, intervalli, differenze}
+\label{04_diffcontinterv}
+C'è un punto critico nei ragionamenti svolti a proposito della caduta dei gravi,
+un punto che si dà sempre per scontato in fisica, ma non lo è per i matematici
+e per i logici.\\
+Tutto il ragionamento vale perché si presuppone che il tempo scorra in modo
+uniforme. Se il tempo scorresse a scatti, anche minuscoli, quei calcoli non
+sarebbero possibili. Si dice infatti che il tempo $t$ è una variabile
+continua, cioè assume tutti i valori, dal minimo al massimo, con regolarità,
+senza salti.
+
+\begin{definizione}
+ Una variabile è una grandezza che può assumere valori diversi.
+ L'insieme dei valori possibili costituisce il suo insieme di definizione.
+\end{definizione}
+
+\begin{definizione}
+ Una variabile continua è definita in un intervallo di valori continuo.
+ Le variazioni dei suoi valori possono essere arbitrariamente piccole.
+\end{definizione}
+
+Il più semplice esempio di una variabile continua in matematica è la 
+posizione $x$ sull'asse reale dei numeri. Infatti sappiamo che la retta reale non
+ha buchi. A maggior ragione, è una variabile continua anche la posizione sull'asse 
+degli Iperreali: $x$, con $x\in\IR$. \\
+Viceversa una variabile che pesca i suoi valori in un insieme formato da numeri isolati,
+cioè con differenze finite fra l'uno e l'altro, si dice \emph{variabile discreta}. 
+\begin{definizione}
+ Una variabile discreta assume valori che variano per quantità finite.
+\end{definizione}
+
+Un semplice esempio di variabile discreta è $n, n\in \N$.\\
+Nel calcolo precedente, $t$ varia con continuità da $0$ a $3,6$,
+assumendone tutti i valori, dal minimo al massimo. In matematica si scrive così:
+\(t\in \quadra{0;\ 3,6}\). Le parentesi quadre sono importanti, indicano che gli estremi
+dell'intervallo sono valori possibili, sono inclusi.\\
+I tipi possibili di intervallo sono:
+
+\begin{center}
+\begin{tabular}{ccc}\toprule
+intervallo & sigla & significato\\\midrule
+chiuso &$\intervcc{a}{b}$  & estremi compresi\\
+aperto/chiuso & $\intervac{a}{b}$ & a escluso, b compreso\\
+chiuso/aperto & $\intervca{a}{b}$ & a compreso, b escluso\\
+aperto & $\intervaa{a}{b}$ & estremi esclusi\\\bottomrule
+\end{tabular}
+\label{tab:diff_tipiinterv}
+\end{center}
+
+Tutti i tipi di intervallo precedenti, nella retta reale o iperreale, sono
+continui, a meno di indicazioni diverse. Se un intervallo $\intervcc{a}{b}$ contiene un punto
+(o più punti) di discontinuità, per esempio $d$, allora occorre usare indicazioni
+diverse: $\intervca{a}{d}\cup\intervac{d}{b}$\\ 
+La differenza $a-b$ fra due numeri della retta iperreale $a, b \in \IR$, 
+può essere positiva, negativa o nulla. Indicheremo con $\Delta$ la 
+differenza fra due numeri standard, cioè una differenza finita, mentre, se la 
+differenza è infinitesima, sarà indicata con $\delta$ oppure $\epsilon$
+o altra lettera minuscola dell'alfabeto greco.\\
+In analisi infinitesimale, le differenze infinitesime sono protagoniste.
+
+
+\section{Differenziale}
+\label{sec:diff01_differenziale}
+
+\subsubsection{Parte principale}
+\label{subsubsec:diff01_parteprincipale}
+I risultati dei calcoli che seguono in molti casi hanno la forma di una somma
+fra infinitesimi di ordine diverso, come avviene nel prossimo
+esempio sul differenziale della funzione quadratica
+e più avanti con le funzioni potenza.\\
+In una somma di infinitesimi, gli infinitesimi di
+grado superiore (che sono quelli più vicini allo zero) pesano 
+sul risultato infinitamente meno degli altri: sono più trascurabili.
+Quando in una somma di infinitesimi si trascurano quelli di minor peso,
+si dice che si prende la \emph{parte principale della somma}.
+Lo si può fare perché la somma esatta e quella approssimata sono 
+numeri indistinguibili.
+
+\begin{definizione}
+ Il differenziale è la differenza infinitesimale.
+\end{definizione}
+
+Dato un numero iperreale $x_0\in\IR$, finito oppure infinitesimo, si può scrivere il 
+valore del numero a lui infinitamente vicino: si tratta di $x_0+\epsilon$. La differenza 
+fra i due valori infinitamente vicini è $dx|_{x=x_0}=(x_0+\epsilon)-x_0=\epsilon$.
+È calcolata a partire dal punto $x_0$ e si chiama \emph{differenziale di $x$ nel 
+punto $x_0$}.\\
+La sigla $dx$ (che si legge \emph{de x}) indica la differenza infinitesimale.
+La sigla $dx|_{x=x_0}$ si legge: \emph{de x, per x uguale a x zero}. 
+
+\begin{esempio}
+ Calcola il differenziale della variabile $x$ nel punto $x=-7$. Ripeti poi il 
+ calcolo in altri punti.\\
+  $dx|_{x=-7} =(-7+\epsilon)-(-7)=\epsilon$\\
+  $dx|_{x=7} =(7+\epsilon)-7)=\epsilon$\\
+  $dx|_{x=3} =(3+\epsilon)-3=\epsilon$\\
+  $dx|_{x=\frac{1}{4}} = \tonda{\frac{1}{4}+\epsilon}-\frac{1}{4}=\epsilon$\\
+  $...\quad = \qquad ...$\\
+  $dx|_{x=a}  =(a+\epsilon)-a=\epsilon$\\
+  $dx|_{x=x_0}  =\ ...\ =\epsilon$\\
+  Se il risultato del differenziale è indifferente da $x_0$, allora si evita di 
+  indicare $|_{x=x_0}$: $dx=\epsilon$, $\forall x$. 
+\end{esempio}
+
+\begin{esempio}
+ Calcola il differenziale della variabile $\frac{10}{13}x$ nei punti $x=9$ e 
+ $x=-\frac{1}{5}$.\\
+ $d\tonda{\frac{10}{13}x}|_{x=9}=\quadra{\frac{10}{13}\cdot(9+\epsilon)}-\frac{10}{13}\cdot 9=
+ \frac{10}{13}\epsilon.$\\
+ $d\tonda{\frac{10}{13}x}|_{x=-\frac{1}{5}}=\quadra{\frac{10}{13}\cdot\tonda{-\frac{1}{5}+\epsilon}}-
+ \frac{10}{13}\cdot \tonda{-\frac{1}{5}}= \frac{10}{13}\epsilon.$\\
+ $d\tonda{\frac{10}{13}x}=\frac{10}{13}\epsilon$, $\forall x$.
+ \end{esempio}
+
+Anche se due risultati uguali non bastano per fare una prova, e nemmeno i sei 
+del primo esempio, si può essere sicuri che mille altri tentativi non
+sortirebbero un esito diverso. La prova si ottiene utilizzando $x_0$ 
+(oppure una costante analoga) al posto di un valore numerico.
+
+\begin{osservazione}
+ L'infinitesimo $\epsilon$ potrebbe anche essere negativo. Questo non cambierebbe 
+ il calcolo.\\
+\end{osservazione}
+
+L'uso di un valore numerico al posto di $x_0$ è essenziale per precisare il
+punto a partire dal quale si vuole svolgere il calcolo. Negli esempi precedenti
+tale indicazione è risultata indifferente, ma nella maggior parte dei casi, invece, 
+ha un diretto influsso sul risultato.\\
+
+\begin{esempio}
+ Calcola $df(x)|_{x=5}$, con $f(x)=x^2$. Calcola poi $df(x)|_{x=-5}$ e infine $df(x)|_{x=2}$.
+ \begin{align*} 
+  d(x^2)|_{x=5} & =(5+\epsilon)^2-5^2=25+10\epsilon+\epsilon^2-25=10\epsilon+\epsilon^2\\
+  d(x^2)|_{x=-5}& =(-5+\epsilon)^2-(-5)^2=25-10\epsilon+\epsilon^2-25=-10\epsilon+\epsilon^2\\
+  d(x^2)|_{x=2} & =(2+\epsilon)^2-2^2=4+4\epsilon+\epsilon^2-4=4\epsilon+\epsilon^2\\
+ \end{align*}
+\end{esempio}
+
+
+\begin{osservazione}
+ Non abbiamo fatto alcuna ipotesi su $\epsilon$. Potrebbe essere un infinitesimo positivo 
+ o negativo, potrebbe essere il triplo o il quadrato di un altro infinitesimo. Il risultato 
+ non cambia e ha valore per qualsiasi $\epsilon$.
+\end{osservazione}
+
+
+
+\subsection{Differenziale e funzioni}
+\label{subsec:diff01_difffun}
+Iniziamo a differenziare le funzioni più semplici, in un generico punto $x_0$.
+Se ci accorgeremo che il risultato non dipende da $x_0$, ne trarremo regole
+di carattere generale.\\
+Ma prima di tutto, una precisazione essenziale:
+
+\begin{osservazione}
+ Il differenziale di una funzione è calcolabile solo negli intervalli in cui
+ la funzione è continua.
+\end{osservazione}
+
+\subsubsection{Funzione costante}
+\label{subsec:diff01_diffcostante}
+Se $f(x)=k$, si ha:\\
+$df(x)|_{x=x_0}=f(x_0+\epsilon)-f(x_0)=k-k=0$\\
+Se la funzione è costante il suo differenziale è nullo,
+perché, essendo una funzione costante, i suoi valori non possono cambiare. Resta così 
+dimostrato il seguente
+
+\begin{teorema}
+Il differenziale di una costante è nullo.
+\end{teorema}
+
+grafico y=k con differenziale nullo su asse Y\\
+
+Nel piano cartesiano, la funzione  $y=k$ è una retta orizzontale e, come tutte
+le rette, è una funzione continua. Quindi il risultato non dipende da $x_0$ e
+vale su tutto l'asse iperreale.
+\subsubsection{Funzione identica}
+\label{diffidentica}
+Se $f(x)=x$, allora, banalmente: $df(x)=dx=\epsilon$. Il risultato è
+generale, cioè non dipende da $x_0$. Infatti:\\
+$df(x)|_{x=x_0}=f(x_0+\epsilon)-f(x_0)=(x_0+\epsilon)-x_o=\epsilon$.\\
+È dimostrato così il seguente
+\begin{teorema}
+Il differenziale della funzione identica è $dx=\epsilon$.
+\end{teorema}
+D'ora in poi useremo indifferentemente $dx$ oppure $\epsilon$, dato che
+sono equivalenti.\\
+Il grafico di $f(x)=x$ nel piano cartesiano è dato dalla retta $y=x$. 
+Che significato dobbiamo attribuire a $dy=dx$?
+L'uguaglianza dei due differenziali indica che due punti infinitamente
+vicini sulla retta individuano sugli assi due differenze infinitesime uguali.\\
+
+grafico y=x con uguali differenziali sugli assi\\
+
+Succederebbe la stessa cosa con altre rette, più o meno inclinate passanti o
+non passanti dall'origine?
+
+\subsubsection{Funzione lineare}
+\label{subsec:diff01_flineare}
+
+\begin{esempio}
+ Proviamo a differenziare in $x_0$ la funzione $f(x)=\frac{2}{3}x$.\\
+\( df(x)|_{x=x_0}=\frac{2}{3}(x_0+dx)-\frac{2}{3}x_0=\frac{2}{3}dx\).\\
+Questa volta il grafico della funzione $y=\frac{2}{3}x$ mostra che
+l'incremento infinitesimo dei valori $x$ provoca un incremento corrispondente 
+a $\frac{2}{3}$ sui valori $y$. Il risultato è generale, cioè vale $\forall x_0$.
+\end{esempio}
+\begin{esempio}
+Proviamo con un'altra funzione che ha per grafico una retta: \(f(x)~=~-5x+2\):
+\[
+df(x)|_{x=x_0}= f(x_0+dx)-f(x_0)=[-5(x_0+dx)+2]-(-5x_0+2)=-5x_0-5dx+2+5x_0-2=-5dx
+\]
+Quindi $dy=-5dx, \forall x_0 \in \IR$. 
+\end{esempio}
+
+\begin{teorema}
+ Il differenziale di una funzione lineare $f(x)=mx+q$ è $mdx$, $\forall x\in \IR$.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=mx+q\).\tab Tesi: \(df(x)=mdx\).
+
+\begin{proof}
+\[
+ df(x)|_{x=x_0}= f(x_0+dx)-f(x_0)=[(mx_0+dx)+q]-(mx_0+q)=mx_0+mdx+q-mx_0-q=mdx
+\]
+Poiché nel risultato non compare $x_0$, $df(x)$ non dipende dal punto $x_0$.
+\end{proof}
+
+\subsubsection{Funzione quadratica}
+\label{subsubsec:diff01_diffquad}
+
+\begin{teorema}
+ Il differenziale della funzione quadratica $f(x)=x^2$ è $2xdx+(dx)^2$, $\forall x\in \IR$.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=x^2\).\tab Tesi: \(df(x)=2xdx+(dx)^2\).
+
+\begin{proof}
+\[
+ df(x)|_{x=x_0}= f(x_0+dx)-f(x_0)=(x_0+dx)^2-x_0^2=x_0^2+x_0dx+(dx)^2-x_0^2=2x_0dx+(dx)^2
+\]
+Questa volta nel risultato compare $x_0$. Quindi il valore del differenziale 
+della funzione cambia al cambiare del punto $x_0$ che viene incrementato.
+\end{proof}
+
+
+
+\subsubsection{Funzioni potenza}
+\label{subsubsec:diff01_diffpot}
+Ricaviamo per gradi il differenziale della funzione potenza è $f(x)=x^n$, con
+un procedimento per induzione.\\
+Iniziamo dai casi già noti $f(x)=x$ e $f(x)=x^2$ e esaminiamo i successivi
+aumentando progressivamente l'esponente.
+
+\begin{align*}
+  d(x)=x+dx-x & =dx\\
+  d(x^2)=(x+dx)^2-x^2 & \sim 2xdx\\
+  d(x^3)=(x+dx)^3-x^3 & =[x^3+3x^2dx+3x(dx)^2+(dx)^3]-x^3=
+                      3x^2dx+3x(dx)^2+(dx)^3=\\
+                      &= 3x^2dx+\delta(x)\sim 3x^2dx\\
+  d(x^4)=(x+dx)^4-x^4 & = [x^4+4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4]-x^4=\\
+                      &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4=
+                      4x^3dx+\delta(x)\sim 4x^3dx\\
+  ...                 & ...\\
+  d(x^7)=(x+dx)^7-x^7 & = x^7+7x^6(dx)+21x^5(dx)^2...+21x^2(dx)^5+7x(dx)^6+(dx)^7 - x^6=\\
+  & = x^7+\delta(x)\sim 7x^6dx\\
+  ...                 & ...\\
+  d(x^{10})=(x+dx)^{10}-x^{10} & =x^{10}+10 x^9dx+\ ...\ -x^{10}=
+  \ ...\ =x^{10} +\delta(x)\sim 10 x^9dx      
+\end{align*}
+L'unico risultato esatto è il primo; gli altri si sintetizzano scrivendo $\delta(x)$
+che rappresenta gli infinitesimi di ordine superiore. $\delta(x)$ aggiunge
+delle quantità infinitamente meno importanti del primo addendo.
+A sinistra e a destra dell'ultimo segno di uguale si trovano quindi 
+numeri indistinguibili, cioè le loro differenze non si possono cogliere perché
+sono ''più infinitesime`` di quanto lo sono questi numeri.\\
+
+Ora che il meccanismo è chiaro e possiamo ritenere sufficientemente dimostrato
+il teorema seguente.
+
+\begin{teorema}
+ Il differenziale della funzione potenza $f(x)=x^n$ è $df(x)\sim nx^{n-1}dx$
+\end{teorema}
+
+\begin{osservazione}
+Anche se abbiamo usato solo esponenti interi, si dimostra che 
+la regola vale per qualsiasi esponente reale. Lo puoi verificare nei due casi 
+che seguono, riscrivendo le funzioni come potenze.
+\end{osservazione}
+
+
+\subsubsection{Funzione radice quadrata}
+\label{subsubsec:diff01_diffradq}
+
+\begin{teorema}
+ Il differenziale della funzione radice quadrata $f(x)=\sqrt{x}$ è
+ $\sim\frac{dx}{2\sqrt{x_0}}$, $\forall x\in \IR$, $x\neq 0$.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=\sqrt{x}\).\tab Tesi: \(df(x)\sim\frac{dx}{2\sqrt{x_0}}\).
+
+\begin{proof}
+\begin{align*}
+ df(x)|_{x=x_0} &= f(x_0+dx)-f(x_0)=\sqrt{x_0+dx}-\sqrt{x_0}=\\
+ &=\tonda{\sqrt{x_0+dx}-\sqrt{x_0}}\times\frac{\sqrt{x_0+dx}+
+ \sqrt{x_0}}{\sqrt{x_0+dx}+\sqrt{x_0}}=\\
+ &=\frac{x_0+dx-x_0}{\sqrt{x_0+dx}+\sqrt{x_0}}\sim\frac{dx}{2\sqrt{x_0}}
+\end{align*}
+Anche questa volta il risultato dipende da $x_0$. Si tratta di 
+un risultato indistinguibile dal risultato esatto. L'approssimazione si ottiene
+con le tecniche del capitolo 3.
+\end{proof}
+
+\subsubsection{Funzione reciproca}
+\label{subsubsec:diff01_diffrecip}
+\begin{teorema}
+ Il differenziale della funzione reciproca $f(x)=\frac{1}{x}$ è $-\frac{dx}{x^2}$, 
+ $\forall x\in \IR$, con $x\neq 0$.
+\end{teorema}
+
+\noindent Ipotesi: $f(x)=\frac{1}{x}$.\tab Tesi: $df(x)\sim-\frac{dx}{x^2}$.
+
+\begin{proof}
+\[
+ df(x)|_{x=x_0}= f(x_0+dx)-f(x_0)=\frac{1}{(x_0+dx)}-\frac{1}{x_0}=
+ \frac{x_0-x_0-dx}{x_0(x_0+dx)}=\frac{-dx}{x_0^2+x_0dx}\sim-\frac{dx}{x_0^2}
+\]
+Anche questa volta il valore del differenziale dipende da $x_0$. 
+Per semplicità, teniamo il risultato indistinguibile.
+\end{proof}
+
+\subsubsection{Differenziali problematici}
+\label{subsubsec:diff01_diffproblemi}
+
+Quest'ultimo calcolo ci porta un punto importante: dato che nel risultato
+$x_0$ si trova al denominatore, abbiamo un problema. Che succede se $x_0=0$?
+\begin{esempio}
+ Calcola $df(x)|_{x=0}$, con $f(x)=\frac{1}{x}$.\\
+ $d\tonda{\frac{1}{x}}|_{x=0}=\frac{1}{0+dx}-\frac{1}{0}=$ ?\\
+ La funzione è differenziabile $\forall x$, ma non per $x=0$. Se $x\approx 0$
+ il differenziale diventa la differenza fra due infiniti, una forma di 
+ indecisione che non siamo in grado di risolvere. Il problema viene dal fatto 
+ che in $x=0$, $f(x)$ non è definita.
+\end{esempio}
+
+\begin{esempio}
+Differenzia la funzione $f(x)=\frac{1}{x^2-1}$ per $x_0=1$ e $x_0=-1$.\\
+$d\tonda{\frac{1}{x^2-1}}|_{x=1}=\frac{1}{(x+dx)^2-1}-\frac{1}{x^2-1}=
+\frac{1}{2dx+(dx)^2}-\frac{1}{0}=$?\\
+$d\tonda{\frac{1}{x^2-1}}|_{x=-1}=\frac{1}{(x+dx)^2-1}-\frac{1}{x^2-1}=
+\frac{1}{-2dx+(dx)^2}-\frac{1}{0}=$?\\
+Questa volta i punti critici sono due. Poiché la funzione non è calcolabile
+per $x_0=1$ e $x_0=-1$, non è calcolabile nemmeno il suo differenziale.
+\end{esempio}
+
+Nel piano cartesiano tracciamo il grafico delle funzioni degli ultimi 
+tre esempi: $y=\sqrt{x}$, $y=\frac{1}{x}$ e $y=\frac{1}{x^2-1}$.
+
+GRAFICI NELLO STESSO PIANO CARTESIANO
+\begin{figure}[h]
+\begin{inaccessibleblock}[Grafici di funzioni diverse.]
+ \begin{center}
+\radice
+ \end{center}
+\end{inaccessibleblock}
+\caption{Grafici.} \label{fig:grafici}
+\end{figure}
+
+Si può osservare che $y=\sqrt{x}$, essendo definita per i valori $x\ge 0$, 
+non può essere calcolata per esempio, se $x=-2$ e quindi nemmeno il suo 
+differenziale ha senso in questo punto.\\
+Gli altri due grafici mettono in evidenza questo problema: dove la funzione 
+non è calcolabile, non esiste il punto che rappresenta la funzione nel piano 
+cartesiano reale. Nel piano iperreale, puntando l'infinito con un telescopio,
+non riusciamo a focalizzare la differenza infinitesima fra due valori infiniti
+della funzione.\\
+Consideriamo un tipo diverso di problema.
+
+GRAFICO DI UNA f(x) per casi CON DISCONTINUITA' A SALTO
+\[
+f(x)=\begin{cases} 
+x-1, & \mbox{se }x<2 \\ 
+x+1, & \mbox{se }x\ge 2
+\end{cases}
+\]
+$f(x)$ ha due rami e il grafico compie un salto per $x=2$. Le differenze
+infinitesime calcolate a destra di tale punto saranno diverse da quelle 
+calcolate a sinistra: i differenziali sono calcolabili ma non hanno
+uguali valori. Anche in questo caso $f(x)$ non è differenziabile per $x=2$
+
+\subsubsection{Continuità e funzioni}
+\label{subsubsec:diff01_diffcontinue}
+Il tema della continuità è vasto e importante e viene trattato nei dettagli
+nel prossimo capitolo. Per ora ci limitiamo a considerazioni di carattere intuitivo.\\
+\emph{Se una funzione è continua, ne puoi tracciare il grafico nel piano cartesiano 
+senza staccare la matita dal foglio}. Se ci fosse un punto (o più punti)
+di discontinuità, saresti obbligato a interrompere il disegno e riprenderlo
+da punti vicini.
+\begin{esempio}
+ La funzione $f(x)=x$, che ha per grafico la retta $y=x$ è evidentemente 
+ una funzione continua: puoi tracciarne il grafico senza interruzioni
+ nell'intervallo $(-M,\ M)$. Sono anche continue tutte le funzioni che hanno
+ per grafico una retta, come per esempio $f(x)=-\frac{4}{5}x+9$.\\
+ Quindi anche la funzione costante $f(x)=k$, che ha per grafico una retta
+ orizzontale, è una funzione continua.
+\end{esempio}
+\begin{esempio}
+ La funzione $f(x)=\frac{1}{x}$ è continua ovunque in $\R$que, tranne che per $x=0$.
+ Infatti se $x=0$, $f(x)$ non è calcolabile, quindi nel piano cartesiano 
+ non puoi disegnare un punto  che rappresenta il valore standard 
+ $(0;\ \frac{1}{0})$. Il punto è comunque visibile nel piano iperreale, con un
+ telescopio.
+ \end{esempio}
+\begin{esempio}
+ Per ragioni simili, sono discontinue in uno o più punti le funzioni
+ (algebriche o trascendenti), per le quali occorra specificare condizioni 
+ di esistenza relative a questi punti.
+ Così $f(x)=\frac{1}{x^2-1}$ è discontinua per $x=\pm 1$, mentre 
+ $f(x)=\frac{1}{x^2+1}$ è continua.
+\end{esempio}
+
+Dagli esempi si capisce che \emph{la continuità delle funzioni è una condizione 
+di carattere locale}, cioè per punti. Infatti si possono riconoscere dei punti
+di discontinuità di una funzione, non degli insiemi di discontinuità.
+Se ci si accorge che un punto $(x_0;\ f(x_0)$ è di discontinuità
+per $f(x)$, allora si dice: \emph{$f(x)$ è discontinua per $x=x_0$},
+cioè si indica solo la coordinata $x$ che pone questo problema 
+(non si usa dire: $f(x_0)$ è discontinua).
+\begin{esempio}
+ La funzione $f(x)= \tan x$ è discontinua per $x=\frac{\pi}{2}\pm k\pi$.
+\end{esempio}
+
+\begin{definizione}
+Se una funzione è continua in tutti i punti di un intervallo $\intervcc{a}{b}$,
+allora si dice continua in $\intervcc{a}{b}$.
+\end{definizione}
+\begin{osservazione}
+ Ovviamente la definizione non cambia se l'intervallo è di tipo diverso.
+\end{osservazione}
+
+\begin{esempio}
+ $f(x)=\ln x$ è definita per $x \in (0;\ M)$ ed è ivi continua.
+\end{esempio}
+
+
+\subsection{Combinare differenziali}
+\label{subsec:diff01_combdiff}
+Nella sezione \ref{subsec:diff01_flineare} e in altre ci siamo avvalsi di proprietà
+così naturali che non è stato necessario sottolinearle. Ma è meglio non lasciarcele 
+sfuggire.
+
+\subsubsection{Differenziale del prodotto per una costante}
+\label{}
+\begin{teorema}
+ Se una funzione è moltiplicata per una costante, anche il suo differenziale risulta 
+ moltiplicato per la stessa costante.
+\end{teorema}
+\noindent Ipotesi: $f(x)=a\cdot g(x)$.\tab Tesi: $df(x)=a\cdot dg(x)$.
+
+\begin{proof}
+\[
+ df(x)=d\quadra{a\cdot g(x)}= a\cdot g(x+dx)-a\cdot g(x)=a\cdot\quadra{g(x+dx)-g(x)}
+ =a\cdot dg(x).
+\]
+\end{proof}
+
+\subsubsection{Differenziale di una somma di funzioni}
+\label{}
+
+\begin{teorema}
+ Se una funzione è la somma (la differenza) di due funzioni, anche il suo 
+ differenziale sarà la somma (la differenza) dei due differenziali.
+\end{teorema}
+\noindent Ipotesi: $f(x)=f_1(x)\pm f_2(x)$.\tab Tesi: $df(x)=df_1(x)\pm df_2(x)$.
+
+\begin{proof}
+\begin{align*}
+ df(x)=d[f_1(x)\pm f_2(x)]=[f_1(x+dx)\pm f_2(x+dx)]-[f_1(x)\pm f_2(x)]=\\
+ = [f_1(x+dx)-f_1(x)]\pm [f_2(x+dx)-f_2(x)]= df_1(x)\pm df_2(x)
+\end{align*}
+\end{proof}
+
+\begin{esempio}
+ Un generico polinomio di secondo grado \(f(x)=ax^2+bx+c\) è una
+ funzione quadratica composta di tre termini. 
+ Con le regole precedenti abbiamo: \(f(x)=f_1+f_2+f_3\) e
+ \(df(x)~=~df_1+df_2+df_3\).
+ \begin{itemize} [noitemsep]
+  \item $f_1=ax^2 \sRarrow df_1=2axdx$; 
+  \item $f_2=bx \sRarrow df_2=bdx$
+  \item $f_3=c \sRarrow df_3=0$
+ \end{itemize}
+Quindi $df(x)=2axdx+bdx$. Il grafico della funzione è una parabola generica
+e il differenziale ci dice che l'incremento infinitesimo 
+$dx$ provoca un incremento (o un decremento) variabile sull'asse $Y$, che 
+dipende dal punto $x$ a partire dal quale si calcola $dx$.
+\end{esempio}
+
+Completiamo il quadro delle regole di calcolo con l'esame dei differenziali
+del prodotto e del rapporto di funzioni. Lo studente smart, che si fida un po' 
+troppo delle analogie, potrebbe pensare: ''siccome il differenziale di una 
+somma è la somma dei differenziali e lo stesso avviene per la differenza, 
+succederà una cosa simile anche per il prodotto e per il rapporto``. 
+Per (s)fortuna le cose a volte sono un po' meno smart.
+
+\subsubsection{Differenziale del prodotto di due funzioni}
+\label{}
+Questa volta, al posto della immarcescibile dimostrazione algebrica, ricorriamo
+alla geometria. Immaginiamo che le due funzioni, calcolate in un generico punto $x$,
+esprimano la base e l'altezza di un rettangolo:
+$b(x)$ sarà la base e $h(x)$ sarà l'altezza. L'area ovviamente
+si ottiene da $b(x)\cdot h(x)=\mathit{A}(x)$. 
+Differenziare il prodotto $d\quadra{\mathit{A}(x)}$ vuol dire calcolare di
+quanto aumenta l'area del rettangolo, se i lati subiscono un incremento 
+infinitesimo. 
+
+\begin{osservazione}
+Gli incrementi della base e dell'altezza possono essere 
+diversi, perché $b(x)$ e $h(x)$ sono funzioni diverse, le quali possono
+reagire in modo diverso all'incremento $dx$.
+\end{osservazione}
+
+\begin{teorema}
+ Se una funzione è il prodotto di due funzioni, il suo  differenziale 
+ sarà dato da una somma fra tre prodotti: il differenziale della
+ prima funzione per la seconda più la prima funzione per il differenziale 
+ della seconda più il prodotto dei due differenziali.
+\end{teorema}
+\noindent Ipotesi: $\mathit{A}(x)=b(x)\cdot h(x)$.\qquad 
+Tesi: $d\mathit{A}(x)=db(x)\cdot h(x)+b(x)\cdot dh(x)+ db(x)\cdot dh(x)$.
+
+\begin{proof}
+
+
+DISEGNO RETTANGOLO CON INCREMENTO NEI LATI
+
+L'incremento infinitesimo di area è la zona colorata del disegno. È 
+formato da tre parti:
+\begin{itemize} [noitemsep]
+ \item un rettangolo sottile, verticale e sulla destra, di base $db(x)$ e altezza $h(x)$;
+ \item un rettangolo orizzontale, in alto, di base $b(x)$ e altezza infinitesima $dh(x)$;
+ \item un rettangolino in alto a destra, di area $db(x)\cdot dh(x)$.
+\end{itemize}
+La descrizione geometrica rappresenta bene la tesi e per i nostri scopi è
+una prova sufficiente. 
+\end{proof}
+Facciamo notare che l'ultimo termine è un infinitesimo di ordine
+superiore, quindi il risultato può essere approssimato alla sua parte principale, 
+senza gravi danni.
+
+\subsubsection{Differenziale del rapporto fra due funzioni}
+\label{}
+\begin{teorema}
+ Se una funzione è data dal rapporto fra due funzioni, con il denominatore
+ non nullo, il suo  differenziale si ottiene calcolando:
+ la differenza fra due prodotti (il differenziale del numeratore per il 
+ denominatore meno il numeratore per il differenziale del denominatore)
+ e individendo il risultato per il quadrato del denominatore.
+\end{teorema}
+\noindent Ipotesi: $h(x)=\frac{\mathit{A}(x)}{b(x)}$, con $b(x)\neq 0$.\tab 
+Tesi: $dh(x)=\frac{b(x)d\mathit{A}(x)-\mathit{A}(x)db(x)}{\tonda{b(x)}^2}$.
+
+\begin{proof}
+Ricorriamo alla geometria anche in questo caso.
+
+
+DISEGNO RETTANGOLO CON INCREMENTO NEI LATI
+
+
+Questa volta $\mathit{A}(x)$ fornisce l'area della parte bianca del rettangolo, e quindi
+$\frac{A(x)}{b(x)}=h(x)$ fornisce l'altezza, fissato $x$. Ovviamente si spera che 
+sia $b(x)\neq 0$.\\
+Se cerchiamo $dh(x)$, incremento infinitesimo di altezza, siamo costretti a calcolare
+$d\quadra{\frac{A(x)}{b(x)}}$, differenziale di un rapporto. Guardando il disegno,
+si tratta dell'altezza della fascia superiore colorata, la quale corrisponde a
+tutta la zona colorata, escluso il rettangolo verticale destro, di area $h(x)db(x)$.
+Dunque:
+\begin{align*}
+ dh(x)=d\quadra{\frac{\mathit{A}(x)}{b(x)}}=\frac{\quadra{d\mathit{A}(x)-
+ \frac{\mathit{A(x)}}{b(x)}db(x)}}{b(x)}=
+ \frac{b(x)d\mathit{A}(x)-\mathit{A}(x)db(x)}{\tonda{b(x)}^2}.
+\end{align*}
+\end{proof}
+
+
+\subsubsection{Sintesi della sezione}
+\label{subsubsec:diff01_diffsint}
+Ci siamo limitati a calcolare solo alcuni differenziali elementari, attraverso esempi 
+e dimostrazioni. Manca del tutto la trattazione dei differenziali delle
+funzioni trascendenti. Avremo modo di vedere anche questi nel corso della prossima
+sezione, dove quanto ottenuto fin qui viene utilmente ripreso e ampliato.\\
+\newline
+I risultati che abbiamo visto valgono sotto le ovvie ipotesi
+che si parli di funzioni continue e che i differenziali siano calcolabili
+per tutti i possibili $x$ del dominio di tali funzioni. Unificando i simboli e restando
+all'essenziale, abbiamo:
+\begin{enumerate} [noitemsep]
+ \item $f=k \srarrow df=0$;
+ \item $f=x \srarrow df=dx$;
+ \item $f=x^\alpha \srarrow df\sim\alpha x^{\alpha-1}dx$;\newline
+ \item $d(a\cdot f)=adf$ \tab differenziale del prodotto per una costante;
+ \item $d\tonda{f\pm g}=df\pm dg$ \tab differenziale di una somma o differenza;
+ \item $d(f\cdot g)\sim f\cdot g+f\cdot dg$\tab differenziale del prodotto;
+ \item $d\tonda{\frac{f}{g}}\sim\frac{df\cdot g-f\cdot dg}{g^2}$\tab  differenziale 
+ del rapporto (\(g\ne0\)).
+\end{enumerate}
+dove  $k$, $a$, $\alpha$ rappresentano delle costanti, mentre f e g sono funzioni continue. 
+
+\section{Applicazioni}
+\label{sec:diff01_applicazioni}
+
+Sulla scia delle applicazioni illustrate al termine del Cap.2, esaminiamo alcuni problemi 
+facilmente risolvibili con l'aiuto dei differenziali.
+
+\subsection{Problemi con i differenziali}
+\label{subsec:diff01__problemi}
+
+\begin{esempio}
+ % Triangolo equilatero: h e area
+Un triangolo equilatero ha l'altezza di $8$ cm. Di quanto aumenta il suo perimetro, man mano 
+che aumenta l'altezza? L'aumento è legato alla misura inziale di $h$?\\
+Il perimetro $2p=3l$ e con il Teorema di Pitagora si ha: 
+$h=\sqrt{l^2-\tonda{\frac{l}{2}}^2}=\frac{\sqrt{3}}{2}l$. Quindi $l=\frac{2}{\sqrt{3}}h$
+e $2p=2\sqrt{3}h$. Incrementiamo l'altezza a partire da $h_0=8$ e ricaviamo il perimetro
+corrispondente.\\
+$d(2p)|_{h_0=8}=d\tonda{2\sqrt{3}h}|_{h_0=8}$
+
+\end{esempio}
+
 \section{Derivata}
-\label{sec:02_logaritmiche}
+\label{sec::diff01_derivata}
 
 
 \section{Regole di derivazione}
