@@ -4,6 +4,12 @@
 \input{\folder lbr/grafici.pgf}
 
 \chapter{Derivate}
+
+\section{TODO}
+
+\section{Introduzione}
+\label{}
+
 % \begin{wrapfloat}{figure}{r}{0pt}
 % \includegraphics[scale=0.35]{img/fig000_.png}
 % \caption{...}
@@ -707,8 +713,6 @@ all'essenziale, abbiamo:
 \end{enumerate}
 dove  $k$, $a$, $\alpha$ rappresentano delle costanti, mentre f e g sono funzioni continue. 
 
-\section{Applicazioni}
-\label{sec:diff01_applicazioni}
 
 Sulla scia delle applicazioni illustrate al termine del Cap.2, esaminiamo alcuni problemi 
 facilmente risolvibili con l'aiuto dei differenziali.
@@ -717,17 +721,58 @@ facilmente risolvibili con l'aiuto dei differenziali.
 \label{subsec:diff01__problemi}
 
 \begin{esempio}
- % Triangolo equilatero: h e area
-Un triangolo equilatero ha l'altezza di $8$ cm. Di quanto aumenta il suo perimetro, man mano 
-che aumenta l'altezza? L'aumento è legato alla misura inziale di $h$?\\
-Il perimetro $2p=3l$ e con il Teorema di Pitagora si ha: 
-$h=\sqrt{l^2-\tonda{\frac{l}{2}}^2}=\frac{\sqrt{3}}{2}l$. Quindi $l=\frac{2}{\sqrt{3}}h$
-e $2p=2\sqrt{3}h$. Incrementiamo l'altezza a partire da $h_0=8$ e ricaviamo il perimetro
-corrispondente.\\
-$d(2p)|_{h_0=8}=d\tonda{2\sqrt{3}h}|_{h_0=8}$
+ % Triangolo equilatero: 2p=f(h) 
+Un triangolo equilatero ha l'altezza di $8$ cm. Di quanto aumenta il suo perimetro,
+man mano che aumenta l'altezza? L'aumento è legato alla misura inziale di $h$?\\
+Il perimetro è $2p=3l$ e con il Teorema di Pitagora si ha: 
+$h=\sqrt{l^2-\tonda{\frac{l}{2}}^2}=\frac{\sqrt{3}}{2}l$. Quindi 
+$l=\frac{2}{\sqrt{3}}h$
+e $2p=2\sqrt{3}h$. 
+Incrementiamo l'altezza a partire da $h_0=8$ e ricaviamo il perimetro corrispondente.\\
+$d(2p)|_{h_0=8}=d\tonda{2\sqrt{3}h}|_{h_0=8}=2\sqrt{3}(8+dh)-2\sqrt{3}8=2\sqrt{3}dh$.\\
+Per ogni incremento infinitesimo dell'altezza, il perimetro aumenta di $2\sqrt{3}$.
+Si tratta di un incremento costante, che non dipende dalla misura iniziale
+dell'altezza. Infatti, se si ripete il calcolo scrivendo il simbolo $h_0$ al posto della 
+sua misura $8$, $h_0$ non compare nel risultato.\\
+La soluzione può essere ricavata in modo più diretto, applicando le regole
+4 e 2 della sintesi \ref{subsubsec:diff01_diffsint}.
+
 
 \end{esempio}
 
+\begin{esempio}
+ % Triangolo equilatero: l=f(A)
+Di quanto aumenta il lato di un triangolo equilatero,
+man mano che aumenta la sua area? L'aumento è legato al valore inziale del lato?\\
+Dalla formula dell'area $\mathit{A}=\frac{bh}{2}$ e dall'esempio precedente
+($h=\frac{\sqrt{3}}{2}l$), ricaviamo: $\mathit{A}=\frac{\sqrt{3}}{4}l^2$.\\
+Differenziando, con l'aiuto delle regole 4 e 3 di 
+\ref{subsubsec:diff01_diffsint} abbiamo:\\
+$d\tonda{\mathit{A}}=d\tonda{\frac{\sqrt{3}}{4}l^2}=\frac{\sqrt{3}}{4}d\tonda{l^2}=
+\frac{\sqrt{3}}{4}\tonda{2ldl+(dl)^2}=\frac{\sqrt{3}}{4}\tonda{2l+dl}dl$.\\
+Questa volta la relazione con l'incremento del lato non è elementare: per ogni 
+incremento infinitesimo del lato si ha un incremento di area pari a 
+$\frac{\sqrt{3}}{4}\tonda{2l+dl}$, che dipende dalla misura iniziale del lato
+e dallo stesso incremento. Per gestire il risultato, occorre approssimare
+questo numero all'indistinguibile più vicino:\\
+$d\tonda{\mathit{A}}=\frac{\sqrt{3}}{4}\tonda{2l+dl}dl\sim
+\frac{\sqrt{3}}{2}ldl$.\\
+Da qui, applicando la formula inversa, si ottengono le 
+risposte:
+$dl\sim\frac{2}{\sqrt{3}}\frac{d\tonda{\mathit{A}}}{l}$.
+\begin{osservazione}
+ Una via più diretta per giungere alla soluzione potrebbe essere: \\
+ $\mathit{A}=\frac{\sqrt{3}}{4}l^2\srarrow l=\sqrt{\frac{4}{\sqrt{3}}\mathit{A}}=
+ \frac{2}{\sqrt[4]{3}}\sqrt{\mathit{A}}\srarrow dl=
+ d\tonda{\frac{2}{\sqrt[4]{3}}\sqrt{\mathit{A}}}=
+ \frac{2}{\sqrt[4]{3}}d\tonda{\sqrt{\mathit{A}}}$\\
+ A questo punto dobbiamo momentaneamente fermare il calcolo, perchè 
+ sappiamo come calcolare $d\tonda{\sqrt{x}}$, ma 
+ non sappiamo ancora come calcolare $d\tonda{\sqrt{f(x)}}$. Per farlo, 
+ occorre una conoscenza più approfondita della derivate.
+\end{osservazione}
+
+\end{esempio}
 \section{Derivata}
 \label{sec::diff01_derivata}
 
@@ -735,3 +780,5 @@ $d(2p)|_{h_0=8}=d\tonda{2\sqrt{3}h}|_{h_0=8}$
 \section{Regole di derivazione}
 \label{sec:02_logaritmiche}
 
+\section{Applicazioni}
+\label{sec:diff01_applicazioni}
