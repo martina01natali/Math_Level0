@@ -3,6 +3,7 @@
 
 %--------------------------
 % Inizializza Tikz con unità di misura 5mm, e realizza un disegno:
+
 \newcommand{\disegno}[1]{
   % Esempio di chiamata:
   %% 
@@ -58,7 +59,7 @@
 
 %--------------------------
 % Assi e piano cartesiano
-\newcommand{\asse}[4]{% Asse.
+\newcommand{\asse}[4]{% Asse orizzontale.
   % Esempio di chiamata:
   %% \disegno{\asse{-7}{+7}{0}{\(t\)}
   \def \xmi{#1}
@@ -193,6 +194,7 @@
 
 %--------------------------
 % Funzioni per i grafi delle disequazioni
+
 \newcommand{\cerchietto}[2]{% Cerchietto
   % Esempio di chiamata:
   %% \cerchietto{-5/3}{0}
@@ -266,4 +268,40 @@
   \draw [-] (-\posx, \posv) -- (-\posx, \dimy) node [above] {\primoval};
   \draw [-] (0, \posv) -- (0, \dimy) node [above] {\secondoval};
   \draw [-] (+\posx, \posv) -- (+\posx, \dimy) node [above] {\terzoval};
+}
+
+%--------------------------
+% Funzioni per gli strumenti grafici
+
+\newcommand{\microscopio}[6]{% Microscopio messo sopra.
+  % Esempio di chiamata:
+  % \microscopioa{(8, 5)}{2}{120}{-50}{(7.6, 10)}{\infty}
+  \def \punto{#1}
+  \def \lung{#2}
+  \def \anga{#3}
+  \def \angb{#4}
+  \def \postimes{#5}
+  \def \labeltimes{#6}
+  \draw \punto -- +(\anga: \lung)
+  arc [start angle=\angb, delta angle=350, radius=2] -- cycle;
+  \node at \postimes {\(\times \labeltimes\)};
+}
+
+\tikzset{
+  telescopio/.pic={% Disegna un telescopio non standard
+  % Esempio di chiamata:
+  % \draw (-1, 2) pic [rotate=27, telescopio=\infty] {telescopio};
+  \begin{scope}[ultra thick]
+    \draw [fill=black, rounded corners=2] (5.4, -1.4) rectangle (6.9, -0.4);
+    \draw [rounded corners=2] (1.4, -1.3) rectangle (5.6, -0.5);
+    \draw (0.4, -1.2) rectangle (1.4, -0.6);
+    \draw [fill=white] (0.8, -1.2) circle (0.2);
+    \draw [fill=black, rounded corners=1] 
+      (0.4, -1.3) -- (0.4, -0.5) -- (-0.45, -0.5) -- cycle;
+    \draw (-0.2, -0.5) rectangle (0.2, -0.2);
+    \draw [fill=black, rounded corners=1] (-0.3, -0.2) rectangle (0.3, 0);
+    \draw [-{Stealth[length=2mm, open, round]}] (7.2, -.9) -- (8.2, -.9) 
+      node [right, yshift=1mm] {\(#1\)};
+  \end{scope}
+  }
 }
