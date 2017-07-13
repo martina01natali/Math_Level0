@@ -37,9 +37,37 @@
     \disegnod{4.5}{
     \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
     \tkzInit[xmin=-5.3, xmax=+5.3, ymin=-5.3, ymax=+5.3]
-     \tkzFct[ultra thick, color=Cyan!50!black, domain=-5.3:-1]{1/(x*x-1)}
-     \tkzFct[ultra thick, color=Cyan!50!black, domain=-1:+1]{1/(x*x-1)}
-     \tkzFct[ultra thick, color=Cyan!50!black, domain=+1:+5.3]{1/(x*x-1)}
+    \begin{scope} [ultra thick, color=Cyan!50!black]
+      \tkzFct[domain=-5.3:-1]{1/(x*x-1)}
+      \tkzFct[domain=-1:+1]{1/(x*x-1)}
+      \tkzFct[domain=+1:+5.3]{1/(x*x-1)}
+    \end{scope}
+    }
+}
+
+\newcommand{\differenzialeprodotto}{% rettangolo con gnomone
+  \def \xa{0}
+  \def \ya{0}
+  \def \xb{8}
+  \def \yb{6}
+  \def \d{2}
+  \def \xc{\xb+\d}
+  \def \yc{\yb+\d}
+
+  \disegno{
+    \fill [Cyan!50] 
+      (\xb, \yb) -- (\xc, \yb) -- (\xc, \yc) -- (\xb, \yc) -- cycle;
+    \draw (\xa, \ya) node [below] {$0$} node [left] {$0$} -- 
+    (\xb, \ya) node [below] {$a$} -- 
+    (\xc, \ya) node [below] {$a + \Delta$} --
+    (\xc, \yc) -- 
+    (\xa, \yc) node [left] {$b + \Delta$} -- 
+    (\xa, \yb) node [left] {$b$} -- cycle;
+    \draw (\xb, \ya) -- (\xb, \yc) (\xa, \yb) -- (\xc, \yb);
+    \draw (\xb / 2, \yb / 2) node {$a \times b$};
+    \draw (\xb / 2, \yb + \d / 2) node {$a \times \Delta$};
+    \draw (\xb + \d / 2, \yb / 2) node [rotate=90] {$b \times \Delta$};
+    \draw (\xb + \d / 2, \yb + \d / 2) node {$\Delta ^2$};
     }
 }
 
