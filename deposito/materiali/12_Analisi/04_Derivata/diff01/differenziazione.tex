@@ -463,17 +463,21 @@ tre esempi: $y=\sqrt{x}$, $y=\frac{1}{x}$ e $y=\frac{1}{x^2-1}$.
 \begin{inaccessibleblock}[Grafici di funzioni diverse.]
  \begin{center}
  \begin{minipage}[]{.23 \textwidth}
-  \vspace*{4mm} \radice
+  \vspace*{4mm} 
+  \radice
+  \caption{$y=\sqrt{x}$}
  \end{minipage} 
  \begin{minipage}[]{.37 \textwidth}
   \iperbole
+  \caption{$y=\frac{1}{x}$}
  \end{minipage} 
  \begin{minipage}[]{.37 \textwidth}
   \iperbolequad
+  \caption{$y=\frac{1}{x^2-1}$}
  \end{minipage}
  \end{center}
 \end{inaccessibleblock}
-\caption{Grafici.} \label{fig:grafici}
+\label{fig:diff01_grafici}
 \end{figure}
 
 Si può osservare che $y=\sqrt{x}$, essendo definita per i valori $x\ge 0$, 
@@ -483,20 +487,37 @@ Gli altri due grafici mettono in evidenza questo problema: dove la funzione
 non è calcolabile, non esiste il punto che rappresenta la funzione nel piano 
 cartesiano reale. Nel piano iperreale, puntando l'infinito con un telescopio,
 non riusciamo a focalizzare la differenza infinitesima fra due valori infiniti
-della funzione.\\
+della funzione.
+\newpage
 Consideriamo un tipo diverso di problema.
 
-GRAFICO DI UNA f(x) per casi CON DISCONTINUITA' A SALTO
+\begin{figure}[h]
+\begin{inaccessibleblock}
+  [Discontinuità a salto]
+ \begin{center}
+ \begin{minipage}[]{.38 \textwidth}
+  \salto
+  \caption{Discontinuità a salto.}
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.58 \textwidth}
 \[
 f(x)=\begin{cases} 
 x-1, & \mbox{se }x<2 \\ 
 x+1, & \mbox{se }x\ge 2
 \end{cases}
 \]
-$f(x)$ ha due rami e il grafico compie un salto per $x=2$. Le differenze
+$f(x)$ ha due rami e il grafico compie un salto per $x~=~2$. Le differenze
 infinitesime calcolate a destra di tale punto saranno diverse da quelle 
 calcolate a sinistra: i differenziali sono calcolabili ma non hanno
 uguali valori. Anche in questo caso $f(x)$ non è differenziabile per $x=2$
+ \end{minipage}
+ \end{center}
+\end{inaccessibleblock}
+
+\label{fig:diff01_salto}
+\end{figure}
+
 
 \subsubsection{Continuità e funzioni}
 \label{subsubsec:diff01_diffcontinue}
@@ -515,7 +536,7 @@ da punti vicini.
  orizzontale, è una funzione continua.
 \end{esempio}
 \begin{esempio}
- La funzione $f(x)=\frac{1}{x}$ è continua ovunque in $\R$que, tranne che per $x=0$.
+ La funzione $f(x)=\frac{1}{x}$ è continua ovunque in $\R$, tranne che per $x=0$.
  Infatti se $x=0$, $f(x)$ non è calcolabile, quindi nel piano cartesiano 
  non puoi disegnare un punto  che rappresenta il valore standard 
  $(0;\ \frac{1}{0})$. Il punto è comunque visibile nel piano iperreale, con un
@@ -532,7 +553,7 @@ da punti vicini.
 Dagli esempi si capisce che \emph{la continuità delle funzioni è una condizione 
 di carattere locale}, cioè per punti. Infatti si possono riconoscere dei punti
 di discontinuità di una funzione, non degli insiemi di discontinuità.
-Se ci si accorge che un punto $(x_0;\ f(x_0)$ è di discontinuità
+Se ci si accorge che un punto $(x_0;\ f(x_0))$ è di discontinuità
 per $f(x)$, allora si dice: \emph{$f(x)$ è discontinua per $x=x_0$},
 cioè si indica solo la coordinata $x$ che pone questo problema 
 (non si usa dire: $f(x_0)$ è discontinua).
@@ -618,7 +639,7 @@ Per (s)fortuna le cose a volte sono un po' meno smart.
 Questa volta, al posto della immarcescibile dimostrazione algebrica, ricorriamo
 alla geometria. Immaginiamo che le due funzioni, calcolate in un generico punto $x$,
 esprimano la base e l'altezza di un rettangolo:
-$b(x)$ sarà la base e $h(x)$ sarà l'altezza. L'area ovviamente
+$b(x)=b$ sarà la base  e $h(x)=h$ sarà l'altezza . L'area ovviamente
 si ottiene da $b(x)\cdot h(x)=\mathit{A}(x)$. 
 Differenziare il prodotto $d\quadra{\mathit{A}(x)}$ vuol dire calcolare di
 quanto aumenta l'area del rettangolo, se i lati subiscono un incremento 
@@ -638,12 +659,13 @@ reagire in modo diverso all'incremento $dx$.
 \end{teorema}
 \noindent Ipotesi: $\mathit{A}(x)=b(x)\cdot h(x)$.\qquad 
 Tesi: $d\mathit{A}(x)=db(x)\cdot h(x)+b(x)\cdot dh(x)+ db(x)\cdot dh(x)$.
+
 \begin{figure}[h]
 \begin{inaccessibleblock}
   [Rettangolo con uno gnomone finito e rettangolo con gnomone infinitesimo.]
  \begin{center}
  \begin{minipage}[]{.38 \textwidth}
-  \vspace{22mm} \incrementaleprodotto
+  \vspace{27mm} \incrementaleprodotto
  \end{minipage} 
  \hfill
  \begin{minipage}[]{.58 \textwidth}
@@ -651,32 +673,35 @@ Tesi: $d\mathit{A}(x)=db(x)\cdot h(x)+b(x)\cdot dh(x)+ db(x)\cdot dh(x)$.
  \end{minipage}
  \end{center}
 \end{inaccessibleblock}
-\caption{Grafici.} \label{fig:grafici}
+\caption{Incrementi finito e infinitesimo dell'area di un rettangolo} 
+\label{fig:Incre_prodotto}
 \end{figure}
 
 \begin{proof}
 L'incremento infinitesimo di area è la zona colorata del disegno. È 
 formato da tre parti:
 \begin{itemize} [noitemsep]
- \item un rettangolo sottile, verticale e sulla destra, di base $db(x)$ e altezza $h(x)$;
- \item un rettangolo orizzontale, in alto, di base $b(x)$ e altezza infinitesima $dh(x)$;
- \item un rettangolino in alto a destra, di area $db(x)\cdot dh(x)$.
+ \item un rettangolo sottile, verticale e sulla destra, di base
+ infinitesima $db(x)$ e altezza $h(x)$;
+ \item un rettangolo orizzontale, in alto, di base $b(x)$ e
+ altezza infinitesima $dh(x)$;
+ \item un rettangolino in alto a destra, di area $db(x) dh(x)$.
 \end{itemize}
 La descrizione geometrica rappresenta bene la tesi e per i nostri scopi è
 una prova sufficiente. 
 \end{proof}
-Facciamo notare che l'ultimo termine è un infinitesimo di ordine
-superiore, quindi il risultato può essere approssimato alla sua parte principale, 
-senza gravi danni.
+Dato che l'ultimo termine è un infinitesimo di ordine
+superiore, il risultato può essere approssimato alla sua parte principale, 
+senza gravi danni: $d\mathit{A}(x)\sim db(x)\cdot h(x)+b(x)\cdot dh(x)$ .
 
 \subsubsection{Differenziale del rapporto fra due funzioni}
 \label{}
 \begin{teorema}
  Se una funzione è data dal rapporto fra due funzioni, con il denominatore
- non nullo, il suo  differenziale si ottiene calcolando:
+ non nullo, il suo  differenziale si ottiene calcolando
  la differenza fra due prodotti (il differenziale del numeratore per il 
  denominatore meno il numeratore per il differenziale del denominatore)
- e individendo il risultato per il quadrato del denominatore.
+ e dividendo il risultato per il quadrato del denominatore.
 \end{teorema}
 \noindent Ipotesi: $h(x)=\frac{\mathit{A}(x)}{b(x)}$, con $b(x)\neq 0$.\tab 
 Tesi: $dh(x)=\frac{b(x)d\mathit{A}(x)-\mathit{A}(x)db(x)}{\tonda{b(x)}^2}$.
@@ -684,17 +709,33 @@ Tesi: $dh(x)=\frac{b(x)d\mathit{A}(x)-\mathit{A}(x)db(x)}{\tonda{b(x)}^2}$.
 \begin{proof}
 Ricorriamo alla geometria anche in questo caso.
 
-
-DISEGNO RETTANGOLO CON INCREMENTO NEI LATI
-
-
-Questa volta $\mathit{A}(x)$ fornisce l'area della parte bianca del rettangolo, e quindi
-$\frac{A(x)}{b(x)}=h(x)$ fornisce l'altezza, fissato $x$. Ovviamente si spera che 
-sia $b(x)\neq 0$.\\
-Se cerchiamo $dh(x)$, incremento infinitesimo di altezza, siamo costretti a calcolare
+\begin{figure}[h]
+\begin{inaccessibleblock}
+  [Altezza rettangolo con gnomone infinitesimo.]
+ \begin{center}
+ \begin{minipage}[]{.38 \textwidth}
+ % \vspace{27mm} \incrementaleprodotto
+Questa volta, data $\mathit{A}(x)=b(x)\times h(x)$, 
+$\frac{A(x)}{b(x)}=h(x)$ fornisce l'altezza $h$, fissato $x$. 
+Ovviamente si spera che sia $b(x)\neq 0$.\\
+Se cerchiamo $dh(x)=dh$, incremento infinitesimo di altezza, siamo costretti a calcolare
 $d\quadra{\frac{A(x)}{b(x)}}$, differenziale di un rapporto. Guardando il disegno,
-si tratta dell'altezza della fascia superiore colorata, la quale corrisponde a
-tutta la zona colorata, escluso il rettangolo verticale destro, di area $h(x)db(x)$.
+si tratta dell'altezza della fascia superiore colorata,
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.58 \textwidth}
+  \differenzialerapporto
+  \caption{Incremento infinitesimo dell'altezza} 
+ \end{minipage}
+ \end{center}
+\end{inaccessibleblock}
+\label{fig:Incre_prodotto}
+\end{figure}
+
+
+\noindent la quale corrisponde allo
+gnomone infinitesimo $d\mathit{A}$, escluso il rettangolo destro infinitesimo,
+di area $h\cdot db$.
 Dunque:
 \begin{align*}
  dh(x)=d\quadra{\frac{\mathit{A}(x)}{b(x)}}=\frac{\quadra{d\mathit{A}(x)-
@@ -702,6 +743,11 @@ Dunque:
  \frac{b(x)d\mathit{A}(x)-\mathit{A}(x)db(x)}{\tonda{b(x)}^2}.
 \end{align*}
 \end{proof}
+
+\begin{osservazione}
+ Si chiama gnomone la figura, a forma di L rovesciata, che rappresenta la crescita
+ dell'area di un rettangolo.
+\end{osservazione}
 
 
 \subsubsection{Sintesi della sezione}
@@ -750,8 +796,6 @@ dell'altezza. Infatti, se si ripete il calcolo scrivendo il simbolo $h_0$ al pos
 sua misura $8$, $h_0$ non compare nel risultato.\\
 La soluzione può essere ricavata in modo più diretto, applicando le regole
 4 e 2 della sintesi \ref{subsubsec:diff01_diffsint}.
-
-
 \end{esempio}
 
 \begin{esempio}
@@ -798,38 +842,70 @@ grafici nel piano cartesiano. Iniziamo dai grafici più semplici.
 \subsection{Pendenza di una retta}
 \label{subsec:diff01_pendretta}
 GRAFICO DI 4 RETTE INCLINATA (m>0, m<0, m=0, m=inf.)
+
+\begin{figure}[h]
+\begin{inaccessibleblock}[pendenza di una retta.]
+ \begin{center}
+ \begin{minipage}[]{.23 \textwidth}
+  \vspace*{4mm} 
+  \rettadueterzi
+  \caption{$y=\frac{2}{3}x-1$}
+ \end{minipage} 
+ \begin{minipage}[]{.37 \textwidth}
+  \rettadueterzi%  \rettamenounquarto
+  \caption{$y=-\frac{1}{4}x+1$}
+ \end{minipage} 
+ \begin{minipage}[]{.37 \textwidth}
+  \rettadueterzi % \retteorizvert
+  \caption{o: $y=3$; v: $x=-2$}
+ \end{minipage}
+ \end{center}
+\end{inaccessibleblock}
+\label{fig:diff01_ret}
+\end{figure}
+
+
 Sappiamo già calcolare la pendenza di una retta dalla semplice osservazione 
 del suo grafico: si fissano sulla retta due punti $A(x_A; y_A)$ e $B(x_B; y_B)$
-e si calcola il rapporto $m=\frac{y_B-y_A}{x_B-x_A}$. Se vogliamo dare una
-spiegazione al calcolo, è come se si volesse misurare la distanza verticale
-fra i due punti con l'unità di misura data dalla loro distanza orizzontale. 
+e si calcola il rapporto $m=\frac{y_B-y_A}{x_B-x_A}$.\\
+È come se si volesse misurare la distanza verticale
+fra i due punti usando la loro distanza orizzontale come unità di misura . 
 Nel caso della retta $r$, $m=\frac{3}{2}$ e si potrebbe dire: ''un punto che si 
-muove sulla retta guadagna (perde) in verticale $1,5$ volte rispetto a 
-quanto guadagna (perde) in orizzontale.\\
-Così per la retta $s$, che è orizzontale, è chiarissimo che in altezza
-non c'è alcuna variazione, e per questo $m=0$, mentre al contrario per la
-retta $t$, verticale, le variazioni sono solo verticali e la pendenza è
+muove sulla retta, se si sposta di un quadretto in orizzontale
+ne guadagna (o perde) uno e mezzo in verticale.\\
+Così per la retta $o$, che è orizzontale, è in verticale
+non c'è alcuna variazione e per questo $m=0$; al contrario per la
+retta $v$, verticale, le variazioni sono solo verticali e la pendenza è
 infinita.\\
 Sintetizziamo la formula come rapporto fra differenze:
-$m=\frac{y_B-y_A}{x_B-x_A}=\frac{\Delta y}{\Delta x}$. Il nome $m$ che 
-le attribuiamo ricorda l'equazione di una retta generica in forma esplicita
-$y=mx+q$, dove $m$ rappresenta il coefficiente angolare, cioè l'inclinazione
-o pendenza.\\
-C'è un fatto importante: per calcolare la pendenza di una retta, 
-la scelta dei due punti è indifferente. Possono essere molto vicini o molto 
-lontani, ma $m=\frac{\Delta y}{\Delta x}$ resta costante, come è giusto
-che sia per una retta.\\
-Le indicazioni con  la lettera maiuscola $\Delta$ ($\Delta x$, $\Delta y$),
-si riferiscono a \emph{quantità finite}
-cioè a numeri standard, secondo l'uso già visto nel capitolo precedente.
+$m=\frac{y_B-y_A}{x_B-x_A}=\frac{\Delta y}{\Delta x}$. Il simbolo $m$ 
+ci riporta all'equazione di una retta generica in forma esplicita
+$y=mx+q$, dove $m$ rappresenta appunto il coefficiente angolare, cioè 
+l'inclinazione o pendenza.
+\begin{osservazione}
+Secondo l'uso del capitolo precedente, le indicazioni con la lettera
+maiuscola $\Delta$ ($\Delta x$, $\Delta y$) si riferiscono a \emph{quantità finite}
+cioè a numeri standard.
+\end{osservazione}
 
 \subsubsection{Rapporto incrementale}
 \label{subsubsec:diff01_rappincr}
+C'è un fatto importante: per calcolare la pendenza di una retta, 
+la scelta dei due punti è indifferente. Possono essere molto vicini o molto 
+lontani, o anche scambiati l'uno con l'altro, ma $m=\frac{\Delta y}{\Delta x}$
+resta costante, come è giusto che sia per una retta.
+Da $x_B+x_A=\Delta$ ricaviamo banalmente $x_B=x_A+\Delta x$, cioè nel piano cartesiano
+$B$ si colloca a destra (se $\Delta \ge 0 x$ di $A$ di una quantità finita,
+grande o piccola che sia, senza che per questo il risultato di $m$ possa cambiare.
 
-Se fossero vicinissimi. $x_B=x_A+\Delta x$ quantità finite
-Il rapporto differenziale\\
-la derivata\\
+\subsubsection{Rapporto differenziale}
+\label{subsubsec:diff01_rappdiff}
 
+\subsection{Derivata}
+\label{subsec:diff01_deriv}
+\begin{definizione}
+derivata $=\pst{}$
+\end{definizione}
 
 \section{Regole di derivazione}
 \label{sec:diff02_regolederivate}
