@@ -148,56 +148,123 @@
     }
 }
 
-
-\newcommand{\rettadueterzi}{% m=2/3.
+\newcommand{\rettadueterzi}{% m=3/2.
     \disegnod{4.5}{
-    \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-5.3, xmax=+5.3, ymin=-5.3, ymax=+5.3]
-    \tkzFct[ultra thick, color=Maroon!50!black, domain=-5.3:1.95]{1.5*x-1}
-      \filldraw (2, 3) circle (1.2pt);
-      \draw (2, 1) circle (1.2pt);
+    \rcom{-4}{+4}{-4}{+4}{gray!50, very thin, step=1}
+ % rapp.incrementale   
+    \filldraw (2, 2) circle (1.2pt)
+              (3, 3.5) circle (1.2pt)
+              (2.5, -1.1) node [rotate=90]{$\Delta x=1$}
+              (0, 2.75) node [left]{$\Delta y=\frac{3}{2}$}    
+              (-4, 1) node [right]{$\frac{\Delta y}{\Delta x}=
+              \frac{\frac{3}{2}}{1}=\frac{3}{2}$};
+     \fill [Cyan!50] 
+      (0, 2) -- (0, 3.5) -- 
+      (3, 3.5) -- (2, 2) -- cycle;
+     \fill [Cyan!50] 
+      (2, 0) -- (3, 0) -- 
+      (3, 3.5) -- (2, 2) -- cycle;     
+%retta
+    \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-4.3, ymax=4.3]
+    \tkzFct[ultra thick, color=Maroon!50!black, domain=-4.3:4.3]{1.5*x-1}
     }
 }
 
-\newcommand{rettamenounquarto}{% m=-1/4 
-     \disegnod{4.5}{
-     \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
-     \tkzInit[xmin=-5.3, xmax=+5.3, ymin=-5.3, ymax=+5.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-5.3:1.95]{-0.25*x+3}
-      \filldraw (2, 3) circle (1.2pt);
-      \draw (2, 1) circle (1.2pt);
-     }
+\newcommand{\rettamenounquarto}{% retta con m=-1/4.
+    \disegnod{4.5}{
+    \rcom{-4}{+4}{-4}{+4}{gray!50, very thin, step=1}
+% rapp.incrementale
+    \fill [Cyan!50] 
+      (-4, 1.5) -- (0, 1.5) -- 
+      (0, 1) -- (-2, 1) -- cycle;
+    \draw (-0.5, 1.25)[Black!, right]node {$\Delta y=\frac{-1}{2}$}; 
+    \fill [Cyan!50] 
+      (-4, 1.5) -- (-4, 0) -- 
+      (-2, 0) -- (-2, 1) -- cycle;
+    \draw (-3, -1.2) node [Black!, rotate=90] {$\Delta x=2$};    
+    \filldraw [color=Black!50!black]
+              (-4, 1.5) circle (1.2pt)
+              (-2, 1) circle (1.2pt)
+              (-4, 2.5) node [right]{$\frac{\Delta y}{\Delta x}=
+              \frac{\frac{-1}{2}}{2}=\frac{-1}{4}$};
+% retta              
+    \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-4.3, ymax=+4.3]
+    \tkzFct[ultra thick, color=Maroon!50!black, domain=-4.3:4.3]{-.25*x+.5}              
+    }
 }
 
-% \newcommand{retteorizvert}{% m=0, m=inf.
-%     \disegnod{4.5}{
-%     \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
-%     \tkzInit[xmin=-5.3, xmax=+5.3, ymin=-5.3, ymax=+5.3]
-%      \tkzFct[ultra thick, color=Maroon!50!black, domain=-5.3:1.95]{-.25*x+3}
-%      \tkzFct[ultra thick, color=Maroon!50!black, domain=2:+5.3]{x+1}
-%      \filldraw (2, 3) circle (1.2pt);
-%       \draw (2, 1) circle (1.2pt);
-%     }
-% }
+\newcommand{\retteorvert}{% m=0, m=inf.
+    \disegnod{4.5}{
+    \rcom{-4}{+4}{-4}{+4}{gray!50, very thin, step=1}
+        \draw [ultra thick, color=Maroon!50!black]
+          (-4.3, -1.5) -- (4.3, -1.5);
+    \draw [ultra thick, color=Green!50!black]
+          (-2.8, -4.3) -- (-2.8, 4.3);
+    \filldraw [color=Black!50!black]
+              (-2.8, 3.5) circle (1.2pt)
+              (-2.8, 2.5) circle (1.2pt)
+              (0, 3) node {$\frac{\Delta y}{\Delta x}=\frac{1}{0}=\infty$};
+    \filldraw (-1, -1.5) circle (1.2pt)
+              (-2, -1.5) circle (1.2pt)
+              (-1.5, -2) node  {$\frac{\Delta y}{\Delta x}=\frac{0}{1}=0$};
+    \filldraw (1.5, -1.5) circle (1.2pt)
+              (3.5, -1.5) circle (1.2pt)        
+              (2.5, -0.8) node {$\frac{\Delta y}{\Delta x}=\frac{0}{2}=0$};
+    }
+}
 
 
-% \newcommand{\logduebasi}{% 
-%     % Esponenziali con basi diverse.
-%     \disegno{
-%     \rcom{-1}{+10}{-9}{9}{gray!50, very thin, step=1.0}
-%     \begin{scope}[ultra thick, color=Maroon!50!black]
-%       \tkzInit[xmin=-1., xmax=+80, xstep=1., ymin=-10.3,ymax=+10.3]
-%       \tkzFct[domain=.003:+10]{log(x)/log(2)}
-%       \filldraw (2, 1) circle (1.2pt);
-%       \begin{scope}[ultra thick, color=Green!50!black]
-%         \tkzFct[domain=.003:+10]{log(x)/log(1./2)}
-%         \filldraw (2, -1) circle (1.2pt);
-%       \end{scope}
-%     \end{scope}
-%     \begin{scope}[color=black]
-%       \draw (9.5, 2.8) node{a=2}; 
-%       \draw (9.5, -2.8) node{a=0.5};
-%     \end{scope}
-%       \filldraw [color=Red] (1,0) circle (1.2pt);
-%     }
-% }
+\newcommand{\curvacubica}{% 
+    % Rapporti incre. a una curva.
+    \disegno{
+    \rcom{-4}{+4}{-4}{6}{gray!50, very thin, step=1.0}
+    \fill [Cyan!50] 
+      (-3.6, 5) -- (-2, 2) -- (-3.6, 2) -- cycle
+      (-2, 2) -- (-2, 3) -- (0, 3) -- cycle
+      (0, 3) -- (2.35, 3.8) -- (2.35, 3) -- cycle
+      (2.35, 3.8) -- (3.6, 3.8) -- (3.6, 1) -- cycle;
+    \filldraw [color=Black] 
+      (-3.6, 5) circle (1.2pt)  node [right] {A}
+      (-2, 2) circle (1.2pt)    node [below] {B}
+      (0, 3) circle (1.2pt)     node [above] {C}
+      (2.35, 3.8) circle (1.2pt) node [above] {D}
+      (3.6, 1) circle (1.2pt)  node [left] {E};
+    \begin{scope}[ultra thick, color=Maroon!50!black]
+      \tkzInit[xmin=-4., xmax=+4, xstep=1., ymin=-5,ymax=8]
+      \tkzFct[domain=-4:+4]{-.12*x*x*x+x+3}
+    \end{scope}  
+    }
+}
+
+\newcommand{\secanticubica}{% 
+    % secanti a una cubica.
+    \disegno{
+    \rcom{-4}{+4}{-4}{6}{gray!50, very thin, step=1.0}
+%     \fill [Cyan!50] 
+%       (-3.6, 5) -- (-2, 2) -- (-3.6, 2) -- cycle
+%       (-2, 2) -- (-2, 3) -- (0, 3) -- cycle
+%       (0, 3) -- (2.35, 3.8) -- (2.35, 3) -- cycle
+%       (2.35, 3.8) -- (3.6, 3.8) -- (3.6, 1) -- cycle;
+    \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-4.3, ymax=+6.3]
+    \tkzFct[thick, color=Cyan!50!black, domain=-4.3:4.3]{-1.9*x-1.8}   
+    \tkzFct[thick, color=Cyan!50!black, domain=-4.3:4.3]{0.5*x+3} 
+    \tkzFct[thick, color=Cyan!50!black, domain=-4.3:4.3]{0.33*x+3} 
+    \tkzFct[thick, color=Cyan!50!black, domain=-4.3:4.3]{-2.32*x+9.3} 
+  
+   \filldraw [color=Black] 
+      (-3.6, 5) circle (1.2pt)  node [right] {A}
+      (-2, 2) circle (1.2pt)    node [below] {B}
+      (0, 3) circle (1.2pt)     node [above] {C}
+      (2.35, 3.8) circle (1.2pt) node [above] {D}
+      (3.6, 1) circle (1.2pt)  node [left] {E};
+    \begin{scope}[ultra thick, color=Maroon!50!black]
+      \tkzInit[xmin=-4., xmax=+4, xstep=1., ymin=-5,ymax=8]
+      \tkzFct[domain=-4:+4]{-.12*x*x*x+x+3}
+    \end{scope}  
+    }
+}
+
+
+
+
+
