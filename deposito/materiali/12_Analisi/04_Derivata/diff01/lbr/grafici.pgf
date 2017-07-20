@@ -1,4 +1,5 @@
-% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+﻿% (c) 2017 Bruno Stecca
+% (c) 2017 Daniele Zambelli - daniele.zambelli@gmail.com
 % 
 % Tutti i grafici per il capitolo relativo alle derivate
 % 
@@ -71,10 +72,12 @@
     (\xa, \yc) node [left] {$h + \Delta h$} -- 
     (\xa, \yb) node [left] {$h$} -- cycle;
     \draw (\xb, \ya) -- (\xb, \yc) (\xa, \yb) -- (\xc, \yb);
-    \draw (\xb / 2, \yb / 2) node {$b \times h$};
-    \draw (\xb / 2, \yb + \dy / 2) node {$b \times \Delta h$};
-    \draw (\xb + \dx / 2, \yb / 2) node [rotate=90] {$\Delta b \times h$};
-    \draw (\xb + \dx / 2, \yb + \dy / 2) node {$\Delta b\times\Delta h$};
+    \draw (\xb / 2, \yb / 2) node {$b \cdot h$};
+    \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
+	    \draw (\xb / 2, \yb + \dy / 2) node {$b \cdot \Delta h$};
+	    \draw (\xb + \dx / 2, \yb / 2) node [rotate=90] {$\Delta b \cdot h$};
+	    \draw (\xb + \dx / 2, \yb + \dy / 2) node {$\Delta b \cdot \Delta h$};
+    \end{scope}
     }
 }
 
@@ -95,22 +98,22 @@
     \microscopio{(\xb, \yb)}{2}{120}{-50}{(\xb, 9)}{10^9}
     \draw (.3*\xb, 1.82*\yb) -- (0.65*\xb, 1.82*\yb) -- (0.65*\xb, 1.36*\yb);
     \microscopio{(\xb, \yb)}{2}{30}{240}{(1.85*\xb, 8)}{\infty}
-%     \fill [Cyan!50] 
-%       (1.54*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb) -- 
-%       (1.6*\xb, 1.75*\yb) -- (1.54*\xb, 1.75*\yb) -- cycle;
     \fill [Cyan!50] 
-      (1.12*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb) -- 
-      (1.6*\xb, 1.75*\yb) -- (1.12*\xb, 1.75*\yb) -- cycle;
-    \fill [Cyan!50] 
-      (1.54*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb) -- 
-      (1.6*\xb, 1.25*\yb) -- (1.54*\xb, 1.2*\yb) -- cycle;  
-    \draw (1.12*\xb, 1.75*\yb) -- (1.6*\xb, 1.75*\yb)
-          (1.12*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb)
-          (1.54*\xb, 1.75*\yb) -- (1.54*\xb, 1.2*\yb)
-          (1.6*\xb, 1.75*\yb) -- (1.6*\xb, 1.25*\yb);
-    \draw (1.35*\xb, 1.72*\yb) node {$b\cdot dh$};
-    \draw (1.55*\xb, 1.4*\yb) node [rotate=90] {$db \cdot h$};
-    \draw (1.76*\xb, 1.72*\yb) node {$db dh$};   
+      (1.12*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb) -- 
+      (1.65*\xb, 1.8*\yb) -- (1.12*\xb, 1.8*\yb) -- cycle;
+     \fill [Cyan!50] 
+      (1.51*\xb, 1.65*\yb) -- (1.65*\xb, 1.65*\yb) -- 
+      (1.65*\xb, 1.27*\yb) -- (1.51*\xb, 1.2*\yb) -- cycle;  
+    \draw (1.12*\xb, 1.8*\yb) -- (1.65*\xb, 1.8*\yb)
+          (1.12*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb)
+          (1.5*\xb, 1.8*\yb) -- (1.5*\xb, 1.2*\yb)
+          (1.65*\xb, 1.8*\yb) -- (1.65*\xb, 1.27*\yb);
+    \draw (\xb / 2, \yb / 2) node {$b \cdot h$};
+    \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
+	    \draw (1.35*\xb, 1.7*\yb) node{$b \cdot dh$};
+	    \draw (1.57*\xb, 1.4*\yb) node [rotate=90] {$db \cdot h$};
+	    \draw (1.63*\xb, 1.85*\yb) node  {$db \cdot dh$};   
+    \end{scope}
     }
 }
 
@@ -132,19 +135,37 @@
     \draw (.3*\xb, 1.82*\yb) -- (0.65*\xb, 1.82*\yb) -- (0.65*\xb, 1.36*\yb);
     \microscopio{(\xb, \yb)}{2}{30}{240}{(1.85*\xb, 8)}{\infty}
     \fill [Cyan!50] 
-      (1.12*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb) -- 
-      (1.6*\xb, 1.75*\yb) -- (1.12*\xb, 1.75*\yb) -- cycle;
-%     \fill [Cyan!50] 
-%       (1.54*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb) -- 
-%       (1.6*\xb, 1.25*\yb) -- (1.54*\xb, 1.2*\yb) -- cycle;  
-    \draw (1.12*\xb, 1.75*\yb) -- (1.6*\xb, 1.75*\yb)
-          (1.12*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb)
-          (1.54*\xb, 1.75*\yb) -- (1.54*\xb, 1.2*\yb)
-          (1.6*\xb, 1.75*\yb) -- (1.6*\xb, 1.25*\yb);
-    \draw (\xb/2, \yb/2) node {$\mathit{A}$};
+      (1.13*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb) -- 
+      (1.65*\xb, 1.8*\yb) -- (1.13*\xb, 1.8*\yb) -- cycle;
+%      \fill [Cyan!50] 
+%       (1.51*\xb, 1.65*\yb) -- (1.65*\xb, 1.65*\yb) -- 
+%       (1.65*\xb, 1.27*\yb) -- (1.51*\xb, 1.2*\yb) -- cycle;  
+    \draw (1.12*\xb, 1.8*\yb) -- (1.65*\xb, 1.8*\yb)
+          (1.12*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb)
+          (1.5*\xb, 1.8*\yb) -- (1.5*\xb, 1.2*\yb)
+          (1.65*\xb, 1.8*\yb) -- (1.65*\xb, 1.27*\yb);
+    \draw (\xb / 2, \yb / 2) node {$\mathit{A}$};
     \draw (\xb +1, \yb/2) node {$h=\frac{\mathit{A}}{b}$};
-    \draw (1.56*\xb, 1.05*\yb) node [rotate=90] {$\frac{\mathit{A}}{b}db$};  
-    \draw (1.9*\xb, 1.72*\yb) node {$dh=d\quadra{\frac{\mathit{A}}{b}}$};   
+    \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
+	    \draw (1.87*\xb, 1.7*\yb) node{$dh=d\quadra{\frac{\mathit{A}}{b}}$};
+	    \draw (1.57*\xb, 1.4*\yb) node [rotate=90] 
+          {$db \cdot \frac{\mathit{A}}{b}$};
+% 	    \draw (1.63*\xb, 1.85*\yb) node  {$db \cdot dh$};   
+    \end{scope}
+%     \fill [Cyan!50] 
+%       (1.12*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb) -- 
+%       (1.6*\xb, 1.75*\yb) -- (1.12*\xb, 1.75*\yb) -- cycle;
+% %     \fill [Cyan!50] 
+% %       (1.54*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb) -- 
+% %       (1.6*\xb, 1.25*\yb) -- (1.54*\xb, 1.2*\yb) -- cycle;  
+%     \draw (1.12*\xb, 1.75*\yb) -- (1.6*\xb, 1.75*\yb)
+%           (1.12*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb)
+%           (1.54*\xb, 1.75*\yb) -- (1.54*\xb, 1.2*\yb)
+%           (1.6*\xb, 1.75*\yb) -- (1.6*\xb, 1.25*\yb);
+%     \draw (\xb/2, \yb/2) node {$\mathit{A}$};
+%     \draw (\xb +1, \yb/2) node {$h=\frac{\mathit{A}}{b}$};
+%     \draw (1.56*\xb, 1.05*\yb) node [rotate=90] {$\frac{\mathit{A}}{b}db$};  
+%     \draw (1.9*\xb, 1.72*\yb) node {$dh=d\quadra{\frac{\mathit{A}}{b}}$};   
     }
 }
 
@@ -177,7 +198,7 @@
     \fill [Cyan!50] 
       (-4, 1.5) -- (0, 1.5) -- 
       (0, 1) -- (-2, 1) -- cycle;
-    \draw (-0.5, 1.25)[Black!, right]node {$\Delta y=\frac{-1}{2}$}; 
+    \draw (-0.5, 1.25)[Black!, right]node {$\Delta y=-\frac{1}{2}$}; 
     \fill [Cyan!50] 
       (-4, 1.5) -- (-4, 0) -- 
       (-2, 0) -- (-2, 1) -- cycle;
@@ -186,7 +207,7 @@
               (-4, 1.5) circle (1.2pt)
               (-2, 1) circle (1.2pt)
               (-4, 2.5) node [right]{$\frac{\Delta y}{\Delta x}=
-              \frac{\frac{-1}{2}}{2}=\frac{-1}{4}$};
+              \frac{-\frac{1}{2}}{2}=-\frac{1}{4}$};
 % retta              
     \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-4.3, ymax=+4.3]
     \tkzFct[ultra thick, color=Maroon!50!black, domain=-4.3:4.3]{-.25*x+.5}              
