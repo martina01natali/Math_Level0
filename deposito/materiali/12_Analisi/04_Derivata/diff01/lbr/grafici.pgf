@@ -288,34 +288,54 @@
      \tkzFct[ultra thick, color=Green!50!black, domain=0:+5.3]{-x*x+x+3}
     }
 }
+
 \newcommand{\secanticurva}{% 
-    % Esponenziali con basi diverse.
-    \disegno{
-    \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
-    \begin{scope}[ultra thick, color=Maroon!50!black]
-      \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-0.3,ymax=+10.3]
-      \tkzFct[domain=-10.3:+6]{0.2*x*(x+2)-x+2}
-    \end{scope}
-    \filldraw [color=Black] 
-      (5, 4) circle (1.2pt)  node [right] {A}
-      (4, 2.8) circle (1.2pt)    node [below] {B}
-      (3, 2) circle (1.2pt)     node [below] {C}
-      (1.5, 1.55) circle (1.2pt) node [below] {D}
-      (-1.19, 3) circle (1.2pt) node [below] {F}
-      (0, 2) circle (1.2pt)  node [below] {E}
-      (-2.5, 4.75) circle (1.2pt)  node [below] {G}      
-      (-4, 7.6) circle (1.2pt)  node [below] {H};
-    \begin{scope}[thick, color=Cyan!50!black]
-      \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-0.3,ymax=+10.3]   
-      \tkzFct{1.2*x-2}   % per AB
-      \tkzFct{x-1}       % per AC
-      \tkzFct{0.7*x+.5}   % per AD
-      \tkzFct{0.4*x+2}   % per AE
-      \tkzFct{0.162*x+3.19}     % per AF
-      \tkzFct{-0.1*x+4.5}  % per AG
-      \tkzFct{-0.4*x+6}  % per AH  
-     \end{scope}
-    }
+  % Secanti ad una parabola nel punto (5; 4).
+  \def \raggio{2pt}
+  \disegno{
+  \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
+  \begin{scope}[ultra thick, color=Maroon!50!black]
+    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-0.3,ymax=+10.3]
+    \tkzFct[domain=-10:+10]{0.2*x*(x+2)-x+2}
+  \end{scope}
+  \begin{scope}[color=Black]
+    \filldraw (5, 4) circle (2pt) node [above left] {A};
+    \foreach \p/\n in {(4, 2.8)/$P_7$, 
+                      (3, 2)/$P_6$, (1.5, 1.55)/$P_5$}
+      \filldraw \p circle (\raggio) node [below, yshift=-1mm] {\n};
+    \foreach \p/\n in {(0, 2)/$P_4$, (-1.19, 3)/$P_3$, 
+                      (-2.5, 4.75)/$P_2$, (-4, 7.6)/$P_1$}
+      \filldraw \p circle (\raggio) node [below left, yshift=-1mm] {\n}; 
+  \end{scope}
+  \begin{scope}[thick, color=Cyan!50!black]
+    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-1.3,ymax=+10.3]   
+    \tkzFct{1.2*x-2}   % per AB
+    \tkzFct{x-1}       % per AC
+    \tkzFct{0.7*x+.5}   % per AD
+    \tkzFct{0.4*x+2}   % per AE
+    \tkzFct{0.162*x+3.19}     % per AF
+    \tkzFct{-0.1*x+4.5}  % per AG
+    \tkzFct{-0.4*x+6}  % per AH  
+  \end{scope}
+  }
+}
+
+\newcommand{\tangentecurva}{% 
+  % Tangente ad una parabola nel punto (5; 4).
+  \disegno{
+  \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
+  \begin{scope}[ultra thick, color=Maroon!50!black]
+    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-1.3,ymax=+10.3]
+    \tkzFct{0.2*x*(x+2)-x+2} 
+    \tkzFct[thick, color=Cyan!50!black] {1.4*x-3}  
+  \end{scope}
+  \filldraw [color=Black] (5, 4) circle (2pt) node [below right] {A};
+  \microscopio{(5, 4)}{3}{20}{230}{(11.5, 8)}{\infty}
+  \tkzInit[xmin=0,xmax=+10.2,ymin=0,ymax=+8.3]
+  \tkzFct[ultra thick, color=Maroon!50!black, domain=7.9:10.3] {1.4*x-6}
+  \tkzFct[thick, color=Cyan!50!black, domain=7.9:10.3] {1.4*x-6} 
+  \filldraw [color=Black] (9, 6.55) circle (2pt) node [below right] {A};
+  }
 }
 
 
