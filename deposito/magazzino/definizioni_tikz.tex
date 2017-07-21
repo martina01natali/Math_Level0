@@ -273,17 +273,20 @@
 %--------------------------
 % Funzioni per gli strumenti grafici
 
-\newcommand{\microscopio}[6]{% Microscopio messo sopra.
+\newcommand{\microscopio}[7]{% 
   % Esempio di chiamata:
-  % \microscopio{(8, 5)}{2}{120}{-50}{(7.6, 10)}{\infty}
+  % \microscopio{punto}{lung}{angoloa}{angolob}{raggio}
+  %             {postoetichetta}{etichetta}
+  % \microscopio{(8, 5)}{2}{120}{-50}{2}{(7.6, 10)}{\infty}
   \def \punto{#1}
   \def \lung{#2}
   \def \anga{#3}
   \def \angb{#4}
-  \def \postimes{#5}
-  \def \labeltimes{#6}
+  \def \rad{#5}
+  \def \postimes{#6}
+  \def \labeltimes{#7}
   \draw [fill=white] \punto -- +(\anga: \lung)
-  arc [start angle=\angb, delta angle=350, radius=2] -- cycle;
+  arc [start angle=\angb, delta angle=350, radius=\rad] -- cycle;
   \node at \postimes {\(\times \labeltimes\)};
 }
 
