@@ -8,7 +8,7 @@
     \assecontrattini{-1.3}{+6.3}{0}{x}
     \draw (0, 0) [below] node{0} (1, 0) [below] node{1}
           (5, 0) [below] node{5};
-    \microscopio{(5, 0)}{2.5}{90}{-50}{4}{(6.5, 9)}{10^3}
+    \microscopio{(5, 0)}{2.5}{90}{-50}{4}{(6.5, 9)}{\(\times 10^3\)}
     \segmentocontrattini{-1.3}{+6.1}{6}{1}
     \draw (0.8, 6) [left] node [rotate=90] {5,000} 
           (1.8, 6) [left] node [rotate=90] {5,001}
@@ -31,8 +31,8 @@
     \assecontrattini{-1.3}{+6.3}{0}{x}
     \draw (0, 0) [below] node{0} (1, 0) [below] node{1}
           (2, 0) [below] node{2};
-    \microscopio{(2, 0)}{2.5}{60}{-100}{4}{(8, 9.5)}{10^{27}}
-    \draw[gray!50, very thin] (4, 6-.1) -- (4, 6+0.1);
+    \microscopio{(2, 0)}{2.5}{60}{-100}{4}{(8, 9.5)}{\(\times 10^{27}\)}
+    \draw[very thin] (4, 6-.1) -- (4, 6+0.2);
     \draw [-] (0, 6) -- (7.9, 6);
     \draw [-{Stealth[length=2mm, round]}] 
       (3, 5) node [below] {\(2\)} -- (4, 6);
@@ -46,7 +46,8 @@
     \assecontrattini{-1.3}{+6.3}{0}{x}
     \draw (0, 0) [below] node{0} (1, 0) [below] node{1}
           (2, 0) [below] node{2};
-    \microscopio{(2, 0)}{2.5}{60}{-100}{4}{(7.5, 9.5)}{\frac{1}{\epsilon}}
+    \microscopio{(2, 0)}{2.5}{60}{-100}{4}{(7.5, 9.5)}
+                {\(\times \frac{1}{\epsilon}\)}
     \segmentocontrattini{.2}{+7.6}{6}{1}
     \draw (1.2, 6) [left] node [rotate=90] {\(2 - 3 \epsilon\)} 
           (3.2, 6) [left] node [rotate=90] {\(2 - \epsilon\)}
@@ -54,13 +55,34 @@
     }
 }
 
-\newcommand{\provatelescopio}{% 
-    % Esponenziali con basi diverse.
+\newcommand{\telescopioa}{% Telescopio per visualizzare 127034.
     \disegno{
-    \rcom{-10}{+10}{-5}{5}{gray!50, very thin, step=1}
-      \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-5.3,ymax=+5.3]
-      \tkzFct[domain=-10.3:+10.3]{(1./2)*x}
-    \draw (-1, 1) pic [rotate=27, scale=.5] {telescopio=\infty};
+    \assecontrattini{-1.3}{+6.3}{0}{x}
+    \draw (0, 0) [below] node{0} (1, 0) [below] node{1};
+    \draw (-1, 1) pic [rotate=0, scale=.5] {telescopio=127034};
+    \microscopio{(-1, 1)}{2.5}{40}{-130}{4}{(7.5, 9.5)}{}
+    \segmentocontrattini{-.3}{+7.2}{6}{1}
+    \draw (1.7, 6) [left] node [rotate=90] {...} 
+          (2.7, 6) [left] node [rotate=90] {127033} 
+          (3.7, 6) [left] node [rotate=90] {127034}
+          (4.7, 6) [left] node [rotate=90] {127035}
+          (5.7, 6) [left] node [rotate=90] {\dots};
+    }
+}
+
+\newcommand{\telescopiob}{% Telescopio per visualizzare 127034.
+    \disegno{
+    \assecontrattini{-1.3}{+6.3}{0}{x}
+    \draw (0, 0) [below] node{0} (1, 0) [below] node{1};
+    \draw (-1, 1) pic [rotate=0, scale=.5] {telescopio=\(A\)};
+    \microscopio{(-1, 1)}{2.5}{40}{-130}{4}{(7.5, 9.5)}{}
+    \segmentocontrattini{-.3}{+7.2}{6}{1}
+    \draw (0.7, 6) [left] node [rotate=90] {\dots} 
+          (1.7, 6) [left] node [rotate=90] {\(A - 1\)} 
+          (2.7, 6) [left] node [rotate=90] {\(A ~~\quad\)}
+          (3.7, 6) [left] node [rotate=90] {\(A + 1\)}
+          (5.7, 6) [left] node [rotate=90] {\(A + 3\)}
+          (6.7, 6) [left] node [rotate=90] {\dots};
     }
 }
 

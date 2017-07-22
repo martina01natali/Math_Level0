@@ -95,7 +95,7 @@
   \def \posy{#3}
   \pgfmathsetmacro \endx{int(\xma-\xmi)}
   \foreach \x in {0, 1, ..., \endx}
-    \draw[gray!50, very thin] (\xmi+\x, \posy-0.1) -- (\xmi+\x, \posy+0.1);
+    \draw[very thin] (\xmi+\x, \posy-0.1) -- (\xmi+\x, \posy+0.1);
   \draw [-] (\xmi-.3, \posy) -- (\xma+.3, \posy);
 }
 
@@ -299,7 +299,7 @@
   \def \labeltimes{#7}
   \draw [fill=white] \punto -- +(\anga: \lung)
   arc [start angle=\angb, delta angle=350, radius=\rad] -- cycle;
-  \node at \postimes {\(\times \labeltimes\)};
+  \node at \postimes {\labeltimes};
 }
 
 \tikzset{
@@ -316,7 +316,7 @@
     \draw (-0.2, -0.5) rectangle (0.2, -0.2);
     \draw [fill=black, rounded corners=1] (-0.3, -0.2) rectangle (0.3, 0);
     \draw [-{Stealth[length=2mm, open, round]}] (7.2, -.9) -- (8.2, -.9) 
-      node [right, yshift=1mm] {\(#1\)};
+      node [right, yshift=1mm] {#1};
   \end{scope}
   }
 }
