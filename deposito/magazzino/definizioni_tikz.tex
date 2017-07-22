@@ -66,8 +66,14 @@
   \def \xma{#2}
   \def \posy{#3}
   \def \var{#4}
-\draw [-{Stealth[length=2mm, open, round]}] (\xmi, \posy) -- (\xma, \posy);
-\node [below] at (\xma, \posy) {\var};
+  \draw [-{Stealth[length=2mm, open, round]}] (\xmi, \posy) -- (\xma, \posy);
+  \node [below] at (\xma, \posy) {\var};
+}
+
+\newcommand{\assex}[3]{% Asse x.
+  % Esempio di chiamata:
+  %% \disegno{\assex{-5}{+5}{0}}
+  \asse{#1}{#2}{#3}{\(x\)};
 }
 
 \newcommand{\assecontrattini}[4]{% Asse.
@@ -81,10 +87,16 @@
   \asse{#1}{#2}{#3}{#4};
 }
 
-\newcommand{\assex}[3]{% Asse x.
+\newcommand{\segmentocontrattini}[3]{% Segmento con trattini.
   % Esempio di chiamata:
-  %% \disegno{\assex{-5}{+5}{0}}
-  \asse{#1}{#2}{#3}{\(x\)};
+  %% \disegno{\segmentocontrattini{-7}{+7}{0}
+  \def \xmi{#1}
+  \def \xma{#2}
+  \def \posy{#3}
+  \pgfmathsetmacro \endx{int(\xma-\xmi)}
+  \foreach \x in {0, 1, ..., \endx}
+    \draw[gray!50, very thin] (\xmi+\x, \posy-0.1) -- (\xmi+\x, \posy+0.1);
+  \draw [-] (\xmi-.3, \posy) -- (\xma+.3, \posy);
 }
 
 \newcommand{\rcomvar}[7]{% Riferimento Cartesiano Ortogonale Monometrico.
