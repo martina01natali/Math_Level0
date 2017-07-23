@@ -224,7 +224,7 @@
     \filldraw [color=Black!50!black]
               (-2.8, 3.5) circle (1.2pt)
               (-2.8, 2.5) circle (1.2pt)
-              (0, 3) node {$\frac{\Delta y}{\Delta x}=\frac{1}{0}=\infty$};
+              (0, 3) node {$\frac{\Delta y}{\Delta x}=\frac{1}{0}=$?};
     \filldraw (-1, -1.5) circle (1.2pt)
               (-2, -1.5) circle (1.2pt)
               (-1.5, -2) node  {$\frac{\Delta y}{\Delta x}=\frac{0}{1}=0$};
@@ -320,7 +320,7 @@
   }
 }
 
-\newcommand{\tangentecurva}{% 
+\newcommand{\secRD}{% 
   % Tangente ad una parabola nel punto (5; 4).
   \disegno{
   \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
@@ -334,8 +334,31 @@
   \tkzInit[xmin=0,xmax=+10.2,ymin=0,ymax=+8.3]
   \tkzFct[ultra thick, color=Maroon!50!black, domain=7.9:10.3] {1.4*x-6}
   \tkzFct[thick, color=Cyan!50!black, domain=7.9:10.3] {1.4*x-6} 
-  \filldraw [color=Black] (9, 6.55) circle (2pt) node [below right] {A};
-  }
+  \fill [Cyan!50] (8.5, 5.9) -- (9.5, 7.3) -- (8.5, 7.3) -- cycle;
+  \begin{scope}[color=Black]
+   \filldraw  (9.5, 7.3) circle (2pt) node [right] {$A$}
+              (8.5, 5.9) circle (2pt) node [below, xshift=+1mm] {$P_n$};
+   \draw (9.2, 7.2) node [above, xshift=-1mm] {dx}
+          node [below left, xshift=-1mm] {df(x)}; 
+   \begin{scope}[dashed]
+    \draw   (5, 4) -- (5, 0)  node [below] {$x\approx x+dx$}
+            (5, 4) -- (0, 4)  node [left] {$f(x)\approx f(x+dx)$}
+            (8.5, 5.9) -- (8.5, 4.6)   (9.5, 7.3) -- (9.5, 4.6)
+            (8.5, 5.9) -- (7.15, 5.9)  (9.5, 7.3) -- (7.2, 7.3);
+    \end{scope}
+    \microscopio{(5, 0)}{3}{20}{230}{2}{(11.5, 3.5)}{\(\times \infty\)}
+      \draw (7.1, 2) --(11, 2);
+      \draw [dashed] (8.5, 4.5) -- (8.5, 2) node [below] {x}
+                     (9.5, 4.5) -- (9.5, 2) node [below, xshift=2mm, 
+                                               yshift=+0.7mm] {x+dx};
+    \microscopio{(0, 4)}{1}{120}{250}{2}{(2.3, 8)}{\(\times \infty\)}
+      \draw (1, 4.9) --(1, 8.6);
+      \draw [dashed] (2, 6) -- (1, 6) node [left] {$f(x)$}
+                     (2, 7.3) -- (1, 7.3) node [left] {f(x+dx)};
+    
+   \end{scope}
+
+    }
 }
 
 

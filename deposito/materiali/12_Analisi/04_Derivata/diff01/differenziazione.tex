@@ -277,6 +277,8 @@ dei casi, invece, ha un diretto influsso sul risultato.\\
  Il risultato non cambia e ha valore per qualsiasi $\epsilon$.
 \end{osservazione}
 
+
+
 \subsection{Differenziale e funzioni}
 \label{subsec:diff01_difffun}
 Iniziamo a differenziare le funzioni più semplici, in un generico punto $x_0$.
@@ -802,6 +804,7 @@ Dunque:
 crescita dell'area di un rettangolo.
 \end{osservazione}
 
+
 \subsubsection{Sintesi della sezione}
 \label{subsubsec:diff01_diffsint}
 Ci siamo limitati a calcolare solo alcuni differenziali elementari, 
@@ -973,16 +976,14 @@ $B$ si colloca a destra (se $\Delta x\ge 0$) di $A$ di una quantità finita,
 grande o piccola che sia.\\
 $\Delta x$, $\Delta y$ sono anche chiamati \emph{incrementi} e quindi...
 \begin{definizione}
-  Si dice \emph{Rapporto Incrementale} il rapporto degli
-  incrementi, cioé la quantità~$\frac{\Delta y}{\Delta x}$.
+  Si dice \emph{Rapporto Incrementale} (R.I.) il rapporto degli
+  incrementi, cioé la quantità R.I.~=~$\frac{\Delta y}{\Delta x}$.
 \end{definizione}
 Si tratta di una quantità finita, calcolabile se $\Delta x \ne 0$.\\
 Il Rapporto Incrementale, calcolato su una retta fornisce la sua pendenza ed 
-è un 
-valore costante, come abbiamo visto.\\
+è un valore costante, come abbiamo visto.\\
 Ma il calcolo si può applicare a qualsiasi funzione, anche a quelle che nel 
-piano
-cartesiano sono rappresentate da curve. Allora le cose cambiano.\\
+piano cartesiano sono rappresentate da curve. Allora le cose cambiano.\\
 
 \begin{esempio}
 I prossimi grafici appartengono alla stessa funzione.
@@ -1000,6 +1001,14 @@ I prossimi grafici appartengono alla stessa funzione.
  \end{minipage}
 % \end{center}
 \end{inaccessibleblock}
+\caption{Rapporti incrementali in una curva e secanti.} 
+\label{}
+\end{figure}
+
+Scegliamo alcuni punti sulla curva e mettiamo in evidenza gli intervalli che
+consentono il calcolo del rapporto incrementale, in un caso, e la pendenza 
+delle secanti nell'altro.\\
+Rapporti Incrementali:
 \begin{align*}
   \frac{\Delta y}{\Delta x}\bigg\lvert_{AB}= &\frac{y_B-y_A}{x_B-x_A}=
     \frac{2-5}{-2-(-3.5)}=\frac{-3}{1.5}=-2 &
@@ -1011,12 +1020,7 @@ I prossimi grafici appartengono alla stessa funzione.
   \frac{1-3.8}{3.5-2.3)}=\frac{-2.8}{1.2}=-\frac{7}{3}
 \end{align*}
 
-\caption{Rapporti incrementali in una curva.} 
-\label{}
-\end{figure}
-Scegliamo alcuni punti sulla curva e mettiamo in evidenza gli intervalli che
-consentono il calcolo del rapporto incrementale, in un caso, e la pendenza 
-delle secanti nell'altro.
+Pendenze.\\
 $$  m_{AB}=-2 \qquad m_{BC}=\frac{1}{2}\qquad m_{CD}=\frac{1}{3}\qquad  
 m_{DE}=-\frac{7}{3}$$
 \end{esempio}
@@ -1030,14 +1034,12 @@ In conclusione, si hanno le seguenti proprietà:
 
 \begin{enumerate}[noitemsep]
 \item Il R.I. è un numero finito e esiste solo se $\Delta x\ne 0$.
-\item Il Rapporto Incrementale (R.I) fra le coppie di valori di una funzione 
-è 
+\item Il R.I fra le coppie di valori di una funzione è 
  a sua volta una funzione, che dipende dalla coppia scelta. 
  \item La funzione è costante se applicata al grafico di una retta. In questo 
  caso il R.I calcola  la sua pendenza.
-\item  In generale, R.I. calcola la pendenza della retta  secante che unisce 
+\item  In generale, R.I. calcola la pendenza della retta secante che unisce 
 due punti del grafico.
-
 \end{enumerate}
 
 
@@ -1045,11 +1047,9 @@ due punti del grafico.
 \label{subsubsec:diff01_rappdiff}
 
 \begin{esempio}
-Fissiamo su curva una due punti: uno fisso: $A$ e l'altro mobile, cioè in 
-grado di 
-spostarsi lungo la curva dalla posizione più lontana $H$, alla più prossima 
-ad $A$,
-cioè, oltre $B$, fin quasi a sovrapporsi con $A$.
+Fissiamo su una curva due punti: uno fisso ($A$) e l'altro mobile $P$, cioè in 
+grado di spostarsi lungo la curva dalla posizione più lontana $P_1$, alla più 
+prossima ad $A$, cioè oltre $P_7$, fin quasi a sovrapporsi con $A$.
 
 \begin{figure}[h]
 \begin{inaccessibleblock}[Verso la tangente a una curva.]
@@ -1061,37 +1061,61 @@ cioè, oltre $B$, fin quasi a sovrapporsi con $A$.
 \end{figure}
 \end{esempio}
 
-Tracciamo le secanti che uniscono $A$ con le varie posizioni di $P$. 
+Tracciamo le secanti che uniscono $A$ con le varie posizioni di $P_n$. 
 Man mano che $P$ si avvicina ad $A$, la secante che li unisce tende 
 ad allinearsi alla tangente ideale.\\
 Quando $P$ è così vicino ad $A$ che la loro distanza è 
 $\overline{AP}<\frac{1}{n}$,
 $\forall n$, siamo nel campo degli infinitesimi: cambia la natura del 
-Rapporto 
-Incrementale che avevamo imparato a calcolare. Il R.I. si trasforma: da un
-rapporto fra quantità finite a un rapporto fra infinitesimi, quindi non
-possiamo essere certi che fornisca un risultato e di quale natura sia.\\
-Ma sappiamo che, se il rapporto è calcolabile e dà luogo a un numero finito,
-fornirà un numero indistinguibile dalla pendenza della tangente.
+Rapporto Incrementale che avevamo imparato a calcolare. Il R.I. si 
+trasforma da un rapporto fra quantità finite a un rapporto fra infinitesimi,
+quindi non possiamo essere certi su quale sia il tipo del risultato che fornisce.\\
+Se escludiamo il caso $dx=0$ ($P_n$ coinciderebbe con $A$) e se il rapporto
+dà un risultato finito, otterremo la pendenza della secante fra i due 
+punti infinitamente vicini $A\punto{x_A}{y_A}$ e $P_n\punto{x_A+dx}{f(x_A+dx)}$,
+quindi di una retta infinitamente vicina alla tangente, cioè distinta da essa 
+solo se guardata con il microscopio a ingrandimento infinito.
 
 \begin{definizione}
  Si dice Rapporto Differenziale della funzione $f(x)$, relativo a $x_0$
  il rapporto $\frac{df(x)}{dx}\big|_{x=x_0}$ fra il differenziale della 
-funzione 
- e quello della variabile, calcolati nel punto $x_0$. \\
- $\frac{df(x)}{dx}\big|_{x=x_0}=\frac{f(x_0+dx)-f(x_0)}{dx}$.
+funzione  e quello della variabile, calcolati nel punto $x_0$. \\
+ $\frac{df(x)}{dx}\big|_{x=x_0}=\frac{f(x_0+dx)-f(x_0)}{dx}$, con $dx\ne 0$.
 \end{definizione}
 
 \begin{figure}[h]
-\begin{inaccessibleblock}[Tangente a una curva.]
+\begin{inaccessibleblock}[Secante per P approx A.]
  \begin{center}
-\tangentecurva
+\secRD
  \end{center}
 \end{inaccessibleblock}
-\caption{Tangente ad una curva.} \label{fig:diff01_tangente}
+\caption{Secante per due punti infinitamente vicini.} \label{fig:diff01_tangente}
 \end{figure}
 
+\begin{esempio}
+  La curva della Fig.12 rappresenta la parabola di equazione 
+  $y=\dfrac{x^2}{5}-\dfrac{3}{5}x+2$. Calcoliamo la pendenza della secante che
+  passa per $A\punto{5}{4}$ e per un altro punto infinitamente vicino.\\
+  La funzione è visibilmente continua nel punto $A$ e il differenziale per 
+  $x=x_A$, secondo le regole della sezione precedente è:\\ 
+  $d(f(x)\big|_{x=5}=d\tonda{\dfrac{x^2}{5}-\dfrac{3}{5}x+2}\bigg|_{x=5}=
+  d\tonda{\dfrac{x^2}{5}}\bigg|_{x=5}-d\tonda{\dfrac{3}{5}x}\bigg|_{x=5}+
+  d(2)\big|_{x=5}=\\
+  =\dfrac{1}{5}\tonda{2xdx+(dx)^2}\big|_{x=5}-\dfrac{3}{5}dx\big|_{x=5}+0=
+  \dfrac{2}{5}\tonda{5dx+(dx)^2}-\dfrac{3}{5}dx=$\\
+  $=2dx+\dfrac{2}{5}(dx)^2-\dfrac{3}{5}dx=
+  \dfrac{7}{5}dx+\dfrac{2}{5}(dx)^2$\\
+  Raccogliendo $dx$ nel differenziale della funzione, il rapporto differenziale 
+  si calcola facilmente:\\
+  $\dfrac{d(f(x)}{dx}\bigg|_{x=5}=\dfrac{\tonda{\dfrac{7}{5}+\dfrac{2}{5}dx}dx}
+  {dx}=\dfrac{7}{5}+\dfrac{2}{5}dx$.\\
+  Come si vede, la pendenza di questa tangente è un numero finito del tipo 
+  $a+\epsilon$, che dipende sia dal valore $x_A=5$, sia dall'infinitesimo 
+  $dx$ che compare nel risultato. Si tratta dunque di una pendenza 
+  infinitamente vicina al valore $m=\dfrac{7}{5}$.
+\end{esempio}
 
+ 
 
 \subsection{Derivata}
 \label{subsec:diff01_deriv}
