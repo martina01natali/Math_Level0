@@ -1097,28 +1097,68 @@ funzione  e quello della variabile, calcolati nel punto $x_0$. \\
   $y=\dfrac{x^2}{5}-\dfrac{3}{5}x+2$. Calcoliamo la pendenza della secante che
   passa per $A\punto{5}{4}$ e per un altro punto infinitamente vicino.\\
   La funzione è visibilmente continua nel punto $A$ e il differenziale per 
-  $x=x_A$, secondo le regole della sezione precedente è:\\ 
+  $x=x_A$, secondo le regole della sezione precedente, è:\\ 
   $d(f(x)\big|_{x=5}=d\tonda{\dfrac{x^2}{5}-\dfrac{3}{5}x+2}\bigg|_{x=5}=
   d\tonda{\dfrac{x^2}{5}}\bigg|_{x=5}-d\tonda{\dfrac{3}{5}x}\bigg|_{x=5}+
   d(2)\big|_{x=5}=\\
   =\dfrac{1}{5}\tonda{2xdx+(dx)^2}\big|_{x=5}-\dfrac{3}{5}dx\big|_{x=5}+0=
-  \dfrac{2}{5}\tonda{5dx+(dx)^2}-\dfrac{3}{5}dx=$\\
-  $=2dx+\dfrac{2}{5}(dx)^2-\dfrac{3}{5}dx=
-  \dfrac{7}{5}dx+\dfrac{2}{5}(dx)^2$\\
+  \dfrac{2}{5}x|_{x=5}dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=$\\
+  $=\dfrac{2}{5}5dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=
+  2dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=
+  \dfrac{7}{5}dx+\dfrac{1}{5}(dx)^2$\\
   Raccogliendo $dx$ nel differenziale della funzione, il rapporto differenziale 
   si calcola facilmente:\\
-  $\dfrac{d(f(x)}{dx}\bigg|_{x=5}=\dfrac{\tonda{\dfrac{7}{5}+\dfrac{2}{5}dx}dx}
-  {dx}=\dfrac{7}{5}+\dfrac{2}{5}dx$.\\
+  $\dfrac{d(f(x)}{dx}\bigg|_{x=5}=\dfrac{\tonda{\dfrac{7}{5}+\dfrac{1}{5}dx}dx}
+  {dx}=\dfrac{7}{5}+\dfrac{1}{5}dx$.\\
   Come si vede, la pendenza di questa tangente è un numero finito del tipo 
   $a+\epsilon$, che dipende sia dal valore $x_A=5$, sia dall'infinitesimo 
   $dx$ che compare nel risultato. Si tratta dunque di una pendenza 
   infinitamente vicina al valore $m=\dfrac{7}{5}$.
 \end{esempio}
+\begin{esempio}
+ In quale punto del piano cartesiano la parabola precedente è inclinata 
+ di $45^\circ$ rispetto all'orizzontale?\\
+ Risposta: poiché solo la retta $y=x$ mantiene per tutta la sua lunghezza
+ l'inclinazione richiesta dal problema, occorre cercare in quale punto
+ la parabola risulta inclinata come la retta, cioè ha lo stesso coefficiente 
+ angolare. È chiaro che non si può calcolare il coefficiente angolare
+ di una parabola, ma si può immaginare che nel punto desiderato esista una retta
+ tangente che risponde alle nostre esigenze. Cerchiamo quindi in quale
+ punto, almeno approssimativamente, si possa disegnare una retta che ha $m=1$ e
+ che quasi coincida con la parabola.\\
+ Utilizziamo i calcoli precedenti, mantenendo $x$ incognita, poiché conosciamo
+ la pendenza desiderata:\\
+ $\dfrac{d(f(x)}{dx}\bigg|_{x=?}=1 \srarrow 
+ \dfrac{2}{5}x+\dfrac{1}{5}dx-\dfrac{3}{5}=1
+ \srarrow \dfrac{2}{5}x=1+\dfrac{3}{5}-\dfrac{1}{5}dx
+ \srarrow x=\dfrac{8-dx}{5}\dfrac{5}{2}=\dfrac{8-dx}{2}$.\\
+ Il punto in questione ha coordinata $x= 4-\dfrac{1}{2}dx\approx 4$.  
+\end{esempio}
 
- 
 
 \subsection{Derivata}
 \label{subsec:diff01_deriv}
+Gli esercizi precedenti sono stati risolti con la massima precisione possibile.
+Il metodo del rapporto differenziale porta a soluzioni semplici solo quando 
+si applica alle rette (funzioni polinomiali di primo grado), ma in tutti
+gli altri casi costringe a tener conto degli infinitesimi, perché porta a 
+risultati iperreali.\\
+Se si potesse, una volta raggiunto il risultato iperreale esatto, traformarlo
+in un numero reale, poi i nostri calcoli potrebbero preseguire nel modo classico,
+al quale siamo già abituati.
+
+\begin{esempio}
+ Proseguendo il calcolo precedente, calcoliamo nei due modi la coordinata $y$ del 
+ punto in questione:\\
+ $x=4-\dfrac{1}{2}dx\srarrow y=\dfrac{x^2}{5}-\dfrac{3}{5}x+2=
+ \dfrac{(4-\dfrac{1}{2}dx)^2}{5}-\dfrac{3}{5}(4-\dfrac{1}{2}dx)+2=\dots$\\
+ $x\approx 4\srarrow y\approx\dfrac{4^2}{5}-\dfrac{3}{5}4+2=
+ \dfrac{16}{5}-\dfrac{12}{5}+2=\dfrac{14}{5}=2,8$.\\
+\end{esempio}
+È chiaro che il secondo calcolo è molto più gestibile. Ma esiste una tecnica
+da applicare al risultato esatto iperreale per traformarlo nel numero reale più
+vicino, pr guadagnare in agilità di calcolo, senza perdere (eccessivamente) in 
+precisione?
 \begin{definizione}
 derivata $=\pst{}$
 \end{definizione}
