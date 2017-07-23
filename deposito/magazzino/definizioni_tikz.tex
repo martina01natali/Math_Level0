@@ -302,6 +302,23 @@
   \node at \postimes {\labeltimes};
 }
 
+\newcommand{\grandangolo}[7]{% 
+  % Esempio di chiamata:
+  % \grandangolo{punto}{lung}{angoloa}{angolob}{raggio}
+  %             {postoetichetta}{etichetta}
+  % \grandangolo{(8, 5)}{2}{120}{-50}{2}{(7.6, 10)}{\infty}
+  \def \punto{#1}
+  \def \lung{#2}
+  \def \anga{#3}
+  \def \angb{#4}
+  \def \rad{#5}
+  \def \postimes{#6}
+  \def \labeltimes{#7}
+  \draw [fill=white, densely dash dot] \punto -- +(\anga: \lung)
+  arc [start angle=\angb, delta angle=350, radius=\rad] -- cycle;
+  \node at \postimes {\labeltimes};
+}
+
 \tikzset{
   telescopio/.pic={% Disegna un telescopio non standard
   % Esempio di chiamata:
