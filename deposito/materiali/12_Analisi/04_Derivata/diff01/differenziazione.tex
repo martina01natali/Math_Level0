@@ -1069,7 +1069,8 @@ $\overline{AP}<\frac{1}{n}$,
 $\forall n$, siamo nel campo degli infinitesimi: cambia la natura del 
 Rapporto Incrementale che avevamo imparato a calcolare. Il R.I. si 
 trasforma da un rapporto fra quantità finite a un rapporto fra infinitesimi,
-quindi non possiamo essere certi su quale sia il tipo del risultato che fornisce.\\
+quindi non possiamo essere certi su quale sia il tipo del risultato che 
+fornisce.\\
 Se escludiamo il caso $dx=0$ ($P_n$ coinciderebbe con $A$) e se il rapporto
 dà un risultato finito, otterremo la pendenza della secante fra i due 
 punti infinitamente vicini $A\punto{x_A}{y_A}$ e $P_n\punto{x_A+dx}{f(x_A+dx)}$,
@@ -1089,10 +1090,12 @@ funzione  e quello della variabile, calcolati nel punto $x_0$. \\
 \secRD
  \end{center}
 \end{inaccessibleblock}
-\caption{Secante per due punti infinitamente vicini.} \label{fig:diff01_tangente}
+\caption{Secante per due punti infinitamente vicini.} 
+\label{fig:diff01_tangente}
 \end{figure}
 
 \begin{esempio}
+  \label{esempio:diff01_mdiff}
   La curva della Fig.12 rappresenta la parabola di equazione 
   $y=\dfrac{x^2}{5}-\dfrac{3}{5}x+2$. Calcoliamo la pendenza della secante che
   passa per $A\punto{5}{4}$ e per un altro punto infinitamente vicino.\\
@@ -1107,14 +1110,41 @@ funzione  e quello della variabile, calcolati nel punto $x_0$. \\
   2dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=
   \dfrac{7}{5}dx+\dfrac{1}{5}(dx)^2$\\
   Raccogliendo $dx$ nel differenziale della funzione, il rapporto differenziale 
-  si calcola facilmente:\\
+  è:\\
   $\dfrac{d(f(x)}{dx}\bigg|_{x=5}=\dfrac{\tonda{\dfrac{7}{5}+\dfrac{1}{5}dx}dx}
   {dx}=\dfrac{7}{5}+\dfrac{1}{5}dx$.\\
-  Come si vede, la pendenza di questa tangente è un numero finito del tipo 
+  Come si vede, la pendenza di questa secante è un numero finito del tipo 
   $a+\epsilon$, che dipende sia dal valore $x_A=5$, sia dall'infinitesimo 
   $dx$ che compare nel risultato. Si tratta dunque di una pendenza 
   infinitamente vicina al valore $m=\dfrac{7}{5}$.
 \end{esempio}
+
+\begin{esempio}
+ \label{esempio:diff01_m0diff}
+ Ripetiamo il calcolo precedente, con riferimento all'ascissa del vertice 
+ $x_V=\dfrac{3}{2}$ (per il valore dell'ascissa può essere di aiuto la lettura
+ del grafico, se per caso nel tempo si fosse attenuato il ricordo della
+ regola: $x_V=-b/2a$).\\
+ $d(f(x)\big|_{x=3/2}=
+  \dfrac{2}{5}x|_{x=3/2} dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=
+  \dfrac{2}{5}\dfrac{3}{2}dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=\\
+  =\dfrac{3}{5}dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=0+\dfrac{1}{5}(dx)^2$.\\
+ Quindi il rapporto differenziale:\\
+ $\dfrac{d(f(x)}{dx}\bigg|_{x=3/2}=\dfrac{\dfrac{1}{5}(dx)^2}{dx}
+ =\dfrac{1}{5}dx$.\\
+ La secante per punti infinitamente vicini al vertice della parabola
+ differisce dalla retta orizzontale per un infinitesimo, cioè è
+ infinitamente vicina alla retta orizzontale.
+\end{esempio}
+
+\begin{osservazione}
+La pendenza calcolata nell'esempio \ref{esempio:diff01_mdiff} è 
+$m\approx\dfrac{7}{5}$, mentre in quest'ultimo esempio 
+\ref{esempio:diff01_m0diff} è
+$m\approx 0$. Questo conferma che $m$ cambia a seconda del punto della curva: 
+$m=m(x).$
+\end{osservazione}
+
 \begin{esempio}
  In quale punto del piano cartesiano la parabola precedente è inclinata 
  di $45^\circ$ rispetto all'orizzontale?\\
@@ -1126,8 +1156,8 @@ funzione  e quello della variabile, calcolati nel punto $x_0$. \\
  tangente che risponde alle nostre esigenze. Cerchiamo quindi in quale
  punto, almeno approssimativamente, si possa disegnare una retta che ha $m=1$ e
  che quasi coincida con la parabola.\\
- Utilizziamo i calcoli precedenti, mantenendo $x$ incognita, poiché conosciamo
- la pendenza desiderata:\\
+ Utilizziamo i calcoli precedenti e teniamo incognita $x$, dato che conosciamo
+ già la pendenza desiderata:\\
  $\dfrac{d(f(x)}{dx}\bigg|_{x=?}=1 \srarrow 
  \dfrac{2}{5}x+\dfrac{1}{5}dx-\dfrac{3}{5}=1
  \srarrow \dfrac{2}{5}x=1+\dfrac{3}{5}-\dfrac{1}{5}dx
@@ -1138,33 +1168,51 @@ funzione  e quello della variabile, calcolati nel punto $x_0$. \\
 
 \subsection{Derivata}
 \label{subsec:diff01_deriv}
-Gli esercizi precedenti sono stati risolti con la massima precisione possibile.
-Il metodo del rapporto differenziale porta a soluzioni semplici solo quando 
-si applica alle rette (funzioni polinomiali di primo grado), ma in tutti
-gli altri casi costringe a tener conto degli infinitesimi, perché porta a 
-risultati iperreali.\\
-Se si potesse, una volta raggiunto il risultato iperreale esatto, traformarlo
-in un numero reale, poi i nostri calcoli potrebbero preseguire nel modo classico,
-al quale siamo già abituati.
+Gli esercizi precedenti sono stati risolti con esattezza.
+Il metodo del rapporto differenziale porta a soluzioni semplici solo nei casi 
+praticamente inutili, quando si applica alle rette (funzioni polinomiali di 
+primo grado). In tutti gli altri casi il risultato iperreale contiene 
+infinitesimi che possone essere scomodi da gestire negli sviluppi successivi.
 
 \begin{esempio}
- Proseguendo il calcolo precedente, calcoliamo nei due modi la coordinata $y$ del 
- punto in questione:\\
- $x=4-\dfrac{1}{2}dx\srarrow y=\dfrac{x^2}{5}-\dfrac{3}{5}x+2=
+  Proseguendo con l'esempio \ref{esempio:diff01_mdiff}, calcoliamo nei due 
+  modi la coordinata $y$ del punto in questione:\\
+ Calcolo esatto: $x=4-\dfrac{1}{2}dx\srarrow y=\dfrac{x^2}{5}-\dfrac{3}{5}x+2=
  \dfrac{(4-\dfrac{1}{2}dx)^2}{5}-\dfrac{3}{5}(4-\dfrac{1}{2}dx)+2=\dots$\\
- $x\approx 4\srarrow y\approx\dfrac{4^2}{5}-\dfrac{3}{5}4+2=
+ Calcolo approssimato: $x\approx 4\srarrow 
+y\approx\dfrac{4^2}{5}-\dfrac{3}{5}4+2=
  \dfrac{16}{5}-\dfrac{12}{5}+2=\dfrac{14}{5}=2,8$.\\
 \end{esempio}
-È chiaro che il secondo calcolo è molto più gestibile. Ma esiste una tecnica
-da applicare al risultato esatto iperreale per traformarlo nel numero reale più
-vicino, pr guadagnare in agilità di calcolo, senza perdere (eccessivamente) in 
-precisione?
+
+È chiaro che la seconda linea di calcoli è molto più gestibile della prima e
+vorremmo poter fare sempre così.\\
+Esiste una tecnica da applicare al risultato esatto iperreale per traformarlo 
+nel numero reale più vicino? Se esiste, possiamo guadagnare in agilità di 
+calcolo, senza perdere troppo in precisione.
+
 \begin{definizione}
-derivata $=\pst{}$
+  Si dice \emph{derivata} della funzione $f(x)$ nel punto $\punto{x_0}{f(x_0)}$
+  la parte standard del rapporto differenziale della funzione, calcolato nello 
+  stesso punto. La derivata si indica tradizionalmente con $f'(x_0)$.\\
+  $f'(x_0)=\pst{\dfrac{d(f(x)}{dx}\bigg|_{x=x_0}}$.
 \end{definizione}
 
+La derivata, cioè l'utilizzo della funzione $\pst{}$, soddisfa le nostre 
+esigenze: fornisce la migliore approssimazione reale del risultato ottenuto 
+con il rapporto differenziale. La differenza fra il risultato esatto e la 
+derivata è data da uno o più infinitesimi di ordine superiore, che nella 
+maggior parte dei casi possiamo trascurare.\\
+$\dfrac{d(f(x)}{dx}\bigg|_{x=x_0}=f'(x_0)+\epsilon(x_0)\srarrow f'(x_0)
+\approx \dfrac{d(f(x)}{dx}\bigg|_{x=x_0}$.
+
+\subsubsection{come si calcola}
+\subsubsection{nome e simbolo}
+\subsubsection{derivata e tangente}
+\subsubsection{derivate fondamentali}
+\subsubsection{la derivata è una funzione}
 \section{Regole di derivazione}
 \label{sec:diff02_regolederivate}
 
 \section{Applicazioni}
 \label{sec:diff02_applicazioni}
+\subsubsection{derivata e normale}
