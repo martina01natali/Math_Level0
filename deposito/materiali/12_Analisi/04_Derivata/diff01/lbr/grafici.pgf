@@ -137,9 +137,6 @@
     \fill [Cyan!50] 
       (1.13*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb) -- 
       (1.65*\xb, 1.8*\yb) -- (1.13*\xb, 1.8*\yb) -- cycle;
-%      \fill [Cyan!50] 
-%       (1.51*\xb, 1.65*\yb) -- (1.65*\xb, 1.65*\yb) -- 
-%       (1.65*\xb, 1.27*\yb) -- (1.51*\xb, 1.2*\yb) -- cycle;  
     \draw (1.12*\xb, 1.8*\yb) -- (1.65*\xb, 1.8*\yb)
           (1.12*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb)
           (1.5*\xb, 1.8*\yb) -- (1.5*\xb, 1.2*\yb)
@@ -150,22 +147,7 @@
 	    \draw (1.87*\xb, 1.7*\yb) node{$dh=d\quadra{\frac{\mathit{A}}{b}}$};
 	    \draw (1.57*\xb, 1.4*\yb) node [rotate=90] 
           {$db \cdot \frac{\mathit{A}}{b}$};
-% 	    \draw (1.63*\xb, 1.85*\yb) node  {$db \cdot dh$};   
     \end{scope}
-%     \fill [Cyan!50] 
-%       (1.12*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb) -- 
-%       (1.6*\xb, 1.75*\yb) -- (1.12*\xb, 1.75*\yb) -- cycle;
-% %     \fill [Cyan!50] 
-% %       (1.54*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb) -- 
-% %       (1.6*\xb, 1.25*\yb) -- (1.54*\xb, 1.2*\yb) -- cycle;  
-%     \draw (1.12*\xb, 1.75*\yb) -- (1.6*\xb, 1.75*\yb)
-%           (1.12*\xb, 1.65*\yb) -- (1.6*\xb, 1.65*\yb)
-%           (1.54*\xb, 1.75*\yb) -- (1.54*\xb, 1.2*\yb)
-%           (1.6*\xb, 1.75*\yb) -- (1.6*\xb, 1.25*\yb);
-%     \draw (\xb/2, \yb/2) node {$\mathit{A}$};
-%     \draw (\xb +1, \yb/2) node {$h=\frac{\mathit{A}}{b}$};
-%     \draw (1.56*\xb, 1.05*\yb) node [rotate=90] {$\frac{\mathit{A}}{b}db$};  
-%     \draw (1.9*\xb, 1.72*\yb) node {$dh=d\quadra{\frac{\mathit{A}}{b}}$};   
     }
 }
 
@@ -361,5 +343,46 @@
     }
 }
 
+\newcommand{\derivaradice}{% derivate della radice.
+    \disegnod{4.5}{
+    \rcom{-1}{+7}{-5}{+2}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-1.3, xmax=+7.3, ymin=-5.3, ymax=+4.3]
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=-.3:7.3]{1-2*sqrt(x)}
+     \tkzFct[thick, color=Cyan!50!black, domain=1:+7.3]{-.5*x-1}
+     \filldraw (4, -3) circle (1.2pt);
+    }
+}
 
+\newcommand{\derivaradiceinzero}{% derivate della radice.
+    \disegnod{4.5}{
+    \rcom{-1}{+7}{-2}{+5}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-1.3, xmax=+7.3, ymin=-5.3, ymax=+4.3]
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=-.3:2.3]{1-2*sqrt(x)}
+    \microscopio{(0, 1)}{1}{10}{200}{3}{(6.5, 4.5)}{\(\times \infty\)}
+    \tkzFct[thick, color=Cyan!50!black, domain=2:+3.23]{-20*x+64}
+    \filldraw (3, 4) circle (1.2pt);
+    \fill [Cyan!50] (3, 4) -- (3, .5) -- (3.12, .5) -- cycle;
+%    \draw (2, 2) pic [rotate=27, telescopio=\infty] {telescopio};
+    }
+}
 
+\newcommand{\derivaomografica}{% derivata f omogr.
+    \disegnod{4.5}{
+    \rcom{-2}{+6}{-4}{+4}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-2.3, xmax=+6.3, ymin=-4.3, ymax=+4.3]
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=-2.3:2.0]{1/(x-2)}
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=2.0:6.3]{1/(x-2)}
+     \tkzFct[thick, color=Cyan!50!black, domain=0:+2]{-x}
+     \filldraw (1, -1) circle (1.4pt);
+    }
+}
+\newcommand{\derivavalass}{% derivate val ass.
+    \disegnod{4.5}{
+    \rcom{-2}{+6}{-4}{+4}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-2.3, xmax=+6.3, ymin=-4.3, ymax=+4.3]
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=-2.3:2.0]{.5*x+1}
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=2.0:6.3]{-.5*x+3}
+     %\tkzFct[thick, color=Cyan!50!black, domain=:+2]{-x}
+     \filldraw (2, 2) circle (1.4pt);
+    }
+}
