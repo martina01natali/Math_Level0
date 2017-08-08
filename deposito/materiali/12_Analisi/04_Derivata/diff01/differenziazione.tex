@@ -902,9 +902,9 @@ l=\sqrt{\frac{4}{\sqrt{3}}\mathit{A}}=
  non sappiamo ancora come calcolare $d\tonda{\sqrt{f(x)}}$. Per farlo, 
  occorre una conoscenza più approfondita della derivate.
 \end{osservazione}
-
 \end{esempio}
-\section{Derivata}
+
+\section{Introduzione alla derivata}
 \label{sec:diff01_derivata}
 La derivata è un ente matematico conosciuto dalla metà del 1700, che 
 da allora si applica utilmente allo studio di fenomeni naturali di ogni 
@@ -1165,18 +1165,19 @@ $m=m(x)$.
  Il punto in questione ha coordinata $x= 4-\dfrac{1}{2}dx\approx 4$.  
 \end{esempio}
 
-\subsection{Derivata}
-\label{subsec:diff01_deriv}
+\section{Derivata: definizione}
+\label{sec:diff01_deriv}
 Gli esercizi precedenti sono stati risolti con esattezza.
 Purtroppo, però, il rapporto differenziale ci dà le soluzioni più semplici solo 
-in pochi casi, praticamente inutili, cioè quando si applica alle rette
-(funzioni polinomiali di primo grado). In tutti gli altri casi il risultato
+in pochi casi, praticamente inutili, cioè quando si applica alle funzioni 
+polinomiali di primo grado (le rette nel p8iano cartesiano)).
+In tutti gli altri casi il risultato
 iperreale contiene infinitesimi che possone essere scomodi da gestire
 negli sviluppi successivi.
 
 \begin{esempio}
- Proseguendo con l'esempio \ref{esempio:diff01_mdiff}, calcoliamo nei due 
- modi la coordinata $y$ del punto in questione:\\
+ Proseguendo con l'esempio \ref{esempio:diff01_mdiff}, calcoliamo in due 
+ modi, esatto e approssimato, la coordinata $y$ del punto in questione:\\
  Calcolo esatto: $x=4-\dfrac{1}{2}dx\srarrow y=\dfrac{x^2}{5}-\dfrac{3}{5}x+2=
  \dfrac{(4-\dfrac{1}{2}dx)^2}{5}-\dfrac{3}{5}(4-\dfrac{1}{2}dx)+2=\\
  =\dfrac{1}{5}\tonda{16-dx+\dfrac{1}{4}(dx)^2}-\dfrac{12}{5}+\dfrac{3}{10}dx+2=
@@ -1200,16 +1201,17 @@ calcolo, senza perdere troppo in precisione.
   $f'(x_0)=\pst{\dfrac{d(f(x)}{dx}\bigg|_{x=x_0}}$.
 \end{definizione}
 
-La derivata, cioè l'utilizzo della funzione $\pst{}$, soddisfa le nostre 
+La derivata, cioè l'applicazione della funzione $\pst{}$ al rapporto
+differenziale, soddisfa le nostre 
 esigenze: fornisce la migliore approssimazione reale del risultato ottenuto 
-con il rapporto differenziale. La differenza fra il risultato esatto e la 
-derivata è data da uno o più infinitesimi di ordine superiore, che nella 
+con il rapporto differenziale. La differenza fra questo e la 
+derivata vale uno o più infinitesimi di ordine superiore, che nella 
 maggior parte dei casi sono trascurabili.\\
 $\dfrac{d(f(x)}{dx}\bigg|_{x=x_0}=f'(x_0)+\epsilon(x_0)\srarrow f'(x_0)
 \approx \dfrac{d(f(x)}{dx}\bigg|_{x=x_0}$.
 
 \subsubsection{Significato della derivata}
-L'operazione di derivazione ha un significato molto più importante 
+L'operazione di derivazione ha uno scopo molto più importante 
 dell'indubbia comodità di fornire un risultato privo di infinitesimi:
 essa consente di calcolare il tasso di variazione di una funzione in un 
 dato punto. Per tasso di variazione non si intende semplicemente la differenza
@@ -1226,7 +1228,7 @@ in un punto è un numero standard.
 \begin{osservazione}
  L'operazione di derivazione è conosciuta dai tempi di Leibniz e di Newton, 
  più o meno nei termini che qui sono stati esposti. Il problema attorno al 
- quale i maggiori sapienti di quell'epoca concentravano i loro sforzi era
+ quale i matematici di quell'epoca concentravano i loro sforzi era
  relativo alle variazioni: le variabili erano chiamate 
  \emph{quantità fluenti}  e le variazioni di queste erano dette 
  \emph{flussioni}.
@@ -1249,12 +1251,12 @@ l'operazione di derivazione:
  per es. $\mathit{D}\quadra{5x\sqrt[3]{x^2}}=5\sqrt[3]{x^2}+\dfrac{10x}
  {3\sqrt[3]{x}}$;
  \item $\dot{f}$ equivale a $f'$; si usa in alcuni corsi universitari;
- \item $\dfrac{d}{dx}f(x)$ è come $f'(x)$: la derivata è vista come una 
- tecnica di calcolo più che come risultato di una serie di passaggi;
+ \item $\dfrac{d}{dx}f(x)$ è come $f'(x)$: si pone in evidenza che si tratta 
+ di una rapporto con $dx$;
  \item $\dfrac{df(x)}{dx}$ si trova spesso nei libri come se fosse esattamente 
- uguale a $f'(x)$. Sottolineamo che sono due cose diverse, anche se  
- l'equivalenza è accettabile nella maggior parte dei casi, trattandosi di
- quantità infinitamente vicine, anzi indistinguibili. Per praticità, potremo
+ uguale a $f'(x)$. Sottolineamo che sono due cose diverse.  
+ Nella maggior parte dei casi quest'uguaglianza si può accettare, trattandosi 
+ di quantità infinitamente vicine, anzi indistinguibili. Per praticità, potremo
  anche noi seguire quest'uso, specificando la distinzione solo quando sarà 
  necessario.
 \end{enumerate}
@@ -1305,7 +1307,7 @@ Lo svolgimento dei calcoli:
    $d(k(f(x))=kdf(x)$, quindi: $d(2\sqrt{x})=
    2\dfrac{dx}{(\sqrt{x+dx}+\sqrt{x})}\sim \dfrac{dx}{2\sqrt{x}}$. 
   \end{enumerate} 
-  Per cui: $d(1-2\sqrt{x})=\tonda{0-\frac{dx}{\sqrt{x}}}\sim 
+  Per cui: $d(1-2\sqrt{x})\sim\tonda{0-\frac{dx}{\sqrt{x}}}=
   -\frac{dx}{\sqrt{x}}$.
  \item calcolare il rapporto fra questo e $dx$ nel punto richiesto:\\
   $\tonda{\frac{d(f(x)}{dx}}\bigg|_{x=4}\sim
@@ -1322,6 +1324,7 @@ Con le regole già date sui differenziali il calcolo è privo di difficoltà, no
 sembra che la derivata per questa funzione possa creare problemi.
 
 \begin{esempio}
+  \label{esempio:diff01_deriradice}
 Calcola $f'(0)$ per la funzione $f(x)=1-2\sqrt{x}$.\\
 Riutilizziamo i calcoli precedenti.
 \begin{enumerate} [noitemsep]
@@ -1341,7 +1344,7 @@ nullo $\epsilon>0$, quindi infinitamente vicino a 0.
 \begin{esempio}
 Calcolare $f'(\epsilon)$, sempre per  $f(x)=1-2\sqrt{x}$.
 
-\begin{figure}[h!]
+\begin{figure}[h]
 \begin{inaccessibleblock}
   [Derivate radice]
  \begin{center}
@@ -1381,7 +1384,7 @@ accentua sempre più la sua inclinazione verso il basso.
 \begin{esempio}
  %discontinua
  Per la funzione $f(x)=\dfrac{1}{x-2}$ calcola le derivate $f'(1)$ e $f'(2)$.\\
-\begin{figure}[h!]
+\begin{figure}[h]
 \begin{inaccessibleblock}
   [Derivate radice]
  \begin{center}
@@ -1426,7 +1429,7 @@ di continuità, di conseguenza il discorso vale anche per la derivata.
  Per la funzione $f(x)=\dfrac{1}{2}|x-2|+2$ calcola le derivate $f'(0)$, $f'(4)$
  e $f'(2)$.\\
  La funzione contiene un valore assoluto e può essere più semplice pensarla 
- come divisa in due rami:
+ come se fosse divisa in due rami:
 
 \begin{figure}[h!]
 \begin{inaccessibleblock}
@@ -1502,17 +1505,422 @@ Da tutti questi esempi impariamo che per poter calcolare la derivata:
 
 
 
-\subsubsection{Derivate fondamentali}
-\label{}
+\section{Derivare funzioni algebriche}
+\label{sec:diff01_derialg}
 Sistemate le questioni preliminari, passiamo al calcolo: impariamo a derivare.
 Nei casi semplici ci avvarremo di quanto visto a proposito dei differenziali,
-ma per le funzioni non trattate allora, dovremo calcolare anche questi.
-Al termine, raccoglieremo i risultati utili in un unico prospetto.
+ma, per le funzioni non trattate allora, dovremo calcolare anche questi.
+Al termine, raccoglieremo i risultati utili in un prospetto riassuntivo.\\
+Immaginiamo che le funzioni da derivare siano derivabili $\forall x$ 
+dell'insieme di definizione, per cui la derivata di $f$ nel il generico 
+punto $\punto{x}{f(x)}$ sarà $f'(x)$.\\
+Grazie al capitolo \ref{subsubsec:diff02_diffsint}, sappiamo già come
+differenziare alcune funzioni algebriche: da quelle regole e dalla 
+definizione di derivata ...deriva direttamente quanto segue.
+\begin{teorema}
+  La derivata di una funzione costante è $0$: $\mathit{D}\quadra{k}=0$.
+\end{teorema}
+\noindent Ipotesi: $f(x)=k$.\tab Tesi: $f'(x)=0$.
+\begin{proof}
+ Infatti $df(x)=0$
+\end{proof}
 
+\begin{teorema}
+  La derivata della funzione identica è 1: $\mathit{D}\quadra{x}=1$.
+\end{teorema}
+\noindent Ipotesi: $f(x)=x$.\tab Tesi: $f'(x)=1$.
+\begin{proof}
+ Infatti $df(x)=\epsilon=dx$, quindi il rapporto differenziale è $1$ e così
+ anche la sua parte standard.
+\end{proof}
+\begin{osservazione}
+ $m=1$ è quindi anche la pendenza della bisettrice $y=x$, cosa ormai risaputa.
+\end{osservazione}
+
+\begin{teorema}
+  La derivata della funzione quadratica è: $\mathit{D}\quadra{x^2}=2x$.
+\end{teorema}
+\noindent Ipotesi: $f(x)=x^2$ .\tab Tesi: $f'(x)=2x$.
+\begin{proof}
+  Infatti $df(x)=2xdx+(dx)^2$ e il rapporto differenziale è $2x+dx$ da cui,
+  applicando la definizione di derivata, ...
+\end{proof}
+\begin{osservazione}
+Nota che la funzione derivata di una funzione quadratica è una funzione 
+lineare.\\
+Con estrema sintesi: la derivata di una parabola è una retta.\\
+Con più precisione: la pendenza delle tangenti a una parabola
+varia come varia la $y$ rispetto alla $x$ in una retta.
+
+GRAFICO a 2 disegni: parabola  con tangenti e derivata $y=x^2$ con commento 
+sull'andamento delle pendenze
+\end{osservazione}
+
+\begin{teorema}
+  \label{diff01_teoderpotenza}
+  La derivata della generica funzione potenza è: $\mathit{D}\quadra{x^n}=
+  nx^{n-1}$.
+\end{teorema}
+\noindent Ipotesi: $f(x)=x^n$ .\tab Tesi: $f'(x)=nx^{n-1}$.
+\begin{proof}
+  Infatti il differenziale è $df(x)=nx^{n-1}dx+ \delta(x)$ e,
+  applicando la definizione di derivata, ...
+\end{proof}
+
+GRAFICO a 2 disegni: cubica  con tangenti e derivata $y=x^3$ con commento 
+sull'andamento delle pendenze
+
+\begin{osservazione}
+ Ripetendo l'osservazione in \ref{subsubsec:diff01_diffpot} relativa a questo
+ caso, la regola è del tutto generale: si applica con qualsiasi esponente reale.
+Vale quindi anche per le funzioni radicali di qualsiasi indice e per le funzioni
+razionali fratte, come esemplifichiamo nei prossimi due casi, molto comuni.
+\end{osservazione}
+
+\begin{corollario}
+  La derivata della funzione radice quadrata è: $\mathit{D}\quadra{\sqrt{x}}=
+    \dfrac{1}{2\sqrt{x}}$, con la restrizione $x\ne 0$.
+\end{corollario}
+\noindent Ipotesi: $f(x)=\sqrt{x}$, con $x\ne 0$ .\tab Tesi: 
+    $f'(x)=\dfrac{1}{2\sqrt{x}}$.
+\begin{proof}
+  Infatti il differenziale è $df(x)=\dfrac{dx}{\sqrt{x+dx}+\sqrt{x}}$ e,
+  applicando la definizione di derivata, si ha:\\
+  $\pst{\dfrac{dx}{dx\tonda{\sqrt{x+dx}+\sqrt{x}}}}=
+  \pst{\dfrac{1}{\sqrt{x+dx}+\sqrt{x}}}=
+      \dfrac{1}{\pst{\sqrt{x+dx}+\sqrt{x}}}=
+      \dfrac{1}{\pst{\sqrt{x+dx}}+\pst{\sqrt{x}}}=\\
+      =\dfrac{1}{\sqrt{x}+\sqrt{x}}=\dfrac{1}{2\sqrt{x}}$.
+\end{proof}
+GRAFICO a 2 disegni: radice  con tangenti e derivata $y=\sqrt{x}$ con commento 
+sull'andamento delle pendenze
+
+\begin{corollario}
+  La derivata della funzione reciproca è: $\mathit{D}\quadra{\dfrac{1}{x}}=
+    -\dfrac{1}{x^2}$.
+\end{corollario}
+\noindent Ipotesi: $f(x)=\dfrac{1}{x}$.\tab Tesi: $f'(x)=-\dfrac{1}{x^2}$.
+\begin{proof}
+  Infatti il differenziale è $df(x)=\dfrac{-dx}{x(x+dx)}$ e,
+  applicando la definizione di derivata, si ha:\\
+  $\pst{\dfrac{-dx}{dx(x(x+dx))}}=
+\dfrac{-1}{\pst{x(x+dx)}}=\dfrac{-1}{\pst{x}\pst{x+dx}}=
+      -\dfrac{1}{x\cdot x}=-\dfrac{1}{x^2}$.
+\end{proof}
+GRAFICO a 2 disegni:
+
+\begin{osservazione}
+ Ovviamente, applicando alla lettera il teorema sulla derivata delle funzioni
+ potenza si ottengono gli stessi risultati esposti in questi due ultimi 
+ corollari.
+\end{osservazione}
 
 \section{Regole di derivazione}
-\label{sec:diff02_regolederivate}
+\label{sec:diff01_regolederivate}
+Possiamo applicare i teoremi precedenti a casi meno elementari, cioè
+a funzioni algebriche che contengono somme, prodotti e quozienti di
+funzioni elementari. 
+\begin{esempio}
+  Derivare la funzione $f(x)= 3x-\dfrac{3}{x}$ in $x_0=3$\\
+  Si tratta di una funzione nuova, ma è facile riconoscere che è formata 
+  dalla somma (algebrica) di due funzioni e ciascuna di queste è data dal 
+  prodotto fra la costante $3$ e una funzione appena trattata. Perciò:\\
+  $\mathit{D}\quadra{3x}=3\cdot\mathit{D}\quadra{x}=3\cdot 1=3$; \tab
+  $\mathit{D}\quadra{\dfrac{3}{x}}=3\cdot\mathit{D}\quadra{\dfrac{1}{x}}
+  =3\cdot \dfrac{-1}{x^2}=\dfrac{-3}{x^2}$;\\
+  $f'(x)=\mathit{D}\quadra{3x-\dfrac{3}{x}}=\mathit{D}\quadra{3x}-
+  \mathit{D}\quadra{\dfrac{3}{x}}= 3-\dfrac{-3}{x^2}= 3+\dfrac{3}{x^2}$;\\
+  $f'(3)=3+\dfrac{3}{9}= 10$.\\
+\end{esempio}
+Senza troppi problemi, abbiamo dato per scontato che 
+\begin{enumerate}[noitemsep]
+ \item La derivata del prodotto tra una costante e  una funzione è il prodotto
+ fra la costante e la derivata della funzione:\\ 
+ $\mathit{D}\quadra{kf(x)}=k\mathit{D}\quadra{f(x)}$.
+ \item La derivata della somma algebrica fra due funzioni è la somma algebrica
+ delle due derivate:\\
+$\mathit{D}\quadra{f(x)+g(x)}=\mathit{D}\quadra{f(x)}+\mathit{D}\quadra{g(x)}$.
+\end{enumerate}
+Da dove derivano queste certezze? Basta tornare alle regole di composizione
+dei differenziali (\ref{subsec:diff01_combdiff}) per averne la conferma.
+
+\begin{esempio}
+Deriva la funzione che nel piano cartesiano è rappresentata dalla retta $y=x+9$.\\
+$\mathit{D}\quadra{x+9}=1$.
+\end{esempio}
+
+Sempre in riferimento a quanto appreso sui differenziali 
+(\ref{subsec:diff01_combdiff}) e vista la definizione di derivata e
+le proprietà della parte standard, giustifichiamo facilmente anche le regole
+3 e 4:
+\begin{enumerate}[noitemsep]
+\setcounter{enumi}{2}
+\item La derivata del prodotto fra due funzioni è la somma fra due prodotti:
+la derivata della prima funzione per la seconda (non derivata) più la prima 
+funzione (non derivata) per la derivata della seconda:\\
+$\mathit{D}\quadra{f(x)\cdot g(x)}=f'(x)\cdot g(x)+f(x)\cdot g'(x)$.
+\item La derivata del quoziente fra due funzioni è la frazione che ha per 
+denominatore il quadrato del divisore e per numeratore la differenza fra due
+prodotti: la derivata della prima funzione per la seconda (non derivata) meno
+la prima funzione (non derivata) per la derivata della seconda:\\
+$\mathit{D}\quadra{\dfrac{f(x)}{g(x)}}=\dfrac{f'(x)\cdot g(x)-f(x)\cdot g'(x)}
+  {\quadra{g(x)}^2}$.
+\end{enumerate} 
+
+\begin{esempio}
+  Calcola la derivata del prodotto $f(x)=x\sqrt{x}$.\\
+  $f'(x)=1\cdot \sqrt{x}+x\cdot\frac{1}{2\sqrt{x}}=
+  \sqrt{x}+\frac{x}{2\sqrt{x}}$.\\
+  Fin qui l'applicazione della regola. Ma il risultato si può scrivere 
+  in forma più compatta, perché $\sqrt{x}+\frac{x}{2\sqrt{x}}=
+  \sqrt{x}+\frac{\sqrt{x}}{2}=\frac{3}{2}\sqrt{x}$.\\
+  In realtà per fare questo calcolo non avremmo bisogno della regola del 
+  prodotto, poiché $f(x)=x\sqrt{x}=x^{1+\frac{1}{2}}=x^{\frac{3}{2}}$. Puoi 
+  quindi applicare il teorema \ref{diff01_teoderpotenza} e controllare il 
+  risultato.
+\end{esempio}
+
+\begin{esempio}
+  Derivare $f(x)=\dfrac{x}{\sqrt{x}}$.\\
+  Seguendo la regola n.4: $f'(x)= \dfrac{1\cdot\sqrt{x}-x\dfrac{1}{2\sqrt{x}}}
+  {\tonda{\sqrt{x}}^2}=\dfrac{\sqrt{x}-\dfrac{\sqrt{x}}{2}}{x}=
+  \dfrac{\dfrac{\sqrt{x}}{2}}{x}=\dfrac{1}{2\sqrt{x}}$.\\
+  Ma guarda che combinazione: abbiamo ottenuto la derivata della radice! Allora 
+  la funzione di partenza è equivalente a una radice? (Ad essere precisi, non 
+  esattamente. Infatti \dots)
+\end{esempio}
+\begin{esempio}
+  Sappiamo già che $\mathit{D}\tonda{\dfrac{1}{x}}=\dfrac{-1}{x^2}$. Mettiamo 
+  alla prova ancora una volta la regola n.4: $f'(x)=\dfrac{0\cdot x-1\cdot 1}
+  {x^2}= \dots$
+\end{esempio}
+
+\begin{esempio}
+ Ora finalmente un calcolo che si può svolgere solo con la regola n.4.
+ Derivare $f(x)= \dfrac{x+2}{x^3-x+4}$.\\
+ $f'(x)=\dfrac{1\cdot(x^3-x+4)-(x+2)(3x^2-1)}{(x^3-x+4)^2}$. Fin qui 
+ l'applicazione della regola. \\
+ Con ulteriori calcoli:
+ $\dots =\dfrac{x^3-x+4-(3x^3-x+6x^2-2)}{(x^3-x+4)^2}=
+ \dfrac{-2x^3-6x^2+6}{(x^3-x+4)^2}$.\\
+\end{esempio}
+
+
+\section{Derivare funzioni composte e funzioni inverse}
+\label{}
+\subsection{Funzioni composte}
+\label{subsec:diff01_dericomp}
+
+\begin{esempio}
+ $s(t)~=~s_0~+~v_0t~+~\frac{1}{2}at^2$ è la legge oraria del moto rettilineo
+ uniformemente accelerato. Anche se nella formula mancano le usuali 
+ sigle $f(x)$, $y$, $x$, si tratta di una comunissima funzione polinomiale
+ di 2° grado e le si possono applicare le regole che stiamo studiando, senza
+ problemi.\\
+ Infatti, derivando si ottiene $s'(t)=0+v_0+\frac{1}{2}\cdot 2at=v_0+at$ che,
+ essendo la derivata dello spazio rispetto al tempo, esprime la velocita $v(t)$
+ in questo tipo di moto.
+\end{esempio}
+L'esempio serve a ricordare che le funzioni e le variabili si esprimono con 
+sigle qualsiasi, ma questo non cambia le regole dell'analisi o, più in
+generale, della matematica. La libertà di uso dei simboli può facilitare i
+calcoli, come si vede nel caso della derivata di una funzione composta.
+\begin{esempio}
+ Deriva la funzione $v(u)=u^2$. Soluzione: $v'(u)= 2u$. Infatti il 
+ differenziale è $dv(u)=2udu+(du)^2$ esattamente come $df(x)=2xdx+(dx)^2$ per
+ la funzione quadratica. Allora  la parte 
+ standard del rapporto differenziale fornisce il risultato $2u$.
+\end{esempio}
+
+\begin{esempio}
+Deriva la funzione $u(t)=3t-2$. Soluzione: $u'(t)=3$. Infatti il 
+ differenziale è $du(t)=3dt+ 0$. Allora la parte 
+ standard del rapporto differenziale fornisce il risultato $3$.
+\end{esempio}
+
+Combiniamo i due esempi: $v=f(u)$ e $u=f(t)$, cioè $v$ è funzione di $u$, 
+perché i suoi valori dipendono dai quadrati dei numeri $u$, invece $u$ è 
+funzione di $t$, nel senso che i suoi valori sono i valori $t$ 
+triplicati e poi ridotti di 2. In matematichese $v(u(t))=[u(t)]^2=(3t-2)^2$.
+Si tratta di una specie di catena:
+
+DISEGNO BOX
+
+Se si immette il valore $t=2$, la macchina sviluppa $u(2)=3\cdot 2-2=4$ in $u$
+e infine produce $v(4)=4^2=16$. Una catena del genere si chiama \emph{funzione
+di funzione} e $v$, che produce il risultato finale, si dice
+\emph{funzione composta}: $v(u(t))$.\\
+
+DISEGNO PIANO CARTESIANO CON 3 ASSI
+
+Come deriviamo  $v$ rispetto a $t$?
+Dalla definizione di derivata: $\mathit{D}\quadra{v(u(t))}=
+\pst{\dfrac{d(v(u(t)))}{dt}}$, quindi il punto è il calcolo dei differenziali.\\
+Dal primo esempio sappiamo che $dv=2udu+$infinitesimi di ordine superiore.
+Poiché $u=3t-2$, $du=3dt$, quindi avremo:\\
+$dv\approx 2udu$. \hspace{2cm} $u=3t-2$, $du=3dt$. $\srarrow dv=2(3t-2)3dt \srarrow\\ 
+\srarrow \pst{\dfrac{d(v(u(t)))}{dt}}=\dfrac{2(3t-2)3dt}{dt}=18t-12$.\\
+C'è un modo più semplice? Sì: basta sviluppare 
+il quadrato $(3t-2)^2$ e poi derivare il polinomio. Ma a volte il modo più semplice 
+non c'è.
+\begin{esempio}
+  Calcolare $f'(x)$, con $f(x)=\sqrt{3-x^2}$.\\
+  $f(x)$ è composta: si può pensare
+  formata così: $g(x)=3-x^2$ e $f(g(x))=\sqrt{g(x)}=\sqrt{3-x^2}$.\\
+  In questo modo si vedono meglio i differenziali.
+  $df(x)=d\tonda{\sqrt{g(x)}}\approx\frac{1}{2\sqrt{g(x)}}\cdot dg(x)$ e 
+  $dg(x)=d(3-x^2)\approx-2xdx$. Per brevità, raccogliamo sotto un'unica
+  sigla $\epsilon$ tutti gli infinitesimi 
+  di ordine superiore, che poi la parte standard si incaricherà di far 
+  scomparire nel momento di calcolare la derivata.\\
+  Il differenziale: $df(x)=df(g(x))=\frac{1}{2\sqrt{g(x)}}\cdot dg(x)+\delta=
+  \frac{1}{2\sqrt{3-x^2}}\cdot (-2x)dx+ \epsilon$.\\
+  Da qui la derivata: 
+  $f'(x)=\pst{\dfrac{\frac{-2xdx}{2\sqrt{3-x^2}} +\epsilon}{dx}}=
+  \dfrac{-x}{\sqrt{3-x^2}}$.
+\end{esempio}
+Esaminiamo in modo astratto come abbiamo costruito il rapporto 
+differenziale della funzione composta nell'esempio precedente: 
+$\dfrac{df}{dx}=\dfrac{df}{dg}\dfrac{dg}{dx}$. 
+Sembra un'uguaglianza banale, perché semplificando si ottiene
+l'identità. In realtà i due differenziali $dg$ hanno un significato
+diverso. Quello al denominatore differenzia la variabile indipendente per 
+$f$, quello al numeratore differenzia la variabile che dipende da $x$.\\
+L'espressione giustifica il teorema seguente.
+
+\begin{teorema}
+ Se esistono le derivate $g'(x)$ e $f'(g(x))$ per il medesimo valore $x$,
+ la funzione composta $f(g(x))$ è derivabile e la sua derivata si calcola
+ così: $f'(x)=f'(g(x))=f'(g)g'(x)$, cioè la derivata di una funzione composta
+ è il prodotto delle derivate delle funzioni componenti, ciascuna rispetto
+ alla propria variabile.
+\end{teorema}
+\noindent Ipotesi: $f(x)=f(g(x))$, $f$,$g$ derivabili .\tab 
+Tesi: $f'(x)=f'(g(x))=f'(g(x))g'(x)$.
+\begin{proof}
+  Tralasciando di specificare la scomparsa degli infinitesimi di ordine 
+  superiore e grazie alle proprietà della funzione $\pst{}$, abbiamo:\\
+  $f'(g(x))=\pst{\dfrac{df(x)}{dx}}=
+  \pst{\dfrac{df(g)}{dg}\dfrac{dg(x)}{dx}}=
+  \pst{\dfrac{df(g))}{dg}}\pst{\dfrac{dg(x)}{dx}}=
+  f'(g(x))g'(x)$.
+\end{proof}
+\begin{esempio}
+  Derivare $f(x)=\tonda{-\dfrac{3}{2}x^3+2x^2-6}^5$.\\
+  Poniamo $g(x)=-\dfrac{2}{3}x^3+2x^2-6$ e $f(g)=g^5$. \\
+  Allora: 
+  $f'(g)= 5g^4$ e $g'(x)=-2x^2+4x$, \\
+  quindi: 
+  $f'(x)=f'(g)\cdot g'(x)=5g^4(-2x^2+4x)=
+  5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)=\\
+  =10x\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-x+2)$ .
+\end{esempio}
+\begin{osservazione}
+ La regola della funzione composta si estende ai casi in cui le funzioni 
+ in gioco sono tre, o più:
+ $\mathit{D}\quadra{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)$.
+\end{osservazione}
+\begin{osservazione}
+ Lo studente smart si era già accorto che la derivata di un prodotto non 
+ è il prodotto delle derivate. Ora arriva la conferma:
+ il prodotto delle derivate non è la derivata di un prodotto.
+\end{osservazione}
+
+
+\subsection{Funzioni inverse}
+\label{subsec:diff01_derifuninverse}
+La sezione \ref{subsec:diff01_dericomp} ci conforta anche per derivare una 
+funzione difficoltosa, se riconosciamo che è l'inversa di un'altra funzione
+meno problematica. Iniziamo dal caso semplice.
+\begin{esempio}
+  Derivare $f(x)=\sqrt{x^2}$.\\
+  Si dirà: non c'è problema, si calcola la funzione e risulta 
+  $f(x)=\sqrt{x^2}=x$, perciò  $f'(x)=1$. \\
+  Vero. Ma poniamo $g(x)=x^2$ e $f(x)=f(g(x))=\sqrt{g(x)}$. Con la regola 
+  delle funzioni composte si ha 
+  $f'(x)=f'(g)g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
+  \dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x=1$.\\
+  Conclusione: $\mathit{D}\quadra{x^2}=\dfrac{1}{\mathit{D}\quadra{\sqrt{x}}}$
+\end{esempio}
+Si intuisce che: siccome $f'(g)g'(x)=1$, allora $g'(x)=\dfrac{1}{f'(g)}$.
+Se fosse vero diventerebbe più facile derivare per esempio le funzioni 
+logaritmiche: basterebbe saper derivare le corrispondenti esponenziali. E così
+via.
+\begin{osservazione}
+ Ovviamenente occorre qualche cautela: la regola sarebbe applicabile
+ \begin{enumerate} [noitemsep]
+   \item se esiste l'inversa della funzione da derivare;
+  \item se entrambe le funzioni sono derivabili;
+  \item se  $f'(g)\ne 0$.
+ \end{enumerate}
+Nell'esempio precedente tutto funziona alla perfezione, ma solo se $x\ne0$
+(ricorda anche l'esempio \ref{esempio:diff01_deriradice}). 
+ \end{osservazione}
+
+Se valgono tutte le condizioni favorevoli, allora esistono la funzione
+$f$ e la sua inversa $g=f^{-1}$ e nel piano cartesiano le due funzioni
+$y=f(x)$ e $x=g(y)=f^{-1}(y)$ hanno lo stesso grafico. Invece $y=f(x)$ e
+$y=g(x)=f^{-1}(x)$ hanno grafici simmetrici rispetto alla bisettrice $y=x$.
+
+GRAFICO DERIVATA INVERSA
+
+Ogni punto $\punto{x}{f^{-1}(x)}$ sulla curva della funzione inversa ha un
+corrispondente $\punto{y}{f(y)}$ sulla curva $y=f(x)$, nella simmetria rispetto
+alla bisettrice. Guardiamo come si corrispondono i differenziali:
+$dx$ e $dy$ sono invertiti in una curva rispetto all'altra. Quindi le 
+derivate corrispondenti sono reciproche l'una con l'altra.
+\begin{teorema}
+ Le derivate di due funzioni $f$, $g$, inverse l'una dell'altra, se esistono
+ e sono diverse da zero, sono reciproche l'una rispetto all'altra.
+\end{teorema}
+\noindent Ipotesi: $y=f(x)$, $x=g(y)$ $f$,$g$ derivabili, con $f'\ne0$, $g'\ne 0$.
+\hspace{2cm} Tesi: $f'(x)=\dfrac{1}{g'(y)}$.
+\begin{proof}
+  Grazie alle proprietà della funzione $\pst{}$, abbiamo:\\
+  $f'(x)\cdot g'(y)=\pst{\dfrac{dy}{dx}}\cdot\pst{\dfrac{dx}{dy}}=
+  \pst{\dfrac{dy}{dx}\cdot\dfrac{dx}{dy}}=\pst{1}=1$\\
+  per cui: $f'g(x)=\dfrac{1}{g'(y)}$.
+\end{proof}
+\begin{osservazione}
+ La dimostrazione fa leva su una semplificazione che sembra banale. In realtà
+ i due rapporti differenziali sono diversi: nel primo la variabile indipendente
+ è $x$, nel secondo è $y$.
+\end{osservazione}
+\begin{esempio}
+  Trova la derivata di $f(x)=\dfrac{1}{\sqrt{5-x^2}}$.\\
+  \begin{enumerate}[noitemsep]
+   \item Usando la regola in \ref{subsec:diff01_dericomp} e precedenti:\\
+   $f'(x)=\mathit{D}\quadra{\dfrac{1}{\sqrt{5-x}}}=
+   \mathit{D}\quadra{(5-x)^\frac{-1}{2}}=-\dfrac{1}{2}(5-x)
+   ^\frac{-3}{2}(-1) = \dfrac{1}{2(\sqrt{5-x})^3}$.
+   \item Usando la regola appena appresa:\\
+   $f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x}\srarrow 
+   y^{-2}=5-x\srarrow x=5-y^{-2}$  (funzione inversa)\\
+   $x'=\dfrac{dx}{dy}=-2y^{-3}$ (derivata della funzione inversa)
+   $\srarrow \dfrac{dy}{dx}=\dfrac{y^3}{2}=
+   \dfrac{1}{2(\sqrt{5-x})^3}$.
+  \end{enumerate}
+In genere la funzione inversa si costruisce in pochi passaggi semplici, poi 
+la derivazione risulta elementare.
+\end{esempio}
+
+
+\section{Derivare funzioni trascendenti}
+\label{sec:diff01_dericonpinv}
+seno
+coseno
+tangente
+esponenziale
+logaritmo
+\begin{teorema}
+  La derivata della generica funzione esponenziale è: $\mathit{D}\quadra{a^x}=
+  a^x\ln{a}$.
+\end{teorema}
+\noindent Ipotesi: $f(x)=x^n$ .\tab Tesi: $f'(x)=nx^{n-1}$.
+\begin{proof}
+\end{proof}
 
 \section{Applicazioni}
-\label{sec:diff02_applicazioni}
-\subsubsection{derivata e normale}
+\label{sec:diff01_applicazioni}
+\subsection{derivata e tangente}
+\subsection{derivata e normale}
