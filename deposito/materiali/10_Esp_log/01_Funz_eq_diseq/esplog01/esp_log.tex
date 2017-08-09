@@ -10,8 +10,8 @@
 \emph{
 Di ritorno da una viaggio nella foresta pluviale, mi sono portato come ricordo 
 una piccola piantina che vive sulla superficie dell'acqua. 
-Il primo giorno di giugno, getto la piantina nello stagno vicino a casa che ha 
-una superficie di circa \(1km^2\).
+Il primo giorno di giugno getto la piantina nello stagno vicino a casa, che ha 
+una superficie di circa \(1\) km\(\,^2\).
 Nei giorni seguenti vado a controllare lo stagno e non vedo più la pianta: il 
 vento l'avrà spinta chissà dove! 
 Questa specie ha la particolarità di duplicarsi ogni giorno e gli animali che 
@@ -22,94 +22,101 @@ ha ricoperto tutto lo stagno.}
 \begin{enumerate}
  \item
 \emph{Se in 30 giorni la pianta ha ricoperto tutto lo stagno, in quanti giorni 
-ne aveva ricoperto la metà?}
+ne aveva coperto metà?}
  \item 
 \emph{Quanta superficie era ricoperta il 20 giugno?}
  \item 
 \emph{Quanta superficie era ricoperta il 10 giugno?}
 \end{enumerate}
 
+\noindent Vediamo come rispondere a queste tre domande:
+
 \begin{enumerate}
  \item
-Per risolvere questo problema non dobbiamo guardare il periodo complessivo 
+L'idea è quella di non guardare il periodo complessivo 
 ragionando in avanti. Con questa impostazione verrebbe spontaneo pensare che se 
-in 30 giorni copre tutto lo stagno, metà stagno sarà coperto in 15 giorni. Non 
+in 30 giorni copre tutto lo stagno, metà stagno sarà coperto in 15 giorni. Purtroppo non 
 è così.
-Noi non abbiamo informazioni su quanto la pianta ricopre lo stagno il primo 
-giorno, ma su quanto stagno è ricoperto il trentesimo giorno.
+Innanzitutto noi non abbiamo informazioni su quanto la pianta ricopre lo stagno il primo 
+giorno, ma su quanta parte di stagno è ricoperta il trentesimo giorno.
 Quindi dobbiamo partire dalla fine: se il primo luglio la superficie dello 
-stagno è tutta coperta e, se ogni giorno la pianta raddoppia, il giorno prima 
-sarà ricoperto solo la metà dello stagno quindi per ricoprire metà dello stagno 
-ha impiegato~29 giorni e per ricoprire l'altra metà impiega solo un giorno.
+stagno è tutta coperta e ogni giorno la pianta raddoppia, il giorno precedente 
+sarà ricoperta solo la metà dello stagno. Quindi per ricoprire metà dello stagno 
+ha impiegato 29 giorni e per ricoprire l'altra metà impiega solo un giorno.
 
  \item
 Per calcolare quale superficie è ricoperta dalla pianta il ventesimo giorno, 
 possiamo costruire una tabella, sempre partendo dalla fine:
 
 \begin{center}
-\begin{tabular}{c|c|c|c|c|c|c|c|c}
-giorno & 30 & 29 & 28 & 27 & 26 & 25 & \dots & 20\\[6pt]
-\hline &&&&&&&&\\ [-6pt]
-superficie & 1 & \(\dfrac{1}{2}=\dfrac{1}{2^1}\) & 
- \(\dfrac{1}{4}=\dfrac{1}{2^2}\) & 
- \(\dfrac{1}{8}=\dfrac{1}{2^3}\) & 
- \(\dfrac{1}{16}=\dfrac{1}{2^4}\) & 
- \(\dfrac{1}{32}=\dfrac{1}{2^5}\) & \dots & \dots\\
+\begin{tabular}{c|c|c|c|c|c|c|c}
+giorno & 30 & 29 & 28 & 27 & 26 & 25 & \dots \\[6pt]
+\hline &&&&&&\\ [-6pt]
+superficie & 1 & \(\dfrac{1}{2}\) & 
+ \(\dfrac{1}{4}\) & 
+ \(\dfrac{1}{8}\) & 
+ \(\dfrac{1}{16}\) & 
+ \(\dfrac{1}{32}\) & \dots \\
 \end{tabular}
 \end{center}
 
-Completando la tabella puoi scoprire quale parte dello stagno è ricoperta il 
-ventesimo giorno. Ma si può ritrovare questo risultato senza calcolarsi tutti i 
-risultati intermedi?
-La frazione che contiene la potenza di due ci dà un suggerimento, dobbiamo 
-riuscire a scriverla partendo dal valore della prima riga:
+Infatti ogni giorno la parte ricoperta è la metà del giorno successivo.
+Completando la tabella puoi scoprire quale parte di stagno è ricoperta il 
+ventesimo giorno. Ma esiste un modo più veloce per calcolarlo?
+\'E sufficiente riscrivere la tabella nel seguente modo:
 
 \begin{center}
-\begin{tabular}{cccc}
-giorno & 30 & \dots & \(n\) \\
-superficie & 1 & \dots & \(\dfrac{1}{2^{\dots}}\) \\
+\begin{tabular}{c|c|c|c|c|c|c|c}
+giorno & 30 & 29 & 28 & 27 & 26 & 25 & \dots \\[6pt]
+\hline &&&&&&\\ [-6pt]
+superficie & 1 & \(\dfrac{1}{2^1}\) & 
+ \(\dfrac{1}{2^2}\) & 
+ \(\dfrac{1}{2^3}\) & 
+ \(\dfrac{1}{2^4}\) & 
+ \(\dfrac{1}{2^5}\) & \dots \\
 \end{tabular}
 \end{center}
 
- \item
-Con questa formula a disposizione si può calcolare immediatamente quanta 
-superficie dello stagno è ricoperta il decimo giorno:
-\[superficie = \dfrac{1}{2^{\dots}} = \dfrac{1}{2^{20}} \approx 
+Risulta definita automaticamente una formula che permette di calcolare la parte di stagno ricoperta
+$n$ giorni prima dell'ultimo.
+\begin{itemize}
+ \item 3 giorni prima dell'ultimo giorno è ricoperto $\dfrac{1}{2^3}$ di stagno.
+ \item 10 giorni prima dell'ultimo giorno (ovvero il $20^\circ$ giorno) è ricoperto $\dfrac{1}{2^{10}}$ di stagno.
+ \item $n$ giorni prima dell'ultimo giorno è ricoperto $\dfrac{1}{2^{n}}$ di stagno.
+\end{itemize}
+
+\item Con quest'ultima formula è possibile calcolare immediatamente quanta 
+superficie dello stagno è ricoperta il decimo giorno (ovvero 20 giorni prima della fine):
+\[\text{superficie} = \dfrac{1}{2^{20}} \approx 
 \text{ 1 milionesimo della superficie}\]
 Ciò significa che nei primi 10 giorni arriva a coprire meno di un milionesimo 
 della superficie dello stagno e poi in un giorno da metà lago lo copre tutto.
- \item
-Se di questa pianta ne deriva una forma mutante che continua a crescere allo 
-stesso modo anche al di fuori dell'acqua, quanto tempo impiegherà a ricoprire 
-tutta la terra?
 \end{enumerate}
 
 \section{Esponenziali}
 \label{sec:esplog_esponenziali}
 
-Il fenomeno riportato nel problema precedente, trova un proprio modello nelle 
-funzioni esponenziali. Studiamo ora come si comportano queste funzioni.
+Il fenomeno riportato nel problema precedente trova un proprio modello nelle 
+funzioni esponenziali. Studiamone in dettaglio il comportamento.
 
 \subsection{La successione delle potenze di~2}
 \label{subsec:esplog_succpotdue}
 
-Riprendiamo l'esempio precedente, ma poniamo il giorno zero quello in cui viene 
+Riprendiamo l'esempio precedente, ma poniamo come giorno zero quello in cui viene 
 ricoperto l'intero stagno: al valore zero corrisponde la superficie uno, al 
-valore uno la superficie \dots. E nei giorni precedenti: al valore meno uno 
-corrisponde la superficie un mezzo, al valore meno due la superficie \dots.
+valore uno la superficie doppia, \dots. Nei giorni precedenti: al valore meno uno 
+corrisponde la superficie $1/2$, al valore meno due \dots.
 
 Completando la tabella e riportando i valori nel grafico si ottiene:
 
 \begin{figure}[h]
  \centering
  \begin{minipage}[]{.48\textwidth}
- \vspace*{1cm}
   \begin{center}
-   \begin{tabular}{r|l}
+   \begin{tabular}{c|l}
     $n$   & $y=2^n$ \\
     \hline
     \dots & \dots \\
-    $-5$ & $2^{-5} = 0,03125$ \\
     $-4$ & $2^{-4} = 0,0625$ \\
     $-3$ & $2^{-3} = 0,125$ \\
     $-2$ & $2^{-2} = 0,25$ \\
@@ -118,12 +125,8 @@ Completando la tabella e riportando i valori nel grafico si ottiene:
     $+1$ & $2^{+1} = 2$ \\
     $+2$ & $2^{+2} = 4$ \\
     $+3$ & $2^{+3} = 8$ \\
-    $+4$ & $2^{+4} = 16$ \\
-    $+5$ & $2^{+5} = 32$ \\
     \dots & \dots \\
    \end{tabular}
- \vspace*{1.8cm}
-  \caption{Alcuni valori delle potenze di~2...} \label{tab:potdue0}
   \end{center}
  \end{minipage}
 \begin{minipage}[]{.48\textwidth}
@@ -133,7 +136,7 @@ cartesiano si dispongono lungo una curva che
 a sinistra si trovano appena sopra all'asse x, 
 attraversano l'asse y nel punto~1, poi crescono molto rapidamente.]
   \puntia
-  \caption{...e i corrispondenti punti.} \label{fig:potdue0}
+  \caption{Grafico di $y = 2^n$} \label{fig:potdue0}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -144,35 +147,32 @@ Possiamo fare alcune osservazioni su questa successione.
 
 \begin{enumerate}
  \item 
-  È sempre crescente cioè se \(n_1 > n_0 \text{ allora } 2^{n_1} > 2^{n_0}\)
+  È sempre crescente: se \(n_1 > n_0\) allora \(2^{n_1} > 2^{n_0}\)
  \item 
   Verso sinistra i valori di \(2^n\) diventano sempre più piccoli, ma rimangono 
-  sempre maggiori di zero. Perché? Quindi se \(n\) è un infinito negativo 
-  allora \(2^n\) sarà \dots
+  sempre maggiori di zero. Quindi se \(n\) è un infinito negativo 
+  allora \(2^n\) sarà un infinitesimo.
  \item 
   Verso destra cresce molto rapidamente. Quindi se \(n\) è un infinito positivo 
-  allora \(2^n\) sarà \dots
+  allora \(2^n\) sarà anch'esso un infinito positivo.
  \item 
-  Studiamo l'incremento della funzione completando la seguente tabella:
-  
+  \'E interessante studiare l'incremento della funzione \;$\Delta y_n = y_{n+1}-y_n$:
 \begin{center}
-\begin{tabular}{cccccccccccc}
-n & -4    & -3    & -2   & -1  & 0 & +1 & +2 & +3    & +4    & \dots & n\\
-\hline \\
+\renewcommand\arraystretch{1.8}
+\begin{tabular}{c|ccccccccc}
+$n$ & -4    & -3    & -2   & -1  & 0 & +1 & +2 & +3  & \dots \\
+\hline 
 % \vspace*{4pt}
-y & 0,0625 & 0,125 & 0,25 & 0,5 & 1 & 2  & 4  & \dots & \dots & \dots & \dots\\
-\hline \\
+$y$ & 0,0625 & 0,125 & 0,25 & 0,5 & 1 & 2  & 4  & 8 & \dots\\
+\hline
 % \vspace*{4pt}
-\(y_{n+1} - y_n\) & 
-    \dots & \dots & \dots & \dots & \dots & \dots  & \dots  & \dots & \dots & 
-\dots & \dots\\
+$\Delta y_n$ & 
+  0,0625 & 0,125 & 0,25 & 0,5 & 1 & 2  & 4  & 8& \dots \\
 \end{tabular}
 \end{center}
 
-  Possiamo osservare che l'incremento della successione in un punto: 
-  \(y_{n+1} - y_n\) 
-  è uguale al valore della successione in quel punto: 
-  \(y_n\) 
+  Possiamo osservare che l'incremento della successione in un punto $\Delta y_n$
+  è uguale al valore della successione in quel punto $y_n$
 
 \end{enumerate}
 \end{osservazione}
@@ -190,25 +190,23 @@ e andiamo a studiare il comportamento della funzione reale: \(y=2^x\) quando
  \begin{minipage}[]{.48\textwidth}
 %  \vspace*{1cm}
   \begin{center}
+  \renewcommand\arraystretch{1.3}
    \begin{tabular}{r|l}
     $n$   & $y=2^n$ \\
     \hline
     \dots & \dots \\
-    $-2$ & $2^{-2} = 0,25$ \\
-    $-1,5$ & $2^{-1,5} = 2^{\frac{-3}{2}} = \sqrt{2^{-3}} = 0,353553391$ \\
     $-1$ & $2^{-1} = 0,5$ \\
-    $-0,5$ & $2^{-0,5} = 2^{\frac{-1}{2}} = \sqrt{2^{-1}} = 0,707106781$ \\
+    $-0,75$ & $2^{-0,75} = 2^{\frac{-3}{4}} = \sqrt[4]{2^{-3}} = 0,5946$ \\
+    $-0,5$ & $2^{-0,5} = 2^{\frac{-1}{2}} = \sqrt{2^{-1}} = 0,7071$ \\
+    $-0,25$ & $2^{-0,25} = 2^{\frac{-1}{4}} = \sqrt[4]{2^{-1}} = 0,8409$ \\
     $0$ & $2^{0} = 1$ \\
-    $+0,5$ & $2^{0,5} = 2^{\frac{1}{2}} = \sqrt{2} = 1,414213562$ \\
+    $0,25$ & $2^{0,25} = 2^{\frac{1}{4}} = \sqrt[4]{2} = 1,1892$ \\
+    $+0,5$ & $2^{0,5} = 2^{\frac{1}{2}} = \sqrt{2} = 1,4142$ \\
+    $0,75$ & $2^{0,75} = 2^{\frac{3}{4}} = \sqrt[4]{2^3} = 1,6818$ \\
     $+1$ & $2^{+1} = 2$ \\
-    $+1,25$ & $2^{1,25} = 2^{\frac{5}{4}} = \sqrt[4]{2^{5}} = 2,37841423$ \\
-    $+1,5$ & $2^{1,5} = 2^{\frac{3}{2}} = \sqrt{2^{3}} = 2,828427125$ \\
-    $+1,75$ & $2^{1,75} = 2^{\frac{7}{4}} = \sqrt[4]{2^{7}} = 3,363585661$ \\
-    $+2$ & $2^{+2} = 4$ \\
     \dots & \dots \\
    \end{tabular}
 %  \vspace*{1.8cm}
-  \caption{Altri valori delle potenze di~2...} \label{tab:potdue1}
   \end{center}
  \end{minipage}
 \begin{minipage}[]{.48\textwidth}
@@ -218,7 +216,7 @@ punti interpolati.]
   \vspace*{.8cm}
   \puntib
   \vspace*{.65cm}
-  \caption{...e i corrispondenti punti.} \label{fig:potdue1}
+  \caption{Grafico di $y=2^x$} \label{fig:potdue1}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -229,8 +227,7 @@ corrispondenti ad ogni valore \(x \in \R\) ed ottenere così il grafico della
 funzione reale \(y=2^x\).
 
 \begin{definizione}[Funzioni esponenziali]{
-Le funzioni esponenziali
-sono quelle funzioni nelle quali la variabile indipendente appare all'esponente.
+Chiamiamo \emph{funzione esponenziale} una funzione in cui la variabile indipendente compare all'esponente.
 }
 \end{definizione}
 
@@ -240,19 +237,19 @@ proporzionale al valore in un dato momento. Alcuni esempi:
 
 \begin{figure}[h]
  \centering
- \begin{minipage}[]{.48\textwidth}
+ \begin{minipage}[]{.46\textwidth}
 %  \vspace*{1cm}
 \begin{itemize}
+\small 
  \item 
 Il capitale che cresce con un certo tasso di interesse e che quindi ha una 
 crescita proporzionale al valore del capitale stesso.
  \item 
-La crescita di una popolazione, in condizioni favorevoli: più individui fertili 
-ha una popolazione più rapidamente cresce. 
-Si può pensare in particolare alla diffusione di specie non autoctone in 
+La crescita di una popolazione, in condizioni favorevoli: maggiori sono gli individui fertili e più rapidamente cresce
+la popolazione. Si può pensare in particolare alla diffusione di specie non autoctone in 
 territori dove non trovano predatori.
  \item 
-Un caso analogo al precedente la crescita del numero di batteri o virus in un 
+Crescita del numero di batteri o virus in un 
 individuo contagiato da una malattia.
  \item 
 La diffusione di un'epidemia.
@@ -262,7 +259,7 @@ scioglimento delle calotte polari con la diffusione di ulteriori quantità di
 ``gas serra''.
 \end{itemize}
 
-\end{minipage}
+\end{minipage} \quad
 \begin{minipage}[]{.48\textwidth}
 \begin{center}
 \begin{inaccessibleblock}[Grafico della funzione esponenziale che 
@@ -280,25 +277,18 @@ attraversa l'asse y nel punto~1, poi cresce molto rapidamente.]
 
 È ora il momento di generalizzare la funzione. 
 Studiamo come si comporta la funzione \(y=a^x\) per diversi valori di \(a\).
-Cosa succede se la base della potenza è un numero diverso da~2? 
-Come cambierà il suo grafico?
-
-\paragraph{Base negativa}
-\label{par:esplog_basenegativa}
-
-Iniziamo mettendo al posto di \(a\) un valore negativo.
-
-Proviamo a disegnare il grafico della funzione: \(y=(-2)^x\).
-Diamo a \(x\) diversi valori, calcoliamo i corrispondenti valori di \(y\) e 
-riportiamoli su un grafico:
-
+Cosa succede se la base della potenza è un numero diverso da 2? 
+Come cambierà il suo grafico?\\[10pt]
+\fbox{{$a<0$}}\; Proviamo a disegnare, per esempio, il grafico della funzione: \(y=(-2)^x\).\\[4pt]
+Diamo ad \(x\) diversi valori, calcoliamo i corrispondenti valori di \(y\) e 
+riportiamoli su un grafico (vedi Figura \ref{fig:potmenodue0}).
 \begin{figure}[h]
  \centering
  \begin{minipage}[]{.48\textwidth}
  \vspace*{.6cm}
   \begin{center}
    \begin{tabular}{r|l}
-    $x$   & $y=(-2)x$ \\
+    $x$   & $y=(-2)^x$ \\
     \hline
     \dots & \dots \\
     $-5$ & $(-2)^{-5} = -0,03125$ \\
@@ -310,12 +300,9 @@ riportiamoli su un grafico:
     $+1$ & $(-2)^{+1} = -2$ \\
     $+2$ & $(-2)^{+2} = +4$ \\
     $+3$ & $(-2)^{+3} = -8$ \\
-    $+4$ & $(-2)^{+4} = +16$ \\
-    $+5$ & $(-2)^{+5} = -32$ \\
     \dots & \dots \\
    \end{tabular}
- \vspace*{.6cm}
-  \caption{Alcuni valori delle potenze di~\((-2)\)...} \label{tab:potmenodue0}
+ \vspace*{.6cm} \label{tab:potmenodue0}
   \end{center}
  \end{minipage}
 \begin{minipage}[]{.48\textwidth}
@@ -324,66 +311,56 @@ riportiamoli su un grafico:
 cartesiano si dispongono alcuni nel semipiano positivo e alcuni nel semipiano 
 negativo.]
   \puntimenodue
-  \caption{...e i corrispondenti punti.} \label{fig:potmenodue0}
+  \caption{Grafico di $y=(-2)^n$} \label{fig:potmenodue0}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
 \end{figure}
-
 La successione risulta un po' strana, ma è accettabile. Cosa succede però se 
 l'esponente è un numero con la virgola? Proviamo a far calcolare alla 
 calcolatrice le seguenti espressioni:
-
 \[\tonda{-2}^{1,5}= \dots \qquad \tonda{-2}^{2/7}= \dots \qquad 
  \tonda{-2}^{-1,5}= \dots \qquad \tonda{-2}^{3/8}= \dots \qquad 
 \]
-
 Molto probabilmente la calcolatrice si rifiuterà di calcolare queste 
 espressioni perché il loro risultato non è un numero reale. 
 Quanto visto per \(-2\) vale per qualunque base negativa.
-Possiamo concludere che se la base è negativa possiamo calcolare la successione 
+Possiamo concludere che, se la base è negativa, possiamo calcolare la successione 
 delle sue potenze, ma non possiamo calcolare i valori della funzione 
-con~\(x \in \R\). 
+per qualunque \(x \in \R\). 
 La funzione \(y=a^x \text{ con } a<0\) non è definita nei numeri reali 
 (in \(\R\)).
-Anche quando la base è uguale a zero si ottiene una funzione piuttosto strana, 
-come sarà il suo grafico?
+\paragraph{\fbox{$a=0$}} Se $a=0$, otteniamo di nuovo una funzione alquanto strana. Infatti $y = 0^x$ vale
+zero per qualunque $x>0$, mentre non esiste per valori $x<0$.\\[4pt]
 
-D'ora in poi studieremo solo funzioni esponenziali con la base positiva.
+D'ora in avanti considereremo esponenziali solamente con base $a>1$.
 
-\paragraph{Diverse basi}
-\label{par:esplog_diversebasi}
-
-\begin{description}
- \item [\(a>1\)]
+\paragraph{\fbox{$a>1$}}
 Tenendo presente il valore delle potenze che abbiamo imparato, possiamo 
-affermare che maggiore è la base e più ripida diventa il grafico della funzione 
+affermare che maggiore è la base e più ripido diventa il grafico della funzione 
 sulla destra (per valori positivi) mentre a sinistra (per valori negativi) il 
 grafico si appiattisce più rapidamente sull'asse \(x\).
- \item [\(a=1\)]
+\paragraph{\fbox{$a=1$}}
 % Se la base è uguale a~1 la qualunque potenza sarà uguale a~1 quindi la funzione 
 % diventa una costante:~\(y=1\). 
-Se la base è proprio~1 l'equazione esponenziale 
-diventa molto particolare: prova tu a calcolare diversi valori di \(y=1^x\) 
-facendo variare \(x\), che valori di \(y\) ottieni?
- \item [\(0<a<1\)]
+Se la base è proprio 1, la funzione esponenziale 
+diventa molto particolare: infatti per ogni valore di $x$ la funzione \(y=1^x\) vale sempre 1.
+\paragraph{\fbox{$0<a<1$}}
 Calcolando alcuni valori di una funzione con la base minore di~1, 
 ad esempio \(y=\tonda{\frac{1}{2}}^x\), possiamo osservare facilmente che il 
 comportamento della funzione assomiglia molto a quello della funzione
 \(y=2^x\), ma i valori ottenuti sono simmetrici rispetto all'asse \(y\). 
 La funzione è decrescente, i valori verso sinistra crescono rapidamente, mentre 
 verso destra si appiattiscono sull'asse \(x\) rimanendo comunque sempre 
-positivi.
-\(\tonda{\frac{1}{2}}^x = 2^{-x}\)
-In generale possiamo affermare che:
-
-\[\tonda{\frac{1}{a}}^x = a^{-x}\]
-\end{description}
-
-Se la base si avvicina a~1, rimanendo maggiore di~1, la funzione a destra si 
+positivi. In effetti si può notare che:
+\[\tonda{\frac{1}{2}}^x = 2^{-x} \quad \text{e quindi, in generale: }\quad \tonda{\frac{1}{a}}^x = a^{-x}\]
+Quindi una funzione esponenziale con base minore di 1 è equivalente alla rotazione intorno all'asse $x$ della
+corrispondente funzione esponenziale con base maggiore di 1. Da notare inoltre che, se la base si avvicina
+a 1, rimanendo maggiore di 1, la funzione a destra si 
 appiattisce crescendo più lentamente e a sinistra si avvicina più 
-lentamente all'asse \(x\). 
-Se la base si avvicina a~0 o all'infinito, la funzione si avvicina agli assi.
+lentamente all'asse \(x\). Se la base si avvicina a 0 o all'infinito, la funzione si avvicina agli assi.
+
+\vspace{5pt}
 
 \begin{figure}[h]
 \begin{minipage}{.69\textwidth}
@@ -407,21 +384,23 @@ Se la base si avvicina a~0 o all'infinito, la funzione si avvicina agli assi.
   \caption{Esponenziali con diverse basi.} \label{fig:diversebasi}
 \end{figure}
 
+Possiamo quindi riassumere quanto detto in poche semplici regole: 
 \begin{enumerate*}
  \item La funzione esponenziale è sempre maggiore di zero qualunque sia la base 
 e l'esponente.
- \item La concavità è sempre verso l'alto.
  \item Se la base $a>1$ la funzione è strettamente crescente.
  \item Se la base $0<a<1$ la funzione è strettamente decrescente.
  \item Se $a=1$ la funzione è costante.
  \item Se il valore assoluto di $a$ è grande, il grafico si avvicina agli assi.
  \item Se il valore assoluto di $a$ è vicino a uno, il grafico si avvicina alla 
 retta~\(y=1\).
+ \item La concavità è sempre verso l'alto.
 %  \item Nel grafico precedente ho evidenziato dei punti che dovrebbero aiutare 
 % a scoprire la base della funzione esponenziale.
- \item In figura \ref{fig:diversebasi} ho evidenziato dei punti che dovrebbero 
-aiutare a scoprire la base della funzione esponenziale.
 \end{enumerate*}
+
+In figura \ref{fig:diversebasi} sono evidenziati dei punti che dovrebbero 
+aiutare a scoprire la base della funzione esponenziale corrispondente.
 
 \subsection{Le equazioni esponenziali}
 \label{subsec:esplog_equazioniesponenziali}
