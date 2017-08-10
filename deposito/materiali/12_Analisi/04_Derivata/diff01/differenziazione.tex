@@ -1883,8 +1883,8 @@ derivate corrispondenti sono reciproche l'una con l'altra.
 \end{proof}
 \begin{osservazione}
  La dimostrazione fa leva su una semplificazione che sembra banale. In realtà
- i due rapporti differenziali sono diversi: nel primo la variabile indipendente
- è $x$, nel secondo è $y$.
+ i due rapporti differenziali sono diversi per significato: nel primo la 
+ variabile indipendente è $x$, nel secondo è $y$.
 \end{osservazione}
 \begin{esempio}
   Trova la derivata di $f(x)=\dfrac{1}{\sqrt{5-x^2}}$.\\
@@ -1906,19 +1906,302 @@ la derivazione risulta elementare.
 
 
 \section{Derivare funzioni trascendenti}
-\label{sec:diff01_dericonpinv}
-seno
-coseno
-tangente
-esponenziale
-logaritmo
+\label{sec:diff01_deritrasc}
+Nel capitolo \ref{sec:diff01_differenziale} abbiamo imparato a differenziare 
+le funzioni algebriche. In questa parte, quindi, per imparare
+a derivare le funzioni trascendenti, dovremo calcolare anche i loro 
+differenziali. Si tratta in realtà di un lavoro minimo, perché abbiamo già
+discusso (\ref{subsubsec:insnum_expstar} il comportamento di queste funzioni
+nell'insieme degli Iperreali e abbiamo ormai un bagaglio di conoscenze 
+sulle derivate che agevola il lavoro.
+\subsection{Derivata di $f(x)=a^x$}
+\label{}
+Il grafico di una generica funzione esponenziale $y=a^x$, confrontato con quello 
+dell'andamento delle tangenti è una sorpresa rispetto ai confronti che abbiamo
+fatto per altre funzioni. I due grafici praticamente si accompagnano: 
+rivelano uguali pendenze in coppie di punti di uguale ordinata.
+
+GRAFICI AFFIANCATI f(x)=exp e f'
+
+Si può dire che anche l'andamento delle pendenze delle tangenti, cioè
+l'andamento della derivata della funzione, è anch'esso esponenziale.
+Sviluppiamo matematicamente questa intuizione, ricordando le proprietà
+delle potenze.\\
+Differenziale di $y=a^x$: $dy=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1}$.\\
+Rapporto differenziale: $\dfrac{dy}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x$.\\
+Ora dovremmo applicare la parte standard e se vogliamo seguire le indicazioni
+del grafico, il risultato dovrà essere un'esponenziale. Quindi dobbiamo 
+concentrarci sul rapporto $\dfrac{\tonda{a^{dx}-1}}{dx}$, il fattore che potrebbe
+provocare l'allontanamento del grafico dalla forma esponenziale a cui puntiamo.\\
+Negli esponenziali succede che $f(0)=1$ e $f(x+dx)=f(x)f(dx)$ e il rapporto 
+differenziale in queste funzioni diventa:\\
+$\dfrac{df(x)}{dx}=\dfrac{f(x+dx)-f(x)}{dx}=\dfrac{f(x)f(dx)-f(x)}{dx}=
+\dfrac{f(dx)-1}{dx}f(x)=\dfrac{f(0+dx)-f(0)}{dx}f(x)\sim\\
+\sim f'(0)f(x)\srarrow f'(x)=f'(0)f(x)$.\\
+La derivata di una funzione esponenziale generica è proporzionale alla
+funzione stessa, attraverso un fattore che corrisponde alla derivata calcolata
+in $x=0$.\\
+Per capire di più cos'è questo fattore, forziamo la situazione e imponiamo che
+corrisponda a $1$. In questo modo la funzione e la sua derivata saranno proprio
+identiche e i due grafici saranno sovrapposti e finalmente conosceremo quanto
+vale la base generica  $a$.\\
+$f'(0)=1\srarrow \dfrac{\tonda{a^{dx}-1}}{dx}=1\srarrow a^{dx}=dx +1
+\srarrow a=(dx+1)^\frac{1}{dx}$.\\
+Abbiamo già incontrato un'espressione analoga in \ref{subsubsec:insnum_nepero}:
+l'espressione individua il Numero di Nepero $e$.
+\begin{teorema}
+ La derivata della funzione esponenziale $\mathit{D}\quadra{e^x}$ coincide con
+ la funzione stessa.
+\end{teorema}
+\noindent Ipotesi: $f(x)=e^x$. \tab $f'(x)=e^x$
+\begin{proof}
+ La dimostrazione è già stata costruita gradualmente per via intuitiva. 
+ Occorrerebbe dimostrare l'unicità della tesi, ma non è essenziale
+ per i nostri scopi. Resta comunque stabilito che \emph{se una funzione coincide
+   con la propria derivata, allora è una funzione esponenziale}.
+\end{proof}
+A questo punto, l'importanza del numero $e$ risulta ingigantita. Ce ne serviamo 
+subito.
+
 \begin{teorema}
   La derivata della generica funzione esponenziale è: $\mathit{D}\quadra{a^x}=
   a^x\ln{a}$.
 \end{teorema}
-\noindent Ipotesi: $f(x)=x^n$ .\tab Tesi: $f'(x)=nx^{n-1}$.
+\noindent Ipotesi: $f(x)=a^x$; \tab Tesi: $f'(x)=a^x\ln{a}$.
 \begin{proof}
+ Usiamo una trasformazione appresa con lo studio dei logaritmi e applichiamo la
+ regola \ref{subsec:diff01_dericomp}:
+ $f(x)~=~a^x~=~e^{\ln a^x}$. Se poniamo $g(x)=\ln a^x=x\ln a$, si ottiene:\\
+ $f(g(x))=e^{g(x)}\srarrow f'(g(x))=f'(g)g'(x)= e^{x\ln a}\ln a=
+ e^{\ln a^x}\ln a=a^x\ln a$.
 \end{proof}
+\begin{esempio}
+  Calcola la derivata di $f(x)=3e^{x-1}$.\\
+  Poniamo $g(x)=x-1$. $f(x)=3e^{g(x)}\srarrow f'(x)=3e^{g(x)}\cdot g'(x)=
+  3e^{x-1}\cdot 1=3e^{x-1}$.
+\end{esempio}
+\begin{esempio}
+  Calcola la derivata di $f(x)=e^{x^2}$.\\
+  Poniamo $g(x)=x^2\srarrow f(x)=e^{g(x)}\srarrow f'(x)=e^{g(x)}\cdot g'(x)=
+  e^{x^2}\cdot 2x=2xe^{x^2}$.
+\end{esempio}
+
+\subsection{Derivata di $f(x)=\log_a x$}
+\label{}
+\begin{esempio}
+  Calcola la derivata di $f(x)=e^{\ln x}$.\\
+  Poniamo $g(x)=\ln x\srarrow f(x)=e^{g(x)}\srarrow f'(x)=e^{g(x)}\cdot g'(x)=
+  e^{\ln x}$ \dots ???.\\
+  Ragioniamo: dalle proprietà
+  dei logaritmi si ha: $e^{\ln x} =x$, che è la funzione identica. Quindi
+  \begin{enumerate}[noitemsep]
+    \item $e^{\ln x} =x$ e anche $\ln e^x= x\ln e=x$, così come 
+    $f(f^{-1}(x))=f^{-1}(f(x))=x$: le due funzioni sono una inversa dell'altra,
+    il logaritmo naturale $g(x)=\ln x$ è la funzione inversa della
+    funzione esponenziale $f(x)=e^x$;
+    \item $\mathit{D}\quadra{f^{-1}(x)}=\dfrac{1}{f'(f^{-1}(x))}$;
+    \item $\mathit{D}\quadra{\ln x}=\dfrac{1}{\mathit{D}\quadra{e^{g(x)}}}
+    =\dfrac{1}{e^{\ln x}}=\dfrac{1}{x}$.
+  \end{enumerate}
+\end{esempio}
+
+DISEGNO GRAFICI ESP E LOG SIMMETRICI 
+
+\begin{teorema}
+  La derivata della funzione logaritmo naturale è: $\mathit{D}\quadra{\ln x}=
+  \dfrac{1}{x}$.
+\end{teorema}
+\noindent Ipotesi: $f(x)=\ln x$. \tab $f'(x)=\dfrac{1}{x}$
+\begin{proof}
+La dimostrazione è nei ragionamenti dell'esempio precedente, ai quali bisogna 
+aggiungere le precauzioni perché le due funzioni siano invertibili e derivabili: 
+poiché $\ln x$ esiste per $x>0$, i ragionamenti valgono solo per $x>0$
+\end{proof}
+
+Vediamo ora il caso generale, quando la base del logaritmo è genericamente $a>0$.
+\begin{teorema}
+  La derivata della funzione logaritmo in base $a$ è: 
+  $\mathit{D}\quadra{\log_a x}= \dfrac{1}{x\ln a}$.
+\end{teorema}
+\noindent Ipotesi: $f(x)=\log_a x$. \tab $f'(x)=\dfrac{1}{x\ln a}$
+\begin{proof}
+Si ottiene direttamente dalla formula del cambiamento di base:\\
+$\log_a x=\dfrac{1}{\ln a}\ln x$.
+\end{proof}
+
+\begin{esempio}
+    Derivare la funzione $f(x)=Log(x^2+1)^2$.\\
+    $g(x)=(x^2+1)^2\srarrow f(x)=Log (g(x))\srarrow f'(x)=\dfrac{1}{\ln 10}
+    \dfrac{1}{g(x)}g'(x)=\\
+    =\dfrac{1}{(\ln 10)(x^2+1)^2}2(x^2+1)2x=\dfrac{4x}{(\ln 10)(x^2+1)}$.\\
+    Nota che $g(x)=(x^2+1)^2$ è a sua volta una funzione composta del tipo 
+    $g(x)=\quadra{h(x)}^2$ e quindi è stata applicata la regola della derivata
+    di più funzioni composte.
+\end{esempio}
+
+Abbiamo ora tutti gli strumenti per convalidare l'osservazione al teorema 
+\ref{diff01_teoderpotenza}, a proposito delle funzioni potenza.
+
+\begin{teorema}
+  La derivata della funzione potenza $f(x)=x^\alpha$ è: \hspace{5mm}
+  $\mathit{D}\quadra{x^\alpha}=(\alpha-1)x^\alpha$, $\forall\alpha$.
+\end{teorema}
+\noindent Ipotesi: $f(x)=x^\alpha$. \tab $f'(x)=(\alpha-1)x^\alpha$, 
+$\forall \alpha$.
+\begin{proof}
+Combinando alcune delle regole precedenti, si ha:\\
+$f(x)=x^\alpha=e^{\ln x^\alpha}=e^{\alpha\ln x}$\\
+$f'(x)=e^{\alpha\ln x}\alpha\dfrac{1}{x}=x^\alpha\frac{\alpha}{x}=
+\alpha x^{\alpha-1}$.\\
+Poiché non è stata fatta nessuna particolare ipotesi sull'esponente (intero o 
+razionale positivo o negativo, irrazionale ...), allora vale per qualsiasi
+esponente.
+\end{proof}
+
+\begin{esempio}
+  Derivare $f(x)=x^{\sqrt{2}}$.\\
+  $f'(x)=\sqrt{2}x^{\sqrt{2}-1}$.
+\end{esempio}
+
+\subsection{Derivata di funzioni circolari}
+\label{}
+Anche per queste funzioni dobbiamo dapprima definire il differenziale. 
+Per una migliore comprensione, ci affidiamo soprattutto al piano cartesiano.
+\subsubsection{Derivata di $f(x)=\sen x$}
+Nel capitolo sugli Iperreali abbiamo già visto 
+(vedi \ref{subsubsec:insnum_fseno}) che per angoli infinitesimi il seno e 
+l'angolo sono indistinguibili: $\st\tonda{\frac{\sin \epsilon}{\epsilon}}=1$.
+Dall'analisi del disegno ricaviamo l'espressione del differenziale
+$df(x)=d(\sen x)= \sen (x+dx) -\sen x$.
+
+DISEGNO dsen x
+
+Nell'ingrandimento al microscopio nonstandard, l'incremento infinitesimo di
+arco $\overset{\frown}{AB}$ (che corrisponde all'incremento di angolo da $x$
+a $x+dx$) è racchiuso fra due raggi indistinguibili da segmenti paralleli nei
+punti $A\equiv \punto{x}{\sen x}$ e $B\equiv \punto{x+dx}{\sen(x+dx)}$. 
+L'arco, a sua volta, risulta indistinguibile dal segmento rettilineo $AB$.
+I segmenti che uniscono $A$ e $B$ con le loro proiezioni sull'asse $X$ sono
+verticali e paralleli, perciò $ABC$ è un triangolo rettangolo infinitesimo, 
+simile al triangolo $BOC$. La sua altezza $BC$ corrisponde a $d\sen x$.\\
+Risolviamo il triangolo rettangolo $ABC$ rispetto al lato $BC$:
+$BC=AB\cdot \cos x \srarrow d(\sen x)= dx\cdot cos x$
+
+\begin{teorema}
+  La derivata della funzione $f(x)=\sen x$ è $\mathit{D}\quadra{\sen x}=\cos x$.
+\end{teorema}
+\noindent Ipotesi: $f(x)=\sen x$. \tab $f'(x)=\cos x$.
+\begin{proof}
+ Il commento al disegno giustifica la tesi. 
+\end{proof}
+
+\begin{osservazione}
+  Si potrebbe criticare il metodo per la dimostrazione: chi assicura che negli
+  altri quadranti le relazioni fra le variabili non cambino? Saremo troppo
+  legati al disegno?\\
+  Ci sono altri modi per dimostrare la tesi, più vincolati al calcolo
+  e meno al disegno.  Per esempio, dalle formule di addizione abbiamo:
+  $\sen(x+dx)=\sen x \cos dx + \sen dx \cos x$. Allora:\\
+  $\dfrac{\sen(x+dx)-\sen x}{dx}=\dfrac{\sen x \cos dx + \sen dx \cos x -
+   \sen x}{dx}=\\
+  =\sen x \dfrac{\cos x-1}{dx}+ \cos x\dfrac{\sen dx}{dx}=
+  \sen x\cdot 0 + \cos x\cdot 1=\cos x$,\\
+  in cui si fa uso delle forme indeterminate discusse in 
+  \ref{subsubsec:insnum_fseno}. Alla fine basta applicare la funzione $\pst{}$.
+\end{osservazione}
+\begin{osservazione}
+GRAFICO F(X)=SEN X  con tangenti e grafico derivata affiancati 
+Anche il grafico dell'andamento delle tangenti può confermare la tesi
+in modo assai espressivo. 
+\end{osservazione}
+
+\begin{esempio}
+Quale pendenza ha il grafico di $y=\sen x$ nell'origine?\\
+$f(x)= \sen x \srarrow f'(x)=\cos x\srarrow f'(0)=\cos 0=1$.\\
+La tangente al grafico nell'origine è la retta $y=x$.
+\end{esempio}
+
+\begin{esempio}
+Derivare $f(x)=\sen^2 x$ e $g(x)= \sen x^2$.\\
+$f'(x)=2\sen x \cos x$ e $g'(x)=cos x^2\cdot 2x= 2x \cos x^2$.
+\end{esempio}
+
+\begin{esempio}
+Derivare $f(x)=\sen^2 x$ e $g(x)= \sen 2x$.\\
+$f'(x)=2\sen x \cos x$ e $g'(x)=cos 2x\cdot 2= 2 \cos 2x$.
+\end{esempio}
+
+\subsubsection{Derivata di $f(x)=\cos x$}
+\begin{teorema}
+  La derivata della funzione $f(x)=\cos x$ è $\mathit{D}\quadra{\cos x}=
+  -\sin x$.
+\end{teorema}
+\noindent Ipotesi: $f(x)=\cos x$. \tab $f'(x)=-\sen x$.
+\begin{proof}
+Il disegno che dimostra la tesi è uguale al precedente e ti invitiamo a
+riprodurlo. Questa volta l'attenzione sarà
+concentrata sul segmento $AC$.\\
+L'unica osservazione importante è che nel passare da $x$ a $ x+dx$, cioè mentre
+l'angolo cresce, il valore del coseno decresce. Infatti, al contrario di quanto
+avviene per il seno, nel primo quadrante si ha: $ \cos(x+dx)<\cos x$. Questa è 
+la ragione del segno meno nel risultato.
+\end{proof}
+
+GRAFICO F(X)=cos X  con tangenti e grafico derivata affiancati
+\begin{esempio}
+Quale pendenza ha il grafico di $y=\cos x$ nell'origine?\\
+$f(x)= \cos x \srarrow f'(x)=-\sen x\srarrow f'(0)=-\sen 0=0$.\\
+La tangente al grafico nell'origine è orizzontale.
+\end{esempio} 
+
+\begin{esempio}
+Derivare $f(x)=\cos^2 x$ e $g(x)= \cos x^2$.\\
+$f'(x)=2\cos x(-\sen x)=-2\sen x\cos x$ e $g'(x)=-\sen x^2\cdot 2x=-2x\sen x^2$.
+\end{esempio}
+
+\begin{esempio}
+Derivare $f(x)=\cos^2 x +\sen^2 x$.\\
+$f'(x)=-2\sen x\cos x + 2\sen x \cos x = 0$.
+\end{esempio}
+
+
+\subsubsection{Derivata di $f(x)=\tg x$}
+La funzione $f(x)=\tg x$ è discontinua per $x= \pm\frac{\pi}{2}$. La derivata
+quindi non può esistere nei punti corrispondenti, come dimostra il grafico.
+
+GRAFICO F(X)=tang X  con tangenti e grafico derivata affiancati
+
+Per calcolare la derivata nei punti in cui la funzione è continua, ricorriamo
+alla seconda relazione fondamentale: $\tg x=\frac{\sin x}{\cos x}$ e
+sfruttiamo la regola della derivata di un quoziente (paragrafo 
+\ref{sec:diff01_regolederivate}).
+\begin{teorema}
+   La derivata della funzione $f(x)=\tg x$ è $\mathit{D}\quadra{\tg x}=
+   \dfrac{1}{\cos^2 x}=1+tg^2 x$ per $x= \pm\frac{\pi}{2}$.
+\end{teorema}
+\noindent Ipotesi: $f(x)=\tg x$. \tab $f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x$,
+per $x\ne\pm\frac{\pi}{2}$.
+\begin{proof}
+Per calcolare la derivata nei punti in cui la funzione è continua, ricorriamo
+alla seconda relazione fondamentale: $\tg x=\frac{\sin x}{\cos x}$ e
+sfruttiamo la regola della derivata di un quoziente (paragrafo 
+\ref{sec:diff01_regolederivate}).\\
+$\mathit{D}\quadra{\tg x}=\mathit{D}\quadra{\dfrac{\sin x}{\cos x}}=
+\dfrac{\mathit{D}\quadra{\sen x}\cdot \cos x-\sen x\cdot 
+  \mathit{D}\quadra{\cos x}} {\cos^2 x}=
+\dfrac{\sen^2 x +\cos^2 x}{\cos^2 x}=\dfrac{1}{\cos^2 x}=\tg^2+1$
+
+\end{proof}
+\begin {esempio}
+Quale è la pendenza del grafico di $y=\tg x$, per $x=\dfrac{\pi}{4}$? E per
+$x=\dfrac{\pi}{2}$?\\
+$f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{4})=1+\tg^2\dfrac{\pi}{4}=2$\\
+$f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{2})=1+\tg^2\dfrac{\pi}{2}=$ ???\\
+Per $x\approx\dfrac{\pi}{2}$ la tangente ha un grafico che cresce verticalmente,
+la sua pendenza è un numero infinito e la parte standard di un infinito non
+esiste. D'altra parte, se $x$ è esattamente uguale a $\dfrac{\pi}{2}$ ,
+la tangente ha un punto di discontinuità.
+\end {esempio}
 
 \section{Applicazioni}
 \label{sec:diff01_applicazioni}
