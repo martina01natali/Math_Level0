@@ -11,12 +11,14 @@ doverli ordinare in una sequenza. Uno dei problemi principali che si pone è
 quante password di 6 caratteri posso ottenere? Quanti anagrammi della parola 
 "MATEMATICA" posso fare? Quante sono le possibili colonne del totocalcio?
 
+\vspace{7pt}
+
 Iniziamo ad affrontare questi problemi con una situazione abbastanza semplice. 
 Tre studenti, Alice, Barbara e Carlo, devono decidere in che ordine presentarsi 
 ad un'interrogazione programmata.
 In quanti modi possibili possono organizzarsi?
 Proviamo a visualizzare la cosa. Il primo studente può essere scelto 
-all'interno dell'insieme $\{Alice,Barbara,Carlo\}$, che contiene 3 elementi. Nel 
+all'interno dell'insieme $\{$Alice,Barbara,Carlo$\}$, che contiene 3 elementi. Nel 
 diagramma seguente per ogni ramo dell'albero abbiamo rappresentato una delle 
 possibili scelte del primo studente ad essere interrogato.
 
@@ -38,7 +40,7 @@ possibili scelte del primo studente ad essere interrogato.
 \vspace{-6pt}
 Per scegliere chi verrà interrogato per secondo dobbiamo invece tenere conto di 
 chi è già stato interrogato per primo. Ad, esempio, se il primo ad essere 
-scelto è stato $Carlo$, l'insieme da cui potrò scegliere è $\{Alice, Barbara\}$ 
+scelto è stato Carlo, l'insieme da cui potrò scegliere è $\{$Alice, Barbara$\}$ 
 che è formato da due soli elementi. Il diagramma ad albero ci permette di dare 
 una comoda rappresentazione. Per ognuno dei tre rami precedenti costruiamo due 
 nuovi rami che contengono i due studenti che non sono stati interrogati per 
@@ -68,7 +70,8 @@ primi.
 \end{tikzpicture}
 \end{center}
 
-\vspace{-12pt}
+\vspace{3pt}
+
 La scelta del terzo studente ad essere interrogato è obbligata. Infatti se i 
 primi due ad essere interrogati sono stati Barbara e Carlo, necessariamente 
 adesso sarà la volta di Alice. L'albero completo si presenta così:
@@ -99,14 +102,15 @@ adesso sarà la volta di Alice. L'albero completo si presenta così:
 
 Ognuno dei possibili ordinamenti è adesso rappresentato in un percorso che va 
 dalla radice dell'albero fino ad un nodo terminale. In totale i possibili 
-ordinamenti sono quindi 6 ovvero
+ordinamenti sono quindi 6 ovvero:
 
-\begin{tabular}{ccc}
-	$Alice, Barbara, Carlo$ & $Barbara, Alice, Carlo$ & $Carlo, Alice, 
-Barbara$\\
-	$Alice, Carlo, Barbara$ & $Barbara, Carlo,Alice$ & $Carlo, Barbara, 
-Alice$\\
+\begin{center}
+ \begin{tabular}{c|c|c}
+	Alice, Barbara, Carlo & Barbara, Alice, Carlo & Carlo, Alice,Barbara\\
+	\hline
+	Alice, Carlo, Barbara & Barbara, Carlo,Alice & Carlo, Barbara,Alice\\
 \end{tabular}
+\end{center}
 
 \vspace{.2cm}
 Un altro modo di vedere la cosa è il seguente. Immaginiamo di avere tre scatole 
@@ -139,8 +143,8 @@ la moltiplicazione. In questo caso gli studenti possono essere interrogati in
 $6 = 3 \cdot 2 \cdot 1$ modi diversi. La generalizzazione di questa idea prende 
 il nome di \emph{principio di moltiplicazione}. Se una scelta può essere fatta 
 in $n_1$ modi diversi, e per ciascuno di questi modi una seconda scelta può 
-essere fatta in $n_2$ modi diversi e per ognuno dei modi in cui sono fatte le 
-due prime scelte una terza scelta può essere fatta in $n_3$ modi diversi e così 
+essere fatta in $n_2$ modi diversi, e per ognuno dei modi in cui sono fatte le 
+due prime scelte una terza scelta può essere fatta in $n_3$ modi diversi, e così 
 via per $k$ scelte, allora il numero totale di scelte è $n_1 \cdot n_2 \cdot n_3 
 \cdot ... \cdot n_k$.
 \begin{exrig}
@@ -170,15 +174,15 @@ e che possono essere risolti utilizzando il principio di moltiplicazione.
 
 
 
-
-%Nell'esempio che abbiamo appena visto sarebbe considerata una grande 
+\begin{osservazione}
+ Nell'esempio che abbiamo appena visto sarebbe considerata una grande 
 ingiustizia se il nome di uno studente comparisse due volte nell'elenco. In 
 questo caso di dice che tale problema è \emph{senza ripetizioni}. In molte 
 situazioni però è normale che gli elementi possano essere ripetuti, basta 
 pensare che per formare un numero di telefono non c'è alcun problema se alcune 
 cifre compaiono più volte. Nei prossimi paragrafi analizzeremo tutte le 
 casistiche che si possono presentare.
-
+\end{osservazione}
 
 \section{Permutazioni}
 \label{sec:02_permutazioni}
@@ -211,16 +215,19 @@ caso generico di un insieme formato da $n$ elementi.
 
 \begin{definizione}
 Le \emph{permutazioni} di $n$ elementi sono tutti i possibili allineamenti che 
-si ottengo scambiando di posto $n$ oggetti; il numero delle permutazioni è
-$$n!$$
+si ottengono ordinando tra loro tutti gli $n$ oggetti. Il numero delle permutazioni è:
+\[P_n = n!\]
 \end{definizione}
 \begin{exrig}
 \begin{esempio}
 Quanti sono i possibili anagrammi, anche senza senso, della parola VERONA?
 L'insieme delle lettere $\{V,E,R,O,N,A\}$ è formato da 6 elementi e quindi 
-tutti i possibili anagrammi sono $6!=720$.
+tutti i possibili anagrammi sono $P_6 = 6!=720$.
 \end{esempio}
 \end{exrig}
+
+\section{Permutazioni con ripetizione}
+\label{sec:02_permutazioni_con_ripetizione}
 
 Nell'esempio precedente abbiamo potuto usare il \emph{principio della 
 moltiplicazione} perché le lettere che formano la parola VERONA sono tutte 
@@ -241,17 +248,17 @@ parola MAMMA sono
 $\dfrac{6!}{2!\cdot 3!}=10$.
 
 \begin{definizione}
-Le \emph{permutazioni} di $n$ elementi di cui $k_1$ uguali tra loro, $k_2$ 
-uguali tra loro e distinti dai precedenti, ... $k_p$ uguali tra loro e distinti 
+Le \emph{permutazioni con ripetizione} di $n$ elementi di cui $k_1$ uguali tra loro, $k_2$ 
+uguali tra loro e distinti dai precedenti, ... , $k_p$ uguali tra loro e distinti 
 dai precedenti, sono:
-$$ \dfrac{n!}{k_1!\cdot k_2! \cdot ... \cdot k_p!}$$
+\[ P_n^{\tonda{k_1,k_2,\dots,k_p}} =  \dfrac{n!}{k_1!\cdot k_2! \cdot ... \cdot k_p!}\]
 \end{definizione}
 
 \begin{esempio}
 Quanti sono i possibili anagrammi della parola MATEMATICA?
 Le lettere che formano la parola MATEMATICA sono 10. La lettera A è ripetuta 3 
-volte, le lettere M e T sono ripetute 2 volte. I possibili anagrammi quindi sono
-$\dfrac{10!}{3!\cdot 2!\cdot 2!}=151200$
+volte, le lettere M e T sono ripetute 2 volte. I possibili anagrammi sono quindi:
+\[ P_{10}^{\tonda{3,2,2}}=\dfrac{10!}{3!\cdot 2!\cdot 2!}=151200\]
 \end{esempio}
 
 
@@ -283,37 +290,62 @@ utile per il seguito. Infatti $$26 \cdot 25 \cdot 24 =\dfrac{26 \cdot 25 \cdot
 \begin{definizione}
 Le \emph{disposizioni} di $n$ elementi in $k$ posti, con $n\geq k$, sono tutte 
 le scelte ordinate di $k$ elementi tra gli $n$ disponibili. 
-
-
 Il numero delle disposizioni è
-$$\underbrace{n\cdot (n-1) \cdot (n-2) \cdot ... \cdot (n-k+1)}_{\text{k 
-volte}}=\dfrac{n!}{(n-k)!}$$
+\[D_{n,k} = \underbrace{n\cdot (n-1) \cdot (n-2) \cdot ... \cdot (n-k+1)}_{\text{k 
+volte}}=\dfrac{n!}{(n-k)!}\]
 \end{definizione}
 
 \begin{esempio}
 In un gruppo di 19 studenti, in quanti modi possono scelti 4 studenti per 
 essere interrogati?
-In questo caso abbiamo $19$ elementi per $4$ posti, quindi il numero delle 
-possibili disposizioni è
-$19\cdot 18 \cdot 17 \cdot 16 = \dfrac{19!}{(19-4)!}= \dfrac{19!}{15!} = 93024$.
+In questo caso abbiamo $19$ elementi per $4$ posti, quindi:
+\[D_{19,4} = 19\cdot 18 \cdot 17 \cdot 16 = \dfrac{19!}{(19-4)!}= \dfrac{19!}{15!} = 93024\]
+
+\end{esempio}
+
+\section{Disposizioni con ripetizione}
+\label{sec:03_disposizioni_con_ripetizione}
+
+Cosa succede se gli elementi dell'insieme possono essere scelti più di una volta?
+Per esempio, se nel caso delle parole di tre lettere potessi scegliere la stessa lettera più volte?
+In tal caso non vale più il ragionamento precedente. Infatti le scelte successive sarebbero in tal caso:
+\begin{center}
+\begin{tabular}{ccc}
+\fbox{26} & \fbox{26} & \fbox{26}\\
+\end{tabular}
+\end{center}
+In questo caso dunque la formula finale non fa uso del fattoriale, ma si riconduce semplicemente
+ad una potenza.
+
+\begin{definizione}
+Le \emph{disposizioni con ripetizione} di $n$ elementi, anche ripetuti, in $k$ posti sono tutte 
+le scelte ordinate (anche ripetute) di $k$ elementi tra gli $n$ disponibili.
+Il numero di tali disposizioni è dato da:
+\[D_{n,k}' = n^k\]
+\end{definizione}
+
+\begin{esempio}
+Devo scegliere una password di 5 cifre per il mio nuovo smartphone.
+Quante diverse password è possibile creare? Notiamo che ogni cifra può essere scelta casualmente
+tra le 10 disponibili $\{0,1,2,3,4,5,6,7,8,9\}$, ed è possibile anche ripetere una cifra più volte (infatti
+ha perfettamente senso scegliere come password, per esempio, il codice 22372). Quindi:
+\[D_{10,5}' = 10^5 = 100000\]
 
 \end{esempio}
 
 \section{Combinazioni}
 \label{sec:04_combinazioni}
-Esaminiamo i seguenti problemi, all'apparenza molto simili
-\begin{itemize} [nosep]
-\item Da un insieme di 10 studenti ne devono essere selezionati 4 per essere 
-interrogati in 4 giorni distinti.
-\item Da un insieme di 10 studenti ne devono essere selezionati 4 per essere 
-interrogati lo stesso giorno.
+Esaminiamo i seguenti problemi, all'apparenza molto simili:
+\begin{itemize}
+\item Da un insieme di 10 studenti ne seleziono 4 da interrogare in 4 giorni distinti.
+\item Da un insieme di 10 studenti ne seleziono 4 da interrogare lo stesso giorno.
 \end{itemize}
 In entrambi i problemi abbiamo $n=10$ elementi da distribuirsi in $k=4$ posti. 
 Nel primo caso, tuttavia, l'ordine è importante, mentre nel secondo 
 è indifferente in che sequenza vengono scelti.
 La soluzione del primo caso è una \emph{disposizione}, come visto nel paragrafo 
-precedente, e quindi risulta:
-$$\dfrac{10!}{(10-4)!}=\dfrac{10!}{6!}=5040$$
+precedente:
+$$D_{10,4} = \dfrac{10!}{(10-4)!}=\dfrac{10!}{6!}=5040$$
 
 Se gli studenti vengono interrogati contemporaneamente non ha alcuna importanza 
 in che ordine vengono scelti. 
@@ -331,7 +363,7 @@ In totale fanno $24$ ordini possibili che è il numero di permutazioni di 4
 elementi, infatti $4!=24$. Questa situazione si ripete uguale per ogni 
 possibile scelta dei quattro elementi tra i 10. Se non siamo interessati 
 all'ordine quindi possiamo quindi dividere il numero di disposizioni di 10 
-elementi in 4 posti per il numero di permutazioni di permutazioni di 4 elementi.
+elementi in 4 posti per il numero di permutazioni di 4 elementi.
 
 $$\dfrac{10!}{(10-4)!}\cdot\dfrac{1}{4!}=\dfrac{10!}{6!4!}=210$$
 
@@ -340,7 +372,7 @@ $$\dfrac{10!}{(10-4)!}\cdot\dfrac{1}{4!}=\dfrac{10!}{6!4!}=210$$
 Le \emph{combinazioni} di $n$ elementi di classe $k$ sono ognuna delle scelte 
 di $k$ elementi tra gli $n$ senza che conti l'ordine in cui sono scelti. Il 
 numero delle combinazioni è
-$$ \dfrac{n!}{k!(n-k)!}$$
+$$C_{n,k} =  \dfrac{n!}{k!(n-k)!}$$
 \end{definizione}
 \begin{esempio}
 Quante sono le possibili cinquine che si possono fare nella tombola (90 numeri)?
@@ -348,16 +380,39 @@ Quante sono le possibili cinquine che si possono fare nella tombola (90 numeri)?
 Si tratta delle combinazioni di 90 elementi in 5 posti (infatti non è 
 importante l'ordine in cui i numeri vengono estratti per fare cinquina). Le 
 possibilità sono quindi:
-$$ \dfrac{90!}{(90-5)!5!}=43 949 268$$
+$$C_{90,5} =  \dfrac{90!}{(90-5)!5!}=43 949 268$$
 \end{esempio}
 
-Vista la grande importanza che rivestono, il numero di combinazioni si indica 
-con un simbolo specifico
+Vista la grande importanza che rivestono, il numero delle combinazioni si indica 
+con un simbolo specifico, detto \emph{coefficiente binomiale}.
 
 \begin{definizione}
 Il \emph{coefficiente binomiale} è definito come 
 $$ \binom{n}{k}=\dfrac{n!}{k!(n-k)!}$$
 \end{definizione}
 
+\section{Combinazioni con ripetizione}
+\label{sec:04_combinazioni_con_ripetizione}
 
+ Come nel caso delle disposizioni, può capitare anche nelle combinazioni di dover far fronte
+ a casistiche in cui, oltre a non essere importante l'ordine degli elementi scelti, è possibile anche che
+ gli elementi stessi si ripetano.
+\\[4pt]
+Tralasciamo in questo caso la dimostrazione della formula, e limitiamoci soltanto ad esibirla:
 
+\begin{definizione}
+Le \emph{combinazioni con ripetizione} di $n$ elementi di classe $k$ sono ognuna delle scelte 
+di $k$ elementi, anche ripetuti, tra gli $n$, senza che conti l'ordine in cui sono scelti. Il 
+numero delle combinazioni è
+$$C_{n,k}' =  C_{n+k-1,k}= \binom{n+k-1}{k}=\dfrac{(n+k-1)!}{k!(n-1)!}$$
+\end{definizione}
+
+\begin{esempio}
+ In quanti modi diversi possono essere scelte delle coppe di gelato da 5 gusti, potendo scegliere
+ anche più palline dello stesso gusto, sapendo che la gelateria dispone di 8 gusti?
+ Poiché in una coppa di gelato non conta l'ordine in
+ cui vengono messe le palline, si tratta certamente di combinazioni. Avendo poi la possibilità
+ di scegliere più palline uguali, il calcolo da fare è:
+ \[C_{8,5}' = C_{8+5-1,5} = C_{12,5} = \binom{12}{5} = \frac{12!}{5!\, 7!} =
+ \frac{12 \cdot 11 \cdot 10 \cdot 9 \cdot 8 \cdot \cancel{7!}}{5 \cdot 4 \cdot 3\cdot 2\cdot 1 \cdot \cancel{7!}}=792\]
+\end{esempio}
