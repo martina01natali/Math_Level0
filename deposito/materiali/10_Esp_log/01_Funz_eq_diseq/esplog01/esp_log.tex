@@ -913,7 +913,7 @@ Se la base si avvicina a 0 o all'infinito, la funzione si avvicina agli assi.
 \label{subsec:esplog_equazionilogaritmiche}
 
 \begin{definizione}[Equazioni logaritmiche]{
-Le equazioni logaritmiche sono quelle equazioni nelle quali l'incognita appare 
+Chiamiamo \emph{equazione logaritmica} un'equazione in cui l'incognita compare 
 nell'argomento di un logaritmo.
 }
 \end{definizione}
@@ -924,19 +924,23 @@ abbastanza facilmente.
 \subsubsection{Equazioni logaritmiche elementari}
 \label{subsubsec:esplog_eq_log_elementari}
 
-Sono le equazioni nella forma:
+\noindent Sono le equazioni nella forma: \quad \fbox{\(\log_a{f(x)} = b\)} \\[7pt]
+Questo tipo di equazione può essere risolta tenendo semplicemente conto della definizione stessa di logaritmo:
+\[\log_a{f(x)} = b \quad \Rightarrow \quad f(x)=a^b\]
+\begin{esempio}
+ \(\log_2{x} = 8\)\\[4pt] 
+ Ricordando la definizione di logaritmo posso risolvere facilmente: \; \(x = 2^8 = 256\)
+\end{esempio}
+\begin{esempio}
+ \(\log_{3,6}{x} = 4\)\\[4pt]
+ Anche in questo caso è sufficiente calcolare: \quad \( x = 3,6^{\,4} = 167,9616\)
+\end{esempio}
+
+In realtà, come per le esponenziali, anche per le equazioni logaritmiche può essere usato qualche piccolo
+accorgimento che permette di semplificare la struttura dell'equazione.
 \[\log_a{f(x)} = \log_a{g(x)} \sRarrow f(x) = g(x)\]
-Se sono uguali le basi e uguali i logaritmi saranno equivalenti gli argomenti 
+Infatti se sono uguali le basi e i logaritmi, allora saranno equivalenti gli argomenti, 
 dato che anche la funzione logaritmo è biunivoca.
-
-\begin{esempio}
- \(\log_2{x} = 8\) ricordando la definizione di logaritmo posso calcolare 
-facilmente il valore di \(x\): \(x = 2^8 = 256\)
-\end{esempio}
-
-\begin{esempio}
- \(\log_{3,6}{x} = 4 \sRarrow x = 3,6^4 = 167,9616\)
-\end{esempio}
 
 \begin{esempio}
  Riprendiamo il primo esempio: \(\log_2{x} = 8\), possiamo osservare che 
@@ -947,173 +951,132 @@ hanno la stessa base, i loro argomenti dovranno essere equivalenti, quindi:
 \end{esempio}
 
 \begin{esempio}
- \(\log_{3}\tonda{2x-7} = 2 \sRarrow \)
- 
- \(\sRarrow \log_{3}\tonda{2x-7} = \log_{3}9 \sRarrow  
-2x -7 = 9 \sRarrow 2x = 16 \sRarrow x = 8\)
- 
- Se sostituiamo nell'equazione di partenza l'incognita, con il valore~8 
-possiamo verificare che questo valore è soluzione dell'equazione:
-
+ \(\log_{3}\tonda{2x-7} = 2 \)\\[4pt]
+ Sfruttando la stessa proprietà: 
+ \(\log_{3}\tonda{2x-7} = \log_{3}9 \sRarrow  
+2x -7 = 9 \sRarrow x = 8\)
+\\[4pt] 
+Sostituendo nell'equazione di partenza l'incognita con il valore 8 
+possiamo verificare che si tratta proprio della soluzione dell'equazione:
 \(\log_{3}\tonda{2 \cdot 8-7} = \log_{3} 9 = 2\)
 \end{esempio}
 
 %\(\log_{}\tonda{} \)
 \begin{esempio}
  \(\ln\tonda{5x +7} = \ln\tonda{9x +15}\)
- 
+ \\[4pt]
  Uguali i logaritmi, uguali le basi, quindi:
- 
- \(5x +7 = 9x +15 \sRarrow -4x = 8 \sRarrow x = -2\)
- 
- Ora se sostituiamo l'incognita otteniamo:
- 
+ \(5x +7 = 9x +15  \sRarrow x = -2\)
+ \\[4pt]
+Sostituendo l'incognita otteniamo:
  \(\ln\tonda{5 \cdot \tonda{-2} +7} = 
    \ln\tonda{9 \cdot \tonda{-2} +15} \sRarrow 
    \ln\tonda{-3} = \ln\tonda{-3}\)
-   
- Ma il logaritmo di un numero negativo non dà un risultato reale! Prova a 
-calcolarlo con la calcolatrice.
+   \\[4pt]
+ Ma il logaritmo di un numero negativo non dà un risultato reale! Prova con la calcolatrice.
 \end{esempio}
 
 L'ultimo esempio ci mostra come le cose siano un po' più complicate: 
 l'operazione di passaggio dall'uguaglianza dei logaritmi all'uguaglianza degli 
 argomenti fa perdere delle informazioni (come quando in un'equazione fratta si 
 eliminano i denominatori uguali). 
-Quando eliminiamo i logaritmi scompare l'informazione che certe espressioni 
-erano argomenti del logaritmo e quindi che l'espressione originaria ha valore 
+Quando eliminiamo i logaritmi scompare l'informazione che ``certe espressioni 
+erano argomenti del logaritmo'' e quindi che l'espressione originaria ha valore 
 reale solo se questa espressione è maggiore di zero. 
-Scrivere questa condizione si dice anche: ``porre le condizioni di esistenza''.
+Scrivere questa condizione si traduce nel classico: ``porre le condizioni di esistenza''.
 Vediamo allora come risolvere l'esercizio precedente senza perdere informazioni.
 
 \begin{esempio}
 \(\ln\tonda{5x +7} = \ln\tonda{9x +15}\)
- 
+ \\[4pt]
  Uguali i logaritmi, uguali le basi, quindi:
- 
-\(\sistema{5x +7 >0 & \text{esistenza del primo logaritmo}\\ 
-           9x +15 > 0 & \text{esistenza del secondo logaritmo}\\
-           5x +7 = 9x +15 & \text{equazione ottenuta eliminando i logaritmi}}\)
- 
-\(\sistema{x > -\frac{7}{5} \\ x > -\frac{5}{3} \\5x - 9x = +15 -7}\)
- 
-Osservando che se un numero è più grande di~\(-\frac{7}{5} \approx −1,4\) 
-sarà senz'altro più grande anche di~\(-\frac{5}{3} \approx −1,666666667\),
-Si può ridurre il sistema:
-
-\(\sistema{x > -\frac{7}{5} \\-4x = +8}\)
- 
-E infine:
-
-\(\sistema{x > -\frac{7}{5} \\x = -2}\)
-
-Ma questo sistema non ha soluzioni, perché se~\(x\) è uguale a~\(-2\) 
-non è più grande di~\(1,4\), quindi l'equazione di partenza non ha soluzioni.
+ \\[4pt]
+\(\sistema{5x +7 >0 & \quad\text{(Condizione d'esistenza del $1^\circ$ logaritmo)}\\ 
+           9x +15 > 0 & \quad \text{(Condizione d'esistenza del $2^\circ$ logaritmo)}\\
+           5x +7 = 9x +15 & \quad \text{(Equazione ottenuta eliminando i logaritmi)}}\)
+ \\[4pt]
+\(\sistema{x > -\frac{7}{5} \\[3pt] x > -\frac{5}{3} \\[3pt] 5x - 9x = +15 -7} \quad \Longrightarrow \quad
+\sistema{x > -\frac{7}{5} \\[3pt] x > -\frac{5}{3} \\[3pt] x = -2}  \quad \Longrightarrow \quad
+\sistema{x > -\frac{7}{5} \\x = -2}\)
+ \\[4pt]
+L'ultimo passaggio è giustificato dal fatto che, se un numero è più grande di \(-\frac{7}{5} \approx −1,4\) 
+sarà senz'altro più grande anche di~\(-\frac{5}{3} \approx −1,67\).
+Ma ora questo sistema non ha soluzioni, perché se \(x=-2\), di certo 
+non è più grande di \(-\frac{7}{5}\).
 \end{esempio}
 
 
 \subsubsection{Equazioni logaritmiche con l'uso delle proprietà}
 \label{subsubsec:esplog_eq_log_proprieta}
 
-Se dovessimo risolvere un'equazione di questo tipo:
+\noindent Supponiamo di dover risolvere un'equazione di questo tipo:
 \[\log_2\tonda{5x -7} + \log_2{2x}= \log_2\tonda{2x -4}\]
-non possiamo semplicemente far finta che non ci siano i logaritmi e scrivere:
-\[5x -7 + 2x = 2x -4\]
-infatti, mentre questa uguaglianza è vera:
-\[\log_2 32 -\log_2 4 = \log_2 8\]
-quest'altra non lo è:
-\[32 -4 = 8\]
+Non possiamo di certo far finta che non ci siano i logaritmi e scrivere:
+\(5x -7 + 2x = 2x -4\)\\
+Per convincersi dell'errore, è sufficiente guardare l'esempio seguente:
+\[\log_2 32 -\log_2 4 = \log_2 8 \quad \nRightarrow\quad 32 -4 = 8 \quad \Rightarrow\quad 28 = 8\]
 Per risolvere queste equazioni bisogna:
 \begin{enumerate}
- \item ricorrere alle proprietà dei logaritmi presentate sopra;
+ \item ricorrere alle proprietà dei logaritmi presentate in precedenza;
  \item considerare la condizione di esistenza del logaritmo 
  (argomento maggiore di zero).
 \end{enumerate}
 
 \begin{esempio}
  \(\ln\tonda{3x - 1} + \ln\tonda{2x +2} = \ln 5 + \ln\tonda{x^2 +2}\)
- 
+ \\[4pt]
 Ricordando la prima proprietà, l'equazione è equivalente a:
-
-\(\ln\tonda{\tonda{3x - 1} \tonda{2x +2}}= \ln\tonda{5\tonda{x^2 +2}}\)
+\[\cancel{\ln}\tonda{\tonda{3x - 1} \tonda{2x +2}}= \cancel{\ln}\tonda{5\tonda{x^2 +2}} \quad \Rightarrow\quad
+x^2 +4x -12 = 0\]
   
 Tenendo conto anche delle condizioni di esistenza dei vari logaritmi, 
 l'equazione logaritmica precedente è equivalente a:
-
+\\[4pt]
 \(\sistema{
 3x - 1 > 0 \\
 2x +2 > 0 \\
-5 > 0 \quad \text {sempre vera}\\
-x^2 +2 > 0 \quad \text {sempre vera, perché?}\\
-\tonda{3x - 1} \tonda{2x +2} = 5x^2 +10}\)
-
-Ora, alcune delle disequazioni sono sempre vere e in un sistema non cambiano il 
-risultato, possiamo ometterle; sviluppando qualche calcolo otteniamo:
-
-\(\sistema{
+5 > 0 \quad \text {(Sempre vera)}\\
+x^2 +2 > 0 \quad \text {(Sempre vera)}\\
+x^2 +4x -12 = 0} \quad \Rightarrow \quad \sistema{
 x > \frac{1}{3} \\
 x > -1 \\
-6x^2 +6x -2x -2 -5x^2 -10 = 0}\)
-
-e riducendo ulteriormente:
-
-\(\sistema{
-x > \frac{1}{3} \quad \text {se è maggiore di }
-\frac{1}{3}
-\text{ sarà anche maggiore di -1}\\
-x^2 +4x -12 = 0}\)
-
-Per risolvere l'equazione di secondo grado possiamo scomporre in fattori il 
-primo membro:
-
-\(\sistema{
-x > \frac{1}{3} \\
-\tonda{x +6} \tonda{x -2} = 0}\)
-
-Applicando poi la legge di annullamento del prodotto e tenendo 
-conto della condizione otteniamo la soluzione:
-\[x_1 = -6 \slarrow \text{ Soluzione Non Accettabile;} \quad 
-  x_2 = +2 \slarrow \text{ Soluzione Accettabile}\]
+\tonda{x +6} \tonda{x -2} = 0} \quad \Rightarrow \quad \sistema{
+x > \frac{1}{3} \\[3pt]
+x = -6 \lor x=2
+}\)\\[4pt]
+Abbiamo quindi trovato due soluzioni: in particolare, guardando la disequazione \(x>\frac{1}{3}\),
+possiamo concludere che:
+\[x_1 = -6  \text{ (Soluzione Non Accettabile)} \quad;\quad 
+  x_2 = +2 \text{ (Soluzione Accettabile)}\]
 \end{esempio}
 
 \begin{esempio}
  \(\log_2{2x} + \log_2\tonda{5x -7} = \log_2\tonda{2x -4}\)
- 
-Usando le prima proprietà:
-
-\(\log_2\tonda{2x \tonda{5x -7}}= \log_2\tonda{2x -4}\)
-  
-Eliminando i logaritmi:
-
+ \\[4pt]
+Come sopra, usando le proprietà dei logaritmi:
+\(\quad \log_2\tonda{2x \tonda{5x -7}}= \log_2\tonda{2x -4}\)
+  \\[4pt]
+Eliminando i logaritmi ed aggiungendo le condizioni d'esistenza:
+\\[4pt]
 \(\sistema{
 2x > 0 \\
 5x - 7 > 0 \\
 2x - 4 > 0 \\
-10x^2 - 14x - 2x + 4 = 0}\)
-
-Sviluppiamo i calcoli:
-
-\(\sistema{
+10x^2 - 14x - 2x + 4 = 0} \quad \Rightarrow \quad \sistema{
 x > 0 \\
 x > \frac{7}{5} \\
 x > 2 \\
-10x^2 - 16x + 4 = 0}\)
-
-e riducendo ulteriormente:
-
-\(\sistema{
+10x^2 - 16x + 4 = 0} \quad \Rightarrow \quad\sistema{
 x > 2 \\
 5x^2 - 8x + 2 = 0}\)
-
-Risolviamo l'equazione di secondo grado:
-
-\(x_{1,2} = \frac{4 \mp \sqrt{16-10}}{5} = \frac{4 \mp \sqrt{6}}{5}\)
-
-E tenendo conto della condizione otteniamo la soluzione:
-\[x_1 = \frac{4 - \sqrt{6}}{5} \approx 0,310102051 \slarrow
-  \text{ Soluzione Non Accettabile} \] 
-\[x_2 = \frac{4 + \sqrt{6}}{5} \approx 1,289897949 \slarrow
-  \text{ Soluzione Non Accettabile}\]
+\\[6pt]
+Risolviamo l'equazione di secondo grado: 
+\(x_{1,2} = \frac{4 \pm \sqrt{16-10}}{5} = \frac{4 \pm \sqrt{6}}{5}\)
+\\[7pt]
+Tenendo conto della condizione $x > 2$ possiamo concludere che: \[x_1 = \frac{4 - \sqrt{6}}{5} \approx 0,310102
+\quad\text{(Soluzione Non Accettabile)} \] 
+\[x_2 = \frac{4 + \sqrt{6}}{5} \approx 1,289898
+ \quad \text{(Soluzione Non Accettabile)}\]
 \end{esempio}
 
 % \end{comment}
@@ -1121,7 +1084,7 @@ E tenendo conto della condizione otteniamo la soluzione:
 \subsection{Le disequazioni logaritmiche}
 \label{subsubsec:esplog_disequazionilogaritmiche}
 
-Ricordiamo che, come la funzione esponenziale anche quella logaritmica è 
+Ricordiamo che, come la funzione esponenziale, anche quella logaritmica è 
 crescente se la base è maggiore di 1 e decrescente se la base è compresa tra 
 zero e uno.
 Le disequazioni logaritmiche si possono quindi risolvere in modo analogo a 
@@ -1129,69 +1092,58 @@ quelle esponenziali.
 
 \begin{esempio}
  \(\log_{\frac{2}{3}} \tonda{4x -6} \leqslant \log_{\frac{2}{3}} \tonda{x -3}\)
-
-Eliminando i logaritmi e tenendo conto delle condizioni di esistenza:
-
+\\[4pt]
+Eliminando i logaritmi, tenendo conto delle condizioni di esistenza, e cambiando verso alla disequazione, in quanto la
+base dei logaritmi è minore di uno:
+\\[4pt]
 \(\sistema{
 4x -6 > 0 \\
 x -3 > 0 \\
-4x -6 \geqslant x -3} \quad \text{il verso del predicato è cambiato, perché?}\) 
-
-Riducendo:
-
-\(\sistema{
-x > \frac{6}{4} \\
+4x -6 \geqslant x -3} \quad \Rightarrow \quad \sistema{
+x > \frac{3}{2} \\
 x > 3 \\
-3x -3 \geqslant 0}\)
-
-E riducendo ancora:
-
-\(\sistema{
+3x -3 \geqslant 0} \quad \Rightarrow \quad  \sistema{
 x > 3 \\
-x \geqslant 1}\)
-
-Otteniamo: \quad \(x > 3\)
+x \geqslant 1}\quad \Rightarrow \quad x > 3\) 
 
 \end{esempio}
 
 \begin{esempio}
 \(\ln \tonda{-7x+2} - \ln \tonda{x +1} \leqslant 0\)
- 
-Spostando il secondo logaritmo a destra del predicato, precedente diventa:
-
+ \\[4pt]
+Spostando il secondo logaritmo a destra, la disequazione diventa:
 \(\ln \tonda{-7x+2} \leqslant \ln \tonda{x +1}\)
-
-Dato che la base è maggiore di zero posso scrivere il sistema risolutivo:
-
+\\[4pt]
+Dato che la base è maggiore di zero, il sistema risolutivo è:
+\\[4pt]
 \(\sistema{
 -7x+2 > 0 \\
 x +1 > 0 \\
--7x+2 \leqslant x +1}\)
-\quad e riducendo: \quad 
-\(\sistema{
+-7x+2 \leqslant x +1}\quad \Rightarrow \quad \sistema{
 x < \frac{2}{7} \\
 x > -1 \\
--8x \leqslant -1}\)
-\quad da cui: \quad
-\(\sistema{
+-8x \leqslant -1}\quad \Rightarrow \quad \sistema{
 -1 < x < \frac{2}{7} \\
 x \geqslant \frac{1}{8}}\)
-
-\vspace{12pt}
+\\[7pt]
 \noindent
 La soluzione grafica del sistema è:
-
+\\[5pt]
+\begin{minipage}{.5\textwidth}
 \noindent
 \begin{inaccessibleblock}[Soluzione grafica di un sistema di disequazioni.]
   \dissistemaa
 \end{inaccessibleblock}
-
-\noindent
-Per cui la soluzione della disequazione logaritmica, scritta con la notazione 
-per gli intervalli e con i predicati è:
-
-\[\intervca{\frac{1}{8}}{\frac{2}{7}} \qquad \text{ o } \qquad 
+\end{minipage}\qquad
+\begin{minipage}{.4\textwidth}
+Per cui la soluzione, descritta per intervalli e con i predicati, è:
+\[\intervca{\frac{1}{8}}{\frac{2}{7}} \qquad ; \qquad 
   \frac{1}{8} \leqslant x < \frac{2}{7}\]
+\end{minipage}
+
+
+
+
 
 \end{esempio}
 
