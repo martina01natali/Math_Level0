@@ -14,7 +14,7 @@ certezza; per questo vengono detti eventi casuali o aleatori (dal latino alea,
 dado). Spesso è necessario prendere decisioni in condizioni di incertezza: in 
 quale università proseguire gli studi, decidere se fare il vaccino contro 
 l'influenza, scommettere sulla vincita di una squadra, sull'uscita di una 
-sequenza di numeri al gioco del Lotto. E' quindi fondamentale nei confronti di 
+sequenza di numeri al gioco del Lotto. E' quindi fondamentale, nei confronti di 
 un fenomeno dall'esito incerto, poter identificare quali sono gli eventi che si 
 possono verificare ed inoltre riuscire ad esprimere il proprio grado di fiducia 
 nel verificarsi di tali eventi.
@@ -55,8 +55,8 @@ fenomeno considerato. Tale insieme viene indicato con $\Omega $.
 \end{definizione}
 
 L'insieme $\Omega $ non esaurisce la totalità degli eventi collegati al lancio 
-del dado; non comprende per esempio l'evento $P=$ Numero pari o l'evento $M=$ 
-Numero minore di $3$. Tuttavia~ $\Omega $ permette di rappresentare qualsiasi 
+del dado: non comprende per esempio l'evento $P=\{$Numero pari$\}$ o l'evento $M=\{$Numero
+minore di $3\}$. Tuttavia~ $\Omega $ permette di rappresentare qualsiasi 
 evento come suo particolare sottoinsieme.
 
 \begin{definizione}
@@ -82,7 +82,7 @@ lancio di un dado. È evidente che l'uscita del 7 non si verificherà mai, mentr
 l'uscita di un numero minore di 7 è sempre verificato.
 
 \begin{definizione}
-Chiamiamo \emph{evento impossibile}, e lo indicheremo $\emptyset $, un evento 
+Chiamiamo \emph{evento impossibile}, e lo indicheremo $\varnothing$, un evento 
 che non può verificarsi in alcun caso.
 Chiamiamo \emph{evento certo} un evento che accade sicuramente e che è 
 costituito dall'insieme di tutti gli eventi elementari di $\Omega $, cioè da 
@@ -91,13 +91,24 @@ tutti gli esiti possibili del fenomeno considerato.
 
 Gli eventi elementari di un insieme $A$ e gli eventi composti che si possono 
 ottenere con gli eventi elementari di $A$ formano lo \emph{spazio degli eventi} 
-che viene indicato con $\wp (A)$.
-
+che viene indicato con $\wp (A)$. In generale infatti, qualunque evento è identificabile con
+un elemento dell'insieme delle parti di $\Omega$, ovvero $\wp (\Omega )$ (definito come insieme di
+tutti i sottoinsiemi di $\Omega$).
+\begin{osservazione}
+ Ricordiamo che la cardinalità dell'insieme delle parti cioè il numero degli 
+eventi che si possono formare con gli elementi di $\Omega $ è dato da 
+$\mathit{card}(\wp (\Omega ))=2^n$, dove $n$ rappresenta il numero degli eventi 
+elementari. Così nel lancio del dado abbiamo $2^6=64$ possibili eventi, 
+considerando anche l'insieme vuoto $\varnothing $ che rappresenta l'evento 
+impossibile e l'insieme $\Omega =\{1,2,3,4,5,6\}$ che rappresenta l'evento 
+certo.
+\end{osservazione}
+\\[9pt]
 Gli eventi sono gli oggetti dello studio della probabilità e in genere si 
 indicano con le lettere maiuscole $A,B,\ldots $ mentre per le operazioni e le 
 relazioni tra eventi si usano i corrispondenti simboli che si sono utilizzati 
-per le operazioni e le relazioni tra insiemi. Molto utile è anche la 
-rappresentazione con i diagrammi di Venn~(figura~\ref{fig:9.1}).
+per le operazioni e le relazioni tra insiemi. Molto utile è infatti la 
+rappresentazione con i diagrammi di Venn (vedi Figura \ref{fig:9.1}).
 \begin{inaccessibleblock}[Figura: TODO]
  \begin{figure}[tp]
 \begin{minipage}[t]{.45\textwidth}
@@ -143,22 +154,11 @@ esaustivi, genera una partizione nello spazio degli eventi.}
 \end{inaccessibleblock}
 
 \begin{definizione}
-Se $ n $ eventi $A,B,\ldots,F$ sono esaustivi cioè 
-$A{\cup}B{\cup}{\dots}F=\Omega $ e a due a due incompatibili 
-$A{\cap}B=A{\cap}C{\dots}=B{\cap}C{\dots}=C{\cap}D{\dots}=D{\cap}E{\dots}=E{\cap
-}F=\text{Ø}$) diremo che essi formano una \emph{partizione dello spazio degli 
-eventi}. Gli eventi, identificabili da tutti i possibili sottoinsiemi di 
-$\Omega$, sono dati dall'\emph{insieme delle parti} di $\Omega $ indicato con 
-$\wp (\Omega ).$
+Se $ n $ eventi $A,B,\ldots,F$ sono esaustivi (cioè 
+$A\,\cup\,B\,\cup\dots \cup \,F=\Omega $) e a due a due incompatibili (ovvero
+$A\,\cap\,B=A\,\cap\,C=B\,\cap\,C=\dots=\varnothing$) diremo che essi formano una \emph{partizione dello spazio degli 
+eventi}.
 \end{definizione}
-
-Ricordiamo che la cardinalità dell'insieme delle parti cioè il numero degli 
-eventi che si possono formare con gli elementi di $\Omega $ è dato da 
-$\mathit{card}(\wp (\Omega ))=2^n$, dove $n$ rappresenta il numero degli eventi 
-elementari. Così nel lancio del dado abbiamo $2^6=64$ possibili eventi, 
-considerando anche l'insieme vuoto $\emptyset $ che rappresenta l'evento 
-impossibile e l'insieme $\Omega =\{1,2,3,4,5,6\}$ che rappresenta l'evento 
-certo.
 
 % \vspazio\ovalbox{\risolvii \ref{ese:9.1}, \ref{ese:9.2}, \ref{ese:9.3}, 
 % \ref{ese:9.4}, \ref{ese:9.5}.}
@@ -171,18 +171,16 @@ uniforme. Si dice che un certo fatto o evento è più o meno probabile a seconda
 che ci si aspetti che si verifichi più o meno facilmente.
 
 La probabilità è dunque una misura del grado di fiducia associato al 
-verificarsi 
-di un evento e dipende dalle informazioni che si hanno a disposizione al 
-momento 
-di effettuare la valutazione.
+verificarsi di un evento e dipende dalle informazioni che si hanno a disposizione al 
+momento di effettuare la valutazione.
 
 Se diciamo che oggi pioverà con probabilità $0,20=\frac{20}{100}=\frac 1 5$ 
 intendiamo che siamo disposti a scommettere 20 centesimi per avere 1 euro nel 
 caso che piova e perdere i 20 centesimi della posta nel caso che non piova.
-
+ 
 \begin{definizione}
 La valutazione della probabilità dell'evento $A$ è quel valore $P(A)$ che si 
-ottiene dalla quota $q$ che l'individuo che procede alla valutazione è disposto 
+ottiene dal rapporto tra la quota $q$ che un individuo è disposto 
 a pagare per ricevere una vincita $S$ nel caso si verifichi l'evento. Quindi 
 $P(A)=\dfrac q S$.
 \end{definizione}
@@ -205,19 +203,18 @@ impossibile e $1$ quello che corrisponde all'evento certo.
 % La probabilità di un evento E è un numero reale compreso tra 0 e 1: $0\le 
 % P(E)\le 1$;
 % 
-% la probabilità dell'evento impossibile è zero $P(\emptyset )=0$;
+% la probabilità dell'evento impossibile è zero $P(\varnothing )=0$;
 % 
 % la probabilità dell'evento certo è uguale a uno: $P(\Omega )=1$.
 % \end{postulato}
 % 
-\begin{definizione}{sulla probabilità}
-
-La probabilità di un evento E è un numero reale compreso tra 0 e 1: $0\le 
-P(E)\le 1$
-
-la probabilità dell'evento impossibile è zero $P(\emptyset )=0$
-
-la probabilità dell'evento certo è uguale a uno: $P(\Omega )=1$.
+\begin{definizione} La \emph{probabilità} di un evento $P(E)$ è 
+un numero reale compreso tra 0 e 1: $0\le 
+P(E)\le 1$. In particolare:
+\begin{itemize}
+ \item[$\quad\circ$]  la probabilità dell'evento impossibile è zero: $P(\varnothing)=0$
+ \item[$\quad\circ$] la probabilità dell'evento certo è uguale a uno: $P(\Omega )=1$
+\end{itemize}
 \end{definizione}
 
 \subsection{La valutazione classica}
@@ -430,14 +427,14 @@ Madrid è stata quindi stimata dal giornale $p=\frac
 \end{esempio}
 % \end{exrig}
 % \ovalbox{\risolvii \ref{ese:9.6}, \ref{ese:9.7}, \ref{ese:9.8}, 
-\ref{ese:9.9}, 
+%\ref{ese:9.9}, 
 % \ref{ese:9.10}, \ref{ese:9.11}, \ref{ese:9.12}, \ref{ese:9.13}, 
-\ref{ese:9.14}, 
+%\ref{ese:9.14}, 
 % \ref{ese:9.15}, \ref{ese:9.16}, \ref{ese:9.17}, \ref{ese:9.18},}
 
 % \vspazio\ovalbox{\ref{ese:9.19}, \ref{ese:9.20}, \ref{ese:9.21}, 
 % \ref{ese:9.22}, \ref{ese:9.23}, \ref{ese:9.24}, \ref{ese:9.25}, 
-\ref{ese:9.26}, 
+%\ref{ese:9.26}, 
 % \ref{ese:9.27}.}
 
 \section{Probabilità dell'unione di due eventi}
@@ -462,9 +459,9 @@ tra loro incompatibili}
 \begin{definizione}
 Due eventi A e B si dicono \emph{incompatibili} quando non si possono 
 verificare 
-contemporaneamente, cioè quando $A\cap B=\emptyset $.
+contemporaneamente, cioè quando $A\cap B=\varnothing $.
 Due eventi A e B si dicono \emph{compatibili} quando si possono verificare 
-contemporaneamente, cioè quando $A\cap B\neq \emptyset $.
+contemporaneamente, cioè quando $A\cap B\neq \varnothing $.
 \end{definizione}
 
 % \begin{exrig}
@@ -482,7 +479,7 @@ $3$ o un numero pari è uguale a $\frac 4 6$: infatti i casi favorevoli sono 4
 (le facce 3,2,4,6) su un totale di $6$ casi possibili.
 \paragraph{Modo II}: Calcoliamo la probabilità dell'unione dei due eventi 
 considerando le proprietà dei singoli eventi. Dato che i due eventi sono 
-incompatibili, cioè: $A\cap B=\emptyset $: abbiamo $P(A\cup B)=\frac 1 6+\frac 
+incompatibili, cioè: $A\cap B=\varnothing $: abbiamo $P(A\cup B)=\frac 1 6+\frac 
 3 
 6=\frac 4 6$.
 \begin{center}
@@ -493,7 +490,7 @@ incompatibili, cioè: $A\cap B=\emptyset $: abbiamo $P(A\cup B)=\frac 1 6+\frac
 
 Possiamo quindi affermare che dati due eventi incompatibili cioè tali che 
 $A\cap 
-B=\emptyset $ la probabilità dell'evento unione è dato dalla uguaglianza: 
+B=\varnothing $ la probabilità dell'evento unione è dato dalla uguaglianza: 
 $P(A\cup B)=P(A)+P(B)$.
 
 Può essere utile per avere un'idea intuitiva di questa uguaglianza pensare alla 
@@ -574,10 +571,8 @@ addiziono a quella presente su B a cui devo togliere la massa presente su
 $A\cap 
 B$ che è stata contata due volte.
 
-\osservazione Il teorema delle proprietà totali vale anche nel caso degli 
-eventi 
-incompatibili in quanto in questo caso la probabilità dell'intersezione dei due 
-eventi $P(A\cap B)=0$ e l'uguaglianza diventa $P(A\cup B)=P(A)+P(B)$.
+\osservazione Il teorema delle probabilità totali vale anche nel caso degli 
+eventi incompatibili. In questo caso $P(A\cap B)=0$ e l'uguaglianza diventa $P(A\cup B)=P(A)+P(B)$.
 
 % \vspazio\ovalbox{\risolvii \ref{ese:9.6}, \ref{ese:9.7}, \ref{ese:9.28}, 
 % \ref{ese:9.29}, \ref{ese:9.30}, \ref{ese:9.31}, \ref{ese:9.32}, 
@@ -641,8 +636,8 @@ direttamente la probabilità dell'evento.
 
 Dati due eventi $A,B\in \wp (\Omega )$ ci proponiamo di calcolare la 
 probabilità 
-dell'evento intersezione cioè $P(A\cap B)$ partendo dalla probabilità degli 
-eventi componenti $ P(A) $ e $ P(B) $. Si tratta quindi di stimare con quale 
+dell'evento intersezione cioè $P(A\cap B)$, partendo dalla probabilità dei singoli
+eventi $ P(A) $ e $ P(B) $. Si tratta quindi di stimare con quale 
 probabilità i due eventi avvengono congiuntamente. Occorre innanzitutto 
 verificare che i due eventi non siano incompatibili in quanto in questo caso 
 l'evento intersezione è impossibile.
@@ -674,9 +669,9 @@ la probabilità dell'uscita di 4 nel lancio del dado.
 
 Notiamo subito una situazione diversa rispetto a quella precedente dell'unione 
 di due eventi. Nel caso precedente, lo spazio degli eventi era lo stesso per 
-l'evento A, per l'evento B e per l'evento unione $(A\cup B)$.
-Ora invece per l'evento A l'insieme degli eventi elementari è $\Omega 
-_1=\{T,C\}$, per l'evento B invece, l'insieme degli eventi elementari è $\Omega 
+l'evento A, per l'evento B e per l'evento unione $A\cup B$.
+Mentre, per l'evento A, l'insieme degli eventi elementari è $\Omega 
+_1=\{T,C\}$, per l'evento B invece l'insieme degli eventi elementari è $\Omega 
 _2=\{1,2,3,4,5,6\}$. L'evento $(A\cap B)$ ha il seguente insieme degli eventi 
 elementari: \[ \Omega 
 =\{(T,1);(T,2);(T,3);(T,4);(T,5);(T,6);(C,1);(C,2);(C,3);(C,4);(C,5);(C,6)\}. \]
@@ -711,9 +706,12 @@ una moneta e di un dado $\to P(A\cap B)=P(A)\cdot P(B)=\frac 1 2\cdot \frac 2
 \end{esempio}
 % \end{exrig}
 
-Generalizziamo: dati due eventi aleatori A e B tra loro indipendenti la 
+\begin{teorema}[(eventi indipendenti)]
+Dati due eventi aleatori A e B tra loro indipendenti la 
 probabilità dell'evento intersezione tra A e B è data dalla probabilità di A 
-moltiplicata per la probabilità di B: $P(A\cap B)=P(A)\cdot P(B)$
+moltiplicata per la probabilità di B: \[P(A\cap B)=P(A)\cdot P(B)\]
+\end{teorema}
+
 \subsubsection*{Diagrammi ad albero}
 Una rappresentazione grafica che può risultare utile nello studio della 
 probabilità dell'evento intersezione detto anche studio delle \emph{probabilità 
@@ -755,7 +753,7 @@ intersezione partendo dalle probabilità degli eventi componenti. Devo
 moltiplicare la probabilità di avere nera nella prima estrazione $P(N_1)=\frac 
 2 
 5$ con la probabilità di avere nera nella seconda estrazione $P(N_2)=\frac 2 5$ 
-in quanto, l'uscita della prima pallina nera, evento considerato ora come 
+in quanto l'uscita della prima pallina nera, evento considerato ora come 
 avvenuto, non influenza la probabilità di avere nera alla seconda estrazione in 
 quanto la pallina estratta viene rimessa nell'urna. Quindi: $P(N_1\cap 
 N_2)=\frac 2 5\cdot \frac 2 5=\frac 4{25}$ in quanto i due eventi sono 
@@ -964,20 +962,20 @@ scommettere altrimenti no.
 Anche in questo caso conviene calcolare la probabilità dell'evento 
 complementare 
 $P(\overline A)$ cioè la probabilità che nessuno dei 23 allievi compiano gli 
-anni nello stesso giorno dello stesso mese. $P(\overline A)=P(\overline A_1\cap 
+anni nello stesso giorno dello stesso mese.
+\[P(\overline A)=P(\overline A_1\cap 
 \overline A_2\cap \overline A_2\ldots \overline A_{21}\cap \overline A_{22}\cap 
-\overline A_{23})$ dove $\overline{A_i}$ rappresenta la probabilità che il 
+\overline A_{23})\] dove $\overline{A_i}$ rappresenta la probabilità che il 
 compleanno dell'alunno \emph{i}{}-esimo non coincida con nessuno dei compleanni 
 degli altri alunni.
 
 Analizziamo alcune di queste probabilità e applichiamo il teorema delle 
-probabilità composte: $P(\overline A_1)=\frac{365}{365};\ P(\overline 
-A_2/\overline A_1)=\frac{364}{365}$ $P(\overline A_3/\overline A_1\cap 
+probabilità composte: \[P(\overline A_1)=\frac{365}{365}\quad ;\quad \ P(\overline 
+A_2/\overline A_1)=\frac{364}{365} \quad ;\quad  P(\overline A_3/\overline A_1\cap 
 \overline 
-A_2)=\frac{363}{365};\ P(\overline A_4/\overline A_1\cap \overline A_2\cap 
-\overline A_3)=\frac{362}{365};\ldots $ e così via fino ad arrivare a 
-$P(\overline A_{23}/\overline A_1\cap \overline A_2\cap \overline A_2\ldots 
-\overline A_{21}\cap \overline A_{22})=\frac{343}{365}$.
+A_2)=\frac{363}{365}\quad ;\quad \dots\] e così via fino ad arrivare a: 
+\[P(\overline A_{23}/\overline A_1\cap \overline A_2\cap \overline A_2\ldots 
+\overline A_{21}\cap \overline A_{22})=\frac{343}{365}\]
 
 Il primo allievo avrà la certezza di non avere alcun allievo che compie gli 
 anni 
