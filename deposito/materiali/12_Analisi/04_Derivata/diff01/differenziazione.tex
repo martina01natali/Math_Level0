@@ -2223,7 +2223,7 @@ interessano. Ora cercheremo di colmare questa lacuna.
  per le coniche. Il metodo delle derivate, invece, si rivela
  molto più potente e rapido.\\
  Poiché la tangente è una retta, la sua equazione è del tipo $y-y_0=m(x-x_0)$, 
- dove  $\punto{x_0}{y_0}$ è il punto di tangenza, da conoscere preventivamente, 
+ dove  $\punto{x_0}{y_0}$ è il punto di tangenza 
  e $m$ è la pendenza della retta, sulla quale sappiamo ormai tutto.
  Si ha $y=m(x-x_0)+y_0$ e poiché $m=f'(x_0)$, relativo alla funzione $f(x)$
  di cui si sta studiando il grafico, l'equazione risolvente è:\\
@@ -2232,11 +2232,11 @@ interessano. Ora cercheremo di colmare questa lacuna.
 \begin{esempio}
   Trova le equazioni delle tangenti alla parabola $f(x)=x^2$ nei suoi punti
   $V~\equiv~\punto{0}{f(0)}=0$ e $B\equiv\punto{-6}{f(-6)}$.\\
-  Soluzione. Nel punto $V$: $f'(0)=2\cdot 0=0$. $m=0$, la tangente è orizzontale:
-  $y=m(x-x_0)+y_0= 0$, coincide con l'asse $X$.\\
+  Soluzione. Nel punto $V$: $f'(0)~=~2\cdot 0~=~0=m$. La tangente è 
+  orizzontale e coincide con l'asse $X$: $y=~m(x~-~x_0)~+~y_0~=~0$.\\
   Nel punto $B$: $f'(-6)=2\cdot (-6)=-12$. $m=-12$, la tangente è inclinata
   verso il basso:
-  $y=m(x-x_0)+y_0= -12(x-6)+36=-12x+108$.
+  $y=m(x-x_0)+y_0= -12(x-6)+36\srarrow y=-12x+108$.
  \end{esempio}
  
 \begin{esempio}
@@ -2276,12 +2276,11 @@ interessano. Ora cercheremo di colmare questa lacuna.
   con il vertice opposto $\punto{-4}{-4}$.
   \begin{osservazione}
    In realtà si tratta di una proprietà generale dell'iperbole equilatera.
-   Qualsiasi retta tangente al grafico stacca sugli assi coordinati segmenti
-   il cui punto medio coincide con quello di tangenza. Non è difficile
-   dimostrarlo usando l'equazione generica $yx=k^2$ e per punto di tangenza
-   le coordinate $\punto{a}{\dfrac{k^2}{a}}$.
+   Qualsiasi retta tangente al grafico stacca sugli assi coordinati dei 
+   segmenti che hanno il punto medio coincidente con il punto di tangenza. 
+   Non è difficile dimostrarlo usando l'equazione generica $yx=k^2$ e per 
+   punto di tangenza le coordinate $\punto{a}{\dfrac{k^2}{a}}$.
   \end{osservazione}
-
  \end{esempio}
 
 \begin{esempio}
@@ -2293,7 +2292,7 @@ interessano. Ora cercheremo di colmare questa lacuna.
   poi cercare l'angolo di inclinazione dell'ipotenusa coincidente con il 
   raggio.\\
   L'alternativa è calcolare la derivata:
-  $x^2+y^2=20\srarrow y=\sqrt{20-x^2}$ (data lo posizione del punto
+  $x^2+y^2=20\srarrow y=\sqrt{20-x^2}$ (data lo posizione del punto,
   consideriamo solo la semicirconferenza per $y>0$).\\
   $f'(4)= \dfrac{-2x}{2\sqrt{20-x^2}}\bigg|_{x=4}=\dfrac{-4}{\sqrt{20-16}}=
   \dfrac{-4}{2}=-2$.\\
@@ -2305,6 +2304,7 @@ interessano. Ora cercheremo di colmare questa lacuna.
   \end{esempio}
  
 \subsection{Derivata e normale}
+\label{}
 Come si vede dall'ultimo esempio, una volta che si sappia come calcolare 
 la tangente ad una curva, il calcolo della normale risulta molto facile.
 Poiché la tangente e la normale, se passano per lo stesso punto, sono rette
@@ -2320,10 +2320,225 @@ Scrivi l'equazione della tangente e della normale alla curva di equazione
 $y=\dfrac{x^2-1}{\ln x -1}$ nel suo punto di ascissa $1$.\\
 Soluzione. $y'|_{x=1}=\dfrac{2x(\ln x+1)-(x^2+1)\dfrac{1}{x}}
 {(\ln x +1)^2}\bigg|_{x=1}=\dfrac{2\cdot 1(0+1)-(1+1)\cdot 1}{(0+1)^2}=0$.\\
-La tangente è quindi una retta orizzontale. Di conseguenza la secante è verticale
+La tangente è quindi una retta orizzontale. Di conseguenza la normale è verticale
 e il calcolo lo mostra immediatamente.
 \end{esempio}
 
 \subsection{Derivata della derivata}
+\label{}
+Abbiamo già notato che la derivata  di una funzione dipende dal punto in cui si 
+calcola e che, una volta stabilito questo punto, ha un unico risultato.
+Quindi la derivata di una funzione è a sua volta una funzione e,
+se ci sono le condizioni, può essere derivata a sua volta.
+\begin{definizione}
+ Se una funzione $f(x)$ è derivabile, la sua derivata è la funzione $f'(x)$.
+ Se anche $f'(x)$ è derivabile, allora esiste la funzione $f''(x)$ ed è
+ chiamata \emph{derivata seconda di $f(x)$}.
+\end{definizione}
+Le regole di calcolo della derivata seconda sono le stesse regole che abbiamo 
+già visto, quindi la seconda derivazione, se è possibile, non comporta problemi 
+diversi da quelli conosciuti.\\
+Riferendoci a un generico grafico di funzione $y=f(x)$, la derivata prima 
+$f'(x)$ ci consente di trovare le pendenze delle tangenti al grafico. La
+derivata seconda $f''(x)$ descrive con quanta rapidità (o lentezza) variano 
+queste pendenze, perciò ci indica quanto siano aperte o chiuse le concavità che
+$y=f(x)$ disegna nel piano cartesiano.\\
+Se le condizioni sono favorevoli, esistono e sono calcolabili anche le derivate 
+terze, quarte, ecc. di una funzione, anche se non sono essenziali per i nostri 
+scopi. Il loro calcolo segue i metodi già visti.
+
+\begin{esempio}
+Calcola $f''(1)$ di $f(x)=2x^5-3x^4+x^3+5x^2-6x+9$.\\
+Derivata prima: $f'(x)=10 x^4-12 x^3+3x^2+10 x-6$\\
+Derivata seconda per $x=1$: $(40x^3-36x^2+6x+10)|_{x=1}=40-36+6+10=20$
+\end{esempio}
+
+\begin{esempio}
+Calcola $f''(x)$ di $f(x)=\ln x$.\\
+$f'(x)=\dfrac{1}{x}$ e $f''(x)=-\dfrac{1}{x^2}$.\\
+\begin{osservazione}
+ La funzione $\ln x $ esiste per $x>0$. Le derivate prima e seconda esistono
+ per $x\ne 0$.
+ In generale, l'esistenza di una derivata (prima, seconda, terza. \dots) è
+ indipendente dall'esistenza della funzione da derivare (funzione primitiva).
+\end{osservazione}
+\end{esempio}
+
+\begin{esempio}
+ Calcola le derivate successive di $f(x)=\sen x$.\\
+ $f'(x)=\cos x$ \hspace{1cm}$ f''(x)=-\sen x$ \hspace{1cm}
+ $f'''(x)=-\cos x$ \hspace{1cm} $f^{IV}(x)=\sen x$ \dots
+\end{esempio}
+
+
 \subsection{Derivata e differenziale}
-\subsection{Applicazioni non solo matematiche}.
+\label{subsec:diff01_deridiff}
+Dalla definizione di derivata $f'(x)=\pst{\dfrac{df(x)}{dx}}$ ricaviamo che
+$f'(x)\sim \dfrac{df(x)}{dx}$: la derivata e il rapporto differenziale 
+sono quantità quasi uguali, ma non esattamente uguali. Possiamo esprimere 
+meglio questo concetto:\\
+$\dfrac{df(x)}{dx}=f'(x)+\epsilon(x)$ e quindi $df(x)=f'(x)dx+\epsilon(x)dx$.\\
+$\epsilon(x)$ è l'infinitesimo, o l'insieme di infinitesimi, che fa la 
+differenza fra la derivata e il rapporto differenziale. Il prodotto 
+$\epsilon(x)dx$, un prodotto fra infinitesimi, costituisce un infinitesimo 
+di ordine superiore rispetto a $df(x)$ e $f'(x)dx$.
+Nella maggior parte dei casi pratici si tratta di una differenza trascurabile 
+e si può accettare l'espressione $f'(x)dx$ al posto dell'espressione
+$df(x)$, che spesso è più difficile da calcolare.\\
+Nella storia del calcolo infinitesimale l'uso di una formula al posto dell'altra
+è diventato normale e molti testi definiscono differenziale della 
+funzione il prodotto $f'(x)dx$, invece della differenza infinitesimale 
+$df(x)$.\\
+Il problema diventa più critico nelle applicazioni pratiche, quando si devono 
+usare le differenze finite al posto dei differenziali. Si usa allora, per
+analogia,:\\
+$\Delta f(x)=f'(x_0)\Delta x + \delta(x)\Delta x$.\\
+Dato che l'ultimo termine è il meno rilevante, si ha:\\
+$\Delta f(x)\cong f'(x_0)\Delta x \srarrow
+f(x)-f(x_0)\cong f'(x_0)(x-x_0)\srarrow f(x)\cong f'(x_0)(x-x_0)+ f(x_0)$.\\
+Si tratta dell'usuale equazione della tangente per $x=x_0$.
+La formula è esatta solo per le funzioni rappresentate da rette.
+Per le altre funzioni la differenza $\Delta f(x)$ fra due valori della funzione 
+può essere anche molto diversa da $f'(x_0)\Delta x$, che è la differenza fra 
+due valori, calcolati lungo la tangente.
+
+DISEGNO DIFFERENZIALE
+
+Nei testi in cui si scrive che $\Delta f(x)=f'(x_0)\Delta x+\delta(x)\Delta x$,
+$f'(x_0)\Delta x$ viene chiamato differenziale, ma si tratta di una quantità 
+finita, non infinitesima. In tali testi la differenza $\Delta f(x)$ è detta 
+incremento e l'equazione $\Delta f(x)\cong f'(x_0)\Delta x$ 
+esprime il cosiddetto teorema dell'incremento.\\
+Ai fini pratici si tratta di un'equazione utile, soprattutto quando si studiano
+i fenomeni naturali, perché le variazioni che si misurano sono differenze finite. 
+Ovviamente i risultati saranno tanto più precisi quanto più piccolo è
+$\Delta x$.
+
+\begin {esempio}
+Fare una stima ragionevole della quantità $\sqrt{25,162}$.\\
+Si sta usando la funzione $f(x)=\sqrt{x}$, la cui derivata è: 
+$f'(x)=\dfrac{1}{2\sqrt{x}}$.\\
+Utilizziamo il teorema dell'incremento, fissando $x_0=25$ e $\Delta x=0,162$.\\
+$\Delta f(x)=f'(x_0)\Delta x+\delta(x)\Delta x\cong f'(x_0)\Delta x
+\srarrow f(x)\cong f'(x_0)\Delta x+ f(x_0)$\\
+$f(25,162)\cong f'(25)\cdot 0,162+f(25)\srarrow 
+\sqrt{25,162}\cong \dfrac{1}{2\sqrt{25}}\cdot 0,162+ \sqrt{25}=
+\dfrac{0,162}{10}+5\cong 5,0162$.\\
+Confronta il risultato con quanto propone la calcolatrice.\\
+Poiché l'approssimazione è tanto migliore quanto più piccolo è $\Delta x$,
+ripeti l'esercizio con $x_0=25,1001$ (la cui radice è $5,01$) e quindi
+$\Delta x=0,06199$.
+
+\end {esempio}
+
+\subsection{Applicazioni non solo matematiche}
+Il calcolo della derivata è entrato da protagonista nella descrizione 
+matematica dei fenomeni naturali da almeno $300$ anni e più recentemente
+anche nello studio delle scienze umane e sociali. Le funzioni che si usano in
+tutti questi ambiti in genere sono state definite sperimentalmente. Alcune 
+delle questioni di carattere più matematico di cui ci siamo occupati, come la
+continuità e gli infinitesimi, ai fini pratici diventano meno rilevanti, almeno
+fino a quando questo non ingeneri problemi.\\
+In molte circostanze è di grande utilità l'equazione alle differenze 
+$\Delta f(x)\cong f'(x_0)\Delta x$, anche nella forma
+$\Delta x \cong \dfrac{\Delta f(x)}{f'(x_0)}$. La sua utilità viene dal fatto
+che si tratta di un'equazione di primo grado in $\Delta x$, perché accettando
+l'approssimazione si eliminano le differenze di ordine superiore.
+
+\begin{esempio}
+ Se lanci verso l'alto una palla alla velocità iniziale $v=20$ m/s, questa viene 
+ frenata dalla forza di gravità e la sua legge del moto risulta all'incirca 
+ $h(t)=20t-5t^2$. Trova a quale altezza $h$ la palla si ferma.\\
+ Risposta. Se la palla si ferma, la sua velocità è nulla, quindi:\\
+ $v(t)=\dfrac{dh(t)}{dt}= 20-10t=0\srarrow t=2 s \srarrow h(2)=20\cdot 2-5\cdot 
+ 2^2=20 m$.\\
+ Dopo quanto tempo dal lancio la palla si trova a metà altezza?\\
+ Risposta. $\Delta t\cong \dfrac{\Delta h(t)}{v(0}=\dfrac{10}{20}=0,5$ s.
+ Considera l'imprecisione dell'ultima risposta, visto che puoi avere il
+ il risultato esatto direttamente dall'equazione del moto, con $h(t)=10$.
+\end{esempio}
+
+\begin{esempio}
+L'aereo A parte da Milano a mezzogiorno e vola in direzione Ovest mediamente a 
+$800$ km/h, mentre l'aereo B parte due ore dopo e si dirige a Sud a $800$ km/h.
+Se volano alla stessa quota, con quale velocità si allontanano l'uno dall'altro
+dopo 4 ore?\\
+Soluzione. Le due equazioni del moto sono $s_A=800t$ e $s_B=800(t-2)$. 
+Calcoliamo prima la distanza fra i due, poi la loro velocità relativa.
+Si tratta di direzioni perpendicolari e possiamo applicare il teorema di 
+Pitagora.\\
+$s_{AB}=\sqrt{s_A^2+s_B^2}=\sqrt{(800t)^2+[(800(t-2)]^2}=
+800\sqrt{t^2+t^2-2t+4}=800\sqrt{2t^2-2t+4}$.\\
+$v_{AB}|_{t=4}=\dfrac{ds_{AB}}{dt}=\dfrac{800(2t-4)}{2\sqrt{2t^2-2t+4}}
+\bigg|_{t=4}\cong 358$ km/h.
+\end{esempio}
+
+\begin{esempio}
+ Un circuito è percorso da corrente variabile. Infatti la carica che attraversa
+il conduttore ad un certo tempo $t$ è data da $q(t)=t^3-24t$. È possibile che in
+qualche istante le cariche siano ferme?\\
+Riposta. Se le cariche sono ferme, la corrente è nulla.\\ 
+$i(t)=\dfrac{dq(t)}{dt}=3t^2-24=0\srarrow t=\pm\sqrt{8}=\pm2\sqrt{2}$ s.\\
+
+\end{esempio}
+\begin{esempio}
+ Il biologo Jacque Monod mostrò che lo sviluppo di una colonia di batteri di 
+ Escherichia Coli segue una crescita esponenziale, se sufficientemente nutrita. 
+ Ogni microrganismo si scinde in due dopo circa $20$ minuti, per cui la
+ popolazione al tempo $t$, misurato in ore, conta $N(t)=N_0e^{\frac{t}{3}}$
+ individui. Dopo quante ore il numero di batteri passa da $10^6$ a $10^9$?\\
+ Soluzione: $\Delta N=N'(t)\Delta t=\dfrac{N_0}{3}e^{\dfrac{t}{3}}\Delta t
+ \srarrow \Delta t=\dfrac{3\Delta N}{N_0e^{\dfrac{t}{3}}}=\dfrac{3\Delta N}
+ {N(t)}$.\\
+ Il numero iniziale di batteri è $10^6=N(0)=N_0e^0$. Perciò:
+ $\Delta t=\dfrac{3(10^9-10^6)}{10^9}$, che, calcolato in ore, 
+ corrisponde a 3 ore meno $11$ secondi circa.
+ \begin{osservazione}
+ Si tratta di un problema tipico sull crescita esponenziale, di quelli già 
+ risolti quando ancora non conoscevi l'esistenza delle derivate. Come mai in
+ un caso del genere l'uso delle derivate non è indispensabile? Perché
+ la funzione esponenziale è l'unica funzione che ha per derivata...
+\end{osservazione}
+\end{esempio}
+ 
+\begin{esempio}
+Il costo marginale è l'aumento di costo che si ha quando si vuole produrre 
+un'unità in più di un certo bene. \\
+Supponi che per produrre un certo numero $n$ di aghi il costo in euro sia
+$y=\sqrt{n}$. Calcola il costo marginale per produrne più di $10.000$.\\
+Soluzione: $y=\sqrt{n}\srarrow y'=\dfrac{1}{2\sqrt{n}}$.
+Se $n=10000$, $\Delta y=\dfrac{1}{2\sqrt{10000}}\Delta n=\dfrac{\Delta n}{200}$.
+Il costo marginale, cioè per unità in più, è quindi dello $0,2\%$.
+\begin{osservazione}
+ Anche in questo caso concreto, non è possibile pensare che $\Delta n$ sia un
+ infinitesimo, dato che non ha senso calcolare il costo per frazioni 
+ infinitesime di un ago.
+\end{osservazione}
+\end{esempio}
+    
+\begin{esempio}
+ Una barra metallica è lunga $10$ m a $T=0 ^\circ C$ e al crescere della 
+ temperatura si dilata secondo la legge $l(T)=10(1+0,000024T)$. Di quanti gradi 
+ occorre aumentare la temperatura perché aumenti la sua lunghezza di $5$ cm?\\
+ Risposta. $\Delta T\cong \dfrac{\Delta l(T)}{l'(T)}=\dfrac{0,05}
+ {10\cdot 0,000024}=208,3 ^\circ C$
+\end{esempio}
+
+\begin{esempio}
+ 
+\end{esempio}
+\begin{esempio}
+ 
+\end{esempio}
+\begin{esempio}
+ 
+\end{esempio}
+\begin{esempio}
+ 
+\end{esempio}
+\begin{esempio}
+ 
+\end{esempio}
+\begin{esempio}
+ 
+\end{esempio}
