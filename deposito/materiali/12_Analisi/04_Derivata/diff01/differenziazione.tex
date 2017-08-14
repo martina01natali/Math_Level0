@@ -2428,22 +2428,63 @@ Confronta il risultato con quanto propone la calcolatrice.\\
 Poiché l'approssimazione è tanto migliore quanto più piccolo è $\Delta x$,
 ripeti l'esercizio con $x_0=25,1001$ (la cui radice è $5,01$) e quindi
 $\Delta x=0,06199$.
-
 \end {esempio}
+
+\subsection{Sintesi}
+\label{subsec:diff01_derisintesi}
+
+\begin{center}
+\begin{minipage}[]{.55 \textwidth}
+{%
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\begin{center}
+\begin{tabular}{|c|c||c|c|} 
+\mc{4}{c}{Derivate notevoli}\\ \hline 
+$f(x)$ & $f'(x)$ &   $f(x$) & $f'(x)$\\ \hline\hline
+$k$ & 0 &   $\tg x$ & $\dfrac{1}{cos^2 x}=\tg^2 x +1$\\ \hline
+$x$ & 1 &   $\log_a x$ & $\dfrac{1}{x\ln a}$\\ \hline
+$x^\alpha$ & $\alpha x^{\alpha-1}$ &   $\ln x$ & $\dfrac{1}{x}$\\ \hline
+$\sen x$ & $\cos x$ &   $a^x$ & $a^x\ln a$\\ \hline
+$\cos x$ & $-\sen x$ &   $e^x$ & $e^x$\\ \hline
+\end{tabular}
+\end{center}
+}%
+\end{minipage} 
+ 
+\begin{minipage}[]{.40 \textwidth}
+{%
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\begin{center}
+\begin{tabular}{|c|l}\cline{1-1}
+\mc{2}{c}{Regole di derivazione}\\\hline
+\mc{2}{|c|}{$\mathit{D}\quadra{f(x)+g(x)}=f'(x)+g'(x)$}\\\hline
+\mc{2}{|c|}{$\mathit{D}\quadra{kf(x)}=kf'(x)$}\\\hline
+\mc{2}{|c|}{$\mathit{D}\quadra{f(x)\cdot g(x)}=f'(x)\cdot g(x)+f(x)\cdot g'(x)$}\\\hline
+\mc{2}{|c|}{$\mathit{D}\quadra{\dfrac{1}{f(x)}}=-\dfrac{f'(x)}{f^2(x)}$}\\\hline
+\mc{2}{|c|}{$\mathit{D}\quadra{\dfrac{f(x)}{g(x)}}=\dfrac{f'(x)\cdot g(x)-f(x)
+    \cdot g'(x)}{g^2(x)}$}\\\hline
+\mc{2}{|c|}{$\mathit{D}\quadra{f(g(x))=f'(g(x))\cdot g'(x)}$}\\\hline
+\end{tabular}
+\end{center}
+}%  
+\end{minipage} 
+\end{center}
 
 \subsection{Applicazioni non solo matematiche}
 Il calcolo della derivata è entrato da protagonista nella descrizione 
 matematica dei fenomeni naturali da almeno $300$ anni e più recentemente
-anche nello studio delle scienze umane e sociali. Le funzioni che si usano in
-tutti questi ambiti in genere sono state definite sperimentalmente. Alcune 
-delle questioni di carattere più matematico di cui ci siamo occupati, come la
-continuità e gli infinitesimi, ai fini pratici diventano meno rilevanti, almeno
-fino a quando questo non ingeneri problemi.\\
-In molte circostanze è di grande utilità l'equazione alle differenze 
-$\Delta f(x)\cong f'(x_0)\Delta x$, anche nella forma
-$\Delta x \cong \dfrac{\Delta f(x)}{f'(x_0)}$. La sua utilità viene dal fatto
-che si tratta di un'equazione di primo grado in $\Delta x$, perché accettando
-l'approssimazione si eliminano le differenze di ordine superiore.
+anche nello studio delle scienze umane e sociali. Al momento, i problemi che 
+siamo in grado di affrontare ruotano attorno al concetto di tasso di variazione:
+data una funzione, si deve cercare quanto rapidamente essa varia rispetto
+alla sua variabile. La derivata è il calcolo che consente di affrontare
+il problema.\\
+In casi un po' più articolati è utile anche l'equazione alle differenze 
+nella forma diretta $\Delta f(x)\cong f'(x_0)\Delta x$, o anche nella forma
+inversa $\Delta x \cong \dfrac{\Delta f(x)}{f'(x_0)}$. La sua utilità viene dal
+fatto che si tratta di un'equazione di primo grado in $\Delta x$, perché i 
+termini infinitesimi di grado superiore sono trascurati. Si ottengono così
+delle soluzioni approssimate, ma in genere il grado di imprecisione è 
+sopportabile.
 
 \begin{esempio}
  Se lanci verso l'alto una palla alla velocità iniziale $v=20$ m/s, questa viene 
@@ -2453,7 +2494,7 @@ l'approssimazione si eliminano le differenze di ordine superiore.
  $v(t)=\dfrac{dh(t)}{dt}= 20-10t=0\srarrow t=2 s \srarrow h(2)=20\cdot 2-5\cdot 
  2^2=20 m$.\\
  Dopo quanto tempo dal lancio la palla si trova a metà altezza?\\
- Risposta. $\Delta t\cong \dfrac{\Delta h(t)}{v(0}=\dfrac{10}{20}=0,5$ s.
+ Risposta. $\Delta t\cong \dfrac{\Delta h(t)}{v(0)}=\dfrac{10}{20}=0,5$ s.
  Considera l'imprecisione dell'ultima risposta, visto che puoi avere il
  il risultato esatto direttamente dall'equazione del moto, con $h(t)=10$.
 \end{esempio}
@@ -2524,3 +2565,15 @@ Il costo marginale, cioè per unità in più, è quindi dello $0,2\%$.
  {10\cdot 0,000024}=208,3 ^\circ C$
 \end{esempio}
 
+\begin{esempio}
+ La scala che scivola
+\end{esempio}
+
+
+\begin{esempio}
+ La trasparenza
+\end{esempio}
+
+\begin{esempio}
+ il pallone
+\end{esempio}
