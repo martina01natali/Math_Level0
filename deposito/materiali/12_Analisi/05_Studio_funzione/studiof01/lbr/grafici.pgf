@@ -1,0 +1,590 @@
+﻿% (c) 2017 Bruno Stecca
+% (c) 2017 Daniele Zambelli - daniele.zambelli@gmail.com
+% 
+% Tutti i grafici per il capitolo relativo alle derivate
+% 
+% 
+
+% x^3/(x-1)^2 . Non simmetrie, una discontinuità, un minimo, un flesso, asintoti 
+% obliqui.
+% Più semplice: x^4-4x^2+5. Continua, parità, due min e un max. non asintoti
+% Intermedia: x^2/(x-2). Un asint. vert, 1 asint obliquo,1 max un min, niente 
+% flessi
+
+\newcommand{\funzionea}{% 
+  % prima funzione.
+  \disegno{
+  \rcom{-10}{+10}{-7}{+13}{gray!50, very thin, step=1}
+  \tkzInit[xmin=-10.3, xmax=+10.3, ymin=-7.3, ymax=+13.3]
+    \tkzFct[ultra thick, color=Green!50!black, domain=-10.3:+.9]
+          {x**3 / ((x-1)**2)}
+    \tkzFct[ultra thick, color=Green!50!black, domain=1.1:+10.3]
+          {x**3 / (x-1)**2}
+  }
+}
+
+\newcommand{\segnoespressionea}{% 
+  % segno della prima funzione.
+  \disegno{
+  \assex{-5}{+5}{0}
+  \draw (0, 0.3) -- (0, 0) node [below] {\(0\)}
+        (-2, 0) node [above] {\(-\)}
+        (2, 0) node [above] {\(+\)};
+  }
+}
+
+\newcommand{\cefunca}{% 
+  % prima funzione.
+  \rcom{-10}{+10}{-7}{+13}{gray!50, very thin, step=1}
+  \draw [ultra thick, dotted] (1, 13.3) -- (1, -7.3);
+}
+
+\newcommand{\cefunzionea}{% 
+  % prima funzione.
+  \disegnod{2}{
+    \cefunca
+  }
+}
+
+\newcommand{\assifunca}{% 
+  % prima funzione.
+  \filldraw (0, 0) [red!50!black] circle (.3);
+}
+
+\newcommand{\assifunzionea}{% 
+  % prima funzione.
+  \disegnod{2}{
+    \cefunca
+    \assifunca
+  }
+}
+
+\newcommand{\segnofunca}{% 
+  % prima funzione.
+  \foreach \ax/\ay/\bx/\by in {-10/10/-7.5/13, -10/7/-4.5/13,
+                               -10/4/-1.5/13, -10/1/0/11.5,
+                               -8.5/0/0/8.5, -5.5/0/0/5.5,
+                               -2.5/0/0/2.5}
+    \draw (\ax, \ay) -- (\bx, \by);
+  \foreach \ax/\ay/\bx/\by in {2.5/0/0/-2.5, 5.5/0/0/-5.5,
+                               8.5/0/1.5/-7, 10/-1.5/4.5/-7,
+                               10/-4.5/7.5/-7}
+    \draw (\ax, \ay) -- (\bx, \by);
+}
+
+\newcommand{\segnofunzionea}{% 
+  % prima funzione.
+  \disegnod{2}{
+    \cefunca
+    \assifunca
+    \segnofunca
+  }
+}
+
+\newcommand{\asintoticofunca}{% 
+  % prima funzione.
+  \begin{scope}[thick, green!40!black, ->]
+    \draw (.25, 9) -- (.75, 12); 
+    \draw (2.25, 9) -- (1.75, 12);
+    \draw (5, 8) -- (8, 11);
+    \draw (-5, -2) -- (-8, -5);
+  \end{scope}
+}
+
+\newcommand{\asintoticofunzionea}{% 
+  % prima funzione.
+  \disegnod{2}{
+    \cefunca
+    \assifunca
+    \segnofunca
+    \asintoticofunca
+  }
+}
+
+\newcommand{\asintotifunca}{% 
+  % prima funzione.
+  \begin{scope}[thick, blue!40!black]
+    \draw (1, -7.3) -- (1, 13.3); 
+    \draw (-9.3, -7.3) -- (10.3, 12.3);
+  \end{scope}
+}
+
+\newcommand{\asintotifunzionea}{% 
+  % prima funzione.
+  \disegnod{2}{
+    \cefunca
+    \assifunca
+    \segnofunca
+    \asintoticofunca
+    \asintotifunca
+  }
+}
+
+\newcommand{\stazionarifunca}{% 
+  % prima funzione.
+  \begin{scope}[thick]
+    \draw (-.5, 0) -- (+.5, 0);
+    \filldraw (0, 0) circle (.2);
+    \draw (2.5, 6.75) -- (3.5, 6.75);
+    \filldraw (3, 6.75) circle (.2);
+  \end{scope}
+}
+
+\newcommand{\stazionarifunzionea}{% 
+  % prima funzione.
+  \disegnod{2}{
+    \cefunca
+    \assifunca
+    \segnofunca
+    \asintoticofunca
+    \asintotifunca
+    \stazionarifunca
+  }
+}
+
+\newcommand{\segnotrinomioa}{% 
+  % segno della prima funzione.
+  \disegno{
+  \assex{-2}{+6}{0}
+  \draw (1, 0.3) -- (1, 0) node [below] {\(1\)};
+  \draw (3, 0.3) -- (3, 0) node [below] {\(3\)}
+        (0, 0) node [above] {\(+\)}
+        (2, 0) node [above] {\(-\)}
+        (4, 0) node [above] {\(+\)};
+  }
+}
+
+\newcommand{\segnoderivataa}{% 
+  % segno della prima funzione.
+  \disegno{
+  \assex{-4}{+7}{0}
+  \draw (0, 0.3) -- (0, 0) node [below] {\(0\)};
+  \draw (1, 0.3) -- (1, 0) node [below] {\(1\)};
+  \draw (3, 0.3) -- (3, 0) node [below] {\(3\)};
+  \draw (-2, 0) node [above] {\(+\)}
+        (.5, 0) node [above] {\(+\)}
+        (2, 0) node [above] {\(-\)}
+        (5, 0) node [above] {\(+\)};
+  \begin{scope}[thick, ->]
+    \draw (-3, -2) -- (-.2, -1); 
+    \draw (0, -2) -- (1, -1);
+    \draw (1.2, -1) -- (2.8, -2);
+    \draw (3.2, -2) -- (6, -1);
+  \end{scope}
+  }
+}
+
+\newcommand{\segnoderivatasecondaa}{% 
+  % segno della prima funzione.
+  \disegnod{10}{
+  \assex{-3}{+4}{0}
+  \draw (0, 0.15) -- (0, 0) node [below] {\(0\)};
+  \draw (1, 0.15) -- (1, 0) node [below] {\(1\)};
+  \draw (-1.5, 0) node [above] {\(-\)}
+        (.5, 0) node [above] {\(+\)}
+        (2.5, 0) node [above] {\(+\)};
+  \begin{scope}[thick]
+    \draw (-2.8, -1) .. controls (-2, 0) and (-1, 0) .. (-.2, -1);
+    \draw (.2, -.5) .. controls (.4, -1) and (.6, -1) .. (.8, -.5);
+    \draw (1.2, -.25) .. controls (2, -1.25) and (3, -1.25) .. (3.8, -.25);
+  \end{scope}
+  }
+}
+
+\newcommand{\funzioneb}{% 
+    % definita in intervallo 0-inf.
+    \disegno{
+    \rcom{-5}{+5}{-3}{+10}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-10.3, xmax=+10.3, ymin=-10.3, ymax=+10.3]
+     \tkzFct[ultra thick, color=Green!50!black, domain=-5.3:+5.3]
+            {x**4-4*x**2+3}
+    }
+}
+
+\newcommand{\funzionec}{% 
+    % definita in intervallo 0-inf.
+    \disegno{
+    \rcom{-10}{+10}{-5}{+15}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-10.3, xmax=+10.3, ymin=-5.3, ymax=+15.3]
+     \tkzFct[ultra thick, color=Green!50!black, domain=-10.3:-1.1]
+            {(x**2+12*x+20)/(2*x+2)}   % x**2/(2*x-6)
+     \tkzFct[ultra thick, color=Green!50!black, domain=-0.9:+10.3]
+            {(x**2+12*x+20)/(2*x+2)}
+    }
+}
+
+\begin{comment}
+
+\newcommand{\iperbole}{% 
+    % discontinuità in f(x).
+    \disegnod{4.5}{
+    \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-5.3, xmax=+5.3, ymin=-5.3, ymax=+5.3]
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=-5.3:0]{1/x}
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=0:+5.3]{1/x}
+    }
+}
+
+\newcommand{\iperbolequad}{% 
+    % discontinuità in f(x).
+    \disegnod{4.5}{
+    \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-5.3, xmax=+5.3, ymin=-5.3, ymax=+5.3]
+    \begin{scope} [ultra thick, color=Cyan!50!black]
+      \tkzFct[domain=-5.3:-1]{1/(x*x-1)}
+      \tkzFct[domain=-1:+1]{1/(x*x-1)}
+      \tkzFct[domain=+1:+5.3]{1/(x*x-1)}
+    \end{scope}
+    }
+}
+
+\newcommand{\salto}{% discontinuità a salto.
+    \disegnod{4.5}{
+    \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-5.3, xmax=+5.3, ymin=-5.3, ymax=+5.3]
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=-5.3:1.95]{x-1}
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=2:+5.3]{x+1}
+     \filldraw (2, 3) circle (1.2pt);
+     \draw (2, 1) circle (1.2pt);
+    }
+}
+
+\newcommand{\incrementaleprodotto}{% rettangolo con gnomone fni
+  \def \xa{0}
+  \def \ya{0}
+  \def \xb{6}
+  \def \yb{4}
+  \def \dx{2}
+  \def \dy{1}
+  \def \xc{\xb+\dx}
+  \def \yc{\yb+\dy}
+
+  \disegno{
+    \fill [Cyan!50] 
+%      (\xb, \yb) -- (\xc, \yb) -- (\xc, \yc) -- (\xb, \yc) -- cycle;
+      (\xa, \yb) -- (\xc, \yb) -- (\xc, \yc) -- (\xa, \yc) -- cycle;
+   \fill [Cyan!50]
+      (\xb, \ya) -- (\xc, \ya) -- (\xc, \yb) -- (\xb, \yb) -- cycle;
+    \draw (\xa, \ya) node [below] {$0$} node [left] {$0$} -- 
+    (\xb, \ya) node [below] {$b$} -- 
+    (\xc, \ya) node [below] {$b + \Delta b$} --
+    (\xc, \yc) -- 
+    (\xa, \yc) node [left] {$h + \Delta h$} -- 
+    (\xa, \yb) node [left] {$h$} -- cycle;
+    \draw (\xb, \ya) -- (\xb, \yc) (\xa, \yb) -- (\xc, \yb);
+    \draw (\xb / 2, \yb / 2) node {$b \cdot h$};
+    \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
+	    \draw (\xb / 2, \yb + \dy / 2) node {$b \cdot \Delta h$};
+	    \draw (\xb + \dx / 2, \yb / 2) node [rotate=90] {$\Delta b \cdot h$};
+	    \draw (\xb + \dx / 2, \yb + \dy / 2) node {$\Delta b \cdot \Delta h$};
+    \end{scope}
+    }
+}
+
+\newcommand{\differenzialeprodotto}{% rettangolo con gnomone i
+  \def \xa{0}
+  \def \ya{0}
+  \def \xb{6}
+  \def \yb{4}
+  \def \d{2}
+  \def \xc{\xb+\d}
+  \def \yc{\yb+\d}
+
+  \disegno{
+    \draw (\xa, \ya) node [below] {$0$} node [left] {$0$} -- 
+    (\xb, \ya) node [below] {$b \sim b + db$} -- 
+    (\xb, \yb) -- 
+    (\xa, \yb) node [left] {$h \sim h + dh$} -- cycle;
+    \microscopio{(\xb, \yb)}{2}{120}{-50}{2}{(\xb, 9)}{\(\times 10^9\)}
+    \draw (.3*\xb, 1.82*\yb) -- (0.65*\xb, 1.82*\yb) -- (0.65*\xb, 1.36*\yb);
+    \microscopio{(\xb, \yb)}{2}{30}{240}{2}{(1.85*\xb, 8)}{\(\times \infty\)}
+    \fill [Cyan!50] 
+      (1.12*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb) -- 
+      (1.65*\xb, 1.8*\yb) -- (1.12*\xb, 1.8*\yb) -- cycle;
+     \fill [Cyan!50] 
+      (1.51*\xb, 1.65*\yb) -- (1.65*\xb, 1.65*\yb) -- 
+      (1.65*\xb, 1.27*\yb) -- (1.51*\xb, 1.2*\yb) -- cycle;  
+    \draw (1.12*\xb, 1.8*\yb) -- (1.65*\xb, 1.8*\yb)
+          (1.12*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb)
+          (1.5*\xb, 1.8*\yb) -- (1.5*\xb, 1.2*\yb)
+          (1.65*\xb, 1.8*\yb) -- (1.65*\xb, 1.27*\yb);
+    \draw (\xb / 2, \yb / 2) node {$b \cdot h$};
+    \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
+	    \draw (1.35*\xb, 1.7*\yb) node{$b \cdot dh$};
+	    \draw (1.57*\xb, 1.4*\yb) node [rotate=90] {$db \cdot h$};
+	    \draw (1.63*\xb, 1.85*\yb) node  {$db \cdot dh$};   
+    \end{scope}
+    }
+}
+
+\newcommand{\differenzialerapporto}{% rettangolo con gnomone i
+  \def \xa{0}
+  \def \ya{0}
+  \def \xb{6}
+  \def \yb{4}
+  \def \d{2}
+  \def \xc{\xb+\d}
+  \def \yc{\yb+\d}
+
+  \disegno{
+    \draw (\xa, \ya) node [below] {$0$} node [left] {$0$} -- 
+    (\xb, \ya) node [below] {$b \sim b + db$} -- 
+    (\xb, \yb) -- 
+    (\xa, \yb) node [left] {$h \sim h + dh$} -- cycle;
+    \microscopio{(\xb, \yb)}{2}{120}{-50}{2}{(\xb, 9)}{\(\times 10^9\)}
+    \draw (.3*\xb, 1.82*\yb) -- (0.65*\xb, 1.82*\yb) -- (0.65*\xb, 1.36*\yb);
+    \microscopio{(\xb, \yb)}{2}{30}{240}{2}{(1.85*\xb, 8)}{\(\times \infty\)}
+    \fill [Cyan!50] 
+      (1.13*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb) -- 
+      (1.65*\xb, 1.8*\yb) -- (1.13*\xb, 1.8*\yb) -- cycle;
+    \draw (1.12*\xb, 1.8*\yb) -- (1.65*\xb, 1.8*\yb)
+          (1.12*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb)
+          (1.5*\xb, 1.8*\yb) -- (1.5*\xb, 1.2*\yb)
+          (1.65*\xb, 1.8*\yb) -- (1.65*\xb, 1.27*\yb);
+    \draw (\xb / 2, \yb / 2) node {$\mathit{A}$};
+    \draw (\xb +1, \yb/2) node {$h=\frac{\mathit{A}}{b}$};
+    \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
+	    \draw (1.87*\xb, 1.7*\yb) node{$dh=d\quadra{\frac{\mathit{A}}{b}}$};
+	    \draw (1.57*\xb, 1.4*\yb) node [rotate=90] 
+          {$db \cdot \frac{\mathit{A}}{b}$};
+    \end{scope}
+    }
+}
+
+\newcommand{\rettadueterzi}{% m=3/2.
+    \disegnod{4.5}{
+    \rcom{-4}{+4}{-4}{+4}{gray!50, very thin, step=1}
+ % rapp.incrementale   
+    \filldraw (2, 2) circle (1.2pt)
+              (3, 3.5) circle (1.2pt)
+              (2.5, -1.1) node [rotate=90]{$\Delta x=1$}
+              (0, 2.75) node [left]{$\Delta y=\frac{3}{2}$}    
+              (-4, 1) node [right]{$\frac{\Delta y}{\Delta x}=
+              \frac{\frac{3}{2}}{1}=\frac{3}{2}$};
+     \fill [Cyan!50] 
+      (0, 2) -- (0, 3.5) -- 
+      (3, 3.5) -- (2, 2) -- cycle;
+     \fill [Cyan!50] 
+      (2, 0) -- (3, 0) -- 
+      (3, 3.5) -- (2, 2) -- cycle;     
+%retta
+    \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-4.3, ymax=4.3]
+    \tkzFct[ultra thick, color=Maroon!50!black, domain=-4.3:4.3]{1.5*x-1}
+    }
+}
+
+\newcommand{\rettamenounquarto}{% retta con m=-1/4.
+    \disegnod{4.5}{
+    \rcom{-4}{+4}{-4}{+4}{gray!50, very thin, step=1}
+% rapp.incrementale
+    \fill [Cyan!50] 
+      (-4, 1.5) -- (0, 1.5) -- 
+      (0, 1) -- (-2, 1) -- cycle;
+    \draw (-0.5, 1.25)[Black!, right]node {$\Delta y=-\frac{1}{2}$}; 
+    \fill [Cyan!50] 
+      (-4, 1.5) -- (-4, 0) -- 
+      (-2, 0) -- (-2, 1) -- cycle;
+    \draw (-3, -1.2) node [Black!, rotate=90] {$\Delta x=2$};    
+    \filldraw [color=Black!50!black]
+              (-4, 1.5) circle (1.2pt)
+              (-2, 1) circle (1.2pt)
+              (-4, 2.5) node [right]{$\frac{\Delta y}{\Delta x}=
+              \frac{-\frac{1}{2}}{2}=-\frac{1}{4}$};
+% retta              
+    \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-4.3, ymax=+4.3]
+    \tkzFct[ultra thick, color=Maroon!50!black, domain=-4.3:4.3]{-.25*x+.5}              
+    }
+}
+
+\newcommand{\retteorvert}{% m=0, m=inf.
+    \disegnod{4.5}{
+    \rcom{-4}{+4}{-4}{+4}{gray!50, very thin, step=1}
+        \draw [ultra thick, color=Maroon!50!black]
+          (-4.3, -1.5) -- (4.3, -1.5);
+    \draw [ultra thick, color=Green!50!black]
+          (-2.8, -4.3) -- (-2.8, 4.3);
+    \filldraw [color=Black!50!black]
+              (-2.8, 3.5) circle (1.2pt)
+              (-2.8, 2.5) circle (1.2pt)
+              (0, 3) node {$\frac{\Delta y}{\Delta x}=\frac{1}{0}=$?};
+    \filldraw (-1, -1.5) circle (1.2pt)
+              (-2, -1.5) circle (1.2pt)
+              (-1.5, -2) node  {$\frac{\Delta y}{\Delta x}=\frac{0}{1}=0$};
+    \filldraw (1.5, -1.5) circle (1.2pt)
+              (3.5, -1.5) circle (1.2pt)        
+              (2.5, -0.8) node {$\frac{\Delta y}{\Delta x}=\frac{0}{2}=0$};
+    }
+}
+
+
+\newcommand{\curvacubica}{% 
+    % Rapporti incre. a una curva.
+    \disegno{
+    \rcom{-4}{+4}{-4}{6}{gray!50, very thin, step=1.0}
+    \fill [Cyan!50] 
+      (-3.6, 5) -- (-2, 2) -- (-3.6, 2) -- cycle
+      (-2, 2) -- (-2, 3) -- (0, 3) -- cycle
+      (0, 3) -- (2.35, 3.8) -- (2.35, 3) -- cycle
+      (2.35, 3.8) -- (3.6, 3.8) -- (3.6, 1) -- cycle;
+    \filldraw [color=Black] 
+      (-3.6, 5) circle (1.2pt)  node [right] {A}
+      (-2, 2) circle (1.2pt)    node [below] {B}
+      (0, 3) circle (1.2pt)     node [above] {C}
+      (2.35, 3.8) circle (1.2pt) node [above] {D}
+      (3.6, 1) circle (1.2pt)  node [left] {E};
+    \begin{scope}[ultra thick, color=Maroon!50!black]
+      \tkzInit[xmin=-4., xmax=+4, xstep=1., ymin=-5,ymax=8]
+      \tkzFct[domain=-4:+4]{-.12*x*x*x+x+3}
+    \end{scope}  
+    }
+}
+
+\newcommand{\secanticubica}{% 
+    % secanti a una cubica.
+    \disegno{
+    \rcom{-4}{+4}{-4}{6}{gray!50, very thin, step=1.0}
+    \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-4.3, ymax=+6.3]
+    \tkzFct[thick, color=Cyan!50!black, domain=-4.3:4.3]{-1.9*x-1.8}   
+    \tkzFct[thick, color=Cyan!50!black, domain=-4.3:4.3]{0.5*x+3} 
+    \tkzFct[thick, color=Cyan!50!black, domain=-4.3:4.3]{0.33*x+3} 
+    \tkzFct[thick, color=Cyan!50!black, domain=-4.3:4.3]{-2.32*x+9.3} 
+  
+   \filldraw [color=Black] 
+      (-3.6, 5) circle (1.2pt)  node [right] {A}
+      (-2, 2) circle (1.2pt)    node [below] {B}
+      (0, 3) circle (1.2pt)     node [above] {C}
+      (2.35, 3.8) circle (1.2pt) node [above] {D}
+      (3.6, 1) circle (1.2pt)  node [left] {E};
+    \begin{scope}[ultra thick, color=Maroon!50!black]
+      \tkzInit[xmin=-4., xmax=+4, xstep=1., ymin=-5,ymax=8]
+      \tkzFct[domain=-4:+4]{-.12*x*x*x+x+3}
+    \end{scope}  
+    }
+}
+
+\newcommand{\secantiparabola}{% 
+    % definita in intervallo 0-inf.
+    \disegnod{4.5}{
+    \rcom{-1}{+5}{-5}{+5}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-1.3, xmax=+6.3, ymin=-1.3, ymax=+5.3]
+     \tkzFct[ultra thick, color=Green!50!black, domain=0:+5.3]{-x*x+x+3}
+    }
+}
+
+\newcommand{\secanticurva}{% 
+  % Secanti ad una parabola nel punto (5; 4).
+  \def \raggio{2pt}
+  \disegno{
+  \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
+  \begin{scope}[ultra thick, color=Maroon!50!black]
+    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-0.3,ymax=+10.3]
+    \tkzFct[domain=-10:+10]{0.2*x*(x+2)-x+2}
+  \end{scope}
+  \begin{scope}[color=Black]
+    \filldraw (5, 4) circle (2pt) node [above left] {A};
+    \foreach \p/\n in {(4, 2.8)/$P_7$, 
+                      (3, 2)/$P_6$, (1.5, 1.55)/$P_5$}
+      \filldraw \p circle (\raggio) node [below, yshift=-1mm] {\n};
+    \foreach \p/\n in {(0, 2)/$P_4$, (-1.19, 3)/$P_3$, 
+                      (-2.5, 4.75)/$P_2$, (-4, 7.6)/$P_1$}
+      \filldraw \p circle (\raggio) node [below left, yshift=-1mm] {\n}; 
+  \end{scope}
+  \begin{scope}[thick, color=Cyan!50!black]
+    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-1.3,ymax=+10.3]   
+    \tkzFct{1.2*x-2}   % per AB
+    \tkzFct{x-1}       % per AC
+    \tkzFct{0.7*x+.5}   % per AD
+    \tkzFct{0.4*x+2}   % per AE
+    \tkzFct{0.162*x+3.19}     % per AF
+    \tkzFct{-0.1*x+4.5}  % per AG
+    \tkzFct{-0.4*x+6}  % per AH  
+  \end{scope}
+  }
+}
+
+\newcommand{\secRD}{% 
+  % Tangente ad una parabola nel punto (5; 4).
+  \disegno{
+  \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
+  \begin{scope}[ultra thick, color=Maroon!50!black]
+    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-1.3,ymax=+10.3]
+    \tkzFct{0.2*x*(x+2)-x+2} 
+    \tkzFct[thick, color=Cyan!50!black] {1.4*x-3}  
+  \end{scope}
+  \filldraw [color=Black] (5, 4) circle (2pt) node [below right] {A};
+  \microscopio{(5, 4)}{3}{20}{230}{2}{(11.5, 8)}{\(\times \infty\)}
+  \tkzInit[xmin=0,xmax=+10.2,ymin=0,ymax=+8.3]
+  \tkzFct[ultra thick, color=Maroon!50!black, domain=7.9:10.3] {1.4*x-6}
+  \tkzFct[thick, color=Cyan!50!black, domain=7.9:10.3] {1.4*x-6} 
+  \fill [Cyan!50] (8.5, 5.9) -- (9.5, 7.3) -- (8.5, 7.3) -- cycle;
+  \begin{scope}[color=Black]
+   \filldraw  (9.5, 7.3) circle (2pt) node [right] {$A$}
+              (8.5, 5.9) circle (2pt) node [below, xshift=+1mm] {$P_n$};
+   \draw (9.2, 7.2) node [above, xshift=-1mm] {dx}
+          node [below left, xshift=-1mm] {df(x)}; 
+   \begin{scope}[dashed]
+    \draw   (5, 4) -- (5, 0)  node [below] {$x\approx x+dx$}
+            (5, 4) -- (0, 4)  node [left] {$f(x)\approx f(x+dx)$}
+            (8.5, 5.9) -- (8.5, 4.6)   (9.5, 7.3) -- (9.5, 4.6)
+            (8.5, 5.9) -- (7.15, 5.9)  (9.5, 7.3) -- (7.2, 7.3);
+    \end{scope}
+    \microscopio{(5, 0)}{3}{20}{230}{2}{(11.5, 3.5)}{\(\times \infty\)}
+      \draw (7.1, 2) --(11, 2);
+      \draw [dashed] (8.5, 4.5) -- (8.5, 2) node [below] {x}
+                     (9.5, 4.5) -- (9.5, 2) node [below, xshift=2mm, 
+                                               yshift=+0.7mm] {x+dx};
+    \microscopio{(0, 4)}{1}{120}{250}{2}{(2.3, 8)}{\(\times \infty\)}
+      \draw (1, 4.9) --(1, 8.6);
+      \draw [dashed] (2, 6) -- (1, 6) node [left] {$f(x)$}
+                     (2, 7.3) -- (1, 7.3) node [left] {f(x+dx)};
+    
+   \end{scope}
+
+    }
+}
+
+\newcommand{\derivaradice}{% derivate della radice.
+    \disegnod{4.5}{
+    \rcom{-1}{+7}{-5}{+2}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-1.3, xmax=+7.3, ymin=-5.3, ymax=+4.3]
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=-.3:7.3]{1-2*sqrt(x)}
+     \tkzFct[thick, color=Cyan!50!black, domain=1:+7.3]{-.5*x-1}
+     \filldraw (4, -3) circle (1.2pt);
+    }
+}
+
+\newcommand{\derivaradiceinzero}{% derivate della radice.
+    \disegnod{4.5}{
+    \rcom{-1}{+7}{-2}{+5}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-1.3, xmax=+7.3, ymin=-5.3, ymax=+4.3]
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=-.3:2.3]{1-2*sqrt(x)}
+    \microscopio{(0, 1)}{1}{10}{200}{3}{(6.5, 4.5)}{\(\times \infty\)}
+    \tkzFct[thick, color=Cyan!50!black, domain=2:+3.23]{-20*x+64}
+    \filldraw (3, 4) circle (1.2pt);
+    \fill [Cyan!50] (3, 4) -- (3, .5) -- (3.12, .5) -- cycle;
+%    \draw (2, 2) pic [rotate=27, telescopio=\infty] {telescopio};
+    }
+}
+
+\newcommand{\derivaomografica}{% derivata f omogr.
+    \disegnod{4.5}{
+    \rcom{-2}{+6}{-4}{+4}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-2.3, xmax=+6.3, ymin=-4.3, ymax=+4.3]
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=-2.3:2.0]{1/(x-2)}
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=2.0:6.3]{1/(x-2)}
+     \tkzFct[thick, color=Cyan!50!black, domain=0:+2]{-x}
+     \filldraw (1, -1) circle (1.4pt);
+    }
+}
+\newcommand{\derivavalass}{% derivate val ass.
+    \disegnod{4.5}{
+    \rcom{-2}{+6}{-4}{+4}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-2.3, xmax=+6.3, ymin=-4.3, ymax=+4.3]
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=-2.3:2.0]{.5*x+1}
+     \tkzFct[ultra thick, color=Maroon!50!black, domain=2.0:6.3]{-.5*x+3}
+     %\tkzFct[thick, color=Cyan!50!black, domain=:+2]{-x}
+     \filldraw (2, 2) circle (1.4pt);
+    }
+}
+
+\end{comment}
