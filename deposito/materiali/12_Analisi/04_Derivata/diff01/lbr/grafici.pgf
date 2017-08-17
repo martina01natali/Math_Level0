@@ -398,12 +398,13 @@
     \disegnod{4.5}{
     \rcom{-1}{+7}{-2}{+5}{gray!50, very thin, step=1}
     \tkzInit[xmin=-1.3, xmax=+7.3, ymin=-5.3, ymax=+4.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-.3:2.3]{1-2*sqrt(x)}
+    \tkzFct[ultra thick, color=Maroon!50!black, domain=-.3:2.3]{1-2*sqrt(x)}
     \microscopio{(0, 1)}{1}{10}{200}{3}{(6.5, 4.5)}{\(\times \infty\)}
     \tkzFct[thick, color=Cyan!50!black, domain=2:+3.23]{-20*x+64}
     \filldraw (3, 4) circle (1.2pt);
     \fill [Cyan!50] (3, 4) -- (3, .5) -- (3.12, .5) -- cycle;
-%    \draw (2, 2) pic [rotate=27, telescopio=\infty] {telescopio};
+    \draw (4.5, 4) pic [rotate=270, scale=.5] {telescopio=\(A\)};
+    \microscopio{(4.5, 4)}{2}{-30}{200}{3}{(6.5, 4.5)}{\(\times \infty\)}
     }
 }
 
@@ -576,10 +577,18 @@
     }
 }
 
-% \newcommand{diffcomposta}{%differenziale di f composta
-%    \disegnod{3}{
-%    \rcom{-6}{+6}{-10}{+2}{gray!50, very thin, step=1}
-%    \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-10.3, ymax=0]
-%    \tkzFct[ultra thick, color=Maroon!50!black, domain=-6.3:-.3]{-1/(x*x)}
-%    }
-% 
+\newcommand{\diffcomposta}{%differenziale di f composta
+   \disegnod{3}{
+  \draw[gray!50, very thin, step=1] 
+  (-0.3, -10-0.3) grid (10+0.3, 10+0.3); % Griglia
+  \begin{scope}[-{Stealth[length=2mm, open, round]}, black] % Assi
+    \draw (0, 0) -- (0, -10-0.5) 
+      node [left, yshift=-3pt] {\(t\)};
+    \draw (-0.3, 0) -- (10+0.5, 0) 
+      node [below, xshift=-3pt] {\(u\)};
+    \draw (0, 0) -- (0, 10+0.5) 
+      node [left, yshift=-3pt] {\(v\)};
+  \end{scope}
+   }
+}
+
