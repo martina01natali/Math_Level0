@@ -227,6 +227,19 @@
         (\parposx-\dim,  \parposy+\dim) -- (\parposx+\dim, \parposy-\dim);
 }
 
+\begin{comment}
+ \draw (1,0) -- (3,2);
+\foreach \i in {0,0.2,0.5,0.9,1}
+\node at ($(1,0)!\i!(3,2)$) {\i};
+
+\begin{scope}[xshift=2.25*#1cm,yshift=2.25*#2cm]
+ 
+\end{scope}
+
+    \pgfmathparse{\n-1} \let\nn\pgfmathresult 
+
+\end{comment}
+
 \newcommand{\trespolosegni}[4]{% Grafo calcolo del segno con tre assi
   % Esempio di chiamata:
   %% \trespolosegni{5}{1.2}{3}{3}
@@ -234,22 +247,11 @@
   \def \dimy{#2}
   \def \numassi{#3}
   \def \numpunti{#4}
-  \def \largx{\dimx / (\numpunti + 1)}
-%   \def \numax{\numassi-1}  % perché non funziona: {\numassi - 1}????
-  \foreach \posv in {1,...,\numassi}
-    \assex{-\dimx}{+\dimx}{\posv*\dimy};
-  \foreach \nx in {1,...,\numpunti}
-    \draw (\nx*\largx, \posv*\dimy) -- 
-          (\nx*\largx, \dimy);
-    
-%   \def \posv{-\dimy}
-%   \assex{-\dimx}{+\dimx}{\posv}
-%   \draw (-\dimx, \posv) node [above] {\secondaesp};
-%   \def \posv{-2*\dimy}
-%   \assex{-\dimx}{+\dimx}{\posv}
-%   \draw (-\dimx, \posv) node [above] {\terzaesp};
-%   \draw [-] (-\posx, \posv) -- (-\posx, \dimy) node [above] {\primoval};
-%   \draw [-] (+\posx, \posv) -- (+\posx, \dimy) node [above] {\secondoval};
+  \pgfmathparse{\dimx*2 / (\numpunti+1)} \let\largx\pgfmathresult
+   \foreach \i in {1,...,\numassi}
+     \assex{-\dimx}{+\dimx}{-\i*\dimy};
+   \foreach \i in {1,...,\numpunti}
+     \draw (\i*\largx-\dimx, 0) -- (\i*\largx-\dimx, -\numassi * \dimy);
 }
 
 \newcommand{\segnitreassiduepunti}[7]{% Grafo calcolo del segno con tre assi
@@ -265,8 +267,7 @@
   \def \primoval{#6}
   \def \secondoval{#7}
   \def \posx{\dimx / 3}
-%   \def \posy{0}          % \posy inchioda la 
-compilazione!!!!!!!!!!!??????????
+%   \def \posy{0}       % \posy inchioda la compilazione!!!!!!!!!????????
   \def \posv{0}
   \assex{-\dimx}{+\dimx}{\posv}
   \draw (-\dimx, \posv) node [above] {\primaesp};

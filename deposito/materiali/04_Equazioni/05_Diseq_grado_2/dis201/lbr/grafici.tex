@@ -4,13 +4,13 @@
 %
 
 \newcommand{\asseretta}[5]{% asse x e retta
-  \def \lung{#1}
+  \def \slung{#1}
   \def \zero{#2}
   \def \segnoa{#3}
   \def \segnob{#4}
   \def \emme{#5}
   \disegno{      
-    \assex{-\lung / 2}{+\lung / 2}{0}
+    \assex{-\slung}{+\slung}{0}
     \tkzInit[xmin=-5,xmax=+5,ymin=-1.3,ymax=+1.3]
     \tkzFct[domain=-5:5,thick,color=Maroon!50!black]{\emme*x};
     \foreach \x in {-3, -1} 
@@ -160,87 +160,143 @@
 %   }
 % }
 
-\newcommand{\inti}[5]{% Intervallo interno
-  \def \lung{#1}
-  \def \zeroa{#2}
-  \def \zerob{#3}
-  \def \inta{#4}
-  \def \intb{#5}
+% \newcommand{\inti}[5]{% Intervallo interno
+%   \def \lung{#1}
+%   \def \zeroa{#2}
+%   \def \zerob{#3}
+%   \def \inta{#4}
+%   \def \intb{#5}
+%   \disegno{
+%     \coordinate (a) at (-\lung / 4.5, 0);
+%     \coordinate (b) at (+\lung / 4.5, 0);
+%     \assex{-\lung / 2}{+\lung / 2}{0}
+%     \draw [blue, thick, decorate, decoration=snake] (a) -- (b);
+%     \draw[fill=\inta] (a) circle (2pt) node [above] {\(\zeroa\)};
+%     \draw[fill=\intb] (b) circle (2pt) node [above] {\(\zerob\)};
+%   }
+% }
+
+\newcommand{\inti}[7]{% Intervallo interno
+  % \disegno{\inti{0}{-2}{+2}{a}{b}{white}{black}}
+  \def \posy{#1}
+  \def \posa{#2}
+  \def \posb{#3}
+  \def \labela{#4}
+  \def \labelb{#5}
+  \def \inta{#6}
+  \def \intb{#7}
+  \coordinate (a) at (\posa, \posy);
+  \coordinate (b) at (\posb, \posy);
+  \draw [blue, thick, decorate, decoration=snake] (a) -- (b);
+  \draw[fill=\inta] (a) circle (2pt) node [above] {\(\labela\)};
+  \draw[fill=\intb] (b) circle (2pt) node [above] {\(\labelb\)};
+}
+
+\newcommand{\rayl}[5]{% semiretta sinistra
+  % \disegno{\rayl{0}{5}{-2}{p}{white}}
+  \def \posy{#1}
+  \def \lung{#2}
+  \def \posp{#3}
+  \def \labelp{#4}
+  \def \intp{#5}
+    \coordinate (p) at (\posp, \posy);
+    \draw [blue, thick, decorate, decoration=snake] (-\lung, \posy) -- (p);
+    \draw[fill=\intp] (p) circle (2pt) node [above] {\(\labelp\)};
+}
+
+\newcommand{\rayr}[5]{% semiretta destra
+  % \disegno{\rayr{0}{5}{-2}{p}{white}}
+  \def \posy{#1}
+  \def \lung{#2}
+  \def \posp{#3}
+  \def \labelp{#4}
+  \def \intp{#5}
+    \coordinate (p) at (\posp, \posy);
+    \draw [blue, thick, decorate, decoration=snake] (p) -- (+\lung, \posy);
+    \draw[fill=\intp] (p) circle (2pt) node [above] {\(\labelp\)};
+}
+
+\newcommand{\inte}[8]{% Intervallo esterno
+  % \disegno{\inte{0}{5}{-2}{+2}{a}{b}{white}{black}}
+%   \def \posy{#1}
+%   \def \lung{#2}
+%   \def \posa{#3}
+%   \def \posb{#4}
+%   \def \labela{#5}
+%   \def \labelb{#6}
+%   \def \inta{#7}
+%   \def \intb{#8}
+  \rayl{#1}{#2}{#3}{#5}{#7}
+  \rayl{#1}{#2}{#4}{#6}{#8}
+}
+
+\newcommand{\intpunto}[4]{% Punto
+  \def \slung{#1}
+  \def \posp{#2}
+  \def \labelp{#3}
+  \def \intp{#4}
   \disegno{
-    \coordinate (a) at (-\lung / 4.5, 0);
-    \coordinate (b) at (+\lung / 4.5, 0);
-    \assex{-\lung / 2}{+\lung / 2}{0}
-    \draw [blue, thick, decorate, decoration=snake] (a) -- (b);
-    \draw[fill=\inta] (a) circle (2pt) node [above] {\(\zeroa\)};
-    \draw[fill=\intb] (b) circle (2pt) node [above] {\(\zerob\)};
+    \assex{-\slung}{+\slung}{0}
+    \draw[fill=\intp] (\posp, 0) circle (2pt) node [above] {\(\labelp\)};
   }
 }
 
-\newcommand{\inte}[5]{% Intervallo interno
-  \def \lung{#1}
-  \def \zeroa{#2}
-  \def \zerob{#3}
-  \def \inta{#4}
-  \def \intb{#5}
+\newcommand{\intid}[7]{% Intervallo ]a; b[ con disegno e asse
+  % \intid{5}{-2}{+2}{a}{b}{white}{black}
   \disegno{
-    \coordinate (a) at (-\lung / 4.5, 0);
-    \coordinate (b) at (+\lung / 4.5, 0);
-    \assex{-\lung / 2}{+\lung / 2}{0}
-    \draw [blue, thick, decorate, decoration=snake] (-\lung / 2, 0) -- (a);
-    \draw [blue, thick, decorate, decoration=snake] (b) -- (+\lung / 2, 0);
-    \draw[fill=\inta] (a) circle (2pt) node [above] {\(\zeroa\)};
-    \draw[fill=\intb] (b) circle (2pt) node [above] {\(\zerob\)};
+    \assex{-#1}{+#1}{0}
+    \inti{0}{#2}{#3}{#4}{#5}{#6}{#7}
   }
 }
 
-\newcommand{\intpunto}[3]{% Intervallo interno
-  \def \lung{#1}
-  \def \zerop{#2}
-  \def \intp{#3}
+\newcommand{\inted}[7]{%  ]-infty; a[ u ]b; +infty[ con disegno e asse
+  % \inted{5}{-2}{+2}{a}{b}{white}{black}
   \disegno{
-    \assex{-\lung / 2}{+\lung / 2}{0}
-    \draw[fill=\intp] (0, 0) circle (2pt) node [above] {\(\zerop\)};
+    \assex{-#1}{+#1}{0}
+    \inte{0}{#1}{#2}{#3}{#4}{#5}{#6}{#7}
   }
 }
 
-\newcommand{\intiaa}[3]{% Intervallo ]a; b[
-  \inti{#1}{#2}{#3}{white}{white}
+\newcommand{\intiaa}[5]{% Intervallo ]a; b[
+  % \intiaa{5}{-3}{3}{a}{b}
+  \intid{#1}{#2}{#3}{#4}{#5}{white}{white}
 }
 
-\newcommand{\intica}[3]{% Intervallo [a; b[
-  \inti{#1}{#2}{#3}{black}{white}
+\newcommand{\intica}[5]{% Intervallo ]a; b[
+  \intid{#1}{#2}{#3}{#4}{#5}{black}{white}
 }
 
-\newcommand{\intiac}[3]{% Intervallo ]a; b]
-  \inti{#1}{#2}{#3}{white}{black}
+\newcommand{\intiac}[5]{% Intervallo ]a; b[
+  \intid{#1}{#2}{#3}{#4}{#5}{white}{black}
 }
 
-\newcommand{\inticc}[3]{% Intervallo [a; b]
-  \inti{#1}{#2}{#3}{black}{black}
+\newcommand{\inticc}[5]{% Intervallo ]a; b[
+  \intid{#1}{#2}{#3}{#4}{#5}{black}{black}
 }
 
-\newcommand{\inteaa}[3]{% Intervallo ]a; b[
-  \inte{#1}{#2}{#3}{white}{white}
+\newcommand{\inteaa}[5]{% Intervallo ]a; b[
+  % \inteaa{5}{-3}{3}{a}{b}
+  \inted{#1}{#2}{#3}{#4}{#5}{white}{white}
 }
 
-\newcommand{\inteca}[3]{% Intervallo [a; b[
-  \inte{#1}{#2}{#3}{black}{white}
+\newcommand{\inteca}[5]{% Intervallo ]a; b[
+  \inted{#1}{#2}{#3}{#4}{#5}{black}{white}
 }
 
-\newcommand{\inteac}[3]{% Intervallo ]a; b]
-  \inte{#1}{#2}{#3}{white}{black}
+\newcommand{\inteac}[5]{% Intervallo ]a; b[
+  \inted{#1}{#2}{#3}{#4}{#5}{white}{black}
 }
 
-\newcommand{\intecc}[3]{% Intervallo [a; b]
-  \inte{#1}{#2}{#3}{black}{black}
+\newcommand{\intecc}[5]{% Intervallo ]a; b[
+  \inted{#1}{#2}{#3}{#4}{#5}{black}{black}
 }
 
-\newcommand{\puntoa}[2]{% Intervallo ]a; b[
-  \intpunto{#1}{#2}{white}
+\newcommand{\puntoa}[3]{% Intervallo ]a; b[
+  \intpunto{#1}{#2}{#3}{white}
 }
 
-\newcommand{\puntoc}[2]{% Intervallo [a; a]
-  \intpunto{#1}{#2}{black}
+\newcommand{\puntoc}[3]{% Intervallo [a; a]
+  \intpunto{#1}{#2}{#3}{black}
 }
 
 \newcommand{\intv}[1]{% Intervallo vuoto
@@ -259,9 +315,71 @@
   }
 }
 
-\newcommand{\segnoprodotto}{% Segno del prodotto di due funzioni
+\newcommand{\segnoprodottoa}{% Segno del prodotto di due funzioni
   \disegno{
     \trespolosegni{5}{1.2}{3}{3}
+    \node at (-2.5, 0) [above] {\(-2\)};
+    \node at (-0, 0) [above] {\(\frac{3}{2}\)};
+    \node at (+2.5, 0) [above] {\(+2\)};
+    \node at (-5, -1.2) [above left] {\(x^2-4\)};
+    \node at (-5, -2.4) [above left] {\(-2x+3\)};
+    \node at (-5, -3.6) [above left] {\(f(x)\)};
+    \foreach \x/\y in {-2.5/-.7, +2.5/-.7, 0/-1.9, 
+                       -2.5/-3.1, +2.5/-3.1, 0/-3.1}
+      \cerchietto{\x}{\y}
+    \foreach \x/\s in {-3.5/+, -1.25/-, 1.25/-, 3.5/+}
+      \node at (\x, -1.2) [above] {\(\s\)};
+    \foreach \x/\s in {-3.5/+, -1.25/+, 1.25/-, 3.5/-}
+      \node at (\x, -2.4) [above] {\(\s\)};
+    \foreach \x/\s in {-3.5/+, -1.25/-, 1.25/+, 3.5/-}
+      \node at (\x, -3.6) [above] {\(\s\)};
+  }
+}
+
+\newcommand{\solprodottoa}{% Soluzione disequazione prodotto di funzioni
+  \disegno{
+    \assex{-4}{+4}{0}
+    \inti{0}{-2.5}{0}{-2}{\frac{3}{2}}{black}{black}
+    \rayr{0}{4}{2}{+2}{black}
+  }
+}
+
+\newcommand{\segnoprodottob}{% Segno del prodotto di due funzioni
+  \disegno{
+    \trespolosegni{5}{1.2}{3}{3}
+    \node at (-5, -1.2) [above left] {\(3x^2-8x-3\)};
+    \node at (-5, -2.4) [above left] {\(x\)};
+    \node at (-5, -3.6) [above left] {\(f(x)\)};
+  }
+}
+
+\newcommand{\segnofrazionea}{% Segno del prodotto di due funzioni
+  \disegno{
+    \trespolosegni{5}{1.2}{3}{3}
+    \node at (-2.5, 0) [above] {\(-4\)};
+    \node at (-0, 0) [above] {\(7\)};
+    \node at (+2.5, 0) [above] {\(29\)};
+    \node at (-5, -1.2) [above left] {\(-x +29\)};
+    \node at (-5, -2.4) [above left] {\(x^2-3x-28\)};
+    \node at (-5, -3.6) [above left] {\(f(x)\)};
+    \foreach \x/\y in {2.5/-.7, 2.5/-3.1} \cerchietto{\x}{\y}
+    \foreach \x/\y in {-2.5/-1.9, 0/-1.9, 
+                       -2.5/-3.1, 0/-3.1}
+      \crocetta{\x}{\y}
+    \foreach \x/\s in {-3.5/+, -1.25/+, 1.25/+, 3.5/-}
+      \node at (\x, -1.2) [above] {\(\s\)};
+    \foreach \x/\s in {-3.5/+, -1.25/-, 1.25/+, 3.5/+}
+      \node at (\x, -2.4) [above] {\(\s\)};
+    \foreach \x/\s in {-3.5/+, -1.25/-, 1.25/+, 3.5/-}
+      \node at (\x, -3.6) [above] {\(\s\)};
+  }
+}
+
+\newcommand{\solfrazionea}{% Soluzione disequazione prodotto di funzioni
+  \disegno{
+    \assex{-4}{+4}{0}
+    \rayl{0}{4}{-2}{-4}{white}
+    \inti{0}{0}{2}{7}{29}{white}{black}
   }
 }
 
