@@ -5,18 +5,9 @@
 
 \chapter{Derivate}
 
-\section{TODO}
 
 \section{Introduzione}
 \label{}
-
-% \begin{wrapfloat}{figure}{r}{0pt}
-% \includegraphics[scale=0.35]{img/fig000_.png}
-% \caption{...}
-% \label{fig:...}
-% \end{wrapfloat}
-% 
-% \begin{center} \input{\folder lbr/fig000_.pgf} \end{center}
 
 Il problema di determinare la velocità istntanea ci ha portati a conoscere 
 i numeri infinitesimi e, attraverso questi, l'insieme dei numeri iperreali.
@@ -1414,15 +1405,17 @@ Come possiamo visualizzare la pendenza della secante per $x\approx 0$?
  \end{minipage} 
  \hfill
  \begin{minipage}[]{.50 \textwidth}
+\vspace{-2em}
 In realtà non possiamo. Infatti se $dx=\epsilon$ abbiamo 
 $f(\epsilon)=1-2\sqrt{\epsilon}$.
 Realizziamo un primo microscopio con ingrandimento infinito, pari a 
 $\dfrac{1}{\sqrt{\epsilon}}$, così $df(x)$ può essere visualizzata con un 
 tratto verticale verso il basso, a partire dal punto $\punto{0}{1}$. Ma 
-l'ingrandimento non è sufficiente per cogliere $dx=\epsilon$, che è 
-infinitesimo di ordine superiore, quindi è troppo piccolo.
+l'ingrandimento non è sufficiente per cogliere $dx=\epsilon$,  
+infinitesimo di ordine superiore, quindi troppo piccolo.
 Se poi applichiamo un secondo microscopio che visualizza $dx$, allora $df(x)$
-assume lunghezza infinita e non può essere valutato.
+assume lunghezza infinita e non può essere valutato. Nel punto $\punto{0}{1}$
+la tangente (linea tratteggiata) è verticale.
 \end{minipage}
 \end{center}
 \end{inaccessibleblock}
@@ -1856,10 +1849,11 @@ sigle qualsiasi, ma questo non cambia le regole dell'analisi o, più in
 generale, della matematica. La libertà di uso dei simboli può facilitare i
 calcoli, come si vede nel caso della derivata di una funzione composta.
 \begin{esempio}
- Deriva la funzione $v(u)=u^2$. Soluzione: $v'(u)= 2u$. Infatti il 
- differenziale è $dv(u)=2udu+(du)^2$ esattamente come $df(x)=2xdx+(dx)^2$ per
- la funzione quadratica. Allora  la parte 
- standard del rapporto differenziale fornisce il risultato $2u$.
+  Deriva la funzione $v(u)=\dfrac{u^2}{8}$. 
+  Soluzione: $v'(u)=\dfrac{1}{8}2u=\dfrac{u}{4}$. Infatti il 
+  differenziale è $dv(u)=\dfrac{1}{8}[2udu+(du)^2]$ perché $df(x)=2xdx+(dx)^2$ 
+  e $d(kf(x)=kdf(x)$. Allora  la parte 
+ standard del rapporto differenziale fornisce il risultato $\dfrac{u}{4}$.
 \end{esempio}
 
 \begin{esempio}
@@ -1869,62 +1863,53 @@ Deriva la funzione $u(t)=3t-2$. Soluzione: $u'(t)=3$. Infatti il
 \end{esempio}
 
 Combiniamo i due esempi: $v=f(u)$ e $u=f(t)$, cioè $v$ è funzione di $u$, 
-perché i suoi valori dipendono dai quadrati dei numeri $u$, invece $u$ è 
-funzione di $t$, nel senso che i suoi valori sono i valori $t$ 
+perché i suoi valori dipendono dai quadrati, divisi per $8$, dei numeri $u$ ,
+invece $u$ è funzione di $t$, nel senso che i suoi valori sono i valori $t$ 
 triplicati e poi ridotti di 2. In ``matematichese'' 
-$v(u(t))=[u(t)]^2=(3t-2)^2$.
-Si tratta di una specie di catena:
+$v(u(t))=\dfrac{[u(t)]^2}{8}=\dfrac{(3t-2)^2}{8}$.
 
-%\begin{figure}[h!]
+
 \begin{inaccessibleblock}
   [box funzione composta]
  \begin{center}
  \begin{minipage}[]{.48\textwidth}
-   \boxfcomposta
-%   \caption{Una funzione composta}
+  \boxfcomposta
  \end{minipage} 
  \hfill
  \begin{minipage}[]{.48\textwidth}
-Se si immette il valore $t=2$, la macchina sviluppa $u(2)=3\cdot 2-2=4$ in $u$
-e infine produce $v(4)=4^2=16$. Una catena del genere si chiama \emph{funzione
-di funzione} e $v$, che produce il risultato finale, si dice
+Si tratta di una specie di catena:\\
+se si immette il valore $t=6$, la macchina sviluppa $u(6)=3\cdot 6-2=16$ in $u$
+e infine produce $v(16)=\dfrac{16^2}{8}=32$. Una catena del genere si chiama 
+\emph{funzionedi funzione} e $v$, che produce il risultato finale, si dice
 \emph{funzione composta}: $v(u(t))$.\\
  \end{minipage}
  \end{center}
 \end{inaccessibleblock}
 \label{}
-%\end{figure}
 
-DISEGNO PIANO CARTESIANO CON 3 ASSI
-% \begin{figure}[h!]
+Come deriviamo  $v$ rispetto a $t$? Dalla definizione di derivata: 
+$\mathit{D}\quadra{v(u(t))}=\pst{\dfrac{d(v(u(t)))}{dt}}$, 
+quindi il punto è il calcolo dei differenziali.
 \begin{inaccessibleblock}
   [differenziale funzione composta]
  \begin{center}
  \begin{minipage}[]{.48\textwidth}
-   \diffcomposta
-%    \caption{Una funzione composta}
+  \diffcomposta
  \end{minipage} 
- \hfill
+  \hfill
  \begin{minipage}[]{.48\textwidth}
-% Se si immette il valore $t=2$, la macchina sviluppa $u(2)=3\cdot 2-2=4$ in $u$
-% e infine produce $v(4)=4^2=16$. Una catena del genere si chiama \emph{funzione
-% di funzione} e $v$, che produce il risultato finale, si dice
-% \emph{funzione composta}: $v(u(t))$.\\
+Dal primo esempio sappiamo che $dv=\dfrac{u}{4}du\ +$ infinitesimi di ordine 
+superiore.
+Poiché $u=3t-2$, $du=3dt$, avremo:\\
+$dv\approx \dfrac{u}{4}du$. \hspace{1cm} $du=3dt$. $\srarrow dv=\dfrac{3t-2}{4}3dt \srarrow\\ 
+\srarrow \pst{\dfrac{d(v(u(t)))}{dt}}=\dfrac{(3t-2)3dt}{4dt}=\dfrac{9}{4}t-\dfrac{3}{2}$.\\
  \end{minipage}
  \end{center}
 \end{inaccessibleblock}
 \label{}
-% \end{figure}
 
-Come deriviamo  $v$ rispetto a $t$?
-Dalla definizione di derivata: $\mathit{D}\quadra{v(u(t))}=
-\pst{\dfrac{d(v(u(t)))}{dt}}$, quindi il punto è il calcolo dei differenziali.\\
-Dal primo esempio sappiamo che $dv=2udu+$infinitesimi di ordine superiore.
-Poiché $u=3t-2$, $du=3dt$, quindi avremo:\\
-$dv\approx 2udu$. \hspace{2cm} $u=3t-2$, $du=3dt$. $\srarrow dv=2(3t-2)3dt \srarrow\\ 
-\srarrow \pst{\dfrac{d(v(u(t)))}{dt}}=\dfrac{2(3t-2)3dt}{dt}=18t-12$.\\
-C'è un modo più semplice? Sì: basta sviluppare 
-il quadrato $(3t-2)^2$ e poi derivare il polinomio. Ma a volte il modo più semplice 
+C'è un modo più semplice? Sì: basta sviluppare il quadrato $(3t-2)^2$, dividere
+ogni termine per $8$ e poi derivare il polinomio. Ma a volte il modo più semplice 
 non c'è.
 \begin{esempio}
   Calcolare $f'(x)$, con $f(x)=\sqrt{3-x^2}$.\\
@@ -1993,9 +1978,33 @@ Tesi: $f'(x)=f'(g(x))=f'(g(x))g'(x)$.
 
 \subsection{Funzioni inverse}
 \label{subsec:diff01_derifuninverse}
-La sezione \ref{subsec:diff01_dericomp} ci conforta anche per derivare una 
-funzione difficoltosa, se riconosciamo che è l'inversa di un'altra funzione
-meno problematica. Iniziamo dal caso semplice.
+Non è difficile invertire una funzione nota, partendo dalla sua espressione 
+analitica.  Con pochi pochi passaggi elementari, si ricava la formula
+inversa.. Ecco alcuni esempi di semplici funzioni algebriche.
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+$y=f(x)$ & $x=g(y)$ & $f'(x)$ & $g'(y)$\\\hline
+$y=x+c$ & $x=y-c$ & 1 & 1\\
+$y=kx$ & $x=y/k$ & $k$ & $\frac{1}{k}$\\
+$y=x^2$, $x\ge 0$ & $x=\sqrt{y}$ & $2x$ & $\frac{1}{2\sqrt{y}}=\frac{1}{2x}$\\
+$y=\frac{1}{x}$ & $x=\frac{1}{y}$ & $-\frac{1}{x^2}$ & $-\frac{1}{y^2}=-x^2$\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{osservazione}
+La funzione  $y=x^2$, nella terza riga della tabella, è definita $\forall x$.
+Tuttavia qui si restringe il dominio, in modo da considerare un solo ramo della
+parabola, perché altrimenti la formula inversa non potrebbe essere una funzione.
+Occorre sempre porre attenzione al dominio di $f$, quando si vuole definirne 
+l'inversa. Una buona regola pratica per capire se $f^{-1}$ è definibile, è di
+tagliare il grafico di$f$ con una retta orizzontale: se la retta incrocia il 
+grafico di $f$ in più punti, $f^{-1}$ non esiste.\\
+\end{osservazione}
+
+Le ultime due colonne riportano le derivate rispettive e insinuano in
+noi qualche sospetto.\\
+Considera il caso semplice che segue.
 \begin{esempio}
   Derivare $f(x)=\sqrt{x^2}$.\\
   Si dirà: non c'è problema, si calcola la funzione e risulta 
@@ -2007,32 +2016,46 @@ meno problematica. Iniziamo dal caso semplice.
   Conclusione: $\mathit{D}\quadra{x^2}=\dfrac{1}{\mathit{D}\quadra{\sqrt{x}}}$
 \end{esempio}
 Si intuisce che: siccome $f'(g)g'(x)=1$, allora $g'(x)=\dfrac{1}{f'(g)}$.
-Se fosse vero diventerebbe più facile derivare per esempio le funzioni 
+Se fosse dimostrato, diventerebbe più facile derivare per esempio le funzioni 
 logaritmiche: basterebbe saper derivare le corrispondenti esponenziali. E così
-via.
-\begin{osservazione}
- Ovviamenente occorre qualche cautela: la regola sarebbe applicabile
+via. Ovviamente occorre qualche cautela: la regola sarebbe applicabile
  \begin{enumerate} [noitemsep]
-   \item se esiste l'inversa della funzione da derivare;
+  \item se esiste l'inversa della funzione da derivare;
   \item se entrambe le funzioni sono derivabili;
   \item se  $f'(g)\ne 0$.
  \end{enumerate}
-Nell'esempio precedente tutto funziona alla perfezione, ma solo se $x\ne0$
-(ricorda anche l'esempio \ref{esempio:diff01_deriradice}). 
- \end{osservazione}
-
+Infatti, nell'esempio tutto funziona alla perfezione, ma solo se $x\ne0$
+(ricorda anche l'esempio \ref{esempio:diff01_deriradice}). \\
 Se valgono tutte le condizioni favorevoli, allora esistono la funzione
-$f$ e la sua inversa $g=f^{-1}$ e nel piano cartesiano le due funzioni
-$y=f(x)$ e $x=g(y)=f^{-1}(y)$ hanno lo stesso grafico. Invece $y=f(x)$ e
-$y=g(x)=f^{-1}(x)$ hanno grafici simmetrici rispetto alla bisettrice $y=x$.
+$f$ e la sua inversa $g=f^{-1}$. $y=f(x)$ e $y=g(x)=f^{-1}(x)$ hanno grafici 
+simmetrici rispetto alla bisettrice $y=x$.
+\begin{osservazione}
+ $y=kx$ e $x=\frac{y}{k}$, per esempio, sono formule inverse l'una 
+ dell'altra. Ma non sono funzioni inverse, sono due espressioni della stessa 
+ iperbole equilatera e hanno lo stesso grafico, quindi le stesse tangenti al
+ grafico e le stesse derivate rispetto a $x$. La funzione inversa di cui 
+ parliamo, nel caso dell'iperbole è $y=\frac{x}{k}$, cioè è la formula inversa,
+ ma applicata a $x.$
+\end{osservazione}
 
-GRAFICO DERIVATA INVERSA
-
+\begin{inaccessibleblock}
+  [differenziale funzione composta]
+ \begin{center}
+ \begin{minipage}[]{.55\textwidth}
+  \diffinversa
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.42\textwidth}
 Ogni punto $\punto{x}{f^{-1}(x)}$ sulla curva della funzione inversa ha un
 corrispondente $\punto{y}{f(y)}$ sulla curva $y=f(x)$, nella simmetria rispetto
 alla bisettrice. Guardiamo come si corrispondono i differenziali:
 $dx$ e $dy$ sono invertiti in una curva rispetto all'altra. Quindi le 
 derivate corrispondenti sono reciproche l'una con l'altra.
+ \end{minipage}
+ \end{center}
+\end{inaccessibleblock}
+\label{}
+
 \begin{teorema}
  Le derivate di due funzioni $f$, $g$, inverse l'una dell'altra, se esistono
  e sono diverse da zero, sono reciproche l'una rispetto all'altra.
@@ -2069,6 +2092,7 @@ la derivazione risulta elementare.
 \end{esempio}
 
 
+
 \section{Derivare funzioni trascendenti}
 \label{sec:diff01_deritrasc}
 Nel capitolo \ref{sec:diff01_differenziale} abbiamo imparato a differenziare 
@@ -2085,10 +2109,21 @@ dell'andamento delle tangenti è una sorpresa rispetto ai confronti che abbiamo
 fatto per altre funzioni. I due grafici praticamente si accompagnano: 
 rivelano uguali pendenze in coppie di punti di uguale ordinata.
 
-GRAFICI AFFIANCATI f(x)=exp e f'
-
-Si può dire che anche l'andamento delle pendenze delle tangenti, cioè
-l'andamento della derivata della funzione, è anch'esso esponenziale.
+\begin{inaccessibleblock}
+  [esponenziale e derivate]
+  \begin{minipage}[]{.45\textwidth}
+   \begin{center} \esp \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.42\textwidth}
+   \begin{center} \tangentiesp \end{center}
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
+\\
+Anche se i due grafici non sono esattamente identici, l'andamento delle 
+pendenze delle tangenti, cioè l'andamento della derivata della funzione, è 
+anch'esso esponenziale.
 Sviluppiamo matematicamente questa intuizione, ricordando le proprietà
 delle potenze.\\
 Differenziale di $y=a^x$: $dy=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1}$.\\
@@ -2169,18 +2204,28 @@ subito.
   \end{enumerate}
 \end{esempio}
 
-DISEGNO GRAFICI ESP E LOG SIMMETRICI 
-
-\begin{teorema}
-  La derivata della funzione logaritmo naturale è: $\mathit{D}\quadra{\ln x}=
+\begin{inaccessibleblock}
+  [esponenziale e logaritmo]
+  \begin{minipage}[]{.55\textwidth}
+   \begin{center} \esplog \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.42\textwidth}
+ \begin{teorema}
+  La derivata della funzione \\
+  logaritmo naturale è: $\mathit{D}\quadra{\ln x}=
   \dfrac{1}{x}$.
 \end{teorema}
-\noindent Ipotesi: $f(x)=\ln x$. \tab $f'(x)=\dfrac{1}{x}$
+\noindent Ipotesi: $f(x)=\ln x$. \hspace{1cm}b $f'(x)=\dfrac{1}{x}$
 \begin{proof}
 La dimostrazione è nei ragionamenti dell'esempio precedente, ai quali bisogna 
 aggiungere le precauzioni perché le due funzioni siano invertibili e derivabili: 
 poiché $\ln x$ esiste per $x>0$, i ragionamenti valgono solo per $x>0$
-\end{proof}
+\end{proof} 
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
+\\
 
 Vediamo ora il caso generale, quando la base del logaritmo è genericamente $a>0$.
 \begin{teorema}
@@ -2234,12 +2279,17 @@ Per una migliore comprensione, ci affidiamo soprattutto al piano cartesiano.
 \subsubsection{Derivata di $f(x)=\sen x$}
 Nel capitolo sugli Iperreali abbiamo già visto 
 (vedi pag. \pageref{subsubsec:insnum_fseno}) che per angoli infinitesimi il seno e 
-l'angolo sono indistinguibili: $\st\tonda{\frac{\sin \epsilon}{\epsilon}}=1$.
+l'angolo sono indistinguibili: $\st\tonda{\frac{\sen \epsilon}{\epsilon}}=1$.
 Dall'analisi del disegno ricaviamo l'espressione del differenziale
 $df(x)=d(\sen x)= \sen (x+dx) -\sen x$.
 
-DISEGNO dsen x
-
+\begin{inaccessibleblock}
+  [differenziale del seno]
+  \begin{minipage}[]{.40\textwidth}
+   \dseno 
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.56\textwidth}
 Nell'ingrandimento al microscopio nonstandard, l'incremento infinitesimo di
 arco $\overset{\frown}{AB}$ (che corrisponde all'incremento di angolo da $x$
 a $x+dx$) è racchiuso fra due raggi indistinguibili da segmenti paralleli nei
@@ -2247,9 +2297,13 @@ punti $A\equiv \punto{x}{\sen x}$ e $B\equiv \punto{x+dx}{\sen(x+dx)}$.
 L'arco, a sua volta, risulta indistinguibile dal segmento rettilineo $AB$.
 I segmenti che uniscono $A$ e $B$ con le loro proiezioni sull'asse $X$ sono
 verticali e paralleli, perciò $ABC$ è un triangolo rettangolo infinitesimo, 
-simile al triangolo $BOC$. La sua altezza $BC$ corrisponde a $d\sen x$.\\
+simile al triangolo $BOC$. La sua altezza $BC$ corrisponde a $d\sen x$. 
+ \end{minipage}
+\end{inaccessibleblock}
+\label{fig_diff01dseno}\\
+
 Risolviamo il triangolo rettangolo $ABC$ rispetto al lato $BC$:\\
-$BC=AB\cdot \cos x \srarrow d(\sen x)= dx\cdot cos x$
+$BC=AB\cdot \cos x \srarrow d(\sen x)= dx\cdot cos x$  
 
 \begin{teorema}
   La derivata della funzione $f(x)=\sen x$ è $\mathit{D}\quadra{\sen x}=\cos x$.
@@ -2258,6 +2312,7 @@ $BC=AB\cdot \cos x \srarrow d(\sen x)= dx\cdot cos x$
 \begin{proof}
  Il commento al disegno giustifica la tesi. 
 \end{proof}
+
 
 \begin{osservazione}
   Si potrebbe criticare il metodo per la dimostrazione: chi assicura che negli
@@ -2274,10 +2329,21 @@ $BC=AB\cdot \cos x \srarrow d(\sen x)= dx\cdot cos x$
   \pageref{subsubsec:insnum_fseno}. Alla fine basta applicare la funzione 
   $\pst{}$.
 \end{osservazione}
+
 \begin{osservazione}
-GRAFICO F(X)=SEN X  con tangenti e grafico derivata affiancati 
-Anche il grafico dell'andamento delle tangenti può confermare la tesi
-in modo assai espressivo. 
+Anche il grafico dell'andamento delle tangenti conferma la tesi
+in modo assai espressivo. \\
+\begin{inaccessibleblock}
+  [differenziale del seno]
+  \begin{minipage}[]{.47\textwidth}
+    \begin{center} \seno \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.47\textwidth}
+ \begin{center} \tangentiseno \end{center}
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
 \end{osservazione}
 
 \begin{esempio}
@@ -2313,16 +2379,27 @@ $f'(x)=2\sen x \cos x$ e $g'(x)=cos 2x\cdot 2= 2 \cos 2x$.
 \end{teorema}
 \noindent Ipotesi: $f(x)=\cos x$. \tab $f'(x)=-\sen x$.
 \begin{proof}
-Il disegno che dimostra la tesi è uguale al precedente e ti invitiamo a
-riprodurlo. Questa volta l'attenzione sarà
-concentrata sul segmento $AC$.\\
+  Il disegno con cui dimostrare la tesi è uguale a quello di pag.
+  \pageref{fig_diff01dseno}. Lo puoi riprodurre, tenendo però l'attenzione
+  concentrata sul segmento $AC$.\\
 L'unica osservazione importante è che nel passare da $x$ a $ x+dx$, cioè mentre
 l'angolo cresce, il valore del coseno decresce. Infatti, al contrario di quanto
 avviene per il seno, nel primo quadrante si ha: $ \cos(x+dx)<\cos x$. Questa è 
 la ragione del segno meno nel risultato.
 \end{proof}
 
-GRAFICO F(X)=cos X  con tangenti e grafico derivata affiancati
+\begin{inaccessibleblock}
+  [differenziale del coseno]
+  \begin{minipage}[]{.47\textwidth}
+    \begin{center} \coseno \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.47\textwidth}
+ \begin{center} \tangenticoseno \end{center}
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
+
 \begin{esempio}
 Quale pendenza ha il grafico di $y=\cos x$ nell'origine?\\
 $f(x)= \cos x \srarrow f'(x)=-\sen x\srarrow f'(0)=-\sen 0=0$.\\
@@ -2344,7 +2421,17 @@ $f'(x)=-2\sen x\cos x + 2\sen x \cos x = 0$.
 La funzione $f(x)=\tg x$ è discontinua per $x= \pm\frac{\pi}{2}$. La derivata
 quindi non può esistere nei punti corrispondenti, come dimostra il grafico.
 
-GRAFICO F(X)=tang X  con tangenti e grafico derivata affiancati
+\begin{inaccessibleblock}
+  [differenziale della tangente]
+  \begin{minipage}[]{.47\textwidth}
+    \begin{center} \tangente \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.47\textwidth}
+ \begin{center} \tangentitangente \end{center}
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
 
 \begin{teorema}
    La derivata della funzione $f(x)=\tg x$ è $\mathit{D}\quadra{\tg x}=
@@ -2368,7 +2455,7 @@ Quale è la pendenza del grafico di $y=\tg x$, per $x=\dfrac{\pi}{4}$? E per
 $x=\dfrac{\pi}{2}$?\\
 $f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{4})=1+\tg^2\dfrac{\pi}{4}=2$\\
 $f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{2})=1+\tg^2\dfrac{\pi}{2}=$ ???\\
-Per $x\approx\dfrac{\pi}{2}$ la tangente ha un grafico che cresce verticalmente,
+Per $x\approx\dfrac{\pi}{2}$ il grafico della funzione cresce verticalmente,
 la sua pendenza è un numero infinito e la parte standard di un infinito non
 esiste. D'altra parte, se $x$ è esattamente uguale a $\dfrac{\pi}{2}$ ,
 la tangente ha un punto di discontinuità.
