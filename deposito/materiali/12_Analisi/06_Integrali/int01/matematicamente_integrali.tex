@@ -1,0 +1,468 @@
+﻿% (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
+
+\chapter{L'integrale}
+
+Uno dei problemi che l'integrazione vuole affrontare è quello di determinare 
+l'area tra una curva, che è il grafico di una funzione continua f in un 
+intervallo I, l'asse delle ascisse e due rette verticali per gli estremi a e 
+b (a<b) di un intervallo chiuso contenuto in I sull'asse delle ascisse.
+
+Fissata la funzione f, tale area dipenderà dalla scelta degli estremi a e b 
+dell'intervallo, ed è possibile indicarla come A(a,b). Questa funzione 
+binaria A ha due tipiche proprietà che potranno essere usate per 
+determinarla. Esse sono: 
+
+\begin{enumerate}
+ \item 
+la proprietà additiva, cioè se a, b e c 
+appartengono all'intervallo I e 
+\(a < b < c\)
+allora A(a,c) = A(a,b)+A(b,c),
+ \item 
+la proprietà rettangolare rispetto alla funzione f, 
+cioè \(m\cdot(b-a) < A(a,b)< M\cdot(b-a)\), 
+con m minimo delle funzione f in \(\intervcc{a}{b}\) e M massimo delle 
+funzione f in \(\intervcc{a}{b}\).
+\end{enumerate}
+ 
+Detto altrimenti, la proprietà 1) afferma che se una superficie 
+del tipo che si sta considerando viene divisa in due parti da una retta 
+verticale, allora l'area totale è la somma delle aree delle due parti, e la 
+2) dice che l'area considerata è maggiore dell'area di un rettangolo di ugual 
+base e altezza il minimo della funzione f nell'intervallo \(\intervcc{a}{b}\) 
+e minore di 
+un rettangolo con la stessa base e altezza il massimo della funzione f 
+nell'intervallo \(\intervcc{a}{b}\).
+
+Seguendo l'approccio non standard al calcolo integrale, consideriamo una 
+funzione continua f su un intervallo I cui appartengono i punti a e b, e una 
+partizione dell'intervallo chiuso \(\intervcc{a}{b}\) in sotto intervalli di 
+uguale 
+ampiezza \(\Delta (\Delta>0)\) 
+separati dai punti: \(a = x_0 < x_1 < … < x_h \le b\) 
+dove \(x_i = x_0 +i \Delta\), \(x_{i+1} - x_i= \Delta\) e h è il massimo  
+numero naturale tale che 
+\(x_0 + h \Delta \le b\), e dunque \(b-x_h \le \Delta\).
+
+Si può considerare la sommatoria
+\[\left(\sum_{i=0}^{h-1} f(x_i)\cdot\Delta \right)+f(x_i)\cdot(b-xH)\] 
+che è l'area dell'unione dei rettangoli che 
+hanno per base i segmenti \(\intervcc{x_i}{x_{i+1}}\) 
+(tutti di lunghezza \(\Delta\)) e 
+il segmento 
+\(\intervcc{x_h+1}{b}\) (di lunghezza minore di \(\Delta\)) e altezza 
+\(f(x_i)\). 
+
+Al diminuire della distanza \(\Delta\) tra i punti di partizione 
+l'area coperta da questa unione di rettangoli sarà sempre più vicina all'area 
+cercata.
+
+Per come è stata definita questa sommatoria dipende solo dagli estremi a e b 
+e da \(\Delta\), essendo H e la successione degli \(x_i\) determinati dalle 
+quantità indicate, sicché la denoteremo come 
+\[\sum_a^b f(x) \cdot\Delta\] 
+che, fissati a e b, è una 
+funzione reale unaria di \(\Delta\), chiamata somma di Riemann finita. 
+
+Nello spirito dei metodi non standard, questa funzione avrà un'estensione 
+naturale che può essere valutata anche per un infinitesimo positivo \(dx\) 
+al posto di \(\Delta\).
+
+Allora il massimo numero \(H\) tale che \(x_H \le b\) sarà un ipernaturale 
+infinito (\(x_H = x_0 + H \cdot dx\)).
+
+
+ Se la funzione f(x) è continua in \(\intervcc{a}{b}\), come si sta 
+supponendo, 
+ricordando che una funzione continua in un intervallo chiuso ha massimo e 
+minimo, per la somma di Riemann finita si ha che 
+\[m\cdot(b - a) \le \sum_a^b f(x) \cdot\Delta \le M\cdot(b - a)\] 
+dove m è il minimo della funzione f in \(\intervcc{a}{b}\), e 
+M è il massimo della funzione f in \(\intervcc{a}{b}\), sicché, per transfer, 
+anche le per 
+la somma di Riemann infinita vale che 
+\[m \cdot (b - a) \le  \sum_a^b f(x) \cdot dx  \le M\cdot(b - a)\]
+e pertanto la sommatoria sarà un numero iperreale finito che così ha parte 
+standard. 
+Ciò ci permette di definire l'\emph{integrale definito} di una funzione 
+standard \(f\) continua su \(\intervcc{a}{b}\) come:
+\[\int_a^b f(x) \cdot dx = \pst{\sum_a^b f(x) \cdot dx}\]
+
+Se poi, 
+partendo dalle disequazioni precedenti si passa alle parti standard, che 
+preservano le disequazioni, poiché il primo e l'ultimo termine sono parti 
+standard di se stessi in quanto reali, si ha: 
+\[m \cdot(b - a) \le  \int_a^b f(x) \cdot dx  \le M\cdot(b - a)\] 
+e si è dimostrata la proprietà rettangolare per l'integrale.
+
+Dalla definizione seguono le prime proprietà dell'integrale:
+\[\int_a^a f(x) \cdot dx=0\] 
+\[\int_a^b c \cdot dx = c \cdot (b-a)\] 
+\[\int_a^b c \cdot f(x) \cdot dx = c\cdot\int_a^b f(x) \cdot dx\] 
+\[\int_a^b (f(x)+g(x))\cdot dx = 
+  \int_a^b f(x) \cdot dx + \int_a^b g(x)\cdot dx\]
+se \(f(x) \le g(x)\) per ogni x in \(\intervcc{a}{b}\) allora 
+\[\int_a^b f(x) \cdot dx < \int_a^b g(x)\cdot dx\]
+
+Si definisce poi  
+\[\int_b^a f(x) \cdot dx = - \int_a^b f(x) \cdot dx\]
+
+Si vuole dimostrare ora che l'integrale è indipendente dalla scelta 
+dell'infinitesimo non nullo \(dx\). Cioè, anche se \(dx\) e \(du\) sono due 
+diversi infinitesimi non nulli si ha:
+\[\int_a^b f(x) \cdot dx = \int_a^b f(u) \cdot du\]
+Poiché entrambi gli integrali sono numeri reali per mostrare che coincidono 
+basta far vedere che sono infinitamente vicini, cioè basta mostrare che, per 
+ogni reale positivo r:      
+\[\int_a^b f(x) \cdot dx < r + \int_a^b f(u) \cdot du\]
+Poiché \(r\) è un reale positivo lo si può dividere per \((b-a)\) e ottenere 
+il reale positivo \(c\) tale che 
+\[r = c \cdot (b-a) = \int_a^b c \cdot dx\] 
+sicché la disuguaglianza precedente equivale a:
+\[\int_a^b f(x) \cdot dx \le \int_a^b (f(u)+c)\cdot du\] 
+per ogni numero reale positivo \(c\). Questa affermazione sarà dimostrata 
+per assurdo. Si supponga che 
+\[\int_a^b f(x) \cdot dx > \int_a^b (f(u)+c)\cdot du\] 
+per qualche reale positivo c, cioè che esista un reale positivo c tale che 
+\[\sum_a^b f(x) \cdot dx > \sum_a^b (f(u)+c)\cdot du\] 
+e, per il transfer, 
+\[\sum_{i=0}^H f(x_i) \cdot \Delta_x = 
+  \sum_a^b f(x) \cdot \Delta_x > \sum_a^b (f(u)+c)\cdot \Delta_u = 
+\sum_{j=0}^K(f(u_j)+c)\cdot \Delta_u\]
+
+Affinché ciò succeda ci devono essere almeno 
+due punti 
+\(\underline{x}\) e \(\underline{u}\)
+tali che 
+\[\underline{x} - \Delta_u < \underline{u} < \underline{x} + \Delta_u \]
+e 
+\[f(\underline{x}) > (f(\underline{u})+c)\] 
+altrimenti i rettangoli della prima sommatoria sono tutti contenuti in quelli 
+della seconda e questa non può essere minore. Tornando con il transfer 
+all'ambiente non standard si ha che ci devono essere almeno due iperreali 
+\(\underline{x}\) e \(\underline{u}\)
+tali che 
+\[\underline{x} - du < \underline{u} < \underline{x}+ du\]
+e 
+\[f(\underline{x}) > (f(\underline{u})+c)\] 
+ma allora \(\underline{x}\) e \(\underline{u}\)
+sono infinitamente vicini,  
+\(\underline{x} \approx \underline{u}\)
+e, per la continuità, anche 
+\(f(\underline{x})\) e \((f(\underline{u})+c)\) 
+devono essere infinitamente vicini 
+\[f(\underline{x}) \approx (f(\underline{u})+c)\] 
+contraddicendo la relazione 
+\[f(\underline{x}) - f(\underline{u}) > c)\]
+con \(c\) reale positivo. 
+
+Il che prova che l'integrale è indipendente dalla scelta dell'infinitesimo non 
+nullo dx.
+Il risultato ottenuto permette di giungere a mostrare che 
+l'integrale ha la proprietà additiva.
+
+Si deve mostrare che 
+\[\int_a^b f(x) \cdot dx + \int_b^c f(x) \cdot dx = \int_a^c f(x) \cdot dx\] 
+Passando alle sommatorie 
+\[\sum_a^b f(x) \cdot dx,\quad \sum_b^c f(x) \cdot dx \quad\text{ e } \quad 
+  \sum_a^c f(x) \cdot dx\] 
+e prendendo 
+\(dx = (b-a)/H\)
+con H ipernaturale infinito, 
+i punti di ripartizione degli intervalli \(\intervcc{a}{b}\) e 
+\(\intervcc{a}{b}\) coincidono con quelli dell'intervallo \(\intervcc{a}{b}\)
+sicché la terza sommatoria è evidentemente la somma delle altre due.
+Passando alla loro parti standard, operazione che preserva l'addizione, si 
+ottiene il risultato voluto. 
+
+Finalmente si dimostra l'unicità della funzione binaria che soddisfa la 
+proprietà additiva e la proprietà rettangolare rispetto alla funzione f.
+
+Iniziamo definendo le somme di Riemann finite superiore e inferiore. Queste 
+si distinguono dalla somma di Riemann finita perché invece di considerare il 
+fattore nei vari addendi che è il valore della funzione f nell'estremo 
+sinistro del sottointervallo considerato, lo si sostituisce con il valore 
+massimo e con il valore minimo della f rispettivamente sempre nel 
+sottointervallo considerato. Se \(f_{-}(x_i)\) e \({}^{-}f(x_i)\) sono 
+rispettivamente il minimo e il massimo della funzione \(f\) nel 
+sottointervallo 
+di estremi \(x_i\) e \(x_i+1\) 
+e \(\Delta\) (con \(\Delta =x_{i+1} - x_i)\) 
+è l'n-esima parte di \((b - a)\) 
+(assunzione che non limita la generalità, come è stato giustificato), 
+allora la somma di Riemann finita inferiore può essere denotata come 
+\[\sum_{i=0}^H f_{-}(x_i)\cdot\Delta = \sum_a^b f_{-}(x) \cdot \Delta\] 
+e quella superiore è come 
+\[\sum_{i=0}^H {}^{-}f(x_i)\cdot\Delta = 
+  \sum_a^b {}^{-}f(x) \cdot \Delta\] 
+con il significato dei simboli già precisato.
+Evidentemente 
+\[\sum_a^b f_{-}(x) \cdot \Delta \le \sum_a^b f(x) \cdot \Delta \le 
+\sum_a^b {}^{-}f(x) \cdot \Delta\] 
+ed è immediato (seguendo un percorso corrispondente a quanto già fatto) che 
+anche le somme di Riemann superiore e inferiore hanno le proprietà triangolari 
+e additiva. 
+  Passando alle loro estensioni naturali non standard risulta ancora 
+\[\sum_a^b f_{-}(x) \cdot dx \le \sum_a^b f(x) \cdot dx \le 
+  \sum_a^b {}^{-}f(x) \cdot dx\] 
+e si mantengono le proprietà rettangolare e additiva. 
+Inoltre la differenza tra la somma di Riemann superiore e quella inferiore è 
+un infinitesimo. Infatti, per ogni reale positivo r, 
+\[\sum_a^b {}^{-}f(x) \cdot dx < \sum_a^b f_{-}(x) \cdot dx +r\] 
+Se per assurdo non fosse così, ci dovrebbero essere almeno un reale 
+positivo \(r_0\) e un punto \(x_0 \in \intervcc{a}{b}\) tali che 
+\({}^{-}f(x_0) \ge f_{-}(x_0)+r_0\) 
+ma il minimo e il massimo di una funzione continua in un intervallo chiuso e 
+di lunghezza infinitesima non possono che esser infinitamente vicini e quindi 
+non distanti più di un reale, contraddizione che prova quanto si voleva 
+asserire. Così 
+\[\int_b^a f_{-}(x) \cdot dx = \int_b^a f(x) \cdot dx = 
+  \int_b^a {}^{-}f(x) \cdot dx\]
+  
+Ora si vuole mostrare che la funzione binaria che soddisfa le proprietà 
+additiva e rettangolare rispetto alla funzione f continua nell'intervallo 
+cui appartengono i punti a e b è unica.
+Allo scopo siano \(A(a,b)\) e \(B(a,b)\) due tali funzioni. 
+Sia n un qualsiasi numero naturale e si divida l'intervallo 
+\(\intervcc{a}{b}\) in n parti. 
+Per la proprietà 
+additiva sia \(A(a,b)\) che \(B(a,b)\) sono le somme delle \(n\) 
+parti in cui sono stati divisi. 
+Ciascuna parte, per la proprietà rettangolare, è minore del 
+rettangolo con la stessa base di quella parte e altezza il massimo della 
+funzione f su quella base, e maggiore del rettangolo con la stessa base di 
+quella parte e altezza il minimo della funzione f su quella base. 
+
+Così, 
+considerando le estensioni naturali agli iperreali, si ha sia:
+\[\sum_a^b f_{-}(x) \cdot dx \le A(a,b) \text{, } \quad
+  \sum_a^b f_{-}(x) \cdot dx \le B(a,b)\]
+sia 
+\[A(a,b) \le \sum_a^b {}^{-}f(x) \cdot dx \text{, } \quad
+  B(a,b) \le \sum_a^b {}^{-}f(x) \cdot dx\] 
+e, passando alle parti standard, si ottiene 
+\[\int_b^a f(x) \cdot dx = A(a,b) = B(a,b)\]
+e l'unicità delle funzioni binarie che soddisfano sia le proprietà 1) che 2) 
+è dimostrata. 
+
+Direi che questo risultato è già di per se di grande interesse in una scuola 
+secondaria. 
+
+Ora si vuole mostrare il teorema fondamentale del calcolo (la derivata della 
+funzione integrale è la funzione integranda) sfruttando i 
+metodi dell'analisi non standard, mettendo in luce la semplificazione che si 
+ottiene, semplificazione che proviene già dalla più semplice e diretta 
+nozione di integrale che non deve far ricorso a limiti al tender a zero della 
+lunghezza massima dei sottointervalli di partizione dell'intervallo 
+\(intervcc{a}{b}\). 
+
+Con i metodi non standard ci sono due dimostrazioni sostanzialmente diverse 
+del teorema fondamentale del calcolo, una che parte dagli integrali indefiniti 
+(dalla primitive) e l'altra che parte dalla derivazione la funzione integrale. 
+Le vedremo entrambe perché sono entrambe semplici. 
+
+La prima richiede di 
+premettere il teorema di unicità delle funzioni che hanno le proprietà 1) e 
+2) ricordate in precedenza relativamente a a una funzione continua \(f\) in 
+un intervallo \(I\). 
+
+Sia allora \(F(x)\) una funzione la cui derivata su un intervallo è 
+\(f(x)\):  
+\(F'(x) = f(x)\). 
+È banale vedere con i metodi non standard che se anche 
+\(G'(x) = f(x)\) 
+su quell'intervallo allora \(F(x) - G(x) = k\) una costante. 
+Infatti, la funzione 
+\(F(x) - G(x)\) avrebbe derivata 0 su un intervallo e, per il teorema 
+del valor medio, deve essere una costante. 
+
+Ricordiamo che il teorema del valor medio è conseguenza del teorema
+di Rolle che si appoggia sul teorema dei valori estremi per funzioni continue 
+in un intervallo chiuso, e questo è facilmente dimostrabile in analisi non 
+standard. 
+
+Si consideri ora la funzione 
+\(D(a,b) = F(b)-F(a)\). 
+È evidente che soddisfa la proprietà additiva. Per il teorema 
+del valor medio (le cui ipotesi sono rispettata), c'è c tale che 
+\(a < c < b\) 
+e 
+\[F(b)-F(a) = F'(c)\cdot(b - a) = f(c)\cdot(b - a)\]
+da cui segue la proprietà rettangolare poiché \(f(c)\) è minore del massimo 
+della funzione \(f\) 
+nell'intervallo e maggiore del minimo della funzione f nell'intervallo.
+Dunque, 
+per l'unicità della funzione che soddisfa le condizione 1) e 2) deve essere:
+\[\int_b^a f(x) \cdot dx = F(b)-F(a)\]
+con \(F\) funzione che ha per derivata la funzione \(f\). 
+Poiché questa uguaglianza vale qualunque sia l'estremo superiore di 
+integrazione in un intervallo dove la funzione \(f\) è continua, si ha che
+\[\int_a^x f(x) \cdot dx = F(x) – F(a)\]
+e la funzione \(F(x) – F(a)\) viene chiamata funzione integrale.
+Così si è ottenuto quanto afferma il teorema fondamentale del
+calcolo.
+
+Un altro approccio allo stesso teorema è il seguente.
+Si voglia determinare la derivata della funzione integrale che è: 
+\[F(u) = \int_a^u f(x).dx\]
+usando i metodi non standard. Denotando sempre con \(F\) l’estensione naturale 
+della funzione reale \(F\), si avrà
+\[F'(u) = \pst{\frac{F(u+du)-F(u)}{du}} = 
+\pst{\frac{\int_a^{u+du} f(x).dx - \int_a^u f(x).dx}{du}} =\] 
+che per l'arbitrarietà dell'incremento (l'incremento d'integrazione dx può 
+essere du) è uguale a
+\[\pst{\frac{\int_a^{u+du} f(x).du - \int_a^u f(x).du}{du}} =\]
+per l'additività degli integrali consideriamo che
+\[\pst{\frac{\int_u^{u+du} f(x) \cdot du}{du}} = 
+    \pst{\frac{f(u) \cdot du}{du}} = \pst{f(u)} = f(u)\]
+essendo \(f(u)\) un numero reale. La prima uguaglianza della riga
+precedente è giustificata dal fatto che, per definizione 
+\[\int_u^{u+du} f(x) \cdot du) \approx \sum_u^{u+du} f(x) \cdot du = 
+  f(u) \cdot du\]
+% essendo questo un numero reale.
+
+ Così si è visto che la derivata della funzione integrale è la funzione 
+integranda, provando per altra via il teorema fondamentale del calcolo.
+
+Volendo raggiungere l'espressione che consente di calcolare un integrale 
+definito dai valori di una primitiva negli estremi di integrazione, si può 
+osservare che, ricordando ancora che le primitive di una funzione continua in 
+un intervallo differiscono per una costante, si può osservare che
+\[F(b) = \int_a^b f(x) .dx = G(b) + k\],
+dove G è una qualsiasi primitiva di f e k dipende da G. Per determinare k, si 
+osservi che
+\[0 = \int_a^a f(x).dx = G(a) + k\],
+sicché deve essere \(k = - G(a)\) , e si ottiene nuovamente la classica 
+relazione 
+tra integrale definito e primitive della funzione integranda 
+\[\int_a^b f(x) \cdot dx = G(b) - G(a)\]
+
+ Si noti che la seconda dimostrazione non ha dovuto far ricorso all'unicità 
+della funzione binaria con le proprietà 1) e 2). Inoltre la prima 
+dimostrazione incorre nella difficoltà di spiegare come mai tra tutte le 
+possibili funzioni d'area si sia scelta proprio quella determinata mediante 
+una primitiva della funzione integranda. La seconda dimostrazione risponde 
+immediatamente a questo interrogativo facendo emergere la risposta dalla 
+ricerca, del tutto naturale, della derivata della funzione integrale.
+
+Un commento: il teorema fondamentale dell'analisi non dipende dalla 
+trattazione classica o non standard dell'argomento. L'integrale che abbiamo 
+ottenuto, detto anche integrale definito, c'è per ogni funzione reale 
+continua, e, si dimo­stra facilmente, anche per funzioni continue a tratti o 
+continue su intervalli illimitati, ma seguendo la definizione non si riesce a 
+trovarne il valore dovendo prendere parti standard di somme infinite. Può 
+essere approssimato mediante le somme di Riemann finite, ma il lavoro 
+richiesto è enorme e spesso poco fattibile anche con i più avanzati strumenti 
+di calcolo automatico. 
+Così la determinazione mediante le primitive può esser un ottimo modo per 
+determinare il risultato. Ma anche in questo caso ci sono difficoltà. Non c'è 
+un calcolo delle primitiva, data una funzione f per trovarne una primitiva 
+bisogna ricordare di avere incontrato f come derivata di una certa funzione. 
+I metodi d'integrazione aiutano a modificare la situazione nella speranza di 
+arrivare al punto di dover trovare primitive di funzioni che si ricorda di 
+aver incontrato come derivate di altre funzioni. Ci sono poi funzioni 
+continue le cui primitive (che esistono proprio per il teorema fondamentale 
+del calcolo) non sono esprimibili con il linguaggio che descrive le 
+funzioni, a volte lo sono come limiti di successioni di funzioni. Così, non 
+essendoci un calcolo (metodo automatico, con precise regole sulla scrittura 
+delle funzioni, che non richiede la conoscenza dei significati) la 
+determinazione delle primitive, è quasi una sfida aperta.
+
+\section{Osservazioni}
+
+Caro Luciano e cari amici,
+       nonostante la revisione che vi ho inviato la scorsa notte, rimangono 
+ancora dei punti trattati ap­prossimativamente. Ad esempio uno potrebbe 
+rimanere perplesso nel leggere \(\int_u^{u+du} f(x) \cdot du\), 
+doman­dandosi che ci sta a 
+fare la x in questa espressione. Infatti, a rigore, non dovrebbe esserci. 
+f(x) indica la quantità che si ottiene calcolando la funzione unaria f nel 
+valore x della variabile indipendente, mentre la funzione è indicata dalla 
+sola f. Così, se si volesse essere precisi fino in fondo si sarebbe dovuto 
+scrivere \(\int_u^{u+du} f \cdot du\), e non solo in questa occasione. 
+Infatti, l'integrale 
+vuole rappresentare l'area limitata da una curva che è il grafico della 
+funzione f e non il valore di questa funzione in un certo punto. Purtroppo, 
+tradizionalmente s'indica impropriamente la funzione come f(x) poiché non si 
+fa tanto riferimento alla funzione in sé ma al modo linguistico con cui viene 
+descritta. Ad esempio, si usa scrivere \(f(x) = 5x^2+sin x\) per indicare la 
+funzione che a un certo valore fa corrispondere 5 volte il quadrato di quel 
+valore più il seno dello stesso. Con una notazione più precisa si dovrebbe 
+scrivere \(f: x \mapsto 5x^2+sin x\) in cui correttamente la funzione è 
+indicata con f 
+e quanto segue i due punti sta a descrivere di quale funzione ci si sta 
+interessando e come a un valore ne corrisponde un altro. La stessa idea è 
+colta dalla seguente notazione per una funzione, 
+\(f = \graffa{(x, 5x^2+sin x): x \in \R}\). 
+Ancora si nota la netta separazione tra la notazione della funzione e la 
+descrizione del suo comportamento. Uno potrebbe obiettare che nel descrivere 
+delle funzioni a volte s'incontrano altre variabili o lettere che indicano 
+parametri, e bisogna indicare quale simbolo indica la variabile indipendente 
+della funzione unaria che si vuole considerare. Ad esempio vorremmo mantenere 
+la scrittura \(f(x) = 5ax^2+sin xy\) in cui il riferimento alla variabile x è 
+essenziale. Ma le notazioni 
+\(f: x \mapsto 5ax2+sin xy\) e 
+\(f=\graffa{(x, 5ax2+sin xy): x \in \R}\), 
+che separano il simbolo f dalla sua definizione, sono altrettanto esplicite, 
+e, se proprio si vuole enfatizzare che la funzione è una funzione della 
+variabile \(x\), si può usare la notazione 
+\(f_x\), sicché la scrittura \(f_x(c)\) 
+indica il valore che questa funzione assume in corrispondenza del valore 
+\(c\) attribuito alla variabile \(x\).
+Tornando a noi, tutte le volte che si vuole indicare una funzione si sarebbe 
+dovuto scrivere solo \(f\), anche nei numeri precedenti. Così, se abbiamo 
+scritto 
+imprecisamente \(f(x)\), ciò è dovuto al peso di una certa tradizione che in 
+qualche modo giustifica la notazione usata, ma non evita che questa debba 
+essere interpretata correttamente da persone ammaestrate a farlo, e che 
+inoltre induca imprecisioni. 
+
+Nel numero 207 avevamo correttamente indicato il differenziale e la derivata 
+con le notazioni \(df\) e \(df / dx\). 
+Avevamo anche usato le notazioni 
+\(G(x) = g(f(x)) e G'(x) = g'(f(x))·f'(x)\)  
+per indicare la funzione composta e la sua 
+derivata. Ciò può essere accettato perché si sta cercando di descrivere la 
+funzione ottenuta dai valori che assume quando le componenti assumono certi 
+valori in corrispondenza di valori della variabile indipendente, anche se si 
+tratta di un abuso di linguaggio e richiede l'addestramento sufficiente per 
+superare questa imprecisione.
+
+Nel numero 210, avevamo correttamente indicato le somme con la notazione 
+\((\sum_{i=0}^{h-1} f(x_i)\cdot\Delta) + f(xh)\cdot(b-xh)\), 
+poiché qui davvero si considerano i 
+valori che la funzione \(f\) assume nei punti indicati. Ma dopo, osservando 
+che 
+la somma dipendeva solo da \(\Delta\) e dagli estremi dell'intervallo, oltre 
+che 
+dalla funzione f, si era scritto \(\sum_a^b f(x) \cdot \Delta\), e qui ci si 
+è chinati 
+all'imprecisione della tradizione e dal voler richiamare che il prodotto era 
+tra valori specifici della funzione e \(\Delta\) (anche se i valori specifici 
+non sono indicati da f(x)) invece di indicare \(\sum_a^b f\Delta\). 
+Questa accettazione 
+della consuetudine è proseguita coerentemente anche nella notazione 
+\(\int_a^b f(x) \cdot dx = st (\sum_a^b f(x) \cdot dx)\), anche se sarebbe 
+stato più esatto scrivere 
+\(\int_a^b fdx = st(\sum_a^b fdx)\), e similmente in tutto quello che segue. 
+Essendoci conformati alla notazione corrente, si può a buona ragione 
+continuare a seguire questa notazione, sapendo quali abusi linguistici 
+comporta e come sviluppare correttamente il percorso.
+La difficoltà che questa scelta comporta è messa in luce proprio dalla 
+difficoltà di leggere l'espressione \(\int_u^{u+du} f(x).du\) , difficoltà 
+che ha motivato questo mio intervento. 
+E il modo giusto di leggere è come se al 
+posto di f(x) fosse scritto solo f perché quello che si sta dicendo non 
+riguarda assolutamente la funzione calcolata in  un punto x (che non si sa 
+neppure qual è) ma solo la funzione f. 
+Che fare del nostro lavoro dopo tutte queste considerazioni? Niente, e 
+incrociare le dita sperando che i lettori leggano nel modo da noi inteso. Ma 
+si potrebbe anche inserire una frase al momento opportuno per chiarire che a 
+volte bisognerebbe leggere la scrittura f(x) come ci fosse solo la f, poiché 
+non si sta applicando la funzione a uno specifico valore x ma si sta solo 
+indicando la funzione, però non vedo dove inserirla (e quindi cosa dire 
+esattamente) senza appesantire l'esposizione con parentesi potenzialmente 
+fuorvianti. Una terza azione potrebbe prevedere di preparare un ulteriore 
+lavoro che discuta degli abusi linguistici in matematica; questa scelta 
+potrebbe anche essere combinata con una delle precedenti.
+  Ruggero
