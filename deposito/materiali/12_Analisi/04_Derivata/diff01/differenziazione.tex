@@ -5,7 +5,7 @@
 
 \chapter{Derivate}
 
-
+\begin{comment}
 \section{Introduzione}
 \label{}
 
@@ -2621,26 +2621,66 @@ $f'(x)=\dfrac{1}{x}$ e $f''(x)=-\dfrac{1}{x^2}$.\\
  $f'(x)=\cos x$ \hspace{1cm}$ f''(x)=-\sen x$ \hspace{1cm}
  $f'''(x)=-\cos x$ \hspace{1cm} $f^{IV}(x)=\sen x$ \dots
 \end{esempio}
+\end{comment}
 
-
-\subsection{Derivata e differenziale}
+\subsection{Derivata, differenza e differenziale}
 \label{subsec:diff01_deridiff}
+
+\begin{inaccessibleblock}
+  [differenziale della tangente]
+  \begin{minipage}[]{.47\textwidth}
+    \begin{center} \derivata \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.47\textwidth} \vspace{2.5em}
+Nel punto $\punto{x_0}{f(x_0)}$ il grafico della funzione e la tangente
+sono indistinguibili. 
+Il campo visivo del primo microscopio mostra ${x_0}$ e $dx$, 
+uno fra gli infiniti infinitesimi di $x_0$. A livello microscopico, la 
+curvatura del grafico non esiste,  per cui il grafico e la 
+tangente sono sovrapposti. Per cogliere la distinzione fra i due, occorre 
+un secondo microscopio non standard, centrato a distanza infinitesima dal 
+punto. Nel suo campo visivo la tangente e il grafico della funzione 
+appaiono come rette parallele. Il punto di coordinate reali più vicino a 
+quello raffigurato, nella rappresentazione doppiamente ingrandita, si trova a 
+distanza infinita ($\infty^2$).
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
+La figura mostra che la tangente e la secante per due punti infinitamente 
+vicini sono distinguibili solo al dettaglio degli infinitesimi. Lo 
+stesso avviene per la derivata e il rapporto differenziale.\\
 Dalla definizione di derivata $f'(x)=\pst{\dfrac{df(x)}{dx}}$ ricaviamo che
 $f'(x)\sim \dfrac{df(x)}{dx}$: la derivata e il rapporto differenziale 
-sono quantità quasi uguali, ma non esattamente uguali. Possiamo esprimere 
+sono quantità quasi, ma non esattamente, uguali. Possiamo esprimere 
 meglio questo concetto:\\
 $\dfrac{df(x)}{dx}=f'(x)+\epsilon(x)$ e quindi $df(x)=f'(x)dx+\epsilon(x)dx$.\\
 $\epsilon(x)$ è l'infinitesimo, o l'insieme di infinitesimi, che fa la 
-differenza fra la derivata e il rapporto differenziale. Il prodotto 
-$\epsilon(x)dx$, un prodotto fra infinitesimi, costituisce un infinitesimo 
-di ordine superiore rispetto a $df(x)$ e $f'(x)dx$.
+differenza fra la derivata e il rapporto differenziale.  
+$\epsilon(x)dx$, un prodotto fra infinitesimi, forma un infinitesimo 
+di ordine superiore rispetto a $f'(x)dx$.
 Nella maggior parte dei casi pratici si tratta di una differenza trascurabile 
 e si può accettare l'espressione $f'(x)dx$ al posto dell'espressione
-$df(x)$, che spesso è più difficile da calcolare.\\
+$df(x)$, che può essere meno comoda da calcolare.\\
 Nella storia del calcolo infinitesimale l'uso di una formula al posto dell'altra
 è diventato normale e molti testi definiscono differenziale della 
 funzione il prodotto $f'(x)dx$, invece della differenza infinitesimale 
-$df(x)$.\\
+$df(x)$.
+
+% \begin{inaccessibleblock}
+%   [differenziale della tangente]
+%   \begin{minipage}[]{.4\textwidth}
+%     \begin{center} \falsodifferenziale \end{center}
+%  \end{minipage} 
+%   \hfill
+%  \begin{minipage}[]{.55\textwidth}
+%  Allontanandosi dal punto nel quale si calcola la derivata, le differenze della
+%  funzione, calcolate a partire dal punto di tangenza, possono essere molto diverse
+%  dalle differenze calcolate lungo la tangente.
+%  \end{minipage}
+% \end{inaccessibleblock}
+% \label{}
+
 Il problema diventa più critico nelle applicazioni pratiche, quando si devono 
 usare le differenze finite al posto dei differenziali. Si usa allora, per
 analogia,:\\
@@ -2648,23 +2688,39 @@ $\Delta f(x)=f'(x_0)\Delta x + \delta(x)\Delta x$.\\
 Dato che l'ultimo termine è il meno rilevante, si ha:\\
 $\Delta f(x)\cong f'(x_0)\Delta x \srarrow
 f(x)-f(x_0)\cong f'(x_0)(x-x_0)\srarrow f(x)\cong f'(x_0)(x-x_0)+ f(x_0)$.\\
-Si tratta dell'usuale equazione della tangente per $x=x_0$.
+Si tratta dell'usuale equazione della tangente per $x=x_0$.\\
 La formula è esatta solo per le funzioni rappresentate da rette.
 Per le altre funzioni la differenza $\Delta f(x)$ fra due valori della funzione 
-può essere anche molto diversa da $f'(x_0)\Delta x$, che è la differenza fra 
-due valori, calcolati lungo la tangente.
+può essere anche molto diversa da $f'(x_0)\Delta x$, che è in realtà la 
+differenza fra due valori $y$, calcolati lungo la tangente.
 
-DISEGNO DIFFERENZIALE
+\begin{inaccessibleblock}
+  [differenziale della tangente]
+  \begin{minipage}[]{.4\textwidth}
+    \begin{center} \falsodifferenziale \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.55\textwidth}
+ Allontanandosi da $x_0$ di una quantità finita $\Delta x$, le differenze della
+ funzione $\Delta f(x)$, calcolate a partire da $x_0$, possono 
+ essere anche molto diverse dalle differenze $f'(x_0)\Delta x$, calcolate lungo
+ la tangente.
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
 
 Nei testi in cui si scrive che $\Delta f(x)=f'(x_0)\Delta x+\delta(x)\Delta x$,
 $f'(x_0)\Delta x$ viene chiamato differenziale, ma si tratta di una quantità 
 finita, non infinitesima. In tali testi la differenza $\Delta f(x)$ è detta 
-incremento e l'equazione $\Delta f(x)\cong f'(x_0)\Delta x$ 
-esprime il cosiddetto teorema dell'incremento.\\
-Ai fini pratici si tratta di un'equazione utile, soprattutto quando si studiano
-i fenomeni naturali, perché le variazioni che si misurano sono differenze finite. 
-Ovviamente i risultati saranno tanto più precisi quanto più piccolo è
-$\Delta x$.
+incremento e l'equazione\\
+$\Delta f(x)\cong f'(x_0)\Delta x$ \hspace{.5cm}(\emph{Equazione alle differenze})\\ 
+esprime il cosiddetto \emph{teorema dell'incremento}.\\
+Ai fini pratici l'Equazione alle differenze è un'equazione utile, soprattutto 
+quando si studiano i fenomeni naturali, perché le variazioni che si misurano in
+questi ambiti sono differenze finite. 
+Ovviamente i risultati che si ottengono utilizzando il teorema dell'incremento
+saranno tanto più precisi quanto più piccola è la variazione $\Delta x$, in 
+rapporto ai valori $x$.
 
 \begin {esempio}
 Fare una stima ragionevole della quantità $\sqrt{25,162}$.\\
@@ -2724,9 +2780,9 @@ $\mathit{D}\quadra{f(g(x))=f'(g(x))\cdot g'(x)}$
 Il calcolo della derivata è entrato da protagonista nella descrizione 
 matematica dei fenomeni naturali da almeno $300$ anni e più recentemente
 anche nello studio delle scienze umane e sociali. \\
-Gli esempi che seguono si servono di questo calcolo in due modi:\\
+Gli esempi che seguono si servono di questo calcolo in due modi:
 \begin{enumerate}[noitemsep]
- \item per trovare il tasso di tasso di variazione:
+ \item per trovare il tasso di variazione:
 data una funzione, si deve cercare quanto rapidamente essa varia rispetto
 alla sua variabile;
  \item attraverso l'equazione alle differenze, 
@@ -2820,7 +2876,7 @@ Il costo marginale, cioè per unità in più, è quindi dello $0,5\%$.
  infinitesime di un ago.
 \end{osservazione}
 \end{esempio}
-    
+ 
 \begin{esempio}
  Una barra metallica è lunga $10$ m a $T=0 ^\circ C$ e al crescere della 
  temperatura si dilata secondo la legge $l(T)=10(1+0,000024T)$. Di quanti gradi 
@@ -2829,15 +2885,3 @@ Il costo marginale, cioè per unità in più, è quindi dello $0,5\%$.
  {10\cdot 0,000024}=208,3 ^\circ C$
 \end{esempio}
 
-\begin{esempio}
- La scala che scivola
-\end{esempio}
-
-
-\begin{esempio}
- La trasparenza
-\end{esempio}
-
-\begin{esempio}
- il pallone
-\end{esempio}
