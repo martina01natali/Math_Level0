@@ -86,26 +86,26 @@ e pertanto la sommatoria sarà un numero iperreale finito che così ha parte
 standard. 
 Ciò ci permette di definire l'\emph{integrale definito} di una funzione 
 standard \(f\) continua su \(\intervcc{a}{b}\) come:
-\[\int_a^b f(x) \cdot dx = \pst{\sum_a^b f(x) \cdot dx}\]
+\[\int_a^b f \cdot dx = \pst{\sum_a^b f(x) \cdot dx}\]
 
 Se poi, 
 partendo dalle disequazioni precedenti si passa alle parti standard, che 
 preservano le disequazioni, poiché il primo e l'ultimo termine sono parti 
 standard di se stessi in quanto reali, si ha: 
-\[m \cdot(b - a) \le  \int_a^b f(x) \cdot dx  \le M\cdot(b - a)\] 
+\[m \cdot(b - a) \le  \int_a^b f \cdot dx  \le M\cdot(b - a)\] 
 e si è dimostrata la proprietà rettangolare per l'integrale.
 
 Dalla definizione seguono le prime proprietà dell'integrale:
-\[\int_a^a f(x) \cdot dx=0\] 
+\[\int_a^a f \cdot dx=0\] 
 \[\int_a^b c \cdot dx = c \cdot (b-a)\] 
-\[\int_a^b c \cdot f(x) \cdot dx = c\cdot\int_a^b f(x) \cdot dx\] 
-\[\int_a^b (f(x)+g(x))\cdot dx = 
-  \int_a^b f(x) \cdot dx + \int_a^b g(x)\cdot dx\]
-se \(f(x) \le g(x)\) per ogni x in \(\intervcc{a}{b}\) allora 
-\[\int_a^b f(x) \cdot dx < \int_a^b g(x)\cdot dx\]
+\[\int_a^b c \cdot f \cdot dx = c\cdot\int_a^b f \cdot dx\] 
+\[\int_a^b (f+g)\cdot dx = 
+  \int_a^b f \cdot dx + \int_a^b g\cdot dx\]
+se \(f) \le g\) per ogni x in \(\intervcc{a}{b}\) allora 
+\[\int_a^b f \cdot dx < \int_a^b g\cdot dx\]
 
 Si definisce poi  
-\[\int_b^a f(x) \cdot dx = - \int_a^b f(x) \cdot dx\]
+\[\int_b^a f \cdot dx = - \int_a^b f \cdot dx\]
 
 Si vuole dimostrare ora che l'integrale è indipendente dalla scelta 
 dell'infinitesimo non nullo \(dx\). Cioè, anche se \(dx\) e \(du\) sono due 
@@ -114,27 +114,27 @@ diversi infinitesimi non nulli si ha:
 Poiché entrambi gli integrali sono numeri reali per mostrare che coincidono 
 basta far vedere che sono infinitamente vicini, cioè basta mostrare che, per 
 ogni reale positivo r:      
-\[\int_a^b f(x) \cdot dx < r + \int_a^b f(u) \cdot du\]
+\[\int_a^b f \cdot dx < r + \int_a^b f \cdot du\]
 Poiché \(r\) è un reale positivo lo si può dividere per \((b-a)\) e ottenere 
 il reale positivo \(c\) tale che 
 \[r = c \cdot (b-a) = \int_a^b c \cdot dx\] 
 sicché la disuguaglianza precedente equivale a:
-\[\int_a^b f(x) \cdot dx \le \int_a^b (f(u)+c)\cdot du\] 
+\[\int_a^b f \cdot dx \le \int_a^b (f+c)\cdot du\] 
 per ogni numero reale positivo \(c\). Questa affermazione sarà dimostrata 
 per assurdo. Si supponga che 
-\[\int_a^b f(x) \cdot dx > \int_a^b (f(u)+c)\cdot du\] 
+\[\int_a^b f\cdot dx > \int_a^b (f+c)\cdot du\] 
 per qualche reale positivo c, cioè che esista un reale positivo c tale che 
-\[\sum_a^b f(x) \cdot dx > \sum_a^b (f(u)+c)\cdot du\]
+\[\sum_a^b f \cdot dx > \sum_a^b (f+c)\cdot du\]
 Più precisamente:
 
 \begin{flalign*}
- \sum_a^b f(x) \cdot dx &=\\
+ \sum_a^b f \cdot dx &=\\
    &=\tonda{\sum_{i=0}^{H-1} f(x_i) \cdot dx} + 
      \tonda{f \tonda{a+H \cdot dx} \cdot \tonda{b-\tonda{a+H \cdot dx}}}>&&\\
    &>\tonda{\sum_{j=0}^{K-1} \tonda{f(u_j) +c} \cdot du} + 
      \tonda{\tonda{f \tonda{a+K \cdot du} +c} \cdot 
            \tonda{b-\tonda{a+K \cdot du}}} = &&\\
-   &=\sum_a^b (f(u)+c)\cdot du &&
+   &=\sum_a^b (f+c)\cdot du &&
 \end{flalign*}
 
 (dove \(H\) è il massimo naturale tale che 
@@ -186,15 +186,15 @@ contraddicendo la relazione
 con \(c\) reale positivo. 
 
 Il che prova che l'integrale è indipendente dalla scelta dell'infinitesimo non 
-nullo dx.
+nullo $dx$.
 Il risultato ottenuto permette di giungere a mostrare che 
 l'integrale ha la proprietà additiva.
 
 Si deve mostrare che 
-\[\int_a^c f(x) \cdot dx + \int_c^b f(x) \cdot dx = \int_a^b f(x) \cdot dx\] 
+\[\int_a^c f \cdot dx + \int_c^b f \cdot dx = \int_a^b f \cdot dx\] 
 Passando alle sommatorie 
-\[\sum_a^c f(x) \cdot dx,\quad \sum_c^b f(x) \cdot dx \quad\text{ e } \quad 
-  \sum_a^b f(x) \cdot dx\] 
+\[\sum_a^c f \cdot dx,\quad \sum_c^b f \cdot dx \quad\text{ e } \quad 
+  \sum_a^b f \cdot dx\] 
 e prendendo 
 \(dx = (b-a)/H\)
 con \(H\) ipernaturale infinito, 
@@ -232,12 +232,12 @@ ed è immediato (seguendo un percorso corrispondente a quanto già fatto) che
 anche le somme di Riemann superiore e inferiore hanno le proprietà rettangolare 
 e additiva. 
   Passando alle loro estensioni naturali non standard risulta ancora 
-\[\sum_a^b {}_{-}f(x) \cdot dx \le \sum_a^b f(x) \cdot dx \le 
-  \sum_a^b {}^{-}f(x) \cdot dx\] 
+\[\sum_a^b {}_{-}f \cdot dx \le \sum_a^b f \cdot dx \le 
+  \sum_a^b {}^{-}f \cdot dx\] 
 e si mantengono le proprietà rettangolare e additiva. 
 Inoltre la differenza tra la somma di Riemann superiore e quella inferiore è 
 un infinitesimo. Infatti, per ogni reale positivo r, 
-\[\sum_a^b {}^{-}f(x) \cdot dx < \sum_a^b {}_{-}f(x) \cdot dx +r\] 
+\[\sum_a^b {}^{-}f \cdot dx < \sum_a^b {}_{-}f \cdot dx +r\] 
 Se per assurdo non fosse così, ci dovrebbero essere almeno un reale 
 positivo \(r_0\) e un punto \(x_0 \in \intervcc{a}{b}\) tali che 
 \({}^{-}f(x_0) \ge {}_{-}f(x_0)+r_0\) 
@@ -245,8 +245,8 @@ ma il minimo e il massimo di una funzione continua in un intervallo chiuso e
 di lunghezza infinitesima non possono che esser infinitamente vicini e quindi 
 non distanti più di un reale, contraddizione che prova quanto si voleva 
 asserire. Così 
-\[\int_b^a {}_{-}f(x) \cdot dx = \int_b^a f(x) \cdot dx = 
-  \int_b^a {}^{-}f(x) \cdot dx\]
+\[\int_b^a {}_{-}f \cdot dx = \int_b^a f \cdot dx = 
+  \int_b^a {}^{-}f \cdot dx\]
   
 Ora si vuole mostrare che la funzione binaria che soddisfa le proprietà 
 additiva e rettangolare rispetto alla funzione f continua nell'intervallo 
@@ -264,13 +264,13 @@ quella parte e altezza il minimo della funzione f su quella base.
 
 Così, 
 considerando le estensioni naturali agli iperreali, si ha sia:
-\[\sum_a^b {}_{-}f(x) \cdot dx \le A(a,b) \text{, } \quad
-  \sum_a^b {}_{-}f(x) \cdot dx \le B(a,b)\]
+\[\sum_a^b {}_{-}f \cdot dx \le A(a,b) \text{, } \quad
+  \sum_a^b {}_{-}f \cdot dx \le B(a,b)\]
 sia 
-\[A(a,b) \le \sum_a^b {}^{-}f(x) \cdot dx \text{, } \quad
-  B(a,b) \le \sum_a^b {}^{-}f(x) \cdot dx\] 
+\[A(a,b) \le \sum_a^b {}^{-}f \cdot dx \text{, } \quad
+  B(a,b) \le \sum_a^b {}^{-}f \cdot dx\] 
 e, passando alle parti standard, si ottiene 
-\[\int_b^a f(x) \cdot dx = A(a,b) = B(a,b)\]
+\[\int_b^a f \cdot dx = A(a,b) = B(a,b)\]
 e l'unicità delle funzioni binarie che soddisfano sia le proprietà 1) che 2) 
 è dimostrata. 
 
@@ -333,20 +333,20 @@ calcolo.
 
 Un altro approccio allo stesso teorema è il seguente.
 Si voglia determinare la derivata della funzione integrale che è: 
-\[F(u) = \int_a^u f(x).dx\]
+\[F(u) = \int_a^u f.dx\]
 usando i metodi non standard. Denotando sempre con \(F\) l'estensione 
 naturale della funzione reale \(F\), si avrà
 \[F'(u) = \pst{\frac{F(u+du)-F(u)}{du}} = 
-\pst{\frac{\int_a^{u+du} f(x).dx - \int_a^u f(x).dx}{du}} =\] 
+\pst{\frac{\int_a^{u+du} f\cdot dx - \int_a^u f\cdot dx}{du}} =\] 
 che per l'arbitrarietà dell'incremento (l'incremento d'integrazione \(dx\) 
 può essere \(du\)) è uguale a
-\[\pst{\frac{\int_a^{u+du} f(x).du - \int_a^u f(x).du}{du}} =\]
+\[\pst{\frac{\int_a^{u+du} f\cdot du - \int_a^u f\cdot du}{du}} =\]
 per l'additività degli integrali consideriamo che
-\[\pst{\frac{\int_u^{u+du} f(x) \cdot du}{du}} = 
+\[\pst{\frac{\int_u^{u+du} f \cdot du}{du}} = 
     \pst{\frac{f(u) \cdot du}{du}} = \pst{f(u)} = f(u)\]
 essendo \(f(u)\) un numero reale. La prima uguaglianza della riga
 precedente è giustificata dal fatto che, per definizione 
-\[\int_u^{u+du} f(x) \cdot du \approx \sum_u^{u+du} f(x) \cdot du = 
+\[\int_u^{u+du} f \cdot du \approx \sum_u^{u+du} f \cdot du = 
   f(u) \cdot du\]
 % essendo questo un numero reale.
 
@@ -357,14 +357,14 @@ Volendo raggiungere l'espressione che consente di calcolare un integrale
 definito dai valori di una primitiva negli estremi di integrazione, si può 
 osservare che, ricordando ancora che le primitive di una funzione continua in 
 un intervallo differiscono per una costante, si può osservare che
-\[F(b) = \int_a^b f(x)\cdot dx = G(b) + k\],
+\[F(b) = \int_a^b f\cdot dx = G(b) + k\]
 dove G è una qualsiasi primitiva di f e k dipende da G. Per determinare k, si 
 osservi che
-\[0 = \int_a^a f(x).dx = G(a) + k\],
+\[0 = \int_a^a f\cdot dx = G(a) + k\],
 sicché deve essere \(k = - G(a)\) , e si ottiene nuovamente la classica 
 relazione 
 tra integrale definito e primitive della funzione integranda 
-\[\int_a^b f(x) \cdot dx = G(b) - G(a)\]
+\[\int_a^b f \cdot dx = G(b) - G(a)\]
 
  Si noti che la seconda dimostrazione non ha dovuto far ricorso all'unicità 
 della funzione binaria con le proprietà 1) e 2). Inoltre la prima 
