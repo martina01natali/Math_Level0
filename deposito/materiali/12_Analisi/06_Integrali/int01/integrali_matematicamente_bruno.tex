@@ -1,170 +1,24 @@
-% (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
+﻿% (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 
-\input{\folder lbr/grafici.tex}
-
-% \begin{wrapfloat}{figure}{r}{0pt}
-% \includegraphics[scale=0.35]{img/fig000_.png}
-% \caption{...}
-% \label{fig:...}
-% \end{wrapfloat}
-% 
-% \begin{center} \input{\folder lbr/fig000_.pgf} \end{center}
-
-\chapter{Integrali}
-
-\section{Un problema di area}
-\label{sec:integrali_area}
-
-Uno dei primi problemi affrontati usando il piano cartesiano è stato quello 
-di determinare l'area sottesa ad un segmento. In questo capitolo vogliamo 
-riprendere quel tipo di problemi e generalizzarlo alla ricerca dell'area 
-sottesa ad una funzione.
-
-\begin{esempio}
-Dati i punti \(A \punto{2,5}{6}\) e \(B \punto{4,3}{7,2}\), calcola l'area 
-sottesa al segmento \(AB\).
-
-\begin{minipage}{.29\textwidth}
-\begin{inaccessibleblock}[Area sottesa al segmento.]
-  \areasottesasegmento
-\end{inaccessibleblock}
-\end{minipage}
-\hfill
-\begin{minipage}{.69\textwidth}
- Possiamo riconoscere che la superficie sottesa al segmento ha la forma di un 
-trapezio rettangolo con le due basi lunghe \(y_A\) e \(y_B\) e l'altezza 
-lunga \(x_B - x_A\). L'area è quindi:
-\begin{align*}
- \mathcal{A} &= \frac{1}{2} \cdot \tonda{y_B + y_A} \cdot \tonda{x_B - x_A}=\\
-             &= \frac{1}{2} \cdot \tonda{7,2 + 6} \cdot \tonda{4,3 - 2,5} =\\
-             &= \frac{1}{2} \cdot \tonda{13,2} \cdot \tonda{1,8} = 11,88
-\end{align*}
-\end{minipage}
-\end{esempio}
-
-\begin{esempio}
-Calcola l'area sottesa ai segmenti:\\ 
-\begin{multicols}{3}
-\noindent
-\(S_0 \punto{\punto{2,0}{5}}{\punto{2,5}{5}}\), \\
-\(S_1 \punto{\punto{2,5}{4}}{\punto{3,0}{4}}\), \\
-\(S_2 \punto{\punto{3,0}{6}}{\punto{3,5}{6}}\), \\
-\(S_3 \punto{\punto{3,5}{3}}{\punto{4,0}{3}}\), \\
-\(S_4 \punto{\punto{4,0}{7}}{\punto{4,5}{7}}\), \\
-\(S_5 \punto{\punto{4,5}{5}}{\punto{5,0}{5}}\).
-\end{multicols}
-
-\begin{minipage}{.29\textwidth}
-\begin{inaccessibleblock}[Area sottesa al segmento.]
-  \areasottesasegmenti
-\end{inaccessibleblock}
-\end{minipage}
-\hfill
-\begin{minipage}{.69\textwidth}
-Prima di affrontare i calcoli possiamo fare alcune osservazioni:
-\begin{enumerate} [nosep]
- \item i vari segmenti sono scollegati uno dall'altro;
- \item sono paralleli all'asse x, formano delle colonne rettangolari;
- \item le colonne sono appoggiate le une alle altre;
- \item l'area complessiva si può calcolare sommando le aree di tutte le 
-colonne;
- \item la larghezza complessiva delle colonne è~3;
- \item la colonna più bassa ha altezza 3;
- \item la colonna più alta ha altezza 7;
- \item di sicuro l'area è maggiore di \(3 \cdot 3\);
- \item di sicuro l'area è minore di \(3 \cdot 7\);
-\end{enumerate}
-\end{minipage}
-\end{esempio}
-
-La soluzione consiste nel calcolare l'area di ogni rettangolo e sommarli 
-tutti.
-Chiamiamo:
-\(\mathcal{A}_0\) l'area sottesa al segmento \(S_0\),\\
-\(\mathcal{A}_1\) l'area sottesa al segmento \(S_1\),\\
-\dots\\
-\(\mathcal{A}_i\) l'area sottesa al segmento \(S_i\),\\
-\dots\\
-\(\mathcal{A}_n\) l'area sottesa al segmento \(S_n\)
-
-Dove con \(n\) intendiamo l'ultimo segmento.
-
-Possiamo calcolare allora l'area con la seguente formula:
-
-\begin{align*}
-  \mathcal{A} &= \mathcal{A}_0 + \mathcal{A}_1 + \dots + 
-                 \mathcal{A}_i + \dots + \mathcal{A}_n = \\
-              &= y_0 \cdot \Delta_x + y_1 \cdot \Delta_x + 
-                 y_2 \cdot \Delta_x + y_3 \cdot \Delta_x + 
-                 y_4 \cdot \Delta_x + y_5 \cdot \Delta_x = \\
-              &= ~5 \cdot 0,5\, + ~4 \cdot 0,5\, + ~6 \cdot 0,5\, + 
-                 ~3 \cdot 0,5 + ~7 \cdot 0,5 + ~5 \cdot 0,5 = \\
-              &= \quad\; 2,5 \; + \quad\; 2 \quad\; + \quad\; 3 \quad\, + 
-                 \quad\, 1,5 \; + \quad\, 3,5 \; + \quad\, 2,5 \; = 15
-\end{align*}
-
-Le scritture usate per le formule scritte sopra non piacciono ai matematici 
-perché risultano lunghe da scrivere e nascondono la sostanza delle operazioni 
-che vengono fatte. È stato così inventato un altro simbolo detto 
-\emph{Sommatoria} che indica la somma di un certo numero di espressioni che 
-si assomigliano. Il simbolo usato è la \emph{Sigma} (la esse greca) maiuscola:
-
-\[\sum\]
-
-Intorno a questo simbolo vengono aggiunte tutte le informazioni che servono 
-per precisare il calcolo:
-
-\begin{itemize} [nosep]
- \item sotto: da dove si inizia, nel nostro caso: da~0;
- \item sopra: fin dove si arriva, nel nostro caso: fino a~6;
- \item dopo: cosa si somma, nel nostro caso: \(y_i \cdot \Delta_x\).
-\end{itemize}
-
-\[\mathcal{A} = \sum_{i=0}^6 \mathcal{A}_i = 
-                \sum_{i=0}^6 y_i \cdot \Delta_x = 15\]
-
-% TODO espressione Python
-% area = 0
-% delta_x = 0.5
-% for y_i in [5, 4, 6, 3, 7, 5]:
-% area += y_i * delta_x
-
-\section{TODO}
-
-\section{Integrali definiti}
-\label{sec:integrali_definiti}
-
-Calcolare l'area sottesa ad un segmento è un problema piuttosto banale, 
-l'avevamo già risolto diversi anni fa, ma nel mondo reale non ci sono molte 
-linee rette, la vita è tutta una curva!
-Se vogliamo risolvere teoricamente un problema che abbia utilità pratica 
-dobbiamo riuscire a calcolare l'area sottesa ad una funzione qualunque.
+\chapter{L'integrale}
 
 Uno dei problemi che l'integrazione vuole affrontare è quello di determinare 
-l'area tra una curva, che è il grafico di una funzione f, l'asse delle ascisse 
-e due rette verticali per gli estremi a e b di un intervallo chiuso in cui la 
-funzione è definita e continua.
-
-% TODO Disegno
+l'area tra una curva, che è il grafico di una funzione continua f in un 
+intervallo I, l'asse delle ascisse e due rette verticali per gli estremi a e 
+b (a<b) di un intervallo chiuso contenuto in I sull'asse delle ascisse.
 
 Fissata la funzione f, tale area dipenderà dalla scelta degli estremi a e b 
-dell'intervallo, ed è possibile indicarla come \(\mathcal{A}(a,b)\).
-
-% TODO esempi: f=k; f=-2x;
-
-La funzione binaria \(\mathcal{A}\), area sottesa ad una funzione in un 
-intervallo, ha due tipiche proprietà che potranno essere usate per 
+dell'intervallo, ed è possibile indicarla come A(a,b). Questa funzione 
+binaria A ha due tipiche proprietà che potranno essere usate per 
 determinarla. Esse sono: 
 
 \begin{enumerate}
  \item 
-% TODO Disegno
 la proprietà additiva, cioè se a, b e c 
 appartengono all'intervallo I e 
 \(a < b < c\)
 allora A(a,c) = A(a,b)+A(b,c),
  \item 
-% TODO Disegno
 la proprietà rettangolare rispetto alla funzione f, 
 cioè \(m\cdot(b-a) < A(a,b)< M\cdot(b-a)\), 
 con m minimo delle funzione f in \(\intervcc{a}{b}\) e M massimo delle 
@@ -180,9 +34,6 @@ e minore di
 un rettangolo con la stessa base e altezza il massimo della funzione f 
 nell'intervallo \(\intervcc{a}{b}\).
 
-\section{Definizione}
-\label{sec:integrali_definizione}
-
 Seguendo l'approccio non standard al calcolo integrale, consideriamo una 
 funzione continua f su un intervallo I cui appartengono i punti a e b, e una 
 partizione dell'intervallo chiuso \(\intervcc{a}{b}\) in sotto intervalli di 
@@ -194,12 +45,12 @@ numero naturale tale che
 \(x_0 + h \Delta \le b\), e dunque \(b-x_h \le \Delta\).
 
 Si può considerare la sommatoria
-\[\left(\sum_{i=0}^{h-1} f(x_i)\cdot\Delta \right)+f(x_i)\cdot(b-xH)\] 
+\[\left(\sum_{i=0}^{h-1} f(x_i)\cdot\Delta \right)+f(x_i)\cdot(b-x_h)\] 
 che è l'area dell'unione dei rettangoli che 
 hanno per base i segmenti \(\intervcc{x_i}{x_{i+1}}\) 
 (tutti di lunghezza \(\Delta\)) e 
 il segmento 
-\(\intervcc{x_h+1}{b}\) (di lunghezza minore di \(\Delta\)) e altezza 
+\(\intervcc{x_{h+1}}{b}\) (di lunghezza minore di \(\Delta\)) e altezza 
 \(f(x_i)\). 
 
 Al diminuire della distanza \(\Delta\) tra i punti di partizione 
@@ -237,9 +88,6 @@ Ciò ci permette di definire l'\emph{integrale definito} di una funzione
 standard \(f\) continua su \(\intervcc{a}{b}\) come:
 \[\int_a^b f(x) \cdot dx = \pst{\sum_a^b f(x) \cdot dx}\]
 
-\section{Prime proprietà}
-\label{sec:integrali_proprieta}
-
 Se poi, 
 partendo dalle disequazioni precedenti si passa alle parti standard, che 
 preservano le disequazioni, poiché il primo e l'ultimo termine sono parti 
@@ -259,7 +107,6 @@ se \(f(x) \le g(x)\) per ogni x in \(\intervcc{a}{b}\) allora
 Si definisce poi  
 \[\int_b^a f(x) \cdot dx = - \int_a^b f(x) \cdot dx\]
 
-\begin{comment}
 Si vuole dimostrare ora che l'integrale è indipendente dalla scelta 
 dell'infinitesimo non nullo \(dx\). Cioè, anche se \(dx\) e \(du\) sono due 
 diversi infinitesimi non nulli si ha:
@@ -338,17 +185,8 @@ contraddicendo la relazione
 \[f(\underline{x}) - f(\underline{u}) > c)\]
 con \(c\) reale positivo. 
 
-Il che prova che l'integrale è indipendente dalla scelta dell'infinitesimo 
-non nullo dx.
-
-\end{comment}
-\section{Proprietà rettangolare}
-\label{sec:integrali_proprieta_rettangolare}
-
-
-\section{Proprietà additiva}
-\label{sec:integrali_proprieta_additiva}
-
+Il che prova che l'integrale è indipendente dalla scelta dell'infinitesimo non 
+nullo dx.
 Il risultato ottenuto permette di giungere a mostrare che 
 l'integrale ha la proprietà additiva.
 
@@ -368,9 +206,6 @@ ottiene il risultato voluto.
 
 Finalmente si dimostra l'unicità della funzione binaria che soddisfa la 
 proprietà additiva e la proprietà rettangolare rispetto alla funzione f.
-
-\section{Somma di Riemann}
-\label{sec:integrali_proprieta}
 
 Iniziamo definendo le somme di Riemann finite superiore e inferiore. Queste 
 si distinguono dalla somma di Riemann finita perché invece di considerare il 
@@ -394,8 +229,7 @@ Evidentemente
 \[\sum_a^b f_{-}(x) \cdot \Delta \le \sum_a^b f(x) \cdot \Delta \le 
 \sum_a^b {}^{-}f(x) \cdot \Delta\] 
 ed è immediato (seguendo un percorso corrispondente a quanto già fatto) che 
-anche le somme di Riemann superiore e inferiore hanno le proprietà 
-triangolari 
+anche le somme di Riemann superiore e inferiore hanno le proprietà triangolari 
 e additiva. 
   Passando alle loro estensioni naturali non standard risulta ancora 
 \[\sum_a^b f_{-}(x) \cdot dx \le \sum_a^b f(x) \cdot dx \le 
@@ -451,15 +285,9 @@ nozione di integrale che non deve far ricorso a limiti al tender a zero della
 lunghezza massima dei sottointervalli di partizione dell'intervallo 
 \(intervcc{a}{b}\). 
 
-\section{Teorema fondamentale dell'analisi}
-\label{sec:integrali_teorema_fondamentale}
-
-\begin{comment}
 Con i metodi non standard ci sono due dimostrazioni sostanzialmente diverse 
-del teorema fondamentale del calcolo, una che parte dagli integrali 
-indefiniti 
-(dalla primitive) e l'altra che parte dalla derivazione la funzione 
-integrale. 
+del teorema fondamentale del calcolo, una che parte dagli integrali indefiniti 
+(dalla primitive) e l'altra che parte dalla derivazione la funzione integrale. 
 Le vedremo entrambe perché sono entrambe semplici. 
 
 La prima richiede di 
@@ -503,13 +331,10 @@ e la funzione \(F(x) – F(a)\) viene chiamata funzione integrale.
 Così si è ottenuto quanto afferma il teorema fondamentale del
 calcolo.
 
-\end{comment}
-
 Un altro approccio allo stesso teorema è il seguente.
 Si voglia determinare la derivata della funzione integrale che è: 
 \[F(u) = \int_a^u f(x).dx\]
-usando i metodi non standard. Denotando sempre con \(F\) l’estensione 
-naturale 
+usando i metodi non standard. Denotando sempre con \(F\) l’estensione naturale 
 della funzione reale \(F\), si avrà
 \[F'(u) = \pst{\frac{F(u+du)-F(u)}{du}} = 
 \pst{\frac{\int_a^{u+du} f(x).dx - \int_a^u f(x).dx}{du}} =\] 
@@ -572,7 +397,6 @@ essendoci un calcolo (metodo automatico, con precise regole sulla scrittura
 delle funzioni, che non richiede la conoscenza dei significati) la 
 determinazione delle primitive, è quasi una sfida aperta.
 
-\begin{comment}
 \section{Osservazioni}
 
 Caro Luciano e cari amici,
@@ -671,6 +495,3 @@ fuorvianti. Una terza azione potrebbe prevedere di preparare un ulteriore
 lavoro che discuta degli abusi linguistici in matematica; questa scelta 
 potrebbe anche essere combinata con una delle precedenti.
   Ruggero
-
-\end{comment}
-
