@@ -45,12 +45,12 @@ numero naturale tale che
 \(x_0 + h \Delta \le b\), e dunque \(b-x_h \le \Delta\).
 
 Si può considerare la sommatoria
-\[\left(\sum_{i=0}^{h-1} f(x_i)\cdot\Delta \right)+f(x_i)\cdot(b-xH)\] 
+\[\left(\sum_{i=0}^{h-1} f(x_i)\cdot\Delta \right)+f(x_i)\cdot(b-x_h)\] 
 che è l'area dell'unione dei rettangoli che 
 hanno per base i segmenti \(\intervcc{x_i}{x_{i+1}}\) 
 (tutti di lunghezza \(\Delta\)) e 
 il segmento 
-\(\intervcc{x_h+1}{b}\) (di lunghezza minore di \(\Delta\)) e altezza 
+\(\intervcc{x_{h+1}}{b}\) (di lunghezza minore di \(\Delta\)) e altezza 
 \(f(x_i)\). 
 
 Al diminuire della distanza \(\Delta\) tra i punti di partizione 
@@ -124,12 +124,41 @@ per ogni numero reale positivo \(c\). Questa affermazione sarà dimostrata
 per assurdo. Si supponga che 
 \[\int_a^b f(x) \cdot dx > \int_a^b (f(u)+c)\cdot du\] 
 per qualche reale positivo c, cioè che esista un reale positivo c tale che 
-\[\sum_a^b f(x) \cdot dx > \sum_a^b (f(u)+c)\cdot du\] 
-e, per il transfer, 
-\[\sum_{i=0}^H f(x_i) \cdot \Delta_x = 
-  \sum_a^b f(x) \cdot \Delta_x > \sum_a^b (f(u)+c)\cdot \Delta_u = 
-\sum_{j=0}^K(f(u_j)+c)\cdot \Delta_u\]
+\[\sum_a^b f(x) \cdot dx > \sum_a^b (f(u)+c)\cdot du\]
+Più precisamente:
 
+\begin{flalign*}
+ \sum_a^b f(x) \cdot dx &=\\
+   &=\tonda{\sum_{i=0}^{H-1} f(x_i) \cdot dx} + 
+     \tonda{f \tonda{a+H \cdot dx} \cdot \tonda{b-\tonda{a+H \cdot dx}}}>&&\\
+   &>\tonda{\sum_{j=0}^{K-1} \tonda{f(u_j) +c} \cdot du} + 
+     \tonda{\tonda{f \tonda{a+K \cdot du} +c} \cdot 
+           \tonda{b-\tonda{a+K \cdot du}}} = &&\\
+   &=\sum_a^b (f(u)+c)\cdot du &&
+\end{flalign*}
+
+(dove \(H\) è il massimo naturale tale che 
+\(a+H \cdot dx < b\) 
+e \(K\) è il massimo naturale tale che
+\(a+K \cdot d_u < b\))
+e, per il transfer: 
+\begin{flalign*}
+ &\tonda{\sum_{i=0}^{h-1} f(x_i) \cdot \Delta_x} + 
+     \tonda{f \tonda{a+h \cdot \Delta_x} \cdot 
+            \tonda{b-\tonda{a+h \cdot \Delta_x}}} > &&\\
+ & \qquad > \tonda{\sum_{j=0}^{k-1} \tonda{f(u_j) +c} \cdot du} + 
+  \tonda{\tonda{f \tonda{a+k \cdot \Delta_u} +c} \cdot 
+        \tonda{b-\tonda{a+k \cdot \Delta_u}}} &
+\end{flalign*}
+
+% \[\sum_{i=0}^H f(x_i) \cdot \Delta_x = 
+%   \sum_a^b f(x) \cdot \Delta_x > \sum_a^b (f(u)+c)\cdot \Delta_u = 
+% \sum_{j=0}^K(f(u_j)+c)\cdot \Delta_u\]
+
+(dove h è il massimo naturale tale che 
+\(a+h \cdot \Delta_x < b\) 
+e \(k\) è il massimo naturale tale che
+\(a+k \cdot \Delta_u < b\)).
 Affinché ciò succeda ci devono essere almeno 
 due punti 
 \(\underline{x}\) e \(\underline{u}\)
@@ -162,15 +191,15 @@ Il risultato ottenuto permette di giungere a mostrare che
 l'integrale ha la proprietà additiva.
 
 Si deve mostrare che 
-\[\int_a^b f(x) \cdot dx + \int_b^c f(x) \cdot dx = \int_a^c f(x) \cdot dx\] 
+\[\int_a^c f(x) \cdot dx + \int_c^b f(x) \cdot dx = \int_a^b f(x) \cdot dx\] 
 Passando alle sommatorie 
-\[\sum_a^b f(x) \cdot dx,\quad \sum_b^c f(x) \cdot dx \quad\text{ e } \quad 
-  \sum_a^c f(x) \cdot dx\] 
+\[\sum_a^c f(x) \cdot dx,\quad \sum_c^b f(x) \cdot dx \quad\text{ e } \quad 
+  \sum_a^b f(x) \cdot dx\] 
 e prendendo 
 \(dx = (b-a)/H\)
-con H ipernaturale infinito, 
-i punti di ripartizione degli intervalli \(\intervcc{a}{b}\) e 
-\(\intervcc{a}{b}\) coincidono con quelli dell'intervallo \(\intervcc{a}{b}\)
+con \(H\) ipernaturale infinito, 
+i punti di ripartizione degli intervalli \(\intervcc{a}{c}\) e 
+\(\intervcc{c}{b}\) coincidono con quelli dell'intervallo \(\intervcc{a}{b}\)
 sicché la terza sommatoria è evidentemente la somma delle altre due.
 Passando alla loro parti standard, operazione che preserva l'addizione, si 
 ottiene il risultato voluto. 
@@ -293,7 +322,7 @@ della funzione \(f\)
 nell'intervallo e maggiore del minimo della funzione f nell'intervallo.
 Dunque, 
 per l'unicità della funzione che soddisfa le condizione 1) e 2) deve essere:
-\[\int_b^a f(x) \cdot dx = F(b)-F(a)\]
+\[\int_a^b f(x) \cdot dx = F(b)-F(a)\]
 con \(F\) funzione che ha per derivata la funzione \(f\). 
 Poiché questa uguaglianza vale qualunque sia l'estremo superiore di 
 integrazione in un intervallo dove la funzione \(f\) è continua, si ha che
@@ -305,12 +334,12 @@ calcolo.
 Un altro approccio allo stesso teorema è il seguente.
 Si voglia determinare la derivata della funzione integrale che è: 
 \[F(u) = \int_a^u f(x).dx\]
-usando i metodi non standard. Denotando sempre con \(F\) l’estensione naturale 
-della funzione reale \(F\), si avrà
+usando i metodi non standard. Denotando sempre con \(F\) l'estensione 
+naturale della funzione reale \(F\), si avrà
 \[F'(u) = \pst{\frac{F(u+du)-F(u)}{du}} = 
 \pst{\frac{\int_a^{u+du} f(x).dx - \int_a^u f(x).dx}{du}} =\] 
-che per l'arbitrarietà dell'incremento (l'incremento d'integrazione dx può 
-essere du) è uguale a
+che per l'arbitrarietà dell'incremento (l'incremento d'integrazione \(dx\) 
+può essere \(du\)) è uguale a
 \[\pst{\frac{\int_a^{u+du} f(x).du - \int_a^u f(x).du}{du}} =\]
 per l'additività degli integrali consideriamo che
 \[\pst{\frac{\int_u^{u+du} f(x) \cdot du}{du}} = 

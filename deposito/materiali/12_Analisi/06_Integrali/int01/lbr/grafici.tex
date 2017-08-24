@@ -1,0 +1,58 @@
+﻿% (c) 2017 Bruno Stecca
+% (c) 2017 Daniele Zambelli - daniele.zambelli@gmail.com
+% 
+% Tutti i grafici per il capitolo relativo agli integrali
+% 
+% 
+
+\newcommand{\areasottesasegmento}{% Area sottesa a un segmento
+  \disegno{
+    \coordinate (a) at (2.5, 6);
+    \coordinate (xa) at (2.5, 0);
+    \coordinate (ya) at (0, 6);
+    \coordinate (b) at (4.3, 7.2);
+    \coordinate (xb) at (4.3, 0);
+    \coordinate (yb) at (0, 7.2);
+
+    \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
+    (a) -- (b) -- (xb) -- (xa) -- cycle;
+
+    \rcom{-1}{+6}{-1}{+8}{gray!50, very thin, step=1}
+    
+    \draw [thick] (a) -- (b);
+    \filldraw (a) circle (1.5pt) node [above left] {A};
+    \filldraw (b) circle (1.5pt) node [above left] {B};
+
+    \begin{scope}[dotted]
+    \draw [-] (a) -- (xa) node [below] {$x_A$};
+    \draw [-] (a) -- (ya) node [left] {$y_A$};
+    \draw [-] (b) -- (xb) node [below] {$x_B$};
+    \draw [-] (b) -- (yb) node [left] {$y_B$};
+    \end{scope}
+    }
+}
+
+\newcommand{\areasottesasegmenti}{% Area sottesa a un segmento
+  \disegno{
+    \rcom{-1}{+6}{-1}{+8}{gray!50, very thin, step=1}
+    \foreach \xa/\y in {2/5, 2.5/4, 3/6, 3.5/3, 4/7, 4.5/5}{
+      \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
+      (\xa, \y) -- (\xa+.5, \y) -- (\xa+.5, 0.015) -- (\xa, 0.015) -- cycle;
+      \draw [thick, cap=butt] (\xa, \y) -- (\xa+.5, \y);
+      \draw [very thin](\xa,\y) -- (\xa,0.015) (\xa+.5,\y) -- (\xa+.5,0.015);
+    }
+%     \rcom{-1}{+6}{-1}{+8}{gray!70, line width=0pt}
+%     \draw [dotted, thick] (5, 5) -- (5, 0);
+    
+%     \draw [thick] (a) -- (b);
+%     \filldraw (a) circle (1.5pt) node [above left] {A};
+%     \filldraw (b) circle (1.5pt) node [above left] {B};
+% 
+%     \begin{scope}[dotted]
+%     \draw [-] (a) -- (xa) node [below] {$x_A$};
+%     \draw [-] (a) -- (ya) node [left] {$y_A$};
+%     \draw [-] (b) -- (xb) node [below] {$x_B$};
+%     \draw [-] (b) -- (yb) node [left] {$y_B$};
+%     \end{scope}
+    }
+}
