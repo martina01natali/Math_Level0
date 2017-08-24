@@ -1998,7 +1998,7 @@ Tuttavia qui si restringe il dominio, in modo da considerare un solo ramo della
 parabola, perché altrimenti la formula inversa non potrebbe essere una funzione.
 Occorre sempre porre attenzione al dominio di $f$, quando si vuole definirne 
 l'inversa. Una buona regola pratica per capire se $f^{-1}$ è definibile, è di
-tagliare il grafico di$f$ con una retta orizzontale: se la retta incrocia il 
+tagliare il grafico di $f$ con una retta orizzontale: se la retta incrocia il 
 grafico di $f$ in più punti, $f^{-1}$ non esiste.\\
 \end{osservazione}
 
@@ -2033,9 +2033,11 @@ simmetrici rispetto alla bisettrice $y=x$.
  $y=kx$ e $x=\frac{y}{k}$, per esempio, sono formule inverse l'una 
  dell'altra. Ma non sono funzioni inverse, sono due espressioni della stessa 
  iperbole equilatera e hanno lo stesso grafico, quindi le stesse tangenti al
- grafico e le stesse derivate rispetto a $x$. La funzione inversa di cui 
+ grafico e le stesse derivate rispetto a $x$.\\ La funzione inversa di cui 
  parliamo, nel caso dell'iperbole è $y=\frac{x}{k}$, cioè è la formula inversa,
- ma applicata a $x.$
+ ma applicata a $x$. Se invece consideriamo la formula inversa $x=\frac{y}{k}$
+ come funzione $x=f(y)$, allora dovremo derivare rispetto a $y$: 
+ $x'=\dfrac{dx}{dy}$.
 \end{osservazione}
 
 \begin{inaccessibleblock}
@@ -2066,7 +2068,7 @@ derivate corrispondenti sono reciproche l'una con l'altra.
   Grazie alle proprietà della funzione $\pst{}$, abbiamo:\\
   $f'(x)\cdot g'(y)=\pst{\dfrac{dy}{dx}}\cdot\pst{\dfrac{dx}{dy}}=
   \pst{\dfrac{dy}{dx}\cdot\dfrac{dx}{dy}}=\pst{1}=1$\\
-  per cui: $f'g(x)=\dfrac{1}{g'(y)}$.
+  per cui: $f'(x)=\dfrac{1}{g'(y)}$.
 \end{proof}
 \begin{osservazione}
  La dimostrazione fa leva su una semplificazione che sembra banale. In realtà
@@ -2074,15 +2076,18 @@ derivate corrispondenti sono reciproche l'una con l'altra.
  variabile indipendente è $x$, nel secondo è $y$.
 \end{osservazione}
 \begin{esempio}
-  Trova la derivata di $f(x)=\dfrac{1}{\sqrt{5-x^2}}$.\\
+  Trova la derivata di $f(x)=\dfrac{1}{\sqrt{5-x^2}}$.
   \begin{enumerate}[noitemsep]
    \item Usando il teorema \ref{teo:diff01_dericomp} e le regole precedenti:\\
    $f'(x)=\mathit{D}\quadra{\dfrac{1}{\sqrt{5-x}}}=
    \mathit{D}\quadra{(5-x)^\frac{-1}{2}}=-\dfrac{1}{2}(5-x)
    ^\frac{-3}{2}(-1) = \dfrac{1}{2(\sqrt{5-x})^3}$.
    \item Usando la regola appena appresa:\\
+   Costruiamo la formula inversa con pochi passaggi algebrici: riavremo la 
+   stessa funzione, in cui $y$ figura come variabile indipendente: $x=f(y)$.\\
+   Quindi deriviamo: $\mathit{D}\quadra{x}=x'=f'(y)=\dfrac{dx}{dy}$.\\
    $f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x}\srarrow 
-   y^{-2}=5-x\srarrow x=5-y^{-2}$  (funzione inversa)\\
+   y^{-2}=5-x\srarrow x=5-y^{-2}$  (formula inversa)\\
    $x'=\dfrac{dx}{dy}=-2y^{-3}$ (derivata della funzione inversa)
    $\srarrow \dfrac{dy}{dx}=\dfrac{y^3}{2}=
    \dfrac{1}{2(\sqrt{5-x})^3}$.
@@ -2142,8 +2147,8 @@ funzione stessa, attraverso un fattore che corrisponde alla derivata calcolata
 in $x=0$.\\
 Per capire di più cos'è questo fattore, forziamo la situazione e imponiamo che
 corrisponda a $1$. In questo modo la funzione e la sua derivata saranno proprio
-identiche e i due grafici saranno sovrapposti e finalmente conosceremo quanto
-vale la base generica  $a$.\\
+identiche e i due grafici saranno sovrapposti: finalmente potremo conoscere
+quanto vale la base generica $a$.\\
 $f'(0)=1\srarrow \dfrac{\tonda{a^{dx}-1}}{dx}=1\srarrow a^{dx}=dx +1
 \srarrow a=(dx+1)^\frac{1}{dx}$.\\
 Abbiamo già incontrato un'espressione analoga in \ref{subsubsec:insnum_nepero}:
@@ -2636,13 +2641,13 @@ $f'(x)=\dfrac{1}{x}$ e $f''(x)=-\dfrac{1}{x^2}$.\\
 Nel punto $\punto{x_0}{f(x_0)}$ il grafico della funzione e la tangente
 sono indistinguibili. 
 Il campo visivo del primo microscopio mostra ${x_0}$ e $dx$, 
-uno fra gli infiniti infinitesimi di $x_0$. A livello microscopico, la 
-curvatura del grafico non esiste,  per cui il grafico e la 
+uno fra gli infiniti infinitesimi nella monade di $x_0$. A livello 
+microscopico, la curvatura del grafico non esiste,  per cui il grafico e la 
 tangente sono sovrapposti. Per cogliere la distinzione fra i due, occorre 
 un secondo microscopio non standard, centrato a distanza infinitesima dal 
 punto. Nel suo campo visivo la tangente e il grafico della funzione 
-appaiono come rette parallele. Il punto di coordinate reali più vicino a 
-quello raffigurato, nella rappresentazione doppiamente ingrandita, si trova a 
+appaiono come rette parallele. Nella rappresentazione doppiamente ingrandita,
+Il punto di coordinate reali più vicino a quello raffigurato  si trova a 
 distanza infinita ($\infty^2$).
  \end{minipage}
 \end{inaccessibleblock}
@@ -2696,8 +2701,8 @@ differenza fra due valori $y$, calcolati lungo la tangente.
 \label{}
 
 Nei testi in cui si scrive che $\Delta f(x)=f'(x_0)\Delta x+\delta(x)\Delta x$,
-$f'(x_0)\Delta x$ viene chiamato differenziale, ma si tratta di una quantità 
-finita, non infinitesima. In tali testi la differenza $\Delta f(x)$ è detta 
+$f'(x_0)\Delta x$ viene chiamato differenziale, anche se si tratta di una differenza,
+una quantità .finita, non infinitesima. In tali testi la differenza $\Delta f(x)$ è detta 
 incremento e l'equazione\\
 $\Delta f(x)\cong f'(x_0)\Delta x$ \hspace{.5cm}(\emph{Equazione alle differenze})\\ 
 esprime il cosiddetto \emph{teorema dell'incremento}.\\
@@ -2811,7 +2816,7 @@ $v_{AB}|_{t=4}=\dfrac{ds_{AB}}{dt}=\dfrac{800(2t-4)}{2\sqrt{2t^2-2t+4}}
 
 \begin{esempio}
  Un circuito è percorso da corrente variabile. Infatti la carica che attraversa
-il conduttore ad un certo tempo $t$ è data da $q(t)=t^3-24t$. È possibile che in
+il conduttore ad un certo istante $t$ è data da $q(t)=t^3-24t$. È possibile che in
 qualche istante le cariche siano ferme?\\
 Riposta. Se le cariche sono ferme, la corrente è nulla.\\ 
 $i(t)=\dfrac{dq(t)}{dt}=3t^2-24=0\srarrow t=\pm\sqrt{8}=\pm2\sqrt{2}$ s.\\
@@ -2867,7 +2872,22 @@ Il costo marginale, cioè per unità in più, è quindi dello $0,5\%$.
  Una barra metallica è lunga $10$ m a $T=0 ^\circ C$ e al crescere della 
  temperatura si dilata secondo la legge $l(T)=10(1+0,000024T)$. Di quanti gradi 
  occorre aumentare la temperatura perché aumenti la sua lunghezza di $5$ cm?\\
+ La risposta è la stessa in ogni caso, oppure dipende dal valore iniziale di 
+ $T$?\\
  Risposta. $\Delta T\cong \dfrac{\Delta l(T)}{l'(T)}=\dfrac{0,05}
- {10\cdot 0,000024}=208,3 ^\circ C$
+ {10\cdot 0,000024}=208,3 ^\circ C$.\\
+ Nella formula risolutiva non compare il simbolo $T$, quindi la risposta non 
+ dipende dalla temperatura iniziale. Ovviamente tutto questo deve avvenire nei 
+ limiti del fenomeno, cioè finché non si raggiunge la temperatura di fusione.
+ \begin{osservazione}
+  Si tratta di un semplice esercizio di fisica: la legge coinvolta si chiama
+  legge della dilatazione lineare, perché il suo grafico nel piano cartesiano 
+  è una retta. Poiché la legge è espressa da un polinomio di primo grado, la 
+  soluzione non contiene la variabile $T$ e l'equazione alle differenze è
+  esatta: non ci sono infinitesimi da trascurare.\\
+  Non è indispensabile coivolgere il calcolo infintesimale per un problema di
+  primo grado, come questo: avresti potuto risolverlo anche in terza media.
+ \end{osservazione}
+
 \end{esempio}
 
