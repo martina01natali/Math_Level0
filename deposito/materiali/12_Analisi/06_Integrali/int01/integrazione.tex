@@ -48,7 +48,7 @@ lunga \(b - a = x_b - x_a\). L'area è quindi:
 
 Abbiamo anche calcolato l'area della superficie sottesa ad una sequenza di 
 segmenti consecutivi sommando le varie aree sottese. Ma non è necessario che 
-i segmenti siano consecutivi possono anche staccati uno dall'altro.
+i segmenti siano consecutivi possono anche essere staccati uno dall'altro.
 
 \begin{esempio}
 Calcola l'area sottesa ai segmenti paralleli all'asse \(x\), di lunghezza 
@@ -299,9 +299,9 @@ dell'altezza del corrispondente rettangolino della seconda somma e:
  \item per la proprietà rettangolare, l'area sottesa alla funzione in ogni 
 sottointervallo, sarà compresa tra il rettangolino inferiore e quello 
 superiore.
- \item per la proprietà additiva la somma di tutti i rettangolini l'area 
-sottesa alla funzione sarà maggiore della somma di tutti i rettangolini 
-inferiori e minore della somma di tutti i rettangolini superiori.
+ \item per la proprietà additiva, l'area sottesa alla funzione sarà maggiore 
+della somma di tutti i rettangolini inferiori e minore della somma di tutti i 
+rettangolini superiori.
 \end{itemize}
 
   Passando alle loro estensioni naturali non standard, cioè riducendo la base 
@@ -341,26 +341,37 @@ e quindi anche per l'integrale vale la proprietà rettangolare.
 \label{subsec:integrali_altre_proprieta}
 
 Dalla definizione di integrale seguono le seguenti proprietà:
+\begin{enumerate}
+ \item Se l'intervallo è nullo, sarà nullo anche l'integrale:
 \[\int_a^a f \cdot dx=0\] 
-\[\int_a^b c \cdot dx = c \cdot (b-a)\] 
-\[\int_a^b c \cdot f \cdot dx = c\cdot\int_a^b f \cdot dx\] 
-\[\int_a^b (f+g)\cdot dx = 
-  \int_a^b f \cdot dx + \int_a^b g\cdot dx\]
-se \(f \le g\) per ogni x in \(\intervcc{a}{b}\) allora 
-\[\int_a^b f \cdot dx < \int_a^b g\cdot dx\]
-
+ \item l'integrale di una costante \(k\) è uguale all'area del rettangolo:
+\[\int_a^b k \cdot dx = k \cdot (b-a)\]
+ \item l'integrale di una costante \(k\) per una funzione \(f\) è uguale alla 
+costante per l'integrale della funzione:
+\[\int_a^b k \cdot f \cdot dx = k\cdot\int_a^b f \cdot dx\]
+ \item l'integrale della somma di due funzioni è uguale alla somma degli 
+integrali:
+\[\int_a^b (f+g)\cdot dx = \int_a^b f \cdot dx + \int_a^b g\cdot dx\]
+ \item se, in un certo intervallo, la funzione \(f\) è sempre inferiore alla 
+funzione \(g\) allora, in quell'intervallo, anche l'integrale di \(f\) è 
+minore dell'integrale di \(g\):
+\[f \le g \forall x \in \intervcc{a}{b} \sRarrow 
+\int_a^b f \cdot dx \le \int_a^b g\cdot dx\]
+\end{enumerate}
 
 \subsection{Definizione di opposto}
 \label{subsec:integrali_opposto}
 
-Si definiamo poi che se scambiamo gli etremi di integrazione otteniamo 
+Definiamo poi che, se scambiamo gli estremi di integrazione, otteniamo 
 l'opposto dell'integrale definito:
 \[\int_b^a f \cdot dx = - \int_a^b f \cdot dx\]
 
 \subsection{Proprietà additiva}
 \label{subsec:integrali_proprieta_additiva}
 
-Nell'integrale vale anche la proprietà additiva 
+Poiché la scelta del sottointervallo infinitesimo non cambia il valore 
+dell'integrale definito, 
+nell'integrale vale anche la proprietà additiva, infatti: 
 \[\int_a^b f \cdot dx + \int_b^c f \cdot dx = \int_a^c f \cdot 
 dx\] 
 Passando alle sommatorie 
@@ -415,8 +426,8 @@ un intervallo differiscono per una costante, si può osservare che
 \[F(b) = \int_a^b f \cdot dx = G(b) + k\]
 dove G è una qualsiasi primitiva di \(f\) e k dipende da G. Per determinare k, 
 si osservi che
-\[0 = \int_a^a f \cdot dx = G(a) + k\],
-sicché deve essere \(k = - G(a)\) , e si ottiene nuovamente la classica 
+\[0 = \int_a^a f \cdot dx = G(a) + k\]
+sicché deve essere \(k = - G(a)\), e si ottiene nuovamente la classica 
 relazione tra integrale definito e primitive della funzione integranda 
 \[\int_a^b f \cdot dx = G(b) - G(a)\]
 
@@ -431,6 +442,46 @@ aver incontrato come derivate di altre funzioni. Così, non
 essendoci un calcolo (metodo automatico, con precise regole sulla scrittura 
 delle funzioni, che non richiede la conoscenza dei significati) la 
 determinazione delle primitive, è spesso una sfida aperta.
+
+\section{Integrali indefiniti}
+\label{sec:integrali_indefiniti}
+
+Il teorema fondamentale dell'analisi dice che la funzione integrale è una 
+primitiva della funzione integranda quindi se ho imparato a derivare una 
+funzione posso, con il procedimento inverso trovare una funzione integrale 
+della funzione integranda:
+\[D \quadra{F} = f \sRarrow \int f dx = F\]
+
+Ma dalle regole delle derivate sappiamo che tutte le funzioni che 
+differiscono per una costante hanno la stessa derivata quindi se 
+\(D \quadra{F} = f\) allora anche \(D \quadra{F+5} = f\), e anche 
+\(D \quadra{F+4,57} = f\), e, in generale, anche \(D \quadra{F+C} = f\) con 
+\(C\) costante.
+quindi se \(F\) è una primitiva della funzione \(f\) e \(C\) è una 
+costante, allora tutte le funzioni del tipo: \(F + C\) sono primitive di 
+\(f\).
+
+Di seguito vediamo una tabella con le primitive di alcune funzioni.
+
+{%
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\begin{center}
+\begin{tabular}{ccc}
+primitiva & f & derivata\\
+\(k x\) & \(k\) & \(0\)\\
+\(\dfrac{1}{2}x^2\) & \(x\) & \(1\)\\
+\(\dfrac{k}{2}x^2\) & \(kx\) & \(k\)\\
+\(\dfrac{1}{n+1}x^{n+1}\) & \(x^n\) & \(nx^{n-1}\)\\
+\(\) & \(\) & \(\)\\
+\(\) & \(\) & \(\)\\
+\end{tabular}
+\end{center}
+}%
+
+
+\begin{esempio}
+ 
+\end{esempio}
 
 \begin{comment}
 \section{Osservazioni}
