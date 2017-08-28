@@ -1,812 +1,104 @@
-% (c) 2016 Nicola Sansonetto
-% (c) 2016 Daniele Zambelli daniele.zambelli@gmail.com
+\chapter{Geometria cartesiana dello spazio}
 
-\newcommand{\bR}[1]{\mathbb{R}^{#1}}
-\newcommand{\bS}[1]{\mathbb{S}^{#1}}
-\newcommand{\bA}[1]{\mathbb{A}^{#1}} 
-\newcommand{\bE}[1]{\mathbb{E}^{#1}}
+\section{Punti e vettori}
+\label{sec:Punti_e_vettori}
 
-\newtheorem*{NB}{\textbf{N.B}}
+Abbiamo già imparato in precedenza quali tecniche e formule si possono utilizzare per manipolare oggetti nel piano cartesiano bidimensionale. Andiamo ora a studiare l'analogo caso tridimensionale. 
 
-\newtheorem*{sol}{\textbf{Sol}}
+\vspace{7pt}
 
-\newtheorem{exercise}{\textbf{Esercizio}}
+Il piano cartesiano è formato da 3 assi tra loro perpendicolari, che indicano le 3 direzioni possibili di movimento per un oggetto nello spazio. Un punto viene perciò individuato dalle 3 coordinate spaziali, e lo indicheremo perciò con la terna ordinata P\,$(x,y,z)$. La visualizzazione dei punti non è semplice, poiché deve rendere conto della profondità e, in certi casi, della prospettiva. Quindi ci affideremo per quanto possibile all'intuizione geometrica, senza legarci troppo ai disegni.
 
-% \newenvironment{problem}{\begin{problema} \itshape}{\end{problema}}
-% \newenvironment{soluzione} %! LaTeX Error: Command \soluzione already defined.
-\newenvironment{soluz}
-{\begin{sol}}{\begin{flushright}$\star$\end{flushright}\end{sol}}
+\vspace{7pt}
 
-\chapter{Geometria nello spazio}
+Dato un insieme di punti distinti, è possibile innanzitutto calcolarne le rispettive distanze. La formula per calcolare la \textbf{distanza tra 2 punti} non è altro che una generalizzazione del teorema di Pitagora, ovvero:
+\[\overline{\text{AB}} = \sqrt{(x_A-x_B)^2+(y_A-y_B)^2+(z_A-z_B)^2}\]
+Un'oggetto interessante, che ci permetterà poi di ricavare l'equazione di una retta e di un piano, è il vettore. Chiamiamo \textbf{vettore} una freccia che connette due punti. In genere, dati 2 punti A e B, indichiamo con $\vect{\text{AB}}$ il vettore che congiunge A con B, ovvero la freccia che parte da A e arriva a B, con la punta rivolta verso B. Chiamiamo \emph{coda} il punto A e \emph{punta} il punto B. Spesso si associa ad un vettore lo spostamento di un oggetto. Si può pensare per esempio che il punto B sia dato dallo spostamento di A lungo la freccia $\vect{\text{AB}}$. Ovvero:
+\[\text{B} = \text{A}+\vect{\text{AB}} \quad \Rightarrow \quad \vect{\text{AB}} = \text{B}-\text{A}\]
+Quindi per "costruire" un vettore di coda A e punta B è sufficiente calcolare la differenza tra le coordinate dei punti.
+\[(esempio)\]
+Notiamo che due vettori con stessa direzione e stesso verso (ovvero sovrapponibili mediante traslazione) sono indistinguibili:
+\[(esempio del vettore A(0,0) B(2,4) e del vettore C(6,0) D(8,4)\]
+Questa proprietà è detta \textbf{equipollenza}. Due vettori sono equipollenti se hanno stessa direzione e verso. Tale proprietà ci permette di pensare un vettore applicato in un qualunque punto (ovvero con la coda posizionata in tale punto) ed in particolare possiamo sempre pensarlo applicato nell'origine.
 
-% \section{Assiomi}
-% \label{sec:3D_assiomi}
+\section{Operazioni con i vettori}
 
-% \begin{wrapfloat}{figure}{r}{0pt}
-% \includegraphics[scale=0.35]{img/fig000_.png}
-% \caption{...}
-% \label{fig:...}
-% \end{wrapfloat}
-% 
-% \begin{center} \input{\folder lbr/fig000_.pgf} \end{center}
+Bla bla bla bla (componenti, somma, differenza, prodotto per uno scalare, opposto, vettore nullo, prodotto scalare e vettoriale)
 
-\section{Vettori geometrici e vettori applicati}
-\label{sec:3D_vettori}
+Due vettori $ \vect{a} = (a_x,a_y,a_z) \;,\; \vect{b} = (b_x,b_y,b_z)$ sono paralleli se il rapporto tra i rispettivi coefficienti è sempre lo uguale (nel caso in cui una coordinata del primo vettore sia nulla, dev'esserlo anche nel secondo vettore). In formule:
+\[\vect{a} \parallel \vect{b} \quad (a_j\,, b_j \neq 0) \quad \Longleftrightarrow \quad \frac{a_x}{b_x} = \frac{a_y}{b_y} = \frac{a_z}{b_z}\]
+\[esempi\]
+Due vettori sono perpendicolari se il corrispondente prodotto scalare è zero. In formule scriviamo:
+\[ \vect{a} \perp \vect{b} \quad \Longleftrightarrow\quad \vect{a} \times \vect{b} = 0 \quad \text{ovvero:} \quad a_xb_x+a_yb_y+a_zb_z=0\]
+\[esempi\]
 
-In questa sezione vogliamo richiamare il concetto di vettore geometrico e 
-fornire un significato ``rigoroso'' al concetto di vettore applicato, essenziali 
-per le applicazioni fisica e in particolare per la meccanica razionale. 
+\section{Retta (forma parametrica)}
 
-% \begin{definizione}
-%   Un \textbf{segmento orientato} è un segmento in cui sia stato scelto un 
-% ordine tra i due estremi ed è quindi individuato da una coppia ordinata di 
-% punti. Il primo punto è detto \textit{coda} o \textit{origine} e il secondo è 
-% detto \textit{punta}  o \textit{fine}. 
-%   Un segmento orientato, rappresentato in figura (graficamente con una 
-% freccia), è denotato dai punti di estremo: l'origine seguita dalla punta.
-% \end{definizione}
-% %%% ========================= FIGURE  ======================
-% \begin{figure}[htbp]
-% \begin{center}
-% \begin{inaccessibleblock}[Segmento orientato.]
-%  \includegraphics[scale=0.70]{img/vettore.png}
-% \end{inaccessibleblock}
-% %\caption{\small }\label{fig:???}
-% \end{center}
-% \end{figure}
-% %%% =======================================================    
+Come si definisce una retta nel piano cartesiano? Uno dei modi più semplici per definirla si basa su un approccio pratico: per disegnare una retta qualunque si segna un punto, col righello si imposta l'inclinazione e quindi si traccia la linea. Quindi una retta è definita come l'insieme di tutti i quei punti che si ottengono spostandosi da un punto fissato P\,$(x_P,y_P,z_P)$ lungo la direzione $\vect{d}\,(d_x,d_y,d_z)$. In altre parole:
+\[\vect{r} = P+t \, \vect{d} \quad \Rightarrow \quad \begin{cases}
+x = x_P+t d_x \\
+y = y_P+t d_y \\
+z = z_P+t d_z
+\end{cases}  \quad (t \in \mathbb{R})\]
+Definiamo \textbf{direzione} della retta il vettore $\vect{d}$, o un qualunque vettore ad esso parallelo.
+\[(esempio retta punto direzione)\]
+\[(esempio retta 2 punti)\]
 
-\begin{definizione}
-  Un \textbf{segmento orientato} è un segmento in cui sia stato scelto un 
-ordine tra i due estremi ed è quindi individuato da una coppia ordinata di 
-punti. Il primo punto è detto \textit{coda} o \textit{origine} e il secondo è 
-detto \textit{punta}  o \textit{fine}. 
-  Un segmento orientato, rappresentato in figura (graficamente con una 
-freccia), è denotato dai punti di estremo: l'origine seguita dalla punta.   
-\end{definizione}
-%%% ========================= FIGURE  ======================
-\begin{figure}[htbp]
-\begin{center}
-{\small
-% \includegraphics[scale=0.70]{img/vettore.png}
-\begin{inaccessibleblock}[Segmento orientato.]
-{\scalebox{.7}{\includegraphics{img/vettore}}}
-\end{inaccessibleblock}
-%\put(-132,-5){$\frac{1}{2}$}
-%\put(-42,75){$\frac{1}{2}$}
-}
-%\caption{\small }\label{fig:???}
-\end{center}
-\end{figure}
-%%% ======================================================= 
+\'E possibile definire una retta anche come intersezione di due piani. Vedremo in seguito come fare.
 
-I segmenti orientati $AB$ e $BA$ contengono lo stesso insieme di punti, ma sono 
-diversi, essendo diverso l'ordine degli estremi. Ogni punto individua un 
-segmento banale in cui origine e fine coincidono. 
-Un segmento orientato definisce tre grandezze:
+\section{Piano (forma parametrica)}
 
-\begin{description}
- \item [direzione]
- retta (o più propriamente un fascio di rette) contenente $AB$;
- \item [verso]
- $A$ precede $B$;
- \item [lunghezza]
- una volta fissata una unità di misura questa determina la lunghezza del 
-vettore. Ovviamente $AA$ ha lunghezza nulla.
-\end{description}
+Anche in questo caso non esiste un solo modo di definire un piano. Vediamo innanzitutto il modo più semplice: si costruisce un piano prendendo un punto P\,$(x_P,y_P,z_P)$ e spostandosi lungo due direzioni non parallele $\vect{a}\,(a_x,a_y,a_z)$ e $\vect{b}\,(b_x,b_y,b_z)$. Cioé:
+\[\vect{r} = P+u \vect{a}+v \vect{b} \quad \Rightarrow \quad \begin{cases}
+x = x_P+u a_x+v b_x \\
+y = y_P+u a_y+v b_y \\
+z = z_P+u a_z+v b_z
+\end{cases} \quad (u \in \mathbb{R}\;,\, v \in \mathbb{R})\]
+\[(esempio piano punto direzioni)\]
+\[(esempio piano 3 punti)\]
 
-\begin{definizione}
-  Due segmenti orientati $AB$ e $CD$ si dicono \textbf{equipollenti} se hanno 
-la stessa
-  lunghezza, la stessa direzione e lo stesso verso e si pone $AB\equiv CD$. 
-\end{definizione}
+\section{Piano (forma cartesiana)}
+Il piano può anche essere definito in un altro modo, con una definizione più tecnica. Dato un punto $P_0\,(x_0,y_0,z_0)$ e un vettore $\vect{v}\,(a,b,c)$ ad esso applicato, è possibile definire un piano come l'insieme di tutti quei punti $P\,(x,y,z)$ tali per cui il vettore $\vect{P_0P}$ sia perpendicolare al vettore $\vect{v}$. Poiché due vettori sono perpendicolari se il corrispondente prodotto scalare è nullo, possiamo scrivere:
+\[\vect{P_0P} \cdot \vect{v} =0 \quad \Rightarrow \quad (P-P_0)\cdot \vect{v}=0 \quad \Rightarrow \quad P \cdot \vect{v}-P_0\cdot \vect{v}=0\]
+Svolgendo i calcoli otteniamo:
+\[ a x+by+cz + \underbrace{(-a x_0-by_0-bz_0)}_{d}=0 \quad \Rightarrow \quad ax+by+cz+d=0\]
+Quindi un piano è rappresentato da un'equazione di primo grado in 3 variabili. Notare che i coefficienti delle 3 variabili $(a,b,c)$ determinano anche il \emph{vettore normale} (perpendicolare) al piano stesso, che definisce la \textbf{direzione} stessa del piano. 
+\[(esempio piano perpendicolare passante per)\]
+\[(esempio piano di direzione e passante per)\]
+\[(dato un piano, ricava direzione)\]
 
-La relazione di equipollenza è una relazione di equivalenza, ossia si ha che:
-\begin{enumerate}
- \item ogni segmento orientato è equipollente a se stesso 
-(\textit{riflessività});
- \item se $AB$ è equipollente a $CD$ allora anche $CD$ è
-equipollente ad $AB$ (\textit{simmetria}); 
- \item se $AB$ è equipollente ad $CD$ e $CD$ è equipollente a $EF$,
-allora anche $AB$ è equipollente a $EF$ (\textit{transitività}).
-\end{enumerate}
+\section{Retta (forma cartesiana)}
 
-Da ciò si deduce che l'insieme dei segmenti orientati è suddiviso (o meglio 
-\textit{partizionato}) in classi di equipollenza a due a due disgiunte: cioè è 
-sempre possibile stabilire se un segmento orientato appartiene o meno
-ad una determinata classe e esso appartiene solo ad una classe. La proprietà 
-appena osservata permette di definire il concetto di vettore geometrico.
+Una volta visto come si definisce un piano in forma cartesiana, è possibile vedere un secondo modo di definire una retta, in forma cartesiana, come intersezione di 2 piani non paralleli.
+\[\begin{cases}
+a_1 x+b_1y+c_1 z+d_1 = 0 \\
+a_2 x+b_2y+c_2 z+d_2 = 0
+\end{cases} \quad \text{tali che } (a_1,b_1,c_1) \text{ non// } (a_2,b_2,c_2)\]
+Da notare che il sistema non è determinato perché è costituito da 2 equazioni in 3 incognite. Il restante grado di libertà del sistema è proprio quello necessario a descrivere un insieme infinito di punti allineati, ovvero una retta.
 
-\begin{definizione}
-  Chiamiamo \textit{vettore geometrico} una classe di equipollenza di segmenti 
-orientati. 
-  L'insieme $\bS{}$ di tali classi è detto \textbf{spazio vettoriale 
-geometrico}.
-\end{definizione}
+\section{Da forma cartesiana a implicita (e viceversa)}
+Come si passa da una forma all'altra? Vediamo come fare attraverso alcuni esempi:
+\[(esempi vari)\]
 
-Mostriamo ora che $\bS{}$ è effettivamente un  $\bR{}$--spazio vettoriale. 
-Notiamo che ha senso parlare 
-di lunghezza, direzione e verso di un vettore geometrico,\footnote{D'ora in poi 
-scrivere semplicemente vettore invece che vettore geometrico.} considerando 
-quelle di uno 
-qualsiasi dei suoi rappresentanti. La classe dei segmenti orientati banali 
-definisce il vettore
-nullo $\vec 0$, inoltre due vettori si dicono opposti se hanno uguale direzione 
-e lunghezza 
-ma verso opposto e infine due vettori si dicono paralleli se hanno la stessa 
-direzione.
+\section{Posizioni reciproche tra rette e piani}
 
-Introduciamo ora le due operazioni che renderanno $\bS{}$ un $\bR{}$--spazio 
-vettoriale. 
-
+Ricordiamo innanzitutto che due rette nello spazio si possono trovare in 5 diverse configurazioni. Possono essere tra loro:
 \begin{itemize}
-  \item \textbf{Somma tra vettori.}\footnote{Metodo punta--coda o del 
-parallelogramma.} 
-  Consideriamo due vettori $\vec v$ e $\vec w$. La somma
-  $\vec v+\vec w$ si effettua seguendo i seguenti passi:
-  \begin{itemize}
-    \item[i.] si scelga un punto $A$;
-    \item[ii.] si scelgano altri due punti $B$ e $C$ in modo che $AB = \vec v$ 
-e $BC = \vec w$;
-    \item[iii.] $\vec v+\vec w := AC$, cioè definiamo la somma di $\vec v$ con 
-$\vec w$ come
-    la classe di equipollenza di segmenti orientati di rappresentante il 
-segmento orientati
-    $AC$. 
-  \end{itemize}
-  \item \textbf{Prodotto per scalari.} Siano $\vec v\in\bS{}$ e 
-$\alpha\in\bR{}$. Il vettore 
-  $\vec w: = \alpha \,\vec v$ è il vettore diretto come $\vec v$ di lunghezza 
-pari a 
-  $|\alpha|\, \|\vec v\|$ e di verso concorde a $\vec v$ se $\alpha>0$, 
-discorde se $\alpha<0$, 
-  inoltre se $\alpha = 0$, $\vec w = \vec 0$. 
+\item \textbf{Incidenti}: se si intersecano in un punto;
+\item \textbf{Coincidenti}: se sono identiche;
+\item \textbf{Parallele}: se esiste un piano che le contiene entrambe, ma non sono incidenti;
+\item \textbf{Perpendicolari}: se sono incidenti e formano tra esse 4 angoli retti;
+\item \textbf{Sghembe}: Se non sono nè parallele nè incidenti;
 \end{itemize}
-Tali operazioni soddisfano le proprietà a cui devono soddisfare l'operazione 
-interna 
-e il prodotto per scalari nel caso degli spazi vettoriali (si verifichi per 
-esercizio), 
-cioè $\bS{}$ dotato di queste due operazioni è un $\bR{}$--spazio 
-vettoriale.\\
 
-Definiamo ora cosa significa applicare un vettore ad un punto; operazione 
-fondamentale 
-in fisica. L'operazione di applicazione di un vettore ad un punto $P$ consiste 
-nello scegliere
-quel particolare segmento orientato della classe, cioè quel determinato 
-rappresentante,
-avente origine in $P$: un vettore applicato consiste quindi di una coppia 
-$(P,\vec v)$, 
-in cui $P\in\bA{3}$ e $\vec v\in \bS{}$. L'insieme dei vettori applicati ad un 
-punto prefissato $A$
-viene denotato con $\bS{}_A$ ed è dotato della struttura di $\bR{}$--spazio 
-vettoriale. 
-Un vettore applicato in un punto $A$ si può scrivere:
-\[
-  B = A+\vec v \quad \textrm{ oppure }\quad  \vec v= B-A.
-\]
-Inoltre $\bS{}_A$ è banalmente isomorfo allo spazio dei segmenti orientati con 
-origine in $A$.
-\`E ora abbastanza semplice costruire un isomorfismo tra lo spazio dei vettori 
-geometrici
-$\bS{}$ e lo spazio dei vettori applicati $\bS{A}$ in un punto fissato $A$: è 
-sufficiente
-introdurre un sistema di riferimento con origine in $A$ e applicare poi i 
-vettori all'origine.
-Così facendo si identificano i vettori $\vec v:= AP$ con le coordinate dei 
-punti di punta $P$
-\[
-  \vec v_0 \longmapsto \begin{bmatrix} x_0\\y_0\\z_0 \end{bmatrix}
-\]
-e le operazioni appena introdotto divengono operazioni tra le coordinate.
+\vspace{7pt}
 
-%%% ========================= FIGURE  ======================
-\begin{figure}[h!]
-\begin{center}
-{\small
-\begin{inaccessibleblock}[Isomorfismo.]
-{\scalebox{.7}{\includegraphics{img/isomorfismo}}}
-\end{inaccessibleblock}
-%\put(-132,-5){$\frac{1}{2}$}
-%\put(-42,75){$\frac{1}{2}$}
-}
-%\caption{\small Interpretazione geometrica del prodotto misto}%\label{fig:???}
-\end{center}
-\end{figure}
-%%% =======================================================    
+Per parlare di parallelismo e perpendicolarità tra rette o piani ci si affida semplicemente a considerazioni sui vettori direttori. 
 
-\begin{NB}
-  Si noti, però, che l'isomorfismo appena introdotto non è canonico, cioè 
-dipende dalla scelta del sistema di riferimento, mentre le operazioni tra i 
-vettori sono definite intrinsecamente! 
-La natura geometrica dei vettori permette di scegliere in ogni occasione il 
-sistema di riferimento più opportuno. 
-Questo fatto è di fondamentale importanza in meccanica, perché, assieme ai 
-principi di Newton emerge chiaramente che il sistema di riferimento (purché 
-inerziale) può essere scelto in modo arbitrario.
-\end{NB}
+\vspace{7pt}
 
-La costruzione introdotta permette di affermare che l'insieme dei vettori 
-geometrici può 
-essere dotato di una struttura affine. Ricordiamo che una delle differenze 
-fondamentali
-tra spazi vettoriali e spazi affini è che mentre in uno spazio vettoriale 
-l'origine dei sistemi
-di riferimento è necessariamente il vettore nullo, in uno spazio affine 
-l'origine può
-essere posta in qualsiasi punto.
+\textbf{\underline{Rette} :} \;La direzione di una retta, come definita in precedenza, è data semplicemente dal vettore $\vect{d}$, che può essere ricavato dalla forma parametrica della retta stessa. Per verificare dunque se 2 rette sono tra loro parallele, bisogna soltanto verificare che le due direzioni $\vect{d_1}$ e $\vect{d_2}$ siano a loro volta parallele. Per la perpendicolarità non basta invece. \'E necessario anche verificare che le rette assegnate siano incidenti.
 
-\section{Struttura euclidea dello spazio dei vettori geometrici}
-Lo spazio dei vettori geometrici, però, non solo è dotato della struttura 
-affine, 
-ma anche della struttura euclidea ereditata dalla struttura euclidea standard di
-$\bR{3}$. Siano $\vec v$ e $\vec w$ due vettori di $\bS{}$ in cui sia stato 
-introdotto 
-un sistema di riferimento, ossia sia stato fissato un punto $O$ detto \textit{
-origine} e 
-sia stati scelti tre vettori linearmente indipendenti (formanti una base di 
-$\bR{3}$).
-Siano quindi $[v_1\quad v_2\quad v_3]^T$ e $[w_1\quad w_2\quad w_3]^T$ le 
-coordinate
-di $\vec v$ e $\vec w$, rispettivamente. 
+\vspace{7pt}
 
-\begin{definizione}
-  Il prodotto scalare euclideo di $\bS{}$ è l'applicazione bilineare, 
-simmetrica 
-  e definita positiva
-  \[\begin{aligned}
-    \cdot : & \; \bS{}\times\bS{} \longrightarrow \bR{} \\
-         & \; (\vec v,\vec w) \longmapsto \vec v\cdot \vec w := v_1\,w_1 + 
-v_2\,w_2 + v_3\,w_3 
-         = \sum_{j=1}^3 v_j\,w_j
-  \end{aligned}\]
-\end{definizione}
-
-\begin{itemize}
-  \item \textbf{bilineare}: lineare in entrambe le entrate del prodotto; 
-  \item \textbf{simmetrica}: $\vec v\cdot \vec w = \vec w = \vec v$;
-  \item \textbf{definita positiva}: $\vec v\cdot \vec v \ge 0$ e l'uguaglianza 
-vale se e solo se 
-            $\vec v = \vec 0$.
-\end{itemize}
-Lo spazio dei vettori geometrici (ma più in generale lo spazio affine 
-$\bA{3}$ 3--dimensionale 
-a lui isomorfo) munito di un prodotto scalare euclideo è detto \textbf{spazio 
-euclideo} 
-3--dimensionale e si indica con $\bE{3}$.
-
-La nozione di prodotto scalare permette di introdurre una nozione di lunghezza 
-o norma 
-di un vettore, usando le coordinate:
-\[\begin{aligned}
-  \|\cdot \| &\; \bS{} \longrightarrow \bR{}_+\\
-  &\; \vec v \longmapsto := \|\vec v\| := \sqrt{\vec v\cdot \vec v}
-\end{aligned}\]
-
-\begin{proprieta}
-  \begin{itemize}
-    \item $\| \vec v \| = 0$ se e solo se $\vec v = \vec 0$;
-    \item[]
-    \item $\| \alpha\,\vec v\| = |\alpha|\, \|\vec v \|$ con $\alpha\in\bR{}$;
-    \item[]
-    \item $\| \vec v+\vec w \| \le \|\vec v\|\, \|\vec w\|$ (disuguaglianza 
-triangolare);
-    \item[]
-    \item $\| \vec v+\vec w \|^2 = \|\vec v\|^2 + 2\, \vec v\cdot \vec w + 
-\|\vec w\|^2$ (Teorema di Carnot);
-    \item[]
-    \item $\|\vec v+\vec w\|^2 + \|\vec v-\vec w\}^2 = 2\, \left(\|\vec v\|^2 
-+\|\vec w\|^2 \right)$ 
-    \item[]
-    \item $|\vec v\cdot \vec w|\le\|\vec v\|\,\|\vec w\|$ (disuguaglianza di 
-Cauchy--Schwarz).\footnote{Per esercizio dimostrare le proprietà qui 
-elencate.}
-  \end{itemize}
-\end{proprieta}
-La disuguaglianza di Cauchy--Schwarz assicura che
-\[
-  \frac{|\vec v\cdot \vec w|}{\|\vec v\|\, \|\vec w\|}\le 1,
-\]
-e ciò permette di introdurre il concetto di angolo o più precisamente 
-di coseno di un angolo non orientato:
-\[
-  \cos\theta(\vec v,\vec w) = \frac{|\vec v\cdot \vec w|}{\|\vec v\|\, \|\vec 
-w\|};
-\]
-recuperando così anche la nozione di prodotto scalare nota dalla fisica.
-La nozione di angolo consente di introdurre il concetto di ortogonalità tra 
-vettori. Precisamente 
-\begin{definizione}   
-  Due vettori $\vec v$, $\vec w$ di $\bS{}$ si diranno \textit{ortogonali} 
-  \[
-    \vec v\cdot \vec w = 0.
-  \]
-\end{definizione}  
-Inoltre, come noto dai corsi di Algebra lineare e Geometria (analitica), due 
-vettori 
-ortogonali sono linearmente indipendente, inoltre in uno spazio euclideo è 
-possibile
-definire una base ortogonale o ortonormale (in quest'ultimo caso i vettori di 
-base oltre ad
-essere a due a due ortogonali devono avere norma unitaria\footnote{Un vettore 
-di 
-norma unitaria è anche detto versore.}). Tranne in alcuni 
-casi espressamente indicati lavoreremo con basi ortogonali in $\bE{3}$, 
-denotando con
-$\{e_1,e_2,e_3\}$ o $\{c_1,c_2,c_3\}$ o $\{i,j,k\}$ e versori di base.
-\begin{esempio}
-  \textit{Verificare che i vettori $\vec v= [1\quad 0 \quad -1]^T$ e $\vec w = 
-[2\quad 0 \quad 2]^T$ sono ortogonali ma non sono versori.}
-\end{esempio}
-\begin{sol}
-  \textit{Osserviamo che $\vec v\cdot \vec w = 2+0-2 = 0$, per cui $\vec v$ e 
-$\vec w$ sono ortogonali. 
-La norma di $\vec v$ è $\|\vec v\| = \sqrt{\vec v\cdot \vec v} = \sqrt 2$,
-mentre la norma di $\vec w$ 
-è $\|\vec w\| = \sqrt{\vec w\cdot \vec w} = 2\sqrt 2$.} 
-\end{sol}
-
-Ora, dato un vettore non nullo $\vec v$ è sempre possibile costruire un 
-versore avente 
-stessa direzione e stesso verso: è sufficiente dividere il vettore originario
-per la sua norma:
-\[
-  \vec u := \frac{\vec v}{\|\vec v\|}.
-\]
-Infatti
-\[
-  \vec u\cdot \vec u = \frac{\vec v}{\|\vec v\|}\cdot \frac{\vec v}{\|\vec v\|} 
-  = \frac{1}{\|\vec v\|^2}\, \vec v\cdot \vec v = \frac{\|\vec v\|^2}{\|\vec 
-v\|^2} = 1.
-\]
-\begin{esempio}
-  \textit{Con riferimento all'esempio precedente normalizzare i vettori $\vec 
-v$ e $\vec w$
-  e completarli ad una base ortonormale di $\bE{3}$.}
-\end{esempio}
-\begin{sol}
-  Poniamo
-  \[
-  \vec b_1 = \frac{\vec v}{\|\vec v\|} = \frac{\sqrt 2}{2} \begin{bmatrix} 
-1\\0\\-1 \end{bmatrix}
-  \textrm{ e } 
-  \vec b_2 \frac{\vec w}{\|\vec w\|} = \frac{\sqrt 2}{8} \begin{bmatrix} 
-2\\0\\2 \end{bmatrix}\]
-  
-  che sono ortonormali. Per completare $b_1$ e $b_2$ ad una base ortonormale di 
-  $\bE{3}$ è sufficiente aggiungere il vettore $e_2$.
-  
-  In caso non ci si accorgesse di tale fatto, bisognerebbe scrivere un qualche 
-vettore 
-  linearmente indipendente da $\vec b_1$ e $\vec b_2$ e poi applicargli la 
-procedura 
-  di ortonormalizzazione di Gram--Smith  per la quale si rimanda ad un libro di 
-  Algebra Lineare e Geometria.
-\end{sol}
-
-\section{Prodotto vettoriale e prodotto misto}
-Nello spazio euclideo \textbf{3--dimensionale} $\bE{3}$ oltre al prodotto 
-scalare
-rimane definito il prodotto  vettoriale di due vettori
-\[\begin{aligned}
-  \cdot \times \cdot : & \quad \bE{3}\times\bE{3} \longrightarrow \bE{3} \\
-     & \quad (\vec v,\vec w) \longmapsto \vec v\times\vec w:=
-     \begin{bmatrix} 
-        v_2\,w_3 - v_3\,w_2 \\
-        v_3\,w_1 - v_1\,w_3 \\
-        v_1\,w_1-v_2\,w_1
-     \end{bmatrix}
-\end{aligned}\]     
-in cui $\vec v = [v_1\quad v_2\quad v_3]^T$ e $\vec w = [w_1\quad w_2 \quad 
-w_3]^T$.
-
-Una formula utile per l'espressione del prodotto vettoriale consiste nel porre 
-i vettori
-$\vec v$ e $\vec w$, nell'ordine assegnato, come seconda e terza riga di una 
-matrice
-e come prima riga porre i vettori della base canonica:
-\[\begin{bmatrix}
-  i& j & k\\
-  v_1 & v_2 & v_3\\
-  w_1 & w_2 &w_3
-\end{bmatrix}\]
-e poi sviluppare come un determinante ma \textbf{esclusivamente rispetto alla
-prima riga}, ottenendo
-\[\begin{bmatrix}
-    i& j & k\\
-    v_1 & v_2 & v_3\\
-    w_1 & w_2 &w_3
-  \end{bmatrix} = 
-  \begin{bmatrix} 
-        v_2\,w_3 - v_3\,w_2 \\
-        v_3\,w_1 - v_1\,w_3 \\
-        v_1\,w_1-v_2\,w_1
-  \end{bmatrix}
-\]
-\begin{proprieta}
-  \begin{itemize}
-    \item $\vec v\times \vec w = - \vec w\times \vec v$;
-    \item $(\vec v+\vec u)\times \vec w = \vec v\times \vec w + \vec 
-u\times\vec w$;
-    \item $(\lambda\, \vec v)\times \vec w = 
-              \lambda (\vec v\times \vec w) = \vec v\times(\lambda\, \vec w)$, 
-$\lambda\in\bR{}$;
-    \item $\vec v\times \vec w = 0$ se e solo se $\vec v$ e $\vec w$ sono 
-proporzionali;
-    \item $\vec v\times \vec w \cdot \vec v = 0$;
-    \item $\|\vec v\times\vec w\|^2 = \|\vec v\|^2+\|\vec w\|^2 - (\vec 
-v\cdot\vec w)^2$ 
-              (identità di Lagrange).
-  \end{itemize}
-\end{proprieta}
-Dall'identità di Lagrange si ricava che $\|\vec v\times w\ = \vec v\|\;\|\vec 
-w\| \sin\theta$, con
-$\theta$ angolo convesso tra $\vec v$ e $\vec w$ e cioè che la norma di un 
-prodotto vettore rappresenta l'area del parallelogramma di lati $\vec v$ e 
-$\vec w$. Dalla penutima proprietà
-si ricava che $\vec v\times \vec w$ è perpendicolare al piano generato da 
-$\vec v$ e $\vec w$
-e quindi che la terna $\{\vec v,\vec w,\vec v\times\vec w\}$ forma una base di 
-$\bE{3}$.
-Dalla prima proprietà si ricava che il prodotto vettoriale non è 
-un'operazione commutativa.\\
-
-Da ultimo introduciamo due ultime operazione legate al prodotto vettoriale: il 
-prodotto misto
-e il doppio prodotto vettore.
-
-%%% ========================= FIGURE  ======================
-\begin{figure}[h!]
-\begin{center}
-{\small
-\begin{inaccessibleblock}[TODO.]
-{\scalebox{.7}{\includegraphics{img/prodotto_misto}}}
-%\put(-132,-5){$\frac{1}{2}$}
-%\put(-42,75){$\frac{1}{2}$}
-\end{inaccessibleblock}
-}
-\caption{\small Interpretazione geometrica del prodotto misto}%\label{fig:???}
-\end{center}
-\end{figure}
-%%% =======================================================    
-
-\subsection*{Prodotto misto}
-In uno spazio euclideo 3--dimensionale è definito il prodotto misto ossia un 
-prodotto che
-coinvolge un prodotto vettoriale e un prodotto misto. Dati tre vettori di $\vec 
-v,\vec w\vec z$ 
-in $\bE{3}$:
-\[
-  \vec v\cdot \vec w\times\vec z = \det[\textrm{Col}(\vec v,\vec w, \vec z)]
-\]
-in cui $\textrm{Col}(\ldots)$ indica la matrice delle colonne dei vettori 
-indicati tra parentesi.
-Dall'interpretazione geometrica del prodotto vettoriale e del prodotto scalare 
-si 
-evince che il $\vec v\cdot \vec w\times\vec z$ sia il volume con segno del 
-parallelepipedo di 
-spigoli $\vec v,\vec w, \vec z$.
-
-Il prodotto misto, permette quindi di introdurre il concetto di base orientata. 
-Una base di 
-$\bE{3}$ si dirà equiorientata con la base canonica se la sua forma volume 
-associata 
-è positiva. Si osservi che per le proprietà del determinante, al variare 
-dell'ordine 
-degli elementi della base varierà anche l'orientazione della stessa.
-
-
-%\end{document}
-
-%\subsection*{Doppio prodotto vettore}
-
-
-\section{Rudimenti di Teoria delle curve nello spazio}
-Un modo ``semplice'' e naturale per pensare ad una curva consiste 
-nell'interpretarla 
-come quello strumento che descrive il moto di una particella (o punto 
-materiale): 
-ad un dato istante $t_1$ la particella si trova nel punto dello spazio 
-individuato dalle
-coordinate $(x(t_1),y(t_1),z(t_1))$. \`E importante osservare fin da subito che 
-l'interesse
-non è volto solamente alla traiettoria descritta dalle particelle, ma anche 
-alle proprietà
-di questa, ad esempio da \textit{come} la traiettoria viene percorsa. 
-
-%%% ========================= FIGURE  ======================
-\begin{figure}[h!]
-\begin{center}
-{\small
-\begin{inaccessibleblock}[TODO.]
-{\scalebox{.5}{\includegraphics{img/curva}}}
-%\put(-132,-5){$\frac{1}{2}$}
-%\put(-42,75){$\frac{1}{2}$}
-\end{inaccessibleblock}
-}
-%\caption{\small INTERPRETAZIONE GEOMETRICA DEL PRODOTTO MISTO}\label{fig:???}
-\end{center}
-\end{figure}
-%%% =======================================================      
-\begin{definizione}
-  Una \textbf{curva parametrica} in $\bR{n}$ con $n\le 3$\footnote{Pensato come 
-spazio affine su se stesso.} 
-  è una funzione differenziabile 
-  \[\begin{aligned}
-    \gamma: & \; ]a,b[ \longrightarrow \bR{n}\\
-    &\;  t\longmapsto \gamma(t):=(x(t),y(t),z(t))
-  \end{aligned}\]
-\end{definizione}
-Una curva quindi è individuata da una funzione di un aperto di $\bR{}$ in 
-$\bR{n}$.
-Dire che $\gamma$ è differenziabile per noi significherà che $\gamma$ 
-ammette 
-un numero sufficiente di derivate. Inoltre nel caso di funzioni a valori 
-vettoriali, 
-la derivazione si effettua per componenti, cioè guardando le singole 
-componenti 
-della funzione come funzioni di variabile reale.
-\begin{esempio}
-  Si consideri la curva cartesiana\footnote{Una curva è detta cartesiana se si 
-può porre 
-  nella forma $\gamma(x) = (x,f(s))$ con $f(x)$ funzione di una variabile.}
-  \[\begin{aligned}
-    \gamma: & \; ]a,b[ \longrightarrow \bR{2}\\
-    &\;  t\longmapsto \gamma(t):= (t,t^2)
-  \end{aligned}\]
-%%% ========================= FIGURE  ======================
-\begin{figure}[h!]
-\begin{center}
-{\small
-\begin{inaccessibleblock}[TODO.]
-{\scalebox{.7}{\includegraphics{img/parabola}}}
-%\put(-132,-5){$\frac{1}{2}$}
-%\put(-42,75){$\frac{1}{2}$}
-\end{inaccessibleblock}
-}
-%\caption{\small INTERPRETAZIONE GEOMETRICA DEL PRODOTTO MISTO}\label{fig:???}
-\end{center}
-\end{figure}
-%%% =======================================================        
-  Ora  
-  \[
-    \dot\gamma(t) = \frac{d}{dt}\, \gamma(t) = \frac{d}{dt}\, (t,t^2) = 
-\left(\frac{dt}{dt},\frac{dt^2}{dt}\right)
-    = \left(1,2t\right). 
-  \]
-  $\dot\gamma$ è quindi un vettore in $\bR{2}$. $\dot \gamma(t)|_{t=0} = 
-(1,0)$ è un vettore
-  tangente alla curva nel punto in cui esso è calcolato. Così 
-$\dot\gamma(1) = (1,2)$ 
-  è un vettore applicato a $\gamma(1) = (1,1)$ e tangente a $\gamma$.   
-\end{esempio}
-
-$\dot\gamma(t)$ è un vettore tangente alla curva $\gamma$ nel punto 
-$\gamma(t)$: 
-per tale ragione è detto \textbf{vettore velocità}. La norma 
-$\|\dot\gamma(t)\|$ di 
-$\dot\gamma(t)$ è  detta \textbf{velocità} della curva. Si noti, come 
-evidente anche 
-dall'esempio precedente, che generalmente la velocità di una curva varia da 
-punto a punto.
-(Ciò dovrebbe essere immediato se si pensa ad una curva come ad una 
-traiettoria
-di un moto, infatti in generale un moto non avviene con velocità costante, 
-non è 
-cioè uniforme, ma ci sono frenate, accelerazioni, etc.)
-
-\begin{esempio}
-  Si consideri la curva
-  \[\begin{aligned}
-    \gamma: & \; ]a,b[ \longrightarrow \bR{3}\\
-    &\;  t\longmapsto \gamma(t):= (3t^2,2t,1+e^t)
-  \end{aligned}\]  
-  $\dot\gamma(t) = (6t,2,e^t)$ e $\|\dot\gamma\| = 35t^2+e^{2t}+4$.
-  Cioè la curva $\gamma$ ha velocità che varia da punto a punto.
-\end{esempio}
-Una curva in cui $\|\dot\gamma(t)\}\ne0$ per ogni $t\in]a,b[$ è detta \textbf{
-regolare}.\\
-Per le curve regolari è possibile misurare la lunghezza della curva stessa 
-abbastanza
-semplicemente:
-\[
-  L[\gamma|^d_c] = \int_c^d \|\gamma(\xi)\| \, d\xi
-\]
-Il significato geometrico di tale formula è abbastanza intuitivo: data una 
-curva $\gamma$,
-si consideri una suddivisione $\{c=t_0,t_1,\ldots,t_{n-1},t_n=d\}$ 
-dell'intervallo $[c,d]$ nel quale si vuole calcolare la lunghezza 
-di $\gamma$. Ciò permette di definire una spezzata $s(t)$ con i vertici tutti 
-in $\gamma$
-la cui lunghezza sarà
-\[
-  L[s|_c^d] = \sum_{i=1}^n \| \gamma(t_i)-\gamma(t_{i-1}) \|
-\]
-%%% ========================= FIGURE  ======================
-\begin{figure}[h!]
-\begin{center}
-{\small
-\begin{inaccessibleblock}[TODO.]
-{\scalebox{.7}{\includegraphics{img/rettificazione}}}
-%\put(-132,-5){$\frac{1}{2}$}
-%\put(-42,75){$\frac{1}{2}$}
-\end{inaccessibleblock}
-}
-\caption{\small Rettificazione di una curva}\label{fig:???}
-\end{center}
-\end{figure}
-%%% =======================================================   
-La spezzata $s(t)$ può essere pensata come un'approssimazione di $\gamma$, 
-quindi 
-raffinando la suddivisione, al limite per $i\longrightarrow +\infty$ i segmenti 
-$\gamma(t_i)-\gamma(t_{i-1})$ si confonderanno con i vettori tangenti a 
-$\gamma$, 
-fornendo così la lunghezza di $\gamma$.
-
-\begin{esempio}
-  \textit{Si determini la velocità di una curva cartesiana $\gamma(t) = 
-(t,f(t))$, con $f(t)$
-  funzione reale di variabile reale.}
-\end{esempio}
-\begin{sol}
-  Il vettore velocità di $\gamma$ è $\dot \gamma(t) = \left(1, 
-\frac{df(t)}{dt}\right)$. Da cui
-  \[
-    \|\dot\gamma(t) \| =\sqrt{1+\left(\frac{df(t)}{dt}\right)^2}
-  \]
-\end{sol}
-
-\begin{esempio}
-  Si consideri 
-  \[\begin{aligned}
-    \gamma: & \; ]a,b[ \longrightarrow \bR{2}\\
-    &\;  \theta\longmapsto \gamma(\theta):= (\cos\theta,\sin\theta)
-  \end{aligned}\]
-  cerchio unitario di centro l'origine. Calcoliamone la lunghezza.
-  \[
-    L[\gamma] = \int_0^{2\pi} \|\dot\gamma(\theta)\|\, d\theta = \int_0^{2\pi} 
-d\theta = 2\pi
-  \]
-  essendo $\dot\gamma(\theta) = (-\sin\theta,\cos\theta)$ e quindi 
-$\|\dot\gamma(\theta)\|=1$.
-\end{esempio}
-
-\begin{exercise}
-  \textit{Si determini la velocità di una curva parametrizzata in coordinate 
-polari, 
-  $x(t)= \rho(t)\cos\theta(t)$, $y(t)= \rho(t)\sin\theta(t)$, con 
-$(\rho,\theta)\in \bR{*}_+\times]0,2\pi[$.}
-\end{exercise}
-
-Si osservi che differenti curve possono avere la medesima traccia e viceversa. 
-Per studiare ciò, ma in generale anche da un punto di vista meccanico, è 
-utile considerare riparametrizzazioni di curve. 
-\begin{definizione}
-  Sia $\gamma:]a,b[\longrightarrow \bR{3}$ una curva parametrica e sia 
-  $\phi:]a,b[ \longrightarrow]c,d[$ una funzione continua, invertibile con 
-  inversa continua\footnote{Cioè $\phi$ sia un omeomorfismo.} La funzione
-  $\delta: ]c,d[\longrightarrow\bR{3}$ è una \textbf{riparametrizzazione} di 
-$\gamma$
-  (e viceversa) se 
-  \[
-    \gamma = \delta\circ\phi
-  \]     
-\end{definizione}
-%%% ========================= FIGURE  ======================
-\begin{figure}[h!]
-\begin{center}
-{\small
-\begin{inaccessibleblock}[TODO.]
-{\scalebox{.55}{\includegraphics{img/riparametrizzazione}}}
-%\put(-132,-5){$\frac{1}{2}$}
-%\put(-42,75){$\frac{1}{2}$}
-\end{inaccessibleblock}
-}
-%\caption{\small INTERPRETAZIONE GEOMETRICA DEL PRODOTTO MISTO}\label{fig:???}
-\end{center}
-\end{figure}
-%%% ======================================================= 
-  
-\begin{esempio}
-  Si considerino le curve $\gamma: \;t\in]0,2\pi[\longrightarrow (\cos t,\sin 
-t)\in\bR{2}$ 
-  e $\delta:\;\tau\in ]0,\pi[\longrightarrow (\cos2\tau,\sin2\tau)\in\bR{2}$. 
-La traccia di entrambe le curve è una circonferenza di raggio 1 e centro 
-l'origine. 
-La differenza tra le due curve consiste nella velocità di percorrenza, infatti 
-$\|\dot\gamma\|=1$ e $\|\dot \delta\|=2$: $\delta$ percorre il supporto a 
-velocità doppia di $\gamma$.
-  Si noti che entrambe le curve sono percorse con velocità uniforme, pertanto 
-è semplice immaginare che le due curve siano una riparametrizzazione una 
-dell'altra.
-  La funzione $\phi:]0,\pi[\ni t \longrightarrow ]0,\pi/2[\ni \tau:=t/2$.
-\end{esempio}
-
-% \end{comment}
-
-% \newpage
-% 
-% {\small
-% \begin{thebibliography}{99}
-% 
-% \bibitem[Candilera]{C} M. Candilera, \textit{Dispensa di Geometria.} Reperibile 
-% alla pagina web 
-% http://www.math.unipd.it/~candiler/mat\_tre.html
-% 
-% \bibitem[Cornalba]{Cor} M. Cornalba \textit{Piccola introduzione alla geometria 
-% proiettiva.}
-% Reperibile alla pagina web \\
-% http://mate.unipv.it/cornalba/dispense/proj.pdf
-% 
-% \bibitem[Sernesi]{Ser} E. Sernesi, \textit{Geometria 1.} Bollati Boringhieri.
-% 
-% \bibitem[Spera--1]{Sp1} M. Spera, \textit{Note di Elementi di Geometria.} Non 
-% pubblicate.
-% 
-% \bibitem[Spera--2]{Sp2} M. Spera, \textit{Note del Corso di Geometria.} 
-% Libreria Progetto.
-% 
-% \bibitem[Spera--3]{Sp3} M. Spera, \textit{Note di Geometria Computazionale.} 
-% Non pubblicate.
-% 
-% \bibitem[Spera--4]{Sp4} M. Spera, \textit{Comunicazioni private.}
-% 
-% 
-% \end{thebibliography}
-% }
-
-
-% \end{document}
-
-% \section*{Appendice}
-% 
-% \begin{center}\textcolor[rgb]{0.50,0.20,0.50}\textbf{MONA.} \end{center}
-% 
-% \textcolor{blue}{\begin{NB}
-%   MINNI
-% \end{NB}}
-% 
-% \begin{comment}  
-%   \begin{itemize}
-%   \item \textit{{\small PIPPO 
-%   \item PLUTO}}
-%   \end{itemize}
-% \end{comment}
-% 
-% 
-% %\begin{exercise}
-%   
-% %\end{exercise}
-% 
-% 
-% 
-% \end{document} 
-% 
-% %%% ========================= FIGURE  ======================
-% \begin{figure}[h!]
-% \begin{center}
-% {\small
-% \begin{inaccessibleblock}[TODO.]
-% {\scalebox{1.}{\includegraphics{img/homotopy2}}}
-% \put(-132,-5){$\frac{1}{2}$}
-% \put(-42,75){$\frac{1}{2}$}
-% }
-% \end{inaccessibleblock}
-% \caption{\small }\label{fig:quadrato2}
-% \end{center}
-% \end{figure}
-% %%% =======================================================  
-% 
-% 
-% \noindent
-% \textbf{N.B.}\\
-% Il simbolo $\blacksmiley$ denota esercizi giudicati \textcolor{red}\textbf{
-% difficile}.
-% 
-% \section{I primi teoremi}
-% \label{sec:3D_teoremi}
-% 
-% \section{...}
-% \label{sec:3D_...}
-
-
+\textbf{\underline{Piani} :} \; La direzione di un piano è data dal corrispondente vettore normale $\vect{n}$. Anche qui dunque non si deve far altro che basarsi sulla nozione stessa di parallelismo/perpendicolarità tra i vettori $\vect{n_1}$ e $\vect{n_2}$ dei due piani.
