@@ -1,3 +1,8 @@
+\newcommand{\vettcol}[3]{\begin{pmatrix}
+#1\\ #2\\ #3
+\end{pmatrix}}
+
+
 \chapter{Geometria cartesiana dello spazio}
 
 \section{Punti e vettori}
@@ -12,60 +17,115 @@ Il piano cartesiano è formato da 3 assi tra loro perpendicolari, che indicano l
 \vspace{7pt}
 
 Dato un insieme di punti distinti, è possibile innanzitutto calcolarne le rispettive distanze. La formula per calcolare la \textbf{distanza tra 2 punti} non è altro che una generalizzazione del teorema di Pitagora, ovvero:
-\[\overline{\text{AB}} = \sqrt{(x_A-x_B)^2+(y_A-y_B)^2+(z_A-z_B)^2}\]
-Un'oggetto interessante, che ci permetterà poi di ricavare l'equazione di una retta e di un piano, è il vettore. Chiamiamo \textbf{vettore} una freccia che connette due punti. In genere, dati 2 punti A e B, indichiamo con $\vect{\text{AB}}$ il vettore che congiunge A con B, ovvero la freccia che parte da A e arriva a B, con la punta rivolta verso B. Chiamiamo \emph{coda} il punto A e \emph{punta} il punto B. Spesso si associa ad un vettore lo spostamento di un oggetto. Si può pensare per esempio che il punto B sia dato dallo spostamento di A lungo la freccia $\vect{\text{AB}}$. Ovvero:
+\[\overline{AB} = \sqrt{(x_A-x_B)^2+(y_A-y_B)^2+(z_A-z_B)^2}\]
+Un'oggetto interessante, che ci permetterà poi di ricavare l'equazione di una retta e di un piano, è il vettore. Chiamiamo \textbf{vettore} una freccia che connette due punti. In genere, dati 2 punti A e B, indichiamo con $\vect{\text{AB}}$ il vettore che congiunge A con B, ovvero la freccia che parte da A e arriva a B, con la punta rivolta verso B. Chiamiamo \emph{coda} e \emph{punta} rispettivamente i punti A e B. 
+
+\vspace{7pt}
+
+Spesso si pensa un vettore come lo spostamento di un oggetto. Si può pensare per esempio che il punto B sia dato dallo spostamento di A lungo la freccia $\vect{\text{AB}}$. Ovvero:
 \[\text{B} = \text{A}+\vect{\text{AB}} \quad \Rightarrow \quad \vect{\text{AB}} = \text{B}-\text{A}\]
 Quindi per "costruire" un vettore di coda A e punta B è sufficiente calcolare la differenza tra le coordinate dei punti.
-\[(esempio)\]
+\begin{esempio}
+\emph{Calcola il vettore $\vect{CF}$, dove $C\,(4,-2)$ e $F \, (-6,1)$}
+\[\vect{CF} = F-C = (-6,1)-(4,-2) = (-10,3)\]
+\end{esempio}
+
 Notiamo che due vettori con stessa direzione e stesso verso (ovvero sovrapponibili mediante traslazione) sono indistinguibili:
-\[(esempio del vettore A(0,0) B(2,4) e del vettore C(6,0) D(8,4)\]
+\begin{esempio}
+\emph{Calcola i vettori $\vect{AB}$ e $\vect{CD}$, dove $A\,(0,0)$, $B \, (3,5)$, $C \, (4,0)$ e $D \, (7,5)$}
+\[\vect{AB} = (3,5)-(0,0) = (3,5) \qquad;\qquad \vect{CD} = (7,5)-(4,0) = (3,5)\]
+\end{esempio}
 Questa proprietà è detta \textbf{equipollenza}. Due vettori sono equipollenti se hanno stessa direzione e verso. Tale proprietà ci permette di pensare un vettore applicato in un qualunque punto (ovvero con la coda posizionata in tale punto) ed in particolare possiamo sempre pensarlo applicato nell'origine.
 
 \section{Operazioni con i vettori}
 
-Bla bla bla bla (componenti, somma, differenza, prodotto per uno scalare, opposto, vettore nullo, prodotto scalare e vettoriale)
-
-Due vettori $ \vect{a} = (a_x,a_y,a_z) \;,\; \vect{b} = (b_x,b_y,b_z)$ sono paralleli se il rapporto tra i rispettivi coefficienti è sempre lo uguale (nel caso in cui una coordinata del primo vettore sia nulla, dev'esserlo anche nel secondo vettore). In formule:
+Per le principali operazioni tra vettori rimandiamo al relativo capitolo del libro 3. Richiamiamo qui invece le definizioni di parallelismo e perpendicolarità:
+\begin{itemize}
+ \item Due vettori $ \vect{a} = (a_x,a_y,a_z) \;,\; \vect{b} = (b_x,b_y,b_z)$ sono \textbf{paralleli} se il rapporto tra i rispettivi coefficienti è sempre lo uguale (nel caso in cui una coordinata del primo vettore sia nulla, dev'esserlo anche nel secondo vettore). In formule:
 \[\vect{a} \parallel \vect{b} \quad (a_j\,, b_j \neq 0) \quad \Longleftrightarrow \quad \frac{a_x}{b_x} = \frac{a_y}{b_y} = \frac{a_z}{b_z}\]
-\[esempi\]
-Due vettori sono perpendicolari se il corrispondente prodotto scalare è zero. In formule scriviamo:
-\[ \vect{a} \perp \vect{b} \quad \Longleftrightarrow\quad \vect{a} \times \vect{b} = 0 \quad \text{ovvero:} \quad a_xb_x+a_yb_y+a_zb_z=0\]
-\[esempi\]
+\item Due vettori sono \textbf{perpendicolari} se il corrispondente prodotto scalare è nullo. In formule:
+\[ \vect{a} \perp \vect{b} \quad \Longleftrightarrow\quad \vect{a} \cdot \vect{b} = 0 \quad \text{ovvero:} \quad a_xb_x+a_yb_y+a_zb_z=0\]
+\end{itemize}
+\begin{esempio}
+ \emph{Riconoscere quali vettori sono tra loro paralleli e quali perpendicolari:}
+ \[\vect{a} = (5,2,1) \quad;\quad \vect{b} = (2,-3,-4) \quad;\quad \vect{c} = (1,-2,-1)  \quad;\quad \vect{d} = (10,4,2)\]
+ Prendiamo i primi due vettori: $\vect{a}$ e $\vect{b}$. Verifichiamo se sono paralleli:
+ \[\frac{5}{2} \neq \frac{2}{-3} \neq \frac{1}{-4} \qquad \Rightarrow \qquad \text{Non sono paralleli}\]
+ Controlliamo ora se sono perpendicolari:
+ \[\vect{a} \cdot \vect{b} = (5,2,1)\times (2,-3,-4) = 5\cdot 2+2\cdot (-3)+1 \cdot (-4) = 10-6-4=0\]
+ Quindi $\vect{a}$ e $\vect{b}$ sono tra loro perpendicolari. \'E facile vedere ora che $\vect{d}$ è parallelo ad $\vect{a}$ e che $\vect{c}$ è perpendicolare a $\vect{a}$ ma non parallelo a $\vect{b}$.
+\end{esempio}
+
 
 \section{Retta (forma parametrica)}
 
-Come si definisce una retta nel piano cartesiano? Uno dei modi più semplici per definirla si basa su un approccio pratico: per disegnare una retta qualunque si segna un punto, col righello si imposta l'inclinazione e quindi si traccia la linea. Quindi una retta è definita come l'insieme di tutti i quei punti che si ottengono spostandosi da un punto fissato P\,$(x_P,y_P,z_P)$ lungo la direzione $\vect{d}\,(d_x,d_y,d_z)$. In altre parole:
-\[\vect{r} = P+t \, \vect{d} \quad \Rightarrow \quad \begin{cases}
+Come si definisce una retta nel piano cartesiano? Ci sono vari metodi, più o meno complicati. Uno dei modi più semplici per definirla si basa su un approccio pratico: per disegnare una qualunque retta si segna un punto, col righello si imposta l'inclinazione e quindi si traccia la linea. Quindi una retta è definita come l'insieme di tutti i quei punti che si ottengono spostandosi da un punto fissato P\,$(x_P,y_P,z_P)$ lungo la direzione $\vect{d}\,(d_x,d_y,d_z)$. In altre parole:
+\[\boxed{\vect{r} = P+t \, \vect{d}} \quad \Rightarrow \quad \begin{cases}
 x = x_P+t d_x \\
 y = y_P+t d_y \\
 z = z_P+t d_z
 \end{cases}  \quad (t \in \mathbb{R})\]
-Definiamo \textbf{direzione} della retta il vettore $\vect{d}$, o un qualunque vettore ad esso parallelo.
-\[(esempio retta punto direzione)\]
-\[(esempio retta 2 punti)\]
-
-\'E possibile definire una retta anche come intersezione di due piani. Vedremo in seguito come fare.
+\begin{esempio}
+\emph{Determina la retta passante per $P\,(4,-2,1)$, avente direzione $\vect{d} \,(-1,3,5)$}
+\[\vettcol{x}{y}{z} = \vettcol{4}{-2}{1}+t \vettcol{-1}{3}{5} \qquad \longrightarrow \qquad\begin{cases}
+x = 4-t \\
+y = -2+3t \\
+z = 1+5t
+\end{cases}\]
+\end{esempio}
+\begin{esempio}
+ \emph{Determina la retta passante per i punti $A\,(3,5,2)$ e $B\,(1,5,4)$}\\[5pt]
+ Innanzitutto calcoliamo la direzione della retta, come vettore $\vect{AB}$:
+\[\vect{AB} = B-A = (1,5,4)-(3,5,2) = (-2,0,2)\]
+Ora che abbiamo la direzione e un punto di passaggio (scegliamo A), calcoliamo:
+\[\vettcol{x}{y}{z} = \vettcol{3}{5}{2}+t \vettcol{-2}{0}{2} \qquad \longrightarrow \qquad\begin{cases}
+x = 3-2t \\
+y = 5 \\
+z = 2+2t
+\end{cases}\]
+\end{esempio}
 
 \section{Piano (forma parametrica)}
 
 Anche in questo caso non esiste un solo modo di definire un piano. Vediamo innanzitutto il modo più semplice: si costruisce un piano prendendo un punto P\,$(x_P,y_P,z_P)$ e spostandosi lungo due direzioni non parallele $\vect{a}\,(a_x,a_y,a_z)$ e $\vect{b}\,(b_x,b_y,b_z)$. Cioé:
-\[\vect{r} = P+u \vect{a}+v \vect{b} \quad \Rightarrow \quad \begin{cases}
+\[\boxed{\vect{r} = P+u \vect{a}+v \vect{b}} \quad \Rightarrow \quad \begin{cases}
 x = x_P+u a_x+v b_x \\
 y = y_P+u a_y+v b_y \\
 z = z_P+u a_z+v b_z
 \end{cases} \quad (u \in \mathbb{R}\;,\, v \in \mathbb{R})\]
-\[(esempio piano punto direzioni)\]
-\[(esempio piano 3 punti)\]
+\begin{esempio}
+\emph{Determina il piano passante per $P\,(1,4,3)$, determinato dai vettori $\vect{a} \,(1,3,6)$ e $\vect{b} \, (-3,-2,0)$}
+\[\vettcol{x}{y}{z} = \vettcol{1}{4}{3}+u \vettcol{1}{3}{6}+v \vettcol{-3}{-2}{0} \qquad \longrightarrow \qquad\begin{cases}
+x = 1+u-3v \\
+y = 4+3u-2v \\
+z = 3+6u
+\end{cases}\]
+\end{esempio}
+\begin{esempio}
+\emph{Determina il piano passante per i punti $A\,(1,2,7)$, $B\,(4,2,2)$} e $C\,(5,-4,-1)$\\[5pt]
+ Innanzitutto calcoliamo i vettori generatori del piano, scegliendo per esempio $\vect{AB}$ e $\vect{AC}$:
+\[\vect{AB} = (4,2,2)-(1,2,7) = (3,0,-5) \qquad, \qquad \vect{AC} = (5,-4,-1)-(1,2,7) = (4,-6,-8) \]
+Ora che abbiamo i vettori generatori e un punto di passaggio (scegliamo A, visto che è il punto da cui ``partono`` i due vettori ricavati), calcoliamo:
+\[\vettcol{x}{y}{z} = \vettcol{1}{2}{7}+u \vettcol{3}{0}{-5}+v \vettcol{4}{-6}{-8} \qquad \longrightarrow \qquad\begin{cases}
+x = 1+3u+4v \\
+y = 2-6v \\
+z = 7-5u-8v
+\end{cases}\]
+\end{esempio}
 
 \section{Piano (forma cartesiana)}
 Il piano può anche essere definito in un altro modo, con una definizione più tecnica. Dato un punto $P_0\,(x_0,y_0,z_0)$ e un vettore $\vect{v}\,(a,b,c)$ ad esso applicato, è possibile definire un piano come l'insieme di tutti quei punti $P\,(x,y,z)$ tali per cui il vettore $\vect{P_0P}$ sia perpendicolare al vettore $\vect{v}$. Poiché due vettori sono perpendicolari se il corrispondente prodotto scalare è nullo, possiamo scrivere:
 \[\vect{P_0P} \cdot \vect{v} =0 \quad \Rightarrow \quad (P-P_0)\cdot \vect{v}=0 \quad \Rightarrow \quad P \cdot \vect{v}-P_0\cdot \vect{v}=0\]
 Svolgendo i calcoli otteniamo:
-\[ a x+by+cz + \underbrace{(-a x_0-by_0-bz_0)}_{d}=0 \quad \Rightarrow \quad ax+by+cz+d=0\]
+\[ a x+by+cz + \underbrace{(-a x_0-by_0-bz_0)}_{d}=0 \quad \Rightarrow \quad \boxed{ax+by+cz+d=0}\]
 Quindi un piano è rappresentato da un'equazione di primo grado in 3 variabili. Notare che i coefficienti delle 3 variabili $(a,b,c)$ determinano anche il \emph{vettore normale} (perpendicolare) al piano stesso, che definisce la \textbf{direzione} stessa del piano. 
-\[(esempio piano perpendicolare passante per)\]
-\[(esempio piano di direzione e passante per)\]
-\[(dato un piano, ricava direzione)\]
+\begin{esempio}
+ \emph{Determina l'equazione del piano perpendicolare al vettore $\vect{d} \, (4,2,1)$ e passante per il punto $P\, (5,6,9)$}\\[5pt]
+Poiché il vettore ortogonale al piano ci dà i coefficienti delle 3 variabili abbiamo già una struttura per il nostro piano: \(4x+2y+z +d=0\)\\[3pt]
+Rimane da calcolare il valore del parametro $d$, che possiamo ricavare semplicemente imponendo il passaggio per il punto $P$, ovvero sostituendo le coordinate del punto:
+\[4x+2y+z+d=0 \quad \longrightarrow \quad 4 (5)+2 (6)+(9)+d=0 \quad \rightarrow d = -41\]
+E quindi l'equazione della retta è data da \(4x+2y+z-41=0\)
+\end{esempio}
 
 \section{Retta (forma cartesiana)}
 
@@ -73,7 +133,7 @@ Una volta visto come si definisce un piano in forma cartesiana, è possibile ved
 \[\begin{cases}
 a_1 x+b_1y+c_1 z+d_1 = 0 \\
 a_2 x+b_2y+c_2 z+d_2 = 0
-\end{cases} \quad \text{tali che } (a_1,b_1,c_1) \text{ non// } (a_2,b_2,c_2)\]
+\end{cases} \quad \text{tali che } (a_1,b_1,c_1) \;\; \cancel{\parallel}\;\; (a_2,b_2,c_2)\]
 Da notare che il sistema non è determinato perché è costituito da 2 equazioni in 3 incognite. Il restante grado di libertà del sistema è proprio quello necessario a descrivere un insieme infinito di punti allineati, ovvero una retta.
 
 \section{Da forma cartesiana a implicita (e viceversa)}
