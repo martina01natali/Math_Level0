@@ -1,3 +1,5 @@
+% Created by Rigo Diego
+
 \newcommand{\vettcol}[3]{\begin{pmatrix}
 #1\\ #2\\ #3
 \end{pmatrix}}
@@ -66,6 +68,7 @@ y = y_P+t d_y \\
 z = z_P+t d_z
 \end{cases}  \quad (t \in \mathbb{R})\]
 \begin{esempio}
+\label{rettaPuntoDirez}
 \emph{Determina la retta passante per $P\,(4,-2,1)$, avente direzione $\vect{d} \,(-1,3,5)$}
 \[\vettcol{x}{y}{z} = \vettcol{4}{-2}{1}+t \vettcol{-1}{3}{5} \qquad \longrightarrow \qquad\begin{cases}
 x = 4-t \\
@@ -102,6 +105,7 @@ z = 3+6u
 \end{cases}\]
 \end{esempio}
 \begin{esempio}
+\label{pianoPuntoDirez}
 \emph{Determina il piano passante per i punti $A\,(1,2,7)$, $B\,(4,2,2)$} e $C\,(5,-4,-1)$\\[5pt]
  Innanzitutto calcoliamo i vettori generatori del piano, scegliendo per esempio $\vect{AB}$ e $\vect{AC}$:
 \[\vect{AB} = (4,2,2)-(1,2,7) = (3,0,-5) \qquad, \qquad \vect{AC} = (5,-4,-1)-(1,2,7) = (4,-6,-8) \]
@@ -138,7 +142,51 @@ Da notare che il sistema non è determinato perché è costituito da 2 equazioni
 
 \section{Da forma cartesiana a implicita (e viceversa)}
 Come si passa da una forma all'altra? Vediamo come fare attraverso alcuni esempi:
-\[(esempi vari)\]
+\begin{esempio}
+\emph{Descrivere la retta dell'esercizio \ref{rettaPuntoDirez} in forma cartesiana}\\[5pt]
+Per trasformarla in forma cartesiana è sufficiente ricavare ''t" da una delle 3 equazioni e sostituirla nelle altre, eliminando infine l'equazione utilizzata:
+\[\begin{cases}
+x = 4-t \\
+y = -2+3t \\
+z = 1+5t
+\end{cases} \quad \rightarrow \quad \begin{cases}
+t = 4-x \\
+y = -2+3(4-x) \\
+z = 1+5(4-x)
+\end{cases} \quad \rightarrow \quad \begin{cases}
+3x+y-10 = 0 \\
+5x+z-21 = 0
+\end{cases} \]
+\end{esempio}
+\begin{esempio}
+\emph{Descrivere il piano dell'esercizio \ref{pianoPuntoDirez} in forma cartesiana}\\[5pt]
+Come nell'esempio precedente, questa volta ricaviamo sia ``u'' che ''v``:
+\[\begin{cases}
+x = 1+3u+4v \\
+y = 2-6v \\
+z = 7-5u-8v
+\end{cases} \quad \rightarrow \quad \begin{cases}
+x = 1+3u+4 \tonda{\frac{2-y}{6}} \\
+v = \frac{2-y}{6} \\
+z = 7-5u-8\tonda{\frac{2-y}{6}}
+\end{cases} \quad \rightarrow \quad \begin{cases}
+u = \frac{3x+2y-7}{9} \\
+v = \frac{2-y}{6} \\
+z = 7-5 \tonda{\frac{3x+2y-7}{9}}-8\tonda{\frac{2-y}{6}}
+\end{cases} \]
+Eliminando le prime due equazioni, otteniamo:
+\[18z=126-30x-20y+70-48+24y \quad \rightarrow \quad -15x+2y-9z+74=0\]
+\end{esempio}
+\begin{esempio}
+\emph{Descrivere il piano $3x-2y+z-5=0$ in forma parametrica}\\[5pt]
+Qui il discorso è più semplice: è sufficiente infatti assegnare a due incognite i parametri ''u`` e ''v``, e ricavare la terza incognita:
+\[3x-2y+z-5=0 \quad \rightarrow \quad \begin{cases}
+x = u \\
+v = v \\
+z = -3u+2v+5
+\end{cases} \quad \rightarrow \quad \vettcol{x}{y}{z} =  \vettcol{0}{0}{5}+u \vettcol{1}{0}{-3}+v \vettcol{0}{1}{2} \]
+\end{esempio}
+Lo stesso vale anche per la retta, con l'unica differenza di dover assegnare solamente il parametro ''t`` ad una delle incognite.
 
 \section{Posizioni reciproche tra rette e piani}
 
@@ -162,3 +210,64 @@ Per parlare di parallelismo e perpendicolarità tra rette o piani ci si affida s
 \vspace{7pt}
 
 \textbf{\underline{Piani} :} \; La direzione di un piano è data dal corrispondente vettore normale $\vect{n}$. Anche qui dunque non si deve far altro che basarsi sulla nozione stessa di parallelismo/perpendicolarità tra i vettori $\vect{n_1}$ e $\vect{n_2}$ dei due piani.
+
+\section{Distanza punto-piano}
+
+Nel piano cartesiano avevamo visto che era possibile calcolare la distanza punto-retta con una formula ''magica``, in cui compariva un valore assoluto al numeratore e una radice a denominatore. Anche nello spazio esiste una formula analoga, per calcolare però la \textbf{distanza punto-piano}: dato un punto $P\,\tonda{x_P,y_P,z_P}$ e un piano $\alpha$ in forma cartesiana $ax+by+cz+d=0$, la distanza del punto P dal piano è data da:
+\[d(P,\alpha) = \frac{|ax_P+by_P+cz_P+d|}{\sqrt{a^2+b^2+c^2}}\]
+\begin{esempio}
+ \emph{Calcolare la distanza del punto $P\,(1,5,-3)$ dal piano $3x-5y+2z-4=0$}\\[5pt]
+ \[d(P,\alpha)=\frac{|3 (1)-5(5)+2(-3)-4|}{\sqrt{(3)^2+(-5)^2+(2)^2}} = \frac{32}{\sqrt{38}} = \frac{32 \sqrt{38}}{38}\]
+\end{esempio}
+
+
+
+\section{Sfere}
+
+Un altro oggetto interessante da studiare per familiarizzare con lo spazio tridimensionale è la sfera. La definizione è molto semplice: la sfera è il luogo dei punti dello spazio equidistanti da un punto, detto \textbf{centro} della sfera. Perciò, se $C\,(x_C,y_C,z_C)$ è il centro della sfera e $P\,(x,y,z)$ un generico punto su essa, allora P deve soddisfare l'equazione:
+\[\overline{PC}=r \quad \Rightarrow \quad \sqrt{(x-x_C)^2+(y-y_C)^2+(z-z_C)^2} = r\]
+Elevando ambo i membri al quadrato: \quad \fbox{\((x-x_C)^2+(y-y_C)^2+(z-z_C)^2=r^2\)}\\[8pt]
+Notiamo che l'equazione ricorda molto quella della circonferenza, con la sola differenza di avere una coordinata in più. Calcolando, è possibile ottenere anche una seconda formula:
+\[x^2-2x_C x +x_C^2 +y^2-2y_C y +y_C^2+z^2-2z_C z +z_C^2-r^2=0\]
+Riorganizzando i termini:
+\[x^2+y^2+z^2\underbrace{-2x_C}_a x\underbrace{-2y_C}_b y\underbrace{-2z_C}_c z+\underbrace{x_C^2+y_C^2+z_C^2-r^2}_d=0\]
+Si ottiene così l'equazione: \quad \fbox{\(x^2+y^2+z^2+ax+by+cz+d=0\)}\\[8pt]
+Data una sfera in questa forma, è possibile ricavare centro e raggio con le formule che si ottengono dalla definizione stessa dei 4 parametri $a,b,c,d$, ovvero:
+\[C\; \tonda{-\frac{a}{2};-\frac{b}{2}; -\frac{c}{2}} \qquad ;\qquad r = \sqrt{\tonda{-\frac{a}{2}}^2+\tonda{-\frac{b}{2}}^2+\tonda{-\frac{c}{2}}^2-d}\]
+\begin{esempio}
+ \emph{Ricava l'equazione della sfera di raggio 7 e centro $C\, \tonda{3,1,0}$}
+ \[(x-3)^2+(y-1)^2+(z-0)^2=7^2 \quad \rightarrow \quad x^2+y^2+z^2-6x-2y-39=0\]
+\end{esempio}
+\begin{esempio}
+ \emph{Data la sfera $x^2+y^2+z^2-2x+6y-10z+1=0$, ricava centro e raggio}
+ \[x_C = -\frac{-2}{2}=1 \quad;\quad y_C = -\frac{6}{2}=-3 \quad;\quad z_C = -\frac{-10}{2}=5\]
+ \[\text{quindi:}\quad C = \tonda{1;-3,5} \quad \text{mentre}\quad r = \sqrt{(1)^2+(-3)^2+(5)^2-1} = \sqrt{36} = 6\]
+\end{esempio}
+
+\begin{osservazione}
+ Anche per la sfera esiste una forma parametrica, ma solitamente non viene molto usata. Ne scriviamo la formula per completezza. Se $C\,(x_C,y_C,z_C)$ è il centro e $R$ il raggio:
+\[\begin{cases}
+   x = x_C+R \cos u+R \cos v \\
+   y = y_C+R \cos u+R \sin v \\
+   z = z_C+R \sin u
+  \end{cases} \qquad \text{con} \quad u \in \quadra{-\frac{\pi}{2};\frac{\pi}{2}} \; v \in 
+\quadra{-\pi;\pi} \]
+\end{osservazione}
+
+
+
+\section{Esempi particolari}
+
+Vediamo in questa sezione come si calcolano rette, piani e sfere in situazioni particolari, in cui serve ragionare prima di applicare aride formule.
+
+\begin{esempio}
+ \emph{Sfera di centro $C\,\tonda{-2,1,2}$ tangente al piano \,$3y+4z+4=0$}\\[7pt]
+ Qui è sufficiente notare che il raggio della sfera dovrà essere uguale alla distanza del centro stesso dal piano. Quindi possiamo calcolare:
+ \[r = d(C,\alpha) = \frac{|3+8+4|}{\sqrt{9+16}} = \frac{15}{5} = 3\]
+ E quindi la sfera è data da:
+ \[(x+2)^2+(y-1)^2+(z-2)^2=3^2 \quad \longrightarrow \quad x^2+y^2+z^2+4x-2y-4z=0\]
+\end{esempio}
+\begin{esempio}
+ \emph{Distanza del punto $P\,(4,-2,1)$ dalla retta di direzione $\vect{d} \, (1,4,2)$ e passante per $A\,(1,1,0)$}\\[7pt]
+\end{esempio}
+
