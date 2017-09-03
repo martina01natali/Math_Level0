@@ -164,49 +164,80 @@ intervallo, ha due tipiche proprietà che potranno essere usate per
 determinarla. Esse sono: 
 
 \begin{enumerate}
- \item 
-DISEGNO PER LA PROPRIETÀ ADDITIVA % TODO 
+ \item
+ 
+La \emph{proprietà additiva}, dice che se \(a\), \(b\) e \(x_1\) 
+sono tre valori che appartengono all'intervallo in cui è definita \(f\) e 
+\(a < x_1 < b\)
+allora \(\mathcal{A}(a,~b)\) = 
+\(\mathcal{A}(a,~x_1)\)+\(\mathcal{A}(x_1,~b)\)).
 
-la \emph{proprietà additiva}, cioè se a, b e c 
-appartengono all'intervallo I e 
-\(a < b < c\)
-allora \(\mathcal{A}(a,~c)\) = 
-\(\mathcal{A}(a,~b)\)+\(\mathcal{A}(b,~c)\)).
+\begin{minipage}{.49\textwidth}
+\begin{inaccessibleblock}[Proprietà additiva per 
+un'area sottesa ad una curva.] 
+  \areasottesacurva
+\end{inaccessibleblock}
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+  \propradditiva
+\end{minipage}
 
 Questa proprietà afferma che se una superficie 
-del tipo che si sta considerando viene divisa in due parti da una retta 
-verticale, allora l'area totale è la somma delle aree delle due parti
+viene divisa in due parti da una linea, 
+allora l'area totale è la somma delle aree delle due parti.
+Nel nostro caso la linea è la retta di equazione: \(x = x_1\).
 
  \item  
-DISEGNO PER LA PROPRIETÀ RETTANGOLARE % TODO 
 
-la \emph{proprietà rettangolare} rispetto alla funzione f, 
-cioè \(m\cdot(b-a) < \mathcal{A}(a,~b)< M\cdot(b-a)\), 
-con \(m\) minimo delle funzione \(f\) in \(\intervcc{a}{b}\) e \(M\) massimo 
-delle funzione \(f\) in \(\intervcc{a}{b}\).
+La \emph{proprietà rettangolare} rispetto alla funzione \(f\), 
+dice che se \(m\) è il minimo e \(M\) massimo della funzione \(f\) 
+nell'intervallo \(\intervcc{a}{b}\)
+allora \\
+\(m\cdot(b-a) = \mathcal{A}_{mi}(a,~b) < 
+                       \mathcal{A}_{ma}(a,~b) < M\cdot(b-a)\),
 
-Questa proprietà afferma che l'area considerata è maggiore dell'area di un 
-rettangolo di ugual base e altezza il minimo della funzione \(f\) 
-nell'intervallo \(\intervcc{a}{b}\) 
-e minore di un rettangolo con la stessa base e altezza il massimo della 
-funzione \(f\) nell'intervallo \(\intervcc{a}{b}\). 
+\begin{minipage}{.49\textwidth}
+\begin{inaccessibleblock}[Rettangolo minore dell'area sottesa.] 
+  \areaminore
+\end{inaccessibleblock}
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+\begin{inaccessibleblock}[Rettangolo maggiore dell'area sottesa.] 
+  \areamaggiore
+\end{inaccessibleblock}
+\end{minipage}
+
+Questa proprietà afferma che l'area sottesa ad una funzione è maggiore 
+dell'area di un rettangolo di ugual base che ha per altezza il minimo della 
+funzione \(f\) nell'intervallo \(\intervcc{a}{b}\) 
+e minore di un rettangolo con la stessa base che ha per altezza il massimo 
+della funzione \(f\) nell'intervallo \(\intervcc{a}{b}\). 
 \end{enumerate}
-
-\section{TODO}
 
 \section{Definizione}
 \label{sec:integrali_definizione}
 
-DISEGNO PER LA SOMMA DI RIEMANN % TODO
-
-Consideriamo una funzione continua \(f\) su un intervallo I cui appartengono 
-i punti a e b, e una partizione dell'intervallo chiuso \(\intervcc{a}{b}\) in 
-sotto intervalli di uguale ampiezza \(\Delta\) 
+\begin{minipage}{.39\textwidth}
+\begin{inaccessibleblock}[Rettangolo minore dell'area sottesa.] 
+  \sommariemann
+\end{inaccessibleblock}
+\end{minipage}
+\hfill
+\begin{minipage}{.59\textwidth}
+\begin{inaccessibleblock}[Rettangolo maggiore dell'area sottesa.] 
+Consideriamo una funzione continua \(f\) su un intervallo I cui 
+appartengono i punti a e b, e una partizione dell'intervallo chiuso 
+\(\intervcc{a}{b}\) in sotto intervalli di uguale ampiezza \(\Delta\) 
 separati dai punti: 
 \(a = x_0 < x_1 < \dots < x_h \le b\) \\
-dove \(x_i = x_0 +i \Delta\) e \(x_{i+1} - x_i= \Delta\) \\
+dove \(x_i = x_0 +i \Delta\) \quad e \quad \(x_{i+1} - x_i= \Delta\) \\
 e dove \(h\) è il massimo numero naturale tale che: \\
 \(x_0 + h \Delta \le b\), e dunque \(b-x_h \le \Delta\).
+\end{inaccessibleblock}
+\end{minipage}
+
 
 Si può considerare la sommatoria
 \[\left(\sum_{i=0}^{h-1} f(x_i)\cdot\Delta \right)+f(x_i)\cdot(b-x_h)\] 
@@ -468,11 +499,17 @@ Di seguito vediamo una tabella con le primitive di alcune funzioni.
 \begin{center}
 \begin{tabular}{ccc}
 primitiva & f & derivata\\
-\(k x\) & \(k\) & \(0\)\\
-\(\dfrac{1}{2}x^2\) & \(x\) & \(1\)\\
-\(\dfrac{k}{2}x^2\) & \(kx\) & \(k\)\\
-\(\dfrac{1}{n+1}x^{n+1}\) & \(x^n\) & \(nx^{n-1}\)\\
-\(\) & \(\) & \(\)\\
+\(k x +C\) & \(k\) & \(0\)\\
+\(\dfrac{1}{2}x^2 +C\) & \(x\) & \(1\)\\
+\(\dfrac{k}{2}x^2 +C\) & \(kx\) & \(k\)\\
+\(\dfrac{1}{n+1}x^{n+1} +C\) & \(x^n\) & \(nx^{n-1}\)\\
+\(e^x +C\) & \(e^x\) & \(e^x\)\\
+\(\dfrac{a^x}{\ln{a}} +C\) & \(a^x\) & \(\tonda{\ln{a}} a^x\)\\
+\(ln \abs{x} +C\) & \(\dfrac{1}{x}\) & \(-\dfrac{1}{x^2}\)\\
+\(-\cos x +C\) & \(\sen x\) & \(\cos x\)\\
+\(\sen x +C\) & \(\cos x\) & \(-\sen x\)\\
+\(\tg x +C\) & \(\dfrac{1}{cos^2 x}\) & 
+    \(-\dfrac{2 \cos x \sen x}{cos^4 x}\)\\
 \(\) & \(\) & \(\)\\
 \end{tabular}
 \end{center}
