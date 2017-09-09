@@ -1,0 +1,197 @@
+﻿% (c) 2017 Bruno Stecca
+% (c) 2017 Daniele Zambelli - daniele.zambelli@gmail.com
+% 
+% Tutti i grafici per il capitolo relativo agli integrali
+% 
+% 
+
+\newcommand{\areasottesasegmento}{% Area sottesa a un segmento
+  \disegno{
+    \coordinate (a) at (2.5, 6);
+    \coordinate (xa) at (2.5, 0);
+    \coordinate (ya) at (0, 6);
+    \coordinate (b) at (4.3, 7.2);
+    \coordinate (xb) at (4.3, 0);
+    \coordinate (yb) at (0, 7.2);
+
+    \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
+    (a) -- (b) -- (xb) -- (xa) -- cycle;
+
+    \rcom{-1}{+6}{-1}{+8}{gray!50, very thin, step=1}
+    
+    \draw [thick] (a) -- (b);
+    \filldraw (a) circle (1.5pt) node [above left] {A};
+    \filldraw (b) circle (1.5pt) node [above left] {B};
+
+    \begin{scope}[dotted]
+    \draw [-] (a) -- (xa) node [below] {$a$};
+    \draw [-] (a) -- (ya) node [left] {$y_A$};
+    \draw [-] (b) -- (xb) node [below] {$b$};
+    \draw [-] (b) -- (yb) node [left] {$y_B$};
+    \end{scope}
+    }
+}
+
+\newcommand{\areasottesasegmenti}{% Area sottesa a un segmento
+  \disegno{
+    \rcom{-1}{+6}{-1}{+8}{gray!50, very thin, step=1}
+    \foreach \xa/\y in {2/5, 2.5/4, 3/6, 3.5/3, 4/7, 4.5/5}{
+      \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
+      (\xa, \y) -- (\xa+.5, \y) -- (\xa+.5, 0.015) -- (\xa, 0.015) -- cycle;
+      \draw [thick, cap=butt] (\xa, \y) -- (\xa+.5, \y);
+      \draw [very thin](\xa,\y) -- (\xa,0.015) (\xa+.5,\y) -- (\xa+.5,0.015);
+    }
+  }
+}
+
+\def \definizionilinea{
+    \def \xi{-0.3};
+    \def \yi{6.7};
+    \def \xf{10.3};
+    \def \yf{0.5};
+    \def \xa{0.4};
+    \def \ya{4.9};
+    \def \xb{8.8};
+    \def \yb{5.55};
+    \def \linea{(i) .. controls (ctrli) and (ctrlf) .. (f)}
+    \coordinate (i) at (\xi, \yi);
+    \coordinate (f) at (\xf, \yf);
+    \coordinate (a) at (\xa, \ya);
+    \coordinate (b) at (\xb, \yb);
+    \coordinate (ctrli) at (3, -4);
+    \coordinate (ctrlf) at (7, 17);
+}
+
+\newcommand{\areasottesacurva}{% Aarea sottesa ad una curva.
+  \disegno{
+    \definizionilinea
+    \begin{scope}
+      \clip (\xa, 0) rectangle (\xb, 8);
+      \fill [top color=green!30!black!20, bottom color=green!50!black!10] 
+      \linea -- (\xf, 0) -- (\xi, 0) -- cycle;
+    \end{scope}
+
+    \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+    
+    \begin{scope}
+      \clip (\xi, 0) rectangle (\xf, 8);
+      \draw [thick] \linea;
+    \end{scope}
+
+    \begin{scope}
+    \draw [-] (a) -- (\xa, 0) node [below] {$a$};
+    \draw [-] (b) -- (\xb, 0) node [below] {$b$};
+    \node at (4.5, 2.5) {\(\mathcal{A}(a;~b)\)};
+    \end{scope}
+    }
+}
+
+\newcommand{\propradditiva}{% Propr. additiva per area sottesa ad una curva.
+  \disegno{
+    \definizionilinea
+    \def \xc{5.5};
+    \def \yc{6.25};
+    \coordinate (c) at (\xc, \yc);
+
+    \begin{scope}
+      \clip (\xa, 0) rectangle (\xb, 8);
+      \fill [top color=green!30!black!20, bottom color=green!50!black!10] 
+      \linea -- (\xf, 0) -- (\xi, 0) -- cycle;
+    \end{scope}
+
+    \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+    
+    \begin{scope}
+      \clip (\xi, 0) rectangle (\xf, 8);
+      \draw [thick] \linea;
+    \end{scope}
+
+    \begin{scope}
+    \draw [-] (a) -- (\xa, 0) node [below] {$a$};
+    \draw [-] (c) -- (\xc, 0) node [below] {$x_1$};
+    \draw [-] (b) -- (\xb, 0) node [below] {$b$};
+    \node at (3, 2.5) {\(\mathcal{A}(a;~x_1)\)};
+    \node at (7.2, 2.5) {\(\mathcal{A}(x_1;~b)\)};
+    \end{scope}
+    }
+}
+
+\newcommand{\arearettangolare}[3]{% Rettangolo.
+  \disegno{
+    \definizionilinea
+    \def \xm{#1};
+    \def \ym{#2};
+    \def \lm{#3};
+
+    \begin{scope}
+      \clip (\xa, 0) rectangle (\xb, 8);
+      \fill [top color=green!30!black!20, bottom color=green!50!black!10] 
+      (\xa, 0) rectangle (\xb, \ym);
+    \end{scope}
+
+    \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+    
+    \begin{scope}
+      \clip (\xi, 0) rectangle (\xf, 8);
+      \draw [thick] \linea;
+    \end{scope}
+
+    \begin{scope}[thin]
+    \draw  (\xa, 0) node [below] {$a$} -- (\xa, \ym) -- 
+           (\xb, \ym)  -- (\xb, 0) node [below] {$b$};
+    \draw [densely dotted] (\xa, \ym) -- (0, \ym) node [left] {$y_{\lm}$};
+    \node at (4.5, 2.5) {\(\mathcal{A}_{\lm}(a;~b)\)};
+    \end{scope}
+    }
+}
+
+\newcommand{\areaminore}{% Rettangolo minore.
+  \arearettangolare{2}{3.49}{mi}
+}
+
+\newcommand{\areamaggiore}{% Rettangolo maggiore.
+  \arearettangolare{7}{7.12}{ma}
+}
+
+\newcommand{\sommariemann}{% Rettangolo.
+  \disegno{
+    \definizionilinea
+    \def \dx{1};
+%     \def \ym{2};
+%     \def \lm{3};
+
+    \foreach \xa/\y in {0.4/3.65, 1.4/3.57, 2.4/4.17, 3.4/5.15, 4.4/6.2, 
+                        5.4/6.9, 6.4/7.05, 7.4/6.25}{
+      \fill [top color=green!30!black!20,bottom color=green!50!black!10]
+      (\xa, \y) -- (\xa+\dx, \y) -- (\xa+\dx, 0.015) -- (\xa, 0.015) -- cycle;
+      \draw [thick, cap=butt] (\xa, \y) -- (\xa+\dx, \y);
+      \draw [very thin](\xa,\y) -- (\xa,0.015) (\xa+\dx,\y) -- 
+                       (\xa+\dx,0.015);
+    }
+    \fill [top color=green!30!black!20,bottom color=green!50!black!10]
+      (8.43, 5.55) -- (\xb, 5.55) -- (\xb, 0.015) -- (8.43, 0.015) -- cycle;
+
+    \draw [thick, cap=butt] (8.4, 5.55) -- (\xb, 5.55);
+    \draw [very thin] (\xb, 5.55) -- (\xb, 0.015);
+
+    \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+
+    \begin{scope}
+      \clip (\xi, 0) rectangle (\xf, 8);
+      \draw [thick] \linea;
+    \end{scope}
+    
+    \node at (\xa, 0) [below] {$a$};
+    \node at (\xb, 0) [below, xshift=.5mm] {$b$};
+    \node at (\xa+\dx, 0) [below] {$x_1$};
+    \node at (\xa+2*\dx, 0) [below] {$x_2$};
+    \node at (\xa+8*\dx, 0) [below, xshift=-.5mm] {$x_h$};
+
+%     \begin{scope}[thin]
+%     \draw  (\xa, 0) node [below] {$a$} -- (\xa, \ym) -- 
+%            (\xb, \ym)  -- (\xb, 0) node [below] {$b$};
+%     \draw [densely dotted] (\xa, \ym) -- (0, \ym) node [left] {$y_{\lm}$};
+%     \node at (4.5, 2.5) {\(\mathcal{A}_{\lm}(a;~b)\)};
+%     \end{scope}
+    }
+}
