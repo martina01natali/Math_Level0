@@ -869,14 +869,20 @@ secondo insieme formando coppie ordinate del prodotto cartesiano.
 \input{\folder lbr/fig025_fre.pgf}
 \end{center}
 
+\begin{minipage}{.34 \textwidth}
+\begin{center}
+ \input{\folder lbr/fig026_tab.pgf}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{.64 \textwidth}
 \paragraph{Tabella a doppia entrata}
 Si costruisce una tabella nella quale si riportano gli elementi del
 primo insieme sulla prima colonna e gli elementi del secondo insieme
 sulla prima riga. Le caselle di incrocio rappresentano le coppie
 ordinate del prodotto cartesiano.
-\begin{center}
- \input{\folder lbr/fig026_tab.pgf}
-\end{center}
+\end{minipage}
+
 
 \begin{wrapfloat}{figure}{r}{0pt}
  \input{\folder lbr/fig027_car.pgf}
@@ -895,6 +901,13 @@ orizzontale dai punti sull'asse verticale; i punti di
 intersezione rappresentano le coppie ordinate del prodotto
 cartesiano.
 
+\begin{minipage}{.59 \textwidth}
+\begin{center}
+\input{\folder lbr/fig028_alb.pgf}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
 \paragraph{Diagramma ad albero}
 È un grafico formato da un nodo iniziale dal quale si ripartono alcuni
 rami che a loro volta possono ramificarsi e così via fino a che nello
@@ -905,9 +918,7 @@ il percorso che collega due nodi qualsiasi deve essere unico.
 
 La rappresentazione mediante diagramma ad albero è vantaggiosa nel
 caso si voglia fare il prodotto cartesiano tra più insiemi.
-\begin{center}
-\input{\folder lbr/fig028_alb.pgf}
-\end{center}
+\end{minipage}
 
 \begin{exrig}
  \begin{esempio}
@@ -935,15 +946,15 @@ comprensione e facilita la risoluzione del problema. Attraverso alcuni
 esempi mostreremo come usare la teoria degli insiemi per risolvere
 problemi.
 
-\begin{exrig}
+% \begin{exrig}
  \begin{esempio}
 Nel seguente diagramma di Eulero-Venn, l'insieme~$A$ rappresenta un gruppo di 
 amici appassionati di ballo; gli insiemi~$T$, $R$,
 $S$ rappresentano rispettivamente coloro che ballano il tango, la rumba, il 
 samba; ogni puntino rappresenta uno degli amici.
-\begin{multicols}{2}
 Quanti sono gli amici appassionati di ballo?
 
+\begin{minipage}{.59 \textwidth}
 Quanti tra loro ballano
 \begin{enumeratea}
 \item \emph{nessuno} dei balli indicati?
@@ -953,10 +964,13 @@ Quanti tra loro ballano
 \item la rumba \emph{e} il tango?
 \item \emph{tutti} i balli indicati?
 \end{enumeratea}
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
 \begin{center}
  \input{\folder lbr/fig030_ev.pgf}
 \end{center}
-\end{multicols}
+\end{minipage}
 
 Per rispondere alle domande dobbiamo contare gli elementi che formano 
 determinati insiemi.
@@ -1001,20 +1015,23 @@ sono stati sulla giostra, 3 sono stati sia sulla giostra che al tiro a
 segno, 3 si sono divertiti solamente col tiro a segno e altri~2 sono
 stati a guardare. Quanti bambini sono andati quel giorno al luna park?
 
-\begin{multicols}{2}
+\begin{minipage}{.59 \textwidth}
 Per risolvere il problema rappresentiamo con diagrammi di Eulero-Venn la 
 situazione; indichiamo con~$B$ l'insieme dei bambini recatisi al luna park, 
 con~$G$ l'insieme di quelli che sono stati sulla giostra e con~$T$ l'insieme
 di quelli che hanno provato il tiro a segno.
 Dall'enunciato sappiamo 
 che~$\card(G)=7$, $\card(G\cap T)=3$, $\card(T-G)=3$ e~$card(B-(G\cup T))=2$.
+Completa la rappresentazione segnando i bambini con dei puntini e rispondi 
+al quesito.
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
 \begin{center}
  \input{\folder lbr/fig031_evi.pgf}
 \end{center}
-\end{multicols}
+\end{minipage}
 
-Completa la rappresentazione segnando i bambini con dei puntini e rispondi 
-al quesito.
 \end{esempio}
 
 \begin{esempio}
@@ -1023,43 +1040,44 @@ e calcio dalle~17.00 alle~18.30. Frequentano il corso di
 pallavolo~15 persone e sono~28 quelli che frequentano l'allenamento di calcio. 
 Quante persone frequentano pallavolo o calcio in questo orario?
 
-\paragraph{Dati} $P=\{\text{iscritti a pallavolo}\}$, $C=\{\text{iscritti a 
+\emph{Dati} $P=\{\text{iscritti a pallavolo}\}$, $C=\{\text{iscritti a 
 calcio}\}$, $\card(P)=15$, $\card(C)=28$.
 
-\paragraph{Obiettivo} Il problema chiede di determinare la cardinalità 
+\emph{Obiettivo} Il problema chiede di determinare la cardinalità 
 di~$P\cup C$.
 
-%\begin{multicols}{2}
-\paragraph{Soluzione} Osserviamo che non ci sono persone che frequentano sia
+\emph{Soluzione} Osserviamo che non ci sono persone che frequentano sia
 l'uno che l'altro sport essendo gli allenamenti nello stesso orario; gli 
 insiemi~$P$ e~$C$ sono disgiunti:~$P\cap C=\emptyset $. 
 Quindi:~$\card(P\cup C)=\card(P)+\card(C)=15+28=43$.
-
-% \begin{center}
-% \input{\folder lbr/fig032_evii.pgf}
-% \end{center}
-%\end{multicols}
 \end{esempio}
+
 \begin{esempio}
-\begin{multicols}{2}
+\mbox{}
+
+\begin{minipage}{.59 \textwidth}
  Alla palestra Anni Verdi, il lunedì si tengono allenamenti di pallavolo, 
  dalle~17.00 alle~18.30 e dalle~19.00 alle~20.30 gli allenamenti di calcio. 
- Quelli che frequentano la pallavolo sono~15, quelli che frequentano il calcio 
- sono~28, però ce ne sono~7 di loro che fanno entrambi gli allenamenti. 
+ Quelli che frequentano la pallavolo sono~15, quelli che frequentano il 
+calcio  sono~28, però ce ne sono~7 di loro che fanno entrambi gli 
+allenamenti. 
  Quanti sono gli sportivi che si allenano il lunedì?
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
 \begin{center}
  \input{\folder lbr/fig032_evii.pgf}
  \end{center}
-\end{multicols}
+\end{minipage}
 
-\paragraph{Dati} $P=\{\text{iscritti a pallavolo}\}$, 
- $C=\{\text{iscritti a calcio}\}$, $\card(P)=15$, 
+\emph{Dati} $P=\{\text{pallavolo}\}$, 
+ $C=\{\text{calcio}\}$, $\card(P)=15$, 
  $\card(C)=28$ e~$\card(P\cap C)=7$.
  
-\paragraph{Obiettivo} Il problema chiede di determinare la cardinalità 
-di~$P\cup C$.
+\emph{Obiettivo} Il problema chiede di determinare la cardinalità 
+di~$P\cup C$ 
 
-\paragraph{Soluzione} 
+\emph{Soluzione} 
  $\card(P\cup C)=\card(P)+\card(C)-\card(P\cap C)=15+28-7=36$.
 
 Generalizzando possiamo affermare \ che dati due insiemi finiti~$A$ e~$B$ 
@@ -1075,17 +1093,21 @@ di francese. Quanti sono i ragazzi della classe di Piero che non
 frequentano alcun corso di lingue?
 
 Rappresentiamo la situazione con un diagramma di Eulero-Venn.
-\begin{multicols}{2}
+
+\begin{minipage}{.59 \textwidth}
 L'insieme universo è costituito dai~28 ragazzi che
 compongono la classe. I ragazzi che frequentano almeno un corso \emph{non} 
 sono~$17+12=29$, perché ce ne sono~5 che frequentano entrambi i corsi e
 vengono conteggiati due volte. Quindi i ragazzi che frequentano almeno un 
 corso sono~$17+12-5=24$. Di conseguenza quelli che non frequentano
 nessun corso sono~$28-24=4$.
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
 \begin{center}
  \input{\folder lbr/fig033_eviii.pgf}
-\end{center}
-\end{multicols}
+ \end{center}
+\end{minipage}
 \end{esempio}
 
 \begin{esempio}
@@ -1097,7 +1119,8 @@ Quanti sono i ragazzi che hanno avuto una votazione sufficiente sia allo
 scritto che all'orale?
 
 Rappresentiamo la situazione con un diagramma di Eulero-Venn.
-\begin{multicols}{2}
+
+\begin{minipage}{.59 \textwidth}
 $C$ è l'insieme degli alunni della classe di Piero, è costituito da~28 
 elementi. $S$ è l'insieme dei ragazzi sufficienti allo scritto, 
 è costituito da~6 alunni. $O$ è l'insieme dei ragazzi che sono sufficienti
@@ -1105,13 +1128,15 @@ all'orale, è costituito da~8 elementi.
 
 Gli elementi di~$\overline{{S\cup O}}$ sono~18, cioè i ragazzi che
 non sono sufficienti né allo scritto, né all'orale.
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
 \begin{center}
  \input{\folder lbr/fig034_eviv.pgf}
 \end{center}
-\end{multicols}
+\end{minipage}
 
 L'insieme~$S\cup O$ è quindi costituito da~$28-18=10$ elementi.
-
 Ricordiamo che
 \begin{align*}
  &\card(S\cup O)=\card(S)+\card(O)-\card(S\cap O)\\
@@ -1120,7 +1145,7 @@ Ricordiamo che
 \end{align*}
 In conclusione i ragazzi sufficienti allo scritto e all'orale sono~4.
 \end{esempio}
-\end{exrig}
+% \end{exrig}
 
 % \ovalbox{\risolvii \ref{ese:7.25}, \ref{ese:7.26}, \ref{ese:7.27}, \ref{ese:7.28}, \ref{ese:7.29}, \ref{ese:7.30}, \ref{ese:7.31}, \ref{ese:7.32}, \ref{ese:7.33}, \ref{ese:7.34},
 % \ref{ese:7.35}, \ref{ese:7.36}, \ref{ese:7.37}}

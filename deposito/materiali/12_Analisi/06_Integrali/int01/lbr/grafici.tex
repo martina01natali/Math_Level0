@@ -153,15 +153,52 @@
   \arearettangolare{7}{7.12}{ma}
 }
 
-\newcommand{\sommariemann}{% Rettangolo.
+\newcommand{\sommariemann}{% Somma di Riemann.
   \disegno{
     \definizionilinea
     \def \dx{1};
 %     \def \ym{2};
 %     \def \lm{3};
 
-    \foreach \xa/\y in {0.4/3.65, 1.4/3.57, 2.4/4.17, 3.4/5.15, 4.4/6.2, 
-                        5.4/6.9, 6.4/7.05, 7.4/6.25}{
+    \foreach \xa/\y in {0.4/4.9, 1.4/3.65, 2.4/3.57, 3.4/4.17, 4.4/5.15, 
+                        5.4/6.2, 6.4/6.9, 7.4/7.06}{
+      \fill [top color=green!30!black!20,bottom color=green!50!black!10]
+      (\xa, \y) -- (\xa+\dx, \y) -- (\xa+\dx, 0.015) -- (\xa, 0.015) -- cycle;
+      \draw [thick, cap=butt] (\xa, \y) -- (\xa+\dx, \y);
+      \draw [very thin](\xa,\y) -- (\xa,0.015) (\xa+\dx,\y) -- 
+                       (\xa+\dx,0.015);
+    }
+    \def \y{6.25}
+    \fill [top color=green!30!black!20,bottom color=green!50!black!10]
+      (8.43, \y) -- (\xb, \y) -- (\xb, 0.015) -- (8.43, 0.015) -- cycle;
+
+    \draw [thick, cap=butt] (8.4, \y) -- (\xb, \y);
+    \draw [very thin] (\xb, \y) -- (\xb, 0.015);
+
+    \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+
+    \begin{scope}
+      \clip (\xi, 0) rectangle (\xf, 8);
+      \draw [thick] \linea;
+    \end{scope}
+    
+    \node at (\xa, 0) [below, yshift=-1.2em] {$a$};
+    \node at (\xb, 0) [below, yshift=-1em] {$b$};
+    \foreach \n in {0,...,8}
+      \node at (\xa+\n*\dx, 0) [below] {$t_\n$};
+
+    }
+}
+
+\newcommand{\riemanninferiore}{% Somma di Riemann inferiore.
+  \disegno{
+    \definizionilinea
+    \def \dx{1};
+%     \def \ym{2};
+%     \def \lm{3};
+
+    \foreach \xa/\y in {0.4/3.66, 1.4/3.45, 2.4/3.57, 3.4/4.17, 4.4/5.15, 
+                        5.4/6.15, 6.4/6.9, 7.4/6.25}{
       \fill [top color=green!30!black!20,bottom color=green!50!black!10]
       (\xa, \y) -- (\xa+\dx, \y) -- (\xa+\dx, 0.015) -- (\xa, 0.015) -- cycle;
       \draw [thick, cap=butt] (\xa, \y) -- (\xa+\dx, \y);
@@ -181,17 +218,47 @@
       \draw [thick] \linea;
     \end{scope}
     
-    \node at (\xa, 0) [below] {$a$};
-    \node at (\xb, 0) [below, xshift=.5mm] {$b$};
-    \node at (\xa+\dx, 0) [below] {$x_1$};
-    \node at (\xa+2*\dx, 0) [below] {$x_2$};
-    \node at (\xa+8*\dx, 0) [below, xshift=-.5mm] {$x_h$};
+    \node at (\xa, 0) [below, yshift=-1.2em] {$a$};
+    \node at (\xb, 0) [below, yshift=-1em] {$b$};
+    \foreach \n in {0,...,8}
+      \node at (\xa+\n*\dx, 0) [below] {$t_\n$};
 
-%     \begin{scope}[thin]
-%     \draw  (\xa, 0) node [below] {$a$} -- (\xa, \ym) -- 
-%            (\xb, \ym)  -- (\xb, 0) node [below] {$b$};
-%     \draw [densely dotted] (\xa, \ym) -- (0, \ym) node [left] {$y_{\lm}$};
-%     \node at (4.5, 2.5) {\(\mathcal{A}_{\lm}(a;~b)\)};
-%     \end{scope}
+    }
+}
+
+\newcommand{\riemannsuperiore}{% Somma di Riemann superiore.
+  \disegno{
+    \definizionilinea
+    \def \dx{1};
+%     \def \ym{2};
+%     \def \lm{3};
+
+    \foreach \xa/\y in {0.4/4.9, 1.4/3.67, 2.4/4.17, 3.4/5.15, 4.4/6.2, 
+                        5.4/6.9, 6.4/7.15, 7.4/7.06}{
+      \fill [top color=green!30!black!20,bottom color=green!50!black!10]
+      (\xa, \y) -- (\xa+\dx, \y) -- (\xa+\dx, 0.015) -- (\xa, 0.015) -- cycle;
+      \draw [thick, cap=butt] (\xa, \y) -- (\xa+\dx, \y);
+      \draw [very thin](\xa,\y) -- (\xa,0.015) (\xa+\dx,\y) -- 
+                       (\xa+\dx,0.015);
+    }
+    \def \y{6.25}
+    \fill [top color=green!30!black!20,bottom color=green!50!black!10]
+      (8.43, \y) -- (\xb, \y) -- (\xb, 0.015) -- (8.43, 0.015) -- cycle;
+
+    \draw [thick, cap=butt] (8.4, \y) -- (\xb, \y);
+    \draw [very thin] (\xb, \y) -- (\xb, 0.015);
+
+    \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+
+    \begin{scope}
+      \clip (\xi, 0) rectangle (\xf, 8);
+      \draw [thick] \linea;
+    \end{scope}
+    
+    \node at (\xa, 0) [below, yshift=-1.2em] {$a$};
+    \node at (\xb, 0) [below, yshift=-1em] {$b$};
+    \foreach \n in {0,...,8}
+      \node at (\xa+\n*\dx, 0) [below] {$t_\n$};
+
     }
 }
