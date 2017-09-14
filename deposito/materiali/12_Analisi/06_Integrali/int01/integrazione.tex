@@ -436,7 +436,89 @@ Il valore di un integrale definito può essere calcolato con una certa
 approssimazione attraverso le somme di Riemann finite, ma questo, a volte, 
 risulta piuttosto scomodo. I matematici hanno trovato un modo per poter 
 calcolare il valore di un integrale lavorando più con i simboli che con i 
-numeri.
+numeri. Il trucco consiste nel generalizzare il problema, cioè cercare una 
+funzione \(S(x)\) che abbia come valore l'area della superficie sottesa ad 
+una funzione \(f\) fino ad un punto \(x\) variabile.
+
+\begin{esempio}
+\begin{minipage}{.59 \textwidth}
+Calcola il valore dei seguenti integrali: 
+\(S(4)=\int_3^4 2 dx\); \(S(5)=\int_3^5 2 dx\); 
+\(S(6)=\int_3^6 2 dx\); \(S(x)=\int_3^x 2 dx\)
+
+Osservando la figura possiamo vedere che \(S(4)=2\), 
+\(S(5)=4\), \(S(6)=6\) e, in generale \(S(x)=2x -6\)
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
+DISEGNO % TODO
+\end{minipage}
+\end{esempio}
+
+\begin{esempio}
+\begin{minipage}{.59 \textwidth}
+Calcola il valore dei seguenti integrali: 
+\(S(4)=\int_1^4 2 dx\); \(S(5)=\int_1^5 2 dx\); 
+\(S(6)=\int_1^6 2 dx\); \(S(x)=\int_1^x 2 dx\)
+
+Osservando la figura possiamo vedere che \(S(4)=6\), 
+\(S(5)=8\), \(S(6)=10\) e, in generale \(S(x)=2x -2\)
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
+DISEGNO % TODO
+\end{minipage}
+\end{esempio}
+
+I casi generali differiscono per una costante che dipende 
+dall'estremo inferiore dell'integrale. 
+Tenendo conto di questa osservazione possiamo scrivere:
+\(\int_a_x 2 dx = 2x - 2*a\)
+e in generale:
+\[\int_a_x f dx = S(x) - S(a)\]
+
+\begin{esempio}
+\begin{minipage}{.59 \textwidth}
+Studia l'integrale della funzione: \(f: x \mapsto x\)
+
+Osservando il disegno vediamo che la superficie ha la forma di un triangolo 
+rettangolo isoscele, quindi se la base è \(x\) anche l'altezza vale \(x\).
+scegliamo come estremo inferiore il valore~0.
+
+\(S(4)=\int_0^4 x dx = 8\); 
+
+\(S(5)=\int_0^5 x dx = 12,5 = \dfrac{1}{2}25\); 
+
+\(S(6)=\int_0^6 x dx = 18\); 
+
+\(S(7)=\int_0^7 x dx = 24,5 = \dfrac{1}{2}49\)
+
+E in generale:
+
+\(S(x)=\int_0^x x dx = \dfrac{1}{2}x^2\)
+
+Se invece di prendere come estremo inferiore~0 scegliamo il valore~2, 
+otteniamo:
+
+\(S(4)=\int_2^4 x dx = 8\); 
+
+\(S(5)=\int_2^5 x dx = 12,5 = \dfrac{1}{2}25\); 
+
+\(S(6)=\int_2^6 x dx = 18\); 
+
+\(S(7)=\int_2^7 x dx = 24,5 = \dfrac{1}{2}49\)
+
+E in generale:
+
+\(S(x)=\int_0^x x dx = \dfrac{1}{2}x^2\)
+
+
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
+DISEGNO % TODO
+\end{minipage}
+\end{esempio}
 
 ESEMPI DI FUNZIONI SEMPLICI: COSTANTE, LINEARE, QUADRATA % TODO
 
