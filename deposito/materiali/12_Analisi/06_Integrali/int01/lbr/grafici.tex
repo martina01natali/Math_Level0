@@ -62,7 +62,7 @@
     \coordinate (ctrlf) at (7, 17);
 }
 
-\newcommand{\areasottesacurva}{% Aarea sottesa ad una curva.
+\newcommand{\areasottesacurva}{% Area sottesa ad una curva.
   \disegno{
     \definizionilinea
     \begin{scope}
@@ -260,5 +260,84 @@
     \foreach \n in {0,...,8}
       \node at (\xa+\n*\dx, 0) [below] {$t_\n$};
 
+    }
+}
+
+\newcommand{\funzint}[5]{% Area sottesa ad una costante.
+  \disegno{
+    \def \k{#1};
+    \def \xa{#2};
+    \def \xxi{#3};
+    \def \xxf{#4};
+    \def \label{#5};
+    \def \xi{-2.3};
+    \def \xf{7.3};
+    \begin{scope}
+      \clip (\xa, 0) rectangle (\xf, 5);
+      \fill [top color=green!30!black!20, bottom color=green!50!black!10] 
+      (\xi, \k) -- (\xf, \k) -- (\xf, 0) -- (\xi, 0) -- cycle;
+    \end{scope}
+
+    \rcom{-2}{+7}{0}{+5}{gray!50, very thin, step=1}
+    
+    \draw [thick] (\xi, \k) -- (\xf, \k);
+    \node at (0, \k) [above left] {\(\label\)};
+
+    \draw [-] (\xa, \k) -- (\xa, 0) node [below, yshift=-4pt] {$a$};
+    \foreach \x in {\xxi,...,\xxf}
+      \draw [-] (\x, \k) -- (\x, 0) node [below, yshift=-2pt] {$\x$};
+    }
+}
+
+\newcommand{\funzintk}[4]{% Area sottesa ad una costante.
+  \disegno{
+    \def \k{#1};
+    \def \xa{#2};
+    \def \x{#3};
+    \def \label{#4};
+    \def \xi{-2.3};
+    \def \xf{7.3};
+    \begin{scope}
+      \clip (\xa, 0) rectangle (\xf, 5);
+      \fill [top color=green!30!black!20, bottom color=green!50!black!10] 
+      (\xi, \k) -- (\xf, \k) -- (\xf, 0) -- (\xi, 0) -- cycle;
+    \end{scope}
+
+    \rcom{-2}{+7}{0}{+5}{gray!50, very thin, step=1}
+    
+    \draw [thick] (\xi, \k) -- (\xf, \k);
+    \node at (0, \k) [above left] {\(\label\)};
+
+    \draw [-] (\xa, \k) -- (\xa, 0) node [below, yshift=-4pt] {$a$};
+    \draw [-] (\x, \k) -- (\x, 0) node [below, yshift=-2pt] {$x$};
+    }
+}
+
+\newcommand{\funzintx}[5]{% Area sottesa ad una costante.
+  \disegno{
+    \def \m{#1};
+    \def \xa{#2};
+    \def \xxi{#3};
+    \def \xxf{#4};
+    \def \label{#5};
+    \def \xi{-0.3};
+    \def \xf{8.3};
+    \begin{scope}
+      \clip (0, 0) rectangle (\xf, 10.3);
+      \fill [top color=green!30!black!20, bottom color=green!50!black!10] 
+      (\xi, \m*\xi) -- (\xf,  \m*\xf) -- (\xf, 0) -- (\xi, 0) -- cycle;
+    \end{scope}
+
+    \rcom{-1}{+8}{0}{+9}{gray!50, very thin, step=1}
+    
+    \begin{scope}
+      \clip (-0.3, -0.3) rectangle (\xf, 10.3);
+      \draw [thick] (\xi, \m*\xi) -- (\xf,  \m*\xf);
+    \node at (7, 8.5) {\(\label\)};
+    \end{scope}
+
+    \draw [-] (\xa, \m*\xa) -- (\xa, 0) node [below, yshift=-4pt] {$a$};
+    \foreach \x in {\xxi,...,\xxf}
+      \draw [-] (\x, \m*\x) -- (\x, 0) node [below, yshift=-2pt] {$\x$};
     }
 }

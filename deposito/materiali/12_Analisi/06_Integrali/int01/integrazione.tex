@@ -429,8 +429,8 @@ sicché la terza sommatoria è evidentemente la somma delle altre due.
 Passando alla loro parti standard, operazione che preserva l'addizione, si 
 ottiene il risultato voluto.
 
-\section{Teorema fondamentale dell'analisi}
-\label{sec:integrali_teorema_fondamentale}
+\section{Funzione integrale}
+\label{sec:integrali_funzione_integrale}
 
 Il valore di un integrale definito può essere calcolato con una certa 
 approssimazione attraverso le somme di Riemann finite, ma questo, a volte, 
@@ -438,94 +438,177 @@ risulta piuttosto scomodo. I matematici hanno trovato un modo per poter
 calcolare il valore di un integrale lavorando più con i simboli che con i 
 numeri. Il trucco consiste nel generalizzare il problema, cioè cercare una 
 funzione \(S(x)\) che abbia come valore l'area della superficie sottesa ad 
-una funzione \(f\) fino ad un punto \(x\) variabile.
+una funzione \(f\) fino ad un punto \(x\) variabile. La soluzione di questo 
+problema generale permette anche di risolvere altri problemi che non 
+troverebbero soluzione nei casi particolari.
+
+\begin{problema}
+ Calcolare l'area sottesa ad una funzione continua in funzione del solo 
+secondo estremo:
+\[\int_{}^x f~dx = \int f~dx\] 
+\end{problema}
+
+Con \(\int_{}^x f~dx\) intendiamo l'area sottesa fino a \(x\).
+
+Noi sappiamo che per la proprietà additiva degli integrali l'area sottesa 
+fino a \(x\) è uguale alla somma dell'area sottesa fino ad \(a\) e l'area 
+sottesa alla funzione tra \(a\) e \(x\):
+\[\int_{}^x f~dx = \int_{}^a f~dx + \int_{a}^x f~dx \sRarrow
+  \mathcal{S}(x) = \mathcal{S}(a) + \mathcal{S}(a,~x)\]
+
+Ora, non sappiamo quanto sia \(\mathcal{S}(a)\) cioè la superficie sottesa 
+alla funzione fino ad \(a\), ma di sicuro non dipende ad \(x\), cioè, 
+al variare di \(x\), rimane costante.
+
+Possiamo perciò concentrarci sul calcolo di \(\int_{a}^x f~dx\) sapendo che a 
+seconda della scelta di \(a\) il risultato ottenuto potrà differire, da 
+quello atteso, solo per una costante \(\mathcal{C}\).
+Quindi:
+\[\int f~dx = \int_{a}^x f~dx + \mathcal{C}\]
 
 \begin{esempio}
-\begin{minipage}{.59 \textwidth}
-Calcola il valore dei seguenti integrali: 
-\(S(4)=\int_3^4 2 dx\); \(S(5)=\int_3^5 2 dx\); 
-\(S(6)=\int_3^6 2 dx\); \(S(x)=\int_3^x 2 dx\)
+Calcola il valore dell'integrale: \(\int_3^x 2~dx\)
 
-Osservando la figura possiamo vedere che \(S(4)=2\), 
-\(S(5)=4\), \(S(6)=6\) e, in generale \(S(x)=2x -6\)
+Diamo alcuni valori alla \(x\) e osservando la figura possiamo calcolare 
+l'area sottesa:
+
+\begin{minipage}{.59 \textwidth} 
+\[S(3;~4) = \int_3^4 2~dx = 2\] 
+\[S(3;~5) = \int_3^5 2~dx = 4\] 
+\[S(3;~6) = \int_3^6 2~dx = 6\]
+
+In generale avremo: 
+\[S(3;~x) = \int_3^x 2~dx = 2x -6\]
 \end{minipage}
 \hfill
 \begin{minipage}{.39 \textwidth}
-DISEGNO % TODO
+\begin{inaccessibleblock}[] 
+  \funzint{2}{3}{4}{6}{2}
+\end{inaccessibleblock}
 \end{minipage}
 \end{esempio}
 
 \begin{esempio}
-\begin{minipage}{.59 \textwidth}
-Calcola il valore dei seguenti integrali: 
-\(S(4)=\int_1^4 2 dx\); \(S(5)=\int_1^5 2 dx\); 
-\(S(6)=\int_1^6 2 dx\); \(S(x)=\int_1^x 2 dx\)
+Calcola il valore dell'integrale: \(\int_1^x 2~dx\)
 
-Osservando la figura possiamo vedere che \(S(4)=6\), 
-\(S(5)=8\), \(S(6)=10\) e, in generale \(S(x)=2x -2\)
+Diamo alcuni valori alla \(x\) e osservando la figura possiamo calcolare 
+l'area sottesa:
+
+\begin{minipage}{.59 \textwidth} 
+\[S(1;~4) = \int_1^4 2~dx = 6\] 
+\[S(1;~5) = \int_1^5 2~dx = 8\] 
+\[S(1;~6) = \int_1^6 2~dx = 10\]
+
+In generale avremo: 
+\[S(1;~x) = \int_1^x 2~dx = 2x -2\]
 \end{minipage}
 \hfill
 \begin{minipage}{.39 \textwidth}
-DISEGNO % TODO
+\begin{inaccessibleblock}[] 
+  \funzint{2}{1}{4}{6}{2}
+\end{inaccessibleblock}
 \end{minipage}
 \end{esempio}
 
-I casi generali differiscono per una costante che dipende 
-dall'estremo inferiore dell'integrale. 
+Le due soluzioni degli esempi precedenti differiscono, come ci aspettavamo, 
+solo per una costante che dipende dall'estremo inferiore dell'integrale. 
 Tenendo conto di questa osservazione possiamo scrivere:
-\(\int_a_x 2 dx = 2x - 2*a\)
-e in generale:
-\[\int_a_x f dx = S(x) - S(a)\]
+\[\int 2~dx = 2x + \mathcal{C}\]
+
+Possiamo generalizzare i precedenti esempi con il seguente:
 
 \begin{esempio}
+Studia l'integrale della funzione costante: \(f: x \mapsto k\)
+% Calcola il valore dell'integrale: \(\int k~dx\)
+
 \begin{minipage}{.59 \textwidth}
+\begin{align*}
+\int k~dx &= \int_a^x k~dx + \mathcal{C}_a =
+             \int_a^x k~dx = S(a,~x) + \mathcal{C}_a = \\
+          &= k \cdot \tonda{x -a} + \mathcal{C}_a = 
+             kx - ka + \mathcal{C}_a
+\end{align*}
+Osservando che \(-ka\) non dipende dalla \(x\) ed è quindi una costante, 
+possiamo riunire le due costanti in una unica:
+\[-ka + \mathcal{C}_a = \mathcal{C}\]
+In generale avremo: 
+\[\int k~dx = kx + \mathcal{C}\]
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
+\begin{inaccessibleblock}[] 
+  \funzintk{3.5}{1.2}{4.7}{k}
+\end{inaccessibleblock}
+\end{minipage}
+\end{esempio}
+
+\begin{esempio}
 Studia l'integrale della funzione: \(f: x \mapsto x\)
 
+\begin{minipage}{.59 \textwidth}
 Osservando il disegno vediamo che la superficie ha la forma di un triangolo 
 rettangolo isoscele, quindi se la base è \(x\) anche l'altezza vale \(x\).
 scegliamo come estremo inferiore il valore~0.
-
-\(S(4)=\int_0^4 x dx = 8\); 
-
-\(S(5)=\int_0^5 x dx = 12,5 = \dfrac{1}{2}25\); 
-
-\(S(6)=\int_0^6 x dx = 18\); 
-
-\(S(7)=\int_0^7 x dx = 24,5 = \dfrac{1}{2}49\)
+\[S(4)=\int_0^4 x dx = 8 \quad 
+  S(5)=\int_0^5 x dx = 12,5 = \dfrac{1}{2}25\] 
+\[S(6)=\int_0^6 x dx = 18 \quad 
+  S(7)=\int_0^7 x dx = 24,5 = \dfrac{1}{2}49\]
 
 E in generale:
-
-\(S(x)=\int_0^x x dx = \dfrac{1}{2}x^2\)
-
-Se invece di prendere come estremo inferiore~0 scegliamo il valore~2, 
-otteniamo:
-
-\(S(4)=\int_2^4 x dx = 8\); 
-
-\(S(5)=\int_2^5 x dx = 12,5 = \dfrac{1}{2}25\); 
-
-\(S(6)=\int_2^6 x dx = 18\); 
-
-\(S(7)=\int_2^7 x dx = 24,5 = \dfrac{1}{2}49\)
-
-E in generale:
-
-\(S(x)=\int_0^x x dx = \dfrac{1}{2}x^2\)
-
-
+\[S(x)=\int_0^x x dx = \dfrac{1}{2}x^2\]
 \end{minipage}
 \hfill
 \begin{minipage}{.39 \textwidth}
-DISEGNO % TODO
+\begin{inaccessibleblock}[] 
+  \funzintx{1}{2}{4}{7}{y=x}
+%   \funzintx %{1}{0}{4.7}{y=mx+q}
+\end{inaccessibleblock}
 \end{minipage}
+
+Se invece di prendere come estremo inferiore~0 scegliamo il valore~2, 
+otteniamo:
+\[S(4)=\int_2^4 x dx = 6 \qquad
+  S(5)=\int_2^5 x dx = 10,5 = \dfrac{1}{2}25 -2\] 
+\[S(6)=\int_2^6 x dx = 16 \qquad 
+  S(7)=\int_2^7 x dx = 22,5 = \dfrac{1}{2}49 -2\]
+
+E in generale:
+\[S(x)=\int_2^x x dx = \dfrac{1}{2}x^2 -2\]
+
+Possiamo osservare che le due soluzioni precedenti differiscono solo per una 
+costante quindi: 
+\[\int x~dx = \dfrac{1}{2}x^2 + \mathcal{C}\]
 \end{esempio}
 
-ESEMPI DI FUNZIONI SEMPLICI: COSTANTE, LINEARE, QUADRATA % TODO
+% ESEMPI DI FUNZIONI SEMPLICI: COSTANTE, LINEARE, QUADRATA % TODO
+% 
+% SPIEGARE IL CONCETTO DI FUNZIONE INTEGRALE %TODO
 
-SPIEGARE IL CONCETTO DI FUNZIONE INTEGRALE %TODO
+\section{Teorema fondamentale dell'analisi}
+\label{sec:integrali_teorema_fondamentale}
+Osservando i risultati degli esempi precedenti, potrebbe sorgerci un qualche 
+sospetto, se ci ricordiamo qualcosa sulle derivate. 
+Ma procediamo cercando di risolvere il problema precedente per una funzione 
+qualsiasi: 
+\[F(x) = \int_a^x f \cdot dx + \mathcal{C}\]
 
-Partiamo da una funzione integrale qualsiasi: 
-\[F(x) = \int_a^x f \cdot dx\]
+\begin{minipage}{.59 \textwidth}
+Consideriamo un rettangolino infinitesimo in cui è divisa l'area sottesa alla 
+funzione \(f\). Questo rettangolino infinitesimo sarà:
+\[d S(x)\]
+L'area di questo rettangolino vale:
+\[f(x)~dx\]
+Quindi:
+\[f(x)~dx = d S(x) \sRarrow f(x) = \frac{d S(x)}{dx} \sim S'(x)\]
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
+\begin{inaccessibleblock}[] 
+  \funzintx{1}{2}{4}{7}{y=x}
+%   \funzintx %{1}{0}{4.7}{y=mx+q}
+\end{inaccessibleblock}
+\end{minipage}
+
 Vogliamo dimostrare che la derivata della funzione integrale è proprio la 
 funzione integranda cioè che  
 \[F'(x) = f(x)\]
