@@ -454,17 +454,33 @@ Noi sappiamo che per la proprietà additiva degli integrali l'area sottesa
 fino a \(x\) è uguale alla somma dell'area sottesa fino ad \(a\) e l'area 
 sottesa alla funzione tra \(a\) e \(x\):
 \[\int_{}^x f~dx = \int_{}^a f~dx + \int_{a}^x f~dx \sRarrow
-  \mathcal{S}(x) = \mathcal{S}(a) + \mathcal{S}(a,~x)\]
+  \mathcal{S}(\dots ;~x) = \mathcal{S}(\dots ;~a) + \mathcal{S}(a;~x)\]
 
-Ora, non sappiamo quanto sia \(\mathcal{S}(a)\) cioè la superficie sottesa 
-alla funzione fino ad \(a\), ma di sicuro non dipende ad \(x\), cioè, 
+Apparentemente questo passaggio non ha migliorato la situazione, perché 
+abbiamo trasformato la quantità incognita ``integrale fino a \(x\)'' nella 
+somma di una quantità definita: ``integrale da \(a\) a \(x\)'' più 
+``integrale fino ad \(a\)'' che è ancora una quantità incognita.
+
+\begin{minipage}{.49 \textwidth} 
+Ora, non sappiamo quanto sia \(\mathcal{S}(\dots ;~a)\) cioè la superficie 
+sottesa alla funzione fino ad \(a\), ma di sicuro non dipende ad \(x\), cioè, 
 al variare di \(x\), rimane costante.
 
 Possiamo perciò concentrarci sul calcolo di \(\int_{a}^x f~dx\) sapendo che a 
 seconda della scelta di \(a\) il risultato ottenuto potrà differire, da 
-quello atteso, solo per una costante \(\mathcal{C}\).
+quello atteso, solo per una costante \(\mathcal{C}_a\)
+che dipende dalla scelta di \(a\).
+
 Quindi:
-\[\int f~dx = \int_{a}^x f~dx + \mathcal{C}\]
+\[\int f~dx = \int_{a}^x f~dx + \mathcal{C}_a\]
+\end{minipage}
+\hfill
+\begin{minipage}{.49 \textwidth}
+\begin{inaccessibleblock}[] 
+  \begin{center} \intfinox \end{center}
+\end{inaccessibleblock}
+\end{minipage}
+
 
 \begin{esempio}
 Calcola il valore dell'integrale: \(\int_3^x 2~dx\)
@@ -483,7 +499,7 @@ In generale avremo:
 \hfill
 \begin{minipage}{.39 \textwidth}
 \begin{inaccessibleblock}[] 
-  \funzint{2}{3}{4}{6}{2}
+  \begin{center} \funzint{2}{3}{4}{6}{2} \end{center}
 \end{inaccessibleblock}
 \end{minipage}
 \end{esempio}
@@ -505,7 +521,7 @@ In generale avremo:
 \hfill
 \begin{minipage}{.39 \textwidth}
 \begin{inaccessibleblock}[] 
-  \funzint{2}{1}{4}{6}{2}
+  \begin{center} \funzint{2}{1}{4}{6}{2} \end{center}
 \end{inaccessibleblock}
 \end{minipage}
 \end{esempio}
@@ -537,7 +553,7 @@ In generale avremo:
 \hfill
 \begin{minipage}{.39 \textwidth}
 \begin{inaccessibleblock}[] 
-  \funzintk{3.5}{1.2}{4.7}{k}
+  \begin{center} \funzintk{3.5}{1.2}{4.7}{k} \end{center}
 \end{inaccessibleblock}
 \end{minipage}
 \end{esempio}
@@ -559,9 +575,8 @@ E in generale:
 \end{minipage}
 \hfill
 \begin{minipage}{.39 \textwidth}
-\begin{inaccessibleblock}[] 
-  \funzintx{1}{2}{4}{7}{y=x}
-%   \funzintx %{1}{0}{4.7}{y=mx+q}
+\begin{inaccessibleblock}[]  
+  \begin{center} \funzintx{1}{2}{4}{7}{y=x} \end{center}
 \end{inaccessibleblock}
 \end{minipage}
 
@@ -587,29 +602,43 @@ costante quindi:
 \section{Teorema fondamentale dell'analisi}
 \label{sec:integrali_teorema_fondamentale}
 Osservando i risultati degli esempi precedenti, potrebbe sorgerci un qualche 
-sospetto, se ci ricordiamo qualcosa sulle derivate. 
+sospetto \dots se ci ricordiamo qualcosa sulle derivate.
+
 Ma procediamo cercando di risolvere il problema precedente per una funzione 
 qualsiasi: 
 \[F(x) = \int_a^x f \cdot dx + \mathcal{C}\]
 
-\begin{minipage}{.59 \textwidth}
+\subsection{Dimostrazione grafica}
+
+\begin{minipage}{.49 \textwidth}
 Consideriamo un rettangolino infinitesimo in cui è divisa l'area sottesa alla 
-funzione \(f\). Questo rettangolino infinitesimo sarà:
+funzione \(f\). chiamiamo:
 \[d S(x)\]
-L'area di questo rettangolino vale:
+la sua area. 
+
+Questo rettangolino infinitesimo avrà base lunga \(dx\) e 
+altezza indistinguibile da \(f(x)\) quindi la sua area vale:
 \[f(x)~dx\]
-Quindi:
-\[f(x)~dx = d S(x) \sRarrow f(x) = \frac{d S(x)}{dx} \sim S'(x)\]
 \end{minipage}
 \hfill
-\begin{minipage}{.39 \textwidth}
-\begin{inaccessibleblock}[] 
-  \funzintx{1}{2}{4}{7}{y=x}
-%   \funzintx %{1}{0}{4.7}{y=mx+q}
+\begin{minipage}{.49 \textwidth}
+\begin{inaccessibleblock}[]  
+  \begin{center} \teoremafonda \end{center}
 \end{inaccessibleblock}
 \end{minipage}
 
-Vogliamo dimostrare che la derivata della funzione integrale è proprio la 
+Ne deriva:
+\[f(x)~dx = d S(x) \sRarrow f(x) = \frac{d S(x)}{dx} \sim S'(x) =
+  D\quadra{\int f~dx}\]
+A parole: la derivata dell'integrale è uguale alla funzione integranda, 
+oppure:
+Per trovare l'integrale della funzione \(f\) devo trovare una funzione 
+primitiva di \(f\) cioè una funzione la cui derivata  sia \(f\).
+
+\subsection{Dimostrazione algebrica}
+
+Utilizzando la definizione di derivata possiamo
+dimostrare che la derivata della funzione integrale è proprio la 
 funzione integranda cioè che  
 \[F'(x) = f(x)\]
 Applichiamo alla funzione \(F\) la regola del calcolo della derivata:

@@ -53,13 +53,13 @@
     \def \ya{4.9};
     \def \xb{8.8};
     \def \yb{5.55};
-    \def \linea{(i) .. controls (ctrli) and (ctrlf) .. (f)}
     \coordinate (i) at (\xi, \yi);
     \coordinate (f) at (\xf, \yf);
     \coordinate (a) at (\xa, \ya);
     \coordinate (b) at (\xb, \yb);
     \coordinate (ctrli) at (3, -4);
     \coordinate (ctrlf) at (7, 17);
+    \def \linea{(i) .. controls (ctrli) and (ctrlf) .. (f)}
 }
 
 \newcommand{\areasottesacurva}{% Area sottesa ad una curva.
@@ -339,5 +339,77 @@
     \draw [-] (\xa, \m*\xa) -- (\xa, 0) node [below, yshift=-4pt] {$a$};
     \foreach \x in {\xxi,...,\xxf}
       \draw [-] (\x, \m*\x) -- (\x, 0) node [below, yshift=-2pt] {$\x$};
+    }
+}
+
+\newcommand{\intfinox}{% Area sottesa fino a x.
+  \disegno{
+    \def \k{2};
+    \def \xi{-4.3};
+    \def \yi{2};
+    \def \xf{7.3};
+    \def \yf{4};
+    \def \xa{2.6};
+    \def \ya{5.10};
+    \def \x{5.5};
+    \def \y{5.55};
+    \def \label{p};
+    \def \linea{(\xi, \yi) .. controls (-2, -2) and (3, 10) .. (\xf, \yf)};
+    \begin{scope}
+      \clip (\xi, 0) rectangle (\xa, 6);
+      \fill [left color=red!10!black!5, right color=red!60!black!20] 
+        \linea -- (\xf, 0) -- (\xi, 0) -- cycle;
+    \end{scope}
+    \begin{scope}
+      \clip (\xa, 0) rectangle (\xf, 6);
+      \fill [top color=green!40!black!30, bottom color=green!40!black!5] 
+        \linea -- (\xf, 0) -- (\xi, 0) -- cycle;
+    \end{scope}
+
+    \rcom{-4}{+7}{0}{+7}{gray!50, very thin, step=1}
+    
+    \draw [thick] \linea;
+    \node at (6.5, 5.5) {\(f\)};
+
+    \draw [-] (\xa, \ya) -- (\xa, 0) node [below, yshift=-4pt] {$a$};
+    \draw [-] (\x, \y) -- (\x, 0) node [below, yshift=-2pt] {$x$};
+    \node at (0.5, 1.5) {\(\mathcal{S}(\dots;~a)\)};
+    \node at (4.2, 1.5) {\(\mathcal{S}(a;~x)\)};
+    }
+}
+
+\newcommand{\teoremafonda}{% Area sottesa fino a x.
+  \disegno{
+    \def \k{2};
+    \def \xi{-4.3};
+    \def \yi{2};
+    \def \xf{7.3};
+    \def \yf{4};
+    \def \xa{2.6};
+    \def \ya{5.10};
+    \def \x{5.5};
+    \def \y{5.55};
+    \def \label{p};
+    \def \linea{(\xi, \yi) .. controls (-2, -2) and (3, 10) .. (\xf, \yf)};
+%     \begin{scope}
+%       \clip (\xi, 0) rectangle (\xa, 6);
+%       \fill [left color=red!10!black!5, right color=red!60!black!20] 
+%         \linea -- (\xf, 0) -- (\xi, 0) -- cycle;
+%     \end{scope}
+%     \begin{scope}
+%       \clip (\xa, 0) rectangle (\xf, 6);
+%       \fill [top color=green!40!black!30, bottom color=green!40!black!5] 
+%         \linea -- (\xf, 0) -- (\xi, 0) -- cycle;
+%     \end{scope}
+
+    \rcom{-4}{+7}{0}{+7}{gray!50, very thin, step=1}
+    
+%     \draw [thick] \linea;
+%     \node at (6.5, 5.5) {\(f\)};
+% 
+%     \draw [-] (\xa, \ya) -- (\xa, 0) node [below, yshift=-4pt] {$a$};
+%     \draw [-] (\x, \y) -- (\x, 0) node [below, yshift=-2pt] {$x$};
+%     \node at (0.5, 1.5) {\(\mathcal{S}(\dots;~a)\)};
+%     \node at (4.2, 1.5) {\(\mathcal{S}(a;~x)\)};
     }
 }
