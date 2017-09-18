@@ -147,8 +147,6 @@ l'area compresa tra il grafico della funzione, l'asse delle ascisse
 e due rette verticali per gli estremi \(a\) e \(b\) di un intervallo chiuso 
 in cui la funzione è definita.
 
-DISEGNO: AREA SOTTESA AD UNA FUNZIONE % TODO 
-
 Fissata la funzione f, tale area dipenderà dalla scelta degli estremi a e b 
 dell'intervallo, ed è possibile indicarla come: 
 \[\mathcal{A}(a,b)\]
@@ -156,16 +154,12 @@ Con questa scrittura indichiamo che, \emph{fissata la funzione}, il valore
 dell'area (\(\mathcal{A}\)) dipende solo da due parametri che sono gli 
 stremi sull'asse \(x\) della superficie.
 
-
-ESEMPI: f=k; f=-2x; % TODO da spostare più avanti
-
 La funzione binaria \(\mathcal{A}\), area sottesa ad una funzione in un 
 intervallo, ha due tipiche proprietà che potranno essere usate per 
 determinarla. Esse sono: 
 
 \begin{enumerate}
  \item
- 
 La \emph{proprietà additiva}, dice che se \(a\), \(b\) e \(x_1\) 
 sono tre valori che appartengono all'intervallo in cui è definita \(f\) e 
 \(a < x_1 < b\)
@@ -188,8 +182,7 @@ viene divisa in due parti da una linea,
 allora l'area totale è la somma delle aree delle due parti.
 Nel nostro caso la linea è la retta di equazione: \(x = x_1\).
 
- \item  
-
+ \item 
 La \emph{proprietà rettangolare} rispetto alla funzione \(f\), 
 dice che se \(m\) è il minimo e \(M\) massimo della funzione \(f\) 
 nell'intervallo \(\intervcc{a}{b}\)
@@ -234,10 +227,10 @@ separati dai punti:
 \(a = t_0 < t_1 < \dots < t_h \le b\) \\
 dove \(t_i = t_0 +i \Delta\) \quad e \quad \(t_{i+1} - t_i= \Delta\) \\
 e dove \(h\) è il massimo numero naturale tale che: \\
-\(t_0 + h \Delta \le b\), e dunque \(b-t_h \le \Delta\).
+\(t_0 + h \Delta \le b\), e dunque \(b-t_h \le \Delta\)
+più l'intervallo da \(t_h\) a \(b\).
 \end{inaccessibleblock}
 \end{minipage}
-
 
 Si può considerare la sommatoria
 \[\left(\sum_{i=0}^{h-1} f(t_i)\cdot\Delta \right)+f(t_h)\cdot(b-t_h)\] 
@@ -310,8 +303,8 @@ nell'estremo destro dell'intervallo, ma cosa succede se consideriamo
 l'estremo sinistro o se consideriamo un punto a caso dell'intervallo?
 
 Vediamo qualche esempio:
-
-ESEMPI DI SOMME DI RIEMANN FINITE CON SCELTE DIVERSE DI F(Xi) % TODO
+% 
+% ESEMPI DI SOMME DI RIEMANN FINITE CON SCELTE DIVERSE DI F(Xi) % TODO
 
 Se in ogni sottointervallo chiamiamo \({}_{-}f(t_i)\) il minimo valore 
 assunto dalla funzione e \({}^{-}f(t_i)\) il suo massimo valore, allora 
@@ -372,10 +365,10 @@ somma di Riemann infinita:
 \subsection{Proprietà rettangolare}
 \label{subsec:integrali_proprieta_rettangolare}
 
-Partendo dalle disequazioni relative alla somma di Riemann infinita:
+Partendo dalle disuguaglianze relative alla somma di Riemann infinita:
 \[m \cdot (b - a) \le  \sum_a^b f(t) \cdot dt  \le M\cdot(b - a)\]
 e passando alle parti standard, che 
-preservano le disequazioni, poiché il primo e l'ultimo termine sono parti 
+preservano le disuguaglianze, poiché il primo e l'ultimo termine sono parti 
 standard di se stessi in quanto reali, si ha: 
 \[m \cdot(b - a) \le  \int_a^b f \cdot dt  \le M\cdot(b - a)\] 
 e quindi anche per l'integrale vale la proprietà rettangolare.
@@ -445,7 +438,7 @@ troverebbero soluzione nei casi particolari.
 \begin{problema}
  Calcolare l'area sottesa ad una funzione continua in funzione del solo 
 secondo estremo:
-\[\int_{}^x f~dx = \int f~dx\] 
+\[F(x) = \int_{\dots}^x f~dx \] %= \int f~dx\] 
 \end{problema}
 
 Con \(\int_{}^x f~dx\) intendiamo l'area sottesa fino a \(x\).
@@ -565,13 +558,13 @@ Studia l'integrale della funzione: \(f: x \mapsto x\)
 Osservando il disegno vediamo che la superficie ha la forma di un triangolo 
 rettangolo isoscele, quindi se la base è \(x\) anche l'altezza vale \(x\).
 scegliamo come estremo inferiore il valore~0.
-\[S(4)=\int_0^4 x dx = 8 \quad 
-  S(5)=\int_0^5 x dx = 12,5 = \dfrac{1}{2}25\] 
-\[S(6)=\int_0^6 x dx = 18 \quad 
-  S(7)=\int_0^7 x dx = 24,5 = \dfrac{1}{2}49\]
+\[S(0;~4)=\int_0^4 x dx = 8 \quad 
+  S(0;~5)=\int_0^5 x dx = 12,5 = \dfrac{1}{2}25\] 
+\[S(0;~6)=\int_0^6 x dx = 18 \quad 
+  S(0;~7)=\int_0^7 x dx = 24,5 = \dfrac{1}{2}49\]
 
 E in generale:
-\[S(x)=\int_0^x x dx = \dfrac{1}{2}x^2\]
+\[S(0;~x)=\int_0^x x dx = \dfrac{1}{2}x^2\]
 \end{minipage}
 \hfill
 \begin{minipage}{.39 \textwidth}
@@ -580,18 +573,26 @@ E in generale:
 \end{inaccessibleblock}
 \end{minipage}
 
-Se invece di prendere come estremo inferiore~0 scegliamo il valore~2, 
+\begin{minipage}{.59 \textwidth}
+Se invece di prendere come estremo inferiore~0 scegliamo il valore~3, 
 otteniamo:
-\[S(4)=\int_2^4 x dx = 6 \qquad
-  S(5)=\int_2^5 x dx = 10,5 = \dfrac{1}{2}25 -2\] 
-\[S(6)=\int_2^6 x dx = 16 \qquad 
-  S(7)=\int_2^7 x dx = 22,5 = \dfrac{1}{2}49 -2\]
+\[S(3;~4)=\int_3^4 x dx = 3,5 = \dfrac{1}{2}7\qquad
+  S(3;~5)=\int_3^5 x dx = 8\] 
+\[S(3;~6)=\int_3^6 x dx = 13,5 = \dfrac{1}{2}27 \qquad 
+  S(3;~7)=\int_3^7 x dx = 20\]
 
 E in generale:
-\[S(x)=\int_2^x x dx = \dfrac{1}{2}x^2 -2\]
+\[S(3;~x)=\int_3^x x dx = \dfrac{1}{2}x^2 -4,5\]
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
+\begin{inaccessibleblock}[]  
+  \begin{center} \funzintx{1}{3}{4}{7}{y=x} \end{center}
+\end{inaccessibleblock}
+\end{minipage}
 
-Possiamo osservare che le due soluzioni precedenti differiscono solo per una 
-costante quindi: 
+Possiamo osservare che le due soluzioni precedenti \(S(3;~x)\) e \(S(0;~x)\)
+differiscono solo per una costante quindi: 
 \[\int x~dx = \dfrac{1}{2}x^2 + \mathcal{C}\]
 \end{esempio}
 
@@ -644,9 +645,9 @@ funzione integranda cioè che
 Applichiamo alla funzione \(F\) la regola del calcolo della derivata:
 \[F'(x) = \pst{\frac{F(x+dx)-F(x)}{dx}} = 
 \pst{\frac{\int_a^{x+dx} f \cdot dx - \int_a^x f \cdot dx}{dx}} =\] 
-che per l'arbitrarietà dell'incremento (l'incremento d'integrazione \(dx\) 
-può essere \(du\)) è uguale a
-\[\pst{\frac{\int_a^{x+dx} f \cdot dx - \int_a^x f \cdot dx}{dx}} =\]
+% che per l'arbitrarietà dell'incremento (l'incremento d'integrazione \(dx\) 
+% può essere \(du\)) è uguale a
+% \[\pst{\frac{\int_a^{x+dx} f \cdot dx - \int_a^x f \cdot dx}{dx}} =\]
 per l'additività degli integrali consideriamo che
 \[\pst{\frac{\int_x^{x+dx} f \cdot dx}{dx}} = 
     \pst{\frac{f(x) \cdot dx}{dx}} = \pst{f(x)} = f(x)\]
@@ -669,16 +670,16 @@ relazione tra integrale definito e primitive della funzione integranda
 \[\int_a^b f \cdot dx = G(b) - G(a)\]
 
 La determinazione mediante le primitive può esser un ottimo modo per 
-determinare il risultato. Ma anche in questo caso ci sono difficoltà. Non c'è 
-un calcolo delle primitiva, data una funzione \(f\) per trovarne una 
-primitiva bisogna ricordare di avere incontrato \(f\) come derivata di una 
-certa funzione. 
+calcolare un integrale. Ma anche in questo caso ci sono difficoltà. 
+Non esiste un metodo semplice per calcolare una primitiva.
+
+Data una funzione \(f\), per trovare una sua primitiva bisogna ricordare di 
+avere incontrato \(f\) come derivata di una  certa funzione. 
 I metodi d'integrazione aiutano a modificare la situazione nella speranza di 
 arrivare al punto di dover trovare primitive di funzioni che si ricorda di 
-aver incontrato come derivate di altre funzioni. Così, non 
-essendoci un calcolo (metodo automatico, con precise regole sulla scrittura 
-delle funzioni, che non richiede la conoscenza dei significati) la 
-determinazione delle primitive, è spesso una sfida aperta.
+aver incontrato come derivate di altre funzioni. 
+La determinazione delle primitive di una funzione, è spesso una sfida aperta 
+e alcune volte è proprio impossibile da calcolare.
 
 \section{Integrali indefiniti}
 \label{sec:integrali_indefiniti}
@@ -721,8 +722,37 @@ primitiva & \qquad f \qquad & derivata\\
 \end{center}
 }%
 
+\section{Calcolo dell'integrale definito}
+\label{sec:integrali_indefiniti}
+
+Avere un modo per calcolare l'integrale indefinito permette di affrontare il 
+problema dell'integrale definito in un modo più semplice.
+Supponiamo di avere una funzione \(f\) e di conoscere una sua primitiva 
+\(F\), cioè: \(F' = f\).
+
+Dato che \(F(a)\) è il valore dell'area fino ad \(a\) e 
+\(F(b)\) è il valore dell'area fino ad \(b\), 
+per trovare l'area sottesa alla funzione tra \(a\) e \(b\),
+basta togliere dall'area fino ad \(a\) l'area fino a \(b\).
+
+\[se F(x) = \int f(x)~dx allora \int_a^b f(x)~dx = F(b) - F(a)\]
 
 \begin{esempio}
+Calcola l'area sottesa alla funzione \[f: x \mapsto 2 x^2 -x +3\] tra~1 e~3.
+
+\begin{minipage}{.59 \textwidth}
+Calcoliamo un integrale indefinito della funzione \(f\):
+\[\int \tonda{2 x^2 -x +3}~dx = 
+  2 \int x^2~dx -\int x~dx + \int 3~dx =
+  \frac{2}{3}x^3 - \frac{1}{2}x^2 +\]
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
+\begin{inaccessibleblock}[]  
+  \begin{center} \intdef \end{center}
+\end{inaccessibleblock}
+\end{minipage}
+
  
 \end{esempio}
 
