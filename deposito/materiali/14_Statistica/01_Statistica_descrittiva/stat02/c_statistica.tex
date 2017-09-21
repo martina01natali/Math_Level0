@@ -406,18 +406,17 @@ Femmine & 3 & 7 & 2 & 3  & 4 & 5 & 24\\
 \begin{figure}[!h]
 \begin{minipage}{.5\textwidth}
 \begin{inaccessibleblock}[Figura: TODO]
-\input{\folder lbr/fig008_dia.pgf}
+\scalebox{.8}{\input{\folder lbr/fig008_dia.pgf}}
 \caption{Diagramma a barre}
 \end{inaccessibleblock}
 \end{minipage} 
 \begin{minipage}{.5\textwidth}
 \begin{inaccessibleblock}[Figura: TODO]
- \input{\folder lbr/fig009_dia.pgf}
+ \scalebox{.8}{\input{\folder lbr/fig009_dia.pgf}}
 \caption{Diagramma a colonne}
 \end{inaccessibleblock}
 \end{minipage}
-\end{figure} 
-
+\end{figure}
 \end{center}
 
 \subsubsection{Areogramma}
@@ -469,18 +468,23 @@ Classe & 1$\grado$ & 2$\grado$ & 3$\grado$ & 4$\grado$ & 5$\grado$ & Totale
 
 Rappresentiamo graficamente mediante areogramma i dati contenuti nella 
 tabella precedente.
-\begin{center}
- \input{\folder lbr/fig010_areo.pgf}
-\end{center}
+
+\begin{minipage}{.49 \textwidth}
 Per ottenere l'angolo relativo alla frequenza percentuale 
 della~1\textsuperscript{A} 
 classe si fa:~$360\grado \cdot \frac{32}{100}=115,2\grado$ e per 
 la~2\textsuperscript{A} classe:~$360\grado \cdot \frac{23}{100}=82,2\grado$ e 
-cosi via per le altre classi.
-
+cosi via per le altre classi. \\
 Dal grafico si può notare immediatamente che la classe frequentata di più è 
 la prima.
-
+\end{minipage}
+\hfill
+\begin{minipage}{.49 \textwidth}
+\begin{center}
+%  \input{\folder lbr/fig010_areo.pgf}
+ \scalebox{.7}{\input{\folder lbr/fig010_areo.pgf}}  
+\end{center}
+\end{minipage}
  \end{esempio}
 % \end{exrig}
 
@@ -497,11 +501,10 @@ frequenze. Poiché le classi potrebbero avere ampiezze diverse si calcola
 la \emph{densità di frequenza}, definita come rapporto fra la frequenza 
 della classe e la relativa ampiezza.
 
-Per disegnare un istogramma si tracciano due assi; sull'asse verticale, 
-orientato verso l'alto, si fissa un segmento unitario e si riportano
-le frequenze. L'asse orizzontale, orientato verso destra, è invece 
-suddiviso in tanti segmenti la cui ampiezza è pari a quella delle singole 
-classi.
+Per disegnare un istogramma si tracciano due assi; su un asse si fissa un 
+segmento unitario e si riportano le frequenze. 
+L'altro asse è invece suddiviso in tanti segmenti la cui ampiezza è pari a 
+quella delle singole classi.
 Il grafico consiste in un insieme di rettangoli aventi per base ogni classe 
 e altezza la densità di frequenza corrispondente.
 In tal modo l'area di ogni rettangolo rappresenta la frequenza 
@@ -541,7 +544,7 @@ $100-150$ & $20/50=0,4$ \\
 \end{minipage} 
 \begin{minipage}{.38\textwidth}
 \begin{inaccessibleblock}[Figura: TODO]
-\input{\folder lbr/fig011_dia.pgf}
+\scalebox{.7}{\input{\folder lbr/fig011_dia.pgf}}
 \end{inaccessibleblock}
 \end{minipage}
 \end{center}
@@ -587,7 +590,6 @@ pratichi sport?'', posta ad un
 campione di~50 ragazzi dai~18 ai~25 anni. Si può osservare che~12 e~18 ore 
 presentano la frequenza massima~14, quindi si hanno due
 mode~12 ore e~18 ore. La distribuzione è bimodale.
-
 
 \begin{center}
 \begin{tabular}{lcccccccc}
@@ -998,9 +1000,9 @@ $\moda = 175$.
 \label{sec:c_stat_doppia_entrata}
 
 La statistica descrittiva bivariata si occupa dell'analisi di due variabili 
-congiuntamente considerate; in particolare, risulta interessante sapere se, 
-e in quale modo, le due variabili si influenzano o se, al contrario, si 
-manifestano una indipendentemente dall'altra.\\ 
+considerate congiuntamente; in particolare, risulta interessante sapere se, 
+e in quale modo, le due variabili si influenzano o se, al contrario, se 
+sono una indipendentemente dall'altra.\\ 
 A questo proposito verranno presentati, in seguito, alcuni indici in grado 
 di interpretare il tipo di legame esistente tra due variabili. Prima di 
 procedere risulta importante acquisire il concetto di distribuzione di 
@@ -1019,57 +1021,55 @@ dei maestri\textquotedblright (variabile qualitativa ordinale) e
 \textquotedblleft titolo di studio\textquotedblright (variabile qualitativa 
 ordinale).
 
-\begin{center}
+% \begin{center}
         Variabili rilevate su ogni unità statistica
-\end{center}
+% \end{center}
+
 \begin{tabular}{|p{1.5cm}|c|c|c|c|c|}
 \hline
         &Z&     Y       &X      &W      &L\\
         \hline
-Unità statistiche &     Voto&   Altezza &Sesso& Gradimento&     Titolo di 
-studio\\
+Unità statistiche & Voto& Altezza &Sesso& Gradimento& Titolo di studio\\
 \hline
-        1&      196&    178,23  &Maschio&       Basso&  Licenza media\\
+         1 & 19 &     178  & Maschio& Basso & Licenza media\\
         \hline
-        2&      19&     170,03& Maschio &Medio& Diploma\\
+         2 & 19 &     170  & Maschio & Medio & Diploma\\
         \hline
-        3&      22      &173,74 &Femmina&       Basso&  Diploma\\
+         3 & 22 & 173 & Femmina & Basso & Diploma\\
         \hline
-        4       &18&    171,26& Maschio&        Alto&   Licenza media\\
+         4 & 18 &    171 & Maschio & Alto & Licenza media\\
         \hline
-        5&      24&     157,12& Femmina&        Alto&   Licenza media\\
+         5 & 24 &     157 & Femmina & Alto & Licenza media\\
         \hline
-        6&      20      &163,76&        Femmina &Alto&  Licenza media\\
+         6 & 20 &163 & Femmina & Alto & Licenza media\\
         \hline
-        7&      21&     185,41& Maschio &Basso  &Diploma\\
+         7 & 21 &     185 & Maschio & Basso & Diploma\\
         \hline
-        8       &19&    175,53& Femmina&        Basso   &Diploma\\
+         8 & 19 &    175 & Femmina & Basso & Diploma\\
         \hline
-        9&      20&     182,97& Femmina&        Medio&  Licenza media\\
+         9 &      20&     182 & Femmina & Medio & Licenza media\\
         \hline
-        10&     21      &165,84&        Maschio&        Basso   &Licenza 
-media\\
+        10 &     21      &165 & Maschio & Basso & Licenza media\\
         \hline
-        11      &22     &158,57 &Maschio&       Alto    &Diploma\\
+        11 &22     &158 & Maschio & Alto & Diploma\\
         \hline
-        12      &25     &188,05&        Maschio&        Alto&   Laurea I 
-livello\\
+        12 &25     &188 & Maschio & Alto & Laurea I livello\\
         \hline
-        13      &24&    178,88& Femmina&        Medio&  Laurea I livello\\
+        13 &24&    178 & Femmina & Medio & Laurea I livello\\
         \hline
-        14      &19&    169,35& Maschio&        Medio&  Diploma\\
+        14 &19&    169 & Maschio & Medio & Diploma\\
         \hline
-        15      &22&    179,29& Femmina&        Basso&  Licenza media\\
+        15 &22&    179 & Femmina & Basso & Licenza media\\
         \hline
-        16&     24      &157,20 &Femmina&       Basso&  Laurea I livello\\
+        16 &     24      &157 &Femmina & Basso & Laurea I livello\\
         \hline
-        17&     20      &187,42&        Femmina&        Medio&  Diploma\\
+        17 & 20      &187 & Femmina & Medio & Diploma\\
         \hline
-        18      &25&    156,00& Maschio &Basso  &Laurea I livello\\
+        18 & 25 &    156 & Maschio & Basso & Laurea I livello\\
         \hline
-        19&     23&     166,74& Femmina&        Alto&   Diploma\\
+        19 &     23&     166 & Femmina & Alto & Diploma\\
         \hline
-        20&     19      &189,99&        Femmina &Alto&  Diploma\\
+        20 &     19      &189 & Femmina & Alto & Diploma\\
         \hline
 
 \end{tabular}
@@ -1168,7 +1168,7 @@ somma & 1&      5&      3&      2&      3&      1&      3       &2
 \noindent
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
         \hline
-        X/Z&&&&&&&\\ 
+        X/Y&&&&&&&\\ 
         \hline
 &       {\scriptsize (155-160]}&        {\scriptsize (160-165]} 
 &{\scriptsize (165-170]}&       {\scriptsize (170-175]} &{\scriptsize 
@@ -1288,8 +1288,8 @@ le frequenze teoriche $n^*_{ij}$ che si osserverebbero in caso di
 in una nuova tabella  tramite la relazione $n^*_{ij}=\frac{n_i\cdot 
 n_j}{n}$ $(i=1,2,\dots,k; j=1,2,\dots,h)$. La formula per il calcolo 
 dell'indice è data dalla seguente espressione: 
-$$\chi^2=\frac{\sum_{i=1}^{k}\sum_{j=1}^{h}\left( n_{ij}-n^*_{ij}\right) 
-^2}{n^*_{ij}}$$
+\[\chi^2 = \sum_{i=1}^{k}\sum_{j=1}^{h}\frac{\left(n_{ij}-n^*_{ij}\right) 
+^2}{n^*_{ij}}\]
 se tutte le frequenze osservate $n_{ij}$ coincidono con le frequenze 
 teoriche $n^*_{ij}$ siamo in presenza di indipendenza statistica ma, 
 qualora anche solo una frequenza osservata fosse diversa dalla 
@@ -1520,15 +1520,16 @@ Il coefficiente di correlazione lineare $\rho$ misura l'intensità del
 variabili quantitative X e Y, ovvero il grado di proporzionalità esistente 
 tra X e Y.
 Il coefficiente si calcola come rapporto tra la covarianza tra X e Y e il 
-rapporto degli scarti quadratici medi, 
+prodotto degli scarti quadratici medi, 
 $$\rho_{XY}=\frac{COV_{XY}}{\sigma_X\sigma_Y}$$
  In particolare, $\rho$ assume valori compresi tra -1 (perfetta 
 correlazione negativa: la relazione tra X e Y è di assoluta proporzionalità 
 inversa e può essere perfettamente interpretata da una retta con pendenza 
 negativa) e +1 (perfetta correlazione positiva: la relazione tra X e Y è di 
 perfetta proporzionalità diretta e può essere perfettamente interpretata da 
-una retta con pendenza positiva); se ?=0 si dice che i due fenomeni non sono 
-correlati (non esiste legame lineare tra X e Y),  È logico pensare che se 
+una retta con pendenza positiva); se $\rho$=0 si dice che i due fenomeni non 
+sono correlati (non esiste legame lineare tra X e Y). 
+È logico pensare che se 
 due variabili X e Y sono indipendenti statisticamente ($\chi^2=0$) allora 
 necessariamente si avrà che $\rho=0$, mentre non vale il contrario.
  Ritornando all'esempio precedente relativo alle variabili Z e Y, è 
@@ -1547,7 +1548,7 @@ di là delle conoscenze sull'intensità e la eventuale natura
 di tale legame. Giungendo ad affermare non solo che Y è legato a X da una 
 perfetta correlazione lineare positiva, ma anche che l'espressione 
 matematica di tale relazione è, ad esempio, $Y=4 X +2$.
- \'E evidente che ciò rappresenta un grande salto di qualità. Infatti, la 
+ È evidente che ciò rappresenta un grande salto di qualità. Infatti, la 
 specificazione della relazione rende possibile estendere la conoscenza a 
 tutte le coppie (x,y), anche a quelle che non sono state fornite dalla 
 rilevazione.

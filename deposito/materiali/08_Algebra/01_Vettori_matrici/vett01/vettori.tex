@@ -2,6 +2,8 @@
 % (c) 2012-2014 Dimitrios Vrettos - d.vrettos@gmail.com
 % (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 
+\input{\folder lbr/grafici.tex}
+
 \chapter{Vettori}
 
 \section{Prime definizioni}
@@ -18,21 +20,39 @@
 Sappiamo che due punti~$A$ e~$B$ presi su una retta~$a$ determinano il 
 segmento~$b$ di estremi~$A$ e~$B$ fissiamo su di esso un verso di percorrenza, 
 per esempio da~$A$ verso~$B$.
+
 \begin{definizione}
-Il \emph{segmento orientato} di estremi~$A$ e~$B$ si chiama \emph{vettore}; 
-esso viene indicato con~$\overrightarrow{AB}$ oppure con~$\vec{u}$
-il punto~$A$ è il primo estremo e~$B$ il secondo estremo.
+Un \emph{vettore} è un oggetto matematico dotato di:
+
+\begin{minipage}{.39 \textwidth}
+\begin{itemize}
+ \item una direzione;
+ \item un verso;
+ \item un modulo (o intensità).
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{.59 \textwidth}
+ \begin{inaccessibleblock}[Vettore con in evidenza: direzione, verso modulo,
+ primo estremo e secondo estremo.]
+ \begin{center}
+  \vettoredef
+ \end{center}
+\end{inaccessibleblock}
+\end{minipage}
 \end{definizione}
-Un \emph{vettore libero} è caratterizzato da tre elementi:
+
+Dove:
 \begin{itemize*}
-\item la \emph{direzione} indicata dalla retta su cui giace;
-\item il \emph{verso} indicato dalla punta della freccia che dal primo estremo 
-va al secondo estremo;
-\item il \emph{modulo o intensità}, uguale alla misura del segmento~$AB$: 
+\item la \emph{direzione} è l'inclinazione dalla retta su cui giace;
+\item il \emph{verso} è indicato dalla punta della freccia che dal primo 
+estremo va al secondo estremo;
+\item il \emph{modulo o intensità}, è alla misura del segmento~$AB$: 
 scriveremo~$|\vec{u}|=\overline{AB}$ e leggeremo "il modulo del 
-vettore~$\vec{u}$ è
-uguale alla misura del segmento~$AB$".
+vettore~$\vec{u}$ è uguale alla misura del segmento~$AB$"
+(i modo più sintetico indicheremo: \(\modulo{\vec{u}} = u\)).
 \end{itemize*}
+
 Un \emph{vettore applicato} è caratterizzato oltre che dai tre elementi 
 suddetti anche dal punto di applicazione,
 ovvero il punto da cui parte la freccia, chiamato anche primo estremo del 
@@ -91,15 +111,16 @@ Osserviamo che un vettore può essere interpretato come uno spostamento dal
 primo estremo al secondo estremo, avente la direzione della retta cui appartiene 
 il vettore stesso nel
 verso indicato dalla freccia.
-Nel piano dotato di riferimento cartesiano ortogonale (figura~\ref{fig:F.4}a) è 
-rappresentato il vettore~$\overrightarrow{AB}$ avente il primo estremo nel 
-punto~$A(-2;1)$ e
-il secondo estremo
-in~$B(1;2)$. Per andare da~$A$ a~$B$ si possono compiere diversi percorsi: 
+Nel piano dotato di riferimento cartesiano ortogonale (figura~\ref{fig:F.4}) 
+è rappresentato il vettore~$\overrightarrow{AB}$ avente 
+il primo estremo nel punto~$A\punto{-2}{1}$ e
+il secondo estremo in~$B\punto{1}{2}$. 
+Per andare da~$A$ a~$B$ si possono compiere diversi percorsi: 
 possiamo procedere sul vettore~$\vec{u}$ oppure possiamo scegliere di compiere 
 due spostamenti particolari,
 uno parallelo all'asse~$x$ e l'altro parallelo all'asse~$y$. In tal modo si 
-determina il punto~$C(1;1)$ come "tappa intermedia" per raggiungere~$B$:
+determina il punto~$C\punto{1}{1}$ come "tappa intermedia" per 
+raggiungere~$B$:
 ci spostiamo sul vettore~$\overrightarrow{AC}$ e poi da~$C$ sul 
 vettore~$\overrightarrow{CB}$.
 
@@ -111,47 +132,79 @@ vettore~$\overrightarrow{CB}$.
 \end{figure}
 \end{inaccessibleblock}
 
+% \begin{definizione}
+% Chiamiamo \emph{componenti} del vettore~$\overrightarrow{AB}$ le \emph{misure 
+% con segno} dei segmenti~$AC$ e~$CB$ con la precisazione di assegnare il 
+% segno~$+$ alle misure
+% dello spostamento avente lo stesso verso degli assi coordinati e segno~$-$ se 
+% il verso è opposto a quello degli assi coordinati.
+% \end{definizione}
 
 \begin{definizione}
-Chiamiamo \emph{componenti} del vettore~$\overrightarrow{AB}$ le \emph{misure 
-con segno} dei segmenti~$AC$ e~$CB$ con la precisazione di assegnare il 
-segno~$+$ alle misure
-dello spostamento avente lo stesso verso degli assi coordinati e segno~$-$ se 
-il verso è opposto a quello degli assi coordinati.
+Dato un vettore~$\overrightarrow{AB}$ in un piano cartesiano, chiamiamo 
+componente \(x\) del vettore il numero~\(x_{AB} = x_B - x_A\) e 
+componente \(y\) del vettore il numero~\(y_{AB} = y_B - y_A\):
+\[\overrightarrow{AB}\punto{x_{AB}}{y_{AB}}\]
 \end{definizione}
 
-In figura \ref{fig:F.4} a le componenti del vettore assegnato sono positive in 
-quanto sia lo spostamento orizzontale che quello verticale avvengono nello 
-stesso
-verso degli assi coordinati. Scriveremo~$\overrightarrow{AB}(+3;+1)$. Tutti i 
-vettori del piano cartesiano di componenti~$(+3,+1)$ sono equipollenti 
-a~$\overrightarrow{AB}$.
+Se conosciamo le componenti di un vettore, possiamo determinare il suo 
+\emph{modulo} utilizzando il teorema di Pitagora; 
+si ha infatti~$|\vec{u}|=\overline{AB}=\sqrt{x_{AB}^2+y_{AB}^2}$.
+
+Possiamo determinare anche la \emph{direzione del vettore} che data 
+dal coefficiente angolare:~$m_{\vec{u}}=\frac{y_{AB}}{x_{AB}}$.
+
+In figura \ref{fig:F.4} le componenti del vettore \(\vec{u}\) sono positive 
+in quanto sia lo spostamento orizzontale che quello verticale avvengono nello 
+stesso verso degli assi coordinati. 
+Scriveremo~$\overrightarrow{AB}(+3;+1)$. 
+Tutti i segmenti orientati di componenti~$\punto{+3}{+1}$ sono 
+dei rappresentanti dello stesso vettore:~$\overrightarrow{AB}$.
 Ciò che li distingue in modo univoco è il loro punto di applicazione.
 
 % \begin{exrig}
 \begin{esempio}
-Il vettore~$\vec{z}$ della figura \ref{fig:F.4} b ha componenti entrambe 
-negative poiché lo spostamento orizzontale e quello verticale avvengono in verso
-contrario rispetto al verso degli assi coordinati: scriveremo~$\vec{z}(-2;-3)$. 
-Il vettore~$\vec{u}$ della figura \ref{fig:F.4} b ha la componente
-lungo l'asse~$x$ positiva e negativa la componente verticale: 
-scriveremo~$\vec{u}(+4;-3)$.
+Il vettore~$\vec{v}$ della figura \ref{fig:F.4} ha componenti entrambe 
+negative poiché lo spostamento orizzontale e quello verticale avvengono 
+in verso contrario rispetto al verso degli assi coordinati: 
+scriveremo~$\vec{w}\punto{-2}{-3}$. 
+Il vettore~$\vec{u}$ della figura \ref{fig:F.4} ha la componente~$x$ positiva 
+e la componente~$y$ negativa: 
+scriveremo~$\vec{u}\punto{+4}{-3}$.
 \end{esempio}
 % \end{exrig}
+% 
+% \begin{procedura}
+% Determinare le componenti cartesiane di un vettore~$\vec{v}$, note le 
+% coordinate cartesiane degli estremi~$A(x_A;y_A)$ e~$B(x_B;y_B)$:
+% \begin{enumeratea}
+% \item dal primo estremo tracciamo la parallela all'asse~$x$ e dal secondo 
+% estremo la parallela all'asse~$y$ determinando il punto~$C(x_B;y_A)$
+% \item calcoliamo le misure con segno~$a=x_B-x_A$ $b=y_B-y_A$
+% \item scriviamo~$\vec{v}(a;b)$.
+% \end{enumeratea}
+% \end{procedura}
 
-\begin{procedura}
-Determinare le componenti cartesiane di un vettore~$\vec{v}$, note le 
-coordinate cartesiane degli estremi~$A(x_A;y_A)$ e~$B(x_B;y_B)$:
-\begin{enumeratea}
-\item dal primo estremo tracciamo la parallela all'asse~$x$ e dal secondo 
-estremo la parallela all'asse~$y$ determinando il punto~$C(x_B;y_A)$
-\item calcoliamo le misure con segno~$a=x_B-x_A$ $b=y_B-y_A$
-\item scriviamo~$\vec{v}(a;b)$.
-\end{enumeratea}
-\end{procedura}
-Ottenute le componenti si determina il \emph{modulo del vettore} utilizzando il 
-teorema di Pitagora; si ha infatti~$|\vec{u}|=\overline{AB}=\sqrt{a^2+b^2}$.
-Il rapporto~$m_{\vec{u}}=\frac{b}{a}$ indica la \emph{direzione del vettore}.
+\begin{minipage}{.49 \textwidth}
+Un vettore può anche essere determinato:
+\begin{itemize}
+ \item dal \emph{modulo}: \(r\);
+ \item dall'angolo che forma con l'asse \(x\): \(\alpha\).
+\end{itemize}
+
+In questo caso le componenti sono:\\
+\(x_{AB} = cos \alpha \text{ e } y_{AB} = sen \alpha\)  
+\end{minipage}
+\hfill
+\begin{minipage}{.49 \textwidth}
+ \begin{inaccessibleblock}[Vettore con in evidenza: direzione, verso modulo,
+ primo estremo e secondo estremo.]
+ \begin{center}
+  \vettorepolare
+ \end{center}
+\end{inaccessibleblock}
+\end{minipage}
+
 
 % \begin{exrig}
 \begin{esempio}
@@ -213,7 +266,7 @@ Nel punto~$A$ del piano sono applicati due vettori~$\vec{u}$ e~$\vec{v}$:
 dall'estremo~$B$ si
 traccia la retta parallela ad~$AC$ e da~$C$ la parallela ad~$AB$ e si indica 
 con~$D$ il loro punto di intersezione.
-Il vettore~$AD$ individuato dalla diagonale~$AD$ del parallelogrammo è la 
+Il vettore~$AD$ individuato dalla diagonale~$AD$ del parallelogramma è la 
 \emph{somma dei vettori}~$u$ e~$v$, e si scrive~$w=u+v$.
 \end{definizione}
 
@@ -230,8 +283,9 @@ Il vettore~$AD$ individuato dalla diagonale~$AD$ del parallelogrammo è la
 
 Nella sua opera \emph{Philosophiae naturalis principia mathematica} del~1682, 
 Isaac Newton (1642-1727) nel primo corollario alle leggi del moto,
-scrive: <<un corpo spinto da due forze congiunte descriverà la diagonale di un 
-parallelogrammo nello stesso tempo nel quale descriverebbe separatamente i 
+scrive: 
+<<un corpo spinto da due forze congiunte descriverà la diagonale di un 
+parallelogramma nello stesso tempo nel quale descriverebbe separatamente i 
 lati>>.
 
 % \vspazio\ovalbox{\risolvi \ref{ese:F.2}}
@@ -267,17 +321,21 @@ risultanti coincidono.
 \end{figure}
 \end{inaccessibleblock}
 
-Osserviamo che la validità della proprietà associativa ci permette di costruire 
-la somma di più vettori. Per come è definita l'operazione di somma, pensando al
+Osserviamo che la validità della proprietà associativa ci permette di 
+costruire 
+la somma di più vettori. Per come è definita l'operazione di somma, pensando 
+al
 vettore come rappresentante di uno spostamento dal primo estremo al secondo, 
 possiamo interpretare la figura \ref{fig:vett_somma_parallelogramma} come 
-lo spostamento di un punto prima da~$A$ fino a~$B$ e poi da questo fino a~$D$, 
+lo spostamento di un punto prima da~$A$ fino a~$B$ e poi da questo fino 
+a~$D$, 
 essendo~$\vec{BD}$ un vettore equipollente ad~$\overrightarrow{AC}$. 
 Quindi possiamo affermare che il vettore somma di due 
 vettori~$\vec{u}$ e~$\vec{v}$ si può determinare prendendo due 
 vettori~$\overrightarrow{AB}$ e~$\overrightarrow{BC}$ rispettivamente 
 equipollenti
-ai dati; se~$\overrightarrow{AB} \equiv \vec{u}$ e~$\overrightarrow{BC} \equiv 
+ai dati; se~$\overrightarrow{AB} \equiv \vec{u}$ e~$\overrightarrow{BC} 
+\equiv 
 \vec{v}$ (figura \ref{fig:F.8}), allora la somma è il 
 vettore~$\overrightarrow{AC}$, avente~$A$
 come primo estremo e~$C$,
@@ -332,27 +390,28 @@ applicato al punto~$A$
 \item costruiamo il vettore~$\vec{z}=\vec{u}+\vec{v}$ di 
 coordinate~$\vec{z}(4;1)$.
 \end{enumeratea}
-Osserviamo che il primo passo realizzato ci permette di affermare~$x_z=x_u+x_v$ 
+Osserviamo che il primo passo realizzato ci permette di 
+affermare~$x_z=x_u+x_v$ 
 e~$y_z=y_u+y_v$.
 \end{esempio}
 % \end{exrig}
 
-\newpage
 
 \begin{inaccessibleblock}[Figura: TODO]
  \begin{figure}[t]
 \centering
 \input{\folder lbr/fig013_som.pgf}
-\caption{Determinazione di componenti di un vettore.}\label{fig:F.10}
+\caption{Regola del parallelogramma.}\label{fig:F.10}
 \end{figure}
 \end{inaccessibleblock}
 
-\begin{procedura} Regola del parallelogrammo per determinare le componenti 
+\begin{procedura} Regola del parallelogramma per determinare le componenti 
 cartesiane del vettore somma~$\vec{z}=(x_z;y_z)$,
 note le componenti cartesiane degli addendi~$\vec{u}=(x_u;y_u)$ 
 e~$\vec{v}=(x_v;y_v)$.
 
-Il primo passo realizzato nella costruzione precedente ci permette di affermare 
+Il primo passo realizzato nella costruzione precedente ci permette di 
+affermare 
 che le componenti del vettore somma sono la somma
 delle componenti dei vettori addendi:\[x_z=x_u+x_v\text{ e }y_z=y_u+y_v.\]
 \end{procedura}
@@ -361,14 +420,16 @@ delle componenti dei vettori addendi:\[x_z=x_u+x_v\text{ e }y_z=y_u+y_v.\]
 
 \paragraph{Applicazioni dei vettori}
 I vettori sono degli enti geometrici, essi sono utilizzati in fisica per 
-rappresentare tutte le grandezze che sono definite conoscendo modulo, direzione,
+rappresentare tutte le grandezze che sono definite conoscendo modulo, 
+direzione,
 verso e punto di applicazione. Esempi di grandezze vettoriali sono: la 
 velocità, l'accelerazione, la forza, la densità di corrente elettrica.
 
 % \begin{exrig}
 \begin{esempio}
 Nella figura seguente è rappresentata una scatola vista dall'alto. Su di essa 
-agiscono due forze; calcola la forza risultante in ognuno dei casi della figura,
+agiscono due forze; calcola la forza risultante in ognuno dei casi della 
+figura,
 sapendo che una forza misura~$4 \unit{N}$ e l'altra~$9 \unit{N}$.
 \begin{center}
  \input{\folder lbr/fig019_eser.pgf}
@@ -379,11 +440,13 @@ sapendo che una forza misura~$4 \unit{N}$ e l'altra~$9 \unit{N}$.
 risultante si ottiene addizionando i due moduli:~$|\vec{r}|=4 \unit{N}+9 
 \unit{N}=13 \unit{N}$
 \item poiché i vettori sono opposti come verso, si procede sottraendo al 
-vettore maggiore il vettore minore e la forza risultante ha la direzione ed il 
+vettore maggiore il vettore minore e la forza risultante ha la direzione ed 
+il 
 verso
-del vettore di modulo maggiore:~$|\vec{r}|=9 \unit{N} - 5 \unit{N}=4 \unit{N}$.
+del vettore di modulo maggiore:~$|\vec{r}|=9 \unit{N} - 5 \unit{N}=4 
+\unit{N}$.
 \item i due vettori hanno direzioni perpendicolari. In questo caso il vettore 
-somma si ottiene con il metodo del parallelogrammo, quindi applicando il 
+somma si ottiene con il metodo del parallelogramma, quindi applicando il 
 teorema di Pitagora:
 \[|\vec{r}|=\sqrt{(4 \unit{N})^2+(9 \unit{N})^2}.\]
 \end{enumeratea}
@@ -396,9 +459,11 @@ teorema di Pitagora:
 (figura~\ref{fig:F.11}) $\vec{u}$ e~$\vec{v}$
 si procede nel seguente modo:
 \begin{enumeratea}
-\item costruiamo il vettore~$\vec{z}=-\vec{v}$ che ha stessa direzione, stesso 
+\item costruiamo il vettore~$\vec{z}=-\vec{v}$ che ha stessa direzione, 
+stesso 
 modulo, ma verso opposto;
-\item determiniamo con la regola del parallelogrammo~$\vec{u}+\vec{z}=\vec{c}$.
+\item determiniamo con la regola del 
+parallelogramma~$\vec{u}+\vec{z}=\vec{c}$.
 \end{enumeratea}
 Il vettore ottenuto è la differenza tra i vettori 
 assegnati:~$\vec{c}=\vec{u}-\vec{v}$.
