@@ -43,7 +43,7 @@ Un \emph{vettore} è un oggetto matematico dotato di:
 \end{definizione}
 
 Dove:
-\begin{itemize*}
+\begin{itemize} [nosep]
 \item la \emph{direzione} è l'inclinazione dalla retta su cui giace;
 \item il \emph{verso} è indicato dalla punta della freccia che dal primo 
 estremo va al secondo estremo;
@@ -51,14 +51,14 @@ estremo va al secondo estremo;
 scriveremo~$|\vec{u}|=\overline{AB}$ e leggeremo "il modulo del 
 vettore~$\vec{u}$ è uguale alla misura del segmento~$AB$"
 (i modo più sintetico indicheremo: \(\modulo{\vec{u}} = u\)).
-\end{itemize*}
+\end{itemize}
 
 Un \emph{vettore applicato} è caratterizzato oltre che dai tre elementi 
 suddetti anche dal punto di applicazione,
 ovvero il punto da cui parte la freccia, chiamato anche primo estremo del 
 vettore.
 
-\begin{exrig}
+% \begin{exrig}
 \begin{esempio}
 I due vettori~$\overrightarrow{AB}$ e~$\overrightarrow{DC}$ in figura 
 \ref{fig:F.1} appartengono alla stessa retta, quindi hanno stessa direzione, 
@@ -80,28 +80,27 @@ Hanno lo stesso verso e uguale intensità:
 essi si chiamano \emph{equipollenti} e 
 scriveremo~$\overrightarrow{AB}=\overrightarrow{CD}$.
 \end{esempio}
-\end{exrig}
+% \end{exrig}
 
 \begin{inaccessibleblock}[Figura: TODO]
  \begin{figure}[b]
 \centering
-\input{\folder lbr/fig001_vet.pgf}
+\scalebox{.9}{\input{\folder lbr/fig001_vet.pgf}}
 \caption{I vettori hanno stessa direzione, verso opposto e modulo 
 diverso.}\label{fig:F.1}
 \end{figure}
 \end{inaccessibleblock}
 
-
  \begin{inaccessibleblock}[Figura: TODO]
  \begin{figure}[t]
 \begin{minipage}{0.45\textwidth}
 \centering
-\input{\folder lbr/fig002_vet.pgf}
+\scalebox{.9}{\input{\folder lbr/fig002_vet.pgf}}
 \caption{Vettori opposti.}\label{fig:F.2}
 \end{minipage}\hfil
 \begin{minipage}{0.45\textwidth}
 \centering
-\input{\folder lbr/fig003_vet.pgf}
+\scalebox{.9}{\input{\folder lbr/fig003_vet.pgf}}
 \caption{Vettori equipollenti.}\label{fig:F.3}
 \end{minipage}
 \end{figure}
@@ -127,8 +126,8 @@ vettore~$\overrightarrow{CB}$.
 \begin{inaccessibleblock}[Figura: TODO]
  \begin{figure}[b]
 \centering
-\input{\folder lbr/fig004_vet.pgf}
-\caption{Spostamenti di vettori.}\label{fig:F.4}
+\scalebox{.8}{\input{\folder lbr/fig004_vet.pgf}}
+\caption{Componenti di vettori.}\label{fig:F.4}
 \end{figure}
 \end{inaccessibleblock}
 
@@ -147,12 +146,15 @@ componente \(y\) del vettore il numero~\(y_{AB} = y_B - y_A\):
 \[\overrightarrow{AB}\punto{x_{AB}}{y_{AB}}\]
 \end{definizione}
 
-Se conosciamo le componenti di un vettore, possiamo determinare il suo 
-\emph{modulo} utilizzando il teorema di Pitagora; 
-si ha infatti~$|\vec{u}|=\overline{AB}=\sqrt{x_{AB}^2+y_{AB}^2}$.
-
-Possiamo determinare anche la \emph{direzione del vettore} che data 
-dal coefficiente angolare:~$m_{\vec{u}}=\frac{y_{AB}}{x_{AB}}$.
+Se conosciamo le componenti di un vettore, possiamo determinare:
+\begin{itemize} [noitemsep]
+ \item 
+il \emph{modulo} utilizzando il teorema di Pitagora: 
+si ha infatti~$|\vec{u}|=\overline{AB}=\sqrt{x_{AB}^2+y_{AB}^2}$
+ \item 
+la \emph{direzione del vettore} data dal coefficiente angolare:
+$m_{\vec{u}}=\frac{y_{AB}}{x_{AB}}$
+\end{itemize}
 
 In figura \ref{fig:F.4} le componenti del vettore \(\vec{u}\) sono positive 
 in quanto sia lo spostamento orizzontale che quello verticale avvengono nello 
@@ -223,7 +225,7 @@ assegnato~$A(\ldots;\ldots)$ e~$B(\ldots;\ldots)$
 \item determinate la direzione del vettore~$m_{\vec{w}}=\ldots$.
 \end{itemize*}
 \begin{center}
- \input{\folder lbr/fig006_eser.pgf}
+ \scalebox{.9}{\input{\folder lbr/fig006_eser.pgf}}
 \end{center}
 \end{multicols}
 \end{esempio}
@@ -241,7 +243,7 @@ equipollenti?
 In figura è rappresentato il vettore equipollente a quelli costruiti avente il 
 primo estremo nell'origine del riferimento.
 \begin{center}
- \input{\folder lbr/fig007_eser.pgf}
+ \scalebox{.9}{\input{\folder lbr/fig007_eser.pgf}}
 \end{center}
 
 \end{multicols}
@@ -455,38 +457,46 @@ teorema di Pitagora:
 
 \subsection{Differenza tra vettori}
 
-\begin{procedura} Per determinare la \emph{differenza tra due vettori} 
-(figura~\ref{fig:F.11}) $\vec{u}$ e~$\vec{v}$
-si procede nel seguente modo:
-\begin{enumeratea}
-\item costruiamo il vettore~$\vec{z}=-\vec{v}$ che ha stessa direzione, 
-stesso 
-modulo, ma verso opposto;
-\item determiniamo con la regola del 
-parallelogramma~$\vec{u}+\vec{z}=\vec{c}$.
-\end{enumeratea}
-Il vettore ottenuto è la differenza tra i vettori 
-assegnati:~$\vec{c}=\vec{u}-\vec{v}$.
-\end{procedura}
+La \emph{differenza tra due vettori} si ottiene addizionando al primo 
+l'opposto del secondo: 
+\[\vec{u} - \vec{v} = \vec{u} + \tonda{\vec{-v}}\]
 
-\begin{inaccessibleblock}[Differenza tra due fattori.]
- \begin{figure}[t]
- \centering
- \input{\folder lbr/fig014_dif.pgf}
- \caption{Differenza di due vettori.}
- \label{fig:F.11}
-\end{figure}
+\begin{minipage}{.59 \textwidth}
+Si procede nel seguente modo:
+\begin{enumeratea}
+\item costruiamo il vettore~$\vec{-v}=-\vec{v}$ che ha stessa direzione, 
+stesso modulo, ma verso opposto;
+\item determiniamo la somma~$\vec{u}+\tonda{\vec{-v}} = \vec{c}$.
+\end{enumeratea}
+% Il vettore ottenuto è la differenza tra i vettori 
+% assegnati:~$\vec{c}=\vec{u}-\vec{v}$.
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
+\begin{inaccessibleblock}[Differenza tra due vettori.]
+ \begin{center}
+  \scalebox{.8}{\input{\folder lbr/fig014_dif.pgf}}
+ \end{center}
 \end{inaccessibleblock}
+\end{minipage}
 
 % \begin{exrig}
 \begin{esempio}
+\mbox{}
 
-Sono assegnati i vettori~$\vec{u}(4;0)$ e~$\vec{v}(-2;-1)$. 
-Determinare~$\vec{d_1}=\vec{u}-\vec{v}$ e~$\vec{d_2}=\vec{v}-\vec{u}$. Cosa 
-osservate?
-\begin{center}
- \input{\folder lbr/fig020_eser.pgf}
-\end{center}
+\begin{minipage}{.49 \textwidth}
+Sono assegnati i vettori~$\vec{u}(4;0)$ e~$\vec{v}(-2;-1)$. \\
+Determinare~$\vec{d_1}=\vec{u}-\vec{v}$ e~$\vec{d_2}=\vec{v}-\vec{u}$. \\
+Cosa osservate?
+\end{minipage}
+\hfill
+\begin{minipage}{.49 \textwidth}
+\begin{inaccessibleblock}[Differenza tra due vettori.]
+ \begin{center}
+  \scalebox{.75}{\input{\folder lbr/fig020_eser.pgf}}
+ \end{center}
+\end{inaccessibleblock}
+\end{minipage}
 \end{esempio}
 % \end{exrig}
 
@@ -514,18 +524,34 @@ $\vec{c}=\dfrac{1}{3} \cdot \vec{v}$.
 \begin{center}
  \input{\folder lbr/fig015_vet.pgf}
 \end{center}
-
 \end{esempio}
+
+\begin{comment}}
+\mbox{}
+\begin{minipage}{.49 \textwidth}
+\end{minipage}
+\hfill
+\begin{minipage}{.49 \textwidth}
+\end{minipage}
+\end{comment}
+
 \begin{esempio}
+\mbox{}
+
+\begin{minipage}{.49 \textwidth}
 Nel piano dotato di riferimento cartesiano ortogonale rappresentiamo il 
 vettore~$\vec{u}(4;1)$ le componenti
-del vettore~$\vec{p}=-2\cdot \vec{u}$ si ottengono moltiplicando per~$-2$ le 
-componenti del vettore dato:~$\vec{p}(-8;-2)$. $\vec{p}$ e~$\vec{u}$
-hanno la stessa direzione essendo~$m_{\vec{u}}=\frac{1}{4}=m_{\vec{p}}$ e anzi 
-appartengono alla stessa retta avendo in comune il punto di applicazione.
+del vettore~$\vec{p}=-2\cdot \vec{u}$ si ottengono moltiplicando per~$-2$ 
+le componenti del vettore dato:~$\vec{p}(-8;-2)$. $\vec{p}$ e~$\vec{u}$
+hanno la stessa direzione essendo~$m_{\vec{u}}=\frac{1}{4}=m_{\vec{p}}$ e 
+anzi appartengono alla stessa retta avendo in comune il punto di applicazione.
+\end{minipage}
+\hfill
+\begin{minipage}{.49 \textwidth}
 \begin{center}
- \input{\folder lbr/fig016_vet.pgf}
+ \scalebox{.8}{\input{\folder lbr/fig016_vet.pgf}}
 \end{center}
+\end{minipage}
 \end{esempio}
 % \end{exrig}
 
@@ -533,15 +559,15 @@ In generale~$\vec{u}(x_u;y_u) \rightarrow r \cdot \vec{u}=
              \vec{p}(r \cdot x_u; 
              r \cdot y_u)$ e~$m_{\vec{u}}=m_{\vec{p}}$.
    
-\begin{osservazione}
-Se due vettori hanno la stessa direzione, cioè appartengono a rette parallele 
-(non coincidenti), si può sempre trovare un numero reale~$r$
-tale che uno sia~$r$ volte l'altro. La figura seguente può suggerirvi come 
-giustificare l'osservazione precedente.
-\begin{center}
- \input{\folder lbr/fig017_vet.pgf}
-\end{center}
-\end{osservazione}
+% \begin{osservazione}
+% Se due vettori hanno la stessa direzione, cioè appartengono a rette parallele 
+% (non coincidenti), si può sempre trovare un numero reale~$r$
+% tale che uno sia~$r$ volte l'altro. La figura seguente può suggerirvi come 
+% giustificare l'osservazione precedente.
+% \begin{center}
+%  \input{\folder lbr/fig017_vet.pgf}
+% \end{center}
+% \end{osservazione}
 
 % \begin{exrig}
 \begin{esempio}
@@ -556,31 +582,33 @@ e determinatene le componenti.
 % \end{exrig}
 
 \subsection{Il prodotto scalare}
-
-Consideriamo due vettori $\vec{u}$ e $\vec{v}$ non nulli e 
-sia~$\alpha$ l'angolo da essi formato.
-
+\begin{minipage}{.59 \textwidth}
+Consideriamo due vettori $\vec{u}$ e $\vec{v}$ 
+non nulli e sia~$\alpha$ l'angolo da essi formato.
+\end{minipage}
+\hfill
+\begin{minipage}{.59 \textwidth}
 \begin{inaccessibleblock}[Due vettori u e v e l'angolo compreso.]
- \begin{figure}[t]
- \centering
+ \begin{center}
   \input{\folder lbr/030_prodotto_scalare.pgf}
- \caption{Prodotto scalare tra due vettori.}
- \label{fig:vett_prodotto_scalare}
-\end{figure}
+%   \scalebox{.8}{\input{\folder lbr/030_prodotto_scalare.pgf}}
+ \end{center}
 \end{inaccessibleblock}
-                  
+\end{minipage}
+
 Il prodotto scalare può assumere valore positivo, negativo o nullo a seconda 
 dell'angolo~$\alpha$ che i due vettori $\vec{u}$ e $\vec{v}$ non nulli formano. 
 In particolare:
-\begin{itemize}
+\begin{itemize} [noitemsep]
  \item se i vettori $\vec{u}$ e $\vec{v}$ sono paralleli e 
   quindi $\alpha=0\grado$
-  \[\vec{u} \cdot \vec{v} = \lvert\vec{u}\rvert\lvert\vec{v}\rvert \cos \alpha=
-    \lvert\vec{u}\rvert\lvert\vec{v}\rvert\] 
+  \(\vec{u} \cdot \vec{v} = 
+    \lvert\vec{u}\rvert\lvert\vec{v}\rvert \cos \alpha = 
+    \lvert\vec{u}\rvert\lvert\vec{v}\rvert\) \\
   in quanto $\cos 0\grado = 1$;
  \item se i vettori $\vec{u}$ e $\vec{v}$ sono perpendicolari e 
   quindi $\alpha=90\grado$
-  \[\vec{u} \cdot \vec{v} = 0\] 
+  \(\vec{u} \cdot \vec{v} = 0\) \\ 
   in quanto $cos 90\grado = 0$;
  \item in tutti gli altri casi dipende dal valore di $\cos \alpha$ che è 
   positivo se $-90\grado < \alpha < +90\grado$ e negativo 
@@ -613,23 +641,23 @@ In particolare:
 \subsubsection{Proprietà}
 
 Il prodotto scalare gode delle seguenti proprietà:
-\begin{itemize}
- \item proprietà \emph{commutativa}:
-  \[\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}\]
- \item proprietà \emph{distributiva} rispetto alla somma di vettori:
-  \[\left(\vec{u} + \vec{v} \right) \cdot \vec{w} = 
-    \vec{u} \cdot \vec{w} + \vec{v} \cdot \vec{w}\]
- \item proprietà \emph{associativa}:
-  \[\left(\vec{u} \cdot \vec{v} \right) \cdot \vec{w} = 
-    \vec{u} \cdot \left(\vec{v} \cdot \vec{w} \right)\]
+\begin{itemize} [noitemsep]
+ \item \emph{commutativa}: \hfill
+  \(\displaystyle\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}\)
+ \item \emph{distributiva} rispetto alla somma di vettori: \hfill
+  \(\displaystyle\left(\vec{u} + \vec{v} \right) \cdot \vec{w} = 
+    \vec{u} \cdot \vec{w} + \vec{v} \cdot \vec{w}\)
+ \item \emph{associativa}: \hfill
+  \(\displaystyle\left(\vec{u} \cdot \vec{v} \right) \cdot \vec{w} = 
+    \vec{u} \cdot \left(\vec{v} \cdot \vec{w} \right)\)
 \end{itemize}
 
 \subsubsection{Prodotto scalare nel piano cartesiano}
 
 È possibile esprimere il prodotto scalare di due 
 vettori~$\vec{u}=(x_u;~y_u)$ e $\vec{v}=(x_v;~y_v)$ 
-in funzione delle loro componenti tramite la formula:
-\[\vec{u} \cdot \vec{v} = x_u x_v + y_u y_v\]
+in funzione delle loro componenti tramite la formula: \quad
+\(\vec{u} \cdot \vec{v} = x_u x_v + y_u y_v\)
 
  \begin{esempio}
   Calcola il prodotto scalare dei vettori $\vec{a}(3;~5)$ e $\vec{b}(4;~-2)$.
@@ -648,14 +676,20 @@ dà come risultato un vettore e la hanno chiamata prodotto vettoriale.
 % \label{fig:...}
 % \end{wrapfloat}
 
-\begin{inaccessibleblock}[Due vettori u e v e il prodotto vettoriale.]
- \begin{figure}[h]
- \centering
-  \input{\folder lbr/031_prodotto_vettoriale.pgf}
- \caption{Prodotto vettoriale tra due vettori.}
- \label{fig:vett_prodotto_vettoriale}
-\end{figure}
+\begin{inaccessibleblock}[Due vettori u e v e l'angolo compreso.]
+ \begin{center}
+  \scalebox{.8}{\input{\folder lbr/031_prodotto_vettoriale.pgf}}
+ \end{center}
 \end{inaccessibleblock}
+
+% \begin{inaccessibleblock}[Due vettori u e v e il prodotto vettoriale.]
+%  \begin{figure}[h]
+%  \centering
+%   \scalebox{.8}{\input{\folder lbr/031_prodotto_vettoriale.pgf}}
+%  \caption{Prodotto vettoriale tra due vettori.}
+%  \label{fig:vett_prodotto_vettoriale}
+% \end{figure}
+% \end{inaccessibleblock}
 
 Consideriamo due vettori $\vec{u}$ e $\vec{v}$ non nulli e 
 sia~$\alpha$ l'angolo da essi formato.
@@ -663,7 +697,7 @@ sia~$\alpha$ l'angolo da essi formato.
 \begin{definizione}
  Si dice \emph{prodotto vettoriale} $\vec{u} \times \vec{v}$
  e si legge ``u vettore v'' il vettore che ha: 
- \begin{itemize}
+ \begin{itemize} [noitemsep]
   \item \emph{modulo} uguale 
    a~$\lvert\vec{u}\rvert\lvert\vec{v}\rvert \sin \alpha$
   \item direzione perpendicolare al piano individuato dai due 
@@ -675,16 +709,18 @@ sia~$\alpha$ l'angolo da essi formato.
 \end{definizione}
  
 In particolare:
-\begin{itemize}
+\begin{itemize} [noitemsep]
  \item se i vettori $\vec{u}$ e $\vec{v}$ sono paralleli e 
   quindi $\alpha=0\grado$
-  \[\vec{u} \times \vec{v} = \lvert\vec{u}\rvert\lvert\vec{v}\rvert \sin \alpha=
-    \lvert\vec{u}\rvert\lvert\vec{v}\rvert \sin 0\grado=0\] 
+  \(\vec{u} \times \vec{v} = 
+    \lvert\vec{u}\rvert\lvert\vec{v}\rvert \sin \alpha=
+    \lvert\vec{u}\rvert\lvert\vec{v}\rvert \sin 0\grado=0\) \\
   in quanto $\sin 0\grado = 0$;
  \item se i vettori $\vec{u}$ e $\vec{v}$ sono perpendicolari e 
   quindi $\alpha=90\grado$
-  \[\vec{u} \times \vec{v} = \lvert\vec{u}\rvert\lvert\vec{v}\rvert \sin \alpha=
-    \lvert\vec{u}\rvert\lvert\vec{v}\rvert\]
+  \(\vec{u} \times \vec{v} = 
+    \lvert\vec{u}\rvert\lvert\vec{v}\rvert \sin \alpha=
+    \lvert\vec{u}\rvert\lvert\vec{v}\rvert\)\\
   in quanto $sin 90\grado = 1$
 \end{itemize}
 
@@ -693,51 +729,53 @@ In particolare:
   che hanno moduli $\lvert\vec{u}\rvert= 3 \text{ e } \lvert\vec{v}\rvert=7$ 
   e che formano un angolo di $60\grado$. 
  \begin{itemize}
-  \item \emph{modulo} uguale 
-  \[\vec{u} \times \vec{v} = 
+  \item \emph{modulo}  [noitemsep] 
+  \(= \vec{u} \times \vec{v} = 
     \lvert\vec{u}\rvert\lvert\vec{v}\rvert \sin \alpha=
-    3 \cdot 7 \cdot \sin 60\grado = 21 \cdot \frac{1}{2} = 10,5\]
+    3 \cdot 7 \cdot \sin 60\grado = 21 \cdot \frac{1}{2} = 10,5\)
   \item direzione perpendicolare al piano individuato dai due 
    vettori $\vec{u}$ e $\vec{v}$
   \item \emph{verso} entrante nel piano.
  \end{itemize}
  \end{esempio}
 
-
 \osservazione
+\mbox{}
+
+\begin{minipage}{.59 \textwidth}
 È importante notare  che il modulo del prodotto vettoriale è uguale all'area 
 del parallelogramma che ha per lati i due vettori.
-Infatti, come si può vedere dalla figura \ref{fig:vett_parallelogramma}      
-
-\begin{inaccessibleblock}[Parallelogramma con evidenziati i lati come vettori
-  e l'altezza.]
- \begin{figure}[h]
- \centering
-  \input{\folder lbr/032_parallelogramma.pgf}
- \caption{Area del parallelogramma e modulo del prodotto vettoriale.}
- \label{fig:vett_parallelogramma}
-\end{figure}
-\end{inaccessibleblock}
-
-\[Area (ABCD)=\overline{AB} \cdot \overline{DH} =
+Infatti, come si può vedere dalla figura.% \ref{fig:vett_parallelogramma}
+\[\mathcal{A} = \overline{AB} \cdot \overline{DH} =
             \overline{AB} \cdot \overline{AD} \sin \alpha =
             \lvert\vec{u}\rvert\lvert\vec{v}\rvert \sin \alpha=
             \vec{u} \times \vec{v}\]
+\end{minipage}
+\hfill
+\begin{minipage}{.39 \textwidth}
+\begin{center}
+\begin{inaccessibleblock}[Parallelogramma con evidenziati 
+i lati come vettori e l'altezza.]
+  \input{\folder lbr/032_parallelogramma.pgf}
+\end{inaccessibleblock}
+\end{center}
+\end{minipage}
+     
 
 \subsubsection{Proprietà}
 
-Proprietà:
-\begin{itemize}
- \item il prodotto vettoriale \emph{non} gode della proprietà 
-  \emph{commutativa} infatti:
-  \[\vec{u} \times \vec{v} = - \vec{v} \times \vec{u}\]
- \item gode della proprietà \emph{distributiva} rispetto alla somma di vettori:
-  \[\left(\vec{u} + \vec{v} \right) \times \vec{w} = 
-    \vec{u} \times \vec{w} + \vec{v} \times \vec{w}\]
- \item gode della proprietà \emph{associativa} rispetto alla moltiplicazione
-  per uno scalare:
-  \[\left(k \cdot \vec{u} \right) \times \vec{v} = 
-    k \cdot \left(\vec{u} \times \vec{v} \right)\]
+Il prodotto vettoriale gode delle seguenti proprietà:
+\begin{itemize} [noitemsep]
+ \item \emph{distributiva} rispetto alla somma di vettori: \hfill
+  \(\displaystyle\left(\vec{u} + \vec{v} \right) \times \vec{w} = 
+    \vec{u} \times \vec{w} + \vec{v} \times \vec{w}\)
+ \item \emph{associativa} rispetto alla moltiplicazione
+  per uno scalare: \hfill
+  \(\displaystyle\left(k \cdot \vec{u} \right) \times \vec{v} = 
+    k \cdot \left(\vec{u} \times \vec{v} \right)\)
+ \item \emph{non} gode della proprietà \emph{commutativa} infatti: \hfill
+  \(\displaystyle\vec{u} \times \vec{v} = 
+  - \left(\vec{v} \times \vec{u}\right)\)
 \end{itemize}
 
 % \ovalbox{\risolvii \ref{ese:F.4}, \ref{ese:F.5}, \ref{ese:F.6}}

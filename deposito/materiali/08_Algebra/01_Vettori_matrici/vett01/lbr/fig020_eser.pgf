@@ -1,23 +1,23 @@
-% (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
+﻿% (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
 
 \begin{tikzpicture}[x=10mm,y=10mm, font=\small]
 
+  \begin{scope}[dotted, orange]
+    \draw (-2.5,-1.5) grid (6.5,1.5);
+  \end{scope}
+
   \begin{scope}[->]
-    \draw (-6.5,0) -- (6.5,0) node [below right] {$x$};
+    \draw (-2.5,0) -- (6.5,0) node [below right] {$x$};
     \draw (0,-1.5) -- (0,1.5) node[above left] {$y$};
   \end{scope}
 
-  \foreach \x/\xtext in {-6/-6,-5/-5,-4/-4,-3/-3,-2/-2,-1/-1,1/1,2/2,3/3,4/4,5/5,6/6}{
+  \foreach \x/\xtext in {-2/-2,-1/-1,1/1,2/2,3/3,4/4,5/5,6/6}{
     \node[below] at (\x,0) {$\xtext$};
     \draw (\x,1.5pt) -- (\x,-1.5pt);}
   \foreach \y/\ytext in {-1/-1, 1/1}{
     \node[left] at (0,\y) {$\ytext$};
     \draw (1.5pt,\y) -- (-1.5pt,\y);}
   \node[below left] at (0,0) {$0$};
-
-  \begin{scope}[dotted, orange]
-    \draw (-6.5,-1.5) grid (6.5,1.5);
-  \end{scope}
 
   \begin{scope}[thick, ->,shorten >=1.5pt]
     \draw[Maroon] (0,0) -- (4,0);  
