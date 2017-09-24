@@ -1520,7 +1520,7 @@ Il coefficiente di correlazione lineare $\rho$ misura l'intensità del
 variabili quantitative X e Y, ovvero il grado di proporzionalità esistente 
 tra X e Y.
 Il coefficiente si calcola come rapporto tra la covarianza tra X e Y e il 
-prodotto degli scarti quadratici medi, 
+prodotto degli scarti quadratici medi 
 $$\rho_{XY}=\frac{COV_{XY}}{\sigma_X\sigma_Y}$$
  In particolare, $\rho$ assume valori compresi tra -1 (perfetta 
 correlazione negativa: la relazione tra X e Y è di assoluta proporzionalità 
@@ -1554,7 +1554,7 @@ tutte le coppie (x,y), anche a quelle che non sono state fornite dalla
 rilevazione.
  Ma come si arriva a tale specificazione?
  
- Innanzitutto va tenuto presente che le informazioni da cui si parte sono 
+ Va tenuto presente che le informazioni da cui si parte sono 
 le n coppie del tipo:
 
  \begin{tabular}{|c|c|c|}
@@ -1611,7 +1611,7 @@ $x_i$ osservati ($i=1,2,3,\dots n$); essendo $n$ il numero di punti che si
 considerano.
  La retta che risponde a tale requisito è nota come \textquotedblleft retta 
 di regressione  o retta dei minimi quadrati\textquotedblright è la retta 
-passante per il BARICENTRO, ovvero il punto di coordinate 
+passante per il \emph{baricentro}, ovvero il punto di coordinate 
 $(\overline{x};\overline{y})$, medie delle variabili X e Y avente 
 \textquotedblleft m\textquotedblright:
  $$m=\frac{\sigma_{xy}}{\sigma^2_{x}}$$
@@ -1621,16 +1621,14 @@ $COV_{xy}$)\\
 sono calcolati a partire dalla matrice dei dati di base e con le usuali 
 formule già viste.
  Pertanto, l'espressione finale della retta di regressione è la seguente:
- $$y-\overline{y}=\frac{\sigma_{xy}}{\sigma^2_{x}}(x-\overline{x})$$
- \begin{center}
-        Ovvero: 
- \end{center}
- $$y=\frac{\sigma_{xy}}{\sigma^2_{x}}(x-\overline{x})+\overline{y}$$
+$$y-\overline{y}=\frac{\sigma_{xy}}{\sigma^2_{x}}(x-\overline{x})
+  \sRarrow
+  y=\frac{\sigma_{xy}}{\sigma^2_{x}}(x-\overline{x})+\overline{y}$$
  Resta tuttavia ancora da verificare se tale retta, pur essendo la 
 \textquotedblleft migliore\textquotedblright,  è realmente idonea a 
 svolgere il ruolo di \textquotedblleft funzione madre\textquotedblright 
 dell'insieme delle n coppie/punti che si considerano. Tale verifica avviene 
-mediante il calcolo dell'indice $\rho^2$ ( che altro non è se non il 
+mediante il calcolo dell'indice $\rho^2$ (che altro non è se non il 
 quadrato del coefficiente di correlazione lineare e assume valori compresi 
 tra zero e uno).
  In particolare,  se
@@ -1648,26 +1646,28 @@ riflettere sulla scelta del tipo di funzione più idonea.
  Ad esempio, se si volesse esprimere, mediante una retta il legame tra il 
 voto (variabile dipendente) espresso dalla variabile Z  e l'altezza 
 (variabile indipendente) espressa dalla variabile Y:
- $$Z=mY+q$$
- dai calcoli svolti precedentemente si dispone dei seguenti dati:
- \begin{itemize} [nosep]
-        \item $\overline{z}=21,30$
-                \item $\overline{y}=172,38$
-                \item $COV_{zy}=\sigma_{zy}=-7,71$
-                \item $\sigma^2{y}=97,80$
- \end{itemize}
- che conducono al valori di m della retta di regressione:
- $$m=\frac{\sigma_{zy}}{\sigma^2_{y}}=\frac{-7,71}{97,80 }=-0,0788$$
- da cui:
- $$Z = 34,88 ? 0,0788 Y$$
- Tale retta dovrebbe consentire di esprimere i valori di Z (ossia i voti) 
+$$Z=mY+q$$
+dai calcoli svolti precedentemente si dispone dei seguenti dati:
+\begin{itemize} [nosep]
+  \item $\overline{z}=21,30$
+  \item $\overline{y}=172,38$
+  \item $COV_{zy}=\sigma_{zy}=-7,71$
+  \item $\sigma^2{y}=97,80$
+\end{itemize}
+che conducono al valori di m della retta di regressione:
+\[m=\frac{\sigma_{zy}}{\sigma^2_{y}}=\frac{-7,71}{97,80 }=-0,0788
+  \quad \text{ e } \quad
+q = \overline{y} - m \overline{z} = 21,30 + 0,0788 \cdot 172,38 = 34,88\]
+da cui:
+$$Z = -0,0788 \cdot Y + 34,88$$
+Tale retta dovrebbe consentire di esprimere i valori di Z (ossia i voti) 
 anche in corrispondenza di quelle altezze che non sono state oggetto di 
 osservazione diretta (non compaiono tra le 20 coppie di cui si dispone). Ad 
 esempio, un soggetto alto esattamente 160 dovrebbe ottenere come voto: $Z 
-=34,88 ? 0,0788 \cdot 160 = 22,27$. Questo se il modello della retta 
+=-0,0788 \cdot 160 + 34,88 = 22,27$. Questo se il modello della retta 
 dovesse rispondere bene alla relazione tra Z e Y. In effetti, nel nostro 
 esempio ciò non accade in quanto, come facile rilevare: 
- $$\rho^2== (-0,35)^2 = 0,1225$$
+ $$\rho^2 = (-0,35)^2 = 0,1225$$
  indica che la bontà di adattamento della (pur migliore) retta ai dati è 
 scarsa. Per esprimere l'eventuale relazione tra Z e Y conviene dunque 
 ipotizzare un diverso tipo di funzione matematica.
@@ -1706,12 +1706,12 @@ Varianza &      $V$      &\\
  \hline
 Deviazione Standard      &$\sigma$ & $\sigma=\sqrt{V}$\\
 \hline
-\end{tabular}
-
-\vspace{1cm}
-\noindent
-\begin{tabular}{|p{3cm}|c|p{5.5cm}|}
-\hline
+% \end{tabular}
+% 
+% \vspace{1cm}
+% \noindent
+% \begin{tabular}{|p{3cm}|c|p{5.5cm}|}
+% \hline
 Frequenza Congiunta & $f(x_i;y_j)$& $i=1,\dots, n$   $j=1,\dots, k$\\
 \hline
 Frequenze Marginali      & $f(x_i); f(y_j)$& \\
