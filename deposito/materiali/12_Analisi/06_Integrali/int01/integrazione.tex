@@ -15,6 +15,13 @@
 \section{Un problema di area}
 \label{sec:integrali_area}
 
+\footnote{Per scrivere questo capitolo mi sono ispirato 
+all'articolo ``Elementi di Analisi Non Standard, l'integrale'' apparso sul 
+periodico Matematicamente della Mathesis di Verona. 
+Chi volesse approfondire l'argomento può trovare l'articolo 
+all'indirizzo: 
+\href{http://mathesisverona.it/Numeri/Nume210.pdf}
+     {mathesisverona.it/Numeri/Nume210.pdf}}
 Uno dei primi problemi affrontati usando il piano cartesiano è stato quello 
 di determinare l'area sottesa ad un segmento. In questo capitolo vogliamo 
 riprendere quel tipo di problemi e generalizzarlo alla ricerca dell'area 
@@ -37,7 +44,7 @@ sottesa al segmento \(AB\).
 \begin{minipage}{.69\textwidth}
  Possiamo riconoscere che la superficie sottesa al segmento ha la forma di un 
 trapezio rettangolo con le due basi lunghe \(y_A\) e \(y_B\) e l'altezza 
-lunga \(b - a = x_b - x_a\). L'area è quindi:
+lunga \(b - a = x_B - x_A\). L'area è quindi:
 \begin{align*}
  \mathcal{A} &= \frac{1}{2} \cdot \tonda{y_B + y_A} \cdot \tonda{x_b - x_a}=\\
              &= \frac{1}{2} \cdot \tonda{7,2 + 6} \cdot \tonda{4,3 - 2,5} =\\
@@ -52,8 +59,9 @@ i segmenti siano consecutivi possono anche essere staccati uno dall'altro.
 
 \begin{esempio}
 Calcola l'area sottesa ai segmenti paralleli all'asse \(x\), di lunghezza 
-\(0,5\) e di ordinata rispettivamente: \\ 
+\(0,5\) e di ordinata rispettivamente: \quad 
 \(5;~4;~6;~3;~7;~5\)
+
 \begin{minipage}{.29\textwidth}
 \begin{inaccessibleblock}[Area sottesa al segmento.]
   \areasottesasegmenti
@@ -103,8 +111,9 @@ Possiamo calcolare allora l'area con la seguente formula:
 \end{align*}
 
 Le scritture usate per le formule scritte sopra non piacciono ai matematici 
-perché risultano lunghe da scrivere e nascondono la sostanza delle operazioni 
-che vengono fatte in mezzo a molti simboli che si ripetono. 
+perché risultano lunghe da scrivere e nascondono, 
+in mezzo a molti simboli che si ripetono, 
+la sostanza delle operazioni che vengono fatte . 
 È stato così inventato un altro simbolo detto 
 \emph{Sommatoria} che indica la somma di un certo numero di espressioni che 
 si assomigliano. Il simbolo usato è la \emph{Sigma} (la esse greca) maiuscola:
@@ -115,10 +124,11 @@ Intorno a questo simbolo vengono aggiunte tutte le informazioni che servono
 per precisare il calcolo:
 
 \begin{itemize} [nosep]
- \item \emph{sotto}: da dove si inizia, nel nostro caso: da~0;
- \item \emph{sopra}: fin dove si arriva, nel nostro caso: fino a~6;
- \item \emph{dopo}: cosa si somma, nel nostro caso, la formula per calcolare 
-le diverse aree da sommare: \(y_i \cdot \Delta_x\).
+ \item \emph{sotto}: il nome dell'indice e il suo primo valore, nel nostro 
+caso:~\(i=0\);
+ \item \emph{sopra}: l'ultimo valore dell'indice, nel nostro caso:~6;
+ \item \emph{dopo}: cosa si somma, nel nostro caso: la formula per calcolare 
+l'area di ogni rettangolo da sommare: \(y_i \cdot \Delta_x\).
 \end{itemize}
 
 \[\mathcal{A} = \sum_{i=0}^6 \mathcal{A}_i = 
@@ -128,7 +138,8 @@ le diverse aree da sommare: \(y_i \cdot \Delta_x\).
 Con il linguaggio di programmazione Python:
 \lstinputlisting[firstline=24]{\folder lbr/areasottesasegmenti.py} %, 
 %  lastline=5]
-Che può essere tradotto: somma \(y_i \cdot delta_x\) con \(y_i\) che va 
+Che può essere tradotto: somma 
+\(\tonda{y_i \cdot delta_x}\) con \(y_i\) che va 
 dal primo all'ultimo valore contenuto in ordinate.
 \fi
 
@@ -150,9 +161,6 @@ in cui la funzione è definita.
 Fissata la funzione f, tale area dipenderà dalla scelta degli estremi a e b 
 dell'intervallo, ed è possibile indicarla come: 
 \[\mathcal{A}(a,b)\]
-Con questa scrittura indichiamo che, \emph{fissata la funzione}, il valore 
-dell'area (\(\mathcal{A}\)) dipende solo da due parametri che sono gli 
-stremi sull'asse \(x\) della superficie.
 
 La funzione binaria \(\mathcal{A}\), area sottesa ad una funzione in un 
 intervallo, ha due tipiche proprietà che potranno essere usate per 
@@ -162,9 +170,9 @@ determinarla. Esse sono:
  \item
 La \emph{proprietà additiva}, dice che se \(a\), \(b\) e \(x_1\) 
 sono tre valori che appartengono all'intervallo in cui è definita \(f\) e 
-\(a < x_1 < b\)
+\(a < t < b\)
 allora \(\mathcal{A}(a,~b)\) = 
-\(\mathcal{A}(a,~x_1)\)+\(\mathcal{A}(x_1,~b)\)).
+\(\mathcal{A}(a,~t)\)+\(\mathcal{A}(t,~b)\)).
 
 \begin{minipage}{.49\textwidth}
 \begin{inaccessibleblock}[Proprietà additiva per 
@@ -180,14 +188,14 @@ un'area sottesa ad una curva.]
 Questa proprietà afferma che se una superficie 
 viene divisa in due parti da una linea, 
 allora l'area totale è la somma delle aree delle due parti.
-Nel nostro caso la linea è la retta di equazione: \(x = x_1\).
+Nel nostro caso la linea è la retta di equazione: \(x = t\).
 
  \item 
 La \emph{proprietà rettangolare} rispetto alla funzione \(f\), 
 dice che se \(m\) è il minimo e \(M\) massimo della funzione \(f\) 
 nell'intervallo \(\intervcc{a}{b}\)
 allora \\
-\(m\cdot(b-a) = \mathcal{A}_{mi}(a,~b) < 
+\(m\cdot(b-a) = \mathcal{A}_{mi}(a,~b) \leq \mathcal{A}(a,~b) \leq
                        \mathcal{A}_{ma}(a,~b) < M\cdot(b-a)\),
 
 \begin{minipage}{.49\textwidth}
@@ -212,13 +220,7 @@ della funzione \(f\) nell'intervallo \(\intervcc{a}{b}\).
 \section{Definizione}
 \label{sec:integrali_definizione}
 
-\begin{minipage}{.39\textwidth}
-\begin{inaccessibleblock}[Rettangolo minore dell'area sottesa.] 
-  \sommariemann
-\end{inaccessibleblock}
-\end{minipage}
-\hfill
-\begin{minipage}{.59\textwidth}
+\begin{minipage}{.49\textwidth}
 \begin{inaccessibleblock}[Rettangolo maggiore dell'area sottesa.] 
 Consideriamo una funzione continua \(f\) su un intervallo I cui 
 appartengono i punti \(a\) e \(b\), e una partizione dell'intervallo chiuso 
@@ -227,12 +229,20 @@ separati dai punti:
 \(a = t_0 < t_1 < \dots < t_h \le b\) \\
 dove \(t_i = t_0 +i \Delta\) \quad e \quad \(t_{i+1} - t_i= \Delta\) \\
 e dove \(h\) è il massimo numero naturale tale che: \\
-\(t_0 + h \Delta \le b\), e dunque \(b-t_h \le \Delta\)
-più l'intervallo da \(t_h\) a \(b\).
+\(t_0 + h \Delta \le b\), e dunque \(b-t_h \le \Delta\). 
+Il segmento \(ab\) è dunque uguale alla somma di \(h\) segmenti di lunghezza 
+\(\Delta\) più il segmento che va da \(t_h\) a \(b\):
+\(ab = h \cdot \delta + (b - t_h)\)
+\end{inaccessibleblock}
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+\begin{inaccessibleblock}[Rettangolo minore dell'area sottesa.] 
+  \sommariemann
 \end{inaccessibleblock}
 \end{minipage}
 
-Si può considerare la sommatoria
+Si può considerare la sommatoria:
 \[\left(\sum_{i=0}^{h-1} f(t_i)\cdot\Delta \right)+f(t_h)\cdot(b-t_h)\] 
 che è l'area dell'unione dei rettangoli che 
 hanno per altezza \(f(t_i)\) 
@@ -247,17 +257,25 @@ Chiamiamo \(M\) il massimo e \(m\) il minimo di \(f\) nell'intervallo
 \(\intervcc{a}{b}\).
 
 Allora anche per la somma di Riemann finita vale la proprietà rettangolare: 
-\[m\cdot(b - a) \le \sum_a^b f(t) \cdot\Delta \le M\cdot(b - a)\] 
+\[m\cdot(b - a) \le \sum_a^b f \cdot\Delta \le M\cdot(b - a)\] 
 Quindi una somma di Riemann finita è senz'altro un numero finito.
 
-Questa sommatoria dipende solo dagli estremi a e b 
-e da \(\Delta\), essendo \(h\) e la successione degli \(t_i\) determinati 
-dalle quantità indicate, sicché la denoteremo come 
-\[\sum_a^b f(t) \cdot \Delta\] 
-Se fissiamo anche \(a\) e \(b\) allora la somma di Riemann è una funzione 
-reale unaria che dipende solo da \(\Delta\). 
+Questa sommatoria dipende:
+% \begin{multicols}{3} 
+\begin{itemize} [nosep]
+ \item dalla funzione \(f\),
+ \item dagli estremi \(a\) e \(b\),
+ \item dall'intervallo \(\delta\).
+\end{itemize}
+% \end{multicols}
 
-ESEMPI DI SOMME DI RIEMANN AL VARIARE DI DELTA % TODO
+Poiché \(h\) e la successione dei numeri \(t_i\) determinati 
+dalle quantità indicate, sicché la denoteremo come 
+\[\sum_a^b f \cdot \Delta\] 
+Se fissiamo la funzione \(f\), e gli estremi \(a\) e \(b\) allora la somma di 
+Riemann è una funzione reale unaria che dipende solo da \(\Delta\). 
+
+% ESEMPI DI SOMME DI RIEMANN AL VARIARE DI DELTA % TODO
 
 Possiamo osservare che al diminuire della distanza \(\Delta\) tra i punti di 
 partizione l'area coperta da questa unione di rettangoli sarà sempre più 
@@ -270,10 +288,10 @@ Chiamiamo \(H\) il numero infinito di partizioni dell'intervallo
 \(\intervcc{a}{b}\) tale che \(x_H = t_0 + H \cdot dt\) e \(t_H \le b\).
 
 Chiamiamo \emph{somma di Riemann infinita} questa nuova sommatoria:
-\[\sum_a^b f(t) \cdot dt\]
-Per il principio di transfer, anche le per la somma di Riemann infinita vale 
+\[\sum_a^b f \cdot dt\]
+Per il principio di transfer, anche per la somma di Riemann infinita vale 
 che 
-\[m \cdot (b - a) \le  \sum_a^b f(t) \cdot dt  \le M\cdot(b - a)\]
+\[m \cdot (b - a) \le  \sum_a^b f \cdot dt  \le M\cdot(b - a)\]
 e pertanto anche la somma di Riemann infinita sarà un iperreale finito. 
 Possiamo quindi calcolare la sua parte standard. 
 
@@ -282,12 +300,12 @@ A questa parte standard diamo il nome di \emph{integrale definito}
 Data una funzione standard \(f\) continua su \(\intervcc{a}{b}\),
 chiamiamo \emph{integrale definito} la parte standard della 
 somma di Riemann infinita:
-\[\pst{\sum_a^b f(t) \cdot dt}\]
+\[\pst{\sum_a^b f \cdot dt}\]
 \end{definizione}
 
 Per semplificare un po' la notazione useremo per indicare questa quantità un 
 nuovo simbolo, una specie di esse stirata che è il simbolo di integrale:
-\[\int_a^b f(t) \cdot dt = \pst{\sum_a^b f(t) \cdot dt}\]
+\[\int_a^b f \cdot dt = \pst{\sum_a^b f \cdot dt}\]
 
 \section{Somme di Riemann inferiore e superiore}
 \label{sec:integrali_somme_riemann}
@@ -296,11 +314,13 @@ Mentre le somme di Riemann finite dipendono dal valore di \(\Delta\), i
 matematici hanno dimostrato che le somme di Riemann infinite non dipendono 
 dall'infinitesimo scelto come base dei rettangolini.
 
-Ma il lettore attento e pignolo può avere il dubbio che definendo somme di 
-Riemann in modo diverso si ottengano integrali definiti diversi. Noi abbiamo 
+Ma, anche accettando la precedente affermazione, il lettore attento e pignolo 
+può avere il dubbio che definendo somme di 
+Riemann in modo diverso si ottengano integrali definiti diversi. 
+Noi abbiamo 
 calcolato l'area dei rettangolini prendendo come altezza il valore di \(f\) 
-nell'estremo destro dell'intervallo, ma cosa succede se consideriamo 
-l'estremo sinistro o se consideriamo un punto a caso dell'intervallo?
+nell'estremo sinistro dell'intervallo, ma cosa succede se consideriamo 
+l'estremo destro o se consideriamo un punto a caso dell'intervallo?
 
 Vediamo qualche esempio:
 % 
@@ -310,13 +330,13 @@ Se in ogni sottointervallo chiamiamo \({}_{-}f(t_i)\) il minimo valore
 assunto dalla funzione e \({}^{-}f(t_i)\) il suo massimo valore, allora 
 possiamo definire le somme di Riemann finite superiore e inferiore. \\
 La somma di Riemann finita inferiore è: 
-\[\sum_{i=0}^h{}_{-}f(t_i)\cdot\Delta = \sum_a^b{}_{-} f(t) \cdot \Delta\] 
+\[\sum_{i=0}^h{}_{-}f(t_i)\cdot\Delta = \sum_a^b{}_{-} f \cdot \Delta\] 
 e quella superiore è: 
-\[\sum_{i=0}^h {}^{-}f(t_i)\cdot\Delta = \sum_a^b {}^{-}f(t) \cdot \Delta\]
+\[\sum_{i=0}^h {}^{-}f(t_i)\cdot\Delta = \sum_a^b {}^{-}f \cdot \Delta\]
 Evidentemente 
-\[\sum_a^b{}_{-}f(t) \cdot \Delta \le \sum_a^b f(t) \cdot \Delta \le 
-\sum_a^b {}^{-}f(t) \cdot \Delta\] 
-dato che ogni rettangolino della prima somma ha un'altezza non maggiore 
+\[\sum_a^b{}_{-}f \cdot \Delta \le \sum_a^b f \cdot \Delta \le 
+\sum_a^b {}^{-}f \cdot \Delta\] 
+poiché ogni rettangolino della prima somma ha un'altezza non maggiore 
 dell'altezza del corrispondente rettangolino della seconda somma e:
 
 \begin{itemize} [nosep]
@@ -347,13 +367,16 @@ di ogni rettangolino a un infinitesimo risulta ancora
 e si mantengono le proprietà rettangolare e additiva. 
 Ma se \(dt\) è un infinitesimo e la funzione è continua, allora anche la 
 differenza tra \({}_{-}f(t_0)\) e \({}^{-}f(t_0)\) è un infinitesimo (per la 
-definizione di funzione continua) e anche il prodotto tra questa differenza e 
-l'intervallo \(dt\) è un infinitesimo, e anche la somma di questi prodotti è 
-un infinitesimo quindi la differenza tra la somma di Riemann infinita 
+definizione di funzione continua) e il prodotto tra questa differenza e 
+l'intervallo \(dt\) è un infinitesimo di ordine superiore 
+all'area di un rettangolino perciò anche la somma, 
+pur infinita, di questi prodotti è un infinitesimo. 
+Quindi la differenza tra la somma di Riemann infinita 
 superiore e inferiore è un infinitesimo mentre il valore di una di queste 
 somme è un valore finito perciò le due somme sono indistinguibili e la loro 
 parte standard è la stessa.
-\[\int_a^b {}_{-}f \cdot dt = \int_a^b {}^{-}f \cdot dt\]
+\[\sum_a^b {}_{-}f \cdot dt \sim \sum_a^b {}^{-}f \cdot dt \sRarrow 
+  \int_a^b {}_{-}f \cdot dt = \int_a^b {}^{-}f \cdot dt\]
 Possiamo perciò chiamare integrale la parte standard di una una qualsiasi 
 somma di Riemann infinita:
 \[\int_b^a f \cdot dt = \pst{\sum_a^b {}_{-}f \cdot dt} =
@@ -366,7 +389,7 @@ somma di Riemann infinita:
 \label{subsec:integrali_proprieta_rettangolare}
 
 Partendo dalle disuguaglianze relative alla somma di Riemann infinita:
-\[m \cdot (b - a) \le  \sum_a^b f(t) \cdot dt  \le M\cdot(b - a)\]
+\[m \cdot (b - a) \le  \sum_a^b f \cdot dt  \le M\cdot(b - a)\]
 e passando alle parti standard, che 
 preservano le disuguaglianze, poiché il primo e l'ultimo termine sono parti 
 standard di se stessi in quanto reali, si ha: 
@@ -378,7 +401,7 @@ e quindi anche per l'integrale vale la proprietà rettangolare.
 
 Dalla definizione di integrale seguono le seguenti proprietà:
 \begin{enumerate}
- \item Se l'intervallo è nullo, sarà nullo anche l'integrale:
+ \item se l'intervallo è nullo, sarà nullo anche l'integrale:
 \[\int_a^a f \cdot dt=0\] 
  \item l'integrale di una costante \(k\) è uguale all'area del rettangolo:
 \[\int_a^b k \cdot dt = k \cdot (b-a)\]
@@ -391,7 +414,7 @@ integrali:
  \item se, in un certo intervallo, la funzione \(f\) è sempre inferiore alla 
 funzione \(g\) allora, in quell'intervallo, anche l'integrale di \(f\) è 
 minore dell'integrale di \(g\):
-\[f \le g \forall t \in \intervcc{a}{b} \sRarrow 
+\[f \le g \quad \forall t \in \intervcc{a}{b} \sRarrow 
 \int_a^b f \cdot dt \le \int_a^b g\cdot dt\]
 \end{enumerate}
 
@@ -410,7 +433,7 @@ dell'integrale definito,
 nell'integrale vale anche la proprietà additiva, infatti: 
 \[\int_a^b f \cdot dt + \int_b^c f \cdot dt = \int_a^c f \cdot 
 dt\] 
-Passando alle sommatorie 
+Passando poi alle sommatorie infinite:
 \[\sum_a^b f \cdot dt,\quad \sum_b^c f \cdot dt \quad\text{ e } \quad 
   \sum_a^c f \cdot dt\] 
 e prendendo 
@@ -419,7 +442,7 @@ con \(H\) ipernaturale infinito,
 i punti di ripartizione degli intervalli \(\intervcc{a}{b}\) e 
 \(\intervcc{b}{c}\) coincidono con quelli dell'intervallo \(\intervcc{a}{c}\)
 sicché la terza sommatoria è evidentemente la somma delle altre due.
-Passando alla loro parti standard, operazione che preserva l'addizione, si 
+Passando alle loro parti standard, operazione che preserva l'addizione, si 
 ottiene il risultato voluto.
 
 \section{Funzione integrale}
@@ -435,19 +458,21 @@ una funzione \(f\) fino ad un punto \(x\) variabile. La soluzione di questo
 problema generale permette anche di risolvere altri problemi che non 
 troverebbero soluzione nei casi particolari.
 
-\begin{problema}
- Calcolare l'area sottesa ad una funzione continua in funzione del solo 
-secondo estremo:
-\[F(x) = \int_{\dots}^x f~dx \] %= \int f~dx\] 
-\end{problema}
+Il problema consiste nel calcolare l'area sottesa ad una funzione continua in 
+funzione del solo secondo estremo:
+\[\mathcal{S}(x) = \int_{\dots}^x f~dx \] %= \int f~dx\] 
 
 Con \(\int_{}^x f~dx\) intendiamo l'area sottesa fino a \(x\).
 
 Noi sappiamo che per la proprietà additiva degli integrali l'area sottesa 
-fino a \(x\) è uguale alla somma dell'area sottesa fino ad \(a\) e l'area 
+fino a \(x\) è uguale alla somma dell'area sottesa fino ad \(a\) più l'area 
 sottesa alla funzione tra \(a\) e \(x\):
 \[\int_{}^x f~dx = \int_{}^a f~dx + \int_{a}^x f~dx \sRarrow
   \mathcal{S}(\dots ;~x) = \mathcal{S}(\dots ;~a) + \mathcal{S}(a;~x)\]
+
+D'ora in poi, la \emph{superficie fino a \(x\)} verrà indicata in modo un po' 
+più semplice:
+\[\mathcal{S}(x) = \int_{\dots}^x f~dx = \int f~dx\]
 
 Apparentemente questo passaggio non ha migliorato la situazione, perché 
 abbiamo trasformato la quantità incognita ``integrale fino a \(x\)'' nella 
@@ -607,7 +632,7 @@ sospetto \dots se ci ricordiamo qualcosa sulle derivate.
 
 Ma procediamo cercando di risolvere il problema precedente per una funzione 
 qualsiasi: 
-\[F(x) = \int_a^x f \cdot dx + \mathcal{C}\]
+\[S(x) = \int f \cdot dx\]
 
 \subsection{Dimostrazione grafica}
 
@@ -619,7 +644,7 @@ la sua area.
 
 Questo rettangolino infinitesimo avrà base lunga \(dx\) e 
 altezza indistinguibile da \(f(x)\) quindi la sua area vale:
-\[f(x)~dx\]
+\[f(x) \cdot dx\]
 \end{minipage}
 \hfill
 \begin{minipage}{.49 \textwidth}
@@ -629,19 +654,23 @@ altezza indistinguibile da \(f(x)\) quindi la sua area vale:
 \end{minipage}
 
 Ne deriva:
-\[f(x)~dx = d S(x) \sRarrow f(x) = \frac{d S(x)}{dx} \sim S'(x) =
+\[f(x) \cdot dx = d S(x) \sRarrow f(x) = \frac{d S(x)}{dx} \sim S'(x) =
   D\quadra{\int f~dx}\]
-A parole: la derivata dell'integrale è uguale alla funzione integranda, 
-oppure:
+A parole: 
+\begin{itemize} [nosep]
+ \item la funzione integranda è uguale alla derivata dell'integrale;
+ \item l'integrale è l'operatore inverso della derivata.
+\end{itemize}
+
 Per trovare l'integrale della funzione \(f\) devo trovare una funzione 
-primitiva di \(f\) cioè una funzione la cui derivata  sia \(f\).
+\(F\) primitiva di \(f\) cioè una funzione la cui derivata sia \(f\).
 
 \subsection{Dimostrazione algebrica}
 
 Utilizzando la definizione di derivata possiamo
 dimostrare che la derivata della funzione integrale è proprio la 
 funzione integranda cioè che  
-\[F'(x) = f(x)\]
+\[D\quadra{\int f~dx} = D\quadra{F(x)} = F'(x) = f(x)\]
 Applichiamo alla funzione \(F\) la regola del calcolo della derivata:
 \[F'(x) = \pst{\frac{F(x+dx)-F(x)}{dx}} = 
 \pst{\frac{\int_a^{x+dx} f \cdot dx - \int_a^x f \cdot dx}{dx}} =\] 
@@ -651,35 +680,37 @@ Applichiamo alla funzione \(F\) la regola del calcolo della derivata:
 per l'additività degli integrali consideriamo che
 \[\pst{\frac{\int_x^{x+dx} f \cdot dx}{dx}} = 
     \pst{\frac{f(x) \cdot dx}{dx}} = \pst{f(x)} = f(x)\]
-essendo \(f(x)\) un numero reale. 
 
 La prima uguaglianza della riga
 precedente è giustificata dal fatto che, per definizione 
 \[\int_x^{x+dx} f \cdot dx \approx \sum_x^{x+dx} f \cdot dx = f(x) \cdot dx\]
 
-Volendo raggiungere l'espressione che consente di calcolare un integrale 
-definito dai valori di una primitiva negli estremi di integrazione, si può 
-osservare che, ricordando ancora che le primitive di una funzione continua in 
-un intervallo differiscono per una costante, si può osservare che
-\[F(b) = \int_a^b f \cdot dx = G(b) + k\]
-dove G è una qualsiasi primitiva di \(f\) e k dipende da G. Per determinare k, 
-si osservi che
-\[0 = \int_a^a f \cdot dx = G(a) + k\]
-sicché deve essere \(k = - G(a)\), e si ottiene nuovamente la classica 
-relazione tra integrale definito e primitive della funzione integranda 
-\[\int_a^b f \cdot dx = G(b) - G(a)\]
+mentre l'ultima è vera poiché \(f(x)\) un numero reale quindi la sua parte 
+standard è uguale al numero stesso. 
 
-La determinazione mediante le primitive può esser un ottimo modo per 
-calcolare un integrale. Ma anche in questo caso ci sono difficoltà. 
-Non esiste un metodo semplice per calcolare una primitiva.
-
-Data una funzione \(f\), per trovare una sua primitiva bisogna ricordare di 
-avere incontrato \(f\) come derivata di una  certa funzione. 
-I metodi d'integrazione aiutano a modificare la situazione nella speranza di 
-arrivare al punto di dover trovare primitive di funzioni che si ricorda di 
-aver incontrato come derivate di altre funzioni. 
-La determinazione delle primitive di una funzione, è spesso una sfida aperta 
-e alcune volte è proprio impossibile da calcolare.
+% Volendo raggiungere l'espressione che consente di calcolare un integrale 
+% definito dai valori di una primitiva negli estremi di integrazione, si può 
+% osservare che, ricordando ancora che le primitive di una funzione continua in 
+% un intervallo differiscono per una costante, si può osservare che
+% \[F(b) = \int_a^b f \cdot dx = G(b) + k\]
+% dove G è una qualsiasi primitiva di \(f\) e k dipende da G. Per determinare k, 
+% si osservi che
+% \[0 = \int_a^a f \cdot dx = G(a) + k\]
+% sicché deve essere \(k = - G(a)\), e si ottiene nuovamente la classica 
+% relazione tra integrale definito e primitive della funzione integranda 
+% \[\int_a^b f \cdot dx = G(b) - G(a)\]
+% 
+% La determinazione mediante le primitive può esser un ottimo modo per 
+% calcolare un integrale. Ma anche in questo caso ci sono difficoltà. 
+% Non esiste un metodo semplice per calcolare una primitiva.
+% 
+% Data una funzione \(f\), per trovare una sua primitiva bisogna ricordare di 
+% avere incontrato \(f\) come derivata di una  certa funzione. 
+% I metodi d'integrazione aiutano a modificare la situazione nella speranza di 
+% arrivare al punto di dover trovare primitive di funzioni che si ricorda di 
+% aver incontrato come derivate di altre funzioni. 
+% La determinazione delle primitive di una funzione, è spesso una sfida aperta 
+% e alcune volte è proprio impossibile da calcolare.
 
 \section{Integrali indefiniti}
 \label{sec:integrali_indefiniti}
@@ -688,7 +719,7 @@ Il teorema fondamentale dell'analisi dice che la funzione integrale è una
 primitiva della funzione integranda quindi se ho imparato a derivare una 
 funzione posso, con il procedimento inverso trovare una funzione integrale 
 della funzione integranda:
-\[D \quadra{F} = f \sRarrow \int f dx = F\]
+\[\text{se} \quad D \quadra{F} = f \text{allora} \quad \int f dx = F\]
 
 Ma dalle regole delle derivate sappiamo che tutte le funzioni che 
 differiscono per una costante hanno la stessa derivata quindi se 
@@ -729,22 +760,27 @@ Avere un modo per calcolare l'integrale indefinito permette di affrontare il
 problema dell'integrale definito in un modo più semplice.
 Supponiamo di avere una funzione \(f\) e di conoscere una sua primitiva 
 \(F\), cioè: \(F' = f\).
-
 Dato che \(F(a)\) è il valore dell'area fino ad \(a\) e 
 \(F(b)\) è il valore dell'area fino ad \(b\), 
 per trovare l'area sottesa alla funzione tra \(a\) e \(b\),
 basta togliere dall'area fino ad \(a\) l'area fino a \(b\).
-
-\[se F(x) = \int f(x)~dx allora \int_a^b f(x)~dx = F(b) - F(a)\]
+\[\text{se} \quad F(x) = \int f(x)~dx \quad \text{allora} \quad 
+\int_a^b f(x)~dx = \quadra{F(x)}_a^b = F(b) - F(a)\]
 
 \begin{esempio}
-Calcola l'area sottesa alla funzione \[f: x \mapsto 2 x^2 -x +3\] tra~1 e~3.
+Calcola l'area sottesa alla funzione \quad
+\(f: x \mapsto 2 x^2 -x +3\) \quad 
+tra~\(-1\) e~\(+2\).
 
 \begin{minipage}{.59 \textwidth}
 Calcoliamo un integrale indefinito della funzione \(f\):
-\[\int \tonda{2 x^2 -x +3}~dx = 
-  2 \int x^2~dx -\int x~dx + \int 3~dx =
-  \frac{2}{3}x^3 - \frac{1}{2}x^2 +\]
+\begin{align*} 
+\int \tonda{2 x^2 -x +1}~dx &= 2 \int x^2~dx -\int x~dx + \int 1~dx = \\
+                         &= \frac{2}{3}x^3 - \frac{1}{2}x^2 + x + \mathcal{C}
+\end{align*}
+Adesso che abbiamo l'integrale indefinito della funzione, possiamo calcolare 
+l'area cercata con una semplice sottrazione: basta togliere dall'area 
+sottesa fino a \(b\) l'area sottesa fino ad \(a\):
 \end{minipage}
 \hfill
 \begin{minipage}{.39 \textwidth}
@@ -752,6 +788,17 @@ Calcoliamo un integrale indefinito della funzione \(f\):
   \begin{center} \intdef \end{center}
 \end{inaccessibleblock}
 \end{minipage}
+
+\begin{align*}
+\mathcal{S}_{ab} &= 
+  \quadra{\frac{2}{3}x^3 - \frac{1}{2}x^2 + x}_{-1}^{2} = 
+  \tonda{\frac{2}{3}2^3 - \frac{1}{2}2^2 + 2} -
+     \tonda{\frac{2}{3}(-1)^3 - \frac{1}{2}(-1)^2 +(-1)} = \\
+  &= \tonda{\frac{16}{3} - \frac{4}{2} + 2} - 
+     \tonda{-\frac{2}{3} - \frac{1}{2} -1} = 
+  \frac{32 -12 +12 +4 +3 +1}{6} = \frac{40}{6} = 6,\overline{6}
+\end{align*} 
+
 
  
 \end{esempio}
