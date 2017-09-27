@@ -1,6 +1,6 @@
 % (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 
-\input{\folder lbr/grafici.pgf}
+\input{\folder lbr/grafici.tex}
 
 % \begin{wrapfloat}{figure}{r}{0pt}
 % \includegraphics[scale=0.35]{img/fig000_.png}
@@ -13,16 +13,24 @@
 \chapter{Studio di funzioni}
 
 In generale rappresentiamo una funzione con un'espressione simile 
-a:~\(y0f(x)\) dove \(y\) è il risultato dell'espressione \(f(x)\)
-che contiene la variabile \(x\). 
+a:~\(f: x \mapsto f(x)\) o \(y = f(x)\) dove:
+\begin{itemize} [nosep]
+ \item \(f(x)\) è un'espressione che contiene la variabile \(x\);
+ \item \(y\) è il risultato di quell'espressione quando assegniamo un 
+particolare valore a \(x\). 
+\end{itemize}
 
-\(y\) viene anche detta variabile dipendente e \(x\) variabile indipendente.
+\vspace{-.5em}
+\begin{center}
+\textbf{\(y\)} viene anche detta \emph{variabile dipendente} e 
+\textbf{\(x\)} \emph{variabile indipendente}.
+\end{center}
+\vspace{-.5em}
 
 Una funzione può anche essere rappresentata su un piano cartesiano da un 
 grafico. 
 Il grafico di una funzione avrà la particolarità di intersecare ogni retta 
 parallela all'asse \(y\) al massimo in un punto.
-
 Scopo di questo capitolo è descrivere il comportamento di una funzione.
 
 \section{Descrizione del grafico}
@@ -32,29 +40,26 @@ Consideriamo la seguente funzione che è rappresentata sia come espressione
 matematica che come grafico.
 
 \begin{minipage}{.20\linewidth}
- \begin{center}
 \[y=\frac{x^3}{(x-1)^2}\]
- \end{center}
-% \caption{Funzione~\(y=f(x)\).}
 \end{minipage}
 \hfill
 \begin{minipage}{.78\linewidth}
  \begin{center}
-\funzionea
+ \scalebox{.8}{\funzionea}
  \end{center}
-% \caption{Grafico della funzione.} \label{fig:funzionea}
 \end{minipage}
+\vspace{.5em}
 
 Per ora ci fidiamo che quello di destra è proprio il grafico corrispondente 
 all'espressione scritta a sinistra.
-
 La descrizione:
-
-``Sono due linee che vanno su e giù nel piano cartesiano.''
-
+\vspace{-.5em}
+\begin{center}
+ ``Sono due linee che vanno su e giù nel piano cartesiano.''
+\end{center}
+\vspace{-.5em}
 è un po' troppo generica e potrebbe descrivere una grande quantità di grafici.
-
-Di seguito vediamo quante informazioni possiamo ricavare dal grafico.
+Di seguito vedremo quante informazioni possiamo ricavare dal grafico.
 
 \subsection{Descrizione a parole}
 
@@ -67,13 +72,11 @@ Ogni volta che dovrai descrivere una funzione tieni conto dei seguenti punti:
   \item \emph{Prime caratteristiche}
   \begin{enumerate} [nosep]
   \item \emph{Campo di esistenza}\\
-  È definita per ogni valore di \(x\) tranne che nella zona 
-attorno a \(+1\).
+  È definita per ogni valore di \(x\) tranne che nella zona attorno a \(+1\).
   \item \emph{Continuità}\\
   È continua su tutto \(\R\) tranne che attorno a \(+1\).
   \item \emph{Intersezioni con gli assi}\\
-  Interseca l'asse \(y\) nel punto zero e l'asse \(x\) solo nel 
-punto zero.
+  Interseca l'asse \(y\) nel punto zero e l'asse \(x\) solo nel punto zero.
   \item \emph{Segno}\\
   È negativa quando \(x<0\) e positiva quando \(x>0\).
   \item \emph{Simmetrie}\\
@@ -112,8 +115,7 @@ positivo.
   \item È decrescente da~1 a~3.
   \item È crescente da~3 in poi.
   \end{enumerate}
-  
-  
+ 
   \item \emph{Concavità}
   \begin{enumerate} [nosep]
   \item Fino a~0 ha la concavità verso il basso.
@@ -124,24 +126,29 @@ positivo.
   \item \emph{Insieme immagine}\\
   L'insieme immagine è tutto \(\R\) perché ogni valore di \(y\) è immagine di 
 almeno un valore di \(x\).
-  
+
  \end{enumerate}
 
 \osservazione{
 Abbiamo tratto una serie di informazioni da un grafico limitato lavorando 
-molto di fantasia: chi ci dice che allontanandomi molto a sinistra o a destra 
+molto di fantasia: 
+\begin{itemize} [nosep]
+ \item 
+chi ci dice che allontanandomi molto a sinistra o a destra 
 il comportamento della funzione non sia completamente diverso da quello che 
 appare nel piccolo spazio visualizzato? Potrebbero esserci degli 
 intervalli in cui non è definita, oppure in cui inverte la pendenza, ...
-
-Cosa possiamo dire della funzione nell'intervallo attorno a \(x=1\) dove non 
-è visualizzata? Potrebbe non essere definita in un intervallo o solo in un 
+ \item Cosa possiamo dire della funzione nell'intervallo attorno a \(x=1\) 
+dove il grafico non è visibile? 
+Potrebbe non essere definita in un intero intervallo o solo in un 
 punto o avere dei valori molto distanti da quelli visualizzati nel nostro 
 piccolo disegno.
-
-E siamo sicuri che un ingrandimento in un punto qualsiasi non potrebbe 
-rivelare un comportamento imprevedibile? Potrebbero esserci dei buchi, delle 
-oscillazioni, ...
+ \item 
+Siamo sicuri che un ingrandimento in un punto qualsiasi non potrebbe 
+rivelare un comportamento imprevedibile? Potrebbero avere dei buchi, delle 
+oscillazioni, o altre anomalie così piccole da non poter essere vista a 
+questa scala.
+\end{itemize}
 }
 
 \section{Analisi della funzione}
@@ -153,8 +160,8 @@ quindi l'espressione matematica della funzione e andiamo a studiarne le sue
 proprietà:
 \[y=\frac{x^3}{(x-1)^2}\]
 
-\osservazione{Man mano che procediamo con l'analisi, riportiamo su un 
-grafico le informazioni ottenute in questo modo possiamo effettuare un 
+\osservazione{Man mano che procederemo con l'analisi, riporteremo su un 
+grafico le informazioni ottenute. In questo modo potremo effettuare un 
 controllo di coerenza dei risultati e, alla fine, avremo la possibilità di 
 disegnare il grafico con una buona precisione.} 
 
@@ -165,21 +172,15 @@ disegnare il grafico con una buona precisione.}
 \begin{minipage}{.60\linewidth}
 
 \subsubsection{Campo di esistenza}
-% \label{subsubsec:01_}
+% \label{subsubsec:studiof_}
 Nella funzione è presente una sola operazione critica: la divisione. La 
 divisione non dà risultato se il divisore è uguale a zero quindi questa 
 funzione non è definita se:
 \[(x-1)^2 = 0 \sRarrow x=1\]
 Questo significa che il campo di esistenza della funzione è:
-\[\text{CE} = \R - {1}\]
+\[\text{CE} = \R - \graffa{1}\]
 Cioè la funzione è definita per qualunque valore di \(x\) tranne che per 
 \(x=1\).
-
-\subsubsection{Continuità}
-% \label{subsubsec:01_}
-Dato che la funzione è data dalla combinazione di tutte funzioni continue 
-tranne la divisione, sarà continua in tutto~\(\R\) tranne che in~1 
-dove questa divisione, e quindi la funzione, non è definita.
 
 \end{minipage}
 \hfill
@@ -190,22 +191,27 @@ dove questa divisione, e quindi la funzione, non è definita.
 % \caption{Grafico della funzione.} \label{fig:funzionea}
 \end{minipage}
 
+\subsubsection{Continuità}
+% \label{subsubsec:studiof_}
+La funzione sarà continua in tutto il suo campo di esistenza poiché è 
+ottenuta da funzioni continue combinate tra loro con le 4 operazioni 
+aritmetiche.
+
 
 \subsubsection{Intersezioni con gli assi}
-% \label{subsubsec:01_}
+% \label{subsubsec:studiof_}
  
-\mbox{ }
-
-\begin{minipage}{.60\linewidth}
 \paragraph{Intersezione con l'asse y}
 Dato che l'asse y ha equazione \(x=0\) l'intersezione può essere trovata 
 risolvendo il sistema:
 \[\sistema{y=\dfrac{x^3}{(x-1)^2} \\ x=0} \sRarrow 
            y=\dfrac{0^3}{(0-1)^2} \sRarrow 
            y=\dfrac{0}{1} \sRarrow y=0\]
-
 Quando x vale zero, anche y vale zero: la funzione passa per l'origine degli 
 assi.
+% \mbox{}
+
+\begin{minipage}{.60\linewidth}
 \paragraph{Intersezione con l'asse x}
 
 Dato che l'asse x ha equazione \(y=0\) l'intersezione può essere trovata 
@@ -228,9 +234,9 @@ Quindi y vale zero solo quando anche x vale zero.
 
 \begin{minipage}{.60\linewidth}
 \subsubsection{Segno}
-% \label{subsubsec:01_}
+% \label{subsubsec:studiof_}
 
-Per studiare il segno di una funzione dobbiamo studiare il segno del 
+Per studiare il segno di una frazione dobbiamo studiare il segno del 
 numeratore del denominatore e calcolare poi il segno della funzione usando la 
 regola dei segni della divisione. Nel nostro caso, però, possiamo osservare 
 che il denominatore non è mai negativo, essendo il quadrato di una funzione, 
@@ -253,14 +259,14 @@ la funzione.
 \end{minipage}
 
 \subsubsection{Simmetrie}
-% \label{subsubsec:01_}
+% \label{subsubsec:studiof_}
 
 Il campo di esistenza non è simmetrico rispetto all'origine questo basta per
 dire che anche la funzione non potrà avere alcuna simmetria rispetto 
 all'origine, non sarà né pari né dispari.
 
 Viceversa, se il campo di esistenza fosse simmetrico, questo non basta per 
-dire che la funzione sia simmetrica rispetto all'asse di simmetria 
+dire che la funzione sia simmetrica rispetto all'asse \(y\) 
 (funzione pari) o rispetto all'origine (funzione dispari).
 
 Per stabilire questo, bisogna sostituire nell'espressione \(x\) con \(-x\) e 
@@ -273,7 +279,7 @@ verificare quale di queste tre situazioni si ottiene:
 \end{enumerate}
 
 Nel nostro caso: 
-\[f(-x)=\frac{(-x)^3}{((-x)-1)^2} = -\frac{(x)^3}{(-x-1)^2}\]
+\[f(-x)=\frac{(-x)^3}{((-x)-1)^2} = -\frac{x^3}{(-x-1)^2}\]
 Che è diverso sia da 
 \(\frac{x^3}{(x-1)^2}\)
 sia da
@@ -289,12 +295,11 @@ quando si avvicina ai punti dove non è definita.
 \subsection{Comportamento agli estremi del campo di esistenza}
 % \label{sec:}
 
-\mbox{ }
-
-\begin{minipage}{.60\linewidth}
 Nel primo punto abbiamo visto che il campo di esistenza è composto da due 
 intervalli: \(\intervaa{-\infty}{1}\) e \(\intervaa{1}{+\infty}\)quindi 
 dobbiamo studiare come si comporta la funzione quando:
+
+\begin{minipage}{.60\linewidth}
 
 \begin{enumerate} [nosep]
  \item \(x\) è un infinito, \(x=M\):
@@ -303,8 +308,7 @@ dobbiamo studiare come si comporta la funzione quando:
 negativo anche y lo è e quando x è un infinito positivo, anche y lo è.
  \item \(x\) è infinitamente vicino a 1, \(x=1+\epsilon\):\
 \[y=\frac{(1+\epsilon)^3}{((1+\epsilon)-1)^2}=
-    \frac{(1+\epsilon)^3}{\epsilon^2}= M > 0\]
- quindi se \(x \sim 1\) allora \(y=M>0\) .
+    \frac{(1+\epsilon)^3}{\epsilon^2} \sim \frac{1}{\epsilon^2} = M > 0\]
 \end{enumerate}
 \end{minipage}
 \hfill
@@ -313,6 +317,9 @@ negativo anche y lo è e quando x è un infinito positivo, anche y lo è.
 \asintoticofunzionea
  \end{center}
 \end{minipage}
+
+Quindi se \(x \approx 1\) allora \(y=M>0\) indipendentemente dal segno di 
+\(\epsilon\).
 
 \subsection{Asintoti}
 % \label{sec:02_}
@@ -328,20 +335,24 @@ Possiamo concludere che la nostra funzione:
 \subsection{Asintoti obliqui}
 % \label{sec:02_}
 
-Una funzione ha asintoto obliquo se \(dfrac{f(M)}{M}\) è un numero finito. In 
-questo caso il precedente rapporto è proprio il coefficiente angolare 
+Una funzione ha asintoto obliquo se \(\dfrac{f(M)}{M}\) è un numero finito. 
+In questo caso il precedente rapporto è proprio il coefficiente angolare 
 dell'asintoto. Calcoliamo il rapporto nel caso della nostra funzione:
 \[m=\frac{M^3}{M(M-1)^2} = \frac{M^3}{M^3 -2M^2 +M} \sim \frac{M^3}{M^3} = 1\]
+Scopriamo così che la funzione ha un asintoto obliquo di coefficiente 
+angolare~1.
 Calcolato il coefficiente angolare dobbiamo trovare l'intercetta.
 
-\begin{minipage}{.60\linewidth}
 Dall'equazione generica della retta, \(y=mx+q\) esplicitiamo il valore 
 dell'intercetta: \(q=y-mx\). 
 Ma \(y\) è il valore della nostra funzione, quindi: \(q=f(x)-mx\). 
 E con quale valore di \(x\) dobbiamo eseguire questo calcolo? 
 Trattandosi di asintoti ci serve un valore infinito:
+
+\begin{minipage}{.60\linewidth}
 \begin{align*}
- q &= f(M)-mM = \frac{M^3}{(M-1)^2}-M =\\
+ q &= f(M)-mM = \\
+   &= \frac{M^3}{(M-1)^2}-M =\\
    &= \frac{M^3-M^3 +2M^2 -M}{M^2 -2M +1} \sim \frac{+2M^2}{M^2} = 2
 \end{align*}
 
@@ -370,17 +381,17 @@ orizzontale, cioè dove la derivata è nulla: \(f'(x)=0\).
 Quindi per prima cosa calcoliamo la funzione derivata:
 
 \begin{align*}
-f'(x) &= \frac{3x^2(x-1)^2-x^3(2(x-1)\cdot 1)}{(x-1)^4} =\\
-      &= \frac{3x^2(x^2-2x+1)-x^3(2x-2)}{(x-1)^4} =\\
-      &= \frac{3x^4-6x^3+3x^2-2x^4+2x^3}{(x-1)^4} =\\
-      &= \frac{x^4-4x^3+3x^2}{(x-1)^4} =\\
-      &= \frac{x^2(x^2-4x+3}{(x-1)^4} =\\
-      &= \frac{x^2(x-3)(x-1)}{(x-1)^4} =\\
+f'(x) &= \frac{3x^2(x-1)^2-x^3(2(x-1)\cdot 1)}{(x-1)^4} =
+       \frac{3x^2(x^2-2x+1)-x^3(2x-2)}{(x-1)^4} =\\
+      &= \frac{3x^4-6x^3+3x^2-2x^4+2x^3}{(x-1)^4} =
+       \frac{x^4-4x^3+3x^2}{(x-1)^4} =\\
+      &= \frac{x^2(x^2-4x+3}{(x-1)^4} =
+       \frac{x^2(x-3)(x-1)}{(x-1)^4} =\\
       &= \frac{x^2(x-3)}{(x-1)^3}
 \end{align*}
 \begin{minipage}{.60\linewidth}
 Come è immediato osservare questa funzione ha tre zeri:
-\[\frac{x^2(x-3)(x-1)}{(x-1)^4}=0 \sRarrow x_{1,2}=0,~x_3=3\]
+\[\frac{x^2(x-3)}{(x-1)^3}=0 \sRarrow x_{1,2}=0,~x_3=3\]
 Uno zero doppio in~0 e uno in~3.
 Quindi abbiamo due punti stazionari:
 \[\punto{0}{0} \text{ e } \punto{3} {\frac{27}{4}}\]
@@ -398,13 +409,12 @@ Riportiamo anche questi nel grafico.
 Il segno della derivata ci permette di trovare quando la funzione è crescente 
 e quando decrescente. Lo studio del segno risulta più semplice se partiamo 
 dalla derivata scritta in questo modo:
-\[f'(x) = \frac{x^2(x^2-4x+3)}{(x-1)^4}\]
+\(f'(x) = \dfrac{x^2(x-3)(x-1)}{(x-1)^4}\)
 perché abbiamo alcuni fattori di grado pari che non potranno essere negativi.
 
-Il segno di questa espressione corrisponde al segno del trinomio:
-
 \begin{minipage}{.49\linewidth}
-\[x^2-4x+3\]
+Il segno di questa espressione è uguale al segno del trinomio:
+\(x^2-4x+3\)
 \end{minipage}
 \hfill
 \begin{minipage}{.49\linewidth}
@@ -413,15 +423,21 @@ Il segno di questa espressione corrisponde al segno del trinomio:
  \end{center}
 \end{minipage}
 
-E riportando anche gli altri zeri del numeratore e del denominatore della 
+E, riportando anche gli altri zeri del numeratore e del denominatore della 
 derivata, si possono ottenere i seguenti intervalli in cui la funzione cresce 
 o decresce:
 \begin{center}
  \segnoderivataa
 \end{center}
 
-Osservando l'andamento della funzione possiamo osservare che in~0 c'è un 
-flesso orizzontale e in~3 c'è un punto di minimo.
+Osservando l'andamento della funzione possiamo osservare che:
+\begin{itemize} [nosep]
+ \item Prima di~0 la funzione cresce, in~0 è stazionaria, poi riprende a 
+crescere fino a~1: nel punto \(\punto{0}{0}\) presenta quindi un flesso 
+orizzontale.
+ \item Da~1 a~3 la funzione decresce, in~3 è stazionaria poi cresce: nel 
+punto \(\punto{3}{\dfrac{27}{4}}\) presenta quindi un minimo locale.
+\end{itemize}
 
 \begin{comment}
 
@@ -451,65 +467,35 @@ f''(x) &= \frac{(3x^2 -6x)(x^3-3x^2+3x-1)-(x^3-3x^2)(3(x-1)^2)}{(x-1)^6} =\\
        &= \frac{3x(2x^2-4x+2)}{(x-1)^6} = \frac{6x(x^2-2x+1)}{(x-1)^6} =
           \frac{6x(x-1)^2}{(x-1)^6} = \frac{6x}{(x-1)^4}
 \end{align*}
-Da cui possiamo ricavare la concavità:
+Lo studio del segno della derivata seconda risulta molto semplice dato che il 
+denominatore sicuramente non è negativo. 
+Dal segno della derivata seconda possiamo ricavare la concavità:
 \begin{center}
  \segnoderivatasecondaa
 \end{center}
 
+\begin{itemize} [nosep]
+ \item Fino a~0 la concavità è rivolta verso il basso.
+ \item Da~0 a~1 la concavità è rivolta verso l'alto, quindi in~0 ha un flesso.
+ \item Da~1 in poi la concavità è rivolta ancora verso l'alto.
+\end{itemize}
+
 A questo punto abbiamo tutti gli elementi per disegnare il grafico della 
 funzione con una buona approssimazione.
+\begin{center} \tuttoassiemea \end{center}
 
 \section{Altre caratteristiche}
 \label{sec:altre_caratteristche}
+
+% \mbox{}
+% 
+% \begin{minipage}{.60\linewidth}
 Osservando il grafico possiamo ricavare alcune altre caratteristiche della 
 funzione.
-
 \begin{itemize} [nosep]
  \item \emph{Suriettiva}: l'insieme immagine è tutto \(\R\) infatti ogni 
 valore di~y è immagine di almeno un valore di~x.
  \item \emph{Non iniettiva}: infatti alcuni valori di~y sono immagini di più 
 valori~x.
 \end{itemize}
-
-% \newpage
-
-\begin{esempio}
- Descrivi a parole il grafico poi analizza la seguente funzione.
-% \vspace{-12pt}
-\begin{minipage}{.20\linewidth}
- \begin{center}
-\[y=x^4-4x^2+3\]
- \end{center}
-% \caption{Funzione~\(y=f(x)\).}
-\end{minipage}
-\hfill
-\begin{minipage}{.80\linewidth}
- \begin{center}
-\funzioneb
- \end{center}
-% \caption{Grafico della funzione.} \label{fig:funzionea}
-\end{minipage}
-
-\end{esempio}
-
-\newpage
-
-\begin{esempio}
- Descrivi a parole il grafico poi analizza la seguente funzione.
- 
-\begin{minipage}{.20\linewidth}
- \begin{center}
-\[y=\frac{x^2+12x+20}{2x+2}\]
- \end{center}
-% \caption{Funzione~\(y=f(x)\).}
-\end{minipage}
-\hfill
-\begin{minipage}{.80\linewidth}
- \begin{center}
-\funzionec
- \end{center}
-% \caption{Grafico della funzione.} \label{fig:funzionea}
-\end{minipage}
-
-\end{esempio}
 

@@ -10,7 +10,7 @@
 % 
 % \begin{center} \input{\folder lbr/fig000_.pgf} \end{center}
 
-\chapter{Integrali}
+\chapter{Integrali} 
 
 \section{Un problema di area}
 \label{sec:integrali_area}
@@ -175,14 +175,16 @@ allora \(\mathcal{A}(a,~b)\) =
 \(\mathcal{A}(a,~t)\)+\(\mathcal{A}(t,~b)\)).
 
 \begin{minipage}{.49\textwidth}
-\begin{inaccessibleblock}[Proprietà additiva per 
-un'area sottesa ad una curva.] 
+\begin{inaccessibleblock}[Area sottesa ad una curva.] 
   \areasottesacurva
 \end{inaccessibleblock}
 \end{minipage}
 \hfill
 \begin{minipage}{.49\textwidth}
+\begin{inaccessibleblock}[Proprietà additiva per 
+un'area sottesa ad una curva.] 
   \propradditiva
+\end{inaccessibleblock}
 \end{minipage}
 
 Questa proprietà afferma che se una superficie 
@@ -196,7 +198,7 @@ dice che se \(m\) è il minimo e \(M\) massimo della funzione \(f\)
 nell'intervallo \(\intervcc{a}{b}\)
 allora \\
 \(m\cdot(b-a) = \mathcal{A}_{mi}(a,~b) \leq \mathcal{A}(a,~b) \leq
-                       \mathcal{A}_{ma}(a,~b) < M\cdot(b-a)\),
+                       \mathcal{A}_{ma}(a,~b) = M\cdot(b-a)\),
 
 \begin{minipage}{.49\textwidth}
 \begin{inaccessibleblock}[Rettangolo minore dell'area sottesa.] 
@@ -220,8 +222,7 @@ della funzione \(f\) nell'intervallo \(\intervcc{a}{b}\).
 \section{Definizione}
 \label{sec:integrali_definizione}
 
-\begin{minipage}{.49\textwidth}
-\begin{inaccessibleblock}[Rettangolo maggiore dell'area sottesa.] 
+\begin{minipage}{.49\textwidth} 
 Consideriamo una funzione continua \(f\) su un intervallo I cui 
 appartengono i punti \(a\) e \(b\), e una partizione dell'intervallo chiuso 
 \(\intervcc{a}{b}\) in sotto intervalli di uguale ampiezza \(\Delta\) 
@@ -233,11 +234,10 @@ e dove \(h\) è il massimo numero naturale tale che: \\
 Il segmento \(ab\) è dunque uguale alla somma di \(h\) segmenti di lunghezza 
 \(\Delta\) più il segmento che va da \(t_h\) a \(b\):
 \(ab = h \cdot \delta + (b - t_h)\)
-\end{inaccessibleblock}
 \end{minipage}
 \hfill
 \begin{minipage}{.49\textwidth}
-\begin{inaccessibleblock}[Rettangolo minore dell'area sottesa.] 
+\begin{inaccessibleblock}[Somma di Riemann.] 
   \sommariemann
 \end{inaccessibleblock}
 \end{minipage}
@@ -273,7 +273,8 @@ Poiché \(h\) e la successione dei numeri \(t_i\) determinati
 dalle quantità indicate, sicché la denoteremo come 
 \[\sum_a^b f \cdot \Delta\] 
 Se fissiamo la funzione \(f\), e gli estremi \(a\) e \(b\) allora la somma di 
-Riemann è una funzione reale unaria che dipende solo da \(\Delta\). 
+Riemann è una funzione reale unaria che dipende solo dall'intervallo  
+\(\Delta\). 
 
 % ESEMPI DI SOMME DI RIEMANN AL VARIARE DI DELTA % TODO
 
@@ -719,14 +720,14 @@ Il teorema fondamentale dell'analisi dice che la funzione integrale è una
 primitiva della funzione integranda quindi se ho imparato a derivare una 
 funzione posso, con il procedimento inverso trovare una funzione integrale 
 della funzione integranda:
-\[\text{se} \quad D \quadra{F} = f \text{allora} \quad \int f dx = F\]
+\[\text{se} \quad D \quadra{F} = f \quad \text{allora} \quad \int f dx = F\]
 
 Ma dalle regole delle derivate sappiamo che tutte le funzioni che 
 differiscono per una costante hanno la stessa derivata quindi se 
 \(D \quadra{F} = f\) allora anche \(D \quadra{F+5} = f\), e anche 
 \(D \quadra{F+4,57} = f\), e, in generale, anche \(D \quadra{F+C} = f\) con 
 \(C\) costante.
-quindi se \(F\) è una primitiva della funzione \(f\) e \(C\) è una 
+Quindi se \(F\) è una primitiva della funzione \(f\) e \(C\) è una 
 costante, allora tutte le funzioni del tipo: \(F + C\) sono primitive di 
 \(f\).
 
