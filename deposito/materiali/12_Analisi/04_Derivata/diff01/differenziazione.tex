@@ -583,87 +583,109 @@ Iniziamo dai casi già noti $f(x)=x$ e $f(x)=x^2$ e esaminiamo i successivi
 aumentando progressivamente l'esponente.
 
 \begin{align*}
-  d(x)=x+dx-x & =dx\\
-  d(x^2)=(x+dx)^2-x^2 & \sim 2xdx\\
-  d(x^3)=(x+dx)^3-x^3 & =[x^3+3x^2dx+3x(dx)^2+(dx)^3]-x^3=
-                      3x^2dx+3x(dx)^2+(dx)^3=\\
-                      &= 3x^2dx+\delta(x)\sim 3x^2dx\\
-  d(x^4)=(x+dx)^4-x^4 & = [x^4+4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4]-x^4=\\
-                      &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4=
-                      4x^3dx+\delta(x)\sim 4x^3dx\\
-  ...                 & ...\\
-  d(x^7)=(x+dx)^7-x^7 & = 
-x^7+7x^6(dx)+21x^5(dx)^2...+21x^2(dx)^5+7x(dx)^6+(dx)^7 - x^6=\\
-  & = x^7+\delta(x)\sim 7x^6dx\\
-  ...                 & ...\\
-  d(x^{10})=(x+dx)^{10}-x^{10} & =x^{10}+10 x^9dx+\ ...\ -x^{10}=
-  \ ...\ =x^{10} +\delta(x)\sim 10 x^9dx      
+  d(x) &=x+dx-x =dx\\
+  d(x^2) &=(x+dx)^2-x^2 = x^2 +2xdx +(dx)^2 -x^2 = 2xdx +(dx)^2\\
+  d(x^3) &=(x+dx)^3-x^3 =[x^3+3x^2dx+3x(dx)^2+(dx)^3]-x^3=
+                      3x^2dx+3x(dx)^2+(dx)^3\\
+  d(x^4) &=(x+dx)^4-x^4 = [x^4+4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4]-x^4=\\
+                      &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4      
 \end{align*}
-L'unico risultato esatto è il primo; gli altri si sintetizzano scrivendo 
-$\delta(x)$
-che rappresenta gli infinitesimi di ordine superiore. $\delta(x)$ aggiunge
-delle quantità infinitamente meno importanti del primo addendo.
-A sinistra e a destra dell'ultimo segno di uguale si trovano quindi 
-numeri indistinguibili, cioè le loro differenze non si possono cogliere 
-perché
-sono ''più infinitesime`` di quanto lo sono questi numeri.\\
 
+Possiamo osservare che il termine non infinitesimo si annulla sempre quindi 
+qualunque sia il valore nel quale si calcola il differenziale si ottiene un 
+valore infinitesimo queste funzioni sono quindi continue in tutto \(\IR\).
+
+Possiamo anche osservare che il differenziale è sempre più complesso, ma 
+se consideriamo la parte principale dell'infinitesimo cioè se trascuriamo 
+gli infinitesimi di ordine superiore il risultato si semplifica e diventa 
+facilmente memorizzabile.
+
+Quindi se invece del valore esatto ci accontentiamo della parte principale, 
+abbiamo:
+
+\begin{align*}
+  d(x) &=x+dx-x =dx\\
+  d(x^2) &=2xdx +(dx)^2 \sim 2xdx\\
+  d(x^3) &=3x^2dx+3x(dx)^2+(dx)^3 \sim 3x^2dx\\
+  d(x^4) &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4 \sim 4x^3dx\\
+  d(x^5) &=5x^4dx+10x^3(dx)^2+10x^2(dx)^3+5x(dx)^4+(dx)^5 \sim 5x^4dx\\
+  d(x^6) &=6x^5dx+\dots+(dx)^6 \sim 6x^5dx\\
+  d(x^7) &=7x^6(dx)+\dots+(dx)^7 \sim 7x^6dx\\
+  \dots &= \dots\\
+  d(x^{10}) &=10x^9(dx)+\dots+(dx)^{10} \sim 10x^9dx\\
+  \dots &= \dots\\
+  d(x^n) &=nx^{n-1}(dx)+\dots+(dx)^{n} \sim nx^{n-1}dx\\    
+\end{align*}
 Ora che il meccanismo è chiaro e possiamo ritenere sufficientemente 
-dimostrato
-il teorema seguente.
+dimostrato il teorema seguente.
 
 \begin{teorema}
- Il differenziale della funzione potenza $f(x)=x^n$ è $df(x)\sim nx^{n-1}dx$
+ Il differenziale della funzione potenza è 
+ \[d(x^n) \sim nx^{n-1}dx\]
 \end{teorema}
 
 \begin{osservazione}
 Anche se abbiamo usato solo esponenti interi, si dimostra che 
 la regola vale per qualsiasi esponente reale. Lo puoi verificare nei due 
-casi 
-che seguono, riscrivendo le funzioni come potenze.
+casi che seguono, riscrivendo le funzioni come potenze.
 \end{osservazione}
 
 \subsubsection{Funzione radice quadrata}
 \label{subsubsec:diff01_diffradq}
 
 \begin{teorema}
- Il differenziale della funzione radice quadrata $f(x)=\sqrt{x}$ è
- $\sim\frac{dx}{2\sqrt{x_0}}$, $\forall x\in \IR$, $x\neq 0$.
+ Il differenziale della funzione radice quadrata è
+ \[d(\sqrt{x})\sim\frac{dx}{2\sqrt{x}} \quad \text{se} \quad x \neq 0\]
 \end{teorema}
 
 \noindent Ipotesi: \(f(x)=\sqrt{x}\).\tab Tesi: 
-\(df(x)\sim\frac{dx}{2\sqrt{x_0}}\).
+\(df(x)\sim\dfrac{dx}{2\sqrt{x}}\).
 
 \begin{proof}
 \begin{align*}
  df(x)|_{x=x_0} &= f(x_0+dx)-f(x_0)=\sqrt{x_0+dx}-\sqrt{x_0}=\\
  &=\tonda{\sqrt{x_0+dx}-\sqrt{x_0}}\times\frac{\sqrt{x_0+dx}+
  \sqrt{x_0}}{\sqrt{x_0+dx}+\sqrt{x_0}}=\\
- &=\frac{x_0+dx-x_0}{\sqrt{x_0+dx}+\sqrt{x_0}}\sim\frac{dx}{2\sqrt{x_0}}
+ &=\frac{x_0+dx-x_0}{\sqrt{x_0+dx}+\sqrt{x_0}}
+ =\frac{dx}{\sqrt{x_0+dx}+\sqrt{x_0}}\sim\frac{dx}{2\sqrt{x_0}}
 \end{align*}
-Anche questa volta il risultato dipende da $x_0$. Si tratta di 
-un risultato indistinguibile dal risultato esatto. L'approssimazione si 
-ottiene
-con le tecniche del capitolo 3.
+Anche questa volta il risultato dipende da $x_0$. 
+
+Prendendo la parte principale dell'infinitesimo possiamo confrontare il 
+risultato con quello ottenuto applicando la regola della funzione potenza:
+\[d(\sqrt{x}) = d\tonda{x^{\frac{1}{2}}}
+  \sim\frac{1}{2}x^{\tonda{\frac{1}{2}-1}}dx 
+  =\frac{1}{2}x^{-\frac{1}{2}}dx
+  =\frac{dx}{2x^{\frac{1}{2}}}
+  =\frac{dx}{2\sqrt{x}}\]
+
 \end{proof}
 
 \subsubsection{Funzione reciproca}
 \label{subsubsec:diff01_diffrecip}
 \begin{teorema}
  Il differenziale della funzione reciproca $f(x)=\frac{1}{x}$ è 
-$-\frac{dx}{x^2}$, 
- $\forall x\in \IR$, con $x\neq 0$.
+ \[d\tonda{\frac{1}{x}}\sim\frac{dx}{x^2} \quad \text{se} \quad x \neq 0\]
 \end{teorema}
 
-\noindent Ipotesi: $f(x)=\frac{1}{x}$.\tab Tesi: $df(x)\sim-\frac{dx}{x^2}$.
+\noindent Ipotesi: $f(x)=\dfrac{1}{x}$\tab 
+Tesi: $df(x)\sim-\dfrac{dx}{x^2}$
 
 \begin{proof}
 \[
  df(x)|_{x=x_0}= f(x_0+dx)-f(x_0)=\frac{1}{(x_0+dx)}-\frac{1}{x_0}=
  \frac{x_0-x_0-dx}{x_0(x_0+dx)}=\frac{-dx}{x_0^2+x_0dx}\sim-\frac{dx}{x_0^2}
 \]
-Anche questa volta il valore del differenziale dipende da $x_0$. 
-Per semplicità, teniamo il risultato indistinguibile.
+Anche questa volta il valore del differenziale dipende dal punto in cui si 
+calcola $x_0$. 
+
+Anche in questo caso possiamo vedere la funzione reciproca come una 
+funzione potenza:
+\[d\tonda{\frac{1}{x}} = d\tonda{x^{-1}}
+  \sim -x^{\tonda{-1-1}}dx 
+  =-x^{-2}dx
+  =-\frac{dx}{x^{2}}\]
+
 \end{proof}
 
 \subsubsection{Differenziali problematici}
@@ -692,14 +714,47 @@ Questa volta i punti critici sono due. Poiché la funzione non è calcolabile
 per $x_0=1$ e $x_0=-1$, non è calcolabile nemmeno il suo differenziale.
 \end{esempio}
 
+\begin{esempio}
+Nei due esempi precedenti cercavamo di calcolare il differenziale in un 
+punto in cui la funzione non era definita ci vuole poca immaginazione per 
+capire che se no è definita la funzione non può essere definito neppure il 
+differenziale.
+
+Ma che dire del differenziale della radice quadrata in zero? Lì la funzione 
+è definita: \(f(0)=\sqrt{0}=0\). 
+Mentre non è definito il suo 
+differenziale: \(df(0) \sim \dfrac{dx}{2 \sqrt{0}}\)
+
+Recuperiamo il differenziale esatto della funzione:
+\[d\tonda{\sqrt(0)}=\frac{dx}{\sqrt{0+dx}+\sqrt{0}}\]
+Intanto possiamo osservare che per poter effettuare i calcoli \(dx\) deve 
+essere positivo quindi il resto del ragionamento ha senso soltanto 
+assumendo \(dx>0\).
+
+In questo caso otteniamo:
+\[d\tonda{\sqrt(0)}=\frac{dx}{\sqrt{dx}}\]
+Razionalizzando il denominatore della frazione, il differenziale diventa:
+\[d\tonda{\sqrt(0)}=\frac{dx}{\sqrt{dx}} \cdot \frac{\sqrt{dx}}{\sqrt{dx}}
+  \sqrt{dx}\]
+Ma \(\sqrt{dx}\) è un infinitesimo ''molto`` più grande di \(dx\). 
+Se \(\sqrt{dx} = \delta\) allora \(dx = \delta \cdot \delta\) cioè \(dx\) è 
+un infinitesimo di \(\sqrt{dx}\). Quando con uno strumento ottico non 
+standard riesco a visualizzare \(dx\), non potrò vedere anche 
+\(\sqrt{dx}\), questo sarà fuori dal campo visivo, si troverà all'infinito.
+
+Possiamo concludere che in zero la funzione radice ha un differenziale 
+(solo sul lato positivo), ma questo differenziale è infinitamente più 
+grande di \(dx\).
+\end{esempio}
+
 Nel piano cartesiano tracciamo il grafico delle funzioni degli ultimi 
 tre esempi: $y=\sqrt{x}$, $y=\frac{1}{x}$ e $y=\frac{1}{x^2-1}$.
 \begin{figure}[h]
 \begin{inaccessibleblock}[Grafici di funzioni diverse.]
  \begin{center}
  \begin{minipage}[]{.23 \textwidth}
-  \vspace*{4mm} 
   \radice
+  \vspace*{-5mm} 
   \caption{$y=\sqrt{x}$}
  \end{minipage} 
  \begin{minipage}[]{.37 \textwidth}
@@ -720,13 +775,15 @@ non può essere calcolata per esempio, se $x=-2$ e quindi nemmeno il suo
 differenziale ha senso in questo punto.\\
 Gli altri due grafici mettono in evidenza questo problema: dove la funzione 
 non è calcolabile, non esiste il punto che rappresenta la funzione nel 
-piano 
-cartesiano reale. Nel piano iperreale, puntando l'infinito con un 
-telescopio,
-non riusciamo a focalizzare la differenza infinitesima fra due valori 
-infiniti
-della funzione.
+piano cartesiano reale. 
 
+% 
+% TODO chiedere: 1/0 non è definito neppure in *R quindi non c'è telescopio 
+% che tenga...
+% Nel piano iperreale, puntando l'infinito con un telescopio,
+% non riusciamo a focalizzare la differenza infinitesima fra due valori 
+% infiniti della funzione.
+% 
 
 
 % \begin{figure}[h]
@@ -755,18 +812,15 @@ uguali valori. Anche in questo caso $f(x)$ non è differenziabile per $x=2$
 \label{fig:diff01_salto}
 % \end{figure}
 
-\begin{comment}
-
 \subsubsection{Continuità e funzioni}
 \label{subsubsec:diff01_diffcontinue}
 Il tema della continuità è vasto e importante e viene trattato nei dettagli
 nel prossimo capitolo. Per ora ci limitiamo a considerazioni di carattere 
 intuitivo.\\
 \emph{Se una funzione è continua, ne puoi tracciare il grafico nel piano 
-cartesiano 
-senza staccare la matita dal foglio}. Se ci fosse un punto (o più punti)
-di discontinuità, saresti obbligato a interrompere il disegno e riprenderlo
-da punti vicini.
+cartesiano senza staccare la matita dal foglio}. 
+Se ci fosse un punto (o più punti) di discontinuità, saresti obbligato a 
+interrompere il disegno e riprenderlo da punti vicini.
 \begin{esempio}
  La funzione $f(x)=x$, che ha per grafico la retta $y=x$ è evidentemente 
  una funzione continua: puoi tracciarne il grafico senza interruzioni
@@ -780,9 +834,8 @@ da punti vicini.
 $x=0$.
  Infatti se $x=0$, $f(x)$ non è calcolabile, quindi nel piano cartesiano 
  non puoi disegnare un punto  che rappresenta il valore standard 
- $(0;\ \frac{1}{0})$. Il punto è comunque visibile nel piano iperreale, con 
-un
- telescopio.
+ $(0;~\frac{1}{0})$. 
+ Il punto è comunque visibile nel piano iperreale, con  un telescopio.
  \end{esempio}
 \begin{esempio}
  Per ragioni simili, sono discontinue in uno o più punti le funzioni
@@ -793,22 +846,21 @@ un
 \end{esempio}
 
 Dagli esempi si capisce che \emph{la continuità delle funzioni è una 
-condizione 
-di carattere locale}, cioè per punti. Infatti si possono riconoscere dei 
-punti
-di discontinuità di una funzione, non degli insiemi di discontinuità.
+condizione di carattere locale}, cioè per punti. Infatti si possono 
+riconoscere dei punti di discontinuità di una funzione, non degli insiemi di 
+discontinuità.
 Se ci si accorge che un punto $(x_0;\ f(x_0))$ è di discontinuità
 per $f(x)$, allora si dice: \emph{$f(x)$ è discontinua per $x=x_0$},
 cioè si indica solo la coordinata $x$ che pone questo problema 
 (non si usa dire: $f(x_0)$ è discontinua).
+Una funzione può essere discontinua in infiniti punti.
 \begin{esempio}
  La funzione $f(x)= \tan x$ è discontinua per $x=\frac{\pi}{2}\pm k\pi$.
 \end{esempio}
 
 \begin{definizione}
 Se una funzione è continua in tutti i punti di un intervallo 
-$\intervcc{a}{b}$,
-allora si dice continua in $\intervcc{a}{b}$.
+$\intervcc{a}{b}$, allora si dice continua in $\intervcc{a}{b}$.
 \end{definizione}
 \begin{osservazione}
  Ovviamente la definizione non cambia se l'intervallo è di tipo diverso.
@@ -821,17 +873,15 @@ allora si dice continua in $\intervcc{a}{b}$.
 
 \subsection{Combinare differenziali}
 \label{subsec:diff01_combdiff}
-Nella sezione \ref{subsec:diff01_flineare} e in altre ci siamo avvalsi di 
-proprietà così naturali che non è stato necessario sottolinearle. 
+Nella sezione \ref{subsubsec:diff01_flineare} e in altre ci siamo avvalsi 
+di proprietà così naturali che non è stato necessario sottolinearle. 
 Ma è meglio non lasciarcele sfuggire.
 
 \subsubsection{Differenziale del prodotto per una costante}
 \label{}
 \begin{teorema}
  Se una funzione è moltiplicata per una costante, anche il suo 
-differenziale 
-risulta 
- moltiplicato per la stessa costante.
+ differenziale risulta moltiplicato per la stessa costante.
 \end{teorema}
 \noindent Ipotesi: $f(x)=a\cdot g(x)$.\tab Tesi: $df(x)=a\cdot dg(x)$.
 
@@ -930,9 +980,15 @@ Tesi: $d\mathit{A}(x)=db(x)\cdot h(x)+b(x)\cdot dh(x)+ db(x)\cdot dh(x)$.
 \label{fig:Incre_prodotto}
 \end{figure}
 
+\begin{osservazione}
+ Si chiama ''gnomone`` la figura, a forma di L rovesciata, che rappresenta 
+la 
+crescita dell'area di un rettangolo.
+\end{osservazione}
+
 \begin{proof}
-L'incremento infinitesimo di area è la zona colorata del disegno. È 
-formato da tre parti:
+L'incremento infinitesimo di area è la zona colorata del disegno, lo 
+\emph{gnomone}. È formato da tre parti:
 \begin{itemize} [noitemsep]
  \item un rettangolo sottile, verticale e sulla destra, di base
  infinitesima $db(x)$ e altezza $h(x)$;
@@ -959,73 +1015,71 @@ senza gravi danni: $d\mathit{A}(x)\sim db(x)\cdot h(x)+b(x)\cdot dh(x)$ .
 \noindent Ipotesi: $h(x)=\dfrac{\mathit{A}(x)}{b(x)}$, con $b(x)\neq 
 0$.\tab 
 Tesi: 
-$dh(x)=\dfrac{d\mathit{A}(x) \cdot b(x)-\mathit{A}(x) \cdot db(x)}
+$dh(x) \sim \dfrac{d\mathit{A}(x) \cdot b(x)-\mathit{A}(x) \cdot db(x)}
              {\tonda{b(x)}^2}$
 
 \begin{proof}
 Ricorriamo alla geometria anche in questo caso.
 
-\begin{figure}[h]
-\begin{inaccessibleblock}
-  [Altezza rettangolo con gnomone infinitesimo.]
- \begin{center}
+% Usare {figure} è una disgrazia!
+
  \begin{minipage}[]{.38 \textwidth}
  % \vspace{27mm} \incrementaleprodotto
-Questa volta, data $\mathit{A}(x)=b(x)\times h(x)$, 
-$\frac{A(x)}{b(x)}=h(x)$ fornisce l'altezza $h$, fissato $x$. 
-Ovviamente si spera che sia $b(x)\neq 0$.\\
-Se cerchiamo $dh(x)=dh$, incremento infinitesimo di altezza, siamo 
-costretti 
-a calcolare
-$d\quadra{\frac{A(x)}{b(x)}}$, differenziale di un rapporto. Guardando il 
-disegno,
-si tratta dell'altezza della fascia superiore colorata,
+Essendo $\mathit{A}(x)=b(x) \times h(x)$ allora: 
+$h(x)=\frac{A(x)}{b(x)}$. 
+Ovviamente è necessario che $b(x)\neq 0$.\\
+Guardando il disegno, possiamo osservare che $dh(x)$ è l'incremento 
+infinitesimo dell'altezza, si tratta dell'altezza della fascia superiore 
+colorata.
+Questa altezza si può calcolare dividendo il rettangolo 
+superiore dello gnomone per la base del rettangolo.
+Il rettangolo superiore dello gnomone è uguale a tutto lo gnomone 
+infinitesimo, $d\mathit{A}$,
  \end{minipage} 
  \hfill
  \begin{minipage}[]{.58 \textwidth}
+ \begin{center}
+ \begin{inaccessibleblock}
+  [Altezza rettangolo con gnomone infinitesimo.]
   \differenzialerapporto
-  \caption{Incremento infinitesimo dell'altezza} 
- \end{minipage}
+ \end{inaccessibleblock}
  \end{center}
-\end{inaccessibleblock}
-\label{fig:Incre_prodotto}
-\end{figure}
-
-
-\noindent la quale corrisponde allo
-gnomone infinitesimo $d\mathit{A}$, escluso il rettangolo destro 
-infinitesimo,
-di area $h\cdot db$.
+ \end{minipage}
+meno il rettangolo destro infinitesimo, di 
+area $h\cdot db$ e meno il rettangolino, sempre infinitesimo, che si trova 
+in alto a destra.
 Dunque:
-\begin{align*}
- dh(x)=d\quadra{\frac{\mathit{A}(x)}{b(x)}}=
- \dfrac{\quadra{d\mathit{A}(x) - \dfrac{\mathit{A(x)}}{b(x)}db(x)}}{b(x)}=
- \dfrac{d\mathit{A}(x) \cdot b(x)-\mathit{A}(x) \cdot db(x)} 
-{\tonda{b(x)}^2}
-\end{align*}
+\begin{align}
+ d\quadra{\frac{\mathit{A}(x)}{b(x)}}&=dh(x)=\\
+ &=\frac{\quadra{d\mathit{A}(x) - h \cdot db(x) - db(x) \cdot dh(x)}}
+        {b(x)}=\\
+ &=\frac{\quadra{d\mathit{A}(x) - \dfrac{\mathit{A(x)}}{b(x)} \cdot db(x) - 
+          db(x) \cdot dh(x)}}{b(x)}=\\
+ &=\frac{\dfrac{d\mathit{A}(x) \cdot b(x) - \mathit{A(x)} \cdot db(x) -
+               b(x) \cdot db(x) \cdot dh(x)}
+              {b(x)}}
+        {b(x)}=\\
+ &=\frac{d\mathit{A}(x) \cdot b(x) - \mathit{A(x)} \cdot db(x) -
+              b(x) \cdot db(x) \cdot dh(x)}
+        {\tonda{b(x)}^2} \sim \\
+ & \sim \frac{d\mathit{A}(x) \cdot b(x) - \mathit{A(x)} \cdot db(x)}
+             {\tonda{b(x)}^2}
+\end{align}
 \end{proof}
-
-\begin{osservazione}
- Si chiama gnomone la figura, a forma di L rovesciata, che rappresenta la 
-crescita dell'area di un rettangolo.
-\end{osservazione}
-
 
 \subsubsection{Sintesi della sezione}
 \label{subsubsec:diff01_diffsint}
 Ci siamo limitati a calcolare solo alcuni differenziali elementari, 
-attraverso esempi 
-e dimostrazioni. Manca del tutto la trattazione dei differenziali delle
-funzioni trascendenti. Avremo modo di vedere anche questi nel corso della 
-prossima
-sezione, dove quanto ottenuto fin qui viene utilmente ripreso e ampliato.\\
-\newline
+attraverso esempi e dimostrazioni. 
+Manca del tutto la trattazione dei differenziali delle funzioni 
+trascendenti. 
+Avremo modo di vedere anche questi nel corso della prossima sezione, dove, 
+quanto ottenuto fin qui, viene utilmente ripreso e ampliato.
+
 I risultati che abbiamo visto valgono sotto le ovvie ipotesi
 che si parli di funzioni continue e che i differenziali siano calcolabili
 per tutti i possibili $x$ del dominio di tali funzioni. Unificando i 
-simboli 
-e restando
-all'essenziale, abbiamo:
+simboli e restando all'essenziale, abbiamo:
 \begin{enumerate} [noitemsep]
  \item $f=k \srarrow df=0$;
  \item $f=x \srarrow df=dx$;
@@ -1034,9 +1088,8 @@ all'essenziale, abbiamo:
  \item $d\tonda{f\pm g}=df\pm dg$ \tab differenziale di una somma o 
 differenza;
  \item $d(f\cdot g)\sim f\cdot g+f\cdot dg$\tab differenziale del prodotto;
- \item $d\tonda{\frac{f}{g}}\sim\frac{df\cdot g-f\cdot dg}{g^2}$\tab  
-differenziale 
- del rapporto (\(g \ne 0\)).
+ \item $d\tonda{\dfrac{f}{g}} \sim \dfrac{df\cdot g-f\cdot dg}{g^2}$\tab  
+differenziale  del rapporto (\(g \ne 0\)).
 \end{enumerate}
 dove  $k$, $a$, $\alpha$ rappresentano delle costanti, mentre f e g sono 
 funzioni continue. 
@@ -1108,7 +1161,7 @@ l=\sqrt{\frac{4}{\sqrt{3}}\mathit{A}}=
  A questo punto dobbiamo fermare il calcolo, perché 
  sappiamo calcolare $d\tonda{\sqrt{x}}$, ma 
  non sappiamo ancora come calcolare $d\tonda{\sqrt{f(x)}}$. Per farlo, 
- occorre una conoscenza più approfondita della derivate.
+ occorre approfondire le conoscenze.
 \end{osservazione}
 \end{esempio}
 
@@ -3304,6 +3357,3 @@ di
  \end{osservazione}
 
 \end{esempio}
-
-
-\end{comment}
