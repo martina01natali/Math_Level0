@@ -63,8 +63,7 @@ la legge del moto, sarà:
  gtdt+\frac{1}{2}(dt)^2. 
 \]
 Dividendo il tutto per $dt$ si ottiene la velocità istantanea, quella che 
-cambia
-in ogni istante $t$:
+cambia istante per istante:
 \[
  v(t)=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt.
 \]
@@ -238,13 +237,20 @@ Con Python.
 \fi
 
 Quindi la funzione ~ \texttt{incremento} ~ ha~$3$ 
-parametri, possiamo eseguirla variando il loro valori e otterremo nel 
-primo caso~$6$, nel secondo~$2$ e nel terzo~$0$. Ovviamente possiamo 
-variare anche la funzione ottenendo dei valori completamente diversi. 
+parametri, nel programma precedente l'ho invocata tre volte con argomenti 
+diversi e ottenendo: nel primo caso~$6$, nel secondo~$2$ e nel terzo~$0$. 
+Ovviamente, utilizzando una funzione diversa, gli incrementi calcolati con 
+gli stessi parametri saranno, in generale diversi. (Prova ad esempio 
+con la funzione \(f(x)= 2^x\))
 
 
 \subsubsection{Differenziale di una funzione}
 \label{subsubsec:diff01_parteprincipale}
+
+In matematica, e nelle sue applicazioni, sono particolarmente importanti 
+gli incrementi che si verificano in una funzione quando la variabile 
+indipendente (\(x\)) subisce una variazione infinitesima. Incrementi di 
+questo tipo, se esistono, si chiamano ''differenziali``.
 
 \begin{definizione}
  Il differenziale di una funzione è un valore che indica di quanto aumenta 
@@ -254,17 +260,17 @@ infinitesima:
 \[df(x_0) = f \tonda{x_0 + \epsilon} - f(x_0)\]
 \end{definizione}
 
-Nelle funzioni \emph{continue}, incrementi infinitesimi della~$x$ producono 
-incrementi infinitesimi della~$y$.
-Questi incrementi sono osservabili solo utilizzando un microscopio non 
-standard.
+Parliamo di differenziale di una funzione quando incrementi infinitesimi 
+della~$x$ producono incrementi infinitesimi della~$y$.
+I differenziali, essendo infinitesimi, sono osservabili solo utilizzando 
+microscopi non standard.
 
 \begin{minipage}{.48 \textwidth}
 Vediamo un esempio: 
 
 Vogliamo calcolare l'incremento della 
 funzione:~\(f(x) = \dfrac{1}{4} x^2 -x -3\)
-Quando \(x\) parte da~\(7\) e aumenta di~\(\epsilon\).
+quando \(x\) parte da~\(7\) e aumenta di~\(\epsilon\).
 \begin{align*}
   df(7) &= f(7+\epsilon) - f(7) = \\
         &= \dfrac{\tonda{7 +\epsilon}^2}{4}  -\tonda{7 +\epsilon} -3 - 
@@ -591,9 +597,12 @@ aumentando progressivamente l'esponente.
                       &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4      
 \end{align*}
 
-Possiamo osservare che il termine non infinitesimo si annulla sempre quindi 
-qualunque sia il valore nel quale si calcola il differenziale si ottiene un 
-valore infinitesimo queste funzioni sono quindi continue in tutto \(\IR\).
+Possiamo osservare che, nel calcolo dell'incremento, il termine non 
+infinitesimo si annulla sempre. Quindi, qualunque sia il valore di \(x_0\), 
+l'incremento della funzione è infinitesimo. 
+Queste funzioni sono quindi continue in tutto \(\IR\) perché a spostamenti 
+infinitesimi sull'asse \(x\) corrispondono sempre spostamenti infinitesimi 
+sull'asse \(y\).
 
 Possiamo anche osservare che il differenziale è sempre più complesso, ma 
 se consideriamo la parte principale dell'infinitesimo cioè se trascuriamo 
@@ -716,8 +725,8 @@ per $x_0=1$ e $x_0=-1$, non è calcolabile nemmeno il suo differenziale.
 
 \begin{esempio}
 Nei due esempi precedenti cercavamo di calcolare il differenziale in un 
-punto in cui la funzione non era definita ci vuole poca immaginazione per 
-capire che se no è definita la funzione non può essere definito neppure il 
+punto in cui la funzione non era definita. Ci vuole poca immaginazione per 
+capire che se non è definita la funzione non può essere definito neppure il 
 differenziale.
 
 Ma che dire del differenziale della radice quadrata in zero? Lì la funzione 
@@ -725,18 +734,14 @@ Ma che dire del differenziale della radice quadrata in zero? Lì la funzione
 Mentre non è definito il suo 
 differenziale: \(df(0) \sim \dfrac{dx}{2 \sqrt{0}}\)
 
-Recuperiamo il differenziale esatto della funzione:
-\[d\tonda{\sqrt(0)}=\frac{dx}{\sqrt{0+dx}+\sqrt{0}}\]
+Calcoliamo il differenziale della radice in zero seguendo la definizione:
+\[df(x)|_{x=x_0} = f(0+dx)-f(0)=\sqrt{0+dx}-\sqrt{0}=\sqrt{dx}\]
 Intanto possiamo osservare che per poter effettuare i calcoli \(dx\) deve 
 essere positivo quindi il resto del ragionamento ha senso soltanto 
 assumendo \(dx>0\).
 
-In questo caso otteniamo:
-\[d\tonda{\sqrt(0)}=\frac{dx}{\sqrt{dx}}\]
-Razionalizzando il denominatore della frazione, il differenziale diventa:
-\[d\tonda{\sqrt(0)}=\frac{dx}{\sqrt{dx}} \cdot \frac{\sqrt{dx}}{\sqrt{dx}}
-  \sqrt{dx}\]
-Ma \(\sqrt{dx}\) è un infinitesimo ''molto`` più grande di \(dx\). 
+Il differenziale ottenuto, \(\sqrt{dx}\), è un infinitesimo ''molto`` più 
+grande di \(dx\). 
 Se \(\sqrt{dx} = \delta\) allora \(dx = \delta \cdot \delta\) cioè \(dx\) è 
 un infinitesimo di \(\sqrt{dx}\). Quando con uno strumento ottico non 
 standard riesco a visualizzare \(dx\), non potrò vedere anche 
@@ -770,21 +775,14 @@ tre esempi: $y=\sqrt{x}$, $y=\frac{1}{x}$ e $y=\frac{1}{x^2-1}$.
 \label{fig:diff01_grafici}
 \end{figure}
 
-Si può osservare che $y=\sqrt{x}$, essendo definita per i valori $x\ge 0$, 
+Guardando i grafici si può osservare che $y=\sqrt{x}$, essendo definita per 
+i valori $x\ge 0$, 
 non può essere calcolata per esempio, se $x=-2$ e quindi nemmeno il suo 
-differenziale ha senso in questo punto.\\
+differenziale ha senso in questo punto.
+
 Gli altri due grafici mettono in evidenza questo problema: dove la funzione 
 non è calcolabile, non esiste il punto che rappresenta la funzione nel 
 piano cartesiano reale. 
-
-% 
-% TODO chiedere: 1/0 non è definito neppure in *R quindi non c'è telescopio 
-% che tenga...
-% Nel piano iperreale, puntando l'infinito con un telescopio,
-% non riusciamo a focalizzare la differenza infinitesima fra due valori 
-% infiniti della funzione.
-% 
-
 
 % \begin{figure}[h]
 \begin{inaccessibleblock}
@@ -847,8 +845,8 @@ $x=0$.
 
 Dagli esempi si capisce che \emph{la continuità delle funzioni è una 
 condizione di carattere locale}, cioè per punti. Infatti si possono 
-riconoscere dei punti di discontinuità di una funzione, non degli insiemi di 
-discontinuità.
+riconoscere dei punti di discontinuità di una funzione, non degli 
+intervalli di discontinuità.
 Se ci si accorge che un punto $(x_0;\ f(x_0))$ è di discontinuità
 per $f(x)$, allora si dice: \emph{$f(x)$ è discontinua per $x=x_0$},
 cioè si indica solo la coordinata $x$ che pone questo problema 
@@ -916,7 +914,7 @@ df_2(x)$.
  Con le regole precedenti abbiamo: \(f(x)=f_1+f_2+f_3\) e
  \(df(x)~=~df_1+df_2+df_3\).
  \begin{itemize} [noitemsep]
-  \item $f_1=ax^2 \sRarrow df_1\sim 2axdx+$; 
+  \item $f_1=ax^2 \sRarrow df_1\sim 2axdx$; 
   \item $f_2=bx \sRarrow df_2=bdx$
   \item $f_3=c \sRarrow df_3=0$
  \end{itemize}
