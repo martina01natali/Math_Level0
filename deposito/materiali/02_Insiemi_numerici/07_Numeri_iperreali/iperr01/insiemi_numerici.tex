@@ -257,8 +257,9 @@ dovremo abbandonarne una delle più note e utili.
 
 Alla fine del 1600 Newton e Leibniz studiavano problemi legati alla 
 meccanica. 
-Una delle grandezze alla base della meccanica è la \emph{velocità}. Ma cosa è 
-la velocità? Se l'oggetto A percorre più strada dell'oggetto B possiamo dire 
+Una delle grandezze alla base della meccanica è la \emph{velocità}. 
+Ma cosa è la velocità? 
+Se l'oggetto A percorre più strada dell'oggetto B possiamo dire 
 che A è più veloce di B? No, non basta misurare lo spazio percorso da un 
 oggetto per calcolare la sua velocità, bisogna anche misurare il tempo 
 impiegato a percorrere quello spazio. Infatti sappiamo che:
@@ -268,10 +269,10 @@ La grandezza calcolata in questo modo è \emph{la velocità media}
 dell'oggetto, 
 ma in ogni istante del percorso l'oggetto ha una propria velocità. Come 
 faccio 
-a calcolarla? Posso misurare lo spazio percorso in un tempo molto piccolo, in 
-questo modo avrò una velocità media tenuta in un percorso molto breve. Più 
-restringo l'intervallo di tempo, più la velocità media si avvicina alla 
-velocità istantanea \dots ma resta sempre una velocità media. 
+a calcolarla? Posso misurare lo spazio percorso in un tempo molto piccolo, 
+in questo modo avrò una velocità media tenuta in un percorso molto breve. 
+Più restringo l'intervallo di tempo, più la velocità media si avvicina alla 
+velocità istantanea\dots ma resta sempre una velocità media. 
 
 Per trovare la velocità istantanea dovrei dividere lo spazio percorso per un 
 tempo (positivo) più piccolo di qualunque numero. L'unico numero reale
@@ -304,13 +305,13 @@ Il calcolo è abbastanza semplice:
 Numero piegature & spessore ottenuto & in metri\\
 \midrule
 0 & 1 & $10^{-4}$\\
-1 & 2 & $10^{-4}$\\
-2 & 4 & $10^{-4}$\\
-3 & 8 & $10^{-4}$\\
-4 & 16 & $10^{-3}$\\
-5 & 32 & $10^{-3}$\\
-6 & 64 & $10^{-3}$\\
-7 & 128 & $10^{-2}$\\
+1 & 2 & $2 \cdot 10^{-4}$\\
+2 & 4 & $4 \cdot 10^{-4}$\\
+3 & 8 & $8 \cdot 10^{-4}$\\
+4 & 16 & $1,6 \cdot 10^{-3}$\\
+5 & 32 & $3,2 \cdot 10^{-3}$\\
+6 & 64 & $6,4 \cdot 10^{-3}$\\
+7 & 128 & $1,28 \cdot 10^{-2}$\\
 \ldots& \ldots\\
 n & $2^n$ & \ldots\\
 \bottomrule
@@ -318,12 +319,12 @@ n & $2^n$ & \ldots\\
 \end{center}
 
 Quindi piegando il foglio 64 volte ottengo uno spessore che è $2^{64}$ volte 
-lo 
-spessore di partenza quindi basta calcolare:
+lo spessore di partenza quindi basta calcolare:
 
 \[2^{64} = 18.446.744.073.709.551.616\]
-che convertito in metri dà: $1.844.674.407.370.955m$ circa che è uno spessore 
-considerevole, quasi duemila volte la distanza Terra-Sole:~$149.600.000.000m$.
+che convertito in metri dà: $1.844.674.407.370.955m$ circa che è uno 
+spessore considerevole, quasi duemila volte la distanza 
+Terra-Sole:~$149.600.000.000m$.
 
 Si fa risalire ai matematici Eudosso e Archimede l'osservazione che per 
 quanto 
@@ -332,30 +333,32 @@ moltiplicarlo per un numero sufficientemente grande~($2^{64}$) per farlo
 diventare maggiore di qualsiasi numero (la distanza Terra-Sole).
 
 Vale anche il contrario: per quanto grande sia un numero posso dividerlo per 
-un 
-numero abbastanza grande da farlo diventare più piccolo di un qualunque 
+un numero abbastanza grande da farlo diventare più piccolo di un qualunque 
 numero.
 
 Ma questa osservazione di Eudosso-Archimede non è un teorema, non è 
 un'osservazione dimostrata, è un postulato, un accordo fatto tra matematici 
-che 
-può essere utile in moltissimi casi e che vale per tutti gli insiemi numerici 
-visti fin'ora. Ma cosa succede se ci accordiamo che non valga il postulato di 
+che può essere utile in moltissimi casi e che vale per tutti gli insiemi 
+numerici visti fin'ora. 
+Ma cosa succede se ci accordiamo che \emph{non} valga il postulato di 
 Eudosso-Archimede?
 
-\subsection{Insiemi non archimedei}
+\subsection{Infinitesimi... e infiniti}
 \label{subsec:insnum_nonarchimedei}
 
-Vogliamo costruire un insieme numerico non archimedeo. Per farlo aggiungiamo 
-all'insieme dei numeri reali un nuovo numero (non reale):
+Se accettiamo che possa non valere il postulato di Eudosso-Archimede, 
+possiamo costruire un insieme numerico non archimedeo. 
+Per farlo, possiamo aggiungere all'insieme dei numeri reali un nuovo numero 
+(non reale) maggiore di zero ma più piccolo di qualunque numero reale 
+positivo:
 
-\[\varepsilon > 0 \text{ tale che } 
-\varepsilon < \frac{1}{n} \text{ per qualunque } n \in \N\]
+\[\epsilon > 0 \quad \text{ tale che } \quad 
+\epsilon < \frac{1}{n} \quad \text{ per qualunque } n \in \N\]
 
 tradotto in simboli:
 
-\[\varepsilon > 0 \quad | \quad \varepsilon < \frac{1}{n} \quad \forall n \in 
-\N\]
+\[\exists \epsilon > 0 \quad | \quad \epsilon < \frac{1}{n} \quad \forall n 
+\in \N\]
 
 Un numero siffatto lo chiameremo un \emph{infinitesimo} e lo indicheremo 
 con una lettera minuscola dell'alfabeto greco, per esempio $\epsilon$.
@@ -364,15 +367,16 @@ reale.
 
 La prima conseguenza all'introduzione di un infinitesimo è che allora ce ne 
 sono infiniti! Infatti anche la metà di un infinitesimo è un infinitesimo e 
-anche il suo doppio o un suo sottomultiplo o un suo multiplo.
+sono infinitesimi anche il suo doppio o un suo sottomultiplo o un suo 
+multiplo.
 
 Altra conseguenza dell'aggiunta di un elemento infinitesimo all'insieme dei 
-reali è che se esiste un numero maggiore di zero più piccolo di tutti gli 
-altri 
-numeri allora esiste anche un numero maggiore di qualunque altro numero:
+reali è che, se esiste un numero maggiore di zero più piccolo di tutti i
+numeri reali, allora esiste anche un numero maggiore di qualunque altro 
+numero reale:
 
-\[\text{se} \quad \varepsilon < \frac{1}{n} \quad \forall n \in \N 
-\quad \text{allora} \quad \frac{1}{\varepsilon} > n \quad \forall n 
+\[\text{se} \quad \epsilon < \frac{1}{n} \quad \forall n \in \N 
+\quad \text{allora} \quad \frac{1}{\epsilon} > n \quad \forall n 
 \in \N\]
 
 Quindi se aggiungiamo all'insieme dei reali un numero infinitesimo e possiamo 
@@ -380,112 +384,145 @@ usarlo nelle usuali 4 operazioni, allora in quell'insieme avremo un
 numero infinito di infinitesimi e un numero infinito di infiniti.
 
 Chiamiamo \emph{iperreali} l'insieme numerico così ottenuto e lo indichiamo 
-con 
-il simbolo:~$\IR$.
+con il simbolo:~$\IR$.
 
 \subsection{Tipi di Iperreali}
 \label{subsec:insnum_iperreali}
 
 Abbiamo visto che l'introduzione di un elemento nuovo, così piccolo
-da poterlo pensare trascurabile, ha 
-reso piuttosto affollato il nuovo insieme numerico. Cerchiamo di fare un po' 
-di ordine. L'insieme degli Iperreali contiene:
+da poterlo pensare trascurabile, ha reso piuttosto affollato il nuovo 
+insieme numerico. 
+Cerchiamo di fare un po' di ordine. 
+L'insieme degli Iperreali contiene diversi tipi di numeri li vediamo qui di 
+seguito.
 
-\begin{itemize} [noitemsep]
- \item i numeri reali che d'ora in poi verranno chiamati anche numeri 
-\emph{standard}, tra questi c'è anche lo zero;
- \item gli infinitesimi, lo zero è l'unico infinitesimo che è anche un numero 
-reale;
- \item i numeri non reali che non sono né infinitesimi né infiniti;
- \item gli infiniti, nessun infinito ha una corrispondenza con i numeri reali.
-\end{itemize}
-
-Possiamo vedere questo insieme anche come formato dai seguenti elementi:
-
-\begin{description} [noitemsep]
- \item \textbf{zero}
- è un infinitesimo ed è un numero standard;
- \item \textbf{infinitesimi non nulli}
- tutti gli infinitesimi diversi da zero;
- \item \textbf{finiti}
- tutti quei numeri che sono, in valore assoluto, minori di un numero reale;
- \item \textbf{finiti non infinitesimi}
- tutti quei numeri che sono in valore assoluto compresi tra due numeri reali 
- diversi da zero;
- \item \textbf{infiniti}
- tutti quei numeri che sono maggiori di qualsiasi numero reale
-
+\begin{description} %[noitemsep]
+ \item \textbf{Infinitesimi}:
+numeri che, in valore assoluto, sono minori di qualunque numero reale 
+positivo.
+ \item \textbf{Infiniti}:
+numeri che, in valore assoluto, sono maggiori di qualunque numero reale.
+ \item \textbf{Zero}:
+l'unico numero reale infinitesimo.
+ \item \textbf{Infinitesimi non nulli}:
+numeri infinitesimi senza lo zero.
+ \item \textbf{Finiti}:
+numeri che non sono infiniti.
+ \item \textbf{Finiti non infinitesimi}:
+numeri che non sono infiniti né infinitesimi.
 \end{description}
- 
+
 Per semplificare la scrittura (e complicare la lettura) adotteremo delle 
 sigle e delle convenzioni per indicare questi diversi tipi di numeri:
 
 \begin{center}
 \begin{tabular}{ccc}\toprule
-tipo & sigla & simboli\\\midrule
-zero &  & 0\\
-infinitesimo & \emph{i} & \\
-infinitesimo non nullo & \emph{inn} & $\alpha, \beta, \gamma, \delta, \dots$\\
-finito non infinitesimo& \emph{fni} & a, b, c, d, ...\\
-finito & \emph{f} & a, b, c, d, ...\\
-infinito & \emph{I} & A, B, C\\
-qualsiasi &  & x, y, z, \ldots\\\bottomrule
+tipo & sigla & simboli \\\midrule
+
+zero &  & 0 \\
+
+infinitesimi & \emph{i} & \\
+
+infinitesimo non nullo & \emph{inn} & 
+\(\alpha, \beta, \gamma, \delta, \dots\) \\
+
+finito non infinitesimo & \emph{fni} & \(a, b, c, d, \dots\)\\
+
+finito & \emph{f} & \(a, b, c, d, \dots\) \\
+
+infinito & \emph{I} & \(A, B, C, \dots\)\\
+
+qualsiasi &  & \(x, y, z, \dots\) \\\bottomrule
 \end{tabular}
 \label{tab:insnum_tipi}
 \end{center}
-
+ 
 \subsection{Iperreali finiti e parte standard}
 \label{subsec:insnum_partestandard}
 
-Gli Iperreali finiti sono quei numeri che sono compresi tra due numeri Reali:
+Gli Iperreali finiti sono quei numeri che sono compresi tra due numeri 
+Reali:
 
 \begin{definizione}
- Il numero Iperreale $x$ è compreso tra due numeri Reali allora $x$ è un 
-Iperreale finito:
+ Un numero iperreale finito $x$ è un numero compreso tra due numeri Reali 
+allora $x$:
 
 \[\text{Se } x \in \IR \wedge a, b \in \R \wedge 
   a < x < b \text{ allora } x \text{ è un Iperreale finito.}\]
 \end{definizione}
 
-Ogni numero finito può essere visto come la somma di un numero reale più un 
-Infinitesimo: se $x$ è finito allora $x = a + \epsilon$, quindi 
-$x=a+\epsilon\approx a$. Si può immaginare ogni Iperreale finito come una
+Nei Reali due numeri,ad es. \(a\) e \(b\), possono essere o uguali o 
+diversi. 
+Negli Iperreali, due numeri possono essere:
+\begin{itemize}
+ \item \emph{uguali} se la loro differenza è zero: \quad
+ \(a = b \sLRarrow a-b = 0\)
+ \item \emph{diversi} se la loro differenza è diversa da zero: \quad 
+ \(a \ne b \sLRarrow a-b \ne 0\)
+ \item \emph{infinitamente vicini} se la loro differenza è un infinitesimo: 
+\quad 
+ \(a \approx b \sLRarrow a-b = \epsilon\)
+\end{itemize}
+Il simbolo per indicare \emph{infinitamente vicini}  è: ``\(\approx\)''.
+
+Ogni numero finito può essere visto come un numero \emph{reale} 
+più un \emph{infinitesimo}.
+
+Se $x$ è finito allora $x = a + \epsilon$ dove:
+\begin{itemize}
+ \item \(x\) è un numero iperreale finito;
+ \item \(a\) è un numero reale:
+ \item \(\epsilon\) è un iperreale infinitesimo.
+\end{itemize}
+
+Se \(x=a+\epsilon\) allora potremmo dire che \(x\) è infinitamente vicino 
+ad \(a\) infatti sottraendo ad entrambi i membri dell'uguaglianza la 
+stessa quantità \(a\) otteniamo: 
+\(x-a = a+\epsilon-a \sLRarrow x-a = \epsilon \sLRarrow x \approx a\) 
+
+Si può immaginare ogni Iperreale finito come una
 nuvola contenente un numero standard $a$ e tutti gli infinitesimi che lo 
 circondano, così vicini ad $a$ da non potersi confondere con altri infiniti
-infinitesimi di una nuvola vicina, appartenenti per esempio al numero 
-Iperreale
-$y=b+\epsilon$. Un numero Iperreale finito non può essere infinitamente 
-vicino 
+iperreali di una nuvola vicina, appartenenti per esempio al numero 
+iperreale $y=b+\delta$. 
+
+Un numero Iperreale finito non può essere infinitamente vicino 
 a due numeri reali diversi quindi esiste un solo numero Reale infinitamente 
 vicino ad un numero Iperreale. 
-Questo numero reale si chiama \emph{parte standard} del numeri Iperreale.
+Questo numero reale si chiama \emph{parte standard} del numero Iperreale.
+
+% \begin{definizione}
+%  La parte standard di un numero Iperreale finito è l'unico numero Reale 
+% infinitamente vicino:
+% 
+% \[\text{Se } x \in \IR \wedge x= a+\epsilon \text{ allora } 
+% \st(x) = a \text{ (st(x) = parte standard).}\]
+% \end{definizione}
 
 \begin{definizione}
- La parte standard di un numero Iperreale finito è il l'unico numero Reale 
-infinitamente vicino:
+ Si dice che \(a\) è la parte standard di \(x\), e si scrive: 
+ \(\st(x) = a\), se e solo se \(a\) è un numero reale e \(x\) è 
+infinitamente vicino ad \(a\):
 
-\[\text{Se } x \in \IR \wedge x= a+\epsilon \text{ allora } 
-a= \st(x) \text{ (st = parte standard).}\]
+\[\st(x) = a \sLRarrow a \in \R \sand x \approx a\]
 \end{definizione}
 
 
 \subsection{Retta Iperreale e strumenti ottici}
 \label{subsec:insnum_retta}
 
-In un paragrafo precedente abbiamo visto che si può accettare il postulato 
-che 
-dice che ad ogni numero reale corrisponde un punto della retta e ad ogni 
+In un paragrafo precedente abbiamo visto che si può accettare l'idea che 
+ad ogni numero reale corrisponde un punto della retta e ad ogni 
 punto della retta corrisponde un numero reale. 
-Questa affermazione non è un teorema dimostrato, è un postulato. Fa parte del 
-modello
-di numeri usato, cioè è caratteristico dei numeri reali. Giacché ora stiamo 
-cambiando
-modello, cambiamo anche questo postulato. Lo riformuliamo così:
+Questa affermazione non è un teorema dimostrato, è un postulato. 
+Fa parte del modello di numeri usato, questa idea è caratteristica dei 
+numeri reali. 
+Ma dato che ora stiamo cambiando modello, cambiamo anche questo postulato. 
+Lo riformuliamo così:
 
 \begin{postulato}
 Ad ogni numero Iperreale corrisponde un punto della retta (iperreale) e ad 
-ogni 
-punto della retta (iperreale) corrisponde un numero Iperreale.
+ogni punto della retta (iperreale) corrisponde un numero Iperreale.
 \end{postulato}
 
 Oppure:
@@ -505,7 +542,7 @@ Diamo una sbirciata al loro manuale di istruzioni.
 \label{subsec:insnum_microscopio}
 
 Il microscopio permette di ingrandire una porzione di retta. 
-Un microscopio permette di visualizzare i seguenti numeri:
+Per esempio un microscopio permette di visualizzare i seguenti numeri:
 
 \begin{multicols}{4}
 \begin{itemize}[nosep]
@@ -558,8 +595,8 @@ Un microscopio permette di visualizzare i seguenti numeri:
  
 Si può osservare come ci siano microscopi ``standard'' che ingrandiscono un 
 numero \emph{naturale} di volte e microscopi ``non standard'' che 
-ingrandiscono 
-infinite volte.
+ingrandiscono infinite volte (ricordiamoci che \(\frac{1}{\epsilon}\) è un 
+infinito.
 
 \subsubsection{Telescopi}
 \label{subsec:insnum_microscopio}
@@ -670,7 +707,7 @@ per risultato anche zero: \dots
 %  \item Un infinito più un infinitesimo dà come risultato un infinito.
  \item Un infinito più un finito dà come risultato un infinito.
  \item Un infinito più un infinito può dare come risultato zero, un 
-infinitesimo, un finito non infinitesimo, un finito, un infinito.
+infinitesimo, un finito non infinitesimo, un infinito.
 \end{enumerate}
 
 \end{minipage}
