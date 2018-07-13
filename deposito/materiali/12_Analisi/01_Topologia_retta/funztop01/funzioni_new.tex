@@ -1,6 +1,153 @@
 % (c) 2017 Leonardo Aldegheri
 % (c) 2017 Carlotta Gualtieri
 
+\input{\folder funzioni_new_grafici.tex}
+
+\chapter{Disegni per le funzioni}
+
+\section{Interpretazione insiemistica di una funzione}
+
+\deffunzione{Dominio}{Insieme di esistenza}{Codominio}{Insieme immagine}
+
+\section{Dueassi}
+
+\dueassivuoti
+
+\dueassi{-12}{10}{\x+3}
+
+\dueassi{-12}{12}{.5*\x+3}
+
+\dueassi{-7}{4}{2*\x+3}
+
+\dueassi{-8}{8}{-\x+3}
+
+\dueassi{-8}{8}{-.5*\x+3}
+
+\dueassi{-4}{7}{-2*\x+3}
+
+% 136
+\begin{tikzpicture}
+\node (start) [draw,shape=ellipse] {start};
+\foreach \angle in {-90, -80, ..., 90}
+\draw (node cs:name=start,angle=\angle)
+.. controls +(\angle:1cm) and +(-1,0) .. (2.5,0);
+\end{tikzpicture}
+
+\section{Altro}
+
+% 136
+\begin{tikzpicture}
+\node (start) [draw,shape=ellipse] {start};
+\foreach \angle in {-90, -80, ..., 90}
+\draw (node cs:name=start,angle=\angle)
+.. controls +(\angle:1cm) and +(-1,0) .. (2.5,0);
+\end{tikzpicture}
+
+
+
+% parg 152
+\begin{tikzpicture}
+\draw (1,0) circle [radius=1.5];
+\fill (1,0) circle [x radius=1cm, y radius=5mm, rotate=30];
+\end{tikzpicture}
+
+% 159
+\begin{tikzpicture}
+\draw (0,0) to [edge node={node [sloped,above] {x}}] (3,2);
+\draw (0,0) to [out=90,in=180,
+edge node={node [sloped,above] {x}}] (3,2);
+\end{tikzpicture}
+
+% 175
+\tikz \shadedraw [shading=axis] (0,0) rectangle (1,1);
+\tikz \shadedraw [shading=radial] (0,0) rectangle (1,1);
+\tikz \shadedraw [shading=ball] (0,0) circle (.5cm);
+
+% 234
+\begin{tikzpicture}[level distance=8mm]
+\node (root) {root}
+child { node (a) {a} }
+child { node (b) {b}
+child { node (d) {d} }
+child { node (e) {e} } }
+child { node (c) {c} };
+\begin{pgfonlayer}{background}
+\node[fill=red!20,inner sep=0pt,ellipse,fit=(root) (b) (d) (e)] {};
+\node[fill=blue!20,inner sep=0pt,ellipse,fit=(b) (c) (e)] {};
+\end{pgfonlayer}
+\end{tikzpicture}
+
+% 238
+\tikz [allow upside down]
+\draw (0,0) .. controls +(up:2cm) and +(left:2cm) .. (1,3)
+node foreach \p in {0,0.25,...,1} [sloped,above,pos=\p]{\p};
+
+% 246
+\begin{tikzpicture}
+\path (0,0) node
+ (x) {Hello World!}
+(3,1) node[circle,draw](y) {$\int_1^2 x \mathrm d x$};
+\draw[->,blue]
+ (x) -- (y);
+\draw[->,red]
+ (x) -| node[near start,below] {label} (y);
+\draw[->,orange] (x) .. controls +(up:1cm) and +(left:1cm) .. 
+node[above,sloped] {label} (y);
+\end{tikzpicture}
+
+% % 249
+% \begin{tikzpicture}[remember picture]
+% \node (c) [circle,draw] {Big circle};
+% \draw [overlay,->,very thick,red,opacity=.5]
+% (c) to[bend left] (n1) (n1) -| (n2);
+% \end{tikzpicture}
+
+% % 346
+% \tikzfading[name=fade inside,
+% inner color=transparent!80,
+% outer color=transparent!30]
+% \begin{tikzpicture}
+% % Checker board
+% \fill [black!20] (0,0) rectangle (4,4);
+% \path [pattern=checkerboard,pattern color=black!30] (0,0) rectangle (4,4);
+% \shade [ball color=red] (3,3) circle (0.8);
+% \shade [ball color=white,path fading=fade inside] (2,2) circle (1.8);
+% \end{tikzpicture}
+
+% 603
+\begin{tikzpicture}
+a big \draw [help lines] grid (3,2);
+ \draw [red, dashed]
+[postaction={decoration={text along path, text={a big juicy apple},
+text align={align=right}}, decorate}]
+ (0,0) .. controls (0,2) and (3,2) .. (3,0);
+\end{tikzpicture}
+
+% 754
+\begin{tikzpicture}[out=90,in=90,relative]
+\node [circle,draw] (a) at (0,0) {a};
+\node [circle,draw] (b) at (1,1) {b};
+\node [circle,draw] (c) at (2,2) {c};
+\path (a) edge (b)
+edge (c);
+\end{tikzpicture}
+
+% % 841
+% \tikz \datavisualization [
+% school book axes,
+% x axis={label=£x£},
+% visualize as smooth line/.list={log, lin, squared, exp},
+% every data set label/.append style={text colored},
+% log= {pin in data={text’=£\log x£, when=y is -1}},
+% lin= {pin in data={text=£x/2£, when=x is 2,
+%       pin length=1ex}},
+% squared={pin in data={text=£x^2£, when=x is 1.1,
+%          pin angle=230}},
+% exp= {label in data={text=£e^x£, when=x is -2}},
+% style sheet=vary hue]
+% data group {function classes};
+
+\begin{comment}
 
 \chapter{Funzioni}
 
@@ -823,6 +970,8 @@ $x\geq0$, mentre la funzione $g$ è definita per $x<-4\lor x\geq 0$.
 $$\frac{\sqrt{x}}{\sqrt{x^2+4}}=\sqrt{\frac{x}{x^2+4}}$$ per ogni $x\geq0$.
 \end{esempio}
 
+
+\end{comment}
 
 
 

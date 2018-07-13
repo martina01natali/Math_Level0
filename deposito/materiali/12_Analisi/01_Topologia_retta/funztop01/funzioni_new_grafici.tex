@@ -1,0 +1,136 @@
+﻿% (c) 2017 Daniele Zambelli - daniele.zambelli@gmail.com
+% 
+% Tutti i grafici per il capitolo relativo alle funzioni_new
+% 
+
+% \draw (0,0) .. controls (6,1) and (9,1) ..
+% node[near start,sloped,above] {near start}
+% node {midway}
+% node[very near end,sloped,below] {very near end} (12,0);
+
+
+% \newcommand{\deffunzione}{% 
+%   % Definizione di funzione
+%   \disegno{
+%     \shadedraw [shading=ball]
+%       [postaction={decoration={text along path, text={Insieme di Esistenza},
+%        text align={align=left}}, below, decorate}] 
+%       (0,0) circle [x radius=2, y radius=3, ball color=red!20, rotate=+20];
+%     \shadedraw[
+%       top color=yellow!70,
+%       bottom color=red!70,
+%       shading angle={45},
+%       opacity=.5,
+%       x radius=4, y radius=5] (0, 0) circle; 
+%     \shadedraw [shading=ball] (12,0) circle [x radius=1.6, y radius=2.4,
+%                                            ball color=red!20, rotate=-20];
+%     \shadedraw[
+%       top color=yellow!70,
+%       bottom color=blue!70,
+%       shading angle={45},
+%       opacity=.5,
+%       x radius=4, y radius=5] (12, 0) circle;
+%     \draw [|->, very thick] (0, 0) to [out=20, in=160,
+%        edge node={node [sloped,above] {$f$}}] (12, 0);
+%     \draw (-1, 2.824) to [out=20, in=160] (12.8, 2.26);
+%     \draw (+1.1,-2.8) to [out=20, in=160] (11.2,-2.27);
+%   }
+% }
+
+% \draw (0,0) to [out=90,in=180, edge node={node [sloped,above] {x}}] (3,2);
+
+
+\newcommand{\deffunzione}[4]{% 
+  % Definizione di funzione
+  \def \nomea{#1}
+  \def \nomeb{#2}
+  \def \nomec{#3}
+  \def \nomed{#4}
+  \disegno{
+    \shadedraw [shading=ball]
+      (0,0) circle [x radius=2, y radius=3, ball color=red!20, rotate=+20];
+    \draw [red!0, dashed]
+          [postaction={decoration={text along path, text={\nomeb},
+           text align={align=center}}, decorate}]
+          (-2.5,1) .. controls (-2,4) and (1,4) .. (2,1);
+    \shadedraw[
+      top color=yellow!70,
+      bottom color=red!70,
+      shading angle={45},
+      opacity=.5,
+      x radius=4, y radius=5] (0, 0) circle; 
+    \draw [red!0, dashed]
+          [postaction={decoration={text along path, text={\nomea},
+           text align={align=center}}, decorate}]
+      (-3.5,3) .. controls (-2,6) and (2,6) .. (3.5,3);
+    \shadedraw [shading=ball] (12,0) circle [x radius=1.6, y radius=2.4,
+                                           ball color=red!20, rotate=-20];
+    \draw [red!0, dashed]
+          [postaction={decoration={text along path, text={\nomed},
+           text align={align=center}}, decorate}]
+          (10.2,.5) .. controls (11,3.5) and (14,3.5) .. (14,.5);
+    \shadedraw[
+      top color=yellow!70,
+      bottom color=blue!70,
+      shading angle={45},
+      opacity=.5,
+      x radius=4, y radius=5] (12, 0) circle;
+    \draw [red!0, dashed]
+          [postaction={decoration={text along path, text={\nomec},
+           text align={align=center}}, decorate}]
+      (8.5,3) .. controls (10,6) and (14,6) .. (15.5,3);
+    \draw [|->, very thick] (0, 0) to [out=20, in=160,
+       edge node={node [sloped,above] {$f$}}] (12, 0);
+    \draw (-1, 2.824) to [out=20, in=160] (12.8, 2.26);
+    \draw (+1.1,-2.8) to [out=20, in=160] (11.2,-2.27);
+  }
+}
+
+\newcommand{\dueassivuoti}{% 
+  % Disegno di due assi paralleli
+  \disegno{
+    \assecontrattini{-12}{+12}{0}{\(x\)}
+    \assecontrattini{-12}{+12}{3}{\(y\)}
+    \foreach \x in {-12, ..., 11}{
+      \draw  (\x, 0) [below, font=\small] node {\x};
+      \draw  (\x, 3) [above, font=\small] node {\x};
+    }
+  }
+}
+
+\newcommand{\dueassi}[3]{% 
+  % Funzione rappresentata su due assi
+  \def \mix{#1} \def \max{#2} \def \funct{#3}
+  \disegno{
+    \assecontrattini{-12}{+12}{0}{\(x\)}
+    \assecontrattini{-12}{+12}{3}{\(y\)}
+    \foreach \x in {-12, ..., 11}{
+      \draw  (\x, 0) [below, font=\small] node {\x};
+      \draw  (\x, 3) [above, font=\small] node {\x};
+    }
+    \foreach \x / \y in {\mix, ..., \max}{
+      \draw [->] (\x, 0) to [out=90, in=270] (\funct, 3);
+    }
+  }
+}
+
+
+% 
+% \clip[draw] (0.5,0.5) circle (.6cm);
+% 
+
+% \newcommand{\micx}[6]{% 
+%   % interno del microscopio posto sull'asse x.
+%   \def \basexa{#1} \def \basexb{#2} \def \basey{#3}
+%   \def \xa{#4}     \def \xb{#5}     \def \yab{#6}
+%   \draw (\basexa, \basey) -- (\basexb, \basey);
+%   \fill [Cyan!50]  (\xa, \yab) -- (\xa, \basey) -- 
+%                    (\xb, \basey) -- (\xb, \yab) -- cycle;
+%   \draw [dashed] (\xa, \yab) -- (\xa, \basey) 
+%         node [below, xshift=-1mm] {$x_0$};
+%   \draw [dashed] (\xb, \yab) -- (\xb, \basey) 
+%         node [below, xshift=+2.5mm] {$x_0 + \epsilon$};
+% }
+%   \draw [thick, color=Red!50!black] (pb |- pb) -- (pb |- pa)
+%         node [midway, right] {$df(x)$};
+% }
