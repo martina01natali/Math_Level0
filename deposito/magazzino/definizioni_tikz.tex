@@ -124,6 +124,24 @@
   \rcomvar{#1}{#2}{#3}{#4}{#5}{\(x\)}{\(y\)}
 }
 
+\newcommand{\graficoxy}[5]{  % Grafico di una funzione.
+  % Esempio di chiamata:
+  %% \disegno{\graficoxy{-7}{+7}{-11}{+10}{2*x+3}
+  \def \grxmi{#1}
+  \def \grxma{#2}
+  \def \grymi{#3}
+  \def \gryma{#4}
+  \def \funzione{#5}
+  \pgfmathparse{\grxmi-.3)} \let\grxxmi\pgfmathresult
+  \pgfmathparse{\grxma+.3)} \let\grxxma\pgfmathresult
+  \pgfmathparse{\grymi-.3)} \let\gryymi\pgfmathresult
+  \pgfmathparse{\gryma+.3)} \let\gryyma\pgfmathresult
+  \rcom{\grxmi}{\grxma}{\grymi}{\gryma}{gray!50, very thin, step=1}
+  \tkzInit[xmin=\grxxmi,xmax=\grxxma,ymin=\gryymi,ymax=\gryyma]
+  \tkzFct[domain=\grxxmi:\grxxma, ultra thick, color=Maroon!50!black]
+         {\funzione}
+}
+
 % \newcommand{\rcom}[5]{% Riferimento Cartesiano Ortogonale Monometrico: x-y.
 %   % Esempio di chiamata:
 %   %% \disegno{\RCOM{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}
