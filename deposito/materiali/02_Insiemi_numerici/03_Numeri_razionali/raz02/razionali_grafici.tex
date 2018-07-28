@@ -1,0 +1,74 @@
+% (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
+% (c) 2017 Daniele Zambelli - daniele.zambelli@gmail.com
+% 
+% Tutti i grafici per il capitolo relativo ai razionali
+% 
+% 
+
+\newcommand{\divisionea}{% divisione 1523:7
+\begin{tikzpicture}[node distance=-25ex]
+  \begin{scope}[font=\ttfamily]
+    \matrix (divisione) [matrix of nodes] % \matrix non viene riconosciuto 
+                                          % all'interno di \newcommand
+      {%
+&   & |[green]|M & |[green]|C & |[green]|D & |[green]|U & ,
+& |[green]|d & |[green]|c & |[green]|m &  &  &   
+&  &  &  
+&  &  &  &  &  &\\
+&   & 1 & 5 & 2 & 3  & ,
+& 0 & 0 & 0 & 0 & 0 & 0
+& 7 & ~ & ~ 
+&  &  &  &  & ~ &\\
+& - & 1 & 4 &   &   & 
+&  &  &  &  &  & ~ &
+|[blue]|2 & |[blue]|1 & |[blue]|7 &
+&  &  &  &  &  &\\
+&   &   & 1 & 2 &   & 
+&  &  &  &  &  &  &
+|[green]|C & |[green]|D & |[green]|U & ,
+& |[green]|d & |[green]|c & |[green]|m &  &  &\\
+&   &   & - & 7 &   
+&  &  &  &  &  &
+&   &   &\\
+&   &   &   & 5 & 3 
+&  &  &  &  &  &
+&   &   &\\
+&   &   & - & 4 & 9 
+&  &  &  &  &  &
+&   &   &\\
+&   &   &   &   & |[red]|4 
+&  &  &  &  &  &
+& & &\\
+      };
+  \end{scope}
+  \draw(divisione-2-13.north east)--(divisione-3-13.south east);
+  \draw(divisione-2-13.south east)--(divisione-2-21.south east);
+%   \draw(divisione-3-2.south west)--(divisione-3-4.south east);
+%   \draw(divisione-5-4.south west)--(divisione-5-5.south east);
+%   \draw(divisione-7-4.south west)--(divisione-7-6.south east);
+%   \draw[densely dotted,->] (divisione-2-5) -- (divisione-4-5);
+%   \draw[densely dotted,->] (divisione-2-6) -- (divisione-6-6);
+%   \node (c) [above=of divisione-1-6.north east] {3.};
+\end{tikzpicture}
+}
+
+\newcommand{\frazione}{% parti della frazione
+  \disegno{
+    \node {\(\dfrac{42}{75}\)};
+    \begin{scope}[blue!50!black]
+    \draw [<-] (1, .5) to [out=0, in=180] (3, 2) node [right] 
+      {~~~numeratore};
+    \draw [->] (8.5, 2) to [out=0, in=180] (10.5, .5);
+    \end{scope}
+    \begin{scope}[green!50!black]
+    \draw [<-] (1, 0) -- (3, 0) node [right] {linea di frazione};
+    \draw [->] (8.5, 0) -- (10.5, 0);
+    \end{scope}
+    \begin{scope}[red!50!black]
+    \draw [<-] (1, -.5) to [out=0, in=180] (3, -2) node [right] 
+      {~~denominatore};
+    \draw [->] (8.5, -2) to [out=0, in=180] (10.5, -.5);
+    \end{scope}
+    \node at (11.5, 0) {\(\dfrac{n}{d}\)};
+  }
+}
