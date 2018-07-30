@@ -1,0 +1,13 @@
+% (c) 2017 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\begin{tikzpicture}[node distance=-25ex]
+  \begin{scope}[font=\ttfamily]
+    \matrix (divisione) [matrix of nodes]
+      {%
+$100n=$& 1 & 4 & 3 & 5, & 6 & 5 & 6 & 5 & 6 & 5 & 6 & 5 & 6 & \dots &$-$\\
+$~~~n=$&   &   & 1 & 4, & 3 & 5 & 6 & 5 & 6 & 5 & 6 & 5 & 6 & \dots &$=$\\
+$~99n=$& 1 & 4 & 2 & 1, & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dots & ~\\
+      };
+  \end{scope}
+  \draw(divisione-3-1.north west)--(divisione-2-16.south east);
+\end{tikzpicture}

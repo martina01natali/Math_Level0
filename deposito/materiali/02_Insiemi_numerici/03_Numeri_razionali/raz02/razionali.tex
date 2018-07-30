@@ -2,7 +2,41 @@
 % (c) 2014 Claudio Carboncini - claudio.carboncini@gmail.com
 % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
+
+% -------------------------------------------------
+% TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+%
+% Retta dei numeri
+% Forma mista
+% Numeri periodici particolari
+% Notazione scientifica e ordine di grandezza
+% Rapporto, proporzione, percentuale
+% Problemi con le frazioni
+% 
+% 
+% -------------------------------------------------
+
+
 \input{\folder razionali_grafici.tex}
+
+% -------------------------------------------------
+\newcommand*\canc[1]{%
+  \mathchoice
+    {\scriptstyle#1}
+    {\scriptstyle#1}
+    {\scriptscriptstyle#1}
+    {\scriptscriptstyle#1}
+}
+
+\newcommand*\Dcancelto[2][0]{%
+  \kern9pt%
+  \begin{tikzpicture}[baseline=(current bounding box.center).anchor=west]
+    \node[anchor=east,inner sep=2pt] (a) {#2};
+    \draw[->] ($(a.north west)+(1pt,-2pt)$) -- ($(a.south east)+(0pt,2pt)$) 
+node at ($(a.south east)+(4pt,1pt)$) {$\canc{#1}$};
+\end{tikzpicture}
+}
+% -------------------------------------------------
 
 \chapter{Numeri razionali}
 
@@ -73,7 +107,7 @@ L'impressione è che questo ``algoritmo'' non termini mai. Ed è vero!
 Proviamo con un altro caso:
 
 \begin{minipage}[]{.59\textwidth}
-\begin{center}\input{\folder lbr/01_divisioneb.tex}\end{center}
+\begin{center}\input{\folder lbr/02_divisioneb.tex}\end{center}
 \end{minipage}
 \begin{minipage}[]{.39\textwidth}
 La filastrocca di questa divisione è:\\
@@ -145,16 +179,447 @@ Fatto!
 L'oggetto matematico: \(\quad \dfrac{42}{75} \quad\) 
 si chiama frazione ed è composto da tre parti:
 
-% \begin{center}
-%  \input{\folder lbr/fig002_frazione.pgf}
-% \end{center}
-
 \begin{center} \frazione \end{center}
 
+Se una frazione rappresenta un \emph{numero} (razionale) dobbiamo imparare 
+a fare, con le frazioni, quello che sappiamo fare con i numeri:
+\begin{itemize} [nosep]
+ \item confrontare;
+ \item eseguire operazioni.
+\end{itemize}
+
+Prima di affrontare questi due temi, però, applichiamo alle frazioni 
+un'importante proprietà delle divisioni.
+
+\begin{osservazione}
+ Dalle regole dei segni della divisione consegue un'importante osservazione 
+riguardo l'uso dei segni nelle frazioni:
+\[-\dfrac{a}{b} = \dfrac{-a}{b} = \dfrac{a}{-b} \quad \text{e} \quad
+  +\dfrac{a}{b} = \dfrac{-a}{-b}
+\]
+
+\end{osservazione}
+
+\subsection{Frazioni equivalenti}
+\label{sub:razionali_equivalenti}
+
+La divisione \(42 \div 75 \) dà come risultato~0,56, ma otteniamo lo stesso 
+risultato anche moltiplicando o dividendo il dividendo e il divisore per 
+uno stesso numero \textbf{diverso da zero}:\\
+\(42 \div 75 = 84 \div 150 = 14 \div 25\)
+Per come abbiamo definito le frazioni discende immediatamente che:\\
+\[\dfrac{42}{75} = \dfrac{84}{150} = \dfrac{14}{25}\]
+In generale: moltiplicando il numeratore e il denominatore per uno stesso 
+numero \textbf{diverso da zero} ottengo una frazione diversa ma che 
+rappresenta lo stesso numero razionale:
+\[\forall n \neq 0 \quad \frac{a}{b} = \frac{a \cdot n}{b \cdot n} =
+  \frac{a \div n}{b \div n}\]
+
+\begin{definizione}
+ Due frazioni sono \emph{equivalenti} se rappresentano lo stesso numero 
+razionale.
+\end{definizione}
+
+\begin{osservazione}
+ Dato che ci sono infinite frazioni che rappresentano lo stesso numero 
+razionale, in generale conviene usare come rappresentante di quel numero, 
+la frazione che ha numeratore e denominatore più piccoli questa frazione si 
+dice \emph{ridotta ai minimi termini}.
+
+Una frazione si riduce ai minimi termini dividendo numeratore e 
+denominatore per tutti i divisori comuni o dividendo numeratore e 
+denominatore per il loro Massimo Comune Divisore.
+\begin{esempio}
+ Riduci ai minimi termini la frazione \(\dfrac{420}{360}\)
+
+%  Primo metodo:
+%  \[\dfrac{\cancel{420}^{42}}{\cancel{360}_{36}} = 
+%    \dfrac{\cancel{42}^{21}}{\cancel{36}_{18}} =  
+%    \dfrac{\cancel{21}^{7}}{\cancel{18}_{6}} =   
+%    \dfrac{7}{6}
+% \]
+
+ Primo metodo:
+ \[\dfrac{\cancelto{42}{420}}{\Dcancelto[36]{360}} = 
+   \dfrac{\cancelto{21}{42}}{\Dcancelto[18]{36}} =  
+   \dfrac{\cancelto{7}{21}}{\Dcancelto[6]{18}} =   
+   \dfrac{7}{6}
+\]
+%  Di solito abbreviato così: % bello ma dà un errore
+%  
+% \[\dfrac{\cancelto{\cancelto{\cancelto{7}{21}}{42}}{420}}
+%         {\Dcancelto[\Dcancelto[\Dcancelto[6]{18}]{36}]{360}} = 
+%   \dfrac{7}{6}
+% \]
+Oppure, scoperto che il \(\text{MCD}\punto{420}{360}=60\) dividendo sia il 
+numeratore sia il denominatore per~60:
+ \[\dfrac{\cancel{420}^{7}}{\cancel{360}_{6}} = \dfrac{7}{6}\]
+\end{esempio}
 
 
+\end{osservazione}
 
 
+\begin{osservazione}
+ Date due frazioni qualsiasi posso sempre trovarne due equivalenti che 
+abbiano lo stesso denominatore (o numeratore):
+\[\text{Date due frazioni: } \frac{a}{b} \quad \text{e} \quad \frac{c}{d} 
+\sRarrow
+\frac{a}{b} = \frac{a \cdot d}{b \cdot d} \quad \text{e} \quad 
+\frac{c}{d} = \frac{c \cdot b}{d \cdot b}\]
+\end{osservazione}
+
+Dall'osservazione precedente si ricava un criterio semplice 
+per vedere se due frazioni sono equivalenti:
+
+\begin{definizione}
+ Due frazioni sono \emph{equivalenti} se il prodotto del numeratore della 
+prima per il denominatore della seconda è uguale al prodotto del 
+denominatore della prima per il numeratore della seconda.
+\[\frac{a}{b} = \frac{c}{d} \sLRarrow a \cdot d = b \cdot c\]
+\end{definizione}
+
+\subsection{Confronto di frazioni}
+\label{sub:razionali_confronto}
+
+\begin{definizione}
+\begin{itemize}
+ \item Tra due frazioni che hanno lo stesso denominatore è maggiore quella 
+che ha il numeratore maggiore.
+ \item Tra due frazioni che hanno lo stesso numeratore è maggiore quella 
+che ha il denominatore minore.
+ \item Se le frazioni non hanno né denominatore né numeratore uguali, 
+allora confronto due frazioni equivalenti a queste con lo stesso 
+denominatore (o numeratore).
+\end{itemize}
+\end{definizione}
+
+\begin{esempio}
+ Stabilisci perché sono vere le seguenti proposizioni:
+ \begin{enumerate} [noitemsep]
+  \item \(\dfrac{4}{12} = \dfrac{5}{15}\)
+    \qquad perché \quad \(60 = 4 \cdot 15 = 5 \cdot 12 = 60\)
+  \item \(-\dfrac{12}{7} > -\dfrac{15}{7}\)
+    \qquad perché \quad perché \(-12 > -15\)
+  \item \(\dfrac{6}{5} > \dfrac{6}{10}\)
+    \qquad perché \quad perché \(5 < 10\)
+  \item \(\dfrac{7}{8} < \dfrac{5}{4}\)
+    \qquad perché \quad perché \(\dfrac{7}{8} < \dfrac{10}{8} = 
+\dfrac{5}{4}\)
+ \end{enumerate}
+\end{esempio}
+
+\subsection{Operazioni con le frazioni}
+\label{sub:razionali_operazioni}
+
+\subsubsection{Addizione algebrica}
+
+L'addizione algebrica è l'operazione più complicata con le frazioni.
+
+Se due frazioni hanno lo stesso denominatore la loro somma è semplice da 
+trovare:
+
+\begin{definizione}
+ La somma di due frazioni che hanno lo stesso denominatore è una frazione 
+che ha per denominatore lo stesso denominatore e per numeratore la somma 
+dei numeratori:
+\[\frac{a}{c} \mp \frac{b}{c} = \frac{a \mp b}{c}\]
+\end{definizione}
+
+Se le due frazioni non hanno lo stesso denominatore, si sommano due 
+frazioni equivalenti con lo stesso denominatore:
+
+\begin{center} \addizione \end{center}
+
+\begin{osservazione}
+ Spesso, invece di adoperare la moltiplicazione incrociata per eseguire la 
+l'addizione, si riducono le due frazioni allo stesso denominatore, usando 
+il minimo comune multiplo: questo permette di ridurre notevolmente i 
+calcoli. Come nell'esempio seguente. 
+\end{osservazione}
+
+\begin{esempio}
+ \(\dfrac{5}{12} - \dfrac{7}{18}=\)
+ \emph{Primo metodo}
+ Usiamo il metodo della moltiplicazione incrociata:
+ \[= \dfrac{5 \cdot 18 - 7 \cdot 12}{12 \cdot 18} = 
+     \dfrac{90 - 84}{216} =
+     \dfrac{\cancelto{1}{6}}{\Dcancelto[36]{216}} = \dfrac{1}{36}\]
+ \emph{Secondo metodo (più furbo)}
+ Per prima cosa scomponiamo i denominatori nel prodotto di fattori primi:
+ \[= \dfrac{5}{2^2 \cdot 3} - \dfrac{7}{2 \cdot 3^2} =\]
+ Ricordandoci che il ``minimo comune multiplo tra due numeri scomposti in 
+fattori primi è dato da tutti i fattori, comuni e non comuni presi con il 
+massimo esponente'', scriviamo le frazioni come un'unica frazione con il 
+denominatore comune:
+ \[= \dfrac{5 \cdot 3 - 7 \cdot 2}{2^2 \cdot 3^2} =\]
+Infatti dividendo il denominatore comune per il denominatore della prima 
+frazione otteniamo~3 e dividendolo per il denominatore della seconda 
+frazione otteniamo~2.
+E con semplici calcoli otteniamo:
+ \[= \dfrac{15 - 14}{2^2 \cdot 3^2} = \dfrac{1}{2^2 \cdot 3^2} = 
+     \dfrac{1}{36}\]
+\end{esempio}
+
+\begin{osservazione}
+ Data la naturale avversione degli esseri umani per la scomposizione in 
+fattori, questo secondo metodo non pare più furbo, ma se osservate bene, si 
+fanno calcoli con numeri più piccoli, non c'è più bisogno di svolgere 
+divisioni e, soprattutto, con le frazioni algebriche sarà l'unico metodo 
+percorribile. Tanto vale impararlo.
+\end{osservazione}
+
+\begin{esempio}
+ Quando dobbiamo addizionare una frazione con un numero intero possiamo 
+seguire un metodo abbreviato, ad esempio: 
+\(\dfrac{72}{20} - 3 =\)
+
+\emph{Denominatore comune}
+\[\dfrac{73}{20} - 3 = \dfrac{73 \cdot 1 - 3 \cdot 20}{20} =
+  \dfrac{73 - 60}{20} = \dfrac{13}{20}\]
+Che espresso con la filastrocca sarebbe: 
+
+Il denominatore comune è~20,~20 diviso 20 fa~1,~73 per~1 fa~73, 
+l'1 nel~20 ci sta~20 volte,~3 per~20 fa~60,~73 meno~60 fa 13.
+Il risultato è: tredici ventesimi.
+
+\emph{Metodo più rapido}
+
+Dato che è ovvio che~20 diviso~20 faccia~1 e che~1 per~73 faccia~73, \dots
+possiamo abbreviare calcolo e filastrocca risolvendo il tutto in un unico 
+passaggio:
+\[\dfrac{73}{20} - 3 = \tonda{\dfrac{73 - 60}{20}} = \dfrac{13}{20}\]
+Che espresso con la filastrocca sarebbe: 
+
+3 per~20 fa~60,~73 meno~60 fa~13 il risultato è: tredici ventesimi.
+\end{esempio}
+
+\begin{esempio}
+ Esegui le seguenti addizioni:
+ \begin{enumerate} [noitemsep]
+  \item \(\dfrac{4}{12} - \dfrac{5}{15} = \dfrac{1}{3} - \dfrac{1}{3} = 0\)
+    \hfill \(60 = 4 \cdot 15 = 5 \cdot 12 = 60\)
+  \item \(-\dfrac{TODO}{7} -\dfrac{15}{7}\)
+    \hfill \(-12 > -15\)
+  \item \(\dfrac{TODO}{5} + \dfrac{6}{10}\)
+    \hfill \(5 < 10\)
+  \item \(\dfrac{TODO}{8} + \dfrac{5}{4}\)
+    \hfill \(\dfrac{7}{8} < \dfrac{10}{8} = \dfrac{5}{4}\)
+ \end{enumerate}
+\end{esempio}
+
+% Bella, ma dopo la moltiplicazione tra frazioni:
+% Le proprietà delle uguaglianze tra numeri ci permette di ottenere un 
+% criterio abbastanza semplice per sapere se due frazioni sono equivalenti:
+% \[\]
+
+\subsubsection{Moltiplicazione}
+
+\begin{definizione}
+ Il \emph{prodotto} di due frazioni è la frazione che ha per 
+numeratore il prodotto dei numeratori e per denominatore il prodotto dei 
+denominatori:
+\[\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{a \cdot c}{b \cdot d}\]
+\end{definizione}
+
+\begin{osservazione}
+ Anche in questo caso invece di semplificare il prodotto, conviene 
+applicare la semplificazione incrociata prima di eseguire le 
+moltiplicazioni.
+\end{osservazione}
+
+\begin{esempio}
+Calcola: \(\dfrac{112}{225} \cdot \dfrac{75}{56}\)
+\[\frac{\cancelto{14}{112}}{\Dcancelto[9]{225}} \cdot 
+  \frac{\cancelto{3}{75}}{\Dcancelto[7]{56}} = 
+  \frac{\cancelto{2}{14}}{\Dcancelto[3]{9}} \cdot 
+  \frac{\cancelto{1}{3}}{\Dcancelto[1]{7}} = \frac{2}{3}
+  \]
+ 
+\end{esempio}
+
+\subsubsection{Divisione}
+
+Prima di affrontare la divisione, diamo la definizione di reciproco:
+
+\begin{definizione}
+ Il \emph{reciproco} di una frazione, \textbf{diversa da zero}, si ottiene 
+scambiando il numeratore con il denominatore:
+\begin{center}
+ \reciproco
+\end{center}
+\end{definizione}
+
+Ovviamente, il reciproco di zero non è definito.
+
+\begin{definizione}
+ Il \emph{quoziente} di due frazioni si ottiene moltiplicando la prima per 
+il reciproco della seconda:
+\[\dfrac{a}{b} \div \dfrac{c}{d} = \dfrac{a}{b} \cdot \dfrac{d}{c} =
+\dfrac{a \cdot d}{b \cdot c}\]
+\end{definizione}
+
+\begin{osservazione}
+ Come sempre, nella divisione, il divisore deve essere diverso da zero.
+\end{osservazione}
+
+\begin{osservazione}
+ Usando i numeri razionali possiamo trasformare tutte le divisioni in 
+moltiplicazioni, con questi numeri non saremo più costretti a eseguire 
+divisioni!
+\end{osservazione}
+
+\begin{esempio}
+Calcola: \(\dfrac{560}{55} \cdot \dfrac{24}{275}\)
+\[\dfrac{560}{55} \div \dfrac{24}{275} =
+  \dfrac{560}{55} \cdot \dfrac{275}{24} =
+  \frac{\cancelto{70}{560}}{\Dcancelto[11]{55}} \cdot 
+  \frac{\cancelto{55}{275}}{\Dcancelto[3]{24}} = 
+  \frac{70}{\Dcancelto[1]{11}} \cdot 
+  \frac{\cancelto{5}{55}}{3} = \frac{350}{3}
+  \]
+\end{esempio}
+
+
+\subsubsection{Potenza e radice}
+
+\begin{definizione}
+ La \emph{potenza} di una frazione si ottiene elevando a quell'esponente 
+sia il numeratore sia il denominatore:
+\[\tonda{\dfrac{a}{b}}^e = \dfrac{a^e}{b^e}\]
+\end{definizione}
+
+\begin{definizione}
+ La \emph{radice} di una frazione che ha per numeratore la radice del  
+numeratore, e per denominatore la radice del denominatore:
+\[\sqrt[n]{\dfrac{a}{b}} = \dfrac{\sqrt[n]{a}}{\sqrt[n]{b}}\]
+\end{definizione}
+
+\begin{esempio}
+Calcola: \(\tonda{\dfrac{5}{3}}^4\)
+\[\tonda{\dfrac{5}{3}}^4 = \dfrac{5^4}{3^4} = \dfrac{625}{81}\]
+\end{esempio}
+
+\begin{esempio}
+Calcola: \(\sqrt[3]{\dfrac{64}{125}}\)
+\[\sqrt[3]{\dfrac{64}{125}} = \dfrac{\sqrt[3]{64}}{\sqrt[3]{125}} = 
+\dfrac{4}{5}\]
+\end{esempio}
+
+\section{Decimali contro frazioni}
+\label{sec:razionali_decimali_frazioni}
+
+Abbiamo visto due modi per rappresentare i numeri razionali:
+\begin{enumerate}
+ \item la notazione decimale è più comoda per rappresentare numeri 
+approssimati;
+ \item le frazioni sono più comode quando vogliamo eseguire operazioni con 
+numeri razionali esatti.
+\end{enumerate}
+
+Ma per il resto, le due notazioni sono equivalenti? Cioè tutti i numeri che 
+possiamo rappresentare con le frazioni li possiamo anche rappresentare con 
+i numeri decimali e viceversa?
+
+\subsection{Da frazione a decimale}
+
+Tutte le frazioni possono essere trasformate in numeri decimali, basta 
+interpretare il segno di frazione come una divisione.
+
+\begin{esempio}
+Trasforma in numero decimale la frazione: \(\dfrac{5}{8}\)
+\begin{center}
+ \begin{center}\input{\folder lbr/03_frazdec.tex}\end{center}
+\end{center}
+\end{esempio}
+
+\begin{esempio}
+Trasforma in numero decimale la frazione: \(\dfrac{43}{33}\)
+\begin{center}
+ \begin{center}\input{\folder lbr/04_frazdec.tex}\end{center}
+\end{center}
+\end{esempio}
+
+\subsection{Da decimale a frazione}
+
+I numeri decimali limitati sono facilmente trasformabili in frazioni: basta 
+scrivere una frazione con il numero dato al numeratore e~1 al denominatore 
+poi moltiplicare entrambi i termini per una potenza di 10 adatta a 
+eliminare la virgola.
+
+\begin{esempio}
+Trasforma in frazione il numero decimale: \(16,25\)
+\begin{center}
+ \[16,25 = \frac{16,25}{1} = \frac{16,25 \cdot 100}{1 \cdot 100} =
+   \frac{1625}{100} = \frac{65}{4}\]
+\end{center}
+\end{esempio}
+
+Ma se il numero decimale è periodico, questo meccanismo non può essere 
+usato: dovrei moltiplicare per un~1 seguito da \emph{infiniti} zeri e ciò 
+risulta un po' difficile già solo da scrivere.
+
+Il problema è che nei numeri periodici abbiamo infinite cifre decimali, ma 
+per scrivere la frazione dobbiamo averne un numero finito \dots Qualche 
+ignoto matematico ha inventato un metodo geniale per eliminare infinite 
+cifre decimali con una semplice operazione: basta eseguire un'opportuna 
+sottrazione.
+
+Supponiamo di voler trasformare il numero \(n = 14,3\overline{56}\) in 
+frazione, moltiplichiamo n per~1000 e da questo togliamo il numero di 
+partenza:
+
+\begin{center}
+ \begin{center}\input{\folder lbr/05_sottrazione.tex}\end{center}
+\end{center}
+
+Abbiamo così eliminato il periodo ottenendo un numero decimale finito, ora 
+se moltiplichiamo ancora per~10 otteniamo un numero intero:
+\[990n = 14213\]
+Adesso è facile: se~990 enne valgono 14213, un solo enne varrà:
+\(\dfrac{14213}{990}\)
+quindi:
+\[14,3\overline{56} = \frac{14213}{990}\]
+Con una qualunque calcolatrice si può verificare il risultato.
+
+La regoletta è:
+
+\begin{teorema}
+ Un numero decimale periodico è equivalente ad una frazione che ha:
+\begin{itemize}
+ \item per numeratore la differenza tra il numero con il periodo scritto 
+una sola volta e la parte del numero che precede il periodo;
+ \item per denominatore tanti~9 quante sono le cifre del periodo seguiti da 
+tanti zeri quante sono le cifre comprese tra il periodo e la virgola.
+\end{itemize}
+\end{teorema}
+
+Bene abbiamo così dimostrato che ogni frazione può essere trasformata in 
+numero decimale e ogni numero decimale, limitato o periodico, può essere 
+trasformato in una frazione. Quindi usare l'una o l'altra delle due 
+notazioni per i numeri razionali è equivalente.
+
+\begin{osservazione}
+ Abbiamo parlato di numeri decimali limitato e di numeri decimali 
+periodici, esistono anche numeri decimali illimitati e non periodici?
+Se un numero decimale continua all'infinito, è possibile che continui ad 
+essere diverso e non succeda che da un certo punto in poi incominci a 
+ripetersi?
+
+È possibile costruire dei numeri decimali infiniti che sicuramente non 
+saranno periodici. Eccone alcuni:\\
+\(0,101001000100001000001000000100000001\dots\)\\
+\(0,1234567891011121314151617181920212223\dots\)\\
+\(0,1223334444\dots9999999991010101010101010101011\dots\)\\
+Ma si può dimostrare che \(sqrt{2}\) è illimitato e non periodico
+e anche \(sqrt{3}\)\dots 
+
+Questi numeri si chiamano ``irrazionali''.
+
+In realtà, non solo esistono numeri irrazionali, ma il matematico Cantor ha 
+dimostrato che i numeri irrazionali sono infinitamente di più dei numeri 
+razionali.
+\end{osservazione}
 
 
 \section{Un po' di  storia}
@@ -519,7 +984,7 @@ corrispondono a un numero intero, rispettivamente a~1, 2, 4, 3, 4.
 \end{exrig}
 
 % \ovalbox{\risolvii \ref{ese:3.17}, \ref{ese:3.18}}
-\end{comment}
+
 \section{La scrittura dei numeri razionali}
 \label{sec:03_decimali}
 
@@ -745,7 +1210,7 @@ di conseguenza i due numeri coincidono.
 
 % \ovalbox{\risolvii \ref{ese:3.24}, \ref{ese:3.25}}
 
-\begin{comment}
+
 
 \section{I numeri razionali e la retta}
 \label{sec:03_retta}

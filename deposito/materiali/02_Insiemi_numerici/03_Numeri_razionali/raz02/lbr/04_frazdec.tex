@@ -1,0 +1,19 @@
+% (c) 2017 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\begin{tikzpicture}[node distance=-25ex]
+  \begin{scope}[font=\ttfamily]
+    \matrix (divisione) [matrix of nodes]
+      {%
+ 1 & 5 & 5 & 1 & 2\\
+   & 3 & 5 &|[blue]|1&|[blue]|2,&|[blue]|9&|[blue]|1&|[blue]|6\\
+   & 1 & 1 & 0\\
+   &   &   & 2 & 0\\
+   &   &   &   & 8 & 0\\
+   &   &   &   &   & 8\\
+      };
+  \end{scope}
+  \draw(divisione-1-4.north west)--(divisione-2-4.south west);
+  \draw(divisione-2-4.north west)--(divisione-2-8.north east);
+  \node [left=of divisione-2-8.north west, yshift=-5mm] 
+        {\(\dfrac{155}{12} = 12,91\overline{6}\)};
+\end{tikzpicture}

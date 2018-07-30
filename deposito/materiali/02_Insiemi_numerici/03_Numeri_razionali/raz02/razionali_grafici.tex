@@ -72,3 +72,37 @@
     \node at (11.5, 0) {\(\dfrac{n}{d}\)};
   }
 }
+
+\newcommand{\addizione}{% addizione algebrica tra frazioni
+  \disegno{
+    \node {\(\dfrac{a}{b} \mp \dfrac{c}{d} \qquad = \qquad
+             \dfrac{ad}{bd} \mp \dfrac{bc}{bd} = \dfrac{ad \mp bc}{bd}\)};
+    \begin{scope}[blue!50!black]
+    \draw [->] (-5.5, 1) node [above right, yshift=3mm] {\(\times d\)} 
+          to [out=45, in=135] (0, 1);
+    \draw [->] (-5.5, -1) node [below right, yshift=-3mm] {\(\times d\)} 
+          to [out=-45, in=-135] (0, -1);
+    \end{scope}
+    \begin{scope}[red!50!black]
+    \draw [->] (-4, 1) to [out=45, in=135] (1.7, 1)
+          node [above left, yshift=3mm] {\(\times b\)} ;
+    \draw [->] (-4, -1) to [out=-45, in=-135] (1.7, -1)
+          node [below left, yshift=-3mm] {\(\times b\)} ;
+    \end{scope}
+  }
+}
+
+\newcommand{\reciproco}{% reciproco di una frazione.
+  \disegno{
+    \node {\(\dfrac{a}{b}\)};
+    \begin{scope}[blue!50!black]
+    \path [postaction={decoration={text along path, text={reciproco},
+           text align={align=center}}, decorate}] 
+          (1, 1.2) to [out=45, in=180] (3, 1.8) to [out=0, in=135] (5,1.2) ;
+    \draw [->] 
+          (1, 1) to [out=45, in=180] (3, 1.6) to [out=0, in=135] (5, 1) 
+;
+    \end{scope}
+    \node at (6, 0) {\(\dfrac{b}{a}\)};
+  }
+}
