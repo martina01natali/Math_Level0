@@ -4,6 +4,25 @@
 
 \input{\folder razionali_grafici.tex}
 
+% -------------------------------------------------
+\newcommand*\canc[1]{%
+  \mathchoice
+    {\scriptstyle#1}
+    {\scriptstyle#1}
+    {\scriptscriptstyle#1}
+    {\scriptscriptstyle#1}
+}
+
+\newcommand*\Dcancelto[2][0]{%
+  \kern9pt%
+  \begin{tikzpicture}[baseline=(current bounding box.center).anchor=west]
+    \node[anchor=east,inner sep=2pt] (a) {#2};
+    \draw[->] ($(a.north west)+(1pt,-2pt)$) -- ($(a.south east)+(0pt,2pt)$) 
+node at ($(a.south east)+(4pt,1pt)$) {$\canc{#1}$};
+\end{tikzpicture}
+}
+% -------------------------------------------------
+
 \chapter{Numeri razionali}
 
 \section{I numeri razionali}
@@ -73,7 +92,7 @@ L'impressione è che questo ``algoritmo'' non termini mai. Ed è vero!
 Proviamo con un altro caso:
 
 \begin{minipage}[]{.59\textwidth}
-\begin{center}\input{\folder lbr/01_divisioneb.tex}\end{center}
+\begin{center}\input{\folder lbr/02_divisioneb.tex}\end{center}
 \end{minipage}
 \begin{minipage}[]{.39\textwidth}
 La filastrocca di questa divisione è:\\
@@ -145,20 +164,878 @@ Fatto!
 L'oggetto matematico: \(\quad \dfrac{42}{75} \quad\) 
 si chiama frazione ed è composto da tre parti:
 
-% \begin{center}
-%  \input{\folder lbr/fig002_frazione.pgf}
-% \end{center}
-
 \begin{center} \frazione \end{center}
 
+Se una frazione rappresenta un \emph{numero} (razionale) dobbiamo imparare 
+a fare, con le frazioni, quello che sappiamo fare con i numeri:
+\begin{itemize} [nosep]
+ \item confrontare;
+ \item eseguire operazioni.
+\end{itemize}
+
+Prima di affrontare questi due temi, però, applichiamo alle frazioni 
+un'importante proprietà delle divisioni.
+
+\begin{osservazione}
+ Dalle regole dei segni della divisione consegue un'importante osservazione 
+riguardo l'uso dei segni nelle frazioni:
+\[-\dfrac{a}{b} = \dfrac{-a}{b} = \dfrac{a}{-b} \quad \text{e} \quad
+  +\dfrac{a}{b} = \dfrac{-a}{-b}
+\]
+\end{osservazione}
+
+\subsection{Rappresentazione mista}
+\label{sub:razionali_rappresentazione_mista}
+
+Consideriamo la frazione \(\dfrac{3}{3}\). Dividere qualcosa in tre parti e 
+poi prenderle tutte e tre significa prenderla tutta: tre terzi significa 
+un intero. E quattro terzi? Quattro terzi significa un intero più un terzo.
+
+Ogni frazione può essere scritta in forma \emph{mista} cioè nella somma di 
+una parte intera più una frazione minore di uno. Vediamo alcuni esempi:
+\[\frac{4}{3} = 1 + \frac{1}{3}; \quad
+\frac{5}{3} = 1 + \frac{2}{3}; \quad
+\frac{6}{3} = 2 + \frac{0}{3}; \quad
+\frac{5}{6} = 0 + \frac{5}{6}; \quad
+\frac{7}{2} = 3 + \frac{1}{2}; \quad
+-\frac{8}{5} = -\tonda{1 + \frac{3}{5}}; \quad
+% \frac{24}{5} = 4 + \frac{4}{5}; \quad
+\]
+
+\subsection{Rappresentazione sulla retta}
+\label{sub:razionali_rappresentazione_retta}
+
+È possibile rappresentare i numeri razionali su un asse cartesiano. Una 
+retta dotata di verso e unità di misura permette di associare ad ogni 
+numero razionale un preciso punto. Alcuni esempi:
+
+\begin{center}
+%  \rettafra{{2.5 / \(\frac{5}{2}\), -1.33 / \(-\frac{5}{2}\)}}
+ \rettafra
+\end{center}
+
+\begin{teorema}
+ Tra due numeri razionali diversi esiste sempre almeno un altro numero 
+razionale.
+\end{teorema}
+
+Infatti nei numeri razionali è sempre possibile calcolare la media tra due 
+numeri e se questi sono diversi tra loro, la media è maggiore del più 
+piccolo e minore del più grande.
+
+\begin{corollario}
+ Tra due numeri razionali diversi esistono infiniti altri numeri razionali.
+\end{corollario}
+
+Le affermazioni precedenti si riassumono dicendo che:
+
+\begin{definizione}
+ L'insieme dei numeri razionali è \emph{denso}.
+\end{definizione}
+
+\subsection{Frazioni equivalenti}
+\label{sub:razionali_equivalenti}
+
+La divisione \(42 \div 75 \) dà come risultato~0,56, ma otteniamo lo stesso 
+risultato anche moltiplicando o dividendo il dividendo e il divisore per 
+uno stesso numero \textbf{diverso da zero}:\\
+\(42 \div 75 = 84 \div 150 = 14 \div 25\)
+Per come abbiamo definito le frazioni discende immediatamente che:\\
+\[\dfrac{42}{75} = \dfrac{84}{150} = \dfrac{14}{25}\]
+In generale: moltiplicando il numeratore e il denominatore per uno stesso 
+numero \textbf{diverso da zero} ottengo una frazione diversa ma che 
+rappresenta lo stesso numero razionale:
+\[\forall n \neq 0 \quad \frac{a}{b} = \frac{a \cdot n}{b \cdot n} =
+  \frac{a \div n}{b \div n}\]
+
+\begin{definizione}
+ Due frazioni sono \emph{equivalenti} se rappresentano lo stesso numero 
+razionale.
+\end{definizione}
+
+\begin{osservazione}
+ Dato che ci sono infinite frazioni che rappresentano lo stesso numero 
+razionale, in generale conviene usare come rappresentante di quel numero, 
+la frazione che ha numeratore e denominatore più piccoli questa frazione si 
+dice \emph{ridotta ai minimi termini}.
+
+Una frazione si riduce ai minimi termini dividendo numeratore e 
+denominatore per tutti i divisori comuni o dividendo numeratore e 
+denominatore per il loro Massimo Comune Divisore.
+\begin{esempio}
+ Riduci ai minimi termini la frazione \(\dfrac{420}{360}\)
+
+%  Primo metodo:
+%  \[\dfrac{\cancel{420}^{42}}{\cancel{360}_{36}} = 
+%    \dfrac{\cancel{42}^{21}}{\cancel{36}_{18}} =  
+%    \dfrac{\cancel{21}^{7}}{\cancel{18}_{6}} =   
+%    \dfrac{7}{6}
+% \]
+
+ Primo metodo:
+ \[\dfrac{\cancelto{42}{420}}{\Dcancelto[36]{360}} = 
+   \dfrac{\cancelto{21}{42}}{\Dcancelto[18]{36}} =  
+   \dfrac{\cancelto{7}{21}}{\Dcancelto[6]{18}} =   
+   \dfrac{7}{6}
+\]
+%  Di solito abbreviato così: % bello ma dà un errore
+%  
+% \[\dfrac{\cancelto{\cancelto{\cancelto{7}{21}}{42}}{420}}
+%         {\Dcancelto[\Dcancelto[\Dcancelto[6]{18}]{36}]{360}} = 
+%   \dfrac{7}{6}
+% \]
+Oppure, scoperto che il \(\text{MCD}\punto{420}{360}=60\) dividendo sia il 
+numeratore sia il denominatore per~60:
+ \[\dfrac{\cancel{420}^{7}}{\cancel{360}_{6}} = \dfrac{7}{6}\]
+\end{esempio}
+\end{osservazione}
+
+\begin{osservazione}
+ Date due frazioni qualsiasi posso sempre trovarne due equivalenti che 
+abbiano lo stesso denominatore (o numeratore):
+\[\text{Date due frazioni: } \frac{a}{b} \quad \text{e} \quad \frac{c}{d} 
+\sRarrow
+\frac{a}{b} = \frac{a \cdot d}{b \cdot d} \quad \text{e} \quad 
+\frac{c}{d} = \frac{c \cdot b}{d \cdot b}\]
+\end{osservazione}
+
+Dall'osservazione precedente si ricava un criterio semplice 
+per vedere se due frazioni sono equivalenti:
+
+\begin{definizione}
+ Due frazioni sono \emph{equivalenti} se il prodotto del numeratore della 
+prima per il denominatore della seconda è uguale al prodotto del 
+denominatore della prima per il numeratore della seconda.
+\[\frac{a}{b} = \frac{c}{d} \sLRarrow a \cdot d = b \cdot c\]
+\end{definizione}
+
+\subsection{Confronto di frazioni}
+\label{sub:razionali_confronto}
+
+\begin{definizione}
+\begin{itemize}
+ \item Tra due frazioni che hanno lo stesso denominatore è maggiore quella 
+che ha il numeratore maggiore.
+ \item Tra due frazioni che hanno lo stesso numeratore è maggiore quella 
+che ha il denominatore minore.
+ \item Se le frazioni non hanno né denominatore né numeratore uguali, 
+allora confronto due frazioni equivalenti a queste con lo stesso 
+denominatore (o numeratore).
+\end{itemize}
+\end{definizione}
+
+\begin{esempio}
+ Stabilisci perché sono vere le seguenti proposizioni:
+ \begin{enumerate} [noitemsep]
+  \item \(\dfrac{4}{12} = \dfrac{5}{15}\)
+    \qquad perché \quad \(60 = 4 \cdot 15 = 5 \cdot 12 = 60\)
+  \item \(-\dfrac{12}{7} > -\dfrac{15}{7}\)
+    \qquad perché \quad perché \(-12 > -15\)
+  \item \(\dfrac{6}{5} > \dfrac{6}{10}\)
+    \qquad perché \quad perché \(5 < 10\)
+  \item \(\dfrac{7}{8} < \dfrac{5}{4}\)
+    \qquad perché \quad perché \(\dfrac{7}{8} < \dfrac{10}{8} = 
+\dfrac{5}{4}\)
+ \end{enumerate}
+\end{esempio}
+
+\subsection{Operazioni con le frazioni}
+\label{sub:razionali_operazioni}
+
+\subsubsection{Addizione algebrica}
+
+L'addizione algebrica è l'operazione più complicata con le frazioni.
+
+Se due frazioni hanno lo stesso denominatore la loro somma è semplice da 
+trovare:
+
+\begin{definizione}
+ La somma di due frazioni che hanno lo stesso denominatore è una frazione 
+che ha per denominatore lo stesso denominatore e per numeratore la somma 
+dei numeratori:
+\[\frac{a}{c} \mp \frac{b}{c} = \frac{a \mp b}{c}\]
+\end{definizione}
+
+Se le due frazioni non hanno lo stesso denominatore, si sommano due 
+frazioni equivalenti con lo stesso denominatore:
+
+\begin{center} \addizione \end{center}
+
+\begin{osservazione}
+ Spesso, invece di adoperare la moltiplicazione incrociata per eseguire la 
+l'addizione, si riducono le due frazioni allo stesso denominatore, usando 
+il minimo comune multiplo: questo permette di ridurre notevolmente i 
+calcoli. Come nell'esempio seguente. 
+\end{osservazione}
+
+\begin{esempio}
+ \(\dfrac{5}{12} - \dfrac{7}{18}=\)
+ \emph{Primo metodo}
+ Usiamo il metodo della moltiplicazione incrociata:
+ \[= \dfrac{5 \cdot 18 - 7 \cdot 12}{12 \cdot 18} = 
+     \dfrac{90 - 84}{216} =
+     \dfrac{\cancelto{1}{6}}{\Dcancelto[36]{216}} = \dfrac{1}{36}\]
+ \emph{Secondo metodo (più furbo)}
+ Per prima cosa scomponiamo i denominatori nel prodotto di fattori primi:
+ \[= \dfrac{5}{2^2 \cdot 3} - \dfrac{7}{2 \cdot 3^2} =\]
+ Ricordandoci che il ``minimo comune multiplo tra due numeri scomposti in 
+fattori primi è dato da tutti i fattori, comuni e non comuni presi con il 
+massimo esponente'', scriviamo le frazioni come un'unica frazione con il 
+denominatore comune:
+ \[= \dfrac{5 \cdot 3 - 7 \cdot 2}{2^2 \cdot 3^2} =\]
+Infatti dividendo il denominatore comune per il denominatore della prima 
+frazione otteniamo~3 e dividendolo per il denominatore della seconda 
+frazione otteniamo~2.
+E con semplici calcoli otteniamo:
+ \[= \dfrac{15 - 14}{2^2 \cdot 3^2} = \dfrac{1}{2^2 \cdot 3^2} = 
+     \dfrac{1}{36}\]
+\end{esempio}
+
+\begin{osservazione}
+ Data la naturale avversione degli esseri umani per la scomposizione in 
+fattori, questo secondo metodo non pare più furbo, ma se osservate bene, si 
+fanno calcoli con numeri più piccoli, non c'è più bisogno di svolgere 
+divisioni e, soprattutto, con le frazioni algebriche sarà l'unico metodo 
+percorribile. Tanto vale impararlo.
+\end{osservazione}
+
+\begin{esempio}
+ Quando dobbiamo addizionare una frazione con un numero intero possiamo 
+seguire un metodo abbreviato, ad esempio: 
+\(\dfrac{72}{20} - 3 =\)
+
+\emph{Denominatore comune}
+\[\dfrac{73}{20} - 3 = \dfrac{73 \cdot 1 - 3 \cdot 20}{20} =
+  \dfrac{73 - 60}{20} = \dfrac{13}{20}\]
+Che espresso con la filastrocca sarebbe: 
+
+Il denominatore comune è~20,~20 diviso 20 fa~1,~73 per~1 fa~73, 
+l'1 nel~20 ci sta~20 volte,~3 per~20 fa~60,~73 meno~60 fa 13.
+Il risultato è: tredici ventesimi.
+
+\emph{Metodo più rapido}
+
+Dato che è ovvio che~20 diviso~20 faccia~1 e che~1 per~73 faccia~73, \dots
+possiamo abbreviare calcolo e filastrocca risolvendo il tutto in un unico 
+passaggio:
+\[\dfrac{73}{20} - 3 = \tonda{\dfrac{73 - 60}{20}} = \dfrac{13}{20}\]
+Che espresso con la filastrocca sarebbe: 
+
+3 per~20 fa~60,~73 meno~60 fa~13 il risultato è: tredici ventesimi.
+\end{esempio}
+
+\begin{esempio}
+ Esegui le seguenti addizioni:
+ \begin{enumerate} [noitemsep]
+  \item \(\dfrac{4}{12} - \dfrac{5}{15} = \dfrac{1}{3} - \dfrac{1}{3} = 0\)
+    \hfill \(60 = 4 \cdot 15 = 5 \cdot 12 = 60\)
+  \item \(-\dfrac{TODO}{7} -\dfrac{15}{7}\)
+    \hfill \(-12 > -15\)
+  \item \(\dfrac{TODO}{5} + \dfrac{6}{10}\)
+    \hfill \(5 < 10\)
+  \item \(\dfrac{TODO}{8} + \dfrac{5}{4}\)
+    \hfill \(\dfrac{7}{8} < \dfrac{10}{8} = \dfrac{5}{4}\)
+ \end{enumerate}
+\end{esempio}
+
+% Bella, ma dopo la moltiplicazione tra frazioni:
+% Le proprietà delle uguaglianze tra numeri ci permette di ottenere un 
+% criterio abbastanza semplice per sapere se due frazioni sono equivalenti:
+% \[\]
+
+\subsubsection{Moltiplicazione}
+
+\begin{definizione}
+ Il \emph{prodotto} di due frazioni è la frazione che ha per 
+numeratore il prodotto dei numeratori e per denominatore il prodotto dei 
+denominatori:
+\[\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{a \cdot c}{b \cdot d}\]
+\end{definizione}
+
+\begin{osservazione}
+ Anche in questo caso invece di semplificare il prodotto, conviene 
+applicare la semplificazione incrociata prima di eseguire le 
+moltiplicazioni.
+\end{osservazione}
+
+\begin{esempio}
+Calcola: \(\dfrac{112}{225} \cdot \dfrac{75}{56}\)
+\[\frac{\cancelto{14}{112}}{\Dcancelto[9]{225}} \cdot 
+  \frac{\cancelto{3}{75}}{\Dcancelto[7]{56}} = 
+  \frac{\cancelto{2}{14}}{\Dcancelto[3]{9}} \cdot 
+  \frac{\cancelto{1}{3}}{\Dcancelto[1]{7}} = \frac{2}{3}
+  \]
+ 
+\end{esempio}
+
+\subsubsection{Divisione}
+
+Prima di affrontare la divisione, diamo la definizione di reciproco:
+
+\begin{definizione}
+ Il \emph{reciproco} di una frazione, \textbf{diversa da zero}, si ottiene 
+scambiando il numeratore con il denominatore:
+\begin{center}
+ \reciproco
+\end{center}
+\end{definizione}
+
+Ovviamente, il reciproco di zero non è definito.
+
+\begin{definizione}
+ Il \emph{quoziente} di due frazioni si ottiene moltiplicando la prima per 
+il reciproco della seconda:
+\[\dfrac{a}{b} \div \dfrac{c}{d} = \dfrac{a}{b} \cdot \dfrac{d}{c} =
+\dfrac{a \cdot d}{b \cdot c}\]
+\end{definizione}
+
+\begin{osservazione}
+ Come sempre, nella divisione, il divisore deve essere diverso da zero.
+\end{osservazione}
+
+\begin{osservazione}
+ Usando i numeri razionali possiamo trasformare tutte le divisioni in 
+moltiplicazioni, con questi numeri non saremo più costretti a eseguire 
+divisioni!
+\end{osservazione}
+
+\begin{esempio}
+Calcola: \(\dfrac{560}{55} \cdot \dfrac{24}{275}\)
+\[\dfrac{560}{55} \div \dfrac{24}{275} =
+  \dfrac{560}{55} \cdot \dfrac{275}{24} =
+  \frac{\cancelto{70}{560}}{\Dcancelto[11]{55}} \cdot 
+  \frac{\cancelto{55}{275}}{\Dcancelto[3]{24}} = 
+  \frac{70}{\Dcancelto[1]{11}} \cdot 
+  \frac{\cancelto{5}{55}}{3} = \frac{350}{3}
+  \]
+\end{esempio}
 
 
+\subsubsection{Potenza e radice}
+
+\begin{definizione}
+ La \emph{potenza} di una frazione si ottiene elevando a quell'esponente 
+sia il numeratore sia il denominatore:
+\[\tonda{\dfrac{a}{b}}^e = \dfrac{a^e}{b^e}\]
+\end{definizione}
+
+\begin{definizione}
+ La \emph{radice} di una frazione che ha per numeratore la radice del  
+numeratore, e per denominatore la radice del denominatore:
+\[\sqrt[n]{\dfrac{a}{b}} = \dfrac{\sqrt[n]{a}}{\sqrt[n]{b}}\]
+\end{definizione}
+
+\begin{esempio}
+Calcola: \(\tonda{\dfrac{5}{3}}^4\)
+\[\tonda{\dfrac{5}{3}}^4 = \dfrac{5^4}{3^4} = \dfrac{625}{81}\]
+\end{esempio}
+
+\begin{esempio}
+Calcola: \(\sqrt[3]{\dfrac{64}{125}}\)
+\[\sqrt[3]{\dfrac{64}{125}} = \dfrac{\sqrt[3]{64}}{\sqrt[3]{125}} = 
+\dfrac{4}{5}\]
+\end{esempio}
+
+\section{Decimali contro frazioni}
+\label{sec:razionali_decimali_frazioni}
+
+Abbiamo visto due modi per rappresentare i numeri razionali:
+\begin{enumerate}
+ \item la notazione decimale è più comoda per rappresentare numeri 
+approssimati;
+ \item le frazioni sono più comode quando vogliamo eseguire operazioni con 
+numeri razionali esatti.
+\end{enumerate}
+
+Ma per il resto, le due notazioni sono equivalenti? Cioè tutti i numeri che 
+possiamo rappresentare con le frazioni li possiamo anche rappresentare con 
+i numeri decimali e viceversa?
+
+\subsection{Da frazione a decimale}
+
+Tutte le frazioni possono essere trasformate in numeri decimali, basta 
+interpretare il segno di frazione come una divisione.
+
+\begin{esempio}
+Trasforma in numero decimale la frazione: \(\dfrac{5}{8}\)
+\begin{center}
+ \begin{center}\input{\folder lbr/03_frazdec.tex}\end{center}
+\end{center}
+\end{esempio}
+
+\begin{esempio}
+Trasforma in numero decimale la frazione: \(\dfrac{43}{33}\)
+\begin{center}
+ \begin{center}\input{\folder lbr/04_frazdec.tex}\end{center}
+\end{center}
+\end{esempio}
+
+\subsection{Da decimale a frazione}
+
+I numeri decimali limitati sono facilmente trasformabili in frazioni: basta 
+scrivere una frazione con il numero dato al numeratore e~1 al denominatore 
+poi moltiplicare entrambi i termini per una potenza di 10 adatta a 
+eliminare la virgola.
+
+\begin{esempio}
+Trasforma in frazione il numero decimale: \(16,25\)
+\begin{center}
+ \[16,25 = \frac{16,25}{1} = \frac{16,25 \cdot 100}{1 \cdot 100} =
+   \frac{1625}{100} = \frac{65}{4}\]
+\end{center}
+\end{esempio}
+
+Ma se il numero decimale è periodico, questo meccanismo non può essere 
+usato: dovrei moltiplicare per un~1 seguito da \emph{infiniti} zeri e ciò 
+risulta un po' difficile già solo da scrivere.
+
+Il problema è che nei numeri periodici abbiamo infinite cifre decimali, ma 
+per scrivere la frazione dobbiamo averne un numero finito \dots Qualche 
+ignoto matematico ha inventato un metodo geniale per eliminare infinite 
+cifre decimali con una semplice operazione: basta eseguire un'opportuna 
+sottrazione.
+
+Supponiamo di voler trasformare il numero \(n = 14,3\overline{56}\) in 
+frazione, moltiplichiamo n per~1000 e da questo togliamo il numero di 
+partenza:
+
+\begin{center}
+ \begin{center}\input{\folder lbr/05_sottrazione.tex}\end{center}
+\end{center}
+
+Abbiamo così eliminato il periodo ottenendo un numero decimale finito, ora 
+se moltiplichiamo ancora per~10 otteniamo un numero intero:
+\[990n = 14213\]
+Adesso è facile: se~990 enne valgono 14213, un solo enne varrà:
+\(\dfrac{14213}{990}\)
+quindi:
+\[14,3\overline{56} = \frac{14213}{990}\]
+Con una qualunque calcolatrice si può verificare il risultato.
+
+La regoletta è:
+
+\begin{teorema}
+ Un numero decimale periodico è equivalente ad una frazione che ha:
+\begin{itemize}
+ \item per numeratore la differenza tra il numero con il periodo scritto 
+una sola volta e la parte del numero che precede il periodo;
+ \item per denominatore tanti~9 quante sono le cifre del periodo seguiti da 
+tanti zeri quante sono le cifre comprese tra il periodo e la virgola.
+\end{itemize}
+\end{teorema}
+
+Bene abbiamo così dimostrato che ogni frazione può essere trasformata in 
+numero decimale e ogni numero decimale, limitato o periodico, può essere 
+trasformato in una frazione. Quindi usare l'una o l'altra delle due 
+notazioni per i numeri razionali è equivalente.
+
+\begin{osservazione}
+ Applica la precedente regola per trasformare in frazione il 
+ numero~\(3,\overline{9}\). Cosa ottieni? Puoi estendere questo risultato 
+ad una regola generale?
+\end{osservazione}
 
 
+\begin{osservazione}
+ Abbiamo parlato di numeri decimali limitato e di numeri decimali 
+periodici, esistono anche numeri decimali illimitati e non periodici?
+Se un numero decimale continua all'infinito, è possibile che continui ad 
+essere diverso e non succeda che da un certo punto in poi incominci a 
+ripetersi?
+
+È possibile costruire dei numeri decimali infiniti che sicuramente non 
+saranno periodici. Eccone alcuni:\\
+\(0,101001000100001000001000000100000001\dots\)\\
+\(0,1234567891011121314151617181920212223\dots\)\\
+\(0,1223334444\dots9999999991010101010101010101011\dots\)\\
+Ma si può dimostrare che \(\sqrt{2}\) è illimitato e non periodico
+e anche \(\sqrt{3}\)\dots 
+
+Anche il numero: \(3,14159265358979323846264338327950288\dots\) a cui è 
+stato dato il nome di \(\pi\) (pi greco) è un numero 
+illimitato e non periodico quindi non può essere scritto come frazione.
+
+Questi numeri si chiamano ``irrazionali''.
+
+In realtà, non solo esistono numeri irrazionali, ma il matematico Cantor ha 
+dimostrato che i numeri irrazionali sono infinitamente di più dei numeri 
+razionali.
+\end{osservazione}
+
+\section{Notazione scientifica e ordine di grandezza}
+\label{sec:razionali_notazione_scientifica}
+
+Le discipline scientifiche quali la fisica, la biologia, l'astronomia etc,
+si trovano spesso a doversi confrontare con misurazioni di grandezze 
+espresse 
+da numeri molto grandi. Per esempio:
+
+\begin{itemize*}
+\item il raggio della Terra è circa~$6\,400\,000\unit{m}$
+\item la velocità della luce nel vuoto è~$299\,790\,000\unit{m/s}$
+\item un globulo rosso ha il diametro di~$0,000007\unit{m}$.
+\end{itemize*}
+
+I primi due numeri sono `molto grandi', mentre l'ultimo è `molto piccolo' e 
+operare con numeri simili, non è affatto semplice.
+
+Per renderci conto di ciò, consideriamo un rettangolo di dimensioni
+$b =~0,00000006\unit{m}$ e~$h =~0,0000002\unit{m}$ e calcoliamone l'area:
+\[A=b\cdot h=0,00000006\cdot0,0000002=0,000000000000012.\]
+
+\begin{center}
+\input{\folder lbr/fig032_rett.pgf}
+\end{center}
+
+Come si può notare, per scrivere il risultato di un'operazione tra due 
+numeri 
+in questo caso `molto piccoli', è necessario fare particolare attenzione in 
+quanto, per l'eccessiva quantità di cifre decimali, è facile commettere 
+degli 
+errori.
+
+Per risolvere questo problema, si preferisce utilizzare una scrittura 
+compatta 
+che permette di scrivere questo tipo di numeri in forma più agevole.
+Una tale scrittura prende il nome di \emph{notazione scientifica}.
+
+\begin{definizione}
+Un numero~$\alpha$ è scritto in \emph{notazione scientifica} se
+si presenta nella forma:
+\[\alpha=k\cdot10^n,\] 
+dove~$k$ è un numero decimale maggiore o uguale a~$1$ e minore di~$10$ 
+e~$n$ 
+è un numero intero.
+\end{definizione}
+
+\begin{exrig}
+ \begin{esempio}
+I numeri~$3,5\cdot10^7$ e~$8,9\cdot10^{-5}$ sono scritti in notazione 
+scientifica, mentre i numeri~$0,5\cdot10^3$ e~$10,3\cdot 10^{-8}$ non sono 
+scritti in notazione scientifica in quanto il numero davanti alla potenza 
+di~10 nel primo caso è~0,5 che è minore di~1, nel secondo caso è~10,3 che è 
+maggiore di~10.
+ \end{esempio}
+\end{exrig}
+
+\subsection{Notazione scientifica}
+Consideriamo la misura del diametro del globulo rosso, 
+ovvero~$0,000007\unit{m}$.
+Per esprimere questa misura in notazione scientifica basta considerare la 
+sua 
+frazione generatrice, ovvero:
+\[0,000007\unit{m}=7\cdot\frac{1}{1000000}\unit{m}=7\cdot10^{-6}\unit{m}.\]
+
+Allo stesso modo il numero~0,000000026 viene scritto in notazione 
+scientifica 
+come segue:
+\[0,000000026=2,6\cdot\frac{1}{100000000}=2,6\cdot\frac{1}{10^8}=2,6\cdot10^
+{-8}.\]
+Si osservi che in questo secondo caso abbiamo preso in considerazione il 
+valore~2,6 anziché~26, in quanto il numero~$k$ deve essere minore di~10.
+
+Consideriamo ora la misura del raggio della Terra, 
+ovvero~$6\,400\,000\unit{m}$,
+la sua espressione in notazione scientifica sarà:~$6,4\cdot10^6$.
+
+Allo stesso modo il numero~$340\,000\,000\,000$ viene scritto in notazione 
+scientifica~$3,4\cdot10^{11}$.
+Si osservi che in questo secondo caso abbiamo preso in considerazione il 
+valore~3,4 anziché~34, in quanto, come si è già detto, il numero~$k$ deve 
+essere minore di~10.
+
+\osservazione A numeri `piccoli', corrisponde una potenza di dieci con 
+esponente negativo; 
+a numeri `grandi', corrisponde una potenza di dieci con esponente positivo.
+
+\begin{procedura}
+Scrivere un numero decimale in notazione scientifica:
+\begin{enumeratea} % [label=Passo~\arabic{*}.]
+ \item spostare la virgola di tanti posti in modo da avere una sola cifra
+  diversa da zero a sinistra;
+ \item scrivere la moltiplicazione tra il numero ottenuto al passo 
+precedente
+  e dieci elevato ad un esponente pari al numero si spostamenti della 
+virgola 
+  effettuati se la virgola è stata spostata verso sinistra o elevato al suo 
+  opposto se la virgola è stata spostata verso destra.
+\end{enumeratea}
+\end{procedura}
+
+\begin{exrig}
+ \begin{esempio}
+ Scrivi 348\,000\,000\,000\,000 in notazione scientifica.
+ Per comodità riscrivo il numero evidenziando l'attuale 
+ posizione della virgola:~348\,000\,000\,000\,000,0.
+ \begin{enumeratea}
+  \item Per ottenere un numero con una sola cifra diversa 
+   da zero a sinistra della virgola devo spostare la virgola di~14 posti 
+   verso sinistra;
+  \item ora scrivo la moltiplicazione tra il numero 
+   ottenuto:~$3,48$~e~10 elevato alla~14:~$3,48 \cdot 10^{14}$.
+ \end{enumeratea}
+
+ \end{esempio}
+ \begin{esempio}
+  Scrivi 0,0000340 in notazione scientifica.
+ \begin{enumeratea}
+  \item Devo spostare la virgola di~5 posti verso destra;
+  \item Moltiplico il numero ottenuto:~$3,40$~e~10 elevato 
+alla~$-5$:~$3,40 \cdot 10^{-5}$.
+ \end{enumeratea}
+ \end{esempio}
+ \begin{esempio}
+  Riprendendo il problema della lamina rettangolare, 
+  le sue dimensioni in notazione scientifica vengono scritte come:
+  $b=6\cdot10^{-8}\unit{m}, h=2\cdot10^{-7}\unit{m}$.
+  L'area sarà quindi:
+  \begin{align*}
+   A &=b\cdot h =
+      6\cdot10^{-8}\unit{m}\times 2\cdot10^{-7}\unit{m} =
+      12\cdot 10^{-15}\unit{m}^2 =
+      1,2\cdot 10^1\cdot 10^{-15}\unit{m}^2 =
+      1,2\cdot 10^{-14}\unit{m}^2
+  \end{align*}
+  Com'è possibile vedere, utilizzando le note proprietà delle potenze, 
+  si riesce ad eseguire l'operazione in maniera molto agevole.
+ \end{esempio}
+ \begin{esempio}
+  Trasforma in notazione scientifica e calcola
+  $\displaystyle{\frac{3000:6\text{ milioni}}{5000\cdot0,000002}}$.
+  \begin{align*}
+   \frac{3000:6\text{ milioni}}{5000\cdot0,000002}&=\frac{3\cdot10^3:
+     (6\cdot 10^6)}{5\cdot10^3\cdot(2\cdot10^{-6})}
+    =\frac{3:6\cdot10^{-3}}{5\cdot2\cdot 10^{-3}}
+    =\frac{0,5}{10}\cdot10^{-3+3}
+    = 0,05\cdot10^0 = 5\cdot10^{-2}
+  \end{align*}
+ \end{esempio}
+\end{exrig}
+
+% \ovalbox{\risolvii \ref{ese:3.61}, \ref{ese:3.62}, \ref{ese:3.63}, 
+% \ref{ese:3.64}, \ref{ese:3.65}, \ref{ese:3.66}, \ref{ese:3.67}, 
+% \ref{ese:3.68}, \ref{ese:3.69}, \ref{ese:3.70}, \ref{ese:3.71}}
+
+\subsection{Ordine di grandezza}
+
+Spesso, nel trattare i numeri `molto grandi' o `molto piccoli', non è 
+importante conoscere la misura con precisione, ma basta conoscere 
+``quanto è grande'', cioè l'entità della sua grandezza. 
+Per fare ciò si introduce il seguente concetto.
+
+\begin{definizione}
+Dato un numero scritto in forma scientifica, si definisce 
+\emph{ordine di grandezza} (abbreviato con la sigla o.d.g.),
+la potenza di~$10$.
+\end{definizione}
+
+\begin{procedura}
+Determinare l'ordine di grandezza di un numero:
+\begin{enumeratea}
+\item scrivi il numero in notazione scientifica~${k\cdot10^n}$
+\item l'ordine di grandezza è~$10^{n}$.
+\end{enumeratea}
+\end{procedura}
+
+% \newpage
+
+\begin{exrig}
+ \begin{esempio}
+Determinare l'ordine di grandezza dei numeri~0,000074 e~47000000000.
+
+Scriviamo dapprima i numeri in notazione scientifica:
+\[0,000074=7,4\cdot 10^{-5}\text{ e }47000000000=4,7\cdot 10^{10}.\]
+L'o.d.g. del primo numero è~$10^{-5}$.
+L'o.d.g del secondo numero è~$10^{10}$.
+ \end{esempio}
+\end{exrig}
+
+% \ovalbox{\risolvii \ref{ese:3.72}, \ref{ese:3.73}, \ref{ese:3.74}}
+
+\section{Rapporto, percentuale, proporzioni}
+\label{sec:razionali_rapporto}
+
+\subsection{Rapporto}
+
+Spesso un dato preso da solo non dà molte informazioni. Sapere che in una 
+scuola sono iscritte 400 femmine non dice molto. Diversa è la situazione se 
+conosciamo anche qual è il numero complessivo degli alunni.
+
+\begin{minipage}{.49\textwidth}
+ Femmine = 400; \quad Iscritti = 1200
+ 
+ In questo caso le femmine sono una minoranza: c'è una femmina ogni 3 
+iscritti. Questa informazione si può ottenere calcolando il rapporto tra le 
+femmine e il totale:
+\[\frac{Femmine}{Iscritti} = \frac{400}{1200} = \frac{1}{3} \approx 0,333\]
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+ Femmine = 400; \quad Iscritti = 600
+ 
+ In questo caso le femmine sono una maggioranza: ci sono 2 femmine ogni 3 
+iscritti. Questa informazione si può ottenere calcolando il rapporto tra le 
+femmine e il totale:
+\[\frac{Femmine}{Iscritti} = \frac{400}{600} = \frac{2}{3} \approx 0,666\]
+\end{minipage}\\
+
+Spesso il rapporto tra due valori è più interessante dei valori presi 
+singolarmente. 
+Quando il rapporto è tra due grandezze fisiche spesso si 
+ottiene una nuova grandezza:
+\begin{itemize}
+ \item Rapporto tra massa e volume dà la densità: 
+ \(\dfrac{massa}{volume}=densità\)
+ \item Rapporto tra spazio e tempo dà la velocità: 
+ \(\dfrac{spazio}{tempo}=velocità\)
+ \item Rapporto tra l'aumento di velocità e il tempo: 
+ \(\dfrac{aumento di velocità}{tempo}=accelerazione\)
+ \item \dots
+\end{itemize}
+
+\subsection{Proporzioni}
+
+Quando abbiamo due rapporti uguali: \(\dfrac{a}{b} = \dfrac{c}{d}\) diremo 
+che i quattro numeri \(a,~b,~c,~d\) sono in proporzione. Altra notazione 
+per le proporzioni è quella che indica le divisioni con i duepunti: ``:'':
+\(a:b=c:d\).
+
+I due numeri che si trovano al centro si chiamano \emph{medi} e gli altri 
+due si dicono \emph{estremi}.
+
+La proprietà fondamentale delle proporzioni:
+
+\begin{teorema}
+ In una proporzione, il prodotto dei \emph{medi} è uguale al prodotto 
+degli \emph{estremi} (detto anche \emph{prodotto incrociato}):
+\[\dfrac{a}{b} = \dfrac{c}{d} \sLRarrow a \cdot d = b \cdot c\]
+\end{teorema}
+
+Da questa proprietà possiamo ricavare le formule per calcolare un medio o 
+un estremo:
+\[a = \frac{b \cdot c}{d} \quad \text{ e } \quad 
+  b = \frac{a \cdot d}{c}\]
+  
+Un problema che ha collegamenti in altri ambiti della matematica riguarda l 
+proporzioni continue.
+
+\begin{definizione}
+ Si dice \emph{continua} una proporzione che ha i medi uguali:
+ \[a : b = b : c\]
+\end{definizione}
+
+In questo caso la proprietà fondamentale diventa:
+\[b^2 = a \cdot c\]
+da cui si ricava:
+\[b = \sqrt{a \cdot c} \quad \text{ e } \quad a = \frac{b^2}{c}\]
+
+\subsection{Percentuale}
+
+Il rapporto è, di solito, un numero con la virgola e 
+quando è realizzato tra una parte e il tutto, come negli esempi precedenti, 
+il rapporto è compreso tra zero e uno. Dato che le persone normali provano 
+un certo fastidio per i numeri con la virgola sono state inventate le 
+percentuali che sono date dal rapporto moltiplicato per 100 e seguito dal 
+simbolo ``\%''. Sempre riferendoci all'esempio precedente:
+\[\frac{1}{3} \approx 0,33 = 33\% \qquad 
+  \frac{2}{3} \approx 0,66 = 66\%\]
+Dire il~10\% o dire~0,1 è lo stesso, 
+dire~25\% o dire~0,25 è lo stesso, \dots
+
+\begin{definizione}
+ La \emph{percentuale} è il rapporto tra due grandezze moltiplicato per 100.
+\end{definizione}
+
+\begin{esempio}
+ Se ti viene proposto uno sconto di~10€ su un oggetto che costa~84€ che 
+percentuale di sconto ti viene applicata?
+\[sconto percento = \frac{sconto}{prezzointero}=\frac{10}{84} \approx
+  0,119 \approx 12\%\]
+\end{esempio}
+
+Dalla formula \(perc = \dfrac{parte}{totale}\) si possono ricavare le 
+formule inverse: 
+\[totale = \dfrac{parte}{perc} \quad \text{ e } \quad 
+  parte = totale \cdot perc\]
+
+
+\section{Problemi con le frazioni}
+\label{sec:razionali_problemi}
+
+Vediamo ora come affrontare problemi che coinvolgono frazioni.
+
+\subsection{Problemi diretti}
+Nei problemi diretti si conosce il valore di una grandezza e se ne deve 
+calcolare la parte che corrisponde a una frazione. 
+In questo caso basta moltiplicare la frazione per la grandezza intera.
+
+\begin{exrig}
+ \begin{esempio}
+Una pasticceria produce~568 cornetti a settimana: i~$3/4$ sono alla 
+crema,~$1/8$ sono al cioccolato e~$1/8$ alla marmellata. 
+Quanti cornetti di ciascun tipo produce?
+
+Per risolvere il problema occorre calcolare la parte che corrisponde a 
+ciascuna frazione:
+
+\begin{itemize*}
+\item cornetti alla crema:~$\dfrac{3}{4}\cdot 568 =426$
+\item cornetti al cioccolato:~$\dfrac{1}{8}\cdot 568 =71$
+\item cornetti alla marmellata:~71.
+\end{itemize*}
+ \end{esempio}
+\end{exrig}
+
+\subsection{Problemi inversi}
+
+Nei problemi inversi si conosce il valore numerico di una frazione di una 
+certa grandezza si deve calcolare il valore dell'intera grandezza.
+In questo caso occorre dividere il valore numerico dato per la frazione, 
+si ottiene così l'intero.
+
+\begin{exrig}
+ \begin{esempio}
+Mario ha speso~\officialeuro\ 21 che corrispondono ai~$3/5$ della somma 
+che possedeva. Quanto possedeva?
+
+In questo problema si sa che \officialeuro\ 21 corrispondono ai~$3/5$ della 
+somma da cercare.
+È sufficiente dividere~21 per la frazione:
+\officialeuro\ 21~$\displaystyle:\frac{3}{5}=$ \officialeuro\ 
+21$\cdot\dfrac{5}{3}=$ \officialeuro\ 35.
+ \end{esempio}
+
+ \begin{esempio}
+Giuseppe possiede \officialeuro\ 150. Se spende i~$3/5$ della somma 
+posseduta e 
+poi i~$2/3$ della somma rimanente, quanto gli rimane?
+
+Per risolvere il problema si può procedere in più modi.
+
+Calcoliamo prima i~$3/5$ di~150, cioè \officialeuro\ 150$\cdot\frac{3}{5}=$ 
+\officialeuro\ 90.
+Quindi la prima volta Giuseppe spende \officialeuro\ 90, perciò gliene 
+rimangono~60. La seconda volta spende i~$2/3$ di \officialeuro\ 60, 
+cioè \officialeuro\ 60$\frac{2}{3}=$ \officialeuro\ 40. In tutto ha speso
+\officialeuro\ 90~$+$ \officialeuro\ 40~$=$ \officialeuro\ 130, gli 
+rimangono \officialeuro\ 20.
+
+Un altro modo per risolvere il problema è tenere conto che,
+se la prima volta ha speso i~$\frac{3}{5}$ della somma che possedeva,
+significa che gli rimane la frazione~$1-\frac{3}{5}=\frac{2}{5}$.
+La seconda volta spende i~$\frac{2}{3}$ dei~$\frac{2}{5}$, cioè~$\frac{2}{3}
+\cdot\frac{2}{5}=\frac{4}{15}$.
+In tutto ha speso la frazione
+\[\frac{3}{5}+\frac{4}{15}=\frac{3\cdot3+4}{15}=\frac{13}{15},\]
+ gli rimane perciò la frazione~$\frac{2}{15}$, pertanto gli rimangono 
+ \officialeuro\ 150$\cdot\frac{2}{15}=$ \officialeuro\ 20.
+ \end{esempio}
+\end{exrig}
+
+% \ovalbox{\risolvii \ref{ese:3.75}, \ref{ese:3.76}, \ref{ese:3.77}, 
+% \ref{ese:3.78}}
 
 
 \section{Un po' di  storia}
-\label{sec:razionali_origine}
 
 Quando si deve dividere una certa grandezza o totalità in un certo numero di 
 parti uguali non sempre sono sufficienti i numeri interi per rappresentare 
@@ -197,17 +1074,23 @@ tabella che dà la scomposizione in frazioni unitarie delle frazioni del
 tipo~$\frac{2}{n}$, con~$n$ dispari: la frazione~$\frac{2}{43}$
 è rappresentata come somma di frazioni unitarie nel seguente modo:
 
-\[\frac{2}{43}=\frac{1}{42}+\frac{1}{86}+\frac{1}{129}+\frac{1}{301}.\]
-\begin{inaccessibleblock}[Figura: L'occhio di Horus.]
-\begin{wrapfigure}{r}{0pt}
-\input{\folder lbr/fig001_horus.pgf}
-\end{wrapfigure}
-\end{inaccessibleblock}
+\begin{minipage}{.49\textwidth}
+\[\frac{2}{43}=\frac{1}{42}+\frac{1}{86}+\frac{1}{129}+\frac{1}{301}\]
 
-Alcune unità frazionarie più comuni venivano indicate con le parti dell'occhio 
+ Alcune unità frazionarie più comuni venivano indicate con le parti 
+dell'occhio 
 di Horus; secondo la leggenda Horus, nella lotta contro lo zio Seth, 
-reo di avergli ucciso il padre, perse un occhio le cui parti vennero ritrovate 
+reo di avergli ucciso il padre, perse un occhio le cui parti vennero 
+ritrovate 
 e ricomposte dal dio Toth a meno di una piccola parte.
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\begin{inaccessibleblock}[Figura: L'occhio di Horus.]
+% \begin{wrapfigure}{r}{0pt}
+\begin{center} \input{\folder lbr/fig001_horus.pgf} \end{center}
+% \end{wrapfigure}
+\end{inaccessibleblock}
+\end{minipage}
 
 I Romani fecero poco uso dei numeri frazionari; si limitarono a considerare
 le parti delle misure in uso che venivano divise in~12, 24, 36, 48\ldots 
@@ -519,7 +1402,7 @@ corrispondono a un numero intero, rispettivamente a~1, 2, 4, 3, 4.
 \end{exrig}
 
 % \ovalbox{\risolvii \ref{ese:3.17}, \ref{ese:3.18}}
-\end{comment}
+
 \section{La scrittura dei numeri razionali}
 \label{sec:03_decimali}
 
@@ -745,7 +1628,7 @@ di conseguenza i due numeri coincidono.
 
 % \ovalbox{\risolvii \ref{ese:3.24}, \ref{ese:3.25}}
 
-\begin{comment}
+
 
 \section{I numeri razionali e la retta}
 \label{sec:03_retta}
@@ -1180,252 +2063,6 @@ Pertanto,~$0^{-n}$ è una scrittura priva di significato.
 
 \section{Notazione scientifica e ordine di grandezza}
 \label{sec:03_ordinedigrandezza}
-
-Le discipline scientifiche quali la fisica, la biologia, l'astronomia etc,
-si trovano spesso a doversi confrontare con misurazioni di grandezze espresse 
-da numeri molto grandi. Per esempio:
-
-\begin{itemize*}
-\item il raggio della Terra è circa~$6\,400\,000\unit{m}$
-\item la velocità della luce nel vuoto è~$299\,790\,000\unit{m/s}$
-\item un globulo rosso ha il diametro di~$0,000007\unit{m}$.
-\end{itemize*}
-
-I primi due numeri sono `molto grandi', mentre l'ultimo è `molto piccolo' e 
-operare con numeri simili, non è affatto semplice.
-
-Per renderci conto di ciò, consideriamo un rettangolo di dimensioni
-$b =~0,00000006\unit{m}$ e~$h =~0,0000002\unit{m}$ e calcoliamone l'area:
-\[A=b\cdot h=0,00000006\cdot0,0000002=0,000000000000012.\]
-
-\begin{center}
-\input{\folder lbr/fig032_rett.pgf}
-\end{center}
-
-Come si può notare, per scrivere il risultato di un'operazione tra due numeri 
-in questo caso `molto piccoli', è necessario fare particolare attenzione in 
-quanto, per l'eccessiva quantità di cifre decimali, è facile commettere degli 
-errori.
-
-Per risolvere questo problema, si preferisce utilizzare una scrittura compatta 
-che permette di scrivere questo tipo di numeri in forma più agevole.
-Una tale scrittura prende il nome di \emph{notazione scientifica}.
-
-\begin{definizione}
-Un numero~$\alpha$ è scritto in \emph{notazione scientifica} se
-si presenta nella forma:
-\[\alpha=k\cdot10^n,\] 
-dove~$k$ è un numero decimale maggiore o uguale a~$1$ e minore di~$10$ e~$n$ 
-è un numero intero.
-\end{definizione}
-
-\begin{exrig}
- \begin{esempio}
-I numeri~$3,5\cdot10^7$ e~$8,9\cdot10^{-5}$ sono scritti in notazione 
-scientifica, mentre i numeri~$0,5\cdot10^3$ e~$10,3\cdot 10^{-8}$ non sono 
-scritti in notazione scientifica in quanto il numero davanti alla potenza 
-di~10 nel primo caso è~0,5 che è minore di~1, nel secondo caso è~10,3 che è 
-maggiore di~10.
- \end{esempio}
-\end{exrig}
-
-\subsection{Come trasformare un numero in notazione scientifica}
-Consideriamo la misura del diametro del globulo rosso, 
-ovvero~$0,000007\unit{m}$.
-Per esprimere questa misura in notazione scientifica basta considerare la sua 
-frazione generatrice, ovvero:
-\[0,000007\unit{m}=7\cdot\frac{1}{1000000}\unit{m}=7\cdot10^{-6}\unit{m}.\]
-
-Allo stesso modo il numero~0,000000026 viene scritto in notazione scientifica 
-come segue:
-\[0,000000026=2,6\cdot\frac{1}{100000000}=2,6\cdot\frac{1}{10^8}=2,6\cdot10^{-8}.\]
-Si osservi che in questo secondo caso abbiamo preso in considerazione il 
-valore~2,6 anziché~26, in quanto il numero~$k$ deve essere minore di~10.
-
-Consideriamo ora la misura del raggio della Terra, ovvero~$6\,400\,000\unit{m}$,
-la sua espressione in notazione scientifica sarà:~$6,4\cdot10^6$.
-
-Allo stesso modo il numero~$340\,000\,000\,000$ viene scritto in notazione 
-scientifica~$3,4\cdot10^{11}$.
-Si osservi che in questo secondo caso abbiamo preso in considerazione il 
-valore~3,4 anziché~34, in quanto, come si è già detto, il numero~$k$ deve 
-essere minore di~10.
-
-\osservazione A numeri `piccoli', corrisponde una potenza di dieci con 
-esponente negativo; 
-a numeri `grandi', corrisponde una potenza di dieci con esponente positivo.
-
-\begin{procedura}
-Scrivere un numero decimale in notazione scientifica:
-\begin{enumeratea}
- \item spostare la virgola di tanti posti in modo da avere una sola cifra
-  diversa da zero a sinistra;
- \item scrivere la moltiplicazione tra il numero ottenuto al passo precedente
-  e dieci elevato ad un esponente pari al numero si spostamenti della virgola 
-  effettuati se la virgola è stata spostata verso sinistra o elevato al suo 
-  opposto se la virgola è stata spostata verso destra.
-\end{enumeratea}
-\end{procedura}
-
-\begin{exrig}
- \begin{esempio}
- Scrivi 348\,000\,000\,000\,000 in notazione scientifica.
- Per comodità riscrivo il numero evidenziando l'attuale 
- posizione della virgola:~348\,000\,000\,000\,000,0.
-  \paragraph{Passo~$a$} Per ottenere un numero con una sola cifra diversa 
-   da zero a sinistra della virgola devo spostare la virgola di~14 posti 
-   verso sinistra;
-  \paragraph{Passo~$b$} ora scrivo la moltiplicazione tra il numero 
-   ottenuto:~$3,48$~e~10 elevato alla~14:~$3,48 \cdot 10^{14}$.
- \end{esempio}
- \begin{esempio}
-  Scrivi 0,0000340 in notazione scientifica.
-  \paragraph{Passo~$a$} Per ottenere un numero con una sola cifra diversa 
-   da zero a sinistra della virgola devo spostare la virgola di~5 posti 
-   verso destra;
-  \paragraph{Passo~$b$} ora scrivo la moltiplicazione tra il numero 
-   ottenuto:~$3,40$~e~10 elevato alla~$-5$:~$3,40 \cdot 10^{-5}$.
- \end{esempio}
- \begin{esempio}
-  Riprendendo il problema della lamina rettangolare, 
-  le sue dimensioni in notazione scientifica vengono scritte come:
-  $b=6\cdot10^{-8}\unit{m}, h=2\cdot10^{-7}\unit{m}$.
-  L'area sarà quindi:
-  \begin{align*}
-   A &=b\cdot h =\\
-     &= 6\cdot10^{-8}\unit{m}\times 2\cdot10^{-7}\unit{m} =\\
-     &=12\cdot 10^{-15}\unit{m}^2 =\\
-     &=1,2\cdot 10^1\cdot 10^{-15}\unit{m}^2 =\\
-     &=1,2\cdot 10^{-14}\unit{m}^2.
-  \end{align*}
-  Com'è possibile vedere, utilizzando le note proprietà delle potenze, 
-  si riesce ad eseguire l'operazione in maniera molto agevole.
- \end{esempio}
- \begin{esempio}
-  Trasforma in notazione scientifica e calcola
-  $\displaystyle{\frac{3000:6\text{ milioni}}{5000\cdot0,000002}}$.
-  \begin{align*}
-   \frac{3000:6\text{ milioni}}{5000\cdot0,000002}&=\frac{3\cdot10^3:
-     (6\cdot 10^6)}{5\cdot10^3\cdot(2\cdot10^{-6})}\\
-   &=\frac{3:6\cdot10^{-3}}{5\cdot2\cdot 10^{-3}}\\
-   &=\frac{0,5}{10}\cdot10^{-3+3}\\
-   &= 0,05\cdot10^0\\
-   &=0,05\\
-   &=5\cdot10^{-2}.
-  \end{align*}
- \end{esempio}
-\end{exrig}
-
-% \ovalbox{\risolvii \ref{ese:3.61}, \ref{ese:3.62}, \ref{ese:3.63}, 
-% \ref{ese:3.64}, \ref{ese:3.65}, \ref{ese:3.66}, \ref{ese:3.67}, 
-% \ref{ese:3.68}, \ref{ese:3.69}, \ref{ese:3.70}, \ref{ese:3.71}}
-
-\subsection{Ordine di grandezza}
-
-Spesso, nel trattare i numeri `molto grandi' o `molto piccoli', non è 
-importante conoscere la misura con precisione, ma basta conoscere 
-``quanto è grande'', cioè l'entità della sua grandezza. 
-Per fare ciò si introduce il seguente concetto.
-
-\begin{definizione}
-Dato un numero scritto in forma scientifica, si definisce 
-\emph{ordine di grandezza} (abbreviato con la sigla o.d.g.),
-la potenza di~$10$.
-\end{definizione}
-
-\begin{procedura}
-Determinare l'ordine di grandezza di un numero:
-\begin{enumeratea}
-\item scrivi il numero in notazione scientifica~${k\cdot10^n}$
-\item l'ordine di grandezza è~$10^{n}$.
-\end{enumeratea}
-\end{procedura}
-
-% \newpage
-
-\begin{exrig}
- \begin{esempio}
-Determinare l'ordine di grandezza dei numeri~0,000074 e~47000000000.
-
-Scriviamo dapprima i numeri in notazione scientifica:
-\[0,000074=7,4\cdot 10^{-5}\text{ e }47000000000=4,7\cdot 10^{10}.\]
-L'o.d.g. del primo numero è~$10^{-5}$.
-L'o.d.g del secondo numero è~$10^{10}$.
- \end{esempio}
-\end{exrig}
-
-% \ovalbox{\risolvii \ref{ese:3.72}, \ref{ese:3.73}, \ref{ese:3.74}}
-
-\section{Problemi con le frazioni}
-\label{sec:03_problemi}
-
-\subsection{Problemi diretti}
-Nei problemi diretti si conosce il valore di una grandezza e se ne deve 
-calcolare la parte che corrisponde a una frazione. 
-In questo caso basta moltiplicare la frazione per la grandezza intera.
-
-\begin{exrig}
- \begin{esempio}
-Una pasticceria produce~568 cornetti a settimana: i~$3/4$ sono alla 
-crema,~$1/8$ sono al cioccolato e~$1/8$ alla marmellata. 
-Quanti cornetti di ciascun tipo produce?
-
-Per risolvere il problema occorre calcolare la parte che corrisponde a 
-ciascuna frazione:
-
-\begin{itemize*}
-\item cornetti alla crema:~$\dfrac{3}{4}\cdot 568 =426$
-\item cornetti al cioccolato:~$\dfrac{1}{8}\cdot 568 =71$
-\item cornetti alla marmellata:~71.
-\end{itemize*}
- \end{esempio}
-\end{exrig}
-
-\subsection{Problemi inversi}
-
-Nei problemi inversi si conosce il valore numerico di una frazione di una 
-certa grandezza si deve calcolare il valore dell'intera grandezza.
-In questo caso occorre dividere il valore numerico dato per la frazione, 
-si ottiene così l'intero.
-
-\begin{exrig}
- \begin{esempio}
-Mario ha speso~\officialeuro\ 21 che corrispondono ai~$3/5$ della somma 
-che possedeva. Quanto possedeva?
-
-In questo problema si sa che \officialeuro\ 21 corrispondono ai~$3/5$ della 
-somma da cercare.
-È sufficiente dividere~21 per la frazione:
-\officialeuro\ 21~$\displaystyle:\frac{3}{5}=$ \officialeuro\ 21$\cdot\dfrac{5}{3}=$ \officialeuro\ 35.
- \end{esempio}
-
- \begin{esempio}
-Giuseppe possiede \officialeuro\ 150. Se spende i~$3/5$ della somma posseduta e 
-poi i~$2/3$ della somma rimanente, quanto gli rimane?
-
-Per risolvere il problema si può procedere in più modi.
-
-Calcoliamo prima i~$3/5$ di~150, cioè \officialeuro\ 150$\cdot\frac{3}{5}=$ 
-\officialeuro\ 90.
-Quindi la prima volta Giuseppe spende \officialeuro\ 90, perciò gliene 
-rimangono~60. La seconda volta spende i~$2/3$ di \officialeuro\ 60, 
-cioè \officialeuro\ 60$\frac{2}{3}=$ \officialeuro\ 40. In tutto ha speso
-\officialeuro\ 90~$+$ \officialeuro\ 40~$=$ \officialeuro\ 130, gli 
-rimangono \officialeuro\ 20.
-
-Un altro modo per risolvere il problema è tenere conto che,
-se la prima volta ha speso i~$\frac{3}{5}$ della somma che possedeva,
-significa che gli rimane la frazione~$1-\frac{3}{5}=\frac{2}{5}$.
-La seconda volta spende i~$\frac{2}{3}$ dei~$\frac{2}{5}$, cioè~$\frac{2}{3}
-\cdot\frac{2}{5}=\frac{4}{15}$.
-In tutto ha speso la frazione
-\[\frac{3}{5}+\frac{4}{15}=\frac{3\cdot3+4}{15}=\frac{13}{15},\]
- gli rimane perciò la frazione~$\frac{2}{15}$, pertanto gli rimangono 
- \officialeuro\ 150$\cdot\frac{2}{15}=$ \officialeuro\ 20.
- \end{esempio}
-\end{exrig}
-
-% \ovalbox{\risolvii \ref{ese:3.75}, \ref{ese:3.76}, \ref{ese:3.77}, \ref{ese:3.78}}
 
 \section{Le percentuali}
 \label{sec:03_percentuali}
