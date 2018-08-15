@@ -214,12 +214,6 @@ Dato un evento $A$ si definisce \emph{evento complementare} di $A$ indicato
 con 
 $\overline A$ l'evento che si verifica quando non si verifica $A$.
 
-
-
-
-
-
-
 \begin{teorema}[dell'evento complementare]
 Dato un evento $E$, la probabilità dell'evento complementare $\overline E$ è 
 data da $1$ meno la probabilità dell'evento $E$. In simboli: \[ P(\overline 
@@ -642,27 +636,33 @@ una moneta e di un dado $\to P(A\cap B)=P(A)\cdot P(B)=\frac 1 2\cdot \frac 2
 Generalizziamo: dati due eventi aleatori A e B tra loro indipendenti la 
 probabilità dell'evento intersezione tra A e B è data dalla probabilità di A 
 moltiplicata per la probabilità di B: $P(A\cap B)=P(A)\cdot P(B)$
+
 \subsubsection*{Diagrammi ad albero}
+
 Una rappresentazione grafica che può risultare utile nello studio della 
 probabilità dell'evento intersezione detto anche studio delle 
-\emph{probabilità 
-composte} è il diagramma ad albero. Le linee dell'albero si dicono 
-\emph{rami}, 
-mentre i punti da cui partono e arrivano i rami si dicono \emph{nodi,} il 
-nodo 
-iniziale si chiama \emph{radice}.
+\emph{probabilità composte} è il diagramma ad albero. Le linee dell'albero 
+si dicono \emph{rami}, mentre i punti da cui partono e arrivano i rami si 
+dicono \emph{nodi,} il nodo iniziale si chiama \emph{radice}.
 
-La costruzione di un diagramma ad albero nel caso delle probabilità composte 
+\begin{minipage}{.49\textwidth}
+ La costruzione di un diagramma ad albero nel caso delle probabilità 
+composte 
 consente di eseguire un'analisi completa di tutti i possibili esiti di una 
-prova. Ogni percorso dell'albero che va dalla radice al nodo terminale indica 
-una sequenza di eventi congiunti, incompatibile con qualsiasi altro percorso 
+prova. 
+Ogni percorso dell'albero che va dalla radice al nodo terminale indica 
+una sequenza di eventi congiunti, incompatibile con qualsiasi altro 
+percorso 
 dell'albero. La probabilità di ogni singolo evento si indica sui rami e 
 moltiplicando le probabilità che si incontrano nel percorso si ottiene la 
-probabilità della congiunzione degli eventi che formano il percorso. Dato che 
-ogni percorso che va dalla radice al nodo terminale individua eventi 
-incompatibili, se vogliamo trovare l'unione di due o più percorsi possiamo 
-semplicemente sommarli.
+probabilità della congiunzione degli eventi che formano il percorso. 
+Dato che ogni percorso che va dalla radice al nodo terminale individua 
+eventi incompatibili, se vogliamo trovare l'unione di due o più percorsi 
+possiamo semplicemente sommarli.
 L'esempio precedente può essere schematizzato in questo modo:
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+ 
 \begin{center}
 \begin{tikzpicture}[x=10mm,y=10mm,font=\small]
 \node [circle, draw] (a) {$\bullet$};
@@ -695,7 +695,8 @@ L'esempio precedente può essere schematizzato in questo modo:
 \node [rectangle, draw] (d66) [below =.2 of d55] {$6$};
 \node [right=.1 of d66]{$P(C \cap 6)=1/12$};
 
-\draw[ultra thick,color=Maroon] (a) -- (t) node[midway,sloped,above] {$1/2$};
+\draw[ultra thick,color=Maroon] (a) -- (t) node[midway,sloped,above] 
+{$1/2$};
 \draw (a) -- (c)node[midway,sloped,above] {$1/2$};
 \draw (t) -- (d1)node[midway,sloped] {$1/6$};
 \draw (t) -- (d2)node[midway,sloped] {$1/6$};
@@ -712,6 +713,8 @@ L'esempio precedente può essere schematizzato in questo modo:
 
 \end{tikzpicture}
 \end{center}
+
+\end{minipage}
 
 L'albero può essere semplificato considerando gli eventi coinvolti e i loro 
 complementari.
@@ -923,7 +926,7 @@ cycle;
 
 \end{center}
 
-La probabilità dell'insieme intersezione diventa: $P(N_1\cap N_2)=P(N_1)\cdot 
+La probabilità dell'intersezione diventa: $P(N_1\cap N_2)=P(N_1)\cdot 
 P(N_2/N_1)=\frac 2 5\cdot \frac 1 4=\frac 2{20}$.
 
 Attraverso il diagramma ad albero è facile calcolare le probabilità degli 
@@ -934,16 +937,14 @@ elementari di questo esperimento con $\Omega
 
 \begin{esempio}
 Una scatola di caramelle contiene 20 caramelle assortite alla frutta, 
-incartate 
-allo stesso modo e quindi irriconoscibili. Di esse 14 sono al limone. Fabio 
-ne 
-mangia 2. Qual è la probabilità che siano tutte e due al limone?
+incartate allo stesso modo e quindi irriconoscibili. Di esse 14 sono al 
+limone. Fabio ne mangia 2. Qual è la probabilità che siano tutte e due al 
+limone?
 \begin{itemize*}
 \item $E_1=$ la prima caramella è al limone $\to P(E_1)=\frac{14}{20}$
 \item $E_2=$ la seconda è al limone. Questo evento è dipendente dal primo, 
 perché se Fabio ha mangiato una caramella al limone nella scatola rimangono 
-19 
-caramelle di cui 13 al limone quindi $P(E_2/E_1)=\frac{13}{19}$.
+19 caramelle di cui 13 al limone quindi $P(E_2/E_1)=\frac{13}{19}$.
 \end{itemize*}
 \[P(E_1\cap E_2)=P(E_1)\cdot P(E_2/E_1)=\frac{14}{20}\cdot 
 \frac{13}{19}=\frac{91}{190}.\]
@@ -955,8 +956,7 @@ Dati due eventi A e B, entrambi appartenenti allo stesso spazio degli eventi,
 la 
 probabilità dell'intersezione degli eventi è uguale al prodotto della 
 probabilità del primo evento per la probabilità del secondo evento 
-condizionata 
-al primo. In simboli: $P(A\cap B)=P(A)\cdot P(B/A)$.
+condizionata al primo. In simboli: $P(A\cap B)=P(A)\cdot P(B/A)$.
 \end{teorema}
 
 Per la proprietà commutativa dell'intersezione abbiamo: $A\cap B=B\cap A$ 
@@ -1026,18 +1026,15 @@ node{$B$};
 \end{tikzpicture}
 \end{center}
 Immaginiamo la misura della probabilità come una massa unitaria da spalmare 
-sull'evento. La probabilità B è la quantità di massa da spalmare sull'evento 
-B 
-in relazione allo spazio degli eventi $\wp (\Omega )$. Nell'ipotesi di 
-ricevere 
-un'ulteriore informazione dal verificarsi di A, questa informazione modifica 
-la 
-probabilità di B. L'insieme di riferimento per la probabilità di B non sarà 
-più 
-$\wp (\Omega )$, ma $\wp (A)$ e $P(B/A)$ sarà data dal rapporto della massa 
-spalmata tra ciò che hanno in comune A e B cioè $P(A\cap B)$ e la probabilità 
-di 
-A cioè $P(A)$: $P(B/A)=\frac{P(A\cap B)}{P(A)}$.
+sull'evento. 
+La probabilità B è la quantità di massa da spalmare sull'evento B in 
+relazione allo spazio degli eventi $\wp (\Omega )$. Nell'ipotesi di 
+ricevere un'ulteriore informazione dal verificarsi di A, questa informazione 
+modifica la probabilità di B. L'insieme di riferimento per la probabilità di 
+B non sarà più $\wp (\Omega )$, ma $\wp (A)$ e $P(B/A)$ sarà data dal 
+rapporto della massa spalmata tra ciò che hanno in comune A e B cioè 
+$P(A\cap B)$ e la probabilità di A cioè $P(A)$: 
+$P(B/A)=\frac{P(A\cap B)}{P(A)}$.
 
 % \begin{exrig}
 \begin{esempio}
@@ -1095,7 +1092,9 @@ A)=\frac{365}{365}\cdot \frac{364}{365}\cdot \frac{363}{365}\cdot
 
 \section{Teorema di disintegrazione e formula di Bayes}
 \label{sec:05_bayes}
+
 \subsection{Teorema di disintegrazione}
+
 Vediamo adesso un'importante applicazione della probabilità condizionata. 
 Immaginiamo che lo spazio degli eventi sia completamente suddiviso in alcuni 
 eventi tra loro incompatibili $H_1$, $H_2$, $\dots$. Questo significa che 
@@ -1106,11 +1105,11 @@ degli insiemi e dire che formano una \emph{partizione} dell'insieme $\Omega$.
 
 Considerando adesso un evento $C$, possiamo immaginarlo formato dalle varie 
 parti in cui interseca gli insiemi $H_1$, $H_2$, $\dots$, ovvero:
-$$ C = (H_1 \cap C) \cup (H_2 \cap C) \cup (H_3 \cap C)$$
+\[C = (H_1 \cap C) \cup (H_2 \cap C) \cup (H_3 \cap C)\]
 \begin{inaccessibleblock}[Figura: TODO]
  \begin{figure}[htpb]
 \begin{minipage}[c]{.45\textwidth}
-\begin{tikzpicture}[x=10mm,y=10mm,font=\small]
+\begin{tikzpicture}[x=9mm,y=9mm,font=\small]
 \draw[rounded corners] (0,0) rectangle (4,3) (-.2,3) node {$\Omega$} ;
 \draw (.5, 3) .. controls(2,1) .. (1, 0);
 \node at (0.6,.4) {$H_1$};
@@ -1122,7 +1121,7 @@ $$ C = (H_1 \cap C) \cup (H_2 \cap C) \cup (H_3 \cap C)$$
 \end{tikzpicture}
 \end{minipage}\hfil
 \begin{minipage}[c]{.45\textwidth}
-\begin{tikzpicture}[x=10mm,y=10mm,font=\small]
+\begin{tikzpicture}[x=9mm,y=9mm,font=\small]
 \draw[rounded corners] (0,0) rectangle (4,3) (-.2,3) node {$\Omega$} ;
 \draw (.5, 3) .. controls(2,1) .. (1, 0);
 \node at (0.6,.4) {$H_1$};
@@ -1140,15 +1139,11 @@ $$ C = (H_1 \cap C) \cup (H_2 \cap C) \cup (H_3 \cap C)$$
 \end{minipage}
 \end{figure}
 \end{inaccessibleblock}
-
 Poiché anche gli eventi $H_1 \cap C$, $H_2 \cap C$ e $H_3 \cap C)$ sono 
 incompatibili abbiamo:
-
-$$p(C)=P(H_1 \cap C)+P(H_2 \cap C) + P(H_3 \cap C)$$
-
+\[p(C)=P(H_1 \cap C)+P(H_2 \cap C) + P(H_3 \cap C)\]
 Applicando adesso il teorema delle probabilità composte otteniamo
-
-$$p(C)=P(C|H_1)\cdot P(H_1)+P(C|H_2)\cdot P(H_2)+P(C|H_3)\cdot P(H_3)$$
+\[p(C)=P(C|H_1)\cdot P(H_1)+P(C|H_2)\cdot P(H_2)+P(C|H_3)\cdot P(H_3)\]
 % \begin{exrig}
 \begin{esempio}
 In una gara automobilistica si stima che una certa vettura ha probabilità di 
@@ -1156,19 +1151,15 @@ vincere del 20\% in caso di pioggia e del 5\% in caso di bel tempo. Se quel
 giorno la probabilità di precipitazioni è del 70\%, qual è la probabilità che 
 l'automobile vinca?
 
-Indichiamo con $A$ l'evento ''il giorno della gara piove'' e con $\overline 
-A$ 
-l'evento ''il giorno della gara non piove''. Inoltre indichiamo con $W$ 
-l'evento ''l'automobile vince la gara''. Poiché l'unione di $A$ e $\overline 
-A$ 
-è tutto l'insieme $\Omega$ e sono disgiunti possiamo applicare il teorema di 
-disintegrazione. Infatti\\
-$P(W|A)=0,2$\\
-$P(W|\overline A)=0,05$\\
-$P(A)=0,7$\\
-e quindi\\
-$P(W)=P(W|A)\cdot P(A) + P(W|\overline A)\cdot P(\overline A)=0,2 \cdot 0,7 + 
-0,05 \cdot 0,3 = 0,155$\\
+Indichiamo con $A$ l'evento ''il giorno della gara piove'' 
+e con $\overline A$ l'evento ''il giorno della gara non piove''. 
+Inoltre indichiamo con $W$ l'evento ''l'automobile vince la gara''. 
+Poiché l'unione di $A$ e $\overline A$ è tutto l'insieme $\Omega$ e sono 
+disgiunti possiamo applicare il teorema di disintegrazione. Infatti
+\[P(W|A)=0,2 \qquad P(W|\overline A)=0,05 \qquad P(A)=0,7\]
+e quindi:
+\[P(W)=P(W|A)\cdot P(A) + P(W|\overline A)\cdot P(\overline A)=0,2 \cdot 
+0,7 + 0,05 \cdot 0,3 = 0,155\]
 La probabilità di vittoria è quindi del 15,5\%
 \end{esempio}
 % \end{exrig}
@@ -1220,14 +1211,6 @@ circa dell'80\%.
 
 \section{Prove ripetute}
 
-Il sistema dei diagrammi ad albero è molto comodo per analizzare eventi che 
-si ripetono un numero limitato di volte. Un evento semplice come il lancio di 
-una moneta, se ripetuto per 20 volte, richiederebbe un albero con più di due 
-milioni di rami. Serve elaborare un'altra strategia. 
-
-Per iniziare ad inquadrare il problema immaginiamo una serie di palline che 
-cadono su dei pioli disposti come in figura. 
-
 \begin{wrapfigure}{r}{0.6\textwidth}
   \begin{center}
     \includegraphics[width=0.6\textwidth]{img/griglia.png}
@@ -1236,6 +1219,16 @@ cadono su dei pioli disposti come in figura.
 \href{https://phet.colorado.edu/it/simulation/plinko-probability}
      {https://phet.colorado.edu/it/simulation/plinko-probability}}
 \end{wrapfigure}
+
+Il sistema dei diagrammi ad albero è molto comodo per analizzare eventi che 
+si ripetono un numero limitato di volte. Un evento semplice come il lancio 
+di 
+una moneta, se ripetuto per 20 volte, richiederebbe un albero con più di 
+due 
+milioni di rami. Serve elaborare un'altra strategia. 
+
+Per iniziare ad inquadrare il problema immaginiamo una serie di palline che 
+cadono su dei pioli disposti come in figura. 
 
 Ogni pallina cade su un piolo e rimbalza casualmente a sinistra con 
 probabilità $p$ oppure a destra con probabilità $1-p$; Questo avviene per 
