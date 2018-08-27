@@ -9,7 +9,7 @@
 % \vspace{-2ex}
 % \end{inaccessibleblock}
 
-\input{\folder lbr/grafici.pgf}
+\input{\folder dai_naturali_agli_iperreali_gra.tex}
 
 \chapter{Dai Naturali agli Iperreali}
 
@@ -189,11 +189,10 @@ moltiplicarle, \dots
 
 I numeri reali formano un insieme \emph{ordinato}, \emph{denso} ma anche 
 \emph{completo} cioè il numero individuato da una qualunque sezione di 
-Dedekind 
-è un numero reale.
-Questo permette di far corrispondere ad ogni punto della \emph{retta reale}un 
-numero \emph{reale} e viceversa 
-ad ogni numero \emph{reale} un punto della \emph{retta reale}. 
+Dedekind è un numero reale.
+Questo permette di far corrispondere ad ogni punto della \emph{retta reale} 
+un numero \emph{reale} e viceversa ad ogni numero \emph{reale} un punto 
+della \emph{retta reale}. 
 
 Bene l'insieme dei numeri reali permette di risolvere tutti i problemi che 
 possiamo incontrare? 
@@ -346,8 +345,8 @@ Eudosso-Archimede?
 \subsection{Infinitesimi... e infiniti}
 \label{subsec:insnum_nonarchimedei}
 
-Se accettiamo che possa non valere il postulato di Eudosso-Archimede, 
-possiamo costruire un insieme numerico non archimedeo. 
+Se accettiamo che possa \textbf{non} valere il postulato di 
+Eudosso-Archimede, possiamo costruire un insieme numerico non archimedeo. 
 Per farlo, possiamo aggiungere all'insieme dei numeri reali un nuovo numero 
 (non reale) maggiore di zero ma più piccolo di qualunque numero reale 
 positivo:
@@ -365,15 +364,20 @@ con una lettera minuscola dell'alfabeto greco, per esempio $\epsilon$.
 Per quanto è già stato detto, un tale numero non può essere un numero
 reale. 
 
-La prima conseguenza all'introduzione di un infinitesimo è che allora ce ne 
-sono infiniti! Infatti anche la metà di un infinitesimo è un infinitesimo e 
+La prima conseguenza dell'introduzione di un infinitesimo è che allora ce 
+ne sono infiniti! 
+Infatti anche la metà di un infinitesimo è un infinitesimo e 
 sono infinitesimi anche il suo doppio o un suo sottomultiplo o un suo 
 multiplo.
 
 Altra conseguenza dell'aggiunta di un elemento infinitesimo all'insieme dei 
-reali è che, se esiste un numero maggiore di zero più piccolo di tutti i
-numeri reali, allora esiste anche un numero maggiore di qualunque altro 
-numero reale:
+reali è che, se si possono fare le normali operazioni con questi nuovi 
+numeri, allora esiste anche un numero maggiore di qualunque numero reale:
+
+% Altra conseguenza dell'aggiunta di un elemento infinitesimo all'insieme dei 
+% reali è che, se esiste un numero maggiore di zero più piccolo di tutti i
+% numeri reali, allora esiste anche un numero maggiore di qualunque altro 
+% numero reale:
 
 \[\text{se} \quad \epsilon < \frac{1}{n} \quad \forall n \in \N 
 \quad \text{allora} \quad \frac{1}{\epsilon} > n \quad \forall n 
@@ -409,7 +413,7 @@ numeri infinitesimi senza lo zero.
  \item \textbf{Finiti}:
 numeri che non sono infiniti.
  \item \textbf{Finiti non infinitesimi}:
-numeri che non sono infiniti né infinitesimi.
+numeri che non sono né infiniti né infinitesimi.
 \end{description}
 
 Per semplificare la scrittura (e complicare la lettura) adotteremo delle 
@@ -436,25 +440,29 @@ qualsiasi &  & \(x, y, z, \dots\) \\\bottomrule
 \end{tabular}
 \label{tab:insnum_tipi}
 \end{center}
- 
+
+
+% TODO tirare fuori infinitamente vicini
+
 \subsection{Iperreali finiti e parte standard}
 \label{subsec:insnum_partestandard}
 
-Gli Iperreali finiti sono quei numeri che sono compresi tra due numeri 
-Reali:
+Tra i vari tipi di Iperreali, hanno un ruolo particolare gli Iperreali 
+finiti perché sono quelli che assomigliano di più ai numeri che già 
+conosciamo e possono essere facilmente tradotti in numeri reali e quindi in 
+numeri razionali. 
 
 \begin{definizione}
- Un numero iperreale finito $x$ è un numero compreso tra due numeri Reali 
-allora $x$:
+ Un numero iperreale finito $x$ è un numero compreso tra due numeri Reali:
 
-\[\text{Se } x \in \IR \wedge a, b \in \R \wedge 
-  a < x < b \text{ allora } x \text{ è un Iperreale finito.}\]
+\[\text{Se } x \in \IR \sand a, b \in \R \sand 
+  a < x < b \quad \text{ allora } x \text{ è un Iperreale finito.}\]
 \end{definizione}
 
-Nei Reali due numeri,ad es. \(a\) e \(b\), possono essere o uguali o 
+Nei Reali due numeri, ad es. \(a\) e \(b\), possono essere o uguali o 
 diversi. 
 Negli Iperreali, due numeri possono essere:
-\begin{itemize}
+\begin{itemize} [noitemsep]
  \item \emph{uguali} se la loro differenza è zero: \quad
  \(a = b \sLRarrow a-b = 0\)
  \item \emph{diversi} se la loro differenza è diversa da zero: \quad 
@@ -469,26 +477,26 @@ Ogni numero finito può essere visto come un numero \emph{reale}
 più un \emph{infinitesimo}.
 
 Se $x$ è finito allora $x = a + \epsilon$ dove:
-\begin{itemize}
+\begin{itemize} [noitemsep]
  \item \(x\) è un numero iperreale finito;
- \item \(a\) è un numero reale:
- \item \(\epsilon\) è un iperreale infinitesimo.
+ \item \(a\) è un numero reale;
+ \item \(\epsilon\) è un infinitesimo (anche zero).
 \end{itemize}
 
 Se \(x=a+\epsilon\) allora potremmo dire che \(x\) è infinitamente vicino 
-ad \(a\) infatti sottraendo ad entrambi i membri dell'uguaglianza la 
-stessa quantità \(a\) otteniamo: 
-\(x-a = a+\epsilon-a \sLRarrow x-a = \epsilon \sLRarrow x \approx a\) 
+ad \(a\) infatti la differenza tra i due dà un infinitesimo: 
+\[x=a+\epsilon \sLRarrow
+x-a = a+\epsilon-a \sLRarrow x-a = \epsilon \sLRarrow x \approx a\] 
 
 Si può immaginare ogni Iperreale finito come una
 nuvola contenente un numero standard $a$ e tutti gli infinitesimi che lo 
-circondano, così vicini ad $a$ da non potersi confondere con altri infiniti
-iperreali di una nuvola vicina, appartenenti per esempio al numero 
+circondano, così vicini ad $a$ da non potersi confondere con gli altri 
+infiniti iperreali di una nuvola vicina, appartenenti per esempio al numero 
 iperreale $y=b+\delta$. 
 
 Un numero Iperreale finito non può essere infinitamente vicino 
-a due numeri reali diversi quindi esiste un solo numero Reale infinitamente 
-vicino ad un numero Iperreale. 
+a due numeri reali diversi (perché?) quindi esiste un solo numero Reale 
+infinitamente vicino ad un dato numero Iperreale. 
 Questo numero reale si chiama \emph{parte standard} del numero Iperreale.
 
 % \begin{definizione}
@@ -507,13 +515,29 @@ infinitamente vicino ad \(a\):
 \[\st(x) = a \sLRarrow a \in \R \sand x \approx a\]
 \end{definizione}
 
+\begin{osservazione}
+\begin{itemize} [nosep]
+ \item 
+La parte standard di un infinitesimo è zero infatti:
+\(\epsilon = 0+\epsilon\).
+ \item 
+Un numero iperreale infinito non ha parte standard poiché non esiste nessun 
+numero reale infinitamente vicino a un infinito.
+\end{itemize}
+\end{osservazione}
+
+% TODO
+%  \begin{esempio}
+%   $3\epsilon +5 +6M -2\epsilon +7 -2M = 4M +12 +\epsilon \quad (tipo=I)$
+%  \end{esempio}
+
 
 \subsection{Retta Iperreale e strumenti ottici}
 \label{subsec:insnum_retta}
 
 In un paragrafo precedente abbiamo visto che si può accettare l'idea che 
-ad ogni numero reale corrisponde un punto della retta e ad ogni 
-punto della retta corrisponde un numero reale. 
+ad ogni numero reale corrisponda un punto della retta e ad ogni 
+punto della retta corrisponda un numero reale. 
 Questa affermazione non è un teorema dimostrato, è un postulato. 
 Fa parte del modello di numeri usato, questa idea è caratteristica dei 
 numeri reali. 
@@ -532,8 +556,8 @@ C'è una corrispondenza biunivoca tra i numeri Iperreali e
 i punti della retta (iperreale).
 \end{postulato}
 
-Con i numeri reali abbiamo una certa abitudine a rappresentare numeri.
-Per rappresentare i numeri Iperreali dobbiamo procurarci degli strumenti 
+Abbiamo già una certa abitudine a rappresentare numeri reali sulla retta, 
+per rappresentare i numeri Iperreali dobbiamo procurarci degli strumenti 
 particolari: \emph{microscopi}, \emph{telescopi}, \emph{grandangoli}.
 
 Diamo una sbirciata al loro manuale di istruzioni.
@@ -580,7 +604,8 @@ Per esempio un microscopio permette di visualizzare i seguenti numeri:
  \begin{center}
 \microscopioc
  \end{center}
-\caption{Microscopio per NON vedere \(2-3\epsilon\).} \label{fig:microscopioc}
+\caption{Microscopio per \emph{non} vedere \(2-3\epsilon\).} 
+\label{fig:microscopioc}
 \end{minipage}
 \hfill
 \begin{minipage}{.48\linewidth}
@@ -598,8 +623,10 @@ numero \emph{naturale} di volte e microscopi ``non standard'' che
 ingrandiscono infinite volte (ricordiamoci che \(\frac{1}{\epsilon}\) è un 
 infinito.
 
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsubsection{Telescopi}
-\label{subsec:insnum_microscopio}
+\label{subsec:insnum_telescopi}
 
 Il telescopio permette di avvicinare una porzione di retta senza cambiare la 
 sua scala. 
@@ -639,7 +666,7 @@ operare
 ingrandimenti ``standard'' o ``non standard'' a piacere.
 
 \subsubsection{Grandangoli (Zoom)}
-\label{subsec:insnum_microscopio}
+\label{subsec:insnum_zoom}
 
 Il Grandangolo permette di cambiare la scala della visualizzazione della 
 retta, 
@@ -676,8 +703,30 @@ Possiamo usare uno zoom per visualizzare i seguenti numeri:
 \end{inaccessibleblock}
 \end{figure}
 
-Anche per questi strumenti utilizzeremo versioni che permettono zoomate 
+Anche per i grandangoli utilizzeremo versioni che permettono zoomate 
 ``standard'' e ``non standard''.
+
+\begin{inaccessibleblock}[Combinazione di diversi strumenti.]
+\begin{minipage}{.38\linewidth}
+\subsubsection{Combinazione di strumenti}
+\label{subsec:insnum_combinazione}
+
+Questi strumenti sono ``modulari'', possono essere combinati a piacere. 
+Per esempio per visualizzare il numero non standard: 
+\(1741,998 +2\epsilon\) posso utilizzare in sequenza un telescopio per 
+avvicinarmi al numero, un microscopio standard per poter vedere i 
+millesimi e un microscopio non standard per vedere il numero infinitamente 
+vicino al numero standard.
+\end{minipage}
+\hfill
+\begin{minipage}{.58\linewidth}
+ \begin{center}
+\combinazione
+ \end{center}
+\end{minipage}
+\end{inaccessibleblock}
+
+\vspace{-5mm}
 
 \subsection{Operazioni}
 \label{subsec:insnum_operazioni}
@@ -688,18 +737,20 @@ che valgono nei numeri Iperreali.
 \subsubsection{Addizione}
 \label{subsec:insnum_addizione}
 
-\noindent \begin{minipage}{.5\textwidth}
+\begin{multicols}{2}
 Alcune osservazioni:
 
 \begin{enumerate} [noitemsep]
- \item Le regole relative all'addizione valgono anche per la sottrazione, se 
+ \item Le regole relative all'addizione valgono anche per la sottrazione, 
+se 
 uno degli addendi è negativo. 
  \item Zero è l'elemento neutro dell'addizione nei Reali e continua ad 
 esserlo 
 anche negli Iperreali: $x+0=0+x=x$.
  \item Un infinitesimo più un altro infinitesimo dà per risultato un 
 infinitesimo: $\alpha+\beta=\gamma$.
- \item Un infinitesimo non nullo più un altro infinitesimo non nullo può dare 
+ \item Un infinitesimo non nullo più un altro infinitesimo non nullo può 
+dare 
 per risultato anche zero: \dots
  \item Un finito più un infinitesimo dà come risultato un finito.
  \item Un finito più un finito dà come risultato un finito.
@@ -710,9 +761,6 @@ per risultato anche zero: \dots
 infinitesimo, un finito non infinitesimo, un infinito.
 \end{enumerate}
 
-\end{minipage}
-\hfill
-\begin{minipage}{.45\textwidth}
 Nel precedente elenco abbiamo visto che alcune addizioni danno un risultato 
 che dipende solo dai tipi degli operandi, altre operazioni danno dei 
 risultati 
@@ -723,20 +771,21 @@ organizza le precedenti osservazioni.
 \renewcommand{\arraystretch}{.0}
 \scalebox{0.8}{
 \begin{tabular}{p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|}
-\centra{$+$} & \centra{0} & \centra{inn} & \centra{fni} & \centra{I} \\\hline
+\centra{$+$} & \centra{0} & \centra{inn} & \centra{fni} & \centra{I} 
+\\\hline
 \centra{0} & \centra{0} & \centra{inn}& \centra{fni} & \centra{I} \\\hline
 \centra{inn} & \centra{inn} & \centra{i}& \centra{fni} & \centra{I} \\\hline
 \centra{fni} & \centra{fni} & \centra{fni}& \centra{f} & \centra{I} \\\hline
 \centra{I} & \centra{I} & \centra{I}& \centra{I} & \centra{?} \\\hline
 \end{tabular}}
 \end{center}
-\vspace{2mm}
-\end{minipage}
+% \vspace{2mm}
+\end{multicols}
 
 \subsubsection{Moltiplicazione}
 \label{subsec:insnum_moltiplicazione}
 
-\noindent \begin{minipage}{.5\textwidth}
+\begin{multicols}{2}
 Alcune osservazioni:
 \begin{enumerate} [noitemsep]
  \item Zero è l'elemento assorbente: il prodotto di un iperreale per zero
@@ -753,9 +802,6 @@ per risultato un infinitesimo non nullo.
 riflessioni
 sulla proprietà archimedea. Ne parliamo più avanti, in un paragrafo dedicato.
  \end{enumerate}
-\end{minipage}
-\hfill
-\begin{minipage}{.45\textwidth}
 E la tabella corrispondente:
 \begin{center}
 \renewcommand{\arraystretch}{.0}
@@ -775,14 +821,12 @@ E la tabella corrispondente:
 \centra{?}& \centra{I} & \centra{I} \\\hline
 \end{tabular}}
 \end{center}
-\vspace{2mm}
-\end{minipage}
+\end{multicols}
 
 \subsubsection{Divisione}
 \label{subsec:insnum_divisione}
 
-
-\noindent \begin{minipage}{.5\textwidth}
+\begin{multicols}{2}
 Alcune osservazioni:
 \begin{enumerate} [noitemsep]
  \item Anche negli Iperreali la divisione per zero non è definita.
@@ -801,10 +845,6 @@ Alcune osservazioni:
 %  \item Un infinito per un infinito può dare come risultato zero, un 
 % infinitesimo, un finito non infinitesimo, un finito, un infinito;
 \end{enumerate}
-\vspace{20mm}
-\end{minipage}
-\hfill
-\begin{minipage}{.45\textwidth}
 E la tabella corrispondente:
 \begin{center}
 \renewcommand{\arraystretch}{.0}
@@ -825,23 +865,21 @@ E la tabella corrispondente:
 \centra{I}& \centra{I} & \centra{?} \\\hline
 \end{tabular}}
 \end{center}
-\end{minipage}
+\end{multicols}
 
 \subsubsection{Reciproco}
 \label{subsec:insnum_reciproco}
 
-\noindent \begin{minipage}{.5\textwidth}
+\begin{multicols}{2}
 Alcune osservazioni:
 \begin{enumerate} [noitemsep]
  \item Dalla tabella precedente si può estrarre la riga corrispondente a~1
 e si ottiene la tabella del reciproco.
  \item Una volta convinti della regola del reciproco, si può ricavare la 
 tabella della divisione attraverso la 
-regola:~$x \div y = x \times \tonda{\frac{1}{y}}$.
+regola:\\
+$x : y = x \cdot \frac{1}{y}$.
 \end{enumerate}
-\end{minipage}
-\hfill
-\begin{minipage}{.45\textwidth}
 E la tabella corrispondente:
 \begin{center}
 \renewcommand{\arraystretch}{.0}
@@ -853,8 +891,8 @@ E la tabella corrispondente:
 \centra{I} & \centra{fni} & \centra{inn} %\\\hline
 \end{tabular}}
 \end{center}
-\vspace{11mm}
-\end{minipage}
+% \vspace{11mm}
+\end{multicols}
 
 \begin{osservazione}
 Non ci sono regole immediate per le seguenti operazioni:
