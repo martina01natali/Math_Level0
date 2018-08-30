@@ -59,37 +59,11 @@ calcolatrice presenta i numeri in italiano o in americano?
 \end{osservazione}
 
 Riprendiamo la divisione intera presentata nel paragrafo sulla divisione 
-del capitolo sui numeri naturali: \(1523:7\).
-Ma questa volta aggiungiamo, a destra del numero un po' di zeri separati 
-dal numero con la virgola decimale: \(1523,000:7\)
-
-Questa volta presento lo stesso algoritmo ma un po' abbreviato: il 
-risultato della moltiplicazione viene tolto al volo dal dividendo e viene 
-scritto direttamente il nuovo resto. La filastrocca di questa divisione è 
-la seguente:
-
-\begin{minipage}[]{.39\textwidth}
-Il 7 nel 15 ci sta 2 volte. Scrivo 2 come prima cifra del quoziente.
-2 per 7 uguale 14 al 15: 1. Scrivo 1 sotto al 5 e riporto il 2.
-
-Il 7 nel 12 ci sta 1 volta. Scrivo 1 come seconda cifra del quoziente.
-1 per 7 fa 7 al 12: 5. Scrivo 5 sotto al 2 e riporto il 3.
-
-Il 7 nel 53 ci sta 7 volte. Scrivo 7 come terza cifra del quoziente.
-7 per 7 fa 49 al 53: 4. Scrivo 4 sotto al 3.
-
-A questo punto nella divisione intera ci eravamo fermati, ora invece 
-aggiungiamo~0 decimi a destra di~4 e calcoliamo quanti decimi di 7 sono 
-contenuti in~40 decimi e con quale resto e procediamo così continuando ad 
-aggiungere zeri e procedendo sempre con le stesse operazioni.
-\end{minipage}
-\begin{minipage}[]{.59\textwidth}
-\begin{center}\input{\folder lbr/01_divisionea.tex}\end{center}
-\end{minipage}
-
-L'impressione è che questo ``algoritmo'' non termini mai. Ed è vero!
-
-Proviamo con un altro caso:
+del capitolo sui numeri naturali.
+Ma questa volta lo abbreviamo un po': il risultato della moltiplicazione 
+viene tolto al volo dal dividendo e viene scritto direttamente il nuovo 
+resto. 
+La filastrocca di questa divisione è la seguente:
 
 \begin{minipage}[]{.59\textwidth}
 \begin{center}\input{\folder lbr/02_divisioneb.tex}\end{center}
@@ -108,8 +82,34 @@ Il 35 nel 70 ci sta 2 volte, scrivo 2; 2 per 35 fa 70 al 70: 0.\\
 Questa volta ho ottenuto come resto 0 e l'algoritmo della divisione si 
 ferma.
 
+% \newpage
+
+Proviamo con un altro esempio:
+
+\begin{minipage}[]{.39\textwidth}
+Il 7 nel 15 ci sta 2 volte. Scrivo 2 come prima cifra del quoziente.
+2 per 7 uguale 14 al 15: 1. Scrivo 1 sotto al 5 e riporto il 2.
+
+Il 7 nel 12 ci sta 1 volta. Scrivo 1 come seconda cifra del quoziente.
+1 per 7 fa 7 al 12: 5. Scrivo 5 sotto al 2 e riporto il 3.
+
+Il 7 nel 53 ci sta 7 volte. Scrivo 7 come terza cifra del quoziente.
+7 per 7 fa 49 al 53: 4. Scrivo 4 sotto al 3.
+
+\end{minipage}
+\begin{minipage}[]{.59\textwidth}
+\begin{center}\input{\folder lbr/01_divisionea.tex}\end{center}
+\end{minipage}
+
+A questo punto nella divisione intera ci eravamo fermati, ora invece 
+aggiungiamo~0 decimi a destra di~4 e calcoliamo quanti decimi di 7 sono 
+contenuti in~40 decimi e con quale resto e procediamo così continuando ad 
+aggiungere zeri e procedendo sempre con le stesse operazioni.
+Potremmo avere l'impressione che questo ``algoritmo'' non termini mai. 
+Ed è proprio così!
+
 L'algoritmo della divisione può fermarsi producendo ad un certo punto il 
-resto~0, oppure andare avanti all'infinito. Ma siamo sicuri che la prima 
+resto~0, oppure andare avanti all'infinito. Ma siamo sicuri che la seconda 
 divisione non si fermi mai? Magari dopo 200 cifre decimali potrebbe avere 
 resto~0? Prova a calcolare qualche altra cifra decimale \dots.
 
@@ -140,6 +140,8 @@ Durante la scuola primaria abbiamo imparato ad eseguire le operazioni con i
 numeri decimali, ma solo con i numeri decimali limitati. Come 
 sommare o moltiplicare tra di loro due numeri decimali periodici? È un bel 
 problema.
+
+\newpage
 
 \section{Frazioni}
 \label{sec:razionali_frazioni}
@@ -426,16 +428,16 @@ Che espresso con la filastrocca sarebbe:
 
 \begin{esempio}
  Esegui le seguenti addizioni:
+ \begin{multicols}{2}
  \begin{enumerate} [noitemsep]
+  \item \(-\dfrac{20}{7} -\dfrac{15}{7} = -\dfrac{35}{7} = 5\)
   \item \(\dfrac{4}{12} - \dfrac{5}{15} = \dfrac{1}{3} - \dfrac{1}{3} = 0\)
-    \hfill \(60 = 4 \cdot 15 = 5 \cdot 12 = 60\)
-  \item \(-\dfrac{TODO}{7} -\dfrac{15}{7}\)
-    \hfill \(-12 > -15\)
-  \item \(\dfrac{TODO}{5} + \dfrac{6}{10}\)
-    \hfill \(5 < 10\)
-  \item \(\dfrac{TODO}{8} + \dfrac{5}{4}\)
-    \hfill \(\dfrac{7}{8} < \dfrac{10}{8} = \dfrac{5}{4}\)
+  \item \(\dfrac{6}{5} + \dfrac{3}{10} = \dfrac{12 + 3}{10} = 
+          \dfrac{15}{10} = \dfrac{3}{2}\)
+  \item \(\dfrac{5}{8} - \dfrac{7}{6} = \dfrac{15 - 28}{24} = 
+          -\dfrac{13}{24}\)
  \end{enumerate}
+ \end{multicols}
 \end{esempio}
 
 % Bella, ma dopo la moltiplicazione tra frazioni:
@@ -1034,7 +1036,6 @@ In tutto ha speso la frazione
 % \ovalbox{\risolvii \ref{ese:3.75}, \ref{ese:3.76}, \ref{ese:3.77}, 
 % \ref{ese:3.78}}
 
-
 \section{Un po' di  storia}
 
 Quando si deve dividere una certa grandezza o totalità in un certo numero di 
@@ -1607,7 +1608,7 @@ generatrice al numero periodico otteniamo un risultato inatteso
 \[2,\overline{9}=\frac{29-2}{9}=\frac{27}{9}=3.\]
 Quindi~$2,\overline{9}$ coincide con il numero intero~3.
 
-Per lo stesso motivo~$1,1\overline{9}=2$,~$21,22\overline{9}=21,23$.
+Per lo stesso motivo~$1,1\overline{9}=1,2$,~$21,22\overline{9}=21,23$.
 
 \begin{wrapfloat}{figure}{r}{0pt}
 \input{\folder lbr/fig021_perretre.pgf}
