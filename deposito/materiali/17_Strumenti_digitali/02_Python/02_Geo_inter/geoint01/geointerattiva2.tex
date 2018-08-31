@@ -105,7 +105,7 @@ Vediamo di seguito alcuni nuovi strumenti che la libreria ci fornisce come
 \subsection{\lstinline{Orthogonal}}
 \label{sub:geoint_orthogonal}
 
-\begin{description}
+\begin{description} %[noitemsep]
  \item [Scopo] Crea la retta perpendicolare ad una retta data passante per un 
 punto.
  \item [Sintassi] \lstinline{Orthogonal(line, point, ...)}
@@ -161,7 +161,7 @@ Per eseguire l'esempio bisogna ricordarsi di aggiungerle.
 \subsection{\lstinline{Parallel}}
 \label{sub:geoint_parallel}
 
-\begin{description}
+\begin{description} 
  \item [Scopo] Crea la retta parallela ad una retta data passante per un punto.
  \item [Sintassi] \lstinline{Parallel(line, point, ...)}
 %  \item [Osservazioni] 
@@ -299,8 +299,8 @@ pyig.PointOn(perpendicolare, -1, width=5, color="DebianRed", name="P'")
  \item [Sintassi] \lstinline{ConstrainedPoint(obj, parameter)}
  \item [Osservazioni] Per quanto riguarda \lstinline{parameter}, valgono le 
 osservazioni fatte per \lstinline{PoinOn}.
-Questo punto però può essere trascinato con il mouse pur restando sempre
-sull'oggetto. Dato che può essere trascinato con il mouse
+Questo punto può essere trascinato con il mouse pur restando sempre
+sull'oggetto. Dato che si può trascinare, 
 ha un colore di default diverso da quello degli altri oggetti.
 
  \item [Esempio] Circonferenza e proiezioni sugli assi.
@@ -484,29 +484,29 @@ problemi più complessi.
 \item Per affrontare problemi più complessi con la geometria interattiva è 
 utile conoscere anche altri strumenti messi a disposizione dalla libreria 
 \lstinline{pyig}.
-\begin{itemize}
+\begin{itemize} %[noitemsep]
  \item \lstinline{Orthogonal(linea, punto, ...)} 
- per tracciare rette perpendicolari.
+ la retta perpendicolare a una linea.
  \item \lstinline{Parallel(linea, punto, ...)} 
- per tracciare rette parallele.
+ la retta parallela a una linea.
  \item \lstinline{MidPoints(punto, punto, ...)} 
- per tracciare il punto medio tra due punti.
+ il punto medio tra due punti.
  \item \lstinline{MidPoint(segmento, ...)} 
- per tracciare il punto medio di un segmento.
+ il punto medio di un segmento.
  \item \lstinline{Bisector(angolo, ...)} 
- per tracciare la bisettrice di un angolo.
+ la bisettrice di un angolo.
  \item \lstinline{PointOn(linea, parametro, ...)} 
- per tracciare un punto in una posizione fissata di una linea.
+ un punto in una posizione fissata di una linea.
  \item \lstinline{ContrainedPoint(linea, parametro, ...)} 
- per tracciare un punto vincolato ad una linea.
+ un punto vincolato ad una linea.
  \item \lstinline{<punto_vincolato>.parameter()} 
- per ottenere il parametro di un punto vincolato ad una linea.
+ il parametro di un punto vincolato ad una linea.
  \item \lstinline{Text(x, y, testo)} 
- per scrivere un testo in una posizione del piano.
+ un testo in una posizione del piano.
  \item \lstinline{VarText(x, y, testo, variabili)} 
- per scrivere un testo con delle parti variabili in una posizione del piano.
+ un testo con delle parti variabili in una posizione del piano.
  \item \lstinline{Calc(funzione, variabili)} 
- per eseguire dei calcoli.
+ il risultato di una funzione.
 \end{itemize}
 \item Per avere informazioni su tutti gli strumenti messi a disposizione della 
 libreria si può consultare il manale distribuito assieme alla libreria stessa 
@@ -764,6 +764,8 @@ i colori del bordo.
 usare un metodo un po' più complesso, infatti, non basta creare i tre punti, 
 dobbiamo anche mantenere un riferimento a ciascuno di loro per poterli 
 utilizzare in seguito.
+
+\newpage %-----------------------------------------------
 
 \subsubsection{copiare}
 
