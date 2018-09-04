@@ -3,9 +3,1508 @@
 
 \input{\folder funzioni_grafici.tex}
 
-\chapter{Disegni per le funzioni}
+\chapter{Introduzione alle funzioni}
 
-\section{Interpretazione insiemistica di una funzione}
+\section{Cos'è una funzione}
+\label{sec:funzioni2_cose}
+
+In italiano la parola  ``funzione'' ha una decina di significati diversi: 
+controllate su un buon vocabolario. Deriva dall latino:  ``functum'' che 
+significa  ``eseguito''.
+Possiamo pensare a una funzione come a un meccanismo che è in grado di 
+eseguire un compito e dare quindi un risultato.
+
+\begin{definizione}
+ Chiameremo \textbf{funzione} la descrizione di un qualunque 
+ \emph{processo} che dia un \emph{risultato}.
+\end{definizione}
+
+\begin{itemize} [noitemsep]
+ \item Con \emph{processo} intendiamo un qualsiasi \emph{meccanismo} o 
+\emph{procedimento} o \emph{algoritmo} o \emph{formula}...
+ \item Con \emph{risultato} intendiamo un qualunque \emph{oggetto} prodotto 
+dal \emph{processo}.
+\end{itemize}
+
+Il risultato viene anche chiamato \emph{output} della funzione.
+ 
+\begin{esempio}
+Vediamo qualche esempio che possa chiarire le idee \dots o confonderle 
+ulteriormente.
+\begin{itemize} [noitemsep]
+ \item Una \emph{moka} è un meccanismo che produce una bevanda scura e 
+molto calda.
+ \item Un \emph{calcolo} è un meccanismo che produce un risultato numerico.
+ \item Un \emph{bollitore} è uno strumento che produce acqua bollente.
+ \item La \emph{media}  di più numeri è un meccanismo che produce un numero.
+ \item Una \emph{stampante} è uno strumento che produce fogli scritti.
+\end{itemize}
+\end{esempio}
+
+\subsection{Argomenti di una funzione}
+\label{subsec:funzioni2_argomenti}
+
+Una \emph{moka}, per quanto sofisticata sia, non ha la possibilità di 
+produrre del caffè se non le vengono forniti dei  ``materiali":
+\begin{itemize} [noitemsep]
+ \item acqua,
+ \item caffè tostato e macinato,
+ \item calore.
+\end{itemize}
+
+ Questi  ``oggetti'' che la funzione usa e trasforma per dare il risultato 
+vengono chiamati \emph{argomenti} della funzione.
+ 
+Diamo quindi la seguente:
+
+\begin{definizione}
+ Chiamiamo \textbf{argomenti} gli oggetti che vengono passati ad 
+una funzione e che la funzione può adoperare per dare un risultato.
+\end{definizione}
+
+Gli argomenti sono anche detti \emph{input} della funzione.
+
+\paragraph{Riassumendo}
+
+\begin{enumerate} [noitemsep]
+ \item Una \emph{funzione} è un qualsiasi meccanismo che dà un 
+\emph{risultato}.
+ \item Il risultato è anche detto \emph{output} della funzione.
+ \item Una funzione può essere chiamata passandole degli \emph{argomenti}.
+ \item Gli argomenti di una funzione sono anche detti gli \emph{input} 
+della funzione.
+ \item Quindi, in generale, una funzione riceve degli \emph{oggetti} detti 
+argomenti (o input) e produce un oggetto detto risultato (o output).
+\end{enumerate}
+
+\section{Costruiamo funzioni}
+\label{sec:funzioni2_costruiamo}
+
+Pr poter fare molti esperimenti e realizzare funzioni in modo economico e 
+sicuro, in questo capitolo creeremo funzioni che lavorano su *simboli* cioè 
+funzioni che prendono come argomenti dei simboli e producono come risultato 
+dei simboli.
+
+Potremo eseguire noi stessi la funzione o farla eseguire a un computer 
+scrivendola in un linguaggio di programmazione. 
+Nel seguito useremo il linguaggio Python che permette di scrivere funzioni 
+facilmente comprensibili dagli umani e eseguibili in modo automatico da un 
+computer.
+
+Vediamo ora come realizzare alcune funzioni Python:
+
+\begin{esempio}
+ Scrivi la funzione che dia come risultato la stringa  ``ciao''.
+ 
+\lstinputlisting{\folder src/01_saluto.py} %[firstline=2, lastline=5]
+\end{esempio}
+
+\begin{osservazione}
+ \begin{enumerate} [nosep]
+  \item Per definire una funzione, in Python,  dobbiamo usare:
+  \begin{enumerate} [noitemsep]
+   \item la parola riservata  ``def'', seguita dal
+   \item nome della funzione (in questo caso  ``saluto'', ma avremmo potuto 
+anche usare la parola  ``arggh"), seguito da una
+   \item coppia di parentesi, seguite da
+   \item il simbolo *duepunti* (":"), poi, a capo e rientrato
+   \item un blocco di istruzioni, che termina con
+   \item il comando  ``return'', seguito da
+   \item il risultato della funzione.
+  \end{enumerate}
+
+  È più difficile da descrivere che da fare!
+  Con i simboli possiamo riassumere la sintassi della definizione di una 
+funzione in questo modo:
+\begin{lstlisting}
+  def <nome_funzione>():
+       ``""<docstring>"""
+      [<istruzioni>]
+      return <risultato>
+\end{lstlisting}
+
+  \item Il testo posto come prima istruzione della funzione si chiama 
+\emph{docstring} e descrive in modo sintetico cosa fa la funzione.
+  \item Per eseguire una funzione dobbiamo chiamare il nome della funzione 
+seguita da una coppia di parentesi.
+\begin{lstlisting}
+  <nomefunzione>()
+\end{lstlisting}
+  \item Nella descrizione della sintassi:
+  \begin{enumerate} [nosep]
+   \item le parti tra parentesi angolari ("<'' e  ``>") vanno sostituiti 
+con 
+qualcosa di sensato;
+   \item le parti tra parentesi quadrate ("['' e  ``]") sono opzionali.
+  \end{enumerate}
+ \end{enumerate}
+\end{osservazione}
+
+\begin{esempio}
+ Scrivi la funzione che dia come risultato la media di due numeri.
+
+Questa volta, la funzione deve ricevere due argomenti per poter dare il suo 
+risultato. Vediamo come realizzarla.
+
+\lstinputlisting[lastline=5]{\folder src/02_media.py} %[firstline=2, 
+lastline=5]
+\end{esempio}
+
+\begin{osservazione}
+ \begin{enumerate} [nosep]
+  \item La coppia di parentesi che segue il nome della funzione nella 
+definizione contiene due nomi. Questi nomi vengono detti *parametri* della 
+funzione.
+  \item La funzione precedente non aveva parametri, questa funzione ha 2 
+parametri.
+  \item La sintassi completa di una funzione è:
+\begin{lstlisting}
+  def <nome_funzione>([<parametri>]):
+       ``""<docstring>"""
+      [<istruzioni>]
+      return <risultato>
+\end{lstlisting}
+  \item Se la funzione ha 2 parametri, per eseguirla dovrò fornirle 2 
+argomenti. 
+Quindi per eseguirla, dovrò mettere tra parentesi due oggetti che verranno 
+collegati ai due parametri:
+\begin{lstlisting}
+  <nomefunzione>([<argomenti>])
+\end{lstlisting}
+ \end{enumerate}
+\end{osservazione}
+
+Prova a eseguire la precedente funzione passandole diversi argomenti.
+\lstinputlisting[firstline=7]{\folder src/02_media.py} %[, lastline=5]
+
+\begin{osservazione}
+Osservate la differenza tra la media dei due numeri 34 e 56 e la media 
+tra 0.34 e 0.56. La cosa risulta strana, ma dipende dal fatto che molti 
+numeri che per noi sono decimali limitati, per il computer sono decimali 
+periodici. e quindi sono *sempre* approssimati.
+\end{osservazione}
+
+\begin{esempio}
+Scrivi la funzione che dia come risultato la lunghezza di una stringa.
+
+\begin{osservazione}
+Intendiamo con *stringa* una sequenza di caratteri cioè una parola o 
+un testo.
+\end{osservazione}
+
+\lstinputlisting{\folder src/03_lunghezza.py} %[, lastline=5]
+
+Prova a eseguire la precedente funzione passandole diversi argomenti.
+\end{esempio}
+
+\begin{esempio}
+Scrivi la funzione che dia come risultato il terzo carattere di una 
+stringa.
+
+\lstinputlisting{\folder src/04_terzocarattere.py} %[, lastline=5]
+
+Prova a eseguire la precedente funzione passandole diversi argomenti.
+\end{esempio}
+
+\begin{osservazione}
+ A tutte le persone normali potrà sembrare strano che per ottenere il 
+terzo carattere si debba mettere tra le parentesi quadre il numero 2. 
+La cosa si spiega considerando che in Python (e non solo in Python) le 
+sequenze iniziano dal numero zero. Quindi il primo carattere è quello che 
+ha posizione 0, il secondo quello che ha posizione 1 e il terzo quello che 
+ha posizione 2.
+\end{osservazione}
+
+\begin{esempio}
+Scrivi la funzione che dia come risultato *vero* se un numero è pari e 
+*falso* se un numero è dispari.
+
+\lstinputlisting{\folder src/05_pari.py} %[, lastline=5]
+
+Prova a eseguire la precedente funzione passandole diversi argomenti.
+\end{esempio}
+
+\begin{osservazione}
+ \begin{enumerate} [nosep]
+  \item Il simbolo ``\%'' rappresenta l'operazione che dà come risultato il 
+resto della divisione tra i suoi operandi.
+  \item Il simbolo ``=='' rappresenta l'operazione di confronto 
+dell'uguaglianza: 
+dà come risultato \emph{True} se i suoi operandi sono uguali, \emph{False} 
+in caso contrario.
+  \item Un numero è pari se il resto della divisione per 2 è zero.
+  \item L'argomento della funzione deve essere un numero.
+  \item Il risultato è un elemento dell'\emph{insieme bouleano}: {False, 
+True}.
+ \end{enumerate}
+\end{osservazione}
+
+\section{Argomenti, Dominio e Insieme di Definizione}
+\label{sec:funzioni2_dominio}
+
+Se nel fare gli esperimenti con le funzioni definite precedentemente siete 
+stati un po' creativi, potreste aver provato qualcosa del genere:
+
+\begin{lstlisting}
+print(lunghezza("otto"))
+print(lunghezza(8))
+\end{lstlisting}
+
+Evidentemente la funzione accetta come argomento la stringa  ``otto'', ma 
+non il numero 8.
+
+Possiamo ottenere errori anche nell'esecuzione della funzione media:
+
+\begin{lstlisting}
+print(media(3, 10))
+print(media("tre'',  ``dieci"))
+\end{lstlisting}
+
+In questo caso la funzione vuole avere dei numeri non delle stringhe, anche 
+se rappresentano dei numeri.
+
+Per descrivere una funzione in modo da poterla usare con sicurezza 
+dobbiamo indicare anche l'insieme di oggetti che possono essere passati 
+alla funzione come parametri. Questo insieme viene chiamato 
+\textbf{dominio}.
+
+\begin{definizione}
+Chiameremo \textbf{dominio}  di una funzione l'insieme degli elementi che 
+possono essere suoi argomenti.
+\end{definizione}
+
+Cioè il \emph{tipo} degli oggetti a cui la funzione può essere applicata.
+
+Quindi, riferendoci alle funzioni definite precedentemente:
+
+\begin{enumerate} [noitemsep]
+\item Il dominio della funzione \texttt{lunghezza} è l'insieme delle 
+stringhe; cioè la funzione \texttt{lunghezza} può essere applicata agli 
+oggetti ti tipo stringa.
+\item Il dominio della funzione \texttt{triplo} è l'insieme dei numeri.
+\item Il dominio della funzione \texttt{media} è l'insieme delle coppie di 
+numeri.
+\item Il dominio della funzione \texttt{terzo\_carattere} è l'insieme delle 
+stringhe.
+\item Il dominio della funzione \texttt{primo\_carattere} ...
+\item Il dominio della funzione \texttt{somma}...
+\item \emph{Completa scrivendo il dominio delle altre funzioni proposte.}
+\end{enumerate}
+
+Nel fare esperimenti dovresti aver individuato che il dominio della 
+funzione \texttt{terzo\_carattere} è l'insieme delle stringhe. Ma non tutte 
+le strighe vanno bene:
+
+\begin{lstlisting}
+print(terzo_carattere("ba"))
+\end{lstlisting}
+
+Effettivamente, chiedere di restituire il terzo carattere di una parola 
+formata solo da 2 caratteri è un po' pretenzioso!
+
+La funzione viene sì applicata alle stringhe, ma non 
+tutte le stringhe vanno bene: solo quelle con almeno 3 caratteri. 
+Possiamo dire che gli argomenti di questa funzione devono essere delle 
+stringhe (\emph{dominio}) ma le stringhe per le quali la funzione è 
+definita sono solo quelle con almeno 3 caratteri 
+(\emph{insieme di definizione}).
+
+\begin{definizione}
+Chiameremo \textbf{insieme di definizione}  di una funzione, il 
+sottoinsieme del \emph{dominio} formato dagli elementi che permettono di 
+calcolare un risultato.
+\end{definizione}
+
+L'\emph{insieme di definizione} o \emph{insieme di esistenza} di una 
+funzione è il sottoinsieme degli elementi del dominio che non danno un 
+errore quando vengono usati come argomento della funzione.
+
+\section{Risultato, Codominio e Insieme Immagine}
+\label{sec:funzioni2_codominio}
+
+\begin{definizione}
+Chiamiamo \textbf{codominio} un'insieme che contiene tutti i risultati di 
+una funzione.
+\end{definizione}
+
+Cioè il codominio è il \emph{tipo} di risultato della funzione.
+
+Ma anche in questo caso non tutti gli elementi del codominio possono essere 
+effettivamente risultati di una funzione, se consideriamo solo questi 
+elementi otteniamo un sottoinsieme del codominio:
+
+\begin{definizione}
+Chiamiamo \textbf{insieme immagine} di una funzione il sottoinsieme del 
+codominio che contiene solo i risultati di una funzione.
+\end{definizione}
+
+\begin{esempio}
+Determina: Dominio, Insieme di Definizione, Codominio e Insieme Immagine 
+della funzione: \texttt{terzocarattere} 
+
+Il dominio è costituito dalle stringhe; l'insieme di definizione è il 
+sottoinsieme delle stringhe che hanno almeno~3 caratteri; il Codominio è 
+formato dall'insieme delle stringhe; l'Insieme Immagine è il sottoinsieme 
+delle stringhe di lunghezza~1.
+\end{esempio}
+
+\begin{osservazione}
+\paragraph{``Unicità'' del risultato}
+
+In generale ci aspettiamo che una funzione dia un risultato ben preciso:
+\begin{itemize} [nosep]
+ \item la metà di 13 è 6,5;
+ \item la media tra 20 e 30 è 25;
+ \item l'ultima lettera della parola  ``Mah'' è  ``h";
+ \item \dots
+\end{itemize}
+
+Non ci aspettiamo che la metà di 13 sia a volte un numero, a volte un altro 
+numero o sia un insieme di numeri.
+
+Non è detto che una funzione debba per forza restituire un solo numero, 
+potrebbe restituire un intervallo di numeri o un insieme di numeri o di 
+oggetti.
+
+Non è neppure detto che una funzione debba restituire sempre lo stesso 
+numero, ad esempio una funzione che dia come risultato un numero casuale 
+restituirà alle volte un numero, altre volte un altro numero.
+
+Comunque, ogni volta che usiamo una certa funzione, otteniamo un preciso 
+risultato che tutti siamo d'accordo di accettare.
+\end{osservazione}
+
+\subsection{Altre convenzioni}
+
+È importante notare che altri testi, la maggioranza in verità, non usano 
+questa convenzione ma un'altra:
+
+\begin{itemize} [nosep]
+ \item quello che noi chiamiamo ``dominio'' viene chiamato  ``insieme A'', 
+o in 
+qualche altro modo;
+ \item quello che chiamiamo ``codominio'' viene chiamato  ``insieme B'', o 
+in qualche altro modo;
+ \item quello che chiamiamo ``insieme di definizione'' viene chiamato 
+``dominio'';
+ \item quello che chiamiamo ``insieme immagine'' viene chiamato 
+``codominio''.
+\end{itemize}
+
+Bisogna capire dal contesto il significato dei termini, ad esempio, se 
+viene chiesto di trovare il ``dominio di una funzione reale'', è evidente 
+che ci viene chiesto di trovare quello che noi chiamiamo ``insieme di 
+definizione'' dato che per noi il dominio di una funzione reale è, per 
+definizione, $\mathbb{R}$.
+
+Attento a distinguere i concetti fondamentali dai nomi usati per 
+esprimerli: una volta capiti i concetti. Per accordarci sui nomi basta una 
+penna: tirare un segno sul nome da cambiare e scrivere vicino il nuovo nome.
+
+\section{Rappresentazione di una generica funzione}
+\label{sec:funzioni2_codominio}
+
+\subsection{Diagrammi}
+
+Quanto detto può essere rappresentato dalla seguente figura dove gli 
+insiemi di partenza e di arrivo sono visualizzati con i diagrammi di 
+Eulero-Venn e la regola che collega gli elementi dell'insieme di definizione 
+con gli elementi dell'insieme immagine è indicata con una freccia.
+
+\begin{center}
+\deffunzione{Dominio}{Insieme di Definizione}{Codominio}{Insieme Immagine}
+\end{center}
+
+\subsection{Notazioni matematiche}
+
+Se chiamiamo $y$ il risultato della funzione 
+
+Possiamo indicare che $y$ è il risultato di una funzione con la seguente 
+espressione matematica:
+
+$$y=f(x)$$
+
+Ad esempio se la funzione restituisce la metà del quadrato di un numero la 
+funzione può essere scritta:
+
+$$y=\frac{1}{2}x^2$$
+
+Altra notazione per indicare una funzione è:
+
+$$f: x \mapsto f(x)$$
+
+Usando sempre l'esempio precedente:
+
+$$f: x \mapsto \frac{1}{2}x^2$$
+
+In Python la funzione $f$ può essere creata usando il costrutto 
+``def \dots return \dots'' o la funzione ``lambda``:
+
+
+\begin{lstlisting}
+def f(x):
+    return 1/2*x**2
+
+f = lambda x: 1/2*x**2
+\end{lstlisting}
+
+\begin{osservazione}
+La lettera $f$ viene usata per indicare una generica funzione. 
+Quando dobbiamo, nello stesso discorso, indicare altre generiche funzioni, 
+di solito vengono usate altre lettere dell'alfabeto vicine alla effe: $g$, 
+$h$, ...
+
+Invece, $k$ di solito viene usata per indicare una funzione costante, cioè 
+una funzione che dà sempre lo stesso risultato qualunque sia l'argomento.
+\end{osservazione}
+
+\paragraph{Riassumendo}
+
+\begin{enumerate} [noitemsep]
+\item Chiamiamo \emph{funzione} un qualunque procedimento che può avere 
+degli argomenti e che dà un risultato che tutti accettiamo.
+\item Una funzione viene applicata a un limitato insieme di oggetti questo 
+insieme è detto \emph{dominio}.
+\item Gli elementi del dominio che possono essere calcolati, senza dare 
+errori, formano l'\emph{Insieme di Definizione} della funzione.
+\item Una funzione ha risultati che appartengono ad un determinato insieme, 
+questo insieme è detto \emph{codominio}.
+\item Il sottoinsieme del codominio che è costituito dagli elementi che 
+possono essere effettivamente il risultato della funzione, formano 
+l'\emph{Insieme Immagine} della funzione.
+\end{enumerate}
+
+
+
+\section{Funzioni reali}
+\label{sec:funzioni2_}
+
+Abbiamo visto che possiamo avere funzioni applicate a moltissimi insiemi e 
+con i più vari risultati; possono essere semplici, descritte da un semplice 
+calcolo o complicate descrivibili solo con un gran numero di righe.
+
+Noi siamo all'inizio dello studio delle funzioni per cui ci 
+semplifichiamo un po' la vita restringendo l'insieme delle funzioni da 
+studiare al sottoinsieme delle sole funzioni che partono da un numero e 
+danno come risultato un numero. 
+Tra i vari insiemi di numeri che possiamo usare scegliamo l'insieme dei 
+numeri reali: $\mathbb{R}$. Scegliamo i reali perché hanno meno restrizioni 
+rispetto ad altri e perché hanno un semplice modello facile da realizzare: 
+la \emph{retta reale} (un asse cartesiano).
+
+Chiameremo queste le \emph{funzioni reali} o 
+\emph{funzioni reali di variabili reali}.
+
+\begin{definizione}
+Chiamiamo \emph{funzioni reali di variabili reali} o, più 
+semplicemente, \emph{funzioni reali} le funzioni che hanno per dominio e 
+per codominio i numeri reali.
+\end{definizione}
+
+\begin{esempio}
+Come esempio potremmo scrivere la funzione che dà come risultato la metà di 
+un numero aumentata di 3:
+
+\lstinputlisting[lastline=7]{\folder src/07_metapiutre.py} %]
+
+\end{esempio}
+
+Andando avanti, dovremmo scrivere molte funzioni, non sempre potremmo 
+scrivere un nome che rispecchi esattamente quello che fa la funzione stessa 
+per cui sarà il caso che usiamo dei nomi più generici e semplici. 
+La funzione precedente può essere scritta così:
+
+\lstinputlisting[firstline=9]{\folder src/07_metapiutre.py} %]
+
+\subsection{Tabella di alcuni valori di una funzione}
+
+Negli esempi precedenti ci siamo fatti stampare il valore assunto dalla 
+funzione per alcuni valori del suo argomento ma se avessimo bisogno di più 
+valori, il metodo precedente sarebbe piuttosto scomodo. Possiamo scrivere 
+una funzione che non dà risultato, ma, data una funzione e un insieme di 
+numeri, stampa ognuno dei numeri seguito dal risultato della funzione 
+applicata a quel numero:
+
+\lstinputlisting[lastline=9]{\folder src/08_tabelle.py} %]
+
+Oppure se è più comoda una tabella orizzontale, stampa prima gli 
+argomenti e sotto i corrispondenti risultati della funzione:
+
+\lstinputlisting[firstline=10]{\folder src/08_tabelle.py} %]
+
+\begin{osservazione}
+Per capire le funzioni, non è importante capire come funziona la funzione 
+\texttt{tabella} o la funzione \texttt{tabella\_o}.
+Se sei curioso puoi cercare di capirle, altrimenti puoi usarle senza porti 
+tanti problemi.
+\end{osservazione}
+
+\subsection{Scrittura matematica}
+
+In matematica la funzione precedente viene scritta in uno di questi modi:
+
+$$f_0(x) = \frac{1}{2}x +3 \quad \text{ o } \quad 
+y= \frac{1}{2}x +3 \quad \text{ o } \quad 
+f: x \mapsto \frac{1}{2}x +3$$
+
+Osservando la tabella precedente possiamo formulare alcune congetture:
+
+\begin{enumerate} [nosep]
+\item Ogni volta che $x$ aumenta di 1, $f_0(x)$ aumenta di $\frac{1}{2}$.
+\item Se $x$ aumenta anche $f_0(x)$ aumenta.
+\item Se $x$ diminuisce anche $f_0(x)$ diminuisce.
+\end{enumerate}
+
+
+\subsection{}
+
+
+
+
+\section{}
+\label{sec:funzioni2_}
+
+
+
+\begin{comment}
+%--------------------------------------------------------------------
+% Per inserire codice
+
+\section{}
+\label{sec:funzioni2_}
+
+\label{sec:funzioni2_dominio}
+
+\lstinputlisting[firstline=2, lastline=5]{\folder src/.py} %]
+
+\begin{lstlisting}
+\end{lstlisting}
+
+\begin{definizione}
+\end{definizione}
+
+\begin{esempio}
+\end{esempio}
+
+\begin{osservazione}
+\end{osservazione}
+%--------------------------------------------------------------------
+
+###Esercizio
+
+\item Dimostra le congetture precedenti.
+\item Scrivi la funzione quadratica e stampane 10 valori.
+\item Scrivi la funzione reciproca e stampane 10 valori.
+\item Scrivi una funzione che diminuisca all'aumentare di $x$.
+
+## Visualizzazione su due assi
+
+Una funzione reale fa corrispondere ad un numero un altro numero, ma i 
+numeri possono essere visualizzati su una retta, un asse cartesiano. 
+Possiamo quindi rappresentare la funzione come una corrispondenza tra i 
+punti di due rette.
+
+Chiamiamo $x$ la retta da cui partono le frecce e $y$ la retta su cui le 
+frecce arrivano.
+Sulla retta $x$ rappresenteremo gli argomenti della funzione e sulla retta 
+$y$ i corrispondenti risultati.
+
+![Assi che rappresentano dominio e 
+codominio]
+(https://drive.google.com/uc?export=view&id=1X1-HmGdedOLcMocixQcWLeTcY9kZDaX
+U)
+
+Vediamo alcuni esempi, partendo da funzioni molto semplici e complicando, 
+man mano, le cose.
+
+Esempio 1
+
+Calcola e rappresenta la funzione che dato un numero restituisce lo stesso 
+numero aumentato di tre.
+"""
+
+def f_1(x):
+   ``""Restituisce x aumentato di 3."""
+  return x + 3
+
+tabella_o(f_1, range(-6, +6))
+
+"""Collegando i punti corrispondenti nel grafico con due assi otteniamo:
+
+![Assi che rappresentano dominio e 
+codominio]
+(https://drive.google.com/uc?export=view&id=1_bmSla7TNuDFd83Oh7kqPdQqyU2FM7K
+Z)
+
+---
+**Osservazioni**
+
+\item La funzione è definita anche per valori diversi da quelli per i quali 
+abbiamo fatto stampare la tabella.
+\item È definita anche per valori diversi da quelli che abbiamo 
+rappresentato 
+nel grafico.
+\item Solo per motivi di pigrizia abbiamo usato come argomenti numeri 
+interi, 
+ma la funzione è definita anche per qualunque altro numero reale.
+
+###Esercizi
+
+Scrivi la funzione Python che produca i risultati delle seguenti funzioni, 
+poi riportali sul grafico a due rette.
+
+2\. La metà di $x$ aumentata di tre.
+
+3\. Il doppio di $x$ aumentato di tre.
+
+4\. L'opposto di $x$ aumentato di tre.
+
+5\. L'opposto della metà di $x$ aumentato di tre.
+
+6\. L'opposto del doppio di $x$ aumentato di tre.
+"""
+
+def f_2(x):
+   ``""Restituisce la metà di x aumentata di 3."""
+  return x / 2 + 3
+
+tabella_o(f_2, range(-8, +7))
+
+"""E il corrispondente grafico con due assi:
+
+![Grafico con due assi della funzione f_2(x) = 
+0.5*x+3]
+(https://drive.google.com/uc?export=view&id=13gH85RVwwNp1y2brHrYuEqu9gPOs_cM
+r)
+"""
+
+def f_3(x):
+   ``""Restituisce il doppio di x aumentato di 3."""
+  return 
+
+tabella_o(f_3, range(-8, +7))
+
+"""E il corrispondente grafico con due assi:
+
+![Grafico con due assi della funzione f_3(x) = 
+0.5*x+3]
+(https://drive.google.com/uc?export=view&id=1P4PVZDgigAiidoLsvjC9oNUGLMA4azk
+5)
+"""
+
+def f_4(x):
+   ``""Restituisce l'opposto di x aumentato di 3."""
+  return 
+
+tabella_o(f_4, range(-8, +7))
+
+"""E il corrispondente grafico con due assi:
+
+![Grafico con due assi della funzione f_3(x) = 
+0.5*x+3]
+(https://drive.google.com/uc?export=view&id=1thzscXIRllzYDkY1C1npMkmwokgZ8pN
+o)
+"""
+
+def f_5(x):
+   ``""Restituisce l'opposto della meta' di x aumentato di 3."""
+  return 
+
+tabella_o(f_3, range(-8, +7))
+
+"""E il corrispondente grafico con due assi:
+
+![Grafico con due assi della funzione f_3(x) = 
+0.5*x+3]
+(https://drive.google.com/uc?export=view&id=1SLf1ul-zGxH47loXYPjQDZqrmf8hXd8
+5)
+"""
+
+def f_6(x):
+   ``""Restituisce l'opposto del doppio di x aumentato di 3."""
+  return 
+
+tabella_o(f_3, range(-8, +7))
+
+"""E il corrispondente grafico con due assi:
+
+![Grafico con due assi della funzione f_3(x) = 
+0.5*x+3]
+(https://drive.google.com/uc?export=view&id=1Ca-RhjREk_wtlzYiidIA25TQJrhcXj-
+6)
+
+## Visualizzazione cartesiana
+
+La visualizzazione su due assi ha il pregio di mettere bene in evidenza il 
+collegamento tra l'argomento e il risultato di una funzione, ma, se la 
+funzione non è semplicissima, può facilmente diventare un guazzabuglio di 
+frecce, un grafico a spaghetti difficilmente interpretabile. Non si presta 
+certo a rendere il significato di una funzione a colpo d'occhio.
+
+La trovata geniale è stata quella di ruotare di 90 gradi l'asse delle $y$ e 
+di indicare la relazione tra l'*argomento* e il *risultato* con un *punto*:
+
+![Rappresentazione di una coppia argomento-risultato nel piano 
+cartesiano]
+(https://drive.google.com/uc?export=view&id=1hzy8bIHO3vEM8_qdI2X8r_u1s7Zp1tF
+w)
+
+
+
+---
+**Osservazioni**
+
+\item Per pigrizia, al posto di  ``argomento'' e di  ``risultato'', 
+normalmente 
+si 
+usano due lettere:  ``x'' e  ``y''.
+\item Il punto P rappresenta una coppia di valori  ``argomento'' -  
+``risultato''.
+\item È possibile rappresentare l'intera funzione disegnando tutti i punti, 
+solitamente infiniti.
+\item L'insieme di tutti questi punti viene detto grafico della funzione.
+\item Di solito ci si accontenta di rappresentare una parte della funzione, 
+quella che si ritiene più significativa.
+
+##Grafico di una funzione:
+
+Riportiamo nel piano cartesiano i punti che hanno per coordinate gli 
+argomenti e risultati della funzione 
+$\quad f_6: x \mapsto -2x+3 \quad$ 
+ricavati dalla tabella precedente:
+"""
+
+def f_6(x):
+   ``""Restituisce l'opposto del doppio di x aumentato di 3."""
+  return -2 * x +3
+
+tabella_o(f_6, range(-4, +7))
+
+"""Vediamo come appare il grafico della funzione:
+
+$$f_6: x \mapsto -2x+3$$
+
+Riportiamo nel piano cartesiano i punti che hanno per coordinate gli 
+argomenti e risultati della funzione ricavati dalla tabella precedente:
+
+![Grafico cartesiano della funzione f_6(x) = 
+-2*x+3]
+(https://drive.google.com/uc?export=view&id=1DQ4dYIB3RX74YdN9U5OiovU1owyqg-B
+F)
+
+---
+
+**Osservazioni**
+
+\item Nel grafico vengono disegnati alcuni punti che hanno per coordinate 
+l'argomento e il risultato della funzione.
+\item Se calcoliamo la funzione nei valori intermedi a quelli rappresentati 
+vedremo che i punti ottenuti si disporranno tra quelli già rappresentati. 
+
+Ad es. 
+$f(0,5)=2$, $f(0,75)=2,5$, $f(0,25)=1,5$, ...
+
+
+---
+
+Possiamo aggiungere facilmente i punti intermedi, anzi possiamo aggiungere 
+facilmente *infiniti* punti semplicemente collegando quelli già disegnati 
+con una linea. Inquesto caso una linea retta:
+
+![Grafico cartesiano della funzione f_6(x) = 
+-2*x+3]
+(https://drive.google.com/uc?export=view&id=1DxWI-pVYiP_osc3esjCyMT0Iaciye6p
+_)
+
+
+---
+
+**Osservazione**
+
+Questa rappresentazione fa emergere una caratteristica che finora non 
+potevamo sospettare: la funzione ha una sua forma. In questo caso, la 
+funzione ha la forma di una retta decrescente che taglia l'asse y nel punto 
+$3$.
+
+La forma della funzione viene chiamata: *grafico della funzione*.
+
+---
+
+### Come far disegnare il grafico a Python
+
+Di seguito la funzione Python che disegna il grafico della funzione passata 
+come argomento.
+"""
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+def assi():
+   ``""Traccia un piano cartesiano."""
+  ax = plt.axes()
+  ax.set(xlim=[-10.3,10.3],ylim=[-10.3,10.3], facecolor='white',
+         xticks=range(-10, 11),yticks=range(-10, 11),
+         xticklabels=[], yticklabels=[], aspect='equal')
+  ax.grid(True, color='40')
+  plt.arrow(-10.3,0,21,0, fc='w', ec='k', lw = .5, 
+             head_width=.5, head_length=.5, overhang = .3, 
+             length_includes_head = True, clip_on = False)
+  plt.arrow(0,-10.3,0,21, fc='w', ec='k', lw = .5, 
+             head_width=.5, head_length=.5, overhang = .3, 
+             length_includes_head = True, clip_on = False)
+  ax.text(10,-.7,'$x$')
+  ax.text(-.8,10,'$y$')
+
+def grafico(funzione):
+   ``""Traccia il grafico di una funzione."""
+  assi()
+  x = np.arange(-20., 10.3, 0.1)
+  plt.plot(x, funzione(x))
+  plt.show()
+  
+grafico(lambda x: x**2-3)
+
+"""---
+**Osservazione**
+
+Anche in questo caso la funzione che disegna il grafico appare piuttosto 
+complicata, non è necessario capire come funziona.
+L'ultima riga della cella precedente indica come chiamarla, questa è la 
+parte importante.
+
+Per studiare invece il funzionamento della funzione ``grafico``la strada 
+più 
+semplice è quella di fare delle modifiche e vederne l'effetto.
+
+---
+"""
+
+"""
+Prima di poter eseguire questa cella, deve essere stata eseguita,
+almeno una volta in questa sessione,
+la cella in cui viene definita la funzione  ``grafico''.
+"""
+grafico(lambda x: -x**2+8)
+
+"""## Riassumendo
+
+\item È possibile rappresentare alcune coppie *argomento* - *risultato* con:
+  \item una tabella,
+  \item delle frecce che uniscono i punti di due assi cartesiani,
+  \item un insieme di punti nel piano cartesiano
+\item La rappresentazione cartesiana permette di associare ad ogni funzione 
+una 
+forma ben precisa.
+
+##Esercizi
+
+Per ognuna delle seguenti funzioni reali:
+
+* $f_0: x \mapsto - \dfrac{3}{2} x$
+* $f_1: x \mapsto \dfrac{6}{x}$
+* $f_2: x \mapsto - \dfrac{5}{4} x -2$
+* $f_3: x \mapsto x^2$
+* $f_4: x \mapsto - \dfrac{1}{2} x^2 -2$
+* $f_5: x \mapsto - \dfrac{x-2}{3x+4}$
+
+
+\item Determina l'insieme di definizione.
+\item Scrivi la funzione che ne calcola i valori.
+\item Rappresentala nel grafico a due assi.
+\item Rappresentala nel piano cartesiano.
+
+## Proprietà delle funzioni
+
+### Iniettiva
+
+**Definizione** 
+
+Una funzione si dice **iniettiva** se a elementi di versi dell'insieme di 
+definizione corrispondono elementi diversi dell'insieme immagine.
+$$\forall x_1, x_2, \quad \text{se} \quad x_1 \ne x_2 
+\quad \text{allora} \quad f(x_1) \ne f(x_2)$$
+
+**Esempio**
+
+La funzione $\quad y = 3x-2 \quad$ è iniettiva perché lo stesso $y$ non può 
+essere prodotto da duiversi $x$.
+"""
+
+grafico(lambda x: 2**(x+1))
+
+"""**Controesempio**
+
+La funzione $\quad y = x^2-2 \quad$ non è iniettiva perché lo stesso $y$ 
+può 
+essere prodotto da duiversi $x$.
+"""
+
+grafico(lambda x: x**2 -2)
+
+"""In questo caso, ad esempio, il risultato $7$ è prodotto sia da $-3$ sia 
+da $+3$.
+
+### Suriettiva
+
+**Definizione** 
+
+Una funzione si dice **suriettiva** se l'insieme immagine coincide con il 
+codominio.
+
+**Esempio** 
+
+La funzione $\quad y= x^3 -4x \quad$ è suriettiva perché ogni valore reale 
+$y$ può essere generato da almeno un valore di $x$:
+"""
+
+grafico(lambda x: x**3 -4*x)
+
+"""**Controesempio**
+
+La funzione $\quad y = - e^x \quad$ non è suriettiva perché nessun valore 
+positivo può essere generato da questa funzione.
+"""
+
+grafico(lambda x: -np.exp(x))
+
+"""### Biiettiva
+
+**Definizione** 
+
+Una funzione si dice **biiettiva** se è iniettiva e suriettiva.
+
+**Esempio**
+
+La funzione $\quad y = x^3+2 \quad$ è biiettiva perché ogni valore di $y$ è 
+generato da uno e un solo valore di $x$.
+"""
+
+grafico(lambda x: x**3+2)
+
+"""**Controesempio**
+
+Tutti gli esempi dei paragrafi precedenti.
+
+# Caratteristiche di una funzione
+
+Data una funzione in forma matematica è possibile determinare alcune sue 
+proprietà in modo abbastanza semplice, per altre servono degli strumenti 
+matematici che ancora non conosciamo.
+
+## Monotonia
+
+Con il termine  ``monotòna'' (diversa da  ``monòtona") intendiamo una 
+funzione 
+che ha lo stesso andamento, cioè che è crescente o decrescente.
+
+### Crescente 
+
+Una funzione è crescente se all'aumentare dell'argomento ($x$) aumenta 
+anche 
+il risultato ($y$). Se questo è vero per tutte le $x$ dell'insieme di 
+definizione allora diremo che la funzione è monotòna crescente.
+
+---
+**Definizione**
+Una funzione si dice *monotona crescente* se ad argomenti più grandi 
+corrispondono risultati più grandi (se all'aumentare di $x$ aumenta anche  
+$f(x)$):
+
+$$\forall x_0, x_1 \in \mathbb{IE} ~\land~ x_1 > x_0 ~\Rightarrow~ 
+f(x_1) > f(x_0)$$
+
+---
+
+**Osservazione**
+
+È del tutto equivalente dire che una funzione è *crescente* se ad 
+*argomenti 
+più piccoli* corrispondono *risultati più piccoli*.
+
+---
+
+Esempio di funzione crescente:
+"""
+
+grafico(lambda x: np.log2(x))
+
+"""---
+
+**Osservazione**
+
+Otteniamo una strana scritta prima che ci venga visualizzato il grafico: 
+Python ci avvisa che ha fatto tutti i calcoli necessari per disegnarlo, ma 
+che ha incontrato dei valori non validi nelle'eseguire  ``log2''. Sapresti 
+dare 
+una spiegazione di questo avviso?
+
+---
+
+Facciamo stampare  la tabella di alcune coppie argomento-risultato per la 
+funzione *log2*.
+"""
+
+tabella(lambda x: np.log2(x), [x/2 for x in range(-10, 10)])
+
+"""Otteniamo ancora strani messaggi e, tra i risultati, otteniamo delle 
+scritte che non sono un numeri...  
+
+Se ripensiamo al significato di *logaritmo* vediamo che l'espressione 
+"log2(0)'' equivale a cercare l'esponente da dare a 2 per ottenere 0 cosa 
+impossibile. E  ``log2(-4)'' equivale a cercare l'esponente da dare a 2 per 
+ottenere -4 cosa altrettanto impossibile.
+
+Ritornando al nostro problema:
+
+### Esercizio
+
+Verifica per almeno 3 coppie di valori di $x$ che se $x_1$ è maggiore di 
+$x_0$ allora anche  $f(x_1)$ è maggiore di $f(x_0)$  e per altre 3 coppie 
+di 
+valori di $x$ che se $x_1$ è miore di $x_0$ allora anche  $f(x_1)$ è miore 
+di $f(x_0)$.
+
+### Decrescente 
+
+Una funzione è *decrescente* se all'aumentare dell'argomento ($x$) 
+diminuisce il risultato ($y$). Se questo è vero per tutte le $x$ 
+dell'insieme di definizione allora diremo che la funzione è monotòna 
+decrescente.
+
+---
+**Definizione**
+Una funzione si dice *monotona decrescente* se ad argomenti più grandi 
+corrispondono risultati più piccoli (se all'aumentare di $x$ diminuisce 
+$f(x)$):
+
+$$\forall x_0, x_1 \in \mathbb{IE} ~\land~ x_1 > x_0 ~\Rightarrow~ 
+f(x_1) < f(x_0)$$
+
+---
+
+**Osservazione**
+
+È del tutto equivalente dire che una funzione è decrescente se ad argomenti 
+più piccoli corrispondono risultati più grandi.
+
+---
+
+Grafico di una funzione decrescente:
+"""
+
+grafico(lambda x: -.5*x+2)
+
+"""### Intervalli di monotonia
+
+Una funzione può essere crescente in certi intervalli di $x$ e decrescente 
+in altri.
+
+Uno dei problemi da risolvere quando ci sarà chiesto di studiare una 
+funzione sarà quella di individuare gli intervalli di monotonia, cioè per 
+quali valori di $x$ la funzione è crescente e per quali è decrescente.
+
+---
+**Esempio**
+
+Individua gli intervalli di monotonia della funzione che ha il seguente 
+grafico.
+
+![Intervalli di 
+monotonia]
+(https://drive.google.com/uc?export=view&id=1w8Og5HxVbNz9tFL3-OcgZuzdpq2G8yG
+L)
+
+Possiamo immaginare che la funzione che ha questo grafico cresca fino a che 
+$x$ vale $a$, decresca da $a$ a $b$, poi torni a crescere.
+
+In $a$ e $b$ la funzione ha due *punti stazionari* e precisamente in $a$ la 
+funzione ha un *massimo relativo* e in $b$ un *minimo relativo*.
+
+**Osservazione**
+
+È chiaro che possiamo dire qualcosa di abbastanza sicuro solo sulla parte 
+del grafico che vediamo. In questo caso, su cosa faccia la funzione quando 
+$x$ è più piccolo di $-6,5$ o più grande di $10$ possiamo fare solo delle 
+ipotesi.
+
+---
+
+### Esercizi
+
+Tra le seguenti funzioni individua quali sono crescenti, quali decrescenti 
+e 
+quali hanno dei tratti crescenti e dei tratti decrescenti.
+
+\item $f_0: x \mapsto - \dfrac{8}{7} x$
+\item $f_1: x \mapsto \dfrac{12}{x}$
+\item $f_2: x \mapsto  \dfrac{2}{5} x -2$
+\item $f_3: x \mapsto \dfrac{1}{2}x^2$
+\item $f_4: x \mapsto - \dfrac{4}{3} x^2 -2$
+\item $f_5: x \mapsto - \dfrac{3x-2}{2x+4}$
+
+## Parità
+
+La *parità* riguarda la simmetria della funzione rispetto all'asse $y$ o 
+rispetto all'origine.
+
+### Funzioni pari
+
+Diremo che una funzione è pari se è simmetrica rispetto all'asse $y$, cioè 
+a 
+distanza uguale dall'asse ha valori uguali:
+
+---
+**Definizione**
+
+Una funzione è *pari* se a valori opposti dell'argomento corrisponde lo 
+stesso risultato:
+
+$$f(-x) = f(x)$$
+
+---
+
+![Funzione pari](https://drive.google.com/uc?export=view&id=)
+"""
+
+grafico(lambda x: (x**3 -3*x)/(-2*x**3 +5*x))
+
+tabella(lambda x: (x**3 -3*x)/(-2*x**3 +5*x), range(-10, 0))
+tabella(lambda x: (x**3 -3*x)/(-2*x**3 +5*x), range(1, 11))
+
+"""### Funzioni dispari
+
+Diremo che una funzione è dispari se è simmetrica rispetto all'origine, 
+cioè 
+a distanza uguale dall'asse ha valori opposti:
+
+---
+**Definizione**
+
+Una funzione è *dispari* se a valori opposti dell'argomento corrispondono 
+risultati opposti:
+
+$$f(-x) = -f(x)$$
+
+---
+
+![Funzione dispari](https://drive.google.com/uc?export=view&id=)
+"""
+
+grafico(lambda x: (x**3 - 6*x)/(x**2 + 4))
+
+tabella(lambda x: (x**3 - 6*x)/(x**2 + 4), range(-10, 11))
+
+"""Per verificare se una funzione è pari o dispari basta sostituire la 
+variabile $x$ con il suo opposto: $-x$ e vedere se si ottiene una funzione 
+equivalente a quella di partenza o al suo opposto:
+
+**Esempi**
+
+1\. Verifica la parità di: 
+$\quad f: x \mapsto \dfrac{3x}{2x^2-4}$
+
+Sostituendo otteniamo:
+
+$$ f(-x) = \frac{3(-x)}{2(-x)^2-4} =
+              \frac{-3x}{2x^2-4} =
+              -\frac{3x}{2x^2-4} = -f(x)$$
+              
+Poiché $f(-x)=-f(x) (effe di meno x è uguale a meno effe di x), la funzione 
+è dispari.
+
+2\. Verifica la parità di: 
+$\quad f: x \mapsto \dfrac{4x^4-3x^2}{2x^2-5}$
+
+Sostituendo otteniamo:
+
+$$ f(-x) = \dfrac{4x^4-3x^2}{2x^2-5} =
+              \dfrac{4(-x)^4-3(-x)^2}{2(-x)^2-5} =
+              \dfrac{4x^4-3x^2}{2x^2-5} =
+              f(x)$$
+              
+Poiché $f(-x)=f(x) (effe di meno x è uguale a meno effe di x), la funzione 
+è 
+pari.
+
+3\. Verifica la parità di: 
+$\quad f: x \mapsto 4x^4-3x^2+5x$
+
+Sostituendo otteniamo:
+
+$$ f(-x) = 4(-x)^4-3(-x)^2+5(-x) =
+              4x^4-3x^2-5x $$
+              
+Osservando attentamente i segni possiamo concludere che:
+$$f(-x) \ne f(x) \quad \text{e} \quad f(-x) \ne -f(x)$$ 
+              
+Quindi $f(-x)$ non è né pari né dispari.
+
+---
+**Osservazioni**
+
+\item Se una funzione è *pari*, basta studiarla solo per i valori positivi 
+del 
+suo Insieme di definizione.
+\item *Mutatis mutandis* lo stesso vale per le funzioni *dispari*.
+
+---
+
+### Esercizi
+
+Tra le seguenti funzioni individua quali sono pari, quali dispari e quali 
+né 
+pari né dispari.
+
+\item $f_0: x \mapsto - x^4 +3x^2 -2$
+\item $f_1: x \mapsto x^3-2x$
+\item $f_2: x \mapsto x^4 - x^3$
+\item $f_3: x \mapsto - \dfrac{6}{5} x$
+\item $f_4: x \mapsto \dfrac{6}{x}$
+\item $f_5: x \mapsto - \dfrac{5}{4} x -2$
+\item $f_6: x \mapsto x^2$
+\item $f_7: x \mapsto -x^2 + 7$
+\item $f_8: x \mapsto - \dfrac{1}{2} x^2 -2x$
+\item $f_9: x \mapsto - \dfrac{x-2}{3x+4}$
+
+## Periodicità
+
+Diremo che una funzione è periodica se, a intervalli regolari, si ripete 
+sempre allo stesso modo:
+
+---
+**Definizione**
+
+Una funzione è *periodica* se a distanza di un certo intervallo produce gli 
+stessi valori.
+
+Chiamando $i$ l'ampiezza dell'intervallo di periodicità $\mathbb{I}$:
+
+$$\forall x \in \mathbb{I} \quad  f(x + i) = f(x)$$
+
+---
+**Osservazione**
+
+Se una funzione è periodica, basta studiare solo un intervallo di 
+periodicità.
+
+---
+"""
+
+grafico(lambda x: np.sin(x)+2*np.sin(2*x))
+
+"""Si può osservare che la funzione si ripete con un periodo che è 
+leggeremente superiore a $6$, precisamente il periodo della funzione è: 
+$2\pi$.
+
+### Esercizi
+
+## Zeri di una funzione
+
+Si dicono *zeri di una funzione* i valori dell'argomento che producono $0$ 
+come risultato.
+
+---
+**Definizione**
+
+Diremo che $z$ è uno *zero* della funzione se $f(z) = 0$.
+
+---
+
+**Osservazioni**
+
+\item Gli zeri di una funzione si trovano risolvendo l'equazione: $f(x) = 0$
+\item Dato che l'asse $x$ ha equazione $y = 0$, gli zeri della funzione 
+indicano i punti in cui il grafico della funzione interseca l'asse $x$.
+
+---
+**Esempio**
+
+Calcola gli zeri della funzione: $f(x) = x^2 -3x - 10$
+
+$x^2 -3x - 10=0 \quad \Rightarrow \quad \left(x-5 \right) 
+\left(x+2\right)=0 
+\quad \Rightarrow \quad x_0=-2 \text{ e }x_1=5$
+
+Il grafico di questa funzione interseca l'asse $x$ nei punti: $-2$ e $5$.
+
+---
+
+### Esercizi
+
+## Limitatezza
+
+**Definizione**
+
+Una funzione si dice **limitata** se la sua immagine ha un valore massimo e 
+un valore minimo.
+
+Si dice **illimitata** se la sua immagine non ha un massimo o non ha un 
+minimo.
+
+Possimo distinguere diversi casi di una funzione $f$ definita in un 
+intervallo $\mathbb{I}$:
+
+* **Limitata superiormente** se la sua immagine ha un estremo superiore:
+$$\exists k \in \mathbb{R} ~|~ \forall x \in \mathbb{I}, \quad f(x) \le k$$
+* **Limitata inferiormente** se la sua immagine ha un estremo inferiore:
+$$\exists k \in \mathbb{R} ~|~ \forall x \in \mathbb{I}, \quad f(x) \ge k$$
+* **Limitata** se la sua immagine ha un estremo inferiore:
+$$\exists h, k \in \mathbb{R} ~|~ \forall x \in \mathbb{I}, \quad h \le 
+f(x) 
+\le k $$
+
+Da queste si possono ricavare altre definizioni:
+
+* **Illimitata superiormente** se *non* è limitata superiormente.
+* **Illimitata inferiormente** se *non* è limitata inferiormente.
+* **Illimitata** se *non* è limitata superiormente o inferiormente.
+
+---
+*Esempi*
+
+\item $f: x \mapsto \ln{x} \quad$ è illimitata sia inferiormente sia 
+superiormente.
+
+\item $f: x \mapsto e^{x} \quad$ è limitata inferiormente e illimitata 
+superiormente.
+
+\item $f: x \mapsto \sin{x} \quad$ è limitata (sia inferiormente sia 
+superiormente).
+
+\item $f: x \mapsto -x^2+2x +5 \quad$ è limitata superiormente e illimitata 
+inferiormente.
+
+### Esercizi
+
+# Complementi
+
+## Classificazione
+
+Esistono funzioni più semplici da studiare e funzioni più complicate, i 
+matematici hanno ruddiviso l'insieme delle funzioni in sottoinsiemi formati 
+da funzioni dello stesso tipo:
+
+* **polinomiali** o **razionali intere**, formate da un polinomio
+$f: x \mapsto x^5-3x^2+4x-2$;
+* **fratte**, con una variabile indipendente al denominatore
+$f: x \mapsto \dfrac{x-3}{2x+5}$;
+* **irrazionali**, con una variabile indipendente sotto radice
+$f: x \mapsto \sqrt{4x^2-3x}$;
+* **algebriche**, che contengono solo le quattro operazioni aritmetiche, la 
+potenza con esponente razionale e la radice (tutte le funzioni precedenti).
+* **trascendenti**, quelle che contengono anche combinazioni di funzioni 
+goniometriche o esponenziali o logaritmiche
+$f: x \mapsto \log_2{\left(6x^3-3x\right)}$;.
+
+## Composizione di funzioni
+
+È possibile svolgere delle operazioni con le funzioni, cioè avere delle 
+funzioni che operano su altre funzioni. Di seguito vedremo alcuni semplici 
+casi.
+
+### Funzione identica
+
+**Definizione**
+Diremo che una funzione è l'**identità** se il risultato è uguale 
+all'argomento:
+$$f: x \mapsto {x} \quad \text{o} \quad 
+   f(x) = x \quad \text{o} \quad 
+   y = x$$
+
+### Funzione inversa
+
+Se abbiamo una funzione, $f$ che collega gli elementi dell'insieme $X$ con 
+elementi dell'insieme $Y$ in modo che ad elementi divesi di $X$ 
+corrispondano elementi diversi di $Y$ allora possiamo costruire la funzione 
+inversa $f_i$ che collega ogni risultato con il suo argomento.
+
+Il *dominio* di $f_i$ è il *codominio* di $f$ e il 
+*codominio* di $f_i$ è il *dominio* di $f$.
+
+Una relazione analoga vale per *l'insieme di definizione* e *l'insieme 
+immagine* di $f$ e di $f_i$.
+
+
+---
+
+**Osservazioni**
+
+1\. Di solito, nei libri, la funzione inversa di $f$ è indicata con 
+$f^{-1}$. In questo contesto $f^{-1}$  non significa $\frac{1}{f}$, ma:
+
+*funzione inversa di $f$*
+ (quella che noi abbiamo chiamato $f_i$).
+
+2\.  Si possono invertire solo le funzioni iniettive.
+
+3\. Poiché la funzione inversa si ottiene scambiando $x$ con $y$, il 
+grafico 
+della funzione inversa è il simmetrico rispetto alla bisettrice del primo e 
+terzo quadrante.
+
+
+---
+"""
+
+def duegrafici(f_0, f_1):
+   ``""Traccia i grafici di due funzioni."""
+  assi()
+  x = np.arange(-20., 10.3, 0.1)
+  plt.plot(x, f_0(x))
+  plt.plot(x, f_1(x))
+  plt.show()
+  
+duegrafici(lambda x: np.exp(x), lambda x: np.log(x))
+
+"""### Funzione composta
+
+Se abbiamo tre insiemi $A$, $B$ e $C$ e abbiamo una funzione $h$ definita 
+su 
+$A$ con immagine in $B$ e una funzione $g$ definita su $B$ con immagine in 
+$C$, possiamo costruire la funzione 
+$f: a \mapsto c$ in modo tale che sia: 
+$c=g(h(x))$.
+
+Questa funzione si dice anche funzione composta di $g$ e $h$ e si scrive:
+
+$$f =g \circ h$$
+(effe uguale a gi composto acca)
+o
+$$f(x)=g\left(h(x)\right)$$
+(effe di x uguale a gi di acca di x)
+
+**Esempio**
+
+Se $\quad g: x \mapsto 5e^x \quad \text{ e } \quad h: x \mapsto -x^2 \quad$ 
+allora $\quad f(x)=g\left(h(x)\right) = 5e^{-x^2}$
+"""
+
+grafico(lambda x: 5*np.exp(-x**2))
+
+"""---
+**Osservazione**
+
+Componendo una funzione con la sua inversa ottengo l'identità per tutti gli 
+elementi dell'insieme di definizione della prima funzione.
+
+Ad esempio se $\quad y=e^z \quad \text{ e } \quad z=ln(x) \quad$
+allora $\quad y = e^{ln{x}} = x$
+"""
+
+grafico(lambda x: np.log(np.exp(x)))
+
+
+
+%--------------------------------------------------------------------
+% fine nuovo lagoro
+%--------------------------------------------------------------------
+
+
+
+%--------------------------------------------------------------------
+% grafici
+%--------------------------------------------------------------------
+
 
 \deffunzione{Dominio}{Insieme di definizione}{Codominio}{Insieme immagine}
 
@@ -45,7 +1544,6 @@
 % 
 % \graficoxy{-10}{10}{-10}{10}{-.5*x+3}
 
-\begin{comment}
 % 136
 \begin{tikzpicture}
 \node (start) [draw,shape=ellipse] {start};
@@ -169,12 +1667,19 @@ edge (c);
 % data group {function classes};
 
 \end{comment}
+
+%--------------------------------------------------------------------
+% Vecchia versione
+%--------------------------------------------------------------------
+
 \begin{comment}
 
 \chapter{Funzioni}
 
-Riprendiamo ora il concetto di funzione, precedentemente studiato nel capitolo 
-12 del secondo volume, approfondendone alcuni aspetti che ci saranno utili nel 
+Riprendiamo ora il concetto di funzione, precedentemente studiato nel 
+capitolo 
+12 del secondo volume, approfondendone alcuni aspetti che ci saranno utili 
+nel 
 proseguo del nostro percorso.
 
 \section{Definizione di funzione}
@@ -199,8 +1704,10 @@ $f: A\to B  $  tra insiemi   $f: x\mapsto y$   tra elementi  con $x\in A
 $  e $y\in B$\\
 
 Dobbiamo pensare che $x$ mediante la corrispondenza $f$ diventa $y$, 
-l'elemento $y$ è dunque l'\textsc{immagine} di $x$ mediante la trasformazione 
-$f$; altrettanto e viceversa possiamo chiamare $x$ \textsc{controimmagine} di 
+l'elemento $y$ è dunque l'\textsc{immagine} di $x$ mediante la 
+trasformazione 
+$f$; altrettanto e viceversa possiamo chiamare $x$ \textsc{controimmagine} 
+di 
 $y$.\\
 
 L'elemento $x$ viene dunque proiettato mediante una sua trasformazione che 
@@ -222,7 +1729,8 @@ di tutte e sole le $y$ generate dalla trasformazione $f$.\\
   %\label{fig:1_2}
 \end{figure}
 %
-Notiamo, nella figura precedente che mentre il dominio coincide con l'insieme 
+Notiamo, nella figura precedente che mentre il dominio coincide con 
+l'insieme 
 di partenza il codominio è un sottoinsieme dell'insieme di arrivo.\\
 
 %
@@ -259,7 +1767,8 @@ di partenza il codominio è un sottoinsieme dell'insieme di arrivo.\\
 \end{esempio}
 
 \newpage 
-Per calcolare il dominio delle funzioni, vediamo una tabella riassuntiva dei 
+Per calcolare il dominio delle funzioni, vediamo una tabella riassuntiva 
+dei 
 possibili casi.\\
 
 %%%%%%%%%%%%%%TABELLA DOMINIO FUNZIONI%%%%%%%%%%%%
@@ -289,7 +1798,8 @@ $y=\frac{A(x)}{B(x)}$ \newline con $A(x)$ e $B(x)$ polinomi
   \textbf{Funzioni irrazionali} \newline $y=\sqrt[n]{f(x)}$ 
 \newline con $n\in\mathbb{N},\,n>1$ 
   & $\,$ \newline Se $n$ è dispari il $D$ è il $D$ di $f(x)$ 
-\newline \newline Se $n$ è pari, \newline$D=\{x\in\mathbb{R}\vert f(x)\geq0\}$
+\newline \newline Se $n$ è pari, \newline$D=\{x\in\mathbb{R}\vert 
+f(x)\geq0\}$
   & $\,$ \newline $y=\sqrt[3]{x^2-9}$\newline $D=\mathbb{R}$ 
 \newline \newline $y=\sqrt{x^2-1}$\newline $D=x^2\geq1=$\newline 
 $=x\leq-1\lor x\geq1$ \\
@@ -320,7 +1830,8 @@ $a\in\mathbb{R},\,a\neq0$ \newline \newline$a$ intero positivo \newline
 $f(x)$ razionale \newline \newline $D=\{x\in\mathbb{R}\vert 
 f(x)\geq0\}$\newline \newline $D=\{x\in\mathbb{R}\vert f(x)>0\}$
   & $\,$  \newline  \newline  \newline  \newline $y=(x-1)^2$ 
-$D=\mathbb{R}$ \newline \newline $y=(x-1)^{-2}$ $D=x\neq1$ \newline \newline 
+$D=\mathbb{R}$ \newline \newline $y=(x-1)^{-2}$ $D=x\neq1$ \newline 
+\newline 
 $y=(x-1)^{1/2}=\sqrt{x-1}$ $D=x\geq1$ \newline $y=(x-1)^{\pi}$ $D=x\geq1$ 
 \newline \newline $y=(x-1)^{-\pi}$ $D=x>1$\\
   \midrule
@@ -357,12 +1868,15 @@ $y=\sin[f(x)]$, $y=\cos [f(x)]$ \newline \newline $y=\tan [f(x)]$ \newline
 \newline $y=\arccos [f(x)]$ \newline \newline $y=\arctan [f(x)]$
   & $\,$ \newline \newline $D$ di $f(x)$ \newline  \newline 
 $D=\bigl\{x\in\mathbb{R}\vert f(x)\neq\frac{\pi}{2}+\newline+k\pi 
-\bigr\}$\newline \newline $D=\{x\in\mathbb{R}\vert f(x)\neq k\pi\}$ \newline 
+\bigr\}$\newline \newline $D=\{x\in\mathbb{R}\vert f(x)\neq k\pi\}$ 
+\newline 
 \newline $D=\{x\in\mathbb{R}\vert -1\leq f(x)\leq\newline\leq1\}$ \newline 
 \newline $D$ di $f(x)$
   & $\,$ \newline \newline \newline $y=\tan[2x-1]$ \newline 
-$2x-1\neq \frac{\pi}{2}+k\pi$ \newline$D=x\neq\frac{\pi+1+k\pi}{2}$  \newline 
-\newline \newline  $y=\arcsin[x-1]$ \newline $-1\leq x-1\leq1$\newline $0\leq 
+$2x-1\neq \frac{\pi}{2}+k\pi$ \newline$D=x\neq\frac{\pi+1+k\pi}{2}$  
+\newline 
+\newline \newline  $y=\arcsin[x-1]$ \newline $-1\leq x-1\leq1$\newline 
+$0\leq 
 x\leq2$\newline \newline$y=\arctan [\frac{x+2}{x+3}]$ \newline 
 $D=\mathbb{R}-\{-3\}$
  \\
@@ -377,15 +1891,18 @@ $D=\mathbb{R}-\{-3\}$
 Una funzione può essere rappresentata in diversi modi, i principali sono:
 \begin{itemize}
   \item \textsc{Rappresentazione tabulare}\\
-Le funzioni empiriche vengono ricostruite con una tabella in cui ad ogni $y$ 
+Le funzioni empiriche vengono ricostruite con una tabella in cui ad ogni 
+$y$ 
 corrisponde un certo $x$. Ad esempio pensiamo ad una tabella che dà la 
 temperatura ora per ora in un certo luogo.
 %
   \item \textsc{Rappresentazione analitica}\\
 La funzione è espressa mediante un insieme di operazioni matematiche che 
-applicate in un certo ordine ad $x$ restituiscono un corrispondente valore di 
+applicate in un certo ordine ad $x$ restituiscono un corrispondente valore 
+di 
 $y$. Esempi ne sono $y=\log{(x+2)}$, $y=2x^3+3$ o $y=\sin{x}+2^x$, cioè le 
-espressioni, scritte in linguaggio matematico, che siamo abituati a trattare.
+espressioni, scritte in linguaggio matematico, che siamo abituati a 
+trattare.
 %
   \item \textsc{Rappresentazione grafica}\\
 La funzione è rappresentata come una corrispondenza $x-$y su un grafico 
@@ -399,11 +1916,13 @@ $\mathbb{R}^2$.
 \section{Le proprietà di una funzione}
 %label{}
 Una funzione, a seconda, del modo in cui gli elementi del dominio 
-corrispondono agli elementi del codominio si può definire \textsc{iniettiva}, 
+corrispondono agli elementi del codominio si può definire 
+\textsc{iniettiva}, 
 \textsc{suriettiva} e \textsc{biiettiva} (o \textsc{biunivoca}).\\
 
 \begin{definizione}
-Una funzione da $A$ a $B$ si dice \textsc{iniettiva} se ogni elemento di $B$ 
+Una funzione da $A$ a $B$ si dice \textsc{iniettiva} se ogni elemento di 
+$B$ 
 è immagine di \underline{al più} un elemento di $A$;\\
 
 
@@ -419,7 +1938,8 @@ x_2\Rightarrow f(x_1 )\neq f(x_2)$
 \end{figure}
 
 \begin{definizione}
-Una funzione da $A$ a $B$ si dice \textsc{suriettiva} quando ogni elemento di 
+Una funzione da $A$ a $B$ si dice \textsc{suriettiva} quando ogni elemento 
+di 
 $B$ è immagine di \underline{almeno un} elemento di $A$;\\
 
 $f: A\to B$ è suriettiva se $\forall y\in B, \exists x\in A \mid f(x)=y$
@@ -432,12 +1952,14 @@ $f: A\to B$ è suriettiva se $\forall y\in B, \exists x\in A \mid f(x)=y$
   %\label{fig:1_2}
 \end{figure}
 
-Il fatto che una funzione sia o non sia suriettiva dipende da come si sceglie 
+Il fatto che una funzione sia o non sia suriettiva dipende da come si 
+sceglie 
 l'insieme di arrivo. Se lo si sceglie coincidente con il codominio la 
 funzione è suriettiva.\\
 %
 \begin{definizione}
-Una funzione da $A$ a $B$ è \textsc{biiettiva} (o \textsc{biunivoca}) quando 
+Una funzione da $A$ a $B$ è \textsc{biiettiva} (o \textsc{biunivoca}) 
+quando 
 è sia iniettiva sia suriettiva.\\
 \end{definizione}
 
@@ -449,21 +1971,26 @@ Una funzione da $A$ a $B$ è \textsc{biiettiva} (o \textsc{biunivoca}) quando
 \end{figure}
 
 \begin{esempio} Quando una funzione è biettiva?\\
-Una funzione biiettiva è ad esempio una qualsiasi retta. Una retta è infatti 
+Una funzione biiettiva è ad esempio una qualsiasi retta. Una retta è 
+infatti 
 sia iniettiva, che biettiva di dominio $\mathbb{R}$ e codominio 
 $\mathbb{R}$.\\
 \end{esempio}
 
-Una funzione biiettiva viene anche detta biiezione o corrispondenza biunivoca 
+Una funzione biiettiva viene anche detta biiezione o corrispondenza 
+biunivoca 
 fra gli insieme $A$ e $B$. Tale relazione tra insiemi è molto forte e 
-specifica in quanto ad ogni elemento di $A$ viene associato un solo elemento 
+specifica in quanto ad ogni elemento di $A$ viene associato un solo 
+elemento 
 di $B$ e, reciprocamente, ad ogni elemento di $B$ è associato un solo 
 elemento di $A$, in una relazione uno a uno. Per tale ragione, la relazione 
-tra i due insiemi viene indicata con una doppia freccia $A\leftrightarrow B$.
+tra i due insiemi viene indicata con una doppia freccia $A\leftrightarrow 
+B$.
 %
 \section{Le caratteristiche di una funzione}
 %label{}
-Analizziamo ora le caratteristiche che può manifestare una funzione, qualità 
+Analizziamo ora le caratteristiche che può manifestare una funzione, 
+qualità 
 che può presentare il suo andamento e che possono contraddistinguerne la 
 forma del grafico.
 
@@ -473,7 +2000,8 @@ La caratteristica della monotonia vuole evidenziare l'andamento
 \textsc{crescente} o \textsc{decrescente} di una funzione; la monotonia 
 studia il comportamento della variabile dipendente $y$ all'aumentare della 
 variabile indipendente $x$. All'aumentare dell'ascissa se aumenta anche 
-l'ordinata diremo che la funzione cresce, se l'ordinata diminuisce diremo che 
+l'ordinata diremo che la funzione cresce, se l'ordinata diminuisce diremo 
+che 
 la funzione decresce. Vediamo e puntualizziamo meglio.\\
 
 \begin{definizione}
@@ -545,7 +2073,8 @@ crescente; negli intervalli finiti $x_2<x<x_3$, $x_4<x<x_5$.
 La caratteristica della parità va a verificare se il grafico della funzione 
 che stiamo studiando è simmetrico rispetto all'asse delle $Y$, cioè il 
 grafico è speculare rispetto all'asse, o se il grafico della funzione è 
-simmetrico rispetto all'origine. Nel primo caso parleremo di \textsc{parità} 
+simmetrico rispetto all'origine. Nel primo caso parleremo di 
+\textsc{parità} 
 della funzione, nel secondo caso parleremo di \textsc{disparità} della 
 funzione.\\
 
@@ -554,7 +2083,8 @@ però individuare delle condizioni che, se presenti nella funzione, ci
 assicurano che questa è pari o dispari.\\
 
 \begin{definizione}
-Sia data una funzione $y=f(x)$, avente dominio $D$ tale che per ogni $x\in D$ 
+Sia data una funzione $y=f(x)$, avente dominio $D$ tale che per ogni $x\in 
+D$ 
 anche $-x\in D$. Una funzione si dice \textsc{pari} in $D$ se \\
 $$f(-x)=f(x)$$
 per ogni $x\in D$.
@@ -574,7 +2104,8 @@ Sottolineiamo ancora che la condizione di parità per una funzione è $f(-x)=
 f(x)$.\\   
 
 \begin{esempio} Verificare se una funzione è o non è pari.\\
-Per verificare se una funzione è pari basta sostituire nella funzione $-x$ al 
+Per verificare se una funzione è pari basta sostituire nella funzione $-x$ 
+al 
 posto di $x$ e verificare se la nuova $f(-x)$ è uguale alla funzione di 
 partenza, cioè se $f(-x)=f(x)$. Se prendiamo la funzione 
 $$f(x)=\frac{x^2+3}{x+2}$$ \underline{non} è pari, infatti 
@@ -582,7 +2113,8 @@ $$f(-x)=\frac{(-x)^2+3}{(-x)+2}=\frac{x^2+3}{-x+2}\neq f(x).$$
 \end{esempio}
 
 \begin{definizione}
-Sia data una funzione $y=f(x)$, avente dominio $D$ tale che per ogni $x\in D$ 
+Sia data una funzione $y=f(x)$, avente dominio $D$ tale che per ogni $x\in 
+D$ 
 anche$ -x\in D.$ Una funzione si dice \textsc{dispari} in $D$ se\\
 $$f(-x)=-f(x)$$
 per ogni $x\in D$.
@@ -596,13 +2128,15 @@ per ogni $x\in D$.
 \end{figure}
 %
 
-Se una funzione è dispari, il suo grafico è simmetrico rispetto all'origine. 
+Se una funzione è dispari, il suo grafico è simmetrico rispetto 
+all'origine. 
 Infatti se $P(x;y)$ appartiene al grafico anche $P'(-x;-y)$ vi appartiene. 
 Sottolineiamo ancora che la condizione di disparità per una funzione è 
 $f(-x)= -f(x)$. \\
 
 \begin{esempio} Verificare se una funzione è o non è dispari.\\
-Per verificare se una funzione è dispari basta sostituire nella funzione $-x$ 
+Per verificare se una funzione è dispari basta sostituire nella funzione 
+$-x$ 
 al posto di $x$ e verificare se la nuova $f(-x)$ è uguale alla funzione di 
 partenza cambiata di segno, cioè se $f(-x)=-f(x)$. Se prendiamo la funzione 
 $$f(x)=\frac{x}{x^2+2}$$ è dispari, infatti 
@@ -615,7 +2149,8 @@ La periodicità di una funzione specifica se questa si ripete uguale a sé
 stessa ad intervalli regolari.\\
 
 \begin{definizione}
-Una funzione $y=f(x)$, $f(x): A\to \mathbb{R}$ si dice \textsc{periodica} di 
+Una funzione $y=f(x)$, $f(x): A\to \mathbb{R}$ si dice \textsc{periodica} 
+di 
 periodo $T>0$ di periodo $T>0$ se$\forall x\in A\rightarrow (x+T)\in A$e 
 possiamo scrivere 
  $$f(x+T)=f(x)$$\\
@@ -648,17 +2183,18 @@ $$T=\frac{2\pi}{7}.$$
 trasformazione della funzione $y=\sin x$, che ha periodo $T=2\pi$, mediante 
 una sostituzione $7x'=x$, ovvero $x'=\frac{x}{7}$. Se l'asse delle ascisse 
 viene così contratto di un fattore $\frac{x}{7}$, il periodo $T'$ subirà la 
-stessa contrazione e pertanto è pari a $$T'=\frac{x}{7}(2\pi)=\frac{2\pi}{7}$$
+stessa contrazione e pertanto è pari a 
+$$T'=\frac{x}{7}(2\pi)=\frac{2\pi}{7}$$
 \end{itemize}
 \end{esempio}
 
 Se due funzioni $f(x)$ e $g(x)$ hanno periodi diversi $T_f$ e $T_g$, 
 rispettivamente, le funzioni $f(x)\pm g(x)$, $f(x)\cdot g(x)$ e 
 $\frac{f(x)}{g(x)}$ hanno un periodo pari al m.c.m. tra $T_f$ e $T_g$ 
-nell'ipotesi che $\frac{T_f}{T_g}$ sia un numero razionale e diverso da 1. Se 
-il rapporto è irrazionale le precedenti combinazioni di funzioni non sono 
-periodiche. Se $T_f=T_g$ il periodo globale è minore o uguale del periodo 
-comune.\\
+nell'ipotesi che $\frac{T_f}{T_g}$ sia un numero razionale e diverso da 1. 
+Se il rapporto è irrazionale le precedenti combinazioni di funzioni non 
+sono periodiche. Se $T_f=T_g$ il periodo globale è minore o uguale del 
+periodo comune.\\
 
 \begin{esempio} Calcolare il periodo di combinazioni di funzioni periodiche e 
 non periodiche.\\
