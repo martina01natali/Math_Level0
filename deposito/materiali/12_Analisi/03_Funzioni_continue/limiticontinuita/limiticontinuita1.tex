@@ -94,23 +94,65 @@ valore, $c$, basta calcolare la parte standard del valore della funzione
 per un numero infinitamente vicino a $c$:
 \[l=\lim_{x \rightarrow c} f(x) = \pst{f(c+\epsilon)}\]
 
+Nel caso $c$ sia un numero finito basta sostituire la $x$ con $c+\epsilon$ 
+e poi prendere la parte standard.
+
 \begin{esempio}
- % 
-\[\lim_{x \rightarrow 3} {x^2-4x+2}
-~ \stackrel{1}{=} ~  
-  \pst{\tonda{3+\epsilon}^2-4\tonda{3+\epsilon}+2}
-~ \stackrel{2}{=} ~  
-  \pst{9 + 6 \epsilon + \epsilon^2 - 12 - 4\epsilon + 2}
-~ \stackrel{3}{=} ~  
+Calcola: \quad \(\displaystyle \lim_{x \rightarrow 3} \tonda{x^2-4x+2}\)
+\begin{align*}
+\lim_{x \rightarrow 3} \tonda{x^2-4x+2} & \stackrel{1}{=} 
+  \pst{\tonda{3+\epsilon}^2-4\tonda{3+\epsilon}+2} \stackrel{2}{=}\\  
+  & =\pst{9 + 6 \epsilon + \epsilon^2 - 12 - 4\epsilon + 2} \stackrel{3}{=}
   \pst{9 - 12 + 2} = -1
-\]\\
+\end{align*}
 
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item Sostituiamo $x$ con \(\tonda{3+\epsilon}\);
- \item Eseguiamo i calcoli algebrici;
- \item Sostituiamo l'espressione con una espressione indistinguibile,
+ \item sostituiamo $x$ con \(\tonda{3+\epsilon}\);
+ \item eseguiamo i calcoli algebrici;
+ \item sostituiamo l'espressione con una espressione indistinguibile,
    eseguiamo i calcoli e calcoliamo la parte standard.
+\end{enumerate}
+\end{esempio}
+
+Se $c=0$ ci possiamo semplificare notevolmente i calcoli ricordando 
+che~\(0 + \epsilon = \epsilon\).
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow 0} \frac{x^2-4x+2}{x^2-4}\)
+\begin{align*}
+\lim_{x \rightarrow 0} \frac{x^2-4x+2}{x^2-4} & \stackrel{1}{=} 
+  \pst{\frac{\epsilon^2-4\epsilon+2}{\epsilon^2-4}} \stackrel{2}{=}  
+  \pst{\frac{2}{-4}} = -\frac{1}{2}
+\end{align*}
+
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo $x$ con \(\tonda{3+\epsilon}\) o, più semplicemente 
+   con~\(\epsilon\);
+ \item sostituiamo l'espressione ottenuta con una espressione 
+   indistinguibile, eseguiamo i calcoli e calcoliamo la parte standard.
+\end{enumerate}
+\end{esempio}
+
+Se $c$ è un numero infinito sostituiremo la $x$ con un generico 
+infinito~$M$, svolti i calcoli, prenderemo la parte standard.
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow \infty} \frac{3x^2-3x+7}{5x^2-6}\)
+\begin{align*}
+\lim_{x \rightarrow 0} \frac{3x^2-3x+7}{5x^2-6} & \stackrel{1}{=} 
+  \pst{\frac{3M^2-3M+7}{5M^2-6}} \stackrel{2}{=}  
+  \pst{\frac{3\cancel{M^2}}{5\cancel{M^2}}} = \frac{3}{5}
+\end{align*}
+
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo $x$ con \(M\);
+ \item sostituiamo l'espressione ottenuta con una espressione 
+   indistinguibile, eseguiamo i calcoli e calcoliamo la parte standard.
 \end{enumerate}
 \end{esempio}
 
