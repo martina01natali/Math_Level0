@@ -402,7 +402,7 @@ esprimerli: una volta capiti i concetti. Per accordarci sui nomi basta una
 penna: tirare un segno sul nome da cambiare e scrivere vicino il nuovo nome.
 
 \section{Rappresentazione di una generica funzione}
-\label{sec:funzioni2_codominio}
+\label{sec:funzioni2_rappresentazione}
 
 \subsection{Diagrammi}
 
@@ -474,10 +474,8 @@ possono essere effettivamente il risultato della funzione, formano
 l'\emph{Insieme Immagine} della funzione.
 \end{enumerate}
 
-
-
 \section{Funzioni reali}
-\label{sec:funzioni2_}
+\label{sec:funzioni2_reali}
 
 Abbiamo visto che possiamo avere funzioni applicate a moltissimi insiemi e 
 con i più vari risultati; possono essere semplici, descritte da un semplice 
@@ -556,9 +554,160 @@ Osservando la tabella precedente possiamo formulare alcune congetture:
 \end{enumerate}
 
 
+\subsection{Visualizzazione su due assi}
+
+Una funzione reale fa corrispondere ad un numero un altro numero, ma i 
+numeri possono essere visualizzati su una retta, un asse cartesiano. 
+Possiamo quindi rappresentare la funzione come una corrispondenza tra i 
+punti di due rette.
+
+Chiamiamo $x$ la retta da cui partono le frecce e $y$ la retta su cui le 
+frecce arrivano.
+Sulla retta $x$ rappresenteremo gli argomenti della funzione e sulla retta 
+$y$ i corrispondenti risultati.
+
+\dueassivuoti
+
+Vediamo alcuni esempi, partendo da funzioni molto semplici e complicando, 
+man mano, le cose.
+
+\begin{esempio}
+Calcola e rappresenta la funzione che dato un numero restituisce lo stesso 
+numero aumentato di tre.
+
+\lstinputlisting[lastline=3]{\folder src/09_funzioni.py} %]
+
+Collegando i punti corrispondenti nel grafico con due assi otteniamo:
+
+\dueassi{-13}{10}{\x+3}
+\end{esempio}
+
+
+\begin{osservazione}
+\begin{enumerate}
+\item La funzione è definita anche per valori diversi da quelli per i quali 
+abbiamo fatto stampare la tabella.
+\item È definita anche per valori diversi da quelli che abbiamo 
+rappresentato nel grafico.
+\item Solo per motivi di pigrizia abbiamo usato come argomenti numeri 
+interi, ma la funzione è definita anche per qualunque altro numero reale.
+\end{enumerate}
+\end{osservazione}
+
+\section{Rappresentazione cartesiana}
+\label{sec:funzioni2_rcartesiana}
+
+La visualizzazione su due assi ha il pregio di mettere bene in evidenza il 
+collegamento tra l'argomento e il risultato di una funzione, ma, se la 
+funzione non è semplicissima, può facilmente diventare un guazzabuglio di 
+frecce, un grafico a spaghetti difficilmente interpretabile. Non si presta 
+certo a rendere il significato di una funzione a colpo d'occhio.
+
+La trovata geniale è stata quella di ruotare di 90 gradi l'asse delle $y$ e 
+di indicare la relazione tra l'*argomento* e il *risultato* con un *punto*:
+
+\puntonelpc{2}{5}
+
+\begin{osservazione}
+\begin{enumerate} [nosep]
+\item Per pigrizia, al posto di  ``argomento'' e di  ``risultato'', 
+normalmente si usano due lettere:  ``x'' e  ``y''.
+\item Il punto P rappresenta una coppia di valori  ``argomento'' -  
+``risultato''.
+\item È possibile rappresentare l'intera funzione disegnando tutti i punti, 
+solitamente infiniti.
+\item L'insieme di tutti questi punti viene detto grafico della funzione.
+\item Di solito ci si accontenta di rappresentare una parte della funzione, 
+quella che si ritiene più significativa.
+\end{enumerate}
+\end{osservazione}
+
+\subsection{Grafico di una funzione}
+
+Riportiamo nel piano cartesiano i punti che hanno per coordinate gli 
+argomenti e risultati della funzione 
+$\quad f_6: x \mapsto -2x+3 \quad$ 
+ricavati dalla tabella precedente:
+
+\begin{lstlisting}
+tabella_o(lambda x: -2 * x +3, range(-4, +7))
+\end{lstlisting}
+
+
+"""Vediamo come appare il grafico della funzione:
+
+$$f_6: x \mapsto -2x+3$$
+
+Riportiamo nel piano cartesiano i punti che hanno per coordinate gli 
+argomenti e risultati della funzione ricavati dalla tabella precedente:
+
+\graficoa
+
+\begin{osservazione}
+\begin{enumerate}
+\item Nel grafico vengono disegnati alcuni punti che hanno per coordinate 
+l'argomento e il risultato della funzione.
+\item Se calcoliamo la funzione nei valori intermedi a quelli rappresentati 
+vedremo che i punti ottenuti si disporranno tra quelli già rappresentati. 
+\end{enumerate}
+\end{osservazione}
+
+Ad es. 
+$f(0,5)=2$, $f(0,75)=2,5$, $f(0,25)=1,5$, ...
+
+Possiamo aggiungere facilmente i punti intermedi, anzi possiamo aggiungere 
+facilmente *infiniti* punti semplicemente collegando quelli già disegnati 
+con una linea. Inquesto caso una linea retta:
+
+\graficob
+
+\begin{osservazione}
+Questa rappresentazione fa emergere una caratteristica che finora non 
+potevamo sospettare: la funzione ha una sua forma. In questo caso, la 
+funzione ha la forma di una retta decrescente che taglia l'asse y nel punto 
+$3$.
+
+La forma della funzione viene chiamata: *grafico della funzione*.
+\end{osservazione}
+
+\subsection{Disegnare grafici con Python}
+
+Di seguito la funzione Python che disegna il grafico della funzione passata 
+come argomento.
+
+\lstinputlisting{\folder src/10_assiegrafico.py} %]
+
+\begin{osservazione}
+Anche in questo caso la funzione che disegna il grafico appare piuttosto 
+complicata, non è necessario capire come funziona.
+L'ultima riga della cella precedente indica come chiamarla, questa è la 
+parte importante.
+
+Per studiare invece il funzionamento della funzione ``grafico`` la strada 
+più semplice è quella di fare delle modifiche e vederne l'effetto.
+\end{osservazione}
+
+% \begin{lstlisting}
+% grafico(lambda x: -x**2+8)
+% \end{lstlisting}
+
+
+\paragraph{Riassumendo}
+
+\begin{itemize} [nosep]
+\item È possibile rappresentare alcune coppie *argomento* - *risultato* con:
+\begin{itemize} [nosep]
+  \item una tabella,
+  \item delle frecce che uniscono i punti di due assi cartesiani,
+  \item un insieme di punti nel piano cartesiano
+\end{itemize}
+\item La rappresentazione cartesiana permette di associare ad ogni funzione 
+una forma ben precisa.
+\end{itemize}
+
+
+
 \subsection{}
-
-
 
 
 \section{}
@@ -589,329 +738,6 @@ Osservando la tabella precedente possiamo formulare alcune congetture:
 \begin{osservazione}
 \end{osservazione}
 %--------------------------------------------------------------------
-
-###Esercizio
-
-\item Dimostra le congetture precedenti.
-\item Scrivi la funzione quadratica e stampane 10 valori.
-\item Scrivi la funzione reciproca e stampane 10 valori.
-\item Scrivi una funzione che diminuisca all'aumentare di $x$.
-
-## Visualizzazione su due assi
-
-Una funzione reale fa corrispondere ad un numero un altro numero, ma i 
-numeri possono essere visualizzati su una retta, un asse cartesiano. 
-Possiamo quindi rappresentare la funzione come una corrispondenza tra i 
-punti di due rette.
-
-Chiamiamo $x$ la retta da cui partono le frecce e $y$ la retta su cui le 
-frecce arrivano.
-Sulla retta $x$ rappresenteremo gli argomenti della funzione e sulla retta 
-$y$ i corrispondenti risultati.
-
-![Assi che rappresentano dominio e 
-codominio]
-(https://drive.google.com/uc?export=view&id=1X1-HmGdedOLcMocixQcWLeTcY9kZDaX
-U)
-
-Vediamo alcuni esempi, partendo da funzioni molto semplici e complicando, 
-man mano, le cose.
-
-Esempio 1
-
-Calcola e rappresenta la funzione che dato un numero restituisce lo stesso 
-numero aumentato di tre.
-"""
-
-def f_1(x):
-   ``""Restituisce x aumentato di 3."""
-  return x + 3
-
-tabella_o(f_1, range(-6, +6))
-
-"""Collegando i punti corrispondenti nel grafico con due assi otteniamo:
-
-![Assi che rappresentano dominio e 
-codominio]
-(https://drive.google.com/uc?export=view&id=1_bmSla7TNuDFd83Oh7kqPdQqyU2FM7K
-Z)
-
----
-**Osservazioni**
-
-\item La funzione è definita anche per valori diversi da quelli per i quali 
-abbiamo fatto stampare la tabella.
-\item È definita anche per valori diversi da quelli che abbiamo 
-rappresentato 
-nel grafico.
-\item Solo per motivi di pigrizia abbiamo usato come argomenti numeri 
-interi, 
-ma la funzione è definita anche per qualunque altro numero reale.
-
-###Esercizi
-
-Scrivi la funzione Python che produca i risultati delle seguenti funzioni, 
-poi riportali sul grafico a due rette.
-
-2\. La metà di $x$ aumentata di tre.
-
-3\. Il doppio di $x$ aumentato di tre.
-
-4\. L'opposto di $x$ aumentato di tre.
-
-5\. L'opposto della metà di $x$ aumentato di tre.
-
-6\. L'opposto del doppio di $x$ aumentato di tre.
-"""
-
-def f_2(x):
-   ``""Restituisce la metà di x aumentata di 3."""
-  return x / 2 + 3
-
-tabella_o(f_2, range(-8, +7))
-
-"""E il corrispondente grafico con due assi:
-
-![Grafico con due assi della funzione f_2(x) = 
-0.5*x+3]
-(https://drive.google.com/uc?export=view&id=13gH85RVwwNp1y2brHrYuEqu9gPOs_cM
-r)
-"""
-
-def f_3(x):
-   ``""Restituisce il doppio di x aumentato di 3."""
-  return 
-
-tabella_o(f_3, range(-8, +7))
-
-"""E il corrispondente grafico con due assi:
-
-![Grafico con due assi della funzione f_3(x) = 
-0.5*x+3]
-(https://drive.google.com/uc?export=view&id=1P4PVZDgigAiidoLsvjC9oNUGLMA4azk
-5)
-"""
-
-def f_4(x):
-   ``""Restituisce l'opposto di x aumentato di 3."""
-  return 
-
-tabella_o(f_4, range(-8, +7))
-
-"""E il corrispondente grafico con due assi:
-
-![Grafico con due assi della funzione f_3(x) = 
-0.5*x+3]
-(https://drive.google.com/uc?export=view&id=1thzscXIRllzYDkY1C1npMkmwokgZ8pN
-o)
-"""
-
-def f_5(x):
-   ``""Restituisce l'opposto della meta' di x aumentato di 3."""
-  return 
-
-tabella_o(f_3, range(-8, +7))
-
-"""E il corrispondente grafico con due assi:
-
-![Grafico con due assi della funzione f_3(x) = 
-0.5*x+3]
-(https://drive.google.com/uc?export=view&id=1SLf1ul-zGxH47loXYPjQDZqrmf8hXd8
-5)
-"""
-
-def f_6(x):
-   ``""Restituisce l'opposto del doppio di x aumentato di 3."""
-  return 
-
-tabella_o(f_3, range(-8, +7))
-
-"""E il corrispondente grafico con due assi:
-
-![Grafico con due assi della funzione f_3(x) = 
-0.5*x+3]
-(https://drive.google.com/uc?export=view&id=1Ca-RhjREk_wtlzYiidIA25TQJrhcXj-
-6)
-
-## Visualizzazione cartesiana
-
-La visualizzazione su due assi ha il pregio di mettere bene in evidenza il 
-collegamento tra l'argomento e il risultato di una funzione, ma, se la 
-funzione non è semplicissima, può facilmente diventare un guazzabuglio di 
-frecce, un grafico a spaghetti difficilmente interpretabile. Non si presta 
-certo a rendere il significato di una funzione a colpo d'occhio.
-
-La trovata geniale è stata quella di ruotare di 90 gradi l'asse delle $y$ e 
-di indicare la relazione tra l'*argomento* e il *risultato* con un *punto*:
-
-![Rappresentazione di una coppia argomento-risultato nel piano 
-cartesiano]
-(https://drive.google.com/uc?export=view&id=1hzy8bIHO3vEM8_qdI2X8r_u1s7Zp1tF
-w)
-
-
-
----
-**Osservazioni**
-
-\item Per pigrizia, al posto di  ``argomento'' e di  ``risultato'', 
-normalmente 
-si 
-usano due lettere:  ``x'' e  ``y''.
-\item Il punto P rappresenta una coppia di valori  ``argomento'' -  
-``risultato''.
-\item È possibile rappresentare l'intera funzione disegnando tutti i punti, 
-solitamente infiniti.
-\item L'insieme di tutti questi punti viene detto grafico della funzione.
-\item Di solito ci si accontenta di rappresentare una parte della funzione, 
-quella che si ritiene più significativa.
-
-##Grafico di una funzione:
-
-Riportiamo nel piano cartesiano i punti che hanno per coordinate gli 
-argomenti e risultati della funzione 
-$\quad f_6: x \mapsto -2x+3 \quad$ 
-ricavati dalla tabella precedente:
-"""
-
-def f_6(x):
-   ``""Restituisce l'opposto del doppio di x aumentato di 3."""
-  return -2 * x +3
-
-tabella_o(f_6, range(-4, +7))
-
-"""Vediamo come appare il grafico della funzione:
-
-$$f_6: x \mapsto -2x+3$$
-
-Riportiamo nel piano cartesiano i punti che hanno per coordinate gli 
-argomenti e risultati della funzione ricavati dalla tabella precedente:
-
-![Grafico cartesiano della funzione f_6(x) = 
--2*x+3]
-(https://drive.google.com/uc?export=view&id=1DQ4dYIB3RX74YdN9U5OiovU1owyqg-B
-F)
-
----
-
-**Osservazioni**
-
-\item Nel grafico vengono disegnati alcuni punti che hanno per coordinate 
-l'argomento e il risultato della funzione.
-\item Se calcoliamo la funzione nei valori intermedi a quelli rappresentati 
-vedremo che i punti ottenuti si disporranno tra quelli già rappresentati. 
-
-Ad es. 
-$f(0,5)=2$, $f(0,75)=2,5$, $f(0,25)=1,5$, ...
-
-
----
-
-Possiamo aggiungere facilmente i punti intermedi, anzi possiamo aggiungere 
-facilmente *infiniti* punti semplicemente collegando quelli già disegnati 
-con una linea. Inquesto caso una linea retta:
-
-![Grafico cartesiano della funzione f_6(x) = 
--2*x+3]
-(https://drive.google.com/uc?export=view&id=1DxWI-pVYiP_osc3esjCyMT0Iaciye6p
-_)
-
-
----
-
-**Osservazione**
-
-Questa rappresentazione fa emergere una caratteristica che finora non 
-potevamo sospettare: la funzione ha una sua forma. In questo caso, la 
-funzione ha la forma di una retta decrescente che taglia l'asse y nel punto 
-$3$.
-
-La forma della funzione viene chiamata: *grafico della funzione*.
-
----
-
-### Come far disegnare il grafico a Python
-
-Di seguito la funzione Python che disegna il grafico della funzione passata 
-come argomento.
-"""
-
-import matplotlib.pyplot as plt
-import numpy as np
-
-def assi():
-   ``""Traccia un piano cartesiano."""
-  ax = plt.axes()
-  ax.set(xlim=[-10.3,10.3],ylim=[-10.3,10.3], facecolor='white',
-         xticks=range(-10, 11),yticks=range(-10, 11),
-         xticklabels=[], yticklabels=[], aspect='equal')
-  ax.grid(True, color='40')
-  plt.arrow(-10.3,0,21,0, fc='w', ec='k', lw = .5, 
-             head_width=.5, head_length=.5, overhang = .3, 
-             length_includes_head = True, clip_on = False)
-  plt.arrow(0,-10.3,0,21, fc='w', ec='k', lw = .5, 
-             head_width=.5, head_length=.5, overhang = .3, 
-             length_includes_head = True, clip_on = False)
-  ax.text(10,-.7,'$x$')
-  ax.text(-.8,10,'$y$')
-
-def grafico(funzione):
-   ``""Traccia il grafico di una funzione."""
-  assi()
-  x = np.arange(-20., 10.3, 0.1)
-  plt.plot(x, funzione(x))
-  plt.show()
-  
-grafico(lambda x: x**2-3)
-
-"""---
-**Osservazione**
-
-Anche in questo caso la funzione che disegna il grafico appare piuttosto 
-complicata, non è necessario capire come funziona.
-L'ultima riga della cella precedente indica come chiamarla, questa è la 
-parte importante.
-
-Per studiare invece il funzionamento della funzione ``grafico``la strada 
-più 
-semplice è quella di fare delle modifiche e vederne l'effetto.
-
----
-"""
-
-"""
-Prima di poter eseguire questa cella, deve essere stata eseguita,
-almeno una volta in questa sessione,
-la cella in cui viene definita la funzione  ``grafico''.
-"""
-grafico(lambda x: -x**2+8)
-
-"""## Riassumendo
-
-\item È possibile rappresentare alcune coppie *argomento* - *risultato* con:
-  \item una tabella,
-  \item delle frecce che uniscono i punti di due assi cartesiani,
-  \item un insieme di punti nel piano cartesiano
-\item La rappresentazione cartesiana permette di associare ad ogni funzione 
-una 
-forma ben precisa.
-
-##Esercizi
-
-Per ognuna delle seguenti funzioni reali:
-
-* $f_0: x \mapsto - \dfrac{3}{2} x$
-* $f_1: x \mapsto \dfrac{6}{x}$
-* $f_2: x \mapsto - \dfrac{5}{4} x -2$
-* $f_3: x \mapsto x^2$
-* $f_4: x \mapsto - \dfrac{1}{2} x^2 -2$
-* $f_5: x \mapsto - \dfrac{x-2}{3x+4}$
-
-
-\item Determina l'insieme di definizione.
-\item Scrivi la funzione che ne calcola i valori.
-\item Rappresentala nel grafico a due assi.
-\item Rappresentala nel piano cartesiano.
 
 ## Proprietà delle funzioni
 
@@ -1507,36 +1333,6 @@ grafico(lambda x: np.log(np.exp(x)))
 
 
 \deffunzione{Dominio}{Insieme di definizione}{Codominio}{Insieme immagine}
-
-\section{Dueassi}
-
-% \dueassivuoti
-% 
-% \dueassi{-13}{10}{\x+3}
-% 
-% \dueassi{-12}{12}{.5*\x+3}
-% 
-% \dueassi{-7}{4}{2*\x+3}
-% 
-% \dueassi{-8}{8}{-\x+3}
-% 
-% \dueassi{-8}{8}{-.5*\x+3}
-% 
-% \dueassi{-4}{7}{-2*\x+3}
-% 
-% \puntonelpc{2}{5}
-% 
-% ~
-% 
-% ~
-% 
-% \graficoa
-% 
-% ~
-% 
-% ~
-% 
-% \graficob
 
 \intervallimonotonia
 
