@@ -1,0 +1,474 @@
+% (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
+
+\input{\folder limiticontinuita1_graf.tex}
+
+\chapter{Funzioni continue}
+
+\begin{comment}
+ 
+Schema del capitolo
+===================
+
+Limiti
+------
+
+Continuità
+----------
+
+  C. in un punto
+  ''''''''''''''
+  
+    Definizione
+    ...........
+  
+      Definizioni equivalenti
+      
+    Punti di discontinuità e di non derivabilità
+    ............................................
+ 
+  C. in un intervallo
+  '''''''''''''''''''
+  
+    Definizione
+    ...........
+  
+      Teorema funzioni elementari
+      Teorema composizione di funzioni
+      
+    Insieme e sottoinsiemi delle funzioni
+    .....................................
+
+\end{comment}
+
+\begin{comment}
+\begin{center}
+\begin{inaccessibleblock}[TODO.]
+  \telescopio
+%   \caption{...e i corrispondenti punti.} \label{fig:potdue0}
+\end{inaccessibleblock}
+\end{center}
+\end{comment}
+
+\begin{center}
+\begin{inaccessibleblock}[TODO.]
+%   \telescopio
+%   
+%   \iperinteri
+%   \caption{...e i corrispondenti punti.} \label{fig:potdue0}
+\end{inaccessibleblock}
+\end{center}
+
+\section{Limiti}
+\label{sec:cont_limiti}
+
+\footnote{Per scrivere questo capitolo mi sono ispirato 
+al testo di H. Jerome KeislerKeissler ``Elementary Calculus: An Infinitesimal 
+Approach''. 
+Chi volesse approfondire l'argomento può acquistare il testo 
+all'indirizzo: 
+\href{https://www.math.wisc.edu/~keisler/calc.html}
+     {www.math.wisc.edu/~keisler/calc.html}}
+In alcuni problemi non siamo interessati a sapere come si comporta una funzione 
+per un valore ben preciso, dove magari non è definita, ci interessa di più 
+sapere come si comporta quando si \emph{avvicina} a quel valore.
+
+Per trattare queste situazioni i matematici si sono inventati il concetto di 
+\emph{limite}.
+
+% TODO problema sensato sui limiti.
+
+\begin{definizione}
+\(l\) è il \textbf{limite} di una funzione \(f(x)\) per \(x\) 
+che tende a un 
+valore \(c\), se, quando \(x\) è infinitamente vicino a \(c\), 
+ma diverso da \(c\), 
+allora \(f(x)\) è infinitamente vicino a \(l\). E si scrive:
+
+\[l=\lim_{x \rightarrow c} f(x) \Leftrightarrow 
+\forall x \tonda{\tonda{x \approx c \wedge x \neq c} \Rightarrow 
+\tonda{f(x) \approx l}}\]
+\end{definizione}
+
+Per calcolare il limite di una funzione per $x$ che tende a un certo 
+valore, $c$, basta calcolare la parte standard del valore della funzione 
+per un numero infinitamente vicino a $c$:
+\[l=\lim_{x \rightarrow c} f(x) = \pst{f(c+\epsilon)}\]
+
+\begin{esempio}
+ % 
+\[\lim_{x \rightarrow 3} {x^2-4x+2}
+~ \stackrel{1}{=} ~  
+  \pst{\tonda{3+\epsilon}^2-4\tonda{3+\epsilon}+2}
+~ \stackrel{2}{=} ~  
+  \pst{9 + 6 \epsilon + \epsilon^2 - 12 - 4\epsilon + 2}
+~ \stackrel{3}{=} ~  
+  \pst{9 - 12 + 2} = -1
+\]\\
+
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item Sostituiamo $x$ con \(\tonda{3+\epsilon}\);
+ \item Eseguiamo i calcoli algebrici;
+ \item Sostituiamo l'espressione con una espressione indistinguibile,
+   eseguiamo i calcoli e calcoliamo la parte standard.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+ % limite notevole espon.
+\(\pst{\tonda{1+\dfrac{k}{N}}^N}
+~ \stackrel{1}{=} ~  
+\pst{\tonda{1+\dfrac{1}{M}}^{kM}}
+~ \stackrel{2}{=} ~
+\pst{\quadra{\tonda{1+\dfrac{1}{M}}^M}}^k
+~ \stackrel{3}{=} ~ e^k\).\\
+
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item un altro sporco trucco: la sostituzione. Supponiamo
+$\frac{k}{N}=\dfrac{1}{M}$. Allora $N=kM$;
+ \item una potenza di potenza è una potenza che ha...
+ \item per la definizione del numero $e$ e per le proprietà della funzione 
+$\st()$.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+ % limite notevole log.
+\(\pst{\dfrac{a^\epsilon-1}{\epsilon}}
+~ \stackrel{1}{=} ~  
+\pst{\dfrac{\delta}{\log_a{(\delta+1)}}}
+~ \stackrel{2}{=} ~
+\pst{\frac{1}{\dfrac{\log_a{(\delta+1)}}{\delta}}}
+~ \stackrel{3}{=} ~ 
+\pst{\frac{1}{\dfrac{1}{\ln{a}}}}=\ln{a}\).\\
+
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item ancora una sostituzione: poniamo
+$a^\epsilon-1=\delta$. Allora $\epsilon=\log_a(\delta+1)$;
+ \item una capriola algebrica: oplà! 
+ \item per le forme di indecisione discusse a proposito del numero di Nepero
+e per il cambiamento di base;
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+ % limite notevole seno e coseno
+ \(\pst{\dfrac{1-\cos \delta}{\sin \delta}}\)=0.\\
+~
+Dove l'uguaglianza si giustifica per quanto detto a proposito dell'ordine 
+degli infinitesimi, ma gli appassionati del calcolo possono provare a 
+moltiplicare il numeratore e il denominatore per ...
+\end{esempio}
+
+
+
+\section{Continuità}
+\label{sec:cont_continuita}
+
+\subsection{Definizione di continuità in un punto}
+\label{subsec:cont_definizione}
+
+
+\begin{definizione}
+Diremo che una funzione è \textbf{continua} in un punto \(c\), 
+se è definita in \(c\) e, 
+quando \(x\) è infinitamente vicino a \(c\), 
+allora \(f(x)\) è infinitamente vicino a \(f(c)\). E si scrive::
+
+\[f \text{ è continua in } c \Leftrightarrow 
+\forall x \tonda{\tonda{x \approx c} \Rightarrow 
+\tonda{f(x) \approx f(c)}}\]
+
+\end{definizione}
+
+\begin{esempio}
+ Data la funzione \(f(x)=x^2-3x\) dimostrare che \(f(x)\) è continua in~4.
+ 
+ La funzione è continua in~4 se per ogni \(x\) infinitamente vicino a~4 
+ \(f(x)\) è infinitamente vicino a \(f(4)\). Cioè se \(x -4=\epsilon\) allora
+ \(f(x) -f(4) = \delta\) dove \(\epsilon\) e \(\delta\) sono due infinitesimi.
+ 
+\emph{dimostrazione}
+
+Da \(x-4=\epsilon\) si ricava che \(x=4+\epsilon\), quindi: 
+\[f(x) -f(4) = f(4+\epsilon) -f(4) = 
+\tonda{4+\epsilon}^2-3\tonda{4+\epsilon}-\tonda{4^2-3\cdot 4}=\]
+\[=\cancel{16}+8\epsilon+\epsilon^2\cancel{-12} 
+  -3\epsilon\cancel{-16}\cancel{+12} = 
+  +8\epsilon+\epsilon^2 -3\epsilon = 
+\epsilon \tonda{5 + \epsilon}\]
+
+Ora, il prodotto tra un infinitesimo e un finito è un infinitesimo, quindi, se 
+la distanza tra \(x\) e \(4\) è infinitesima, anche la distanza tra 
+\(f(x)\) e \(f(4)\) è infinitesima. qed 
+ 
+\end{esempio}
+
+\begin{esempio}
+ Dimostrare che \(f(x)=\frac{\abs{x}}{x}\) non è continua in~0.
+ 
+\emph{dimostrazione}
+TODO
+ 
+\end{esempio}
+
+\begin{esempio}
+ Dimostrare che \(f(x)=\frac{\abs{x}}{3}\) è continua in~0.
+ 
+\emph{dimostrazione}
+TODO
+ 
+\end{esempio}
+
+\begin{esempio}
+ Studiare la continuità di una funzione definita a tratti nel punto di 
+giunzione.
+ 
+TODO
+ 
+\end{esempio}
+
+Per riassumere, data una funzione \(y=f(x)\) definita in \(c\), le seguenti 
+affermazioni sono equivalenti:
+
+\begin{enumerate}[noitemsep]
+ \item \(f\) è continua in \(c\);
+ \item se \(x \approx c\) allora \(f(x) \approx f(c)\);
+ \item se \(\st(x) = c\) allora \(\st(f(x)) = f(c)\);
+ \item \(\lim_{x \to c} f(x) = f(c)\);
+ \item se \(x\) si allontana da \(c\) di un infinitesimo allora 
+   \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
+ \item se \(\Delta x\) è infinitesimo allora il corrispondente \(\Delta y\) 
+   è infinitesimo.
+\end{enumerate}
+
+\begin{comment}
+\begin{teorema}[Derivabilità e continuità]
+Se una funzione è derivabile in un punto allora è continua in quel punto.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ è derivabile in } c\)
+\tab Tesi: 
+\(f(x) \text{ è continua in } c\).
+
+\begin{proof}
+TODO
+\end{proof}
+\end{comment}
+
+\subsection{Definizione di continuità in un intervallo}
+\label{subsec:cont_definizione}
+
+Dimostrare che una funzione è continua in un punto è piuttosto laborioso, pur 
+non essendo complicato, ma presenta un problema quando sono interessato a 
+studiare la continuità di una funzione in un intervallo. Infatti in un 
+intervallo, anche piccolo, i punti sono infiniti e dimostrare la continuità per 
+ognuno di essi risulta piuttosto lungo\dots.
+
+Per superare questo scoglio, i matematici hanno pensato un approccio diverso:
+
+\begin{itemize}
+ \item dimostrare che alcune funzioni elementari sono continue;
+ \item dimostrare che la somma, il prodotto, il quoziente e la composizione di 
+funzioni continue è ancora una funzione continua.
+\end{itemize}
+
+In questo modo si può riconoscere la continuità di un gran numero di funzioni 
+senza fare noiosi calcoli. Di seguito vediamo qualcuno di questi teoremi.
+
+\subsubsection{Funzioni elementari}
+\label{subsubsec:cont_funzionielementari}
+
+Dimostriamo la continuità di alcune funzioni elementari.
+
+\begin{teorema}[Continuità delle costanti]
+Le funzioni costanti sono continue.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f(x)\) è continua.
+
+\begin{proof}
+Per la definizione di continuità vogliamo dimostrare che 
+\[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
+Poniamo \(x_0=x+\epsilon\), essendo la funzione costante, anche 
+\[f(x+\epsilon)=k\] 
+che, ovviamente, è infinitamente vicino a \(k\). In simboli:
+\[f(x_0) = f(x+\epsilon) = k \approx k = f(x)\] 
+\end{proof}
+
+\begin{teorema}[Continuità della funzione identica]
+La funzione identica (\(y=x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=x\).\tab Tesi: \(f(x)\) è continua.
+
+\begin{proof}
+Per la definizione di continuità vogliamo dimostrare che 
+\[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
+Poniamo \(x_0=x+\epsilon\), \(f(x_0) = f(x+\epsilon)=x+\epsilon\). 
+Dato che la differenza:
+\[f(x+\epsilon)-f(x) = x+\epsilon-x= \epsilon\]
+è un infinitesimo, allora i due valori sono infinitamente vicini. In simboli:
+\[f(x+\epsilon) = x+\epsilon \approx x = f(x)\] 
+\end{proof}
+
+\begin{teorema}[Continuità della funzione seno]
+La funzione seno (\(y=\sen x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=\sen x\).\tab Tesi: \(f(x)\) è continua.
+
+\begin{proof}
+Usando la prima proprietà delle potenze:
+\[f(x+\epsilon) =
+\sen{(x+\epsilon)} = \sen x \cos \epsilon - \cos x \sen \epsilon\]
+Se un angolo è infinitamente vicino a zero avrà il coseno infinitamente vicino 
+a uno e il seno infinitamente vicino a zero. Quindi:
+\[\sen{(x+\epsilon)} = \sen x + \delta\]
+Perciò:
+\[f(x+\epsilon) =
+\sen{(x+\epsilon)} = \sen{(x+\epsilon)} = 
+\sen x + \delta \approx \sen x = f(x)\]
+\end{proof}
+
+\begin{teorema}[Continuità della funzione esponenziale]
+La funzione esponenziale (\(y=a^x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
+
+\begin{proof}
+Usando la prima proprietà delle potenze:
+\[f(x+\epsilon) =
+a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} \approx a^{x} \cdot 1 = a^{x} = f(x)\]
+\end{proof}
+
+Oltre alle funzioni precedenti, anche altre funzioni elementari sono continue, 
+il seguente elenco riporta le principali funzioni continue:
+
+\begin{itemize} [noitemsep]
+ \item \(y=k\)
+ \item \(y=x\)
+ \item \(y=\frac{1}{x}\) \quad \textasteriskcentered
+ \item \(y=\sqrt[n]{x}\) \quad \textasteriskcentered
+ \item \(y=\abs{x}\)
+ \item \(y=a^x\)
+ \item \(y=\log_a x\) \quad \textasteriskcentered
+ \item \(y=\sen x\)
+ \item \(y=\cos x\)
+ \item \(y=\tg x\) \quad \textasteriskcentered
+\end{itemize}
+
+\begin{osservazione}
+Le funzioni segnate da \textasteriskcentered sono continue non su tutto \(\R\), 
+ma solo \textbf{all'interno del loro campo di esistenza}.
+\end{osservazione}
+
+\subsubsection{Composizione di funzioni}
+\label{subsubsec:cont_composizionefunzioni}
+
+Vediamo ora che anche componendo in alcuni modi funzioni continue otteniamo 
+ancora funzioni continue.
+
+\begin{teorema}[Somma di funzioni continue]
+Se \(f\) e \(g\) sono funzioni continue, anche \(f+g\) è continua.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ e} g(x)\) sono continue
+\tab Tesi: 
+\(f(x)+g(x)\) è continua.
+
+\begin{proof}
+Dato che sono continue: 
+\[f(x+\epsilon) + g(x+\epsilon) = f(x)+\alpha + g(x)+\beta\]
+Ma la somma di due infinitesimi è ancora un infinitesimo quindi:
+\[f(x)+g(x)+\tonda{\alpha + \beta} \approx f(x)+g(x)\]
+\end{proof}
+
+\begin{teorema}[Prodotto di funzioni continue]
+Se \(f\) e \(g\) sono funzioni continue, anche \(f \cdot g\) è continua.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ e} g(x)\) sono continue
+\tab Tesi: 
+\(f(x) \cdot g(x)\) è continua.
+
+\begin{proof}
+Dato che sono continue: 
+\[f(x+\epsilon) \cdot g(x+\epsilon) = 
+\tonda{f(x)+\alpha} \cdot \tonda{g(x)+\beta} = 
+f(x) \cdot g(x) + f(x) \cdot \beta + g(x) \cdot \alpha + \alpha \cdot \beta
+\approx f(x) \cdot g(x)\]
+
+Dato che sia il prodotto tra un numero finito e un infinitesimo, sia il 
+prodotto tra due infinitesimi sono infinitesimi e lo è anche la loro somma. 
+\end{proof}
+
+\begin{corollario}
+ Ogni funzione polinomiale è continua.
+\end{corollario}
+
+\begin{proof}
+Dato che una funzione polinomiale si può ottenere partendo da funzioni 
+costanti e da funzioni identiche attraverso moltiplicazioni e addizioni, 
+la tesi consegue dai teoremi precedenti. 
+\end{proof}
+
+\begin{esempio}
+ Dimostrare che \(f(x)=2x^2 + 3\) è una funzione continua.
+
+\begin{proof}
+
+\(f(x)=2x^2 + 3\) è continua perché è somma di due funzioni continue: 
+% \begin{itemize}[noitemsep]
+%  \item \(f(x)=2x^2 + 3\) è continua perché è somma di due funzioni continue: 
+ \begin{itemize}[nosep]
+  \item \(y=2x^2\) è continua perché è prodotto di due funzioni continue:
+  \begin{itemize}[nosep]
+   \item \(y=2\) è continua perché è una costante;
+   \item \(y=x^2\) è continua perché è prodotto di due funzioni continue:
+   \begin{itemize}[nosep]
+    \item \(y=x\) è continua perché è una funzione identica;
+    \item \(y=x\) è continua perché è una funzione identica;
+   \end{itemize}
+  \end{itemize}
+  \item \(y=3\) è continua perché è una costante;
+ \end{itemize}
+% \end{itemize}
+\end{proof}
+
+\end{esempio}
+
+\begin{teorema}[Funzioni di funzioni]
+Se \(f(x)\) e \(g(x)\) sono funzioni continue, anche \(f(g(x))\) è continua.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ e} g(x)\) sono continue
+\tab Tesi: 
+\(f(x) \star g(x) = f(g(x))\) è continua.
+
+\begin{proof}
+Dato che \(g\) è continua: 
+\[f(g(x+\epsilon)) = f(g(x)+\alpha)\]
+e dato che \(f\) è continua: 
+\[f(g(x)+\alpha)=f(g(x))+\beta\]
+quindi: 
+\[f(g(x+\epsilon)) = f(g(x)+\alpha) = f(g(x))+\beta \approx f(g(x))\]
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+

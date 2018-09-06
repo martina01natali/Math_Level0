@@ -8,36 +8,6 @@
  
 Schema del capitolo
 ===================
-
-Limiti
-------
-
-Continuità
-----------
-
-  C. in un punto
-  ''''''''''''''
-  
-    Definizione
-    ...........
-  
-      Definizioni equivalenti
-      
-    Punti di discontinuità e di non derivabilità
-    ............................................
- 
-  C. in un intervallo
-  '''''''''''''''''''
-  
-    Definizione
-    ...........
-  
-      Teorema funzioni elementari
-      Teorema composizione di funzioni
-      
-    Insieme e sottoinsiemi delle funzioni
-    .....................................
-    
 Massimi e minimi
 ----------------
 
@@ -82,45 +52,13 @@ Massimi e minimi
 \end{inaccessibleblock}
 \end{center}
 
-\section{Limiti}
-\label{sec:cont_limiti}
-
-\footnote{Per scrivere questo capitolo mi sono ispirato 
-al testo di H. Jerome KeislerKeissler ``Elementary Calculus: An Infinitesimal 
-Approach''. 
-Chi volesse approfondire l'argomento può acquistare il testo 
-all'indirizzo: 
-\href{https://www.math.wisc.edu/~keisler/calc.html}
-     {www.math.wisc.edu/~keisler/calc.html}}
-In alcuni problemi non siamo interessati a sapere come si comporta una funzione 
-per un valore ben preciso, dove magari non è definita, ci interessa di più 
-sapere come si comporta quando si \emph{avvicina} a quel valore.
-
-Per trattare queste situazioni i matematici si sono inventati il concetto di 
-\emph{limite}.
-
-% TODO problema sensato sui limiti.
-
-\begin{definizione}
-\(l\) è il \textbf{limite} di una funzione \(f(x)\) per \(x\) 
-che tende a un 
-valore \(c\), se, quando \(x\) è infinitamente vicino a \(c\), 
-ma diverso da \(c\), 
-allora \(f(x)\) è infinitamente vicino a \(l\). E si scrive:
-
-\[l=\lim_{x \rightarrow c} f(x) \Leftrightarrow 
-\forall x \tonda{\tonda{x \approx c \wedge x \neq c} \Rightarrow 
-\tonda{f(x) \approx l}}\]
-
-\end{definizione}
-
-
 \section{Continuità}
 \label{sec:cont_continuita}
 
-\subsection{Definizione di continuità in un punto}
+\subsection{Continuità e derivabilità}
 \label{subsec:cont_definizione}
 
+Richiamiamo il significato di continuità:
 
 \begin{definizione}
 Diremo che una funzione è \textbf{continua} in un punto \(c\), 
@@ -131,57 +69,9 @@ allora \(f(x)\) è infinitamente vicino a \(f(c)\). E si scrive::
 \[f \text{ è continua in } c \Leftrightarrow 
 \forall x \tonda{\tonda{x \approx c} \Rightarrow 
 \tonda{f(x) \approx f(c)}}\]
-
 \end{definizione}
 
-\begin{esempio}
- Data la funzione \(f(x)=x^2-3x\) dimostrare che \(f(x)\) è continua in~4.
- 
- La funzione è continua in~4 se per ogni \(x\) infinitamente vicino a~4 
- \(f(x)\) è infinitamente vicino a \(f(4)\). Cioè se \(x -4=\epsilon\) allora
- \(f(x) -f(4) = \delta\) dove \(\epsilon\) e \(\delta\) sono due infinitesimi.
- 
-\emph{dimostrazione}
-
-Da \(x-4=\epsilon\) si ricava che \(x=4+\epsilon\), quindi: 
-\[f(x) -f(4) = f(4+\epsilon) -f(4) = 
-\tonda{4+\epsilon}^2-3\tonda{4+\epsilon}-\tonda{4^2-3\cdot 4}=\]
-\[=\cancel{16}+8\epsilon+\epsilon^2\cancel{-12} 
-  -3\epsilon\cancel{-16}\cancel{+12} = 
-  +8\epsilon+\epsilon^2 -3\epsilon = 
-\epsilon \tonda{5 + \epsilon}\]
-
-Ora, il prodotto tra un infinitesimo e un finito è un infinitesimo, quindi, se 
-la distanza tra \(x\) e \(4\) è infinitesima, anche la distanza tra 
-\(f(x)\) e \(f(4)\) è infinitesima. qed 
- 
-\end{esempio}
-
-\begin{esempio}
- Dimostrare che \(f(x)=\frac{\abs{x}}{x}\) non è continua in~0.
- 
-\emph{dimostrazione}
-TODO
- 
-\end{esempio}
-
-\begin{esempio}
- Dimostrare che \(f(x)=\frac{\abs{x}}{3}\) è continua in~0.
- 
-\emph{dimostrazione}
-TODO
- 
-\end{esempio}
-
-\begin{esempio}
- Studiare la continuità di una funzione definita a tratti nel punto di 
-giunzione.
- 
-TODO
- 
-\end{esempio}
-
-Per riassumere, data una funzione \(y=f(x)\) definita in \(c\), le seguenti 
+Data una funzione \(y=f(x)\) definita in \(c\), le seguenti 
 affermazioni sono equivalenti:
 
 \begin{enumerate}[noitemsep]
@@ -190,8 +80,9 @@ affermazioni sono equivalenti:
  \item se \(\st(x) = c\) allora \(\st(f(x)) = f(c)\);
  \item \(\lim_{x \to c} f(x) = f(c)\);
  \item se \(x\) si allontana da \(c\) di un infinitesimo allora 
- \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
-%  \item se \(\Delta x\) è infinitesimo allora \(\Delta y\) è infinitesimo.
+   \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
+ \item se \(\Delta x\) è infinitesimo allora il corrispondente \(\Delta y\) 
+   è infinitesimo.
 \end{enumerate}
 
 \begin{teorema}[Derivabilità e continuità]
