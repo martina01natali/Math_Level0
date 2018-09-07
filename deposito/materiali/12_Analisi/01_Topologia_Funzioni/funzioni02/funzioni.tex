@@ -9,7 +9,7 @@
 \label{sec:funzioni2_cose}
 
 In italiano la parola  ``funzione'' ha una decina di significati diversi: 
-controllate su un buon vocabolario. Deriva dall latino:  ``functum'' che 
+controllate su un buon vocabolario. Deriva dal latino:  ``functum'' che 
 significa  ``eseguito''.
 Possiamo pensare a una funzione come a un meccanismo che è in grado di 
 eseguire un compito e dare quindi un risultato.
@@ -107,7 +107,7 @@ Vediamo ora come realizzare alcune funzioni Python:
    \item nome della funzione (in questo caso  ``saluto'', ma avremmo potuto 
 anche usare la parola  ``arggh"), seguito da una
    \item coppia di parentesi, seguite da
-   \item il simbolo *duepunti* (":"), poi, a capo e rientrato
+   \item il simbolo \emph{duepunti} ('':``), poi, a capo e rientrato
    \item un blocco di istruzioni, che termina con
    \item il comando  ``return'', seguito da
    \item il risultato della funzione.
@@ -118,7 +118,7 @@ anche usare la parola  ``arggh"), seguito da una
 funzione in questo modo:
 \begin{lstlisting}
   def <nome_funzione>():
-       ``""<docstring>"""
+       """<docstring>"""
       [<istruzioni>]
       return <risultato>
 \end{lstlisting}
@@ -132,10 +132,9 @@ seguita da una coppia di parentesi.
 \end{lstlisting}
   \item Nella descrizione della sintassi:
   \begin{enumerate} [nosep]
-   \item le parti tra parentesi angolari ("<'' e  ``>") vanno sostituiti 
-con 
-qualcosa di sensato;
-   \item le parti tra parentesi quadrate ("['' e  ``]") sono opzionali.
+   \item le parti tra parentesi angolari (``<'' e  ``>'') vanno sostituitE 
+con qualcosa di sensato;
+   \item le parti tra parentesi quadrate (``['' e  ``]'') sono opzionali.
   \end{enumerate}
  \end{enumerate}
 \end{osservazione}
@@ -146,21 +145,20 @@ qualcosa di sensato;
 Questa volta, la funzione deve ricevere due argomenti per poter dare il suo 
 risultato. Vediamo come realizzarla.
 
-\lstinputlisting[lastline=5]{\folder src/02_media.py} %[firstline=2, 
-lastline=5]
+\lstinputlisting[lastline=5]{\folder src/02_media.py}
 \end{esempio}
 
 \begin{osservazione}
  \begin{enumerate} [nosep]
   \item La coppia di parentesi che segue il nome della funzione nella 
-definizione contiene due nomi. Questi nomi vengono detti *parametri* della 
-funzione.
+definizione contiene due nomi. Questi nomi vengono detti \emph{parametri} 
+della funzione.
   \item La funzione precedente non aveva parametri, questa funzione ha 2 
 parametri.
   \item La sintassi completa di una funzione è:
 \begin{lstlisting}
   def <nome_funzione>([<parametri>]):
-       ``""<docstring>"""
+       """<docstring>"""
       [<istruzioni>]
       return <risultato>
 \end{lstlisting}
@@ -181,14 +179,14 @@ Prova a eseguire la precedente funzione passandole diversi argomenti.
 Osservate la differenza tra la media dei due numeri 34 e 56 e la media 
 tra 0.34 e 0.56. La cosa risulta strana, ma dipende dal fatto che molti 
 numeri che per noi sono decimali limitati, per il computer sono decimali 
-periodici. e quindi sono *sempre* approssimati.
+periodici e quindi sono \emph{sempre} approssimati.
 \end{osservazione}
 
 \begin{esempio}
 Scrivi la funzione che dia come risultato la lunghezza di una stringa.
 
 \begin{osservazione}
-Intendiamo con *stringa* una sequenza di caratteri cioè una parola o 
+Intendiamo con \emph{stringa} una sequenza di caratteri cioè una parola o 
 un testo.
 \end{osservazione}
 
@@ -216,8 +214,8 @@ ha posizione 2.
 \end{osservazione}
 
 \begin{esempio}
-Scrivi la funzione che dia come risultato *vero* se un numero è pari e 
-*falso* se un numero è dispari.
+Scrivi la funzione che dia come risultato \emph{vero} se un numero è pari e 
+\emph{falso} se un numero è dispari.
 
 \lstinputlisting{\folder src/05_pari.py} %[, lastline=5]
 
@@ -257,7 +255,7 @@ Possiamo ottenere errori anche nell'esecuzione della funzione media:
 
 \begin{lstlisting}
 print(media(3, 10))
-print(media("tre'',  ``dieci"))
+print(media("tre",  "dieci"))
 \end{lstlisting}
 
 In questo caso la funzione vuole avere dei numeri non delle stringhe, anche 
@@ -269,8 +267,8 @@ alla funzione come parametri. Questo insieme viene chiamato
 \textbf{dominio}.
 
 \begin{definizione}
-Chiameremo \textbf{dominio}  di una funzione l'insieme degli elementi che 
-possono essere suoi argomenti.
+Chiameremo \textbf{dominio} un insieme che contiene tutti gli elementi che 
+possono essere argomenti dea funzione.
 \end{definizione}
 
 Cioè il \emph{tipo} degli oggetti a cui la funzione può essere applicata.
@@ -291,7 +289,7 @@ stringhe.
 \item \emph{Completa scrivendo il dominio delle altre funzioni proposte.}
 \end{enumerate}
 
-Nel fare esperimenti dovresti aver individuato che il dominio della 
+Nel fare esperimenti abbiamo individuato che il dominio della 
 funzione \texttt{terzo\_carattere} è l'insieme delle stringhe. Ma non tutte 
 le strighe vanno bene:
 
@@ -342,7 +340,7 @@ codominio che contiene solo i risultati di una funzione.
 Determina: Dominio, Insieme di Definizione, Codominio e Insieme Immagine 
 della funzione: \texttt{terzocarattere} 
 
-Il dominio è costituito dalle stringhe; l'insieme di definizione è il 
+Il Dominio è costituito dalle stringhe; l'Insieme di Definizione è il 
 sottoinsieme delle stringhe che hanno almeno~3 caratteri; il Codominio è 
 formato dall'insieme delle stringhe; l'Insieme Immagine è il sottoinsieme 
 delle stringhe di lunghezza~1.
@@ -380,26 +378,26 @@ risultato che tutti siamo d'accordo di accettare.
 questa convenzione ma un'altra:
 
 \begin{itemize} [nosep]
- \item quello che noi chiamiamo ``dominio'' viene chiamato  ``insieme A'', 
-o in 
-qualche altro modo;
- \item quello che chiamiamo ``codominio'' viene chiamato  ``insieme B'', o 
-in qualche altro modo;
- \item quello che chiamiamo ``insieme di definizione'' viene chiamato 
-``dominio'';
- \item quello che chiamiamo ``insieme immagine'' viene chiamato 
-``codominio''.
+ \item quello che noi chiamiamo ``Dominio'' viene spesso chiamato  
+``insieme A'' o in qualche altro modo;
+ \item quello che chiamiamo ``Codominio'' a volte viene chiamato  ``insieme 
+B'' o in qualche altro modo;
+ \item quello che chiamiamo ``Insieme di Definizione'' viene spesso 
+chiamato ``Dominio'';
+ \item quello che chiamiamo ``Insieme Immagine'' a volte viene chiamato 
+``Codominio''.
 \end{itemize}
 
-Bisogna capire dal contesto il significato dei termini, ad esempio, se 
-viene chiesto di trovare il ``dominio di una funzione reale'', è evidente 
-che ci viene chiesto di trovare quello che noi chiamiamo ``insieme di 
-definizione'' dato che per noi il dominio di una funzione reale è, per 
-definizione, $\mathbb{R}$.
+Libri diversi usano nomi diversi per indicare le varie parti di una 
+funzione. 
+Dobbiamo stare attenti a distinguere i concetti fondamentali dai nomi 
+usati per esprimerli: una volta capiti i concetti, per accordarci sui nomi 
+basta una penna: tirare un segno sul nome da cambiare e scrivere vicino il 
+nuovo nome.
 
-Attento a distinguere i concetti fondamentali dai nomi usati per 
-esprimerli: una volta capiti i concetti. Per accordarci sui nomi basta una 
-penna: tirare un segno sul nome da cambiare e scrivere vicino il nuovo nome.
+Spesso bisogna capire dal contesto il significato dei termini, ad esempio, 
+se viene chiesto di ``trovare il dominio di una funzione reale'', ci viene 
+chiesto di trovare quello che noi chiamiamo ``insieme di definizione''.
 
 \section{Rappresentazione di una generica funzione}
 \label{sec:funzioni2_rappresentazione}
@@ -416,8 +414,6 @@ con gli elementi dell'insieme immagine è indicata con una freccia.
 \end{center}
 
 \subsection{Notazioni matematiche}
-
-Se chiamiamo $y$ il risultato della funzione 
 
 Possiamo indicare che $y$ è il risultato di una funzione con la seguente 
 espressione matematica:
@@ -438,8 +434,8 @@ Usando sempre l'esempio precedente:
 $$f: x \mapsto \frac{1}{2}x^2$$
 
 In Python la funzione $f$ può essere creata usando il costrutto 
-``def \dots return \dots'' o la funzione ``lambda``:
-
+``\texttt{def \dots return \dots}'' o la funzione ``\texttt{lambda}``.
+Le seguenti istruzioni Python sono equivalenti:
 
 \begin{lstlisting}
 def f(x):
@@ -487,16 +483,17 @@ studiare al sottoinsieme delle sole funzioni che partono da un numero e
 danno come risultato un numero. 
 Tra i vari insiemi di numeri che possiamo usare scegliamo l'insieme dei 
 numeri reali: $\mathbb{R}$. Scegliamo i reali perché hanno meno restrizioni 
-rispetto ad altri e perché hanno un semplice modello facile da realizzare: 
+rispetto ad altri numeri e perché hanno un semplice modello facile da 
+realizzare: 
 la \emph{retta reale} (un asse cartesiano).
 
 Chiameremo queste le \emph{funzioni reali} o 
 \emph{funzioni reali di variabili reali}.
 
 \begin{definizione}
-Chiamiamo \emph{funzioni reali di variabili reali} o, più 
-semplicemente, \emph{funzioni reali} le funzioni che hanno per dominio e 
-per codominio i numeri reali.
+Chiamiamo \emph{funzione reale di variabile reale} o, più 
+semplicemente, \emph{funzione reale} ogni funzione che ha per Dominio e 
+per Codominio l'insieme dei numeri reali.
 \end{definizione}
 
 \begin{esempio}
@@ -516,7 +513,7 @@ La funzione precedente può essere scritta così:
 
 \subsection{Tabella di alcuni valori di una funzione}
 
-Negli esempi precedenti ci siamo fatti stampare il valore assunto dalla 
+Negli esempi precedenti ci siamo fatti stampare il valore restituito dalla 
 funzione per alcuni valori del suo argomento ma se avessimo bisogno di più 
 valori, il metodo precedente sarebbe piuttosto scomodo. Possiamo scrivere 
 una funzione che non dà risultato, ma, data una funzione e un insieme di 
@@ -531,19 +528,11 @@ argomenti e sotto i corrispondenti risultati della funzione:
 \lstinputlisting[firstline=10]{\folder src/08_tabelle.py} %]
 
 \begin{osservazione}
-Per capire le funzioni, non è importante capire come funziona la funzione 
-\texttt{tabella} o la funzione \texttt{tabella\_o}.
-Se sei curioso puoi cercare di capirle, altrimenti puoi usarle senza porti 
-tanti problemi.
+Per capire le funzioni matematiche, non è importante capire 
+la funzione \texttt{tabella} o la funzione \texttt{tabella\_o}.
+Chi è curioso puoi cercare di capirle, altrimenti si possono usare senza 
+porsi tanti problemi.
 \end{osservazione}
-
-\subsection{Scrittura matematica}
-
-In matematica la funzione precedente viene scritta in uno di questi modi:
-
-$$f_0(x) = \frac{1}{2}x +3 \quad \text{ o } \quad 
-y= \frac{1}{2}x +3 \quad \text{ o } \quad 
-f: x \mapsto \frac{1}{2}x +3$$
 
 Osservando la tabella precedente possiamo formulare alcune congetture:
 
@@ -553,6 +542,13 @@ Osservando la tabella precedente possiamo formulare alcune congetture:
 \item Se $x$ diminuisce anche $f_0(x)$ diminuisce.
 \end{enumerate}
 
+\subsection{Scrittura matematica}
+
+In matematica la funzione precedente viene scritta in uno di questi modi:
+
+$$f_0(x) = \frac{1}{2}x +3 \quad \text{ o } \quad 
+y= \frac{1}{2}x +3 \quad \text{ o } \quad 
+f: x \mapsto \frac{1}{2}x +3$$
 
 \subsection{Visualizzazione su due assi}
 
@@ -568,12 +564,11 @@ $y$ i corrispondenti risultati.
 
 \dueassivuoti
 
-Vediamo alcuni esempi, partendo da funzioni molto semplici e complicando, 
-man mano, le cose.
+Vediamo un esempio applicato a una funzione molto semplice.
 
 \begin{esempio}
-Calcola e rappresenta la funzione che dato un numero restituisce lo stesso 
-numero aumentato di tre.
+Calcola e rappresenta la funzione che, dato un numero, restituisce lo 
+stesso numero aumentato di tre.
 
 \lstinputlisting[lastline=3]{\folder src/09_funzioni.py} %]
 
@@ -604,7 +599,8 @@ frecce, un grafico a spaghetti difficilmente interpretabile. Non si presta
 certo a rendere il significato di una funzione a colpo d'occhio.
 
 La trovata geniale è stata quella di ruotare di 90 gradi l'asse delle $y$ e 
-di indicare la relazione tra l'*argomento* e il *risultato* con un *punto*:
+di indicare la relazione tra l'\emph{argomento} e il \emph{risultato} con 
+un \emph{punto}:
 
 \puntonelpc{2}{5}
 
@@ -625,24 +621,36 @@ quella che si ritiene più significativa.
 \subsection{Grafico di una funzione}
 
 Riportiamo nel piano cartesiano i punti che hanno per coordinate gli 
-argomenti e risultati della funzione 
-$\quad f_6: x \mapsto -2x+3 \quad$ 
-ricavati dalla tabella precedente:
+argomenti e risultati della funzione: 
+$$f_6: x \mapsto -2x+3$$ 
+Ci facciamo calcolare alcuni valori della funzione:
 
+\begin{minipage}{.49\textwidth}
 \begin{lstlisting}
-tabella_o(lambda x: -2 * x +3, range(-4, +7))
+tabella(lambda x:-2*x+3,range(-4,+7))
 \end{lstlisting}
+\begin{center}
+\begin{tabular}{c|c}
+x & y\\\hline
+-3 & +9\\
+-2 & +7\\
+-1 & +5\\
+0 & +3\\
++1 & +1\\
++2 & -1\\
++3 & -3\\
++4 & -5\\
++5 & -7\\
++6 & -9
+\end{tabular}
+\scalebox{.5}{\dueassi{-3}{+6}{-2*\x+3}}
+\end{center}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\begin{center} \scalebox{.7}{\graficoa} \end{center}
+\end{minipage}
 
-
-"""Vediamo come appare il grafico della funzione:
-
-$$f_6: x \mapsto -2x+3$$
-
-Riportiamo nel piano cartesiano i punti che hanno per coordinate gli 
-argomenti e risultati della funzione ricavati dalla tabella precedente:
-
-\graficoa
-
+\begin{minipage}{.49\textwidth}
 \begin{osservazione}
 \begin{enumerate}
 \item Nel grafico vengono disegnati alcuni punti che hanno per coordinate 
@@ -656,10 +664,12 @@ Ad es.
 $f(0,5)=2$, $f(0,75)=2,5$, $f(0,25)=1,5$, ...
 
 Possiamo aggiungere facilmente i punti intermedi, anzi possiamo aggiungere 
-facilmente *infiniti* punti semplicemente collegando quelli già disegnati 
-con una linea. Inquesto caso una linea retta:
-
-\graficob
+facilmente \emph{infiniti} punti semplicemente collegando quelli già 
+disegnati con una linea. In questo caso una linea retta:
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\begin{center} \scalebox{.7}{\graficob} \end{center}
+\end{minipage}
 
 \begin{osservazione}
 Questa rappresentazione fa emergere una caratteristica che finora non 
@@ -667,12 +677,12 @@ potevamo sospettare: la funzione ha una sua forma. In questo caso, la
 funzione ha la forma di una retta decrescente che taglia l'asse y nel punto 
 $3$.
 
-La forma della funzione viene chiamata: *grafico della funzione*.
+La forma della funzione viene chiamata: \emph{grafico della funzione}.
 \end{osservazione}
 
 \subsection{Disegnare grafici con Python}
 
-Di seguito la funzione Python che disegna il grafico della funzione passata 
+Si può chiedere a Python di disegnare il grafico di una funzione passata 
 come argomento.
 
 \lstinputlisting{\folder src/10_assiegrafico.py} %]
@@ -694,18 +704,22 @@ più semplice è quella di fare delle modifiche e vederne l'effetto.
 
 \paragraph{Riassumendo}
 
-\begin{itemize} [nosep]
-\item È possibile rappresentare alcune coppie *argomento* - *risultato* con:
-\begin{itemize} [nosep]
+\begin{enumerate} [nosep]
+\item È possibile rappresentare alcune coppie \emph{argomento} - 
+\emph{risultato} con:
+\begin{enumerate} [nosep]
   \item una tabella,
   \item delle frecce che uniscono i punti di due assi cartesiani,
   \item un insieme di punti nel piano cartesiano
-\end{itemize}
+\end{enumerate}
 \item La rappresentazione cartesiana permette di associare ad ogni funzione 
 una forma ben precisa.
-\end{itemize}
+\end{enumerate}
 
 
+\begin{comment}
+%--------------------------------------------------------------------
+% Per inserire codice
 
 \subsection{}
 
@@ -714,10 +728,6 @@ una forma ben precisa.
 \label{sec:funzioni2_}
 
 
-
-\begin{comment}
-%--------------------------------------------------------------------
-% Per inserire codice
 
 \section{}
 \label{sec:funzioni2_}
@@ -737,6 +747,12 @@ una forma ben precisa.
 
 \begin{osservazione}
 \end{osservazione}
+
+\begin{minipage}{.49\textwidth}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\end{minipage}
+
 %--------------------------------------------------------------------
 
 ## Proprietà delle funzioni
