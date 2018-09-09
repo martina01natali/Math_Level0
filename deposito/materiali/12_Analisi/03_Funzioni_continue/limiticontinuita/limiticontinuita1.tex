@@ -2,7 +2,7 @@
 
 \input{\folder limiticontinuita1_graf.tex}
 
-\chapter{Funzioni continue}
+\chapter{Funzioni: limiti e continuità}
 
 \section{Limiti}
 \label{sec:cont_limiti}
@@ -110,7 +110,7 @@ dall'alto.
  \item 
 Quando $x$ si avvicina a più infinito, $f(x)$ si avvicina a~$1$ dal basso.
 \end{itemize}
-\begin{center}\scalebox{.6}{\graficoa}\end{center}
+\begin{center}\scalebox{.6}{\limitigraficoa}\end{center}
 \end{esempio}
 
 Osservando il grafico provate a descrivere a parole cosa succede: 
@@ -244,6 +244,133 @@ numero non finito, tracceremo una freccia seguita da ``\(\infty\)''.
 \end{esempio}
 
 \begin{esempio}
+\textbf{Importante}, calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow \infty} \tonda{2x-\sqrt{4x^2-8x+3}}\)
+\begin{align*}
+\lim_{x \rightarrow \infty} \tonda{2x-\sqrt{4x^2-8x+3}} & \stackrel{1}{=} 
+  \pst{2M-\sqrt{4M^2-8M+3}} \stackrel{2}{=}  
+  \pst{2M-\sqrt{4M^2}} \stackrel{3}{=} 
+  \pst{2M-2M} = 0
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo $x$ con \(M\);
+ \item sostituiamo l'espressione ottenuta con una espressione 
+   indistinguibile;
+ \item eseguiamo i calcoli \dots
+\end{enumerate}
+\vspace{1em}
+\begin{minipage}{.69\textwidth}
+Ma questa volta nei ragionamenti fatti c'è un errore. Proviamo a calcolare 
+la funzione per alcuni valori abbastanza grandi di $x$.
+I risultati dovrebbero avvicinarsi a zero, ma non è così, sembra si 
+avvicinino a due. Dove abbiamo sbagliato?
+\end{minipage}
+\begin{minipage}{.39\textwidth}
+\begin{center}
+\begin{tabular}{r|r}
+x & y\\\hline
+100 & 2.00252 \\
+1000 & 2.00025 \\
+10000 & 2.00002 \\
+\end{tabular}
+\end{center}
+\end{minipage}
+
+Abbiamo usato in modo improprio la relazione \emph{indistinguibile}: 
+abbiamo ottenuto un'espressione indistinguibile da zero, ma ciò non è 
+possibile. Dobbiamo seguire un'altra strada.
+
+Consideriamo l'espressione data come una frazione e razionalizziamo il 
+numeratore:
+\[\lim_{x \rightarrow \infty} \frac{2x-\sqrt{4x^2-8x+3}}{1}=
+  \pst{\frac{\cancel{4M^2}-\cancel{4M^2}+8M-3}{2M+\sqrt{4M^2-8M+3}}}=\]
+Questa volta possiamo sostituire l'espressione sotto radice senza ottenere 
+zero:
+\[=\pst{\frac{8M-3}{2M+\sqrt{4M^2-8M+3}}} =
+   \pst{\frac{8M}{2M+\sqrt{4M^2}}}=\]
+e svolgendo i calcoli otteniamo:
+\[=\pst{\frac{8M}{2M+2M}}=
+   \pst{\frac{8\cancel{M}}{4\cancel{M}}} = 2\]
+\end{esempio}
+
+\begin{esempio}
+\textbf{Importante}, calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6}\)
+ 
+Seguendo il metodo proposto sopra otteniamo:
+
+\begin{align*}
+\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
+\pst{\frac
+  {\tonda{-2+\epsilon}^3+3\tonda{-2+\epsilon}^2+2\tonda{-2+\epsilon}}
+  {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6}} \stackrel{2}{=}\\ 
+  &=\pst{\frac{-8+12\epsilon-6\epsilon^2+\epsilon^3+
+             3\tonda{4-4\epsilon+\epsilon^2}-4+2\epsilon}
+             {4-4\epsilon+\epsilon^2-\tonda{-2+\epsilon}-6}} =\\ 
+  &=\pst{\frac{\cancel{-8}+\cancel{12\epsilon}-6\epsilon^2+\epsilon^3+
+          \cancel{12}\cancel{-12\epsilon}+3\epsilon^2\cancel{-4}+2\epsilon}
+             {\cancel{4}-4\epsilon+
+              \epsilon^2\cancel{+2}-\epsilon\cancel{-6}}}=\\ 
+  &=\pst{\frac{\epsilon^3+2\epsilon}{\epsilon^2-5\epsilon}} = 
+    \pst{\frac{\cancel{\epsilon} \tonda{\epsilon^2+2}}
+             {\cancel{\epsilon} \tonda{\epsilon-5}}}  \stackrel{3}{=} 
+    \pst{\frac{2}{-5}} = -\frac{2}{5}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo $x$ con \(-2+\epsilon\);
+ \item eseguiamo tutti i calcoli e semplifichiamo;
+ \item sostituiamo l'espressione con una indistinguibile.
+\end{enumerate}
+\vspace{1em}
+Pensate a cosa succederebbe se ci fosse un qualche \(x^4\) \dots
+Vedremo ora un altro modo di calcolare il limite che risulta molto meno 
+complicato.
+
+Per essere precisi questo esempio andrebbe affrontato dopo il prossimo 
+paragrafo sulle funzioni continue. Lo abbiamo inserito qui per completare 
+la trattazione dei limiti.
+
+Anticipiamo quindi due affermazioni che saranno giustificate più avanti:
+\begin{itemize} [nosep]
+ \item Le funzioni fratte sono continue dove sono definite.
+ \item Se una funzione è continua in un punto, allora il limite per $x$ che 
+tende a quel punto è uguale al valore che la funzione ha in quel punto.
+\end{itemize}
+
+Faccio un tentativo: se la \(f(x)\) è definita in $-2$ allora il limite è 
+esattamente \(f(-2)\). Sostituiamo $x$ con $-2$:
+\[\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} \longrightarrow 
+  \frac{\tonda{-2}^3+3\tonda{-2}^2+2\tonda{-2}}{\tonda{-2}^2-\tonda{-2}-6}=
+  \frac{-8+12-4}{4+2-6}=\frac{0}{0}
+\]
+
+È evidente che \(f(-2)\) non è definita. È altrettanto evidente che $-2$ è 
+uno zero sia del numeratore sia del denominatore quindi, per il teorema di 
+Ruffini, entrambi questi polinomi sono divisibili per \(x+2\).
+Possiamo scomporre i due polinomi, semplificarli procedendo nel seguente 
+modo:
+
+\begin{align*}
+\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} &=
+\lim_{x \rightarrow -2} \frac{x \tonda{x+1} \cancel{\tonda{x+2}}}
+          {\tonda{x-3} \cancel{\tonda{x+2}}} \stackrel{1}{=}
+\lim_{x \rightarrow -2} \frac{x^2+x}{x-3}=\\ 
+  &=\pst{\frac{\tonda{-2+\epsilon}\tonda{\tonda{-2+\epsilon}+1}}
+              {\tonda{-2+\epsilon}-3}} \stackrel{2}{=} 
+    \pst{\frac{-2\tonda{-2+1}}{-2+-3}} = 
+    \pst{\frac{2}{-5}} = -\frac{2}{5}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item possiamo semplificare perché $x$ è infinitamente vicino a $-2$ ma è 
+diverso da $-2$;
+ \item sostituiamo l'espressione con una indistinguibile.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
 Calcola: \quad 
   \(\displaystyle \lim_{x \rightarrow \infty} \tonda{1+\dfrac{k}{x}}^x\)
 Ricordiamo che, per definizione:  
@@ -265,6 +392,29 @@ $\frac{k}{N}=\dfrac{1}{M}$. Allora $N=kM$;
  \item una potenza di potenza è una potenza che ha...
  \item per la definizione del numero $e$ e per le proprietà della funzione 
 $\st()$.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow 0} \dfrac{a^x-1}{x}\)
+\begin{align*}
+\lim_{x \rightarrow 0} \dfrac{a^x-1}{x} =
+\pst{\dfrac{a^\epsilon-1}{\epsilon}}
+~ \stackrel{1}{=} ~  
+\pst{\dfrac{\delta}{\log_a{(\delta+1)}}}
+~ \stackrel{2}{=} ~
+\pst{\frac{1}{\dfrac{\log_a{(\delta+1)}}{\delta}}}
+~ \stackrel{3}{=} ~ 
+\pst{\frac{1}{\dfrac{1}{\ln{a}}}}=\ln{a}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item ancora una sostituzione: poniamo
+$a^\epsilon-1=\delta$. Allora $\epsilon=\log_a(\delta+1)$;
+ \item una capriola algebrica: oplà! 
+ \item per le forme di indecisione discusse a proposito del numero di Nepero
+e per il cambiamento di base;
 \end{enumerate}
 \end{esempio}
 
@@ -396,7 +546,7 @@ Che è un infinitesimo.
 \end{description}
 \end{minipage}
 \begin{minipage}{.49\textwidth}
-\begin{center}\graficob\end{center}
+\begin{center}\continuitagraficoa\end{center}
 \end{minipage}
 
 \end{esempio}
