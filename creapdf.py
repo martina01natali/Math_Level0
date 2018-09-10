@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 #-------------------------------python----------------------creapdf.py--#
 #                                                                       #
@@ -12,27 +12,38 @@ passati come argomento.
 
 Uso:
 
-# trasforma in pdf tutti i file .tex presenti nella directory:
-$ creapdf.py
+# trasforma in pdf tutti i file .tex presenti nella directory e
+  produce pdf monocromatici:
+$ ./creapdf.py
 
-# trasforma in pdf il o i file .tex passato come argomento:
-$ creapdf.py pippo.tex pluto.tex
+# trasforma in pdf i file .tex passati come argomento e
+  produce un pdf monocromatico:
+$ ./creapdf.py pippo.tex pluto.tex
 
-# opzione -t fa una sola compilazione e non cancella i file ausiliari:
-$ creapdf.py -t
+# opzione -t (test) fa una sola compilazione,
+  non cancella i file ausiliari e non produce il pdf monocromatico:
+$ ./creapdf.py -t
 
 """
-from __future__ import division, print_function
+##from __future__ import division, print_function
 
 import sys, getopt
 import os
 
 def topdf(filename, test):
     """Compile with: pdflatex <filename>."""
+    nfile = filename[:-4]
+    print(nfile)
     os.system('pdflatex --shell-escape ' + filename)
     if not test:
         os.system('pdflatex --shell-escape ' + filename)
         os.system('make clean')
+        GSLINE = rf"gs -sDEVICE=pdfwrite \
+-dProcessColorModel=/DeviceGray \
+-dColorConversionStrategy=/Gray \
+-dPDFUseOldCMS=false \
+-o {nfile}_mono.pdf -f {nfile}.pdf"
+        os.system(GSLINE)
 
 def main(argv):
     inputfile = ''
