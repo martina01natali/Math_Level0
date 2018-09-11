@@ -55,7 +55,7 @@ lunga \(b - a = x_B - x_A\). L'area è quindi:
 
 Abbiamo anche calcolato l'area della superficie sottesa ad una sequenza di 
 segmenti consecutivi sommando le varie aree sottese. Ma non è necessario che 
-i segmenti siano consecutivi possono anche essere staccati uno dall'altro.
+i segmenti siano consecutivi, possono anche essere staccati uno dall'altro.
 
 \begin{esempio}
 Calcola l'area sottesa ai segmenti paralleli all'asse \(x\), di lunghezza 
@@ -126,13 +126,13 @@ per precisare il calcolo:
 \begin{itemize} [nosep]
  \item \emph{sotto}: il nome dell'indice e il suo primo valore, nel nostro 
 caso:~\(i=0\);
- \item \emph{sopra}: l'ultimo valore dell'indice, nel nostro caso:~6;
+ \item \emph{sopra}: l'ultimo valore dell'indice, nel nostro caso:~5;
  \item \emph{dopo}: cosa si somma, nel nostro caso: la formula per calcolare 
 l'area di ogni rettangolo da sommare: \(y_i \cdot \Delta_x\).
 \end{itemize}
 
-\[\mathcal{A} = \sum_{i=0}^6 \mathcal{A}_i = 
-                \sum_{i=0}^6 y_i \cdot \Delta_x = 15\]
+\[\mathcal{A} = \sum_{i=0}^5 \mathcal{A}_i = 
+                \sum_{i=0}^5 y_i \cdot \Delta_x = 15\]
 
 \ifcoding
 Con il linguaggio di programmazione Python:
@@ -168,7 +168,7 @@ determinarla. Esse sono:
 
 \begin{enumerate}
  \item
-La \emph{proprietà additiva}, dice che se \(a\), \(b\) e \(x_1\) 
+La \emph{proprietà additiva}, dice che se \(a\), \(b\) e \(t\) 
 sono tre valori che appartengono all'intervallo in cui è definita \(f\) e 
 \(a < t < b\)
 allora \(\mathcal{A}(a,~b)\) = 
@@ -223,7 +223,7 @@ della funzione \(f\) nell'intervallo \(\intervcc{a}{b}\).
 \label{sec:integrali_definizione}
 
 \begin{minipage}{.49\textwidth} 
-Consideriamo una funzione continua \(f\) su un intervallo I cui 
+Consideriamo una funzione \(f\) definita in tutto un intervallo $I$ a cui 
 appartengono i punti \(a\) e \(b\), e una partizione dell'intervallo chiuso 
 \(\intervcc{a}{b}\) in sotto intervalli di uguale ampiezza \(\Delta\) 
 separati dai punti: 
@@ -265,7 +265,7 @@ Questa sommatoria dipende:
 \begin{itemize} [nosep]
  \item dalla funzione \(f\),
  \item dagli estremi \(a\) e \(b\),
- \item dall'intervallo \(\delta\).
+ \item dall'intervallo \(\Delta\).
 \end{itemize}
 % \end{multicols}
 
@@ -471,14 +471,15 @@ sottesa alla funzione tra \(a\) e \(x\):
 \[\int_{}^x f~dx = \int_{}^a f~dx + \int_{a}^x f~dx \sRarrow
   \mathcal{S}(\dots ;~x) = \mathcal{S}(\dots ;~a) + \mathcal{S}(a;~x)\]
 
-D'ora in poi, la \emph{superficie fino a \(x\)} verrà indicata in modo un po' 
-più semplice:
-\[\mathcal{S}(x) = \int_{\dots}^x f~dx = \int f~dx\]
-
 Apparentemente questo passaggio non ha migliorato la situazione, perché 
 abbiamo trasformato la quantità incognita ``integrale fino a \(x\)'' nella 
 somma di una quantità definita: ``integrale da \(a\) a \(x\)'' più 
 ``integrale fino ad \(a\)'' che è ancora una quantità incognita.
+
+D'ora in poi, la \emph{superficie fino a \(x\)} verrà indicata in modo un 
+po' 
+più semplice:
+\[\mathcal{S}(x) = \int_{\dots}^x f~dx = \int f~dx\]
 
 \begin{minipage}{.49 \textwidth} 
 Ora, non sappiamo quanto sia \(\mathcal{S}(\dots ;~a)\) cioè la superficie 

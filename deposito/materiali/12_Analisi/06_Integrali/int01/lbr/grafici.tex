@@ -116,12 +116,13 @@
     }
 }
 
-\newcommand{\arearettangolare}[3]{% Rettangolo.
+\newcommand{\arearettangolare}[4]{% Rettangolo.
   \disegno{
     \definizionilinea
     \def \xm{#1};
     \def \ym{#2};
     \def \lm{#3};
+    \def \h{#4};
 
     \begin{scope}
       \clip (\xa, 0) rectangle (\xb, 8);
@@ -139,18 +140,18 @@
     \begin{scope}[thin]
     \draw  (\xa, 0) node [below] {$a$} -- (\xa, \ym) -- 
            (\xb, \ym)  -- (\xb, 0) node [below] {$b$};
-    \draw [densely dotted] (\xa, \ym) -- (0, \ym) node [left] {$y_{\lm}$};
+    \draw [densely dotted] (\xa, \ym) -- (0, \ym) node [left] {$\h$};
     \node at (4.5, 2.5) {\(\mathcal{A}_{\lm}(a;~b)\)};
     \end{scope}
     }
 }
 
 \newcommand{\areaminore}{% Rettangolo minore.
-  \arearettangolare{2}{3.49}{mi}
+  \arearettangolare{2}{3.49}{mi}{m}
 }
 
 \newcommand{\areamaggiore}{% Rettangolo maggiore.
-  \arearettangolare{7}{7.12}{ma}
+  \arearettangolare{7}{7.12}{ma}{M}
 }
 
 \newcommand{\sommariemann}{% Somma di Riemann.
