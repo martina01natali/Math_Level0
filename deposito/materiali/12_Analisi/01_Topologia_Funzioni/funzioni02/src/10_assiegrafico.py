@@ -25,4 +25,4 @@ def grafico(funzione):
   plt.show()
   
 grafico(lambda x: x**2-3)
-grafico(lambda x: -x**2+8)
+grafico(lambda x: -x**2+4)

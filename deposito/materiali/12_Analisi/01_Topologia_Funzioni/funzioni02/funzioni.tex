@@ -132,7 +132,7 @@ seguita da una coppia di parentesi.
 \end{lstlisting}
   \item Nella descrizione della sintassi:
   \begin{enumerate} [nosep]
-   \item le parti tra parentesi angolari (``<'' e  ``>'') vanno sostituitE 
+   \item le parti tra parentesi angolari (``<'' e  ``>'') vanno sostituite 
 con qualcosa di sensato;
    \item le parti tra parentesi quadrate (``['' e  ``]'') sono opzionali.
   \end{enumerate}
@@ -687,6 +687,10 @@ come argomento.
 
 \lstinputlisting{\folder src/10_assiegrafico.py} %]
 
+\begin{minipage}{.39\textwidth}
+\begin{center}\disegno{\graficoxy{-5}{+5}{-2}{+5}{-x**2+4}}\end{center}
+\end{minipage}
+\begin{minipage}{.59\textwidth}
 \begin{osservazione}
 Anche in questo caso la funzione che disegna il grafico appare piuttosto 
 complicata, non è necessario capire come funziona.
@@ -696,11 +700,7 @@ parte importante.
 Per studiare invece il funzionamento della funzione ``grafico`` la strada 
 più semplice è quella di fare delle modifiche e vederne l'effetto.
 \end{osservazione}
-
-% \begin{lstlisting}
-% grafico(lambda x: -x**2+8)
-% \end{lstlisting}
-
+\end{minipage}
 
 \paragraph{Riassumendo}
 
@@ -716,172 +716,144 @@ più semplice è quella di fare delle modifiche e vederne l'effetto.
 una forma ben precisa.
 \end{enumerate}
 
+\section{Proprietà delle funzioni}
+\label{sec:funzioni2_proprieta}
 
-\begin{comment}
-%--------------------------------------------------------------------
-% Per inserire codice
-
-\subsection{}
-
-
-\section{}
-\label{sec:funzioni2_}
-
-
-
-\section{}
-\label{sec:funzioni2_}
-
-\label{sec:funzioni2_dominio}
-
-\lstinputlisting[firstline=2, lastline=5]{\folder src/.py} %]
-
-\begin{lstlisting}
-\end{lstlisting}
+\subsection{Iniettiva}
 
 \begin{definizione}
+Una funzione si dice \textbf{iniettiva} se a elementi di versi dell'insieme 
+di definizione corrispondono elementi diversi dell'insieme immagine.
+\[\forall x_1, x_2, \quad \text{se} \quad x_1 \ne x_2 
+\quad \text{allora} \quad f(x_1) \ne f(x_2)\]
 \end{definizione}
 
+\begin{minipage}{.45\textwidth}
 \begin{esempio}
+
+La funzione $\quad y = 2^{x+1} \quad$ è iniettiva perché lo stesso $y$ non 
+può essere prodotto da diversi $x$.
 \end{esempio}
-
-\begin{osservazione}
-\end{osservazione}
-
-\begin{minipage}{.49\textwidth}
+\begin{center}\disegno{\graficoxy{-5}{+5}{-1}{+10}{2**(x+1)}}\end{center}
 \end{minipage}
-\begin{minipage}{.49\textwidth}
+\hfill
+\begin{minipage}{.45\textwidth}
+\begin{esempio}Controesempio
+
+La funzione $\quad y = x^2+3 \quad$ non è iniettiva perché lo stesso $y$ 
+può essere prodotto da diversi $x$.\\
+In questo caso, ad esempio, il risultato $-1$ è prodotto sia da $-2$ sia 
+da $+2$.
+\end{esempio}
+\begin{center}\disegno{\graficoxy{-5}{+5}{-4}{+5}{-x**2+3}}\end{center}
 \end{minipage}
 
-%--------------------------------------------------------------------
+\subsection{Suriettiva}
 
-## Proprietà delle funzioni
+\begin{definizione}
+Una funzione si dice \textbf{suriettiva} se l'insieme immagine coincide con 
+il codominio.
+\end{definizione}
 
-### Iniettiva
+\begin{minipage}{.45\textwidth}
+\begin{esempio}
 
-**Definizione** 
-
-Una funzione si dice **iniettiva** se a elementi di versi dell'insieme di 
-definizione corrispondono elementi diversi dell'insieme immagine.
-$$\forall x_1, x_2, \quad \text{se} \quad x_1 \ne x_2 
-\quad \text{allora} \quad f(x_1) \ne f(x_2)$$
-
-**Esempio**
-
-La funzione $\quad y = 3x-2 \quad$ è iniettiva perché lo stesso $y$ non può 
-essere prodotto da duiversi $x$.
-"""
-
-grafico(lambda x: 2**(x+1))
-
-"""**Controesempio**
-
-La funzione $\quad y = x^2-2 \quad$ non è iniettiva perché lo stesso $y$ 
-può 
-essere prodotto da duiversi $x$.
-"""
-
-grafico(lambda x: x**2 -2)
-
-"""In questo caso, ad esempio, il risultato $7$ è prodotto sia da $-3$ sia 
-da $+3$.
-
-### Suriettiva
-
-**Definizione** 
-
-Una funzione si dice **suriettiva** se l'insieme immagine coincide con il 
-codominio.
-
-**Esempio** 
-
-La funzione $\quad y= x^3 -4x \quad$ è suriettiva perché ogni valore reale 
+La funzione\\
+$\quad y= x^3 -4x \quad$ è suriettiva perché ogni valore reale 
 $y$ può essere generato da almeno un valore di $x$:
-"""
-
-grafico(lambda x: x**3 -4*x)
-
-"""**Controesempio**
+\begin{center}\disegno{\graficoxy{-5}{+5}{-4}{+5}{x**3 -4*x}}\end{center}
+\end{esempio}
+\end{minipage}
+\hfill
+\begin{minipage}{.45\textwidth}
+\begin{esempio}Controesempio
 
 La funzione $\quad y = - e^x \quad$ non è suriettiva perché nessun valore 
 positivo può essere generato da questa funzione.
-"""
+\end{esempio}
+\begin{center}\disegno{\graficoxy{-5}{+5}{-6}{+2}{-exp(x)}}\end{center}
+\end{minipage}
 
-grafico(lambda x: -np.exp(x))
+\subsection{Biiettiva}
 
-"""### Biiettiva
+\begin{definizione}
+Una funzione si dice \textbf{biiettiva} se è \emph{iniettiva} e 
+\emph{suriettiva}.
+\end{definizione}
 
-**Definizione** 
+\begin{minipage}{.49\textwidth}
+\begin{esempio}
 
-Una funzione si dice **biiettiva** se è iniettiva e suriettiva.
-
-**Esempio**
-
-La funzione $\quad y = x^3+2 \quad$ è biiettiva perché ogni valore di $y$ è 
+La funzione $\quad y = \dfrac{1}{10}x^3+1 \quad$ è biiettiva perché ogni 
+valore di $y$ è 
 generato da uno e un solo valore di $x$.
-"""
+\end{esempio}
+\begin{esempio}Controesempio
 
-grafico(lambda x: x**3+2)
+Tutti gli esempi precedenti.
+\end{esempio}
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+\begin{center}
+\disegno{\graficoxy{-5}{+5}{-3}{+4}{.1*x**3+1}}
+\end{center}
+\end{minipage}
 
-"""**Controesempio**
-
-Tutti gli esempi dei paragrafi precedenti.
-
-# Caratteristiche di una funzione
+\section{Caratteristiche di una funzione}
+\label{sec:funzioni2_caratteristiche}
 
 Data una funzione in forma matematica è possibile determinare alcune sue 
 proprietà in modo abbastanza semplice, per altre servono degli strumenti 
 matematici che ancora non conosciamo.
 
-## Monotonia
+\subsection{Monotonia}
 
 Con il termine  ``monotòna'' (diversa da  ``monòtona") intendiamo una 
-funzione 
-che ha lo stesso andamento, cioè che è crescente o decrescente.
+funzione che ha lo stesso andamento, cioè che è o sempre crescente o sempre
+decrescente.
 
-### Crescente 
+\subsubsection{Crescente}
 
 Una funzione è crescente se all'aumentare dell'argomento ($x$) aumenta 
 anche 
 il risultato ($y$). Se questo è vero per tutte le $x$ dell'insieme di 
 definizione allora diremo che la funzione è monotòna crescente.
 
----
-**Definizione**
-Una funzione si dice *monotona crescente* se ad argomenti più grandi 
-corrispondono risultati più grandi (se all'aumentare di $x$ aumenta anche  
-$f(x)$):
+\begin{definizione}
+Una funzione si dice \textbf{monotona crescente} se ad argomenti più grandi 
+corrispondono risultati più grandi 
+(se all'aumentare di $x$ aumenta anche $f(x)$):
+\[\forall x_0, x_1 \in \mathbb{IE} ~\land~ x_1 > x_0 ~\Rightarrow~ 
+f(x_1) > f(x_0)\]
+\end{definizione}
 
-$$\forall x_0, x_1 \in \mathbb{IE} ~\land~ x_1 > x_0 ~\Rightarrow~ 
-f(x_1) > f(x_0)$$
+\begin{osservazione}
+ È del tutto equivalente dire che una funzione è \emph{crescente} se ad 
+\emph{argomenti più piccoli} corrispondono \emph{risultati più piccoli}.
+\end{osservazione}
 
----
+\begin{minipage}{.54\textwidth}
+\begin{esempio}
 
-**Osservazione**
+Esempio di funzione crescente:\\
+\(y=\log_{2}{x}\)
+\end{esempio}
+\begin{osservazione}
+ Se abbiamo fatto disegnare il grafico a Python, otteniamo una strana 
+scritta prima che ci venga visualizzato il grafico: 
+Python ci avvisa che ha incontrato dei valori non validi nell'eseguire  
+``log2''. Sapresti dare una spiegazione di questo avviso?
+\end{osservazione}
+\end{minipage}
+\hfill
+\begin{minipage}{.44\textwidth}
+\begin{center}
+\disegno{\graficoxy{-1}{+9}{-4}{+4}{log(x)/log(2)}}
+\end{center}
+\end{minipage}
 
-È del tutto equivalente dire che una funzione è *crescente* se ad 
-*argomenti 
-più piccoli* corrispondono *risultati più piccoli*.
-
----
-
-Esempio di funzione crescente:
-"""
-
-grafico(lambda x: np.log2(x))
-
-"""---
-
-**Osservazione**
-
-Otteniamo una strana scritta prima che ci venga visualizzato il grafico: 
-Python ci avvisa che ha fatto tutti i calcoli necessari per disegnarlo, ma 
-che ha incontrato dei valori non validi nelle'eseguire  ``log2''. Sapresti 
-dare 
-una spiegazione di questo avviso?
-
----
-
+\begin{comment}
 Facciamo stampare  la tabella di alcune coppie argomento-risultato per la 
 funzione *log2*.
 """
@@ -983,6 +955,42 @@ quali hanno dei tratti crescenti e dei tratti decrescenti.
 \item $f_3: x \mapsto \dfrac{1}{2}x^2$
 \item $f_4: x \mapsto - \dfrac{4}{3} x^2 -2$
 \item $f_5: x \mapsto - \dfrac{3x-2}{2x+4}$
+
+
+\end{comment}
+
+\begin{comment}
+%--------------------------------------------------------------------
+% Per inserire codice
+
+\section{}
+\label{sec:funzioni2_}
+
+\subsection{}
+
+\begin{definizione}
+\end{definizione}
+
+\begin{esempio}
+\end{esempio}
+
+
+\label{sec:funzioni2_dominio}
+
+\lstinputlisting[firstline=2, lastline=5]{\folder src/.py} %]
+
+\begin{lstlisting}
+\end{lstlisting}
+
+\begin{osservazione}
+\end{osservazione}
+
+\begin{minipage}{.49\textwidth}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\end{minipage}
+
+%--------------------------------------------------------------------
 
 ## Parità
 
