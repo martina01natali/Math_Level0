@@ -16,7 +16,8 @@ all'indirizzo:
      {www.math.wisc.edu/~keisler/calc.html}}
 In alcuni problemi non siamo interessati a sapere come si comporta una funzione 
 per un valore ben preciso, ci interessa di più 
-sapere come si comporta quando si \emph{avvicina} a quel valore.
+sapere come si comporta quando la variabile $x$ è \emph{infinitamente 
+vicina} a quel valore.
 Per un certo valore di $x$ potrebbe anche \emph{non} essere definita, ma 
 cosa succede quando $x$ si avvicina infinitamente a quel valore?
 
@@ -25,15 +26,15 @@ Vediamo un esempio:
 \begin{esempio}
  Studia l'Insieme di Definizione della funzione: 
  \(\dfrac{x^2-6x+5}{x^2+2x-3}\)
- Poi studia come si comporta la funzione per valori vicini agli estremi 
-dell'Insieme di Definizione.
+ Poi studia come si comporta la funzione per valori infinitamente vicini 
+agli estremi dell'Insieme di Definizione.
 
 La funzione fratta non è definita quando il denominatore vale zero:
 \[x^2+2x-3=0 \sRarrow \tonda{x+3}\tonda{x-1}=0 \sRarrow x_1=-3;~x_2=+1\]
 L'insieme di definizione è formato quindi dai seguenti intervalli:
 \[\intervaa{-\infty}{-3} \quad \cup \quad \intervaa{+1}{-\infty}\]
-Calcoliamo alcuni valori della funzione vicini agli estremi dell'Insieme di 
-Definizione.
+Calcoliamo alcuni valori della funzione ``vicini'' agli estremi 
+dell'Insieme di Definizione.
 
 \begin{minipage}{.24\textwidth}
 \begin{center}
@@ -121,7 +122,8 @@ Osservando il grafico provate a descrivere a parole cosa succede:
  \item e, infine, quando si avvicina a \(+\infty\).
 \end{itemize}
 \vspace{1em}
-Per trattare queste situazioni i matematici si sono inventati il concetto di 
+Prima della nascita dell'analisi non standard, per trattare queste 
+situazioni i matematici si sono inventati il concetto di 
 \emph{limite}.
 
 \begin{definizione}
@@ -295,7 +297,7 @@ e svolgendo i calcoli otteniamo:
 \end{esempio}
 
 \begin{esempio}
-\textbf{Importante}, calcola: \quad 
+Calcola: \quad 
   \(\displaystyle \lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6}\)
  
 Seguendo il metodo proposto sopra otteniamo:
@@ -323,32 +325,73 @@ Dove le uguaglianze hanno i seguenti motivi:
  \item eseguiamo tutti i calcoli e semplifichiamo;
  \item sostituiamo l'espressione con una indistinguibile.
 \end{enumerate}
-\vspace{1em}
+\end{esempio}
+
+\begin{osservazione}
 Pensate a cosa succederebbe se ci fosse un qualche \(x^4\) \dots
 Vedremo ora un altro modo di calcolare il limite che risulta molto meno 
 complicato.
 
-Per essere precisi questo esempio andrebbe affrontato dopo il prossimo 
-paragrafo sulle funzioni continue. Lo abbiamo inserito qui per completare 
-la trattazione dei limiti.
+Nei prossimi due esempi, che vanno studiati assieme, vedremo un metodo che 
+permette di svolgere meno calcoli.
+\end{osservazione}
 
-Anticipiamo quindi due affermazioni che saranno giustificate più avanti:
-\begin{itemize} [nosep]
- \item Le funzioni fratte sono continue dove sono definite.
- \item Se una funzione è continua in un punto, allora il limite per $x$ che 
-tende a quel punto è uguale al valore che la funzione ha in quel punto.
-\end{itemize}
+% 
+% Per essere precisi questo esempio andrebbe affrontato dopo il prossimo 
+% paragrafo sulle funzioni continue. Lo abbiamo inserito qui per completare 
+% la trattazione dei limiti.
+% 
+% Anticipiamo quindi due affermazioni che saranno giustificate più avanti:
+% \begin{itemize} [nosep]
+%  \item Le funzioni fratte sono continue dove sono definite.
+%  \item Se una funzione è continua in un punto, allora il limite per $x$ 
+% che 
+% tende a quel punto è uguale al valore che la funzione ha in quel punto.
+% \end{itemize}
 
-Faccio un tentativo: se la \(f(x)\) è definita in $-2$ allora il limite è 
-esattamente \(f(-2)\). Sostituiamo $x$ con $-2$:
-\[\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} \longrightarrow 
-  \frac{\tonda{-2}^3+3\tonda{-2}^2+2\tonda{-2}}{\tonda{-2}^2-\tonda{-2}-6}=
-  \frac{-8+12-4}{4+2-6}=\frac{0}{0}
-\]
 
-È evidente che \(f(-2)\) non è definita. È altrettanto evidente che $-2$ è 
-uno zero sia del numeratore sia del denominatore quindi, per il teorema di 
-Ruffini, entrambi questi polinomi sono divisibili per \(x+2\).
+\begin{esempio}
+\textbf{Importante 1}, calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow +2} \frac{x^3+3x^2+2x}{x^2-x-6}\)
+ 
+Seguendo il metodo proposto sopra otteniamo:
+
+\begin{align*}
+\lim_{x \rightarrow 2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
+\tonda{\pst{\frac
+  {\tonda{2+\epsilon}^3+3\tonda{2+\epsilon}^2+2\tonda{2+\epsilon}}
+  {\tonda{2+\epsilon}^2-\tonda{2+\epsilon}-6}} \stackrel{2}{=}}\\ 
+  &=\frac{2^3+3\cdot 2^2+2\cdot 2}{2^2-2-6} =
+  \pst{\frac{8+12+4}{4-2-6}} \stackrel{3}{=} \pst{\frac{24}{-4}} =-6
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo $x$ con un numero infinitamente vicino a $+2$;
+ \item sostituiamo le espressioni tra parentesi con espressioni 
+indistinguibili;
+ \item poiché i risultati ottenuti sono diversi da zero, il risultato è 
+effettivamente indistinguibile. Quindi il risultato ottenuto è valido.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+\textbf{Importante 2}, calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6}\)
+ 
+Seguendo il metodo proposto sopra otteniamo:
+
+\begin{align*}
+\lim_{x \rightarrow 2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
+\tonda{\pst{\frac
+  {\tonda{-2+\epsilon}^3+3\tonda{-2+\epsilon}^2+2\tonda{-2+\epsilon}}
+  {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6}} \stackrel{2}{=}}\\ 
+  &=\pst{\frac{-8+12-4}{4+2-6}} = \pst{\frac{0}{0}} 
+  \text{ Indistinguibile non è applicabile.}
+\end{align*}
+
+È evidente che $-2$ è uno zero sia del numeratore sia del denominatore 
+quindi, per il teorema di Ruffini, entrambi questi polinomi sono divisibili 
+per \(x+2\).
 Possiamo scomporre i due polinomi, semplificarli procedendo nel seguente 
 modo:
 
@@ -356,26 +399,34 @@ modo:
 \lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} &=
 \lim_{x \rightarrow -2} \frac{x \tonda{x+1} \cancel{\tonda{x+2}}}
           {\tonda{x-3} \cancel{\tonda{x+2}}} \stackrel{1}{=}
-\lim_{x \rightarrow -2} \frac{x^2+x}{x-3}=\\ 
-  &=\pst{\frac{\tonda{-2+\epsilon}\tonda{\tonda{-2+\epsilon}+1}}
-              {\tonda{-2+\epsilon}-3}} \stackrel{2}{=} 
-    \pst{\frac{-2\tonda{-2+1}}{-2+-3}} = 
-    \pst{\frac{2}{-5}} = -\frac{2}{5}
+\lim_{x \rightarrow -2} \frac{x^2+x}{x-3}=\\
+&=\tonda{\pst{\frac{\tonda{-2+\epsilon}^2-\tonda{2+\epsilon}}
+                   {\tonda{-2+\epsilon}-3}}}\stackrel{2}{=}
+\pst{\frac{\tonda{-2}^2-2}{-2-3}}=
+\pst{\frac{2}{-5}} = -\frac{2}{5}
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item possiamo semplificare perché $x$ è infinitamente vicino a $-2$ ma è 
 diverso da $-2$;
- \item sostituiamo l'espressione con una indistinguibile.
+ \item sostituiamo l'espressione con una indistinguibile operazione, questa 
+volta, applicabile perché le due espressioni sono diverse da zero.
 \end{enumerate}
 \end{esempio}
+
+\begin{osservazione}
+Abbiamo ottenuto lo stesso valore ricavato più sopra facendo tutti i 
+calcoli algebrici, ma i passaggi sono estremamente più semplici.
+\end{osservazione}
+
 
 \begin{esempio}
 Calcola: \quad 
   \(\displaystyle \lim_{x \rightarrow \infty} \tonda{1+\dfrac{k}{x}}^x\)
+  
 Ricordiamo che, per definizione:  
-\(\displaystyle 
-  \lim_{x \rightarrow \infty} \tonda{1+\dfrac{1}{x}}^x = e\)
+\(\pst{\tonda{1+\epsilon)^{\frac{1}{\epsilon}}}} = 
+  \pst{\tonda{1+\dfrac{1}{N}}^N} = e\)
 \begin{align*}
  \lim_{x \rightarrow \infty} \tonda{1+\dfrac{k}{x}}^x =
  \pst{\tonda{1+\dfrac{k}{N}}^N}
@@ -449,7 +500,7 @@ Calcola: \quad
   \pst{\dfrac{1-\cos \delta}{\sin \delta}}=0\]
 Dove l'uguaglianza si giustifica per quanto detto a proposito dell'ordine 
 degli infinitesimi, ma gli appassionati del calcolo possono provare a 
-moltiplicare il numeratore e il denominatore per ...
+dividere il numeratore e il denominatore per \(x\)...
 \end{esempio}
 
 
