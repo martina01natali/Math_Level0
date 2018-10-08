@@ -1,0 +1,124 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        Matematica dolce
+%
+% Copyright 2016 Daniele Zambelli
+%
+%------------------------------
+% Matematica dolce per i licei Linguistico e economico sociale, volume 1
+%
+% m_d_cfp_19_1.tex
+%------------------------------
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is
+% Daniele Zambelli - daniele.zambelli@gmail.com
+%
+% This work consists of the files:
+%  -  m_d_1_les.tex (this file)
+%  -  createpdf.py
+%  -  readme.md
+%  -  the part of code of the files under \matdir , img/  and lbr/ directories
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%========================
+% Definizione delle directory
+%========================
+% \newcommand{\basedir}{matematicadolce/}
+\newcommand{\depdir}{deposito/}
+\newcommand{\magdir}{\depdir magazzino/}
+\newcommand{\matdir}{\depdir materiali/}
+
+\newcommand{\moddir}{modifiche/}                    % MODIFICATO
+
+%========================
+% Variabili del progetto
+%========================
+\input{\magdir variabili}
+
+%========================
+% Variabili per questo volume
+%========================
+\newcommand{\editore}{Matematicamente.it}
+\newcommand{\serie}{Matematica $C^3$}
+\newcommand{\titolo}{Matematica dolce 1 - ipss}     % MODIFICATO
+\newcommand{\pdftitolo}{Matematica dolce 1 - ipss}  % MODIFICATO
+\newcommand{\docvers}{\texttt{4.0.1}}
+\newcommand{\edizione}{2018}
+\newcommand{\Edizione}{Edizione}
+\newcommand{\tipo}{ (versione completa a colori)}
+\newcommand{\descr}{Testo per il primo biennio \protect\\
+                    della Scuola Secondaria di $II$ grado \\ \null
+                    istituto professionale \\       % MODIFICATO
+                    servizi socio-sanitari}         % MODIFICATO
+\newcommand{\oggi}{12 settembre 2018}               % MODIFICATO
+\newcommand{\mese}{settembre}                       % MODIFICATO
+\newcommand{\anno}{2018}
+\newcommand{\mcisbn}{} %{9788899988005}
+
+%========================
+% Lettura preambolo
+%========================
+\input{\magdir packages}
+\input{\magdir definizioni}
+\input{\magdir definizioni_tikz}
+
+%========================
+% Con o senza linguaggio di programmazione
+%========================
+\newif\ifcoding
+%\codingtrue     % commentare questa linea se NON si vuole il coding
+\codingfalse    % commentare questa linea se si vogliono le parti di coding
+
+%========================
+% Documento
+%========================
+\begin{document}
+\frontmatter
+\intestazione{\matdir 00_intestazioni/les/}{frontespizio}
+\intestazione{\matdir 00_intestazioni/les/}{colophon}
+\intestazione{\matdir 00_intestazioni/les/}{indice}
+\intestazione{\matdir 00_intestazioni/cfp/}{prefazione}
+%..................................................
+%
+% Primo tema: Aritmetica e Algebra
+%
+\mainmatter
+\parte{\matdir 0_a_parti/}{part_01_1_d}
+\capitolo{\matdir 02_Insiemi_numerici/01_Numeri_naturali/nat01/}
+         {naturali}
+\capitolo{\matdir 02_Insiemi_numerici/02_Numeri_interi/int01/}
+         {interi}
+\capitolo{\matdir 02_Insiemi_numerici/03_Numeri_razionali/raz02/}
+         {razionali}
+\capitolo{\matdir 03_Polinomi/01_Monomi_polinomi/calclett01/}
+         {calcololetterale}
+\capitolo{\matdir 03_Polinomi/02_Divisibilita/poldiv01/}
+         {divisibilita_scomposizione}
+         \capitolo{\matdir 03_Polinomi/03_Frazioni_algebriche/frazalg01/}
+         {frazioni_algebriche}
+% ..................................................
+%
+% Secondo tema: Geometria
+%
+\parte{\matdir 0_a_parti/}{part_02_1_d}
+\capitolo{\matdir 05_Geometria_euclidea/01_Assiomi_teoremi/fond01/}
+         {fondamenti1}
+\capitolo{\matdir 05_Geometria_euclidea/02_Triangoli_rette/tri01/}
+         {triangoli1}
+%..................................................
+%
+% Azzeramento numerazione capitoli
+%
+\renewcommand{\thechapter}{\Alph{chapter}}
+\setcounter{chapter}{0}
+
+\end{document}
