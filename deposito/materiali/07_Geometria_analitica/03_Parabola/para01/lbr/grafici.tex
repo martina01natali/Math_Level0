@@ -146,23 +146,116 @@
     .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
     .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1);
 
-    \draw node [below, scale=.7, yshift=-7pt] at ($ (a0)!.5!(i0m) $) {$-1$};
-    \draw node [left, scale=.7, xshift=+10pt] at ($ (i1)!.5!(i0m) $) {$+1$};
-    \draw node [below, scale=.7, yshift=-7pt] at ($ (i2m)!.5!(i2m) $) {$-1$};
-    \draw node [left, scale=.7, xshift=+10pt] at ($ (i2)!.5!(i1m) $) {$+3$};
-    \draw node [below, scale=.7, yshift=-7pt] at ($ (i1m)!.5!(i1m) $) {$-1$};
-    \draw node [left, scale=.7, xshift=+10pt] at ($ (i3)!.5!(i2m) $) {$+5$};
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (a0)!.5!(i0m) $) 
+{$-1$};
+    \draw node [left, scale=.7, xshift=+10pt] at ($ (i1)!.5!(i0m) $) 
+{$+1$};
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (i2m)!.5!(i2m) $) 
+{$-1$};
+    \draw node [left, scale=.7, xshift=+10pt] at ($ (i2)!.5!(i1m) $) 
+{$+3$};
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (i1m)!.5!(i1m) $) 
+{$-1$};
+    \draw node [left, scale=.7, xshift=+10pt] at ($ (i3)!.5!(i2m) $) 
+{$+5$};
 
-    \draw node [below, scale=.7, yshift=-7pt] at ($ (a0)!.5!(a0p) $) {$+1$};
-    \draw node [left, scale=.7, xshift=+9pt] at ($ (a1)!.5!(a0p) $) {$+1$};
-    \draw node [below, scale=.7, yshift=-7pt] at ($ (a2p)!.5!(a2p) $) {$+1$};
-    \draw node [left, scale=.7, xshift=+9pt] at ($ (a2)!.5!(a1p) $) {$+3$};
-    \draw node [below, scale=.7, yshift=-7pt] at ($ (a1p)!.5!(a1p) $) {$+1$};
-    \draw node [left, scale=.7, xshift=+9pt] at ($ (a3)!.5!(a2p) $) {$+5$};
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (a0)!.5!(a0p) $) 
+{$+1$};
+    \draw node [left, scale=.7, xshift=+9pt] at ($ (a1)!.5!(a0p) $) 
+{$+1$};
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (a2p)!.5!(a2p) $) 
+{$+1$};
+    \draw node [left, scale=.7, xshift=+9pt] at ($ (a2)!.5!(a1p) $) 
+{$+3$};
+    \draw node [below, scale=.7, yshift=-7pt] at ($ (a1p)!.5!(a1p) $) 
+{$+1$};
+    \draw node [left, scale=.7, xshift=+9pt] at ($ (a3)!.5!(a2p) $) 
+{$+5$};
 
     \end{scope}
     }
 }
+
+% \newcommand{\disrapido}{% 
+%     % Metodo rapido per il disegno di parabole.
+%     \disegno{
+%     \tkzInit[xmin=-5.5,xmax=+5.5,ymin=-5.5,ymax=+15.5]
+% 
+%     \clip (-5.3, -1.3) rectangle (5.7, 13.8);
+%     \rcom{-5}{+5}{-1}{13}{gray!50, very thin, step=1}
+% 
+%     \coordinate (a0) at (0, 0); \coordinate (a0p) at (1, 0); 
+%     \coordinate (a1) at (1, 1); \coordinate (a1p) at (2, 1);
+%     \coordinate (a2) at (2, 4); \coordinate (a2p) at (3, 4);
+%     \coordinate (a3) at (3, 9);
+%     \coordinate (i0m) at (-1, 0);
+%     \coordinate (i1) at (-1, 1); \coordinate (i1m) at (-2, 1);
+%     \coordinate (i2) at (-2, 4); \coordinate (i2m) at (-3, 4);
+%     \coordinate (i3) at (-3, 9);
+% 
+%     \begin{scope}[red!50!black]
+%     % Senza etichetta
+%     \foreach \p in {a0, a1, a2, a3, i1, i2, i3}
+%     \filldraw (\p) circle (1.5pt);
+% 
+%     \tkzFct[domain=-5:+5, ultra thick]{x*x}
+% 
+%     \draw (i3) 
+%     .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+%     .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+%     .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+%     .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+%     .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+%     .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+%     .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+%     .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+%     .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+%     .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+%     .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+%     .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+%     
+%     .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+%     .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+%     .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+%     .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+%     .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+%     .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+%     .. controls +(0, -.5) and +(0, -.5) .. ++(+1, 0)
+%     .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+%     .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+%     .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+%     .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1)
+%     .. controls +(+.5, 0) and +(+.5, 0) .. ++(0, +1);
+% 
+%     \draw node [below, scale=.7, yshift=-7pt] at (\( (a0)!.5!(i0m) \)) 
+% {\(-1\)};
+%     \draw node [left, scale=.7, xshift=+10pt] at (\( (i1)!.5!(i0m) \)) 
+% {\(+1\)};
+%     \draw node [below, scale=.7, yshift=-7pt] at (\( (i2m)!.5!(i2m) \)) 
+% {\(-1\)};
+%     \draw node [left, scale=.7, xshift=+10pt] at (\( (i2)!.5!(i1m) \)) 
+% {\(+3\)};
+%     \draw node [below, scale=.7, yshift=-7pt] at (\( (i1m)!.5!(i1m) \)) 
+% {\(-1\)};
+%     \draw node [left, scale=.7, xshift=+10pt] at (\( (i3)!.5!(i2m) \)) 
+% {\(+5\)};
+% 
+%     \draw node [below, scale=.7, yshift=-7pt] at (\( (a0)!.5!(a0p) \)) 
+% {\(+1\)};
+%     \draw node [left, scale=.7, xshift=+9pt] at (\( (a1)!.5!(a0p) \)) 
+% {\(+1\)};
+%     \draw node [below, scale=.7, yshift=-7pt] at (\( (a2p)!.5!(a2p) \)) 
+% {\(+1\)};
+%     \draw node [left, scale=.7, xshift=+9pt] at (\( (a2)!.5!(a1p) \)) 
+% {\(+3\)};
+%     \draw node [below, scale=.7, yshift=-7pt] at (\( (a1p)!.5!(a1p) \)) 
+% {\(+1\)};
+%     \draw node [left, scale=.7, xshift=+9pt] at (\( (a3)!.5!(a2p) \)) 
+% {\(+5\)};
+% 
+%     \end{scope}
+%     }
+% }
 
 \newcommand{\piancart}{% 
     % Piano cartesiano  per il disegno di alcune parabole
@@ -211,19 +304,19 @@
     \begin{scope}[color=Green!50!black]
     \coordinate (a) at (0, +2);
     \filldraw  (a) circle (1.5pt); 
-    \node at (a) [xshift=-9pt] {$A$};
+    \node at (a) [xshift=-9pt] {\(A\)};
     \end{scope}
 
     \begin{scope}[color=Red!50!black]
     \coordinate (b) at (+8, +1);
     \filldraw (b) circle (1.5pt); 
-    \node at (b) [xshift=+7pt] {$B$};
+    \node at (b) [xshift=+7pt] {\(B\)};
     \end{scope}
 
     \begin{scope}[color=Blue!50!black]
     \coordinate (b) at (+5, -2);
     \filldraw (b) circle (1.5pt); 
-    \node at (b) [xshift=+7pt] {$C$};
+    \node at (b) [xshift=+7pt] {\(C\)};
     \filldraw (+2, +4) circle (1.5pt); 
     \filldraw (-2, -4) circle (1.5pt); 
     \end{scope}
@@ -237,9 +330,9 @@
     \tkzInit[xmin=-3.3,xmax=+5.3,ymin=-6.3,ymax=+10.3]
     \tkzFct[domain=-3.3:+5.3, ultra thick, color=Blue!50!black]{-x*x+2*x+8}
     \tkzFct[domain=-3.3:+5.3, ultra thick, color=Red!50!black]{5./4.*x*x-19./4.*x-1}
-    \filldraw (-1, +5) circle (1.5pt) node [xshift=-9pt] {$I_0$};
+    \filldraw (-1, +5) circle (1.5pt) node [xshift=-9pt] {\(I_0\)};
     \filldraw (+4, 0) circle (1.5pt) 
-        node [xshift=9pt, yshift=6pt] {$I_1$};
+        node [xshift=9pt, yshift=6pt] {\(I_1\)};
     }
 }
 
@@ -249,9 +342,9 @@
     \rcom{-5}{+5}{-9}{+10}{gray!50, very thin, step=1}
     \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-9.3,ymax=+10.3]
     \tkzFct[domain=-10:+10, ultra thick, color=Blue!50!black]{1./2.*x*x+2*x-7}
-    \filldraw (-4, -7) circle (1.5pt) node [xshift=-9pt] {$P_0$};
-    \filldraw (+2, -1) circle (1.5pt) node [xshift=9pt] {$P_1$};
-    \filldraw (+4, +9) circle (1.5pt) node [xshift=9pt] {$P_2$};
+    \filldraw (-4, -7) circle (1.5pt) node [xshift=-9pt] {\(P_0\)};
+    \filldraw (+2, -1) circle (1.5pt) node [xshift=9pt] {\(P_1\)};
+    \filldraw (+4, +9) circle (1.5pt) node [xshift=9pt] {\(P_2\)};
     }
 }
 
@@ -261,7 +354,7 @@
     \rcom{-1}{+10}{-6}{+8}{gray!50, very thin, step=1}
     \tkzInit[xmin=-1.3,xmax=+10.3,ymin=-6.3,ymax=+8.3]
     \tkzFct[domain=-10:+10, ultra thick, color=Blue!50!black]{-1./3.*x*x+2*x+4}
-    \filldraw (+3, +7) circle (1.5pt) node [yshift=9pt] {$V$};
-    \filldraw (+9, -5) circle (1.5pt) node [xshift=9pt] {$P$};
+    \filldraw (+3, +7) circle (1.5pt) node [yshift=9pt] {\(V\)};
+    \filldraw (+9, -5) circle (1.5pt) node [xshift=9pt] {\(P\)};
     }
 }
