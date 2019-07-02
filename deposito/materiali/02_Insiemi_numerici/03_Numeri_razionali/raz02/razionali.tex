@@ -5,29 +5,52 @@
 \input{\folder razionali_grafici.tex}
 
 % -------------------------------------------------
-\newcommand*\canc[1]{%
-  \mathchoice
-    {\scriptstyle#1}
-    {\scriptstyle#1}
-    {\scriptscriptstyle#1}
-    {\scriptscriptstyle#1}
-}
+% \newcommand*\canc[1]{%
+%   \mathchoice
+%     {\scriptstyle#1}
+%     {\scriptstyle#1}
+%     {\scriptscriptstyle#1}
+%     {\scriptscriptstyle#1}
+% }
+% 
+% \newcommand*\Dcancelto[2][0]{%
+%   \kern9pt%
+%   \begin{tikzpicture}[baseline=(current bounding box.center).anchor=west]
+%     \node[anchor=east,inner sep=2pt] (a) {#2};
+%     \draw[->] ($(a.north west)+(1pt,-2pt)$) -- 
+%               ($(a.south east)+(0pt,+2pt)$) 
+% node at ($(a.south east)+(4pt,1pt)$) {$\canc{#1}$};
+% \end{tikzpicture}
+% }
+% -------------------------------------------------
+% -------------------------------------------------
 
-\newcommand*\Dcancelto[2][0]{%
-  \kern9pt%
-  \begin{tikzpicture}[baseline=(current bounding box.center).anchor=west]
-    \node[anchor=east,inner sep=2pt] (a) {#2};
-    \draw[->] ($(a.north west)+(1pt,-2pt)$) -- ($(a.south 
-east)+(0pt,2pt)$) 
-node at ($(a.south east)+(4pt,1pt)$) {$\canc{#1}$};
-\end{tikzpicture}
+\tikzset{
+main node/.style={inner sep=0,outer sep=0},
+label node/.style={inner sep=0,outer ysep=.2em,outer 
+xsep=.4em,font=\scriptsize,overlay},
+strike out/.style={shorten <=-.2em,shorten >=-.5em,overlay}
 }
+\renewcommand{\cancelto}[3][]{\tikz[baseline=(N.base)]{
+  \node[main node](N){$#2$};
+  \node[label node,#1, anchor=south west] at (N.north east){$#3$};
+  \draw[strike out,-latex,#1]  (N.south west) -- (N.north east);
+}}
+\newcommand{\bcancelto}[3][]{\tikz[baseline=(N.base)]{
+  \node[main node](N){$#2$};
+  \node[label node,#1, anchor=north west] at (N.south east){$#3$};
+  \draw[strike out,-latex,#1]  (N.north west) -- (N.south east);
+}}
 % -------------------------------------------------
 
 \chapter{Numeri razionali}
 
 \section{I numeri razionali}
 \label{sec:razionali_razionali}
+
+\cancelto[orange]{test}{Oooo!}
+
+\bcancelto[orange]{test}{Oooo!}
 
 Abbiamo visto che con i numeri interi, \(\Z\), possiamo sempre eseguire~3 
 delle~4 operazioni aritmetiche: la divisione tra numeri interi non sempre è 
@@ -276,9 +299,9 @@ denominatore per il loro Massimo Comune Divisore.
 % \]
 
  Primo metodo:
- \[\dfrac{\cancelto{42}{420}}{\Dcancelto[36]{360}} = 
-   \dfrac{\cancelto{21}{42}}{\Dcancelto[18]{36}} =  
-   \dfrac{\cancelto{7}{21}}{\Dcancelto[6]{18}} =   
+ \[\dfrac{\cancelto{42}{420}}{\bcancelto{36}{360}} = 
+   \dfrac{\cancelto{21}{42}}{\bcancelto{18}{36}} =  
+   \dfrac{\cancelto{7}{21}}{\bcancelto{6}{18}} =   
    \dfrac{7}{6}
 \]
 %  Di solito abbreviato così: % bello ma dà un errore
@@ -316,6 +339,8 @@ denominatore della prima per il numeratore della seconda.
 \label{sub:razionali_confronto}
 
 \begin{definizione}
+~
+
 \begin{itemize}
  \item Tra due frazioni che hanno lo stesso denominatore è maggiore quella 
 che ha il numeratore maggiore.
@@ -377,7 +402,7 @@ calcoli. Come nell'esempio seguente.
  Usiamo il metodo della moltiplicazione incrociata:
  \[= \dfrac{5 \cdot 18 - 7 \cdot 12}{12 \cdot 18} = 
      \dfrac{90 - 84}{216} =
-     \dfrac{\cancelto{1}{6}}{\Dcancelto[36]{216}} = \dfrac{1}{36}\]
+     \dfrac{\cancelto{1}{6}}{\bcancelto{36}{216}} = \dfrac{1}{36}\]
  \emph{Secondo metodo (più furbo)}
  Per prima cosa scomponiamo i denominatori nel prodotto di fattori primi:
  \[= \dfrac{5}{2^2 \cdot 3} - \dfrac{7}{2 \cdot 3^2} =\]
@@ -463,10 +488,10 @@ moltiplicazioni.
 
 \begin{esempio}
 Calcola: \(\dfrac{112}{225} \cdot \dfrac{75}{56}\)
-\[\frac{\cancelto{14}{112}}{\Dcancelto[9]{225}} \cdot 
-  \frac{\cancelto{3}{75}}{\Dcancelto[7]{56}} = 
-  \frac{\cancelto{2}{14}}{\Dcancelto[3]{9}} \cdot 
-  \frac{\cancelto{1}{3}}{\Dcancelto[1]{7}} = \frac{2}{3}
+\[\frac{\cancelto{14}{112}}{\bcancelto{9}{225}} \cdot 
+  \frac{\cancelto{3}{75}}{\bcancelto{7}{56}} = 
+  \frac{\cancelto{2}{14}}{\bcancelto{3}{9}} \cdot 
+  \frac{\cancelto{1}{3}}{\bcancelto{1}{7}} = \frac{2}{3}
   \]
  
 \end{esempio}
@@ -503,12 +528,12 @@ divisioni!
 \end{osservazione}
 
 \begin{esempio}
-Calcola: \(\dfrac{560}{55} \cdot \dfrac{24}{275}\)
+Calcola: \(\dfrac{560}{55} : \dfrac{24}{275}\)
 \[\dfrac{560}{55} \div \dfrac{24}{275} =
   \dfrac{560}{55} \cdot \dfrac{275}{24} =
-  \frac{\cancelto{70}{560}}{\Dcancelto[11]{55}} \cdot 
-  \frac{\cancelto{55}{275}}{\Dcancelto[3]{24}} = 
-  \frac{70}{\Dcancelto[1]{11}} \cdot 
+  \frac{\cancelto{70}{560}}{\bcancelto{11}{55}} \cdot 
+  \frac{\cancelto{55}{275}}{\bcancelto{3}{24}} = 
+  \frac{70}{\bcancelto{1}{11}} \cdot 
   \frac{\cancelto{5}{55}}{3} = \frac{350}{3}
   \]
 \end{esempio}
@@ -560,14 +585,14 @@ Tutte le frazioni possono essere trasformate in numeri decimali, basta
 interpretare il segno di frazione come una divisione.
 
 \begin{esempio}
-Trasforma in numero decimale la frazione: \(\dfrac{5}{8}\)
+Trasforma in numero decimale la frazione: \(\dfrac{197}{8}\)
 \begin{center}
  \begin{center}\input{\folder lbr/03_frazdec.tex}\end{center}
 \end{center}
 \end{esempio}
 
 \begin{esempio}
-Trasforma in numero decimale la frazione: \(\dfrac{43}{33}\)
+Trasforma in numero decimale la frazione: \(\dfrac{155}{12}\)
 \begin{center}
  \begin{center}\input{\folder lbr/04_frazdec.tex}\end{center}
 \end{center}
