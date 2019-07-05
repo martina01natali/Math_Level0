@@ -242,6 +242,15 @@ discriminante:
 0\) l'equazione non ammette soluzioni reali.
 \end{itemize}
 \end{esempio}
+\begin{esempio}
+\(x^{2} - 4 x + 2=0\)
+
+\[x_{1,2} = \frac{- b \mp \sqrt{b^2-4ac}}{2a} = 
+\frac{4 \mp \sqrt{16-8}}{2} = \frac{4 \mp \sqrt{8}}{2} = 
+\frac{4 \mp \sqrt{4 \cdot 2}}{2} = \frac{4 \mp 2 \sqrt{2}}{2} = 
+\frac{2 \tonda{2 \mp \sqrt{2}}}{2} = 2 \mp \sqrt{2}\]
+\[x_{1} = 2 - \sqrt{2} \sor x_{2} = 2 + \sqrt{2}\]
+\end{esempio}
 % \end{exrig}
 
 % \vspazio
@@ -252,33 +261,42 @@ discriminante:
 
 \subsection{Formula ridotta per equazioni di secondo grado}
 Se nell'equazione
-\(a x^{2} + b x + c=0\) il coefficiente \(b\) è un numero pari, conviene applicare 
-una formula, detta \emph{formula ridotta}, che semplifica i calcoli.
+\(a x^{2} + b x + c=0\) il coefficiente \(b\) è un numero pari, conviene 
+applicare una formula, detta \emph{formula ridotta}, che semplifica i 
+calcoli.
 
-Supponiamo \(b=2 k\), l'equazione \(a x^{2} + b x + c=0\) diventa \(a x^{2} + 2 k x 
-+ 
-c=0\) e nella formula risolutiva dell'equazione si ottiene:
-\[x_{1,2}=\frac{- 2 k \pm \sqrt{( 2 k )^{2}-4 a c}}{2 a}=\frac{- 2 k \pm 2 
-\sqrt{k^{2} - a c}}{2 a}=\frac{- k \pm \sqrt{k^{2} - a c}}{a}.\]
-Dato che \(b=2 k\) quindi \(k=\frac{b}{2}\) la formula ridotta che conviene 
-utilizzare quando \(b\) è pari è:
-\[x_{1,2}=\frac{\left( - \frac{b}{2} \right) \pm \sqrt{\left(\frac{b}{2} 
-\right)^{2} - a c}}{a}.\]
-
-La quantità sotto radice, uguale a \(\frac{\Delta}{4}\), è detta anche 
-\emph{discriminante ridotto}.
+Supponiamo \(b=2 \beta\), l'equazione \(a x^{2} + b x + c=0\) diventa 
+\(a x^{2} + 2 \beta x + c=0\) 
+e nella formula risolutiva dell'equazione si ottiene:
+\[x_{1,2}=\frac{- 2 \beta \pm \sqrt{( 2 \beta )^{2}-4 a c}}{2 a}=
+\frac{- 2 \beta \pm 2 \sqrt{\beta^{2} - a c}}{2 a}=
+\frac{- \beta \pm \sqrt{\beta^{2} - a c}}{a}\]
+La quantità sotto radice 
+\(\dfrac{\Delta}{4} = \beta^{2} - a c\), 
+è detta anche \emph{discriminante ridotto}.
 
 % \begin{exrig}
+\begin{esempio}
+Riprendiamo l'ultimo esempio della sezione precedente: 
+\(x^{2} - 4 x + 2=0\)
+
+\[x_{1,2} = \frac{- \beta \mp \sqrt{\beta^2-ac}}{a} = 
+\frac{2 \mp \sqrt{4-2}}{1} = 2 \mp \sqrt{2}\]
+\[x_{1} = 2 - \sqrt{2} \sor x_{2} = 2 + \sqrt{2}\]
+\end{esempio}
 \begin{esempio}
  Applicazione della formula ridotta nella risoluzione di equazioni complete.
 \begin{itemize}
 \item \(x^{2} - 4 x + 3=0\). Il coefficiente di primo grado è pari, per cui 
 conviene utilizzare la formula ridotta: 
-\[\frac{-(-2 ) \pm \sqrt{(-2)^{2}-1( 3 )}}{1}=2 \pm \sqrt{1}\Rightarrow  x_{1} 
+\[x_{1,2} = \frac{- \beta \pm \sqrt{\beta^{2} - a c}}{a} =
+\frac{-(-2 ) \pm \sqrt{(-2)^{2}-1 \cdot 3}}{1}=2 \pm 
+\sqrt{1}\Rightarrow  x_{1} 
 = 
 1 \vee x_{2} = 3;\]
 \item \(- x^{2} - 2 x + 24=0\). Applichiamo la formula ridotta: 
-\[\frac{- ( - 1 ) \pm \sqrt{( -1 )^{2} - ( - 1 ) ( 24 )}}{- 1}=- 1 \pm 
+\[x_{1,2} = \frac{- \beta \pm \sqrt{\beta^{2} - a c}}{a} =
+\frac{- ( - 1 ) \pm \sqrt{( -1 )^{2} - ( - 1 ) ( 24 )}}{- 1}=- 1 \pm 
 \sqrt{25}\Rightarrow x_{1} = - 6 \vee x_{2} = 4;\]
 \item \(- 3 x^{2} - 6 x + 12=0\). Per prima cosa dividiamo l'equazione per \(- 3\), 
 per il secondo principio di equivalenza, si ha l'equazione equivalente~\(x^{2} + 
@@ -291,9 +309,7 @@ ridotta:
 % \end{exrig}
 
 Quando \(b\) è pari e \(a = 1\), la formula si dice \emph{ridottissima}: 
-\(x_{1,2}=\left( - \frac{b}{2} \right) \pm \sqrt{\left( \frac{b}{2} \right)^{2} 
-- 
-c}\).
+\(x_{1,2}=\left( - \beta \right) \pm \sqrt{\left( \beta \right)^{2} - c}\).
 
 % \begin{exrig}
 \begin{esempio}
@@ -380,18 +396,20 @@ Un'equazione in cui compare l'incognita al denominatore si chiama
 Risolvere la seguente equazione \(\dfrac{3 x + 2}{1 + x}=\dfrac{2 x + 3}{x - 2}\).
  \paragraph{Passo I} Determiniamo il \(\mcm\) dei denominatori: \(\mcm = ( 1 + x ) 
 \cdot ( x - 2 )\).
- \paragraph{Passo II} Imponiamo le \emph{Condizioni} di \emph{Esistenza} 
-(\(\CE\)): \(\CE x \neq - 1 \wedge x \neq 2\). La ricerca dei valori che risolvono 
+ \paragraph{Passo II} Applichiamo il primo principio d'equivalenza 
+trasportando 
+al primo membro la frazione del secondo membro \(\frac{3 x + 2}{1 + x} - 
+\frac{2 
+x + 3}{x - 2} = 0\). Riduciamo allo stesso denominatore (\(\mcm\)): 
+\[\frac{( 3 x + 2 ) \cdot ( x - 2 ) - ( 2 x + 3 ) \cdot ( 1 + x )}{( 1 +x ) 
+\cdot ( x - 2 )}=0.\]
+ \paragraph{Passo III} Imponiamo le \emph{Condizioni} di \emph{Esistenza} 
+(\(\CE\)): \(\CE x \neq - 1 \wedge x \neq 2\). La ricerca dei valori che 
+risolvono 
 l'equazione si restringe ai numeri reali appartenenti all'insieme, \(\Dom = 
 \insR 
 - \{- 1, 2 \}\) detto \emph{Dominio} dell'equazione o \emph{Insieme} di 
 \emph{Definizione} (abbreviato \(\ID\)).
- \paragraph{Passo III} Applichiamo il primo principio d'equivalenza 
-trasportando 
-al primo membro la frazione del secondo membro \(\frac{3 x + 2}{1 + x} - \frac{2 
-x + 3}{x - 2} = 0\). Riduciamo allo stesso denominatore (\(\mcm\)): 
-\[\frac{( 3 x + 2 ) \cdot ( x - 2 ) - ( 2 x + 3 ) \cdot ( 1 + x )}{( 1 +x ) 
-\cdot ( x - 2 )}=0.\]
  \paragraph{Passo IV} Moltiplichiamo ambo i membri per il \(\mcm\), certamente 
 diverso da zero per le condizioni poste; l'equazione diventa: \(( 3 x + 2 ) 
 \cdot 
@@ -416,16 +434,16 @@ accettabili e l'insieme soluzione è: \(\IS=\left\{\frac{9 - \sqrt{109}}{2},
 Risolvere la seguente equazione \(\dfrac{x^{2}}{x^{2} - 3 x + 2}=\dfrac{x - 2}{x 
 - 1} +\dfrac{1}{x + 2}\).
  \paragraph{Passo I} Determiniamo il \(\mcm\) dei denominatori. Scomponiamo in 
-fattori i denominatori. Riscriviamo: \(\frac{x^{2}}{( x - 2 ) ( x - 1 )}=\frac{x 
-- 2}{x - 1} +\frac{1}{x + 2}\) il \(\mcm\) è \(( x - 2 ) ( x - 1 ) ( x + 2 )\).
- \paragraph{Passo II} Imponiamo le Condizioni di Esistenza: \(\CE x \neq 1 
-\wedge 
-x \neq 2 \wedge x \neq - 2\) quindi \(\Dom = \insR - \{ 1, 2, - 2 \}=\ID\)
- \paragraph{Passo III} Trasportiamo al primo membro ed uguagliamo a zero; 
+fattori i denominatori. Riscriviamo: 
+\(\frac{x^{2}}{( x - 2 ) ( x - 1 )}=\frac{x - 2}{x - 1} +\frac{1}{x + 2}\) 
+il \(\mcm\) è \(( x - 2 ) ( x - 1 ) ( x + 2 )\).
+ \paragraph{Passo II} Trasportiamo al primo membro ed uguagliamo a zero; 
 riduciamo allo stesso denominatore (\(\mcm\)) i membri dell'equazione: 
-\[\frac{x^{3} + 2 x^{2} - x^{2} + 3 x - 2 - x^{3} - 2 x^{2} + 4x^{2} + 8 x - 4 
-x 
-- 8}{( x - 2 ) ( x - 1 ) ( x + 2 )}~=~0.\]
+\[\frac{x^3 + 2 x^2 - x^2 + 3 x - 2 - x^3 - 2 x^2 + 4x^2 + 8 x -4x - 8}
+       {( x - 2 ) ( x - 1 ) ( x + 2 )}~=~0.\]
+ \paragraph{Passo III} Imponiamo le Condizioni di Esistenza: 
+ \(\CE x \neq 1 \wedge x \neq 2 \wedge x \neq - 2\) quindi 
+ \(\Dom = \insR - \{ 1, 2, - 2 \}=\ID\)
  \paragraph{Passo IV} Applichiamo il secondo principio di equivalenza 
 moltiplicando ambo i membri per il \(\mcm\), certamente diverso da zero per le 
 condizioni poste in precedenza; l'equazione diventa: \(3 x^{2} + 7 x - 10 = 0\).
