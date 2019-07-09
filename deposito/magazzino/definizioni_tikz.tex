@@ -387,3 +387,91 @@
   \end{scope}
   }
 }
+
+% \newcommand{\ellisse}[5]{% disegna un'ellisse dati: centro, semiassi, colore
+%   % Esempio di chiamata:
+%   % \ellisse{0}{5}{5}{4}{Maroon!50!black}
+% % 	\def \xo{#1}
+% % 	\def \yo{#2}
+% % 	\def \semiassea{#3}
+% % 	\def \semiasseb{#4}
+% % 	\def \colore{#5}
+% %   \draw [ultra thick, color=#5] (\xo, \yo)
+% %         circle [x radius = {\semiassea}, y radius = {\semiasseb}];
+%   \draw [ultra thick, color=#5] (#1, #2)
+%         circle [x radius = {#3}, y radius = {#4}];
+  
+% \newcommand{\ellisse}[5]{% disegna un'ellisse dati: centro, semiassi, colore
+%   % Esempio di chiamata:
+%   % \ellisse{0}{5}{5}{4}{Maroon!50!black}
+%   \draw [ultra thick, color=Maroon!50!black] (0, 0)
+%         circle [x radius = 5, y radius = 3];
+  
+\newcommand{\ellisse}[5]{% disegna un'ellisse dati: centro, semiassi, colore
+  % Esempio di chiamata:
+  % \ellisse{0}{5}{5}{4}{Maroon!50!black}
+  \def \xo{#1}
+  \def \yo{#2}
+  \def \semiassea{#3}
+  \def \semiasseb{#4}
+  \def \colore{#5}
+  \draw [ultra thick, color=\colore] (\xo, \yo)
+        circle [x radius = {\semiassea}, y radius = {\semiasseb}];
+}
+
+\begin{comment}
+ 
+def hyperbolax(a, b, d=10):
+    a, b = b, a
+    a2, b2 = a*a, b*b
+    eqa = f'-(({b2}*x*x+{a2}*{b2})**.5)/{a}'
+    eqb = f'+(({b2}*x*x+{a2}*{b2})**.5)/{a}'
+    return r"""
+\begin{{center}}
+\disegnod{{2.5}}{{
+  \RCOM{{-{d}}}{{+{d}}}{{-{d}}}{{+{d}}}{{gray!70, very thin, step=1}}
+  \tkzInit[xmin=-{d}.3,xmax=+{d}.3,ymin=-{d}.3,ymax=+{d}.3]
+  \tkzFct[domain=-{d}.3:+{d}.3, ultra thick, color=Maroon!50!black, 
+rotate=45]
+         {{{eqa}}}
+  \tkzFct[domain=-{d}.3:+{d}.3, ultra thick, color=Maroon!50!black, 
+rotate=22.5]
+         {{{eqb}}}
+}}
+\end{{center}}
+""".format(eqa=eqa, eqb=eqb, d=d)
+
+def hyperbolay(a, b, d=10):
+    a2, b2 = a*a, b*b
+    eqa = f'-(({b2}*x*x+{a2}*{b2})**.5)/{a}'
+    eqb = f'+(({b2}*x*x+{a2}*{b2})**.5)/{a}'
+    return r"""
+\begin{{center}}
+\disegnod{{2.5}}{{
+  \RCOM{{-{d}}}{{+{d}}}{{-{d}}}{{+{d}}}{{gray!70, very thin, step=1}}
+  \tkzInit[xmin=-{d}.3,xmax=+{d}.3,ymin=-{d}.3,ymax=+{d}.3]
+  \tkzFct[domain=-{d}.3:+{d}.3, ultra thick, color=Maroon!50!black]{{{eqa}}}
+  \tkzFct[domain=-{d}.3:+{d}.3, ultra thick, color=Maroon!50!black]{{{eqb}}}
+}}
+\end{{center}}
+""".format(eqa=eqa, eqb=eqb, d=d)
+
+% da:
+tex.stackexchange.com/questions/108938/drawing-a-hyperbola-of-a-certain-ecce
+ntricity-in-tikz
+
+\documentclass{article}
+
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[scale=1]
+    \pgfmathsetmacro{\e}{1.44022}   % eccentricity
+    \pgfmathsetmacro{\a}{1}
+    \pgfmathsetmacro{\b}{(\a*sqrt((\e)^2-1)} 
+    \draw plot[domain=-2:2] ({\a*cosh(\x)},{\b*sinh(\x)});
+    \draw plot[domain=-2:2] ({-\a*cosh(\x)},{\b*sinh(\x)});
+\end{tikzpicture}
+\end{document}
+
+\end{comment}
