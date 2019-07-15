@@ -77,7 +77,10 @@ Se una funzione è derivabile in un punto allora è continua in quel punto.
 \(f(x) \text{ è continua in } c\).
 
 \begin{proof}
-TODO
+
+Se \(\pst{\dfrac{dy}{dx}}=m \quad \text{allora} \quad 
+\dfrac{dy}{dx}=a \quad \text{con a finito} \)\\
+Da questo deriva che \(dy= a \cdot dx\) e quindi \(dy\) è un infinitesimo.
 \end{proof}
 
 \begin{comment}
@@ -308,17 +311,17 @@ dagli altri tuoi compagni.
 In un intervallo, una funzione potrebbe avere \emph{più} minimi o massimi. 
 Oppure potrebbe \emph{non} avere minimi o massimi.
 
-\begin{esempio}
- \(y=3\) Disegna il grafico
-\end{esempio}
-
-\begin{esempio}
- \(y=\sen{x}\) Disegna il grafico
-\end{esempio}
-
-\begin{esempio}
- \(y=\dfrac{1}{x}\) Disegna il grafico
-\end{esempio}
+% \begin{esempio}
+%  \(y=3\) Disegna il grafico
+% \end{esempio}
+% 
+% \begin{esempio}
+%  \(y=\sen{x}\) Disegna il grafico
+% \end{esempio}
+% 
+% \begin{esempio}
+%  \(y=\dfrac{1}{x}\) Disegna il grafico
+% \end{esempio}
 
 Un importante teorema che riguarda i massimi e i minimi delle funzioni 
 continue dice che se una funzione è continua e ha in punto di massimo (o 
@@ -418,6 +421,8 @@ Da cui si ricava la tesi:
 % \section{Proprietà delle funzioni continue}
 % \label{sec:cont_proprieta}
 
+\input{\folder funzionicontinue_grafici.tex}
+
 \subsection{Numeri iperinteri}
 \label{subsec:cont_iperinteri}
 
@@ -428,7 +433,7 @@ Non è difficile visualizzare sulla retta dei numeri questo insieme.
 Per dare una definizione rigorosa dei numeri Iperinteri abbiamo bisogno di 
 usare la funzione \emph{parte intera} di un numero: che si indica con il 
 simbolo:
-\(\quadra{x}\).
+\(\quadra{x}\). Qualche esempio:
 \begin{center}
 \begin{tabular}{ccccccccccccccc}
 \(x\) & 
@@ -439,6 +444,7 @@ simbolo:
 \end{tabular}
 \end{center}
 
+\begin{minipage}{.59\textwidth}
 La parte intera di un numero \(x\) è il più grande numero intero \(n\) 
 minore o uguale a \(x\). Attenzione che mentre per i numeri positivi il 
 concetto è abbastanza naturale, per quelli negativi il concetto non è 
@@ -446,6 +452,14 @@ altrettanto immediato, vedi la tabella precedente.
 
 Applicando la funzione parte intera ai numeri Iperreali otteniamo gli 
 Iperinteri.
+\end{minipage}
+\hfill
+\begin{minipage}{.39\textwidth}
+\begin{center}
+\parteintera
+\end{center}
+% TODO: grafico di \(y=\quadra{x}\)
+\end{minipage}
 
 \begin{definizione}
  I numeri \textbf{Iperinteri} sono quei numeri Iperreali per cui vale 
@@ -589,10 +603,10 @@ intervallo \(\intervcc{a}{b}\) e
 \(f(x)\neq 0 \quad \forall x \in \intervcc{a}{b}\) 
 allora:
 \begin{enumerate}[nosep]
- \item se \(f(c)<0\) per un qualunque \(c \in \intervcc{a}{b}\)
- allora \(f(x)<0 \quad \forall x \in \intervcc{a}{b}\);
- \item se \(f(c)>0\) per un qualunque \(c \in \intervcc{a}{b}\)
- allora \(f(x)>0 \quad \forall x \in \intervcc{a}{b}\).
+ \item se \(f(c)<0\) \quad per un qualunque \quad \(c \in \intervcc{a}{b}\)
+ \quad allora \quad \(f(x)<0 \quad \forall x \in \intervcc{a}{b}\);
+ \item se \(f(c)>0\) \quad per un qualunque \quad \(c \in \intervcc{a}{b}\)
+ \quad allora \quad \(f(x)>0 \quad \forall x \in \intervcc{a}{b}\).
 \end{enumerate}
 \end{corollario}
 
@@ -655,7 +669,7 @@ ottenendo i punti di partizione:
 \[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b\]
 Per il principio di tranfer posso confrontare tra di loro tutti i valori della 
 funzione in questi punti e troverò che uno di questi è maggiore o uguale a 
-tutti gli altri, supponiamo che questo punto sia: \(a+(k+1)\delta\):
+tutti gli altri, supponiamo che questo punto sia: \(a+k\delta\):
 \[f(a+k\delta) \geqslant f(a+j\delta) \text{ per ogni j Iperintero}\]
 Considerando la parte standard 
 se \(c=\pst{a+k\delta}\) e \(d=\pst{a+j\delta}\)
@@ -701,9 +715,10 @@ Si possono distinguere 3 casi:
  \item Se \(M > f(a)\) vuol dire che la funzione ha un massimo 
  in~\(c\) ovvero~\(f(c)=M\). 
  La funzione \(f\) nel punto \(c\) soddisfa tutte le ipotesi del teorema 
- del punto critico, 
+ di Fermat, 
 \begin{enumerate}[noitemsep]
- \item \(f\) è una funzione continua nell'intervallo chiuso \(\intervcc{a}{b}\);
+ \item \(f\) è una funzione continua nell'intervallo chiuso 
+  \(\intervcc{a}{b}\);
  \item \(c\) appartiene all'intervallo aperto \(\intervaa{a}{b}\);
  \item \(f(c)\) è un massimo;
  \item \(f\) è derivabile in \(c\).
