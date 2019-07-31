@@ -68,6 +68,26 @@
 \input{\magdir definizioni}
 \input{\magdir definizioni_tikz}
 
+% %========================
+% % Numeri di pagina in minuscolo
+% %========================
+% % redefine \pagenumbering so that it affects both \thepage and \Thepage
+% \renewcommand\pagenumbering[1]{% 
+%   \global\c@page\@ne
+%   \expandafter\ifx\csname @#1\endcsname\@arabic % if the desired numbering 
+% % is arabic
+%     \gdef\thepage{\csname @Arabic\endcsname\c@page}% \thepage in standard 
+% % arabic
+%     \gdef\Thepage{\csname @arabic\endcsname\c@page}% \Thepage in 
+% % oldstylenums
+%   \else
+%     \gdef\thepage{\csname @#1\endcsname\c@page}% otherwise do whatever is 
+% % requested
+%     \gdef\Thepage{\csname @#1\endcsname\c@page}% and also define \Thepage to 
+% % be used in header or footer
+%   \fi
+% }
+
 %========================
 % Con o senza linguaggio di programmazione
 %========================
