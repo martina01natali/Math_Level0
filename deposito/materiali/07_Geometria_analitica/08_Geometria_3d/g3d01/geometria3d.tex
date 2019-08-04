@@ -14,27 +14,27 @@ Abbiamo già imparato in precedenza quali tecniche e formule si possono utilizza
 
 \vspace{7pt}
 
-Il piano cartesiano è formato da 3 assi tra loro perpendicolari, che indicano le 3 direzioni possibili di movimento per un oggetto nello spazio. Un punto viene perciò individuato dalle 3 coordinate spaziali, e lo indicheremo perciò con la terna ordinata P\,$(x,y,z)$. La visualizzazione dei punti non è semplice, poiché deve rendere conto della profondità e, in certi casi, della prospettiva. Quindi ci affideremo per quanto possibile all'intuizione geometrica, senza legarci troppo ai disegni.
+Il piano cartesiano è formato da 3 assi tra loro perpendicolari, che indicano le 3 direzioni possibili di movimento per un oggetto nello spazio. Un punto viene perciò individuato dalle 3 coordinate spaziali, e lo indicheremo perciò con la terna ordinata P\,\((x,y,z)\). La visualizzazione dei punti non è semplice, poiché deve rendere conto della profondità e, in certi casi, della prospettiva. Quindi ci affideremo per quanto possibile all'intuizione geometrica, senza legarci troppo ai disegni.
 
 \vspace{7pt}
 
 Dato un insieme di punti distinti, è possibile innanzitutto calcolarne le rispettive distanze. La formula per calcolare la \textbf{distanza tra 2 punti} non è altro che una generalizzazione del teorema di Pitagora, ovvero:
 \[\overline{AB} = \sqrt{(x_A-x_B)^2+(y_A-y_B)^2+(z_A-z_B)^2}\]
-Un'oggetto interessante, che ci permetterà poi di ricavare l'equazione di una retta e di un piano, è il vettore. Chiamiamo \textbf{vettore} una freccia che connette due punti. In genere, dati 2 punti A e B, indichiamo con $\vect{\text{AB}}$ il vettore che congiunge A con B, ovvero la freccia che parte da A e arriva a B, con la punta rivolta verso B. Chiamiamo \emph{coda} e \emph{punta} rispettivamente i punti A e B. 
+Un'oggetto interessante, che ci permetterà poi di ricavare l'equazione di una retta e di un piano, è il vettore. Chiamiamo \textbf{vettore} una freccia che connette due punti. In genere, dati 2 punti A e B, indichiamo con \(\vect{\text{AB}}\) il vettore che congiunge A con B, ovvero la freccia che parte da A e arriva a B, con la punta rivolta verso B. Chiamiamo \emph{coda} e \emph{punta} rispettivamente i punti A e B. 
 
 \vspace{7pt}
 
-Spesso si pensa un vettore come lo spostamento di un oggetto. Si può pensare per esempio che il punto B sia dato dallo spostamento di A lungo la freccia $\vect{\text{AB}}$. Ovvero:
+Spesso si pensa un vettore come lo spostamento di un oggetto. Si può pensare per esempio che il punto B sia dato dallo spostamento di A lungo la freccia \(\vect{\text{AB}}\). Ovvero:
 \[\text{B} = \text{A}+\vect{\text{AB}} \quad \Rightarrow \quad \vect{\text{AB}} = \text{B}-\text{A}\]
 Quindi per "costruire" un vettore di coda A e punta B è sufficiente calcolare la differenza tra le coordinate dei punti.
 \begin{esempio}
-\emph{Calcola il vettore $\vect{CF}$, dove $C\,(4,-2)$ e $F \, (-6,1)$}
+\emph{Calcola il vettore \(\vect{CF}\), dove \(C\,(4,-2)\) e \(F \, (-6,1)\)}
 \[\vect{CF} = F-C = (-6,1)-(4,-2) = (-10,3)\]
 \end{esempio}
 
 Notiamo che due vettori con stessa direzione e stesso verso (ovvero sovrapponibili mediante traslazione) sono indistinguibili:
 \begin{esempio}
-\emph{Calcola i vettori $\vect{AB}$ e $\vect{CD}$, dove $A\,(0,0)$, $B \, (3,5)$, $C \, (4,0)$ e $D \, (7,5)$}
+\emph{Calcola i vettori \(\vect{AB}\) e \(\vect{CD}\), dove \(A\,(0,0)\), \(B \, (3,5)\), \(C \, (4,0)\) e \(D \, (7,5)\)}
 \[\vect{AB} = (3,5)-(0,0) = (3,5) \qquad;\qquad \vect{CD} = (7,5)-(4,0) = (3,5)\]
 \end{esempio}
 Questa proprietà è detta \textbf{equipollenza}. Due vettori sono equipollenti se hanno stessa direzione e verso. Tale proprietà ci permette di pensare un vettore applicato in un qualunque punto (ovvero con la coda posizionata in tale punto) ed in particolare possiamo sempre pensarlo applicato nell'origine.
@@ -43,7 +43,7 @@ Questa proprietà è detta \textbf{equipollenza}. Due vettori sono equipollenti 
 
 Per le principali operazioni tra vettori rimandiamo al relativo capitolo del libro 3. Richiamiamo qui invece le definizioni di parallelismo e perpendicolarità:
 \begin{itemize}
- \item Due vettori $ \vect{a} = (a_x,a_y,a_z) \;,\; \vect{b} = (b_x,b_y,b_z)$ sono \textbf{paralleli} se il rapporto tra i rispettivi coefficienti è sempre lo uguale (nel caso in cui una coordinata del primo vettore sia nulla, dev'esserlo anche nel secondo vettore). In formule:
+ \item Due vettori \( \vect{a} = (a_x,a_y,a_z) \;,\; \vect{b} = (b_x,b_y,b_z)\) sono \textbf{paralleli} se il rapporto tra i rispettivi coefficienti è sempre lo uguale (nel caso in cui una coordinata del primo vettore sia nulla, dev'esserlo anche nel secondo vettore). In formule:
 \[\vect{a} \parallel \vect{b} \quad (a_j\,, b_j \neq 0) \quad \Longleftrightarrow \quad \frac{a_x}{b_x} = \frac{a_y}{b_y} = \frac{a_z}{b_z}\]
 \item Due vettori sono \textbf{perpendicolari} se il corrispondente prodotto scalare è nullo. In formule:
 \[ \vect{a} \perp \vect{b} \quad \Longleftrightarrow\quad \vect{a} \cdot \vect{b} = 0 \quad \text{ovvero:} \quad a_xb_x+a_yb_y+a_zb_z=0\]
@@ -51,17 +51,17 @@ Per le principali operazioni tra vettori rimandiamo al relativo capitolo del lib
 \begin{esempio}
  \emph{Riconoscere quali vettori sono tra loro paralleli e quali perpendicolari:}
  \[\vect{a} = (5,2,1) \quad;\quad \vect{b} = (2,-3,-4) \quad;\quad \vect{c} = (1,-2,-1)  \quad;\quad \vect{d} = (10,4,2)\]
- Prendiamo i primi due vettori: $\vect{a}$ e $\vect{b}$. Verifichiamo se sono paralleli:
+ Prendiamo i primi due vettori: \(\vect{a}\) e \(\vect{b}\). Verifichiamo se sono paralleli:
  \[\frac{5}{2} \neq \frac{2}{-3} \neq \frac{1}{-4} \qquad \Rightarrow \qquad \text{Non sono paralleli}\]
  Controlliamo ora se sono perpendicolari:
  \[\vect{a} \cdot \vect{b} = (5,2,1)\times (2,-3,-4) = 5\cdot 2+2\cdot (-3)+1 \cdot (-4) = 10-6-4=0\]
- Quindi $\vect{a}$ e $\vect{b}$ sono tra loro perpendicolari. \'E facile vedere ora che $\vect{d}$ è parallelo ad $\vect{a}$ e che $\vect{c}$ è perpendicolare a $\vect{a}$ ma non parallelo a $\vect{b}$.
+ Quindi \(\vect{a}\) e \(\vect{b}\) sono tra loro perpendicolari. \'E facile vedere ora che \(\vect{d}\) è parallelo ad \(\vect{a}\) e che \(\vect{c}\) è perpendicolare a \(\vect{a}\) ma non parallelo a \(\vect{b}\).
 \end{esempio}
 
 
 \section{Retta (forma parametrica)}
 
-Come si definisce una retta nel piano cartesiano? Ci sono vari metodi, più o meno complicati. Uno dei modi più semplici per definirla si basa su un approccio pratico: per disegnare una qualunque retta si segna un punto, col righello si imposta l'inclinazione e quindi si traccia la linea. Quindi una retta è definita come l'insieme di tutti i quei punti che si ottengono spostandosi da un punto fissato P\,$(x_P,y_P,z_P)$ lungo la direzione $\vect{d}\,(d_x,d_y,d_z)$. In altre parole:
+Come si definisce una retta nel piano cartesiano? Ci sono vari metodi, più o meno complicati. Uno dei modi più semplici per definirla si basa su un approccio pratico: per disegnare una qualunque retta si segna un punto, col righello si imposta l'inclinazione e quindi si traccia la linea. Quindi una retta è definita come l'insieme di tutti i quei punti che si ottengono spostandosi da un punto fissato P\,\((x_P,y_P,z_P)\) lungo la direzione \(\vect{d}\,(d_x,d_y,d_z)\). In altre parole:
 \[\boxed{\vect{r} = P+t \, \vect{d}} \quad \Rightarrow \quad \begin{cases}
 x = x_P+t d_x \\
 y = y_P+t d_y \\
@@ -69,7 +69,7 @@ z = z_P+t d_z
 \end{cases}  \quad (t \in \mathbb{R})\]
 \begin{esempio}
 \label{rettaPuntoDirez}
-\emph{Determina la retta passante per $P\,(4,-2,1)$, avente direzione $\vect{d} \,(-1,3,5)$}
+\emph{Determina la retta passante per \(P\,(4,-2,1)\), avente direzione \(\vect{d} \,(-1,3,5)\)}
 \[\vettcol{x}{y}{z} = \vettcol{4}{-2}{1}+t \vettcol{-1}{3}{5} \qquad \longrightarrow \qquad\begin{cases}
 x = 4-t \\
 y = -2+3t \\
@@ -77,8 +77,8 @@ z = 1+5t
 \end{cases}\]
 \end{esempio}
 \begin{esempio}
- \emph{Determina la retta passante per i punti $A\,(3,5,2)$ e $B\,(1,5,4)$}\\[5pt]
- Innanzitutto calcoliamo la direzione della retta, come vettore $\vect{AB}$:
+ \emph{Determina la retta passante per i punti \(A\,(3,5,2)\) e \(B\,(1,5,4)\)}\\[5pt]
+ Innanzitutto calcoliamo la direzione della retta, come vettore \(\vect{AB}\):
 \[\vect{AB} = B-A = (1,5,4)-(3,5,2) = (-2,0,2)\]
 Ora che abbiamo la direzione e un punto di passaggio (scegliamo A), calcoliamo:
 \[\vettcol{x}{y}{z} = \vettcol{3}{5}{2}+t \vettcol{-2}{0}{2} \qquad \longrightarrow \qquad\begin{cases}
@@ -90,14 +90,14 @@ z = 2+2t
 
 \section{Piano (forma parametrica)}
 
-Anche in questo caso non esiste un solo modo di definire un piano. Vediamo innanzitutto il modo più semplice: si costruisce un piano prendendo un punto P\,$(x_P,y_P,z_P)$ e spostandosi lungo due direzioni non parallele $\vect{a}\,(a_x,a_y,a_z)$ e $\vect{b}\,(b_x,b_y,b_z)$. Cioé:
+Anche in questo caso non esiste un solo modo di definire un piano. Vediamo innanzitutto il modo più semplice: si costruisce un piano prendendo un punto P\,\((x_P,y_P,z_P)\) e spostandosi lungo due direzioni non parallele \(\vect{a}\,(a_x,a_y,a_z)\) e \(\vect{b}\,(b_x,b_y,b_z)\). Cioé:
 \[\boxed{\vect{r} = P+u \vect{a}+v \vect{b}} \quad \Rightarrow \quad \begin{cases}
 x = x_P+u a_x+v b_x \\
 y = y_P+u a_y+v b_y \\
 z = z_P+u a_z+v b_z
 \end{cases} \quad (u \in \mathbb{R}\;,\, v \in \mathbb{R})\]
 \begin{esempio}
-\emph{Determina il piano passante per $P\,(1,4,3)$, determinato dai vettori $\vect{a} \,(1,3,6)$ e $\vect{b} \, (-3,-2,0)$}
+\emph{Determina il piano passante per \(P\,(1,4,3)\), determinato dai vettori \(\vect{a} \,(1,3,6)\) e \(\vect{b} \, (-3,-2,0)\)}
 \[\vettcol{x}{y}{z} = \vettcol{1}{4}{3}+u \vettcol{1}{3}{6}+v \vettcol{-3}{-2}{0} \qquad \longrightarrow \qquad\begin{cases}
 x = 1+u-3v \\
 y = 4+3u-2v \\
@@ -106,8 +106,8 @@ z = 3+6u
 \end{esempio}
 \begin{esempio}
 \label{pianoPuntoDirez}
-\emph{Determina il piano passante per i punti $A\,(1,2,7)$, $B\,(4,2,2)$} e $C\,(5,-4,-1)$\\[5pt]
- Innanzitutto calcoliamo i vettori generatori del piano, scegliendo per esempio $\vect{AB}$ e $\vect{AC}$:
+\emph{Determina il piano passante per i punti \(A\,(1,2,7)\), \(B\,(4,2,2)\)} e \(C\,(5,-4,-1)\)\\[5pt]
+ Innanzitutto calcoliamo i vettori generatori del piano, scegliendo per esempio \(\vect{AB}\) e \(\vect{AC}\):
 \[\vect{AB} = (4,2,2)-(1,2,7) = (3,0,-5) \qquad, \qquad \vect{AC} = (5,-4,-1)-(1,2,7) = (4,-6,-8) \]
 Ora che abbiamo i vettori generatori e un punto di passaggio (scegliamo A, visto che è il punto da cui ``partono`` i due vettori ricavati), calcoliamo:
 \[\vettcol{x}{y}{z} = \vettcol{1}{2}{7}+u \vettcol{3}{0}{-5}+v \vettcol{4}{-6}{-8} \qquad \longrightarrow \qquad\begin{cases}
@@ -118,19 +118,19 @@ z = 7-5u-8v
 \end{esempio}
 
 \section{Piano (forma cartesiana)}
-Il piano può anche essere definito in un altro modo, con una definizione più tecnica. Dato un punto $P_0\,(x_0,y_0,z_0)$ e un vettore $\vect{v}\,(a,b,c)$ ad esso applicato, è possibile definire un piano come l'insieme di tutti quei punti $P\,(x,y,z)$ tali per cui il vettore $\vect{P_0P}$ sia perpendicolare al vettore $\vect{v}$. Poiché due vettori sono perpendicolari se il corrispondente prodotto scalare è nullo, possiamo scrivere:
+Il piano può anche essere definito in un altro modo, con una definizione più tecnica. Dato un punto \(P_0\,(x_0,y_0,z_0)\) e un vettore \(\vect{v}\,(a,b,c)\) ad esso applicato, è possibile definire un piano come l'insieme di tutti quei punti \(P\,(x,y,z)\) tali per cui il vettore \(\vect{P_0P}\) sia perpendicolare al vettore \(\vect{v}\). Poiché due vettori sono perpendicolari se il corrispondente prodotto scalare è nullo, possiamo scrivere:
 \[\vect{P_0P} \cdot \vect{v} =0 \quad \Rightarrow \quad (P-P_0)\cdot \vect{v}=0 \quad \Rightarrow \quad P \cdot \vect{v}-P_0\cdot \vect{v}=0\]
 Svolgendo i calcoli otteniamo:
 \[ a x+by+cz + \underbrace{(-a x_0-by_0-bz_0)}_{d}=0 \quad \Rightarrow \quad \boxed{ax+by+cz+d=0}\]
-Quindi un piano è rappresentato da un'equazione di primo grado in 3 variabili. Notare che i coefficienti delle 3 variabili $(a,b,c)$ determinano anche il \emph{vettore normale} (perpendicolare) al piano stesso, che definisce la \textbf{direzione} stessa del piano. 
+Quindi un piano è rappresentato da un'equazione di primo grado in 3 variabili. Notare che i coefficienti delle 3 variabili \((a,b,c)\) determinano anche il \emph{vettore normale} (perpendicolare) al piano stesso, che definisce la \textbf{direzione} stessa del piano. 
 \begin{esempio}
- \emph{Determina l'equazione del piano perpendicolare al vettore $\vect{d} \, (4,2,1)$ e passante per il punto $P\, (5,6,9)$}\\[5pt]
+ \emph{Determina l'equazione del piano perpendicolare al vettore \(\vect{d} \, (4,2,1)\) e passante per il punto \(P\, (5,6,9)\)}\\[5pt]
 Poiché il vettore ortogonale al piano ci dà i coefficienti delle 3 variabili abbiamo già una struttura per il nostro piano: \(4x+2y+z +d=0\)\\[3pt]
-Rimane da calcolare il valore del parametro $d$, che possiamo ricavare semplicemente imponendo il passaggio per il punto $P$, ovvero sostituendo le coordinate del punto:
+Rimane da calcolare il valore del parametro \(d\), che possiamo ricavare semplicemente imponendo il passaggio per il punto \(P\), ovvero sostituendo le coordinate del punto:
 \[4x+2y+z+d=0 \quad \longrightarrow \quad 4 (5)+2 (6)+(9)+d=0 \quad \rightarrow d = -41\]
 E quindi l'equazione della retta è data da \(4x+2y+z-41=0\)
 \end{esempio}
-Una formula equivalente per ricavare un piano, noti un punto $P\,(x_0,y_0,z_0)$ e la direzione $\vect{v}\,(a,b,c)$ è la seguente (si tratta solo di evitare di definire il parametro $d$ e riorganizzare i termini):
+Una formula equivalente per ricavare un piano, noti un punto \(P\,(x_0,y_0,z_0)\) e la direzione \(\vect{v}\,(a,b,c)\) è la seguente (si tratta solo di evitare di definire il parametro \(d\) e riorganizzare i termini):
 \[ \alpha \,: \quad \boxed{a(x-x_0)+b(y-y_0)+c(z-z_0)=0}\]
 
 \section{Retta (forma cartesiana)}
@@ -180,7 +180,7 @@ Eliminando le prime due equazioni, otteniamo:
 \[18z=126-30x-20y+70-48+24y \quad \rightarrow \quad -15x+2y-9z+74=0\]
 \end{esempio}
 \begin{esempio}
-\emph{Descrivere il piano $3x-2y+z-5=0$ in forma parametrica}\\[5pt]
+\emph{Descrivere il piano \(3x-2y+z-5=0\) in forma parametrica}\\[5pt]
 Qui il discorso è più semplice: è sufficiente infatti assegnare a due incognite i parametri ''u`` e ''v``, e ricavare la terza incognita:
 \[3x-2y+z-5=0 \quad \rightarrow \quad \begin{cases}
 x = u \\
@@ -207,18 +207,18 @@ Per parlare di parallelismo e perpendicolarità tra rette o piani ci si affida s
 
 \vspace{7pt}
 
-\textbf{\underline{Rette} :} \;La direzione di una retta, come definita in precedenza, è data semplicemente dal vettore $\vect{d}$, che può essere ricavato dalla forma parametrica della retta stessa. Per verificare dunque se 2 rette sono tra loro parallele, bisogna soltanto verificare che le due direzioni $\vect{d_1}$ e $\vect{d_2}$ siano a loro volta parallele. Per la perpendicolarità non basta invece. \'E necessario anche verificare che le rette assegnate siano incidenti.
+\textbf{\underline{Rette} :} \;La direzione di una retta, come definita in precedenza, è data semplicemente dal vettore \(\vect{d}\), che può essere ricavato dalla forma parametrica della retta stessa. Per verificare dunque se 2 rette sono tra loro parallele, bisogna soltanto verificare che le due direzioni \(\vect{d_1}\) e \(\vect{d_2}\) siano a loro volta parallele. Per la perpendicolarità non basta invece. \'E necessario anche verificare che le rette assegnate siano incidenti.
 
 \vspace{7pt}
 
-\textbf{\underline{Piani} :} \; La direzione di un piano è data dal corrispondente vettore normale $\vect{n}$. Anche qui dunque non si deve far altro che basarsi sulla nozione stessa di parallelismo/perpendicolarità tra i vettori $\vect{n_1}$ e $\vect{n_2}$ dei due piani.
+\textbf{\underline{Piani} :} \; La direzione di un piano è data dal corrispondente vettore normale \(\vect{n}\). Anche qui dunque non si deve far altro che basarsi sulla nozione stessa di parallelismo/perpendicolarità tra i vettori \(\vect{n_1}\) e \(\vect{n_2}\) dei due piani.
 
 \section{Distanza punto-piano}
 
-Nel piano cartesiano avevamo visto che era possibile calcolare la distanza punto-retta con una formula ''magica``, in cui compariva un valore assoluto al numeratore e una radice a denominatore. Anche nello spazio esiste una formula analoga, per calcolare però la \textbf{distanza punto-piano}: dato un punto $P\,\tonda{x_P,y_P,z_P}$ e un piano $\alpha$ in forma cartesiana $ax+by+cz+d=0$, la distanza del punto P dal piano è data da:
+Nel piano cartesiano avevamo visto che era possibile calcolare la distanza punto-retta con una formula ''magica``, in cui compariva un valore assoluto al numeratore e una radice a denominatore. Anche nello spazio esiste una formula analoga, per calcolare però la \textbf{distanza punto-piano}: dato un punto \(P\,\tonda{x_P,y_P,z_P}\) e un piano \(\alpha\) in forma cartesiana \(ax+by+cz+d=0\), la distanza del punto P dal piano è data da:
 \[d(P,\alpha) = \frac{|ax_P+by_P+cz_P+d|}{\sqrt{a^2+b^2+c^2}}\]
 \begin{esempio}
- \emph{Calcolare la distanza del punto $P\,(1,5,-3)$ dal piano $3x-5y+2z-4=0$}\\[5pt]
+ \emph{Calcolare la distanza del punto \(P\,(1,5,-3)\) dal piano \(3x-5y+2z-4=0\)}\\[5pt]
  \[d(P,\alpha)=\frac{|3 (1)-5(5)+2(-3)-4|}{\sqrt{(3)^2+(-5)^2+(2)^2}} = \frac{32}{\sqrt{38}} = \frac{32 \sqrt{38}}{38}\]
 \end{esempio}
 
@@ -226,7 +226,7 @@ Nel piano cartesiano avevamo visto che era possibile calcolare la distanza punto
 
 \section{Sfere}
 
-Un altro oggetto interessante da studiare per familiarizzare con lo spazio tridimensionale è la sfera. La definizione è molto semplice: la sfera è il luogo dei punti dello spazio equidistanti da un punto, detto \textbf{centro} della sfera. Perciò, se $C\,(x_C,y_C,z_C)$ è il centro della sfera e $P\,(x,y,z)$ un generico punto su essa, allora P deve soddisfare l'equazione:
+Un altro oggetto interessante da studiare per familiarizzare con lo spazio tridimensionale è la sfera. La definizione è molto semplice: la sfera è il luogo dei punti dello spazio equidistanti da un punto, detto \textbf{centro} della sfera. Perciò, se \(C\,(x_C,y_C,z_C)\) è il centro della sfera e \(P\,(x,y,z)\) un generico punto su essa, allora P deve soddisfare l'equazione:
 \[\overline{PC}=r \quad \Rightarrow \quad \sqrt{(x-x_C)^2+(y-y_C)^2+(z-z_C)^2} = r\]
 Elevando ambo i membri al quadrato: \quad \fbox{\((x-x_C)^2+(y-y_C)^2+(z-z_C)^2=r^2\)}\\[8pt]
 Notiamo che l'equazione ricorda molto quella della circonferenza, con la sola differenza di avere una coordinata in più. Calcolando, è possibile ottenere anche una seconda formula:
@@ -234,20 +234,20 @@ Notiamo che l'equazione ricorda molto quella della circonferenza, con la sola di
 Riorganizzando i termini:
 \[x^2+y^2+z^2\underbrace{-2x_C}_a x\underbrace{-2y_C}_b y\underbrace{-2z_C}_c z+\underbrace{x_C^2+y_C^2+z_C^2-r^2}_d=0\]
 Si ottiene così l'equazione: \quad \fbox{\(x^2+y^2+z^2+ax+by+cz+d=0\)}\\[8pt]
-Data una sfera in questa forma, è possibile ricavare centro e raggio con le formule che si ottengono dalla definizione stessa dei 4 parametri $a,b,c,d$, ovvero:
+Data una sfera in questa forma, è possibile ricavare centro e raggio con le formule che si ottengono dalla definizione stessa dei 4 parametri \(a,b,c,d\), ovvero:
 \[C\; \tonda{-\frac{a}{2};-\frac{b}{2}; -\frac{c}{2}} \qquad ;\qquad r = \sqrt{\tonda{-\frac{a}{2}}^2+\tonda{-\frac{b}{2}}^2+\tonda{-\frac{c}{2}}^2-d}\]
 \begin{esempio}
- \emph{Ricava l'equazione della sfera di raggio 7 e centro $C\, \tonda{3,1,0}$}
+ \emph{Ricava l'equazione della sfera di raggio 7 e centro \(C\, \tonda{3,1,0}\)}
  \[(x-3)^2+(y-1)^2+(z-0)^2=7^2 \quad \rightarrow \quad x^2+y^2+z^2-6x-2y-39=0\]
 \end{esempio}
 \begin{esempio}
- \emph{Data la sfera $x^2+y^2+z^2-2x+6y-10z+1=0$, ricava centro e raggio}
+ \emph{Data la sfera \(x^2+y^2+z^2-2x+6y-10z+1=0\), ricava centro e raggio}
  \[x_C = -\frac{-2}{2}=1 \quad;\quad y_C = -\frac{6}{2}=-3 \quad;\quad z_C = -\frac{-10}{2}=5\]
  \[\text{quindi:}\quad C = \tonda{1;-3,5} \quad \text{mentre}\quad r = \sqrt{(1)^2+(-3)^2+(5)^2-1} = \sqrt{36} = 6\]
 \end{esempio}
 
 \begin{osservazione}
- Anche per la sfera esiste una forma parametrica, ma solitamente non viene molto usata. Ne scriviamo la formula per completezza. Se $C\,(x_C,y_C,z_C)$ è il centro e $R$ il raggio:
+ Anche per la sfera esiste una forma parametrica, ma solitamente non viene molto usata. Ne scriviamo la formula per completezza. Se \(C\,(x_C,y_C,z_C)\) è il centro e \(R\) il raggio:
 \[\begin{cases}
    x = x_C+R \cos u \cos v \\
    y = y_C+R \cos u \sin v \\
@@ -263,7 +263,7 @@ Data una sfera in questa forma, è possibile ricavare centro e raggio con le for
 Vediamo in questa sezione come si calcolano rette, piani e sfere in situazioni particolari, in cui serve ragionare prima di applicare aride formule.
 
 \begin{esempio}
- \emph{Sfera di centro $C\,\tonda{-2,1,2}$ tangente al piano \,$3y+4z+4=0$}\\[7pt]
+ \emph{Sfera di centro \(C\,\tonda{-2,1,2}\) tangente al piano \,\(3y+4z+4=0\)}\\[7pt]
  Qui è sufficiente notare che il raggio della sfera dovrà essere uguale alla distanza del centro stesso dal piano. Quindi possiamo calcolare:
  \[r = d(C,\alpha) = \frac{|3+8+4|}{\sqrt{9+16}} = \frac{15}{5} = 3\]
  E quindi la sfera è data da:
@@ -271,16 +271,16 @@ Vediamo in questa sezione come si calcolano rette, piani e sfere in situazioni p
 \end{esempio}
 
 \begin{esempio}
- \emph{Distanza del punto $P\,(4,-2,1)$ dalla retta $r$ di direzione $\vect{d} \, (1,4,2)$ passante per il punto $A\,(1,1,0)$}\\[7pt]
- L'idea è quella di calcolare prima l'equazione del piano $\alpha$ perpendicolare alla retta e passante per il punto P, e quindi ricavare il punto H, ''proiezione`` del punto P sulla retta $r$, tramite intersezione tra retta e piano:
+ \emph{Distanza del punto \(P\,(4,-2,1)\) dalla retta \(r\) di direzione \(\vect{d} \, (1,4,2)\) passante per il punto \(A\,(1,1,0)\)}\\[7pt]
+ L'idea è quella di calcolare prima l'equazione del piano \(\alpha\) perpendicolare alla retta e passante per il punto P, e quindi ricavare il punto H, ''proiezione`` del punto P sulla retta \(r\), tramite intersezione tra retta e piano:
  \[\alpha \;: \quad 1(x-4)+4(y+2)+2(z-1)=0 \quad \Rightarrow \quad x+4y+2z+2=0\]
- Il punto H è dato dall'intersezione tra $\alpha$ e la retta $r$: prima costruiamo la retta in forma parametrica:
+ Il punto H è dato dall'intersezione tra \(\alpha\) e la retta \(r\): prima costruiamo la retta in forma parametrica:
  \[\begin{cases}
 x = 1+t \\
 y = 1+4t \\
 z = 2t
 \end{cases} \quad \Longrightarrow \quad (1+t)+4(1+4t)+2(2t)+2=0 \quad \Rightarrow \quad t = -\frac{1}{3}\]
-E quindi il punto H si trova sostituendo semplicemente il valore di $t$ all'interno dell'equazione parametrica della retta. Si ottiene: \(H\,\tonda{\frac{2}{3};-\frac{1}{3},-\frac{2}{3}}\). La distanza del punto P dalla retta è quindi la misura di $\overline{PH}$:
+E quindi il punto H si trova sostituendo semplicemente il valore di \(t\) all'interno dell'equazione parametrica della retta. Si ottiene: \(H\,\tonda{\frac{2}{3};-\frac{1}{3},-\frac{2}{3}}\). La distanza del punto P dalla retta è quindi la misura di \(\overline{PH}\):
 \[\overline{PH} = \sqrt{\tonda{4-\frac{2}{3}}^2+\tonda{-2+\frac{1}{3}}^2+\tonda{1+\frac{2}{3}}^2} = \frac{5}{3}\sqrt{6}\]
 \end{esempio}
 

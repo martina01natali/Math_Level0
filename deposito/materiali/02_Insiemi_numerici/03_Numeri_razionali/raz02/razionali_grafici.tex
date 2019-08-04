@@ -1,0 +1,149 @@
+% (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
+% (c) 2017 Daniele Zambelli - daniele.zambelli@gmail.com
+% 
+% Tutti i grafici per il capitolo relativo ai razionali
+% 
+% 
+
+\newcommand{\divisionea}{% divisione 1523:7
+\begin{tikzpicture}[node distance=-25ex]
+  \begin{scope}[font=\ttfamily]
+    \matrix (divisione) [matrix of nodes] % \matrix non viene riconosciuto 
+                                          % all'interno di \newcommand
+      {%
+&   & |[green!60!black]|M & |[green!60!black]|C & |[green!60!black]|D & 
+|[green!60!black]|U & ,
+& |[green!60!black]|d & |[green!60!black]|c & |[green!60!black]|m &  &  &   
+&  &  &  
+&  &  &  &  &  &\\
+&   & 1 & 5 & 2 & 3  & ,
+& 0 & 0 & 0 & 0 & 0 & 0
+& 7 & ~ & ~ 
+&  &  &  &  & ~ &\\
+& - & 1 & 4 &   &   & 
+&  &  &  &  &  & ~ &
+|[blue!60!black]|2 & |[blue!60!black]|1 & |[blue!60!black]|7 &
+&  &  &  &  &  &\\
+&   &   & 1 & 2 &   & 
+&  &  &  &  &  &  &
+|[green!60!black]|C & |[green!60!black]|D & |[green!60!black]|U & ,
+& |[green!60!black]|d & |[green!60!black]|c & |[green!60!black]|m &  &  &\\
+&   &   & - & 7 &   
+&  &  &  &  &  &
+&   &   &\\
+&   &   &   & 5 & 3 
+&  &  &  &  &  &
+&   &   &\\
+&   &   & - & 4 & 9 
+&  &  &  &  &  &
+&   &   &\\
+&   &   &   &   & |[red!60!black]|4 
+&  &  &  &  &  &
+& & &\\
+      };
+  \end{scope}
+  \draw(divisione-2-13.north east)--(divisione-3-13.south east);
+  \draw(divisione-2-13.south east)--(divisione-2-21.south east);
+%   \draw(divisione-3-2.south west)--(divisione-3-4.south east);
+%   \draw(divisione-5-4.south west)--(divisione-5-5.south east);
+%   \draw(divisione-7-4.south west)--(divisione-7-6.south east);
+%   \draw[densely dotted,->] (divisione-2-5) -- (divisione-4-5);
+%   \draw[densely dotted,->] (divisione-2-6) -- (divisione-6-6);
+%   \node (c) [above=of divisione-1-6.north east] {3.};
+\end{tikzpicture}
+}
+
+\newcommand{\frazione}{% parti della frazione
+  \disegno{
+    \node {\(\dfrac{42}{75}\)};
+    \begin{scope}[blue!50!black]
+    \draw [<-] (1, .5) to [out=0, in=180] (3, 2) node [right] 
+      {~~~numeratore};
+    \draw [->] (8.5, 2) to [out=0, in=180] (10.5, .5);
+    \end{scope}
+    \begin{scope}[green!50!black]
+    \draw [<-] (1, 0) -- (3, 0) node [right] {linea di frazione};
+    \draw [->] (8.5, 0) -- (10.5, 0);
+    \end{scope}
+    \begin{scope}[red!50!black]
+    \draw [<-] (1, -.5) to [out=0, in=180] (3, -2) node [right] 
+      {~~denominatore};
+    \draw [->] (8.5, -2) to [out=0, in=180] (10.5, -.5);
+    \end{scope}
+    \node at (11.5, 0) {\(\dfrac{n}{d}\)};
+  }
+}
+
+\newcommand{\addizione}{% addizione algebrica tra frazioni
+  \disegno{
+    \node {\(\dfrac{a}{b} \mp \dfrac{c}{d} \qquad = \qquad
+             \dfrac{ad}{bd} \mp \dfrac{bc}{bd} = \dfrac{ad \mp bc}{bd}\)};
+    \begin{scope}[blue!50!black]
+    \draw [->] (-5.5, 1) node [above right, yshift=3mm] {\(\times d\)} 
+          to [out=45, in=135] (0, 1);
+    \draw [->] (-5.5, -1) node [below right, yshift=-3mm] {\(\times d\)} 
+          to [out=-45, in=-135] (0, -1);
+    \end{scope}
+    \begin{scope}[red!50!black]
+    \draw [->] (-4, 1) to [out=45, in=135] (1.7, 1)
+          node [above left, yshift=3mm] {\(\times b\)} ;
+    \draw [->] (-4, -1) to [out=-45, in=-135] (1.7, -1)
+          node [below left, yshift=-3mm] {\(\times b\)} ;
+    \end{scope}
+  }
+}
+
+\newcommand{\reciproco}{% reciproco di una frazione.
+  \disegno{
+    \node {\(\dfrac{a}{b}\)};
+    \begin{scope}[blue!50!black]
+    \path [postaction={decoration={text along path, text={reciproco},
+           text align={align=center}}, decorate}] 
+          (1, 1.2) to [out=45, in=180] (3, 1.8) to [out=0, in=135] (5,1.2) ;
+    \draw [->] 
+          (1, 1) to [out=45, in=180] (3, 1.6) to [out=0, in=135] (5, 1) 
+;
+    \end{scope}
+    \node at (6, 0) {\(\dfrac{b}{a}\)};
+  }
+}
+
+% \newcommand{\rettafra}[1]{% NON FUNZIONA, PERCHE'?
+%   % Funzione rappresentata su due assi
+%   \def \vals{#1}
+%   \disegnod{10}{
+%     \assecontrattini{-6}{+6}{0}{\(\R\)}
+%     \foreach \x in {-6, ..., 5}{
+%       \draw  (\x, 0) [below, font=\small] node {\x};
+%     }
+%     \foreach \x/\l in \vals{
+%       \node at (\x, 0) [above] {\l};
+%     }
+%   }
+% }
+
+\newcommand{\rettafra}{% 
+  % Frazioni rappresentate sull'asse
+  \disegnod{10}{
+    \assecontrattini{-6}{+6}{0}{\(\Q\)}
+    \foreach \x in {-6, ..., 5}{
+      \draw  (\x, 0) [below, font=\small] node {\x};
+    }
+    \foreach \x/\l in {0.25 / \(\frac{1}{4}\), 
+                       0.5 / \(\frac{1}{2}\), 
+                       0.75 / \(\frac{3}{4}\), 
+                       1.33 / \(\frac{4}{3}\),
+                       1.66 / \(\frac{5}{3}\),
+                       2 / \(\frac{6}{3}\),
+                       2.5 / \(\frac{5}{2}\), 
+                       3.5 / \(\frac{7}{2}\), 
+                       4.8 / \(\frac{24}{5}\),  
+                       -1.33 / \(-\frac{4}{3}\),
+                       -2.5 / \(-\frac{5}{2}\),
+                       -3.66 / \(-\frac{1}{3}\),
+                       -4.5 / \(-\frac{9}{2}\),
+                       -5.66 / \(-\frac{17}{3}\)}{
+      \draw [<-] (\x, 0) -- (\x, 0.3) node [above] {\l};
+    }
+  }
+}

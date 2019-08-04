@@ -20,18 +20,17 @@ i numeri infinitesimi e, attraverso questi, l'insieme dei numeri iperreali.
 Ora siamo in grado di cercare la risposta alla domanda rimasta in sospeso: 
 come si determina la velocità istantanea?\\
 La risposta, che conosciamo nelle forme moderne, da più di 400 anni,
-propone al nostro studio un nuovo potentissimo strumento di calcolo, adatto a 
-risolvere problemi in ogni ambito scientifico: la derivata.
+propone al nostro studio un nuovo potentissimo strumento di calcolo, 
+adatto a risolvere problemi in ogni ambito scientifico: la derivata.
 
 \section{Velocità di caduta}
 \label{04_diffvelcaduta}
 Nel Settecento fiorirono alcune leggende su Galileo Galilei. Una di queste 
-racconta 
-che per dimostrare che i gravi cadono con la stessa velocità, gettò dalla 
-Torre
-di Pisa due sfere di peso diverso, ma di uguali dimensioni. I due oggetti, 
-come
-oggi possiamo immaginare, raggiunsero il suolo contemporaneamente.\\
+racconta che per dimostrare che i gravi cadono con la stessa velocità, 
+gettò dalla Torre di Pisa due sfere di peso diverso, ma di uguali 
+dimensioni. 
+I due oggetti, come oggi possiamo immaginare, raggiunsero il suolo 
+contemporaneamente.\\
 La Torre di Pisa è alta circa $56m$ e immaginiamo, per semplificare, che la 
 distanza percorsa dai due oggetti sia di $56m$ (ti lascio calcolare il 
 percorso effettivo: tieni presente che al giorno d'oggi l'inclinazione della 
@@ -40,8 +39,8 @@ Oggi sappiamo che un oggetto in caduta libera ha la seguente legge del moto:
 \(s=\frac{1}{2}gt^2\). Come al solito, $s$ è lo spazio in metri, $t$ è il 
 tempo in secondi, $g=9,81 m/s^2$ è l'accelerazione di gravità, costante nei
 pressi della superficie terrestre.\\
-Se cerchiamo la velocità media, basta dividere lo spazio percorso per il tempo
-impiegato:
+Se cerchiamo la velocità media, basta dividere lo spazio percorso per il 
+tempo impiegato:
 
 \begin{align*}
  & s_{tot} = 56m\\
@@ -49,7 +48,7 @@ impiegato:
  \sqrt{\frac{2\times 56}{9,81}}=3,36 s.\\
  & v_m= \frac{s_{tot}}{t_{tot}}=\frac{56 m}{3,36 s}=16,67 m/s,
 \end{align*}
-che corrispondono a circa $60 km/h$ di media.\\
+che corrispondono a circa \(60 km/h\) di media.\\
 Ma gli oggetti partono fermi e arrivano velocissimi: 
 è possibile sapere quale è loro velocità in ogni istante? È il momento
 di usare le quantità infinitesime.\\
@@ -62,7 +61,7 @@ la legge del moto, sarà:
  \frac{1}{2}g\tonda{t^2+2tdt+(dt)^2}-\frac{1}{2}gt^2=
  gtdt+\frac{1}{2}(dt)^2. 
 \]
-Dividendo il tutto per $dt$ si ottiene la velocità istantanea, quella che 
+Dividendo il tutto per \(dt\) si ottiene la velocità istantanea, quella che 
 cambia istante per istante:
 \[
  v(t)=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt.
@@ -331,7 +330,16 @@ Si può osservare che il risultato non dipende dal valore in cui viene
 calcolato il differenziale, ma solo dal valore dell'incremento \(\epsilon\),
 infatti, nel risultato, \(x_0\) scompare.
 
+\begin{osservazione}
+ L'infinitesimo $\epsilon$ potrebbe anche essere negativo, in questo caso 
+sarebbe un ''decremento``. 
+Il segno di \(\epsilon\) non cambia comunque il calcolo.
 
+\(x_0 + \epsilon\) indica valori che possono trovarsi a destra di \(x_0\) 
+(più grandi) o alla sua sinistra (più piccoli).
+\end{osservazione}
+
+\begin{comment}
 \begin{esempio}
  Calcola il differenziale della variabile $x$ nel punto $x=-7$. Ripeti poi 
  il  calcolo in altri punti.\\
@@ -391,12 +399,14 @@ parte dei casi, invece, ha un diretto influsso sul risultato.\\
  \end{align*}
 \end{esempio}
 
+
 \begin{osservazione}
  Non abbiamo fatto alcuna ipotesi su $\epsilon$. 
  Potrebbe essere un infinitesimo positivo o negativo, 
  potrebbe essere il triplo o il quadrato di un altro infinitesimo. 
  Il risultato non cambia e ha valore per qualsiasi $\epsilon$.
 \end{osservazione}
+
 \end{comment}
 
 \subsection{Differenziale di alcune funzioni}
@@ -823,6 +833,7 @@ solo se \(x \ge 0\). Nell'infinitamente vicino all'origine l'andamento della
 funzione è quasi verticale, il che rende conto dei ragionamenti fatti sul 
 confronto fra l'incremento lungo l'asse \(Y\) e l'incremento lungo l'asse \(X\).
 
+% \begin{figure}[h]
 \begin{inaccessibleblock}
   [Discontinuità a salto]
  \begin{center}
@@ -849,6 +860,7 @@ del punto critico $x=2$.
 \end{inaccessibleblock}
 \label{fig:diff01_salto}
 % \end{figure}
+
 
 
 \subsection{Combinare differenziali}
@@ -1095,7 +1107,7 @@ $h=\sqrt{l^2-\tonda{\frac{l}{2}}^2}=\frac{\sqrt{3}}{2}l$.
 Quindi $l=\frac{2}{\sqrt{3}}h$ e $2p=2\sqrt{3}h$. 
 Incrementiamo l'altezza a partire da $h_0=8$ e ricaviamo il perimetro 
 corrispondente.\\
-$d(2p)|_8=
+$d(2p)|_{h_0=8}=
 d\tonda{2\sqrt{3}h}|_{h_0=8}=
 2 \sqrt{3} \cdot (8+dh)-2\sqrt{3} \cdot 8 = 2 \sqrt{3} \cdot dh$.\\
 Per ogni incremento infinitesimo dell'altezza, il perimetro aumenta di 
@@ -1146,7 +1158,6 @@ l=\sqrt{\frac{4}{\sqrt{3}}\mathit{A}}=
  occorre approfondire le conoscenze precedenti.
 \end{osservazione}
 \end{esempio}
-
 
 \section{Introduzione alla derivata}
 \label{sec:diff01_derivata}
@@ -3315,5 +3326,3 @@ di
  \end{osservazione}
 
 \end{esempio}
-
-\end{comment}

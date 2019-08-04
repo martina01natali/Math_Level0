@@ -1,5 +1,5 @@
 # 2017 --- Area sottesa a segmenti --- Daniele Zambelli
-"""Area sottesa a sementi:
+"""Area sottesa a segmenti:
 - paralleli all'asse x;
 - lunghi 0.5;
 - di ordinata rispettivamente: 5, 4, 6, 3, 7, 5

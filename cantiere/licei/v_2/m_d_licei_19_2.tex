@@ -1,0 +1,144 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        Matematica dolce
+%
+% Copyright 2016 Daniele Zambelli
+%
+%------------------------------
+% Matematica dolce per i licei Linguistico e economico sociale, volume 1
+%
+% m_d_2_les.tex
+%------------------------------
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is 
+% Dimitrios Vrettos - d.vrettos@gmail.com
+%
+% This work consists of the files:
+%  -  m_d_2_les.tex (this file)
+%  -  createpdf.py
+%  -  readme.md
+%  -  the part of code of the files under \matdir , img/  and lbr/ directories
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%========================
+% Definizione delle directory
+%========================
+% \newcommand{\basedir}{matematicadolce/}
+\newcommand{\depdir}{deposito/}
+\newcommand{\magdir}{\depdir magazzino/}
+\newcommand{\matdir}{\depdir materiali/}
+
+%========================
+% Variabili del progetto
+%========================
+\input{\magdir variabili}
+
+%========================
+% Variabili per questo volume
+%========================
+\newcommand{\editore}{Matematicamente.it}
+\newcommand{\serie}{Matematica \(C^3\)}
+\newcommand{\titolo}{Matematica dolce 2 - licei}        
+\newcommand{\pdftitolo}{Matematica dolce 2 - licei}
+\newcommand{\docvers}{\texttt{4.0.1}}
+\newcommand{\edizione}{2018}
+\newcommand{\Edizione}{Edizione}
+\newcommand{\tipo}{ (versione completa)}
+\newcommand{\descr}{Testo per il primo biennio \protect\\ 
+                    della Scuola Secondaria di II grado \\ \null 
+                    licei}
+\newcommand{\oggi}{27 giugno 2019}
+\newcommand{\mese}{giugno}
+\newcommand{\anno}{2019}
+\newcommand{\mcisbn}{9788899988012}
+
+%========================
+% Lettura preambolo
+%========================
+\input{\magdir packages}
+\input{\magdir definizioni}
+\input{\magdir definizioni_tikz}
+
+%========================
+% Con o senza linguaggio di programmazione
+%========================
+\newif\ifcoding
+\codingtrue     % commentare questa linea se NON si vuole il coding
+% \codingfalse    % commentare questa linea se si vogliono le parti di coding
+
+%========================
+% Documento
+%========================
+\begin{document}
+\frontmatter
+\intestazione{\matdir 00_intestazioni/les/}{frontespizio}
+\intestazione{\matdir 00_intestazioni/les/}{colophon}
+\intestazione{\matdir 00_intestazioni/les/}{indice}
+\intestazione{\matdir 00_intestazioni/les/}{prefazione}
+
+%..................................................
+%%
+%% Primo tema: Aritmetica e algebra
+%%
+\mainmatter
+\parte{\matdir 0_a_parti/}{part_01_2_d}
+% \capitolo{\matdir 02_Insiemi_numerici/05_Numeri_reali/re01/}
+%          {reali2}
+\capitolo{\matdir 03_Polinomi/05_Radicali/rad01/}
+         {radicali1}
+%..................................................
+%%
+%% Secondo tema: Geometria
+%%
+\parte{\matdir 0_a_parti/}{part_02_2_d}
+\capitolo{\matdir 07_Geometria_analitica/02_Retta/retta01/}
+         {retta}
+\capitolo{\matdir 05_Geometria_euclidea/02_Triangoli_rette/parall01/}
+         {parallelismo1}
+\capitolo{\matdir 05_Geometria_euclidea/02_Triangoli_rette/quadr01/}
+         {quadrilateri1}
+\capitolo{\matdir 05_Geometria_euclidea/04_Equiestensione/equie01/}
+         {equiestensione1}
+\capitolo{\matdir 06_Trasformazioni/01_Trasf_geometriche/trasf01/}
+         {trasformazioni}
+\capitolo{\matdir 06_Trasformazioni/02_Isometrie/isom01/}
+         {isometrie1}
+%..................................................
+%%
+%% Terzo tema: Relazioni e funzioni
+%%
+\parte{\matdir 0_a_parti/}{part_03_2_d}
+\capitolo{\matdir 04_Equazioni/02_Diseq_grado_1/dis01/}
+         {disequazioni}
+\capitolo{\matdir 04_Equazioni/03_Sistemi_lineari/sist01/}
+         {sistemi}
+%%
+%% Quarto tema: Dati e previsioni
+%%
+\parte{\matdir 0_a_parti/}{part_04_2_d}
+\capitolo{\matdir 15_Probabilita/02_Calcolo_probabilita/prob01/}
+         {probabilita}
+%..................................................
+%%
+%% Quinto tema: Elementi di informatica
+%%
+\parte{\matdir 0_a_parti/}{part_05_2_d}
+\capitolo{\matdir 17_Strumenti_digitali/02_Python/02_Geo_inter/geoint01/}
+         {geointerattiva2}
+%..................................................
+%%
+%% Azzeramento numerazione capitoli
+%%
+\renewcommand{\thechapter}{\Alph{chapter}}
+\setcounter{chapter}{0}
+
+\end{document}

@@ -1,0 +1,841 @@
+% (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
+
+\input{\folder lbr/grafici.pgf}
+
+\chapter{Teoremi sulle funzioni continue}
+
+\begin{comment}
+ 
+Schema del capitolo
+===================
+Massimi e minimi
+----------------
+
+  Definizione
+  '''''''''''
+  
+    Teorema del punto critico
+    
+  Proprietà delle f. continue
+  '''''''''''''''''''''''''''
+  
+    I numeri iperinteri
+    ...................
+    
+    Teorema degli zeri
+    
+    Teorema dei valori estremanti
+    
+    Teorema di Rolle
+    
+    Teorema di Lagrange
+    
+    Corollario
+
+\end{comment}
+
+\section{Continuità}
+\label{sec:cont_continuita}
+
+\subsection{Continuità e derivabilità}
+\label{subsec:cont_definizione}
+
+Richiamiamo il significato di continuità:
+
+\begin{definizione}
+Diremo che una funzione è \textbf{continua} in un punto \(c\), 
+se è definita in \(c\) e, 
+quando \(x\) è infinitamente vicino a \(c\), 
+allora \(f(x)\) è infinitamente vicino a \(f(c)\). E si scrive::
+
+\[f \text{ è continua in } c \Leftrightarrow 
+\forall x \tonda{\tonda{x \approx c} \Rightarrow 
+\tonda{f(x) \approx f(c)}}\]
+\end{definizione}
+
+Data una funzione \(y=f(x)\) definita in \(c\), le seguenti 
+affermazioni sono equivalenti:
+
+\begin{enumerate}[noitemsep]
+ \item \(f\) è continua in \(c\);
+ \item se \(x \approx c\) allora \(f(x) \approx f(c)\);
+ \item se \(\st(x) = c\) allora \(\st(f(x)) = f(c)\);
+ \item \(\lim_{x \to c} f(x) = f(c)\);
+ \item se \(x\) si allontana da \(c\) di un infinitesimo allora 
+   \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
+ \item se \(\Delta x\) è infinitesimo allora il corrispondente \(\Delta y\) 
+   è infinitesimo.
+\end{enumerate}
+
+\begin{teorema}[Derivabilità e continuità]
+Se una funzione è derivabile in un punto allora è continua in quel punto.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ è derivabile in } c\)
+\tab Tesi: 
+\(f(x) \text{ è continua in } c\).
+
+\begin{proof}
+
+Se \(\pst{\dfrac{dy}{dx}}=m \quad \text{allora} \quad 
+\dfrac{dy}{dx}=a \quad \text{con a finito} \)\\
+Da questo deriva che \(dy= a \cdot dx\) e quindi \(dy\) è un infinitesimo.
+\end{proof}
+
+\begin{comment}
+
+\subsection{Definizione di continuità in un intervallo}
+\label{subsec:cont_definizione}
+
+Dimostrare che una funzione è continua in un punto è piuttosto laborioso, pur 
+non essendo complicato, ma presenta un problema quando sono interessato a 
+studiare la continuità di una funzione in un intervallo. Infatti in un 
+intervallo, anche piccolo, i punti sono infiniti e dimostrare la continuità per 
+ognuno di essi risulta piuttosto lungo\dots.
+
+Per superare questo scoglio, i matematici hanno pensato un approccio diverso:
+
+\begin{itemize}
+ \item dimostrare che alcune funzioni elementari sono continue;
+ \item dimostrare che la somma, il prodotto, il quoziente e la composizione di 
+funzioni continue è ancora una funzione continua.
+\end{itemize}
+
+In questo modo si può riconoscere la continuità di un gran numero di funzioni 
+senza fare noiosi calcoli. Di seguito vediamo qualcuno di questi teoremi.
+
+\subsubsection{Funzioni elementari}
+\label{subsubsec:cont_funzionielementari}
+
+Dimostriamo la continuità di alcune funzioni elementari.
+
+\begin{teorema}[Continuità delle costanti]
+Le funzioni costanti sono continue.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f(x)\) è continua.
+
+\begin{proof}
+Per la definizione di continuità vogliamo dimostrare che 
+\[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
+Poniamo \(x_0=x+\epsilon\), essendo la funzione costante, anche 
+\[f(x+\epsilon)=k\] 
+che, ovviamente, è infinitamente vicino a \(k\). In simboli:
+\[f(x_0) = f(x+\epsilon) = k \approx k = f(x)\] 
+\end{proof}
+
+\begin{teorema}[Continuità della funzione identica]
+La funzione identica (\(y=x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=x\).\tab Tesi: \(f(x)\) è continua.
+
+\begin{proof}
+Per la definizione di continuità vogliamo dimostrare che 
+\[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
+Poniamo \(x_0=x+\epsilon\), \(f(x_0) = f(x+\epsilon)=x+\epsilon\). 
+Dato che la differenza:
+\[f(x+\epsilon)-f(x) = x+\epsilon-x= \epsilon\]
+è un infinitesimo, allora i due valori sono infinitamente vicini. In simboli:
+\[f(x+\epsilon) = x+\epsilon \approx x = f(x)\] 
+\end{proof}
+
+\begin{teorema}[Continuità della funzione seno]
+La funzione seno (\(y=\sen x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=\sen x\).\tab Tesi: \(f(x)\) è continua.
+
+\begin{proof}
+Usando la prima proprietà delle potenze:
+\[f(x+\epsilon) =
+\sen{(x+\epsilon)} = \sen x \cos \epsilon - \cos x \sen \epsilon\]
+Se un angolo è infinitamente vicino a zero avrà il coseno infinitamente vicino 
+a uno e il seno infinitamente vicino a zero. Quindi:
+\[\sen{(x+\epsilon)} = \sen x + \delta\]
+Perciò:
+\[f(x+\epsilon) =
+\sen{(x+\epsilon)} = \sen{(x+\epsilon)} = 
+\sen x + \delta \approx \sen x = f(x)\]
+\end{proof}
+
+\begin{teorema}[Continuità della funzione esponenziale]
+La funzione esponenziale (\(y=a^x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
+
+\begin{proof}
+Usando la prima proprietà delle potenze:
+\[f(x+\epsilon) =
+a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} \approx a^{x} \cdot 1 = a^{x} = f(x)\]
+\end{proof}
+
+Oltre alle funzioni precedenti, anche altre funzioni elementari sono continue, 
+il seguente elenco riporta le principali funzioni continue:
+
+\begin{itemize} [noitemsep]
+ \item \(y=k\)
+ \item \(y=x\)
+ \item \(y=\frac{1}{x}\) \quad \textasteriskcentered
+ \item \(y=\sqrt[n]{x}\) \quad \textasteriskcentered
+ \item \(y=\abs{x}\)
+ \item \(y=a^x\)
+ \item \(y=\log_a x\) \quad \textasteriskcentered
+ \item \(y=\sen x\)
+ \item \(y=\cos x\)
+ \item \(y=\tg x\) \quad \textasteriskcentered
+\end{itemize}
+
+\begin{osservazione}
+Le funzioni segnate da \textasteriskcentered sono continue non su tutto \(\R\), 
+ma solo \textbf{all'interno del loro campo di esistenza}.
+\end{osservazione}
+
+\subsubsection{Composizione di funzioni}
+\label{subsubsec:cont_composizionefunzioni}
+
+Vediamo ora che anche componendo in alcuni modi funzioni continue otteniamo 
+ancora funzioni continue.
+
+\begin{teorema}[Somma di funzioni continue]
+Se \(f\) e \(g\) sono funzioni continue, anche \(f+g\) è continua.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ e} g(x)\) sono continue
+\tab Tesi: 
+\(f(x)+g(x)\) è continua.
+
+\begin{proof}
+Dato che sono continue: 
+\[f(x+\epsilon) + g(x+\epsilon) = f(x)+\alpha + g(x)+\beta\]
+Ma la somma di due infinitesimi è ancora un infinitesimo quindi:
+\[f(x)+g(x)+\tonda{\alpha + \beta} \approx f(x)+g(x)\]
+\end{proof}
+
+\begin{teorema}[Prodotto di funzioni continue]
+Se \(f\) e \(g\) sono funzioni continue, anche \(f \cdot g\) è continua.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ e} g(x)\) sono continue
+\tab Tesi: 
+\(f(x) \cdot g(x)\) è continua.
+
+\begin{proof}
+Dato che sono continue: 
+\[f(x+\epsilon) \cdot g(x+\epsilon) = 
+\tonda{f(x)+\alpha} \cdot \tonda{g(x)+\beta} = 
+f(x) \cdot g(x) + f(x) \cdot \beta + g(x) \cdot \alpha + \alpha \cdot \beta
+\approx f(x) \cdot g(x)\]
+
+Dato che sia il prodotto tra un numero finito e un infinitesimo, sia il 
+prodotto tra due infinitesimi sono infinitesimi e lo è anche la loro somma. 
+\end{proof}
+
+\begin{corollario}
+ Ogni funzione polinomiale è continua.
+\end{corollario}
+
+\begin{proof}
+Dato che una funzione polinomiale si può ottenere partendo da funzioni 
+costanti e da funzioni identiche attraverso moltiplicazioni e addizioni, 
+la tesi consegue dai teoremi precedenti. 
+\end{proof}
+
+\begin{esempio}
+ Dimostrare che \(f(x)=2x^2 + 3\) è una funzione continua.
+
+\begin{proof}
+
+\(f(x)=2x^2 + 3\) è continua perché è somma di due funzioni continue: 
+% \begin{itemize}[noitemsep]
+%  \item \(f(x)=2x^2 + 3\) è continua perché è somma di due funzioni continue: 
+ \begin{itemize}[nosep]
+  \item \(y=2x^2\) è continua perché è prodotto di due funzioni continue:
+  \begin{itemize}[nosep]
+   \item \(y=2\) è continua perché è una costante;
+   \item \(y=x^2\) è continua perché è prodotto di due funzioni continue:
+   \begin{itemize}[nosep]
+    \item \(y=x\) è continua perché è una funzione identica;
+    \item \(y=x\) è continua perché è una funzione identica;
+   \end{itemize}
+  \end{itemize}
+  \item \(y=3\) è continua perché è una costante;
+ \end{itemize}
+% \end{itemize}
+\end{proof}
+
+\end{esempio}
+
+\begin{teorema}[Funzioni di funzioni]
+Se \(f(x)\) e \(g(x)\) sono funzioni continue, anche \(f(g(x))\) è continua.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ e} g(x)\) sono continue
+\tab Tesi: 
+\(f(x) \star g(x) = f(g(x))\) è continua.
+
+\begin{proof}
+Dato che \(g\) è continua: 
+\[f(g(x+\epsilon)) = f(g(x)+\alpha)\]
+e dato che \(f\) è continua: 
+\[f(g(x)+\alpha)=f(g(x))+\beta\]
+quindi: 
+\[f(g(x+\epsilon)) = f(g(x)+\alpha) = f(g(x))+\beta \approx f(g(x))\]
+\end{proof}
+
+\end{comment}
+
+\section{Massimi e minimi}
+\label{sec:cont_massimiminimi}
+
+Data una funzione definita in un certo intervallo, può darsi che questa 
+funzione abbia un massimo  un minimo in questo intervallo.
+
+\begin{definizione}
+ Chiamiamo \textbf{massimo} di una funzione in un intervallo \(I\) un punto 
+\(\punto{c}{f(c)}\) tale che, per ogni \(x\) appartenente all'intervallo, 
+\(f(c)\) sia maggiore o uguale a \(f(x)\):
+\[\punto{c}{f(c)} \text{ è un massimo se } \forall x \in I \quad
+f(c) \geqslant f(x)\]
+\end{definizione}
+
+La definizione di \textbf{minimo} in un intervallo si ottiene facilmente 
+modificando quella di massimo (scrivila tu e poi confrontala con quella scritta 
+dagli altri tuoi compagni.
+
+In un intervallo, una funzione potrebbe avere \emph{più} minimi o massimi. 
+Oppure potrebbe \emph{non} avere minimi o massimi.
+
+% \begin{esempio}
+%  \(y=3\) Disegna il grafico
+% \end{esempio}
+% 
+% \begin{esempio}
+%  \(y=\sen{x}\) Disegna il grafico
+% \end{esempio}
+% 
+% \begin{esempio}
+%  \(y=\dfrac{1}{x}\) Disegna il grafico
+% \end{esempio}
+
+Un importante teorema che riguarda i massimi e i minimi delle funzioni 
+continue dice che se una funzione è continua e ha in punto di massimo (o 
+di minimo), allora questo può trovarsi:
+\begin{enumerate}[label=\roman*), noitemsep]
+ \item o in un estremo;
+ \item o in un punto non derivabile;
+ \item o in un punto la cui derivata vale zero.
+\end{enumerate}
+
+Noi dimostreremo il seguente teorema:
+\begin{teorema}[Teorema di Fermat]
+% Se una funzione è continua, 
+Se una funzione è  
+definita in un intervallo chiuso, 
+ha un massimo (minimo) in un punto interno all'intervallo
+e in quel punto è derivabile, 
+allora in quel punto ha derivata nulla.
+\end{teorema}
+
+\noindent Ipotesi:
+\begin{enumerate}[nosep]
+%  \item \(f\) è una funzione continua nell'intervallo chiuso \(\intervcc{a}{b}\)
+ \item \(f\) è una funzione definita nell'intervallo chiuso \(\intervcc{a}{b}\)
+ \item \(c\) appartiene all'intervallo aperto \(\intervaa{a}{b}\)
+ \item \(f(c)\) è un massimo (minimo);
+ \item \(f\) è derivabile in \(c\)
+\end{enumerate}
+
+\noindent Tesi: 
+
+la derivata \(f'(c)=0\)
+ 
+% \end{teorema}
+% \begin{minipage}[t]{.52\textwidth}
+% \noindent Ipotesi:
+% \begin{enumerate}[nosep]
+%  \item \(f\) è una funzione continua nell'intervallo chiuso \(intervcc{a}{b}\);
+%  \item \(c\) appartiene all'intervallo aperto \(intervaa{a}{b}\);
+%  \item \(f(c)\) è un massimo (minimo);
+%  \item \(f\) è derivabile in \(c\).
+% \end{enumerate}
+% \end{minipage}
+% \hspace{.5cm}
+% \begin{minipage}[t]{.44\textwidth} 
+% Tesi: la derivata \(f'(c)=0\).
+% % \begin{enumerate}[label=\roman*), nosep]
+% %  \item \(c\) è un estremo o
+% %  \item \(c\) è un punto non derivabile o
+% %  \item \(c\) è un punto la cui derivata vale zero.
+% % \end{enumerate}
+% \end{minipage} 
+ 
+\begin{proof}
+Consideriamo un valore \(\Delta\) positivo abbastanza piccolo 
+in modo che \(c+\Delta\) appartenga ancora all'intervallo \([a;~b]\).
+Poiché \(f(c)\) è un massimo: 
+\[f(c+\Delta) \leqslant f(c) \Rightarrow f(c+\Delta) - f(c) \leqslant 0\]
+Dividendo entrambi i membri per \(\Delta\) otteniamo:
+\[\frac{f(c+\Delta) - f(c)}{\Delta} \leqslant 0\]
+Questa disuguaglianza continua a valere anche se \(\Delta\) è un infinitesimo:
+\[\frac{f(c+\delta) - f(c)}{\delta} \leqslant 0\] 
+e prendendo la parte standard dell'espressione otteniamo:
+\[f'_+(c)=\pst{\frac{f(c+\delta) - f(c)}{\delta}} \leqslant 0\] 
+Ora possiamo ripetere le stesse considerazioni prendendo un valore \(\Delta\) 
+negativo.
+Poiché \(f(c)\) è un massimo: 
+\[f(c+\Delta) \leqslant f(c) \Rightarrow f(c+\Delta) - f(c) \leqslant 0\]
+Questa volta dividendo entrambi i membri per \(\Delta\) dobbiamo tener conto 
+che \(\Delta\) è negativo quindi dobbiamo invertire il verso del predicato:
+\[\frac{f(c+\Delta) - f(c)}{\Delta} \geqslant 0\]
+Questa disuguaglianza continua a valere anche se \(\Delta\) è un infinitesimo:
+\[\frac{f(c+\delta) - f(c)}{\delta} \geqslant 0\] 
+e prendendo la parte standard dell'espressione otteniamo:
+\[f'_-(c)=\pst{\frac{f(c+\delta) - f(c)}{\delta}} \geqslant 0\] 
+
+Ma poiché per ipotesi la funzione è derivabile in \(c\), il valore 
+dell'espressione: \(\pst{\frac{f(c+\delta) - f(c)}{\delta}}\) non dipende dal 
+valore dell'infinitesimo \(\delta\) perciò: \(f'_-(c) = f'_+(c)\). 
+Quindi:
+
+\[0 \leqslant f'_-(c) = f'_+(c) \leqslant 0\]
+
+Da cui si ricava la tesi:
+\[f(c) = 0\]
+
+\end{proof}
+
+% Metodo per trovare i massimi e minimi
+% 
+% \section{Massimi e minimi: applicazioni}
+% \label{sec:cont_applicazioni}
+% 
+% \section{Derivate e grafico di funzioni}
+% \label{sec:cont_derivate_studiof}
+% 
+% \section{Proprietà delle funzioni continue}
+% \label{sec:cont_proprieta}
+
+\input{\folder funzionicontinue_grafici.tex}
+
+\subsection{Numeri iperinteri}
+\label{subsec:cont_iperinteri}
+
+Per affrontare alcuni dei prossimi argomenti, abbiamo bisogno di un altro 
+strumento matematico: l'insieme dei numeri \emph{Iperinteri}.
+Non è difficile visualizzare sulla retta dei numeri questo insieme.
+
+Per dare una definizione rigorosa dei numeri Iperinteri abbiamo bisogno di 
+usare la funzione \emph{parte intera} di un numero: che si indica con il 
+simbolo:
+\(\quadra{x}\). Qualche esempio:
+\begin{center}
+\begin{tabular}{ccccccccccccccc}
+\(x\) & 
+-3&-2,4&-2,01&-1,2&-1,03&-0,3&0,2&1&1,6&1,99&2&2.03&2.9&3,42\\
+\hline
+\(y=\quadra{x}\) & 
+-3&-3  &-3   &-2  &-2   &-1  &0  &1&1  &1   &2&2   &2  &3
+\end{tabular}
+\end{center}
+
+\begin{minipage}{.59\textwidth}
+La parte intera di un numero \(x\) è il più grande numero intero \(n\) 
+minore o uguale a \(x\). Attenzione che mentre per i numeri positivi il 
+concetto è abbastanza naturale, per quelli negativi il concetto non è 
+altrettanto immediato, vedi la tabella precedente.
+
+Applicando la funzione parte intera ai numeri Iperreali otteniamo gli 
+Iperinteri.
+\end{minipage}
+\hfill
+\begin{minipage}{.39\textwidth}
+\begin{center}
+\parteintera
+\end{center}
+% TODO: grafico di \(y=\quadra{x}\)
+\end{minipage}
+
+\begin{definizione}
+ I numeri \textbf{Iperinteri} sono quei numeri Iperreali per cui vale 
+l'uguaglianza:
+ \[x=\quadra{x}\]
+\end{definizione}
+
+Possiamo fare alcune osservazioni sugli Iperinteri:
+
+\begin{enumerate}
+ \item 
+La somma algebrica di due numeri Iperinteri è un numero Iperintero.
+ \item 
+Ogni numero Iperreale si trova tra due numeri Iperinteri:
+\[\forall x \in \IR \quadra{x} \leqslant x < \quadra{x}+1\]
+\end{enumerate}
+
+Possiamo usare gli Interi per dividere un intervallo Reale \([a;~b]\)
+in \(n\) parti uguali. Ciascuna di queste \(n\) parti 
+uguali è lunga \(l=\frac{b-a}{n}\).
+
+Gli \(n\) sotto intervalli che si ottengono sono:
+\[\left[a;~a+l \right[,~[a+l;~a+2l[,~\dots,~
+[a+jl;~a+(j+1)l[,~\dots,~
+[a+\tonda{n-1}l;~a+nl=b]\]
+
+Gli estremi di questi intervalli sono chiamati punti di partizione 
+dell'intervallo:
+\[a;~a+l;~a+2l;~a+3l;~\dots;~a+\tonda{n-1}l;~a+nl=b\]
+
+Possiamo ora estendere questo procedimento ai numeri Iperreali.
+Scegliamo un numero infinito iperintero \(H\) e dividiamo in parti 
+uguali l'intervallo di numeri Iperreali \(\intervcc{a}{b}\). Ogni 
+sotto intervallo avrà la stessa lunghezza infinitesima \(\delta=\frac{b-a}{H}\).
+
+Gli \(H\) sotto intervalli che si ottengono sono:
+\[\left[a;~a+\delta \right[,~[a+\delta;~a+2\delta[,~
+[a+j\delta;~a+(j+1)\delta[,~\dots,~
+[a+\tonda{H-1}\delta;~a+H\delta=b]\]
+
+e i punti di partizione sono:
+\[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b\]
+cioè i punti \(a+j\delta\) con \(j\) che varia da~0 a~\(H\).
+
+Ogni numero iperreale \(x\) appartenente all'intervallo \(\intervca{a}{b}\)
+apparterrà a uno dei sotto intervalli infinitesimi:
+\[x \in \intervca{a+j\delta}{a+\tonda{j+1}\delta} \quad \Rightarrow \quad 
+  a+j\delta \leqslant x < a+\tonda{j+1}\delta\]
+
+Possiamo ora affrontare alcuni teoremi riguardanti le funzioni continue.
+
+\subsection{Alcuni teoremi delle funzioni continue}
+\label{subsec:cont_iperinteri}
+
+Il prossimo teorema riguarda gli zeri di una funzione. Con zero di una funzione 
+si intende un valore della \(x\) che rende la funzione uguale a zero:
+
+\begin{definizione}
+ \(c\) è uno \textbf{zero} della funzione \(f(x)\) se \(f(c)=0\)
+\end{definizione}
+
+\begin{teorema}[Teorema degli zeri]
+Supponiamo che una funzione \(f(x)\) sia continua nell'intervallo chiuso
+\(\intervcc{a}{b}\) e agli estremi dell'intervallo assuma valori di segno 
+opposto allora la funzione ha uno zero nell'intervallo 
+aperto~\(\intervaa{a}{b}\).
+\end{teorema}
+
+\noindent Ipotesi:
+\begin{enumerate}[nosep]
+ \item \(f\) è una funzione continua;
+ \item \(f\) è definita nell'intervallo chiuso \(\intervcc{a}{b}\);
+ \item \(f(a) \cdot f(b) < 0\) 
+ (equivale a dire che \(f(a)\) e \(f(b)\) hanno valori discordi).
+\end{enumerate}
+
+\noindent Tesi: 
+
+\(\exists~c \in \intervaa{a}{b} \text{ tale che } f(c)=0\).
+
+% \begin{minipage}[t]{.52\textwidth}
+% \noindent Ipotesi:
+% \begin{enumerate}[nosep]
+%  \item \(f\) è una funzione continua;
+%  \item \(f\) è definita nell'intervallo chiuso \(\intervcc{a}{b}\);
+%  \item \(f(a) \cdot f(b) < 0\) 
+%  (equivale a dire che \(f(a)\) e \(f(b)\) hanno valori discordi).
+% \end{enumerate}
+% \end{minipage}
+% \hspace{.5cm}
+% \begin{minipage}[t]{.44\textwidth} 
+% Tesi: \(\exists~c \in \intervaa{a}{b} \text{ tale che } f(c)=0\).
+% \end{minipage} 
+
+\begin{proof}
+Supponiamo che \(f(a)<0\) e \(f(b)>0\), posto \(H\) un Iperintero 
+infinito, dividiamo l'intervallo iperreale~\(\intervcc{a}{b}\) in~\(H\) 
+parti uguali
+\[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b\]
+Chiamiamo \(k\) l'indice per il quale:
+\[f(a+k\delta) \leqslant 0 < f(a+(k+1)\delta)\]
+% Ma \(a+k\delta\) è infinitamente vicino a \(a+(k+1)\delta\), quindi hanno la 
+% stessa parte standard che chiamiamo \(c\):
+% \[c=\pst{a+k\delta}=\pst{a+(k+1)\delta}\]
+Dato che \(f\) è continua:
+\[a+k\delta \approx a+(k+1)\delta \quad \Rightarrow \quad 
+f(a+k\delta) \approx f(a+(k+1)\delta)\] 
+Ma l'unico numero standard che è infinitamente vicino ad un numero
+minore di zero e anche ad un numero maggiore di zero è zero. 
+Quindi chiamando:\(c=\pst{a+k\delta}=\pst{a+(k+1)\delta}\)
+\[f(c)=f(\pst{a+k\delta})=\pst{f(a+k\delta)}=0\]
+
+In modo analogo si dimostra il caso in cui \(f(a)>0>f(b)\).
+\end{proof}
+
+Il teorema dimostra che in \(\intervcc{a}{b}\) c'è almeno uno zero della 
+funzione, ma non dice nulla sul numero degli zeri.
+
+La dimostrazione di questo teorema permette di dimostrarne facilmente degli 
+altri: 
+
+\begin{corollario}
+Il teorema dei valori intermedi dice che se una funzione è continua in un
+intervallo \(\intervcc{a}{b}\) allora tra \(a\) e \(b\) assume tutti i valori 
+compresi tra \(f(a)\) e \(f(b)\).
+\end{corollario}
+
+\begin{proof}
+Suggerimento: 
+supponiamo che \(f(a) \leqslant h < f(b)\), 
+costruiamo una nuova funzione: \(g(x)=f(x)-h\).
+La funzione \(g\) soddisfa tutte le ipotesi del teorema precedente per cui:
+\[\exists~c \in \intervaa{a}{b} \text{ tale che } g(c)=0\]
+e sostituendo la funzione \(g\) otteniamo:
+\[g(c)=0 \Rightarrow f(c)-h=0 \Rightarrow f(c)=h\].
+\end{proof}
+
+\begin{corollario}
+Se una funzione è continua in un
+intervallo \(\intervcc{a}{b}\) e 
+\(f(x)\neq 0 \quad \forall x \in \intervcc{a}{b}\) 
+allora:
+\begin{enumerate}[nosep]
+ \item se \(f(c)<0\) \quad per un qualunque \quad \(c \in \intervcc{a}{b}\)
+ \quad allora \quad \(f(x)<0 \quad \forall x \in \intervcc{a}{b}\);
+ \item se \(f(c)>0\) \quad per un qualunque \quad \(c \in \intervcc{a}{b}\)
+ \quad allora \quad \(f(x)>0 \quad \forall x \in \intervcc{a}{b}\).
+\end{enumerate}
+\end{corollario}
+
+\begin{proof}
+Suggerimento: 
+consideriamo il primo caso: \(f(c)>0\) 
+se esistesse un valore \(d \in \intervcc{a}{b}\) per cui
+\(f(d)>0\) allora nell'intervallo \(\intervcc{c}{d}\) 
+esiste un punto \(e \Rightarrow f(e)=0\)
+essendo \(\intervcc{c}{d} \subseteq \intervcc{a}{b}\) 
+ciò contraddirebbe l'ipotesi.
+In modo analogo si dimostra il secondo caso.
+\end{proof}
+
+Un altro importante teorema è il seguente.
+
+\begin{teorema}[Teorema di Weierstrass]
+Supponiamo che una funzione \(f(x)\) sia continua nell'intervallo chiuso
+\(\intervcc{a}{b}\) allora, in questo intervallo assume un valore massimo e un 
+valore minimo.
+\end{teorema}
+
+% \begin{minipage}[t]{.52\textwidth}
+% \noindent Ipotesi:
+% \begin{enumerate}[nosep]
+%  \item \(f\) è una funzione continua;
+%  \item \(f\) è definita nell'intervallo chiuso \(\intervcc{a}{b}\)
+% \end{enumerate}
+% \end{minipage}
+% \hspace{.5cm}
+% \begin{minipage}[t]{.44\textwidth} 
+% Tesi: 
+% \begin{enumerate}[nosep]
+%  \item \(\exists~c \in \intervcc{a}{b} \text{ tale che }
+%          f(c) \geqslant f(x) \forall x \in \intervcc{a}{b}\);
+%  \item \(\exists~c \in \intervcc{a}{b} \text{ tale che }
+%          f(c) \leqslant f(x) \forall x \in \intervcc{a}{b}\).
+% \end{enumerate}
+% \end{minipage} 
+
+\noindent Ipotesi:
+\begin{enumerate}[nosep]
+ \item \(f\) è una funzione continua;
+ \item \(f\) è definita nell'intervallo chiuso \(\intervcc{a}{b}\)
+\end{enumerate}
+
+\noindent Tesi: 
+\begin{enumerate}[nosep]
+ \item \(\exists~c \in \intervcc{a}{b} \text{ tale che }
+         f(c) \geqslant f(x) \quad \forall x \in \intervcc{a}{b}\);
+ \item \(\exists~c \in \intervcc{a}{b} \text{ tale che }
+         f(c) \leqslant f(x) \quad \forall x \in \intervcc{a}{b}\).
+\end{enumerate}
+
+\begin{proof}
+Dimostriamo la prima tesi.
+
+Operiamo una divisione infinita dell'intervallo \(\intervcc{a}{b}\)
+ottenendo i punti di partizione: 
+\[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b\]
+Per il principio di tranfer posso confrontare tra di loro tutti i valori della 
+funzione in questi punti e troverò che uno di questi è maggiore o uguale a 
+tutti gli altri, supponiamo che questo punto sia: \(a+k\delta\):
+\[f(a+k\delta) \geqslant f(a+j\delta) \text{ per ogni j Iperintero}\]
+Considerando la parte standard 
+se \(c=\pst{a+k\delta}\) e \(d=\pst{a+j\delta}\)
+ne deriva che:
+\[f(c) \geqslant f(d)\]
+
+In modo analogo si dimostra la seconda tesi.
+\end{proof}
+
+
+\begin{teorema}[Teorema di Rolle]
+Supponiamo che una funzione \(f(x)\) continua nell'intervallo chiuso
+\(\intervcc{a}{b}\),
+sia derivabile nell'intervallo aperto
+\(\intervaa{a}{b}\) 
+e, agli estremi, assuma lo stesso valore: \(f(a) = f(b)\) allora
+esiste un punto \(c\) dell'intervallo \(\intervaa{a}{b}\) nel quale 
+la derivata è nulla: \(f'(c)=0\).
+\end{teorema}
+
+\noindent Ipotesi:
+\begin{enumerate}[nosep]
+ \item \(f\) è una funzione continua 
+ nell'intervallo chiuso \(\intervcc{a}{b}\)
+ \item \(f\) è una funzione derivabile 
+ nell'intervallo aperto \(\intervaa{a}{b}\)
+ \item \(f(a)=f(b)\)
+\end{enumerate}
+
+\noindent Tesi: 
+
+\(\exists~c \in \intervaa{a}{b} \text{ tale che } f'(c)=0\);
+
+\begin{proof}
+Dato che valgono le ipotesi del teorema di Weierstrass, 
+nell'intervallo \(\intervcc{a}{b}\) 
+esisterà un massimo \(M\) e un minimo \(m\).
+Si possono distinguere 3 casi:
+\begin{enumerate} %[nosep]
+ \item Se \(M = m = f(a) = f(b)\), la funzione è costante. 
+ In questo caso la dimostrazione è banale 
+ poiché~\(f'(c)=0 \forall c \in \intervaa{a}{b}\)
+ \item Se \(M > f(a)\) vuol dire che la funzione ha un massimo 
+ in~\(c\) ovvero~\(f(c)=M\). 
+ La funzione \(f\) nel punto \(c\) soddisfa tutte le ipotesi del teorema 
+ di Fermat, 
+\begin{enumerate}[noitemsep]
+ \item \(f\) è una funzione continua nell'intervallo chiuso 
+  \(\intervcc{a}{b}\);
+ \item \(c\) appartiene all'intervallo aperto \(\intervaa{a}{b}\);
+ \item \(f(c)\) è un massimo;
+ \item \(f\) è derivabile in \(c\).
+\end{enumerate}
+ quindi in \(c\) la funzione ha derivata nulla: \(f'(c)=0\).
+ \item Se \(m < f(a)\) vuol dire che la funzione ha un minimo 
+ in~\(c\) ovvero~\(f(c)=m\).
+ Si dimostra in modo analogo al punto 2.
+\end{enumerate}
+\end{proof}
+
+\begin{teorema}[Teorema di Lagrange o della pendenza media]
+La pendenza media di una funzione \(f\) in un intervallo 
+\(\intervcc{a}{b}\) è data da:
+\[\text{pendenza media} = \frac{f(b)-f(a)}{b-a}\]
+Se una funzione \(f\) è continua nell'intervallo chiuso \(\intervcc{a}{b}\) e
+è derivabile nell'intervallo aperto \(\intervaa{a}{b}\) allora
+esiste un punto \(c\) dell'intervallo \(\intervaa{a}{b}\) nel quale 
+la derivata è ha lo stesso valore della 
+pendenza media:~\(f'(c)=\text{pendenza media}\).
+\end{teorema}
+
+\noindent Ipotesi:
+\begin{enumerate}[nosep]
+ \item \(f\) è una funzione continua 
+ nell'intervallo chiuso \(\intervcc{a}{b}\)
+ \item \(f\) è una funzione derivabile 
+ nell'intervallo aperto \(\intervaa{a}{b}\)
+\end{enumerate}
+
+\noindent Tesi: 
+
+\(\exists~c \in \intervaa{a}{b}\text{ tale che }f'(c)=\dfrac{f(b)-f(a)}{b-a}\);
+
+\begin{proof}
+Chiamiamo \(m\) la pendenza media: \(m=\dfrac{f(b)-f(a)}{b-a}\). 
+La funzione lineare che congiunge i due 
+punti \(\punto{a}{f(a)}\) e \(\punto{b}{f(b)}\) è:
+\[l(x) = f(a) + m(x-a)\]
+Costruiamo una nuova funzione uguale alla distanza in verticale tra \(f(x)\) 
+e \(l(x)\):
+\[h(x) = f(x) - l(x)\]
+Questa nuova funzione soddisfa tutte le ipotesi del teorema di Rolle:
+\begin{enumerate}[nosep]
+ \item \(h\) è una funzione continua 
+ nell'intervallo chiuso \(\intervcc{a}{b}\)
+ poiché è somma di due funzioni continue;
+ \item \(h\) è una funzione derivabile 
+ nell'intervallo aperto \(\intervaa{a}{b}\)
+ poiché è somma di due funzioni derivabili;
+ \item \(h(a)=h(b)\)  poiché:
+ 
+ \(h(a)=f(a) - (f(a) + m(a-a))=f(a)-f(a)-0=0\)
+ 
+ e 
+ 
+ \(h(b)=f(b) - (f(a) + m(b-a))=
+ f(b)-f(a)-\dfrac{f(b)-f(a)}{b-a}\cdot \tonda{b-a}=\)\\
+ \(=f(b)-f(a)-f(b)+f(a)=0\)
+\end{enumerate}
+ 
+ Quindi esiste un punto \(c\) dell'intervallo \(\intervaa{a}{b}\) tale che:
+ \[h'(c)=0\]
+ Sostituendo la funzione \(h\) con la sua definizione otteniamo:
+ \[h'(c) = f'(c)-l'(c)= f'(c)-m=0 \Rightarrow f'(c)=m\]
+ E sostituendo \(m\) otteniamo la tesi:
+ \[f'(c)=\dfrac{f(b)-f(a)}{b-a}\]
+\end{proof}
+
+\begin{corollario}
+ Derivata e andamento di una funzione. Se in una funzione \(f'(x)>0\) per ogni 
+punto di un certo intervallo \(I\), allora la funzione è crescente in tutto 
+l'intervallo.
+\end{corollario}
+% 
+% \newcommand{\sand}{~ \wedge ~}
+% \newcommand{\sor}{~ \vee ~}
+% \newcommand{\sRarrow}{~ \Rightarrow ~}
+
+\begin{proof}
+Consideriamo due punti \(x_0 < x_1 ~ \in I\), 
+per il teorema della pendenza media:
+\[\exists c \in I \text { tale che } f'(c) = \dfrac{f(x_1)-f(x_0)}{x_1-x_0}\]
+Dato che 
+\[\forall c \in I \Rightarrow f'(c) > 0\]
+si ha:
+\[\dfrac{f(x_1)-f(x_0)}{x_1-x_0}>0 \]
+E poiché il denominatore è positivo, \(x_1 - x_0 > 0\)
+\[f(x_1)-f(x_0)>0 \sRarrow f(x_1)>f(x_0)\]
+\end{proof}
+
+% \begin{teorema}[De L'H\^opital]
+% \(f(x)\) e \(g(x)\).
+% \end{teorema}
+% 
+% \noindent Ipotesi: 
+% \(f(x) \text{ e} g(x)\)
+% \tab Tesi: 
+% \(f(x) \star g(x) = f(g(x))\).
+% 
+% \begin{proof}
+% Dato che \(g\) è continua: 
+% \[f(g(x+\epsilon)) = f(g(x)+\alpha)\]
+% e dato che \(f\) è continua: 
+% \[f(g(x)+\alpha)=f(g(x))+\beta\]
+% quindi: 
+% \[f(g(x+\epsilon)) = f(g(x)+\alpha) = f(g(x))+\beta \approx f(g(x))\]
+% \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+

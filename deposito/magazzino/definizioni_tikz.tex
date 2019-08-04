@@ -4,15 +4,17 @@
 %--------------------------
 % Inizializza Tikz con unità di misura 5mm, e realizza un disegno:
 
-\newcommand{\disegno}[1]{
+\newcommand{\disegno}[2][5]{% Recomanded
   % Esempio di chiamata:
   %% 
-  \def \grafico{#1}
-\begin{tikzpicture}[x=5mm, y=5mm, smooth]
+  \def \dimensione{#1}
+  \def \grafico{#2}
+\begin{tikzpicture}[x=\dimensione mm, y=\dimensione mm, smooth]
   \grafico
 \end{tikzpicture}
 }
-\newcommand{\disegnod}[2]{
+
+\newcommand{\disegnod}[2]{% Deprecated
   % Esempio di chiamata:
   %% 
   \def \dimensione{#1}
@@ -38,7 +40,8 @@
   \def \fine{#2}
   \def \etichetta{#3}
   \def \parametri{#4}
-  \coordinate [label=$\Vec{\etichetta}$] (v) at ($((\inizio)+0.5*(\fine)$);
+  \coordinate [label=\(\Vec{\etichetta}\)] (v) at 
+               ($((\inizio)+0.5*(\fine)$);
   \draw [#4] [->] (\inizio) --++ (\fine);
 }
 
@@ -50,10 +53,10 @@
   \def \etichettafine{#3}
   \def \fine{#4}
   \def \parametri{#5}
-  \coordinate [label=$\Vec{\etichettainizio\etichettafine}$] (N) at 
+  \coordinate [label=\(\Vec{\etichettainizio\etichettafine}\)] (N) at 
               ($(0.5*(\inizio)+0.5*(\fine)$);
-  \coordinate [label=$\etichettainizio$] (A) at (\inizio);
-  \coordinate [label=$\etichettafine$] (B) at (\fine);
+  \coordinate [label=\(\etichettainizio\)] (A) at (\inizio);
+  \coordinate [label=\(\etichettafine\)] (B) at (\fine);
   \draw [#5] [->] (\inizio) -- (\fine);
 }
 
@@ -124,6 +127,24 @@
   \rcomvar{#1}{#2}{#3}{#4}{#5}{\(x\)}{\(y\)}
 }
 
+\newcommand{\graficoxy}[5]{  % Grafico di una funzione.
+  % Esempio di chiamata:
+  %% \disegno{\graficoxy{-7}{+7}{-11}{+10}{2*x+3}
+  \def \grxmi{#1}
+  \def \grxma{#2}
+  \def \grymi{#3}
+  \def \gryma{#4}
+  \def \funzione{#5}
+  \pgfmathparse{\grxmi-.3)} \let\grxxmi\pgfmathresult
+  \pgfmathparse{\grxma+.3)} \let\grxxma\pgfmathresult
+  \pgfmathparse{\grymi-.3)} \let\gryymi\pgfmathresult
+  \pgfmathparse{\gryma+.3)} \let\gryyma\pgfmathresult
+  \rcom{\grxmi}{\grxma}{\grymi}{\gryma}{gray!50, very thin, step=1}
+  \tkzInit[xmin=\grxxmi,xmax=\grxxma,ymin=\gryymi,ymax=\gryyma]
+  \tkzFct[domain=\grxxmi:\grxxma, ultra thick, color=Maroon!50!black]
+         {\funzione}
+}
+
 % \newcommand{\rcom}[5]{% Riferimento Cartesiano Ortogonale Monometrico: x-y.
 %   % Esempio di chiamata:
 %   %% \disegno{\RCOM{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}
@@ -135,8 +156,8 @@
 %   \def \griglia{#5}
 %   \draw[#5] (\xmi-0.3, \ymi-0.3) grid (\xma+0.3, \yma+0.3); % Griglia
 %   \begin{scope}[-{Stealth[length=2mm, open, round]}, black] % Assi
-%     \draw (\xmi-0.3, 0) -- (\xma+0.3, 0) node [below] {$x$};
-%     \draw (0, \ymi-0.3) -- (0, \yma+0.3) node [left] {$y$};
+%     \draw (\xmi-0.3, 0) -- (\xma+0.3, 0) node [below] {\(x\)};
+%     \draw (0, \ymi-0.3) -- (0, \yma+0.3) node [left] {\(y\)};
 %   \end{scope}
 % % \end{tikzpicture}
 % 
@@ -147,9 +168,9 @@
 % %   \def \ymi{#3}
 % %   \def \yma{#4}
 % %   \def \griglia{#5}
-% %   \coordinate [label=$x$] (x) at (\xma, 0);     
+% %   \coordinate [label=\(x\)] (x) at (\xma, 0);     
 % %   \draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
-% %   \coordinate [label=$y$] (y) at (0, \yma);	
+% %   \coordinate [label=\(y\)] (y) at (0, \yma);	
 % %   \draw [-{Stealth[length=2mm, open, round]}] (0, \ymi) -- (0, \yma);
 % %   \draw [#5] (\xmi, \ymi) grid (\xma, \yma);
 % % \end{tikzpicture}
@@ -166,9 +187,9 @@
 %   \def \vind{#6}
 %   \def \vdip{#7}
 %   \draw [#5] (\xmi, \ymi) grid (\xma, \yma);
-%   \coordinate [label=$\vind$] (x) at (\xma, 0);     
+%   \coordinate [label=\(\vind\)] (x) at (\xma, 0);     
 %   \draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
-%   \coordinate [label=$\vdip$] (y) at (0, \yma);     
+%   \coordinate [label=\(\vdip\)] (y) at (0, \yma);     
 %   \draw [-{Stealth[length=2mm, open, round]}] (0, \ymi) -- (0, \yma);
 % }
 
@@ -178,7 +199,7 @@
 	\def \testo{#1}
 	\def \posizione{#2}
 	\def \parametri{#3}
-	\coordinate [label={ #3 $\testo$}] (T) at (\posizione);
+	\coordinate [label={ #3 \(\testo\)}] (T) at (\posizione);
 }
 
 \newcommand{\angolodraw}[4]{% Disegna un arco.
@@ -230,7 +251,7 @@
 \begin{comment}
  \draw (1,0) -- (3,2);
 \foreach \i in {0,0.2,0.5,0.9,1}
-\node at ($(1,0)!\i!(3,2)$) {\i};
+\node at (\((1,0)!\i!(3,2)\)) {\i};
 
 \begin{scope}[xshift=2.25*#1cm,yshift=2.25*#2cm]
  
@@ -366,3 +387,91 @@
   \end{scope}
   }
 }
+
+% \newcommand{\ellisse}[5]{% disegna un'ellisse dati: centro, semiassi, colore
+%   % Esempio di chiamata:
+%   % \ellisse{0}{5}{5}{4}{Maroon!50!black}
+% % 	\def \xo{#1}
+% % 	\def \yo{#2}
+% % 	\def \semiassea{#3}
+% % 	\def \semiasseb{#4}
+% % 	\def \colore{#5}
+% %   \draw [ultra thick, color=#5] (\xo, \yo)
+% %         circle [x radius = {\semiassea}, y radius = {\semiasseb}];
+%   \draw [ultra thick, color=#5] (#1, #2)
+%         circle [x radius = {#3}, y radius = {#4}];
+  
+% \newcommand{\ellisse}[5]{% disegna un'ellisse dati: centro, semiassi, colore
+%   % Esempio di chiamata:
+%   % \ellisse{0}{5}{5}{4}{Maroon!50!black}
+%   \draw [ultra thick, color=Maroon!50!black] (0, 0)
+%         circle [x radius = 5, y radius = 3];
+  
+\newcommand{\ellisse}[5]{% disegna un'ellisse dati: centro, semiassi, colore
+  % Esempio di chiamata:
+  % \ellisse{0}{5}{5}{4}{Maroon!50!black}
+  \def \xo{#1}
+  \def \yo{#2}
+  \def \semiassea{#3}
+  \def \semiasseb{#4}
+  \def \colore{#5}
+  \draw [ultra thick, color=\colore] (\xo, \yo)
+        circle [x radius = {\semiassea}, y radius = {\semiasseb}];
+}
+
+\begin{comment}
+ 
+def hyperbolax(a, b, d=10):
+    a, b = b, a
+    a2, b2 = a*a, b*b
+    eqa = f'-(({b2}*x*x+{a2}*{b2})**.5)/{a}'
+    eqb = f'+(({b2}*x*x+{a2}*{b2})**.5)/{a}'
+    return r"""
+\begin{{center}}
+\disegnod{{2.5}}{{
+  \RCOM{{-{d}}}{{+{d}}}{{-{d}}}{{+{d}}}{{gray!70, very thin, step=1}}
+  \tkzInit[xmin=-{d}.3,xmax=+{d}.3,ymin=-{d}.3,ymax=+{d}.3]
+  \tkzFct[domain=-{d}.3:+{d}.3, ultra thick, color=Maroon!50!black, 
+rotate=45]
+         {{{eqa}}}
+  \tkzFct[domain=-{d}.3:+{d}.3, ultra thick, color=Maroon!50!black, 
+rotate=22.5]
+         {{{eqb}}}
+}}
+\end{{center}}
+""".format(eqa=eqa, eqb=eqb, d=d)
+
+def hyperbolay(a, b, d=10):
+    a2, b2 = a*a, b*b
+    eqa = f'-(({b2}*x*x+{a2}*{b2})**.5)/{a}'
+    eqb = f'+(({b2}*x*x+{a2}*{b2})**.5)/{a}'
+    return r"""
+\begin{{center}}
+\disegnod{{2.5}}{{
+  \RCOM{{-{d}}}{{+{d}}}{{-{d}}}{{+{d}}}{{gray!70, very thin, step=1}}
+  \tkzInit[xmin=-{d}.3,xmax=+{d}.3,ymin=-{d}.3,ymax=+{d}.3]
+  \tkzFct[domain=-{d}.3:+{d}.3, ultra thick, color=Maroon!50!black]{{{eqa}}}
+  \tkzFct[domain=-{d}.3:+{d}.3, ultra thick, color=Maroon!50!black]{{{eqb}}}
+}}
+\end{{center}}
+""".format(eqa=eqa, eqb=eqb, d=d)
+
+% da:
+tex.stackexchange.com/questions/108938/drawing-a-hyperbola-of-a-certain-ecce
+ntricity-in-tikz
+
+\documentclass{article}
+
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[scale=1]
+    \pgfmathsetmacro{\e}{1.44022}   % eccentricity
+    \pgfmathsetmacro{\a}{1}
+    \pgfmathsetmacro{\b}{(\a*sqrt((\e)^2-1)} 
+    \draw plot[domain=-2:2] ({\a*cosh(\x)},{\b*sinh(\x)});
+    \draw plot[domain=-2:2] ({-\a*cosh(\x)},{\b*sinh(\x)});
+\end{tikzpicture}
+\end{document}
+
+\end{comment}

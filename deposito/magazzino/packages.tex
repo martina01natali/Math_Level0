@@ -25,13 +25,15 @@
 %  -  README
 %  -  the part of code of the files under chap/, img/  and lbr/ directories
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \documentclass[10pt,a4paper,openright]{\magdir matsweetmem}
+\documentclass[10pt,a4paper,openright]{\magdir matsweetmem}
 % Per la versione in scala di grigio commentare la precedente e
 % decommentare la riga seguente
-\documentclass[10pt,a4paper,openright,gray]{\magdir matsweetmem}
+% \documentclass[10pt,a4paper,openright,gray]{\magdir matsweetmem}
 %========================
 %  Lingua & codifica
 %========================
+\PassOptionsToPackage{monochrome}{xcolor}
+% \usepackage[monochrome]{color}
 \usepackage[T1]{fontenc} 
 \usepackage{textcomp} 	
 \usepackage[utf8x]{inputenc}
@@ -49,7 +51,6 @@
 %========================
 \usepackage[bindingoffset=6mm]{geometry}
 \usepackage{multicol}
-% \usepackage[monochrome]{xcolor} %suppongo in alternativa con il precedente.
 \usepackage{multirow}
 \usepackage{indentfirst}
 \usepackage{emptypage}
@@ -68,11 +69,13 @@
 % Matematica I
 %========================
 %\usepackage{amsmath} % aggiunto da daniele
+\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{cancel}
 \usepackage[]{units}
 \usepackage[np,noaddmissingzero]{numprint}
+\usepackage{mathtools}
 %========================
 % Grafica
 %========================
@@ -80,7 +83,7 @@
 \usepackage{rotating}
 \usepackage{shadow}
 \usepackage{fancybox}
-\usepackage{empheq}
+% \usepackage{empheq} inutile: sostituito da \boxed
 \usepackage{framed}
 \usepackage{wrapfig}
 %========================
@@ -140,6 +143,11 @@
 \usepackage{listings} 
 \lstset{basicstyle=\small, language=Python, showstringspaces=false}
 \lstset{frame=trbl, frameround=ftff}
+
+%========================
+% Per l'accessibilità
+%========================
+% \usepackage{axessibility} Temporaneamente non disponibile in texlive
 
 %========================
 % Per la geometria

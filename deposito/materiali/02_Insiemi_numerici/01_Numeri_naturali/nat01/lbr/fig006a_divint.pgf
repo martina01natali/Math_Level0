@@ -1,0 +1,60 @@
+﻿% (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\begin{tikzpicture}[node distance=-25ex]
+  \begin{scope}[font=\ttfamily]
+    \matrix (divisione) [matrix of nodes]
+      {%
+&   & |[green!60!black]|M & |[green!60!black]|C & |[green!60!black]|D & 
+|[green!60!black]|U &  &  &  &[.8cm]
+&   & |[green!60!black]|M & |[green!60!black]|C & |[green!60!black]|D & 
+|[green!60!black]|U &  &  &  &[.8cm]
+&   & |[green!60!black]|M & |[green!60!black]|C & |[green!60!black]|D & 
+|[green!60!black]|U &  &  &  \\
+&   & 1 & 5 & 2 & 3 & 7 & ~ & ~ &[.8cm]
+&   & 1 & 5 & 2 & 3 & 7 & ~ & ~ &[.8cm]
+&   & 1 & 5 & 2 & 3 & 7 & ~ & ~ \\
+& - & 1 & 4 &   & ~ & |[blue!60!black]|2 &  &  &
+& - & 1 & 4 &   & ~ & |[blue!60!black]|2 & |[blue!60!black]|1 &  &
+& - & 1 & 4 &   & ~ & |[blue!60!black]|2 & |[blue!60!black]|1 & 
+|[blue!60!black]|7 &\\
+&   &   & 1 &   &   & |[green!60!black]|C &  &  &
+&   &   & 1 & 2 &   & |[green!60!black]|C & |[green!60!black]|D &  &
+&   &   & 1 & 2 &   & |[green!60!black]|C & |[green!60!black]|D & 
+|[green!60!black]|U\\
+&   &   &   &   &   &   &   &   &
+&   &   & - & 7 &   &   &   &   &
+&   &   & - & 7 &   &   &   &\\
+&   &   &   &   &   &   &   &   &
+&   &   &   & 5 &   &   &   &   &
+&   &   &   & 5 & 3 &   &   &\\
+&   &   &   &   &   &   &   &   &
+&   &   &   &   &   &   &   &   &
+&   &   & - & 4 & 9 &   &   &\\
+&   &   &   &   &   &   &   &   &
+&   &   &   &   &   &   &   &   & 
+&   &   &   &   & |[red!60!black]|4 & & &\\
+      };
+  \end{scope}
+% Prima divisione
+  \draw(divisione-2-6.north east)--(divisione-3-6.south east);
+  \draw(divisione-2-6.south east)--(divisione-2-9.south east);
+  \draw(divisione-3-2.south west)--(divisione-3-4.south east);
+  \node (a) [above=of divisione-1-6.north east] {1.};
+  % Seconda divisione
+  \draw(divisione-2-15.north east)--(divisione-3-15.south east);
+  \draw(divisione-2-15.south east)--(divisione-2-18.south east);
+  \draw(divisione-3-11.south west)--(divisione-3-13.south east);
+  \draw(divisione-5-13.south west)--(divisione-5-14.south east);
+  \draw[densely dotted,->] (divisione-2-14) -- (divisione-4-14);
+  \node (b) [above=of divisione-1-15.north east] {2.};
+  % Terza divisione
+  \draw(divisione-2-24.north east)--(divisione-3-24.south east);
+  \draw(divisione-2-24.south east)--(divisione-2-27.south east);
+  \draw(divisione-3-20.south west)--(divisione-3-22.south east);
+  \draw(divisione-5-22.south west)--(divisione-5-23.south east);
+  \draw(divisione-7-22.south west)--(divisione-7-24.south east);
+  \draw[densely dotted,->] (divisione-2-23) -- (divisione-4-23);
+  \draw[densely dotted,->] (divisione-2-24) -- (divisione-6-24);
+  \node (c) [above=of divisione-1-24.north east] {3.};
+\end{tikzpicture}

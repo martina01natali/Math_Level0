@@ -1,0 +1,1630 @@
+% (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
+
+\section{I numeri iperreali $\IR$}
+% \section{I numeri iperreali}
+\label{sec:insnum_iperreali}
+
+In questa sezione vedremo, e useremo, un nuovo insieme di numeri, utile a 
+modellizzare e risolvere nuove classi di problemi. 
+Rispetto a quanto già sappiamo dell'insieme \(\R\), dovremo adattare alcune 
+regole di calcolo e riscontreremo proprietà nuove, mentre dovremo 
+abbandonarne, per ora, il postulato di Eudosso-Archimede. 
+
+\subsection{Il problema della velocità}
+\label{subsec:insnum_velocita}
+
+Alla fine del 1600 Newton e Leibniz studiavano problemi legati alla 
+meccanica. 
+Una delle grandezze alla base della meccanica è la \emph{velocità}. 
+Ma cosa è la velocità? 
+Se l'oggetto A percorre più strada dell'oggetto B possiamo dire 
+che A è più veloce di B? No, non basta misurare lo spazio percorso da un 
+oggetto per calcolare la sua velocità, bisogna anche misurare il tempo 
+impiegato a percorrere quello spazio. Infatti sappiamo che:
+\[\text{velocità} = 
+  \frac{\text{spazio percorso}}{\text{tempo impiegato}}\]
+La grandezza calcolata in questo modo è \emph{la velocità media} 
+dell'oggetto, ma in ogni istante del percorso l'oggetto ha una propria 
+velocità. 
+Come faccio a calcolarla? Potrei misurare lo spazio percorso in un tempo 
+molto piccolo, in questo modo avrò una velocità media tenuta in un percorso 
+molto breve. 
+Più restringo l'intervallo di tempo, più la velocità media si avvicina alla 
+velocità istantanea\dots ma resta sempre una velocità media. 
+
+Per trovare la velocità istantanea dovrei dividere lo spazio percorso per 
+un tempo (positivo) più piccolo di qualunque numero. L'unico numero reale
+più piccolo, in valore assoluto, di qualunque numero è lo zero, ma 
+non posso usarlo per il calcolo della velocità, perché la divisione per 
+zero non è definita: i numeri reali non ci permettono di calcolare una 
+grandezza così semplice e evidente come la velocità di un oggetto in un 
+dato istante.
+
+Servirebbe un insieme numerico con numeri positivi più piccoli di un 
+qualsiasi altro numero positivo, ma diversi da zero! Ma è possibile 
+trovare tali numeri nell'insieme dei reali che, come abbiamo visto, 
+è un insieme (già) completo?
+
+\subsection{Infinitesimi... e infiniti}
+\label{subsec:insnum_nonarchimedei}
+
+Se accettiamo che possa \textbf{non} valere il postulato di 
+Eudosso-Archimede, possiamo costruire un insieme numerico non archimedeo. 
+Per farlo, possiamo aggiungere all'insieme dei numeri reali un nuovo numero 
+(non reale) maggiore di zero ma più piccolo di qualunque numero reale 
+positivo:
+\[\epsilon > 0 \quad \text{ tale che } \quad 
+\epsilon < \frac{1}{n} \quad \text{ per qualunque } n \in \N\]
+tradotto in simboli:
+\[\exists \epsilon > 0 \quad | \quad \epsilon < \frac{1}{n} \quad \forall n 
+\in \N\]
+Un numero siffatto lo chiameremo un \emph{infinitesimo} e lo indicheremo 
+con una lettera minuscola dell'alfabeto greco, per esempio \(\epsilon\).
+Per quanto è già stato detto, un tale numero non può essere un numero
+reale. 
+\begin{osservazione}
+ In un insieme che contenga numeri infinitesimi non vale il postulato di 
+Eudosso-Archimede infatti se
+\(\epsilon < \dfrac{1}{n} \quad \forall n \in \N\) 
+moltiplicando entrambi i membri per \(n\) 
+si ottiene: \(n \epsilon < 1\).
+\end{osservazione}
+
+\vspace{1em}
+
+La prima conseguenza dell'introduzione di un infinitesimo è che allora ce 
+ne sono infiniti! 
+Infatti anche la metà di un infinitesimo è un infinitesimo e 
+sono infinitesimi anche il suo doppio o un suo sottomultiplo o un suo 
+multiplo.
+
+Altra conseguenza dell'aggiunta di un elemento infinitesimo all'insieme dei 
+reali è che, se si possono fare le normali operazioni con questi nuovi 
+numeri, allora esiste anche un numero maggiore di qualunque numero reale:
+\[\text{se} \quad \epsilon < \frac{1}{n} \quad \forall n \in \N 
+\quad \text{allora} \quad \frac{1}{\epsilon} > n \quad \forall n 
+\in \N\]
+Quindi se aggiungiamo all'insieme dei reali un numero infinitesimo e 
+possiamo usarlo nelle usuali 4 operazioni, allora in quell'insieme avremo 
+un numero infinito di infinitesimi e un numero infinito di infiniti.
+
+Chiamiamo \emph{iperreali} questi numeri e indichiamo l'insieme degli 
+iperreali con il simbolo:~\(\IR\) (``erre star'').
+
+\subsection{Tipi di Iperreali}
+\label{subsec:insnum_iperreali}
+
+Abbiamo visto che l'introduzione di un elemento nuovo, così piccolo
+da poterlo pensare trascurabile, ha reso piuttosto affollato il nuovo 
+insieme numerico. 
+Cerchiamo di fare un po' di ordine. 
+L'insieme degli Iperreali contiene diversi tipi di numeri li vediamo qui di 
+seguito.
+
+\begin{description} [noitemsep]
+ \item \textbf{Infinitesimi}:
+numeri che, in valore assoluto, sono minori di qualunque numero reale 
+positivo.
+ \item \textbf{Infiniti}:
+numeri che, in valore assoluto, sono maggiori di qualunque numero reale.
+ \item \textbf{Zero}:
+l'unico numero reale infinitesimo.
+ \item \textbf{Infinitesimi non nulli}:
+numeri infinitesimi senza lo zero.
+ \item \textbf{Finiti}:
+numeri che non sono infiniti.
+ \item \textbf{Finiti non infinitesimi}:
+numeri che non sono né infiniti né infinitesimi.
+\end{description}
+
+Per semplificare la scrittura (e complicare la lettura) adotteremo delle 
+sigle e delle convenzioni per indicare questi diversi tipi di numeri:
+
+\begin{center}
+\begin{tabular}{ccc}\toprule
+tipo & sigla & simboli \\\midrule
+
+zero &  & 0 \\
+
+infinitesimi & \emph{i} & \\
+
+infinitesimo non nullo & \emph{inn} & 
+\(\alpha, \beta, \gamma, \delta, \dots\) \\
+
+finito non infinitesimo & \emph{fni} & \(a, b, c, d, \dots\)\\
+
+finito & \emph{f} & \(a, b, c, d, \dots\) \\
+
+infinito & \emph{I} & \(A, B, C, \dots\)\\
+
+qualsiasi &  & \(x, y, z, \dots\) \\\bottomrule
+\end{tabular}
+\label{tab:insnum_tipi}
+\end{center}
+
+\newpage %--------------------------------------------------
+
+\begin{esempio}
+ Individua il tipo delle seguenti espressioni:
+%  (considerando, per semplicità \(\epsilon\) positivo):
+
+\begin{multicols}{4}
+\begin{enumerate} [nosep]
+ \item \(\pi+\epsilon\)
+ \item \(4\epsilon+\epsilon \cdot \delta\)
+ \item \(M-7\)
+ \item \(M+\dfrac{1}{\epsilon}\)
+\end{enumerate}
+\end{multicols}
+
+Vediamo i vari casi:
+
+\begin{enumerate}
+ \item \(\pi+\epsilon\) 
+è un numero finito perché \(\pi\) è un numero 
+finito (\(3,141592653589793\dots\)) con infinite cifre decimali, ma 
+\(\epsilon\) è più piccolo della più piccola cifra di \(\pi\) che possiamo 
+pensare quindi aggiungere un infinitesimo ad un numero reale non cambia il 
+numero reale che rimane un numero finito, in questo caso non infinitesimo.
+ \item  \(4\epsilon+\epsilon \cdot \delta\) 
+qui abbiamo la somma di due quantità, 
+la prima è formata da 4 infinitesimi, ma per come abbiamo definito 
+l'infinitesimo, anche 4 infinitesimi sono ancora un infinitesimo; la 
+seconda è formata dal prodotto di un infinitesimo per un altro infinitesimo 
+che indica quindi un infinitesimo di un infinitesimo che è un infinitesimo 
+ancora più infinitesimo di ciascuno dei due. La loro somma quindi è un 
+infinitesimo con lo stesso segno di \(\epsilon\).
+ \item \(M-7\)
+Possiamo distinguere due casi: 
+ \begin{itemize} [noitemsep]
+  \item se \(M\) è un infinito negativo, allora 
+\(M-7\) sarà un numero in valore assoluto ancora più grande, 
+ \item se \(M\) è un infinito positivo, \(M-7\) sarà numero più piccolo di 
+\(M\) ma che non può essere un numero finito. 
+Infatti, supponiamo che \(M-7\) sia un numero finito, chiamiamolo \(x\) ma 
+se \(x\) è finito allora anche \(x+7\) è finito e questo avrebbe come 
+conseguenza che anche \(M\) sia finito contraddicendo le nostre convenzioni.
+ \end{itemize}
+ \item \(M+\dfrac{1}{\epsilon}\)
+ In questo caso dobbiamo fare una distinzione:
+ \begin{itemize} [noitemsep]
+  \item se \(M\) e \(\epsilon\) hanno lo stesso segno il calcolo precedente 
+equivale a sommare due infiniti entrambi positivi (o negativi) e darà come 
+risultato un infinito positivo (o negativo).
+  \item se \(M\) e \(\epsilon\) hanno segni diversi bisogna avere più 
+informazioni per poter stabilire il tipo del risultato.
+ \end{itemize}
+
+\end{enumerate}
+\end{esempio}
+
+\subsection{Numeri infinitamente vicini}
+\label{subsec:insnum_infinitamentevicini}
+
+Nei numeri reali, due numeri o sono uguali o sono diversi (ovviamente).
+Nel primo caso, la differenza tra i due numeri è zero, 
+nel secondo, la differenza è un numero reale diverso da zero.
+
+Negli Iperreali, se due numeri sono diversi, la loro differenza può 
+essere un numero finito non infinitesimo o un numero infinitesimo.
+
+\begin{esempio}
+ Calcola la distanza tra \(a=7+\epsilon\) e \(b=10-5\epsilon\):
+ 
+ \(\abs{b-a}=\abs{\tonda{10+\epsilon} - \tonda{7-5\epsilon}}=
+   \abs{10+\epsilon - 7+5\epsilon}=
+   \abs{10-7 + \epsilon+5\epsilon}=
+   \abs{3 + 6\epsilon}
+ \)
+ 
+ La distanza tra \(a\) e \(b\), è uguale a~3 più un infinitesimo.
+\end{esempio}
+
+\begin{esempio}
+ Calcola la distanza tra \(a=5+\epsilon\) e \(b=5+\delta\):
+ 
+ \(\abs{b-a}=\abs{\tonda{5+\delta} - \tonda{5+\epsilon}}=
+   \abs{5+\delta - 5-\epsilon}=
+   \abs{5-5 + \delta - \epsilon}=
+   \abs{0 + \delta - \epsilon} = \abs{\gamma}
+ \)
+ 
+ In questo caso la distanza tra \(a\) e \(b\), è un infinitesimo.
+\end{esempio}
+
+\noindent Negli Iperreali possiamo distinguere:
+
+\begin{itemize} [noitemsep]
+ \item \(a\) e \(b\) sono uguali: \(b-a=0\);
+ \item \(a\) e \(b\) sono diversi, in questo caso possiamo distinguere
+ ulteriormente:
+\begin{itemize} [nosep]
+ \item \(a-b\) è un finito non infinitesimo;
+ \item \(a-b\) è un infinitesimo non nullo.
+\end{itemize}
+\end{itemize}
+
+Quando la differenza di due numeri è un infinitesimo, diciamo 
+che i due numeri sono \emph{infinitamente vicini}.
+
+\begin{definizione}    % [Infinitamente vicini]
+Due numeri si dicono \textbf{infinitamente vicini} (simbolo:~\(\approx\)) se 
+la loro differenza è un infinitesimo:
+\[x \approx y \Leftrightarrow x - y = \epsilon\]
+\end{definizione}
+
+Tutti gli infinitesimi sono infinitamente vicini tra di loro e sono 
+infinitamente vicini allo zero.
+
+Due numeri infinitamente vicini, sono diversi tra di loro, ma la loro 
+differenza è minore di qualunque numero reale positivo.
+
+Dato un qualunque numero iperreale, possiamo considerare l'insieme di tutti 
+i numeri infinitamente vicini a questo. 
+
+\begin{definizione}
+ Si chiama \emph{monade} del del numero \(x\) l'insieme formato da tutti i 
+numeri iperreali infinitamente vicini a \(x\).
+\end{definizione}
+
+Due monadi diverse non hanno elementi in comune
+
+Una monade può contenere al massimo un numero reale, due numeri reali 
+diversi appartengono a monadi diverse.
+
+\subsection{Iperreali finiti e parte standard}
+\label{subsec:insnum_partestandard}
+
+Tra i vari tipi di Iperreali, hanno un ruolo particolare gli Iperreali 
+finiti perché sono quelli che assomigliano di più ai numeri che già 
+conosciamo e possono essere facilmente tradotti in numeri reali e 
+approssimati con numeri razionali. 
+
+\begin{definizione}
+ Un numero iperreale si dice \textbf{finito} se è un numero compreso tra 
+due numeri Reali:
+
+\[\text{Se } x \in \IR \sand a, b \in \R \sand 
+  a < x < b \quad \text{ allora } x \text{ è un Iperreale finito.}\]
+\end{definizione}
+
+\begin{esempio}
+ Individua quali dei seguenti numeri sono finiti (considerando, per 
+semplicità \(\epsilon\) positivo):
+
+\begin{multicols}{3}
+\begin{enumerate}
+ \item \(8+5\epsilon\)
+ \item \(\tonda{8+5\epsilon}^2\)
+ \item \(8+\dfrac{5}{\epsilon}\)
+\end{enumerate}
+\end{multicols}
+
+Vediamo i tre casi:
+
+\begin{enumerate}
+ \item \(\tonda{8+5\epsilon}\) è un numero finito perché:
+ \[\tonda{8-\dfrac{1}{10^6}} < \tonda{8+5\epsilon} < 
+   \tonda{8+\dfrac{1}{10^6}}\]
+ \item Eseguiamo il quadrato:
+ \(\tonda{8+5\epsilon}^2 = 64 +80 \epsilon +25 \epsilon^2\)
+ ma: \(80 \epsilon\) è sicuramente un infinitesimo e anche \(25 \epsilon^2\)
+ lo è e sarà un infinitesimo anche la loro somma, chiamiamo \(\delta\) 
+questa somma quindi: 
+\(\tonda{8+5\epsilon}^2 = 64 + \delta\)
+e: 
+\[63 < \tonda{64 + \delta} < 65\]
+ \item Nell'ultimo caso possiamo osservare che, essendo \(\epsilon\) in 
+valore assoluto minore di qualunque numero reale, 
+ \(\dfrac{5}{\epsilon}\) è un numero maggiore di qualunque numero reale e 
+la somma di~8 più un numero maggiore di qualunque altro, non può essere 
+minore di un determinato numero reale:
+ \[\nexists y \in \R \quad | \quad 8+\dfrac{5}{\epsilon} < y\]
+perciò \(8+\dfrac{5}{\epsilon}\) non è un numero finito.
+\end{enumerate}
+\end{esempio}
+
+\noindent Ogni numero finito può essere visto come un numero \emph{reale} 
+più un \emph{infinitesimo}.
+
+Se \(x\) è finito allora \(x = a + \epsilon\) dove:
+\begin{itemize} [noitemsep]
+ \item \(x\) è un numero iperreale finito;
+ \item \(a\) è un numero reale;
+ \item \(\epsilon\) è un infinitesimo (anche zero).
+\end{itemize}
+
+Se \(x=a+\epsilon\) allora potremmo dire che \(x\) è infinitamente vicino 
+ad \(a\) infatti la differenza tra i due dà un infinitesimo: 
+\[x=a+\epsilon \sLRarrow
+x-a = a+\epsilon-a \sLRarrow x-a = \epsilon \sLRarrow x \approx a\] 
+
+Un numero Iperreale finito non può essere infinitamente vicino 
+a due numeri reali diversi (perché?) quindi esiste un solo numero Reale 
+infinitamente vicino ad un dato numero Iperreale. 
+Questo numero reale si chiama \emph{parte standard} del numero Iperreale.
+
+% \begin{definizione}
+%  La parte standard di un numero Iperreale finito è l'unico numero Reale 
+% infinitamente vicino:
+% 
+% \[\text{Se } x \in \IR \wedge x= a+\epsilon \text{ allora } 
+% \st(x) = a \text{ (st(x) = parte standard).}\]
+% \end{definizione}
+
+\begin{definizione}
+ Si dice che \(a\) è la \textbf{parte standard} di \(x\), e si scrive: 
+ \(\st(x) = a\), se \(a\) è un numero reale e \(x\) è 
+infinitamente vicino ad \(a\):
+
+\[\st(x) = a \sLRarrow a \in \R \sand x \approx a\]
+\end{definizione}
+
+\begin{osservazione}
+\begin{itemize} [nosep]
+ \item 
+La parte standard di un infinitesimo è zero infatti:
+\(\epsilon = 0+\epsilon\).
+ \item 
+Un numero iperreale infinito non ha parte standard poiché non esiste nessun 
+numero reale infinitamente vicino a un infinito.
+\end{itemize}
+\end{osservazione}
+
+\subsection{Retta Iperreale e strumenti ottici}
+\label{subsec:insnum_retta}
+
+In un paragrafo precedente abbiamo visto che si può accettare l'idea che 
+ad ogni numero reale corrisponda un punto della retta e ad ogni 
+punto della retta corrisponda un numero reale. 
+Questa affermazione non è un teorema dimostrato, è un postulato. 
+Fa parte del modello di numeri usato, questa idea è caratteristica dei 
+numeri reali. 
+Ma dato che ora stiamo cambiando modello, cambiamo anche questo postulato. 
+Lo riformuliamo così:
+
+\begin{postulato}
+Ad ogni numero Iperreale corrisponde un punto della retta (iperreale) e ad 
+ogni punto della retta (iperreale) corrisponde un numero Iperreale.
+\end{postulato}
+
+Oppure:
+
+\begin{postulato}[Retta iperreale]
+C'è una corrispondenza biunivoca tra i numeri Iperreali e 
+i punti della retta (iperreale).
+\end{postulato}
+
+Abbiamo già una certa abitudine a rappresentare numeri reali sulla retta, 
+per rappresentare i numeri Iperreali dobbiamo procurarci degli strumenti 
+particolari: \emph{microscopi}, \emph{telescopi}, \emph{grandangoli}.
+
+Diamo una sbirciata al loro manuale di istruzioni.
+
+\subsubsection{Microscopi}
+\label{subsec:insnum_microscopio}
+
+Il microscopio permette di ingrandire una porzione di retta. 
+Per esempio un microscopio permette di visualizzare i seguenti numeri:
+
+\begin{esempio}
+~
+
+\begin{multicols}{4}
+\begin{itemize}[nosep]
+ \item \(+4,998\)
+ \item \(-3,000002\)
+ \item \(2-3\epsilon\)
+ \item \(-4+2\delta\)
+\end{itemize}
+\end{multicols}
+
+\begin{inaccessibleblock}[Applicazione di diversi microscopi.]
+\begin{minipage}{.48\linewidth}
+ \begin{center}
+\scalebox{0.7}{\microscopioa}
+ \end{center}
+% \caption{Microscopio per vedere \(5,004\).} \label{fig:microscopioa}
+\end{minipage}
+\hfill
+\begin{minipage}{.48\linewidth}
+ \begin{center}
+\scalebox{0.7}{\microscopiob}
+ \end{center}
+% \caption{Microscopio per vedere \(-3,000002\).} \label{fig:microscopiob}
+\end{minipage}
+
+\begin{minipage}{.48\linewidth}
+ \begin{center}
+\scalebox{0.7}{\microscopioc}
+ \end{center}
+% \caption{Microscopio per \emph{non} vedere \(2-3\epsilon\).} 
+\label{fig:microscopioc}
+\end{minipage}
+\hfill
+\begin{minipage}{.48\linewidth}
+ \begin{center}
+\scalebox{0.7}{\microscopiod}
+ \end{center}
+% \caption{Microscopio per vedere \(2-3\epsilon\).} \label{fig:microscopiod}
+\end{minipage}
+\end{inaccessibleblock}
+\end{esempio}
+ 
+Si può osservare come ci siano microscopi ``standard'' che ingrandiscono un 
+numero \emph{naturale} di volte e microscopi ``non standard'' che 
+ingrandiscono infinite volte (ricordiamoci che \(\frac{1}{\epsilon}\) è un 
+infinito.
+
+\subsubsection{Telescopi}
+\label{subsec:insnum_telescopi}
+
+Il telescopio permette di avvicinare una porzione di retta senza cambiare 
+la sua scala. Con un telescopio possiamo visualizzare i seguenti numeri:
+
+% \newpage %--------------------------------------------------
+
+\begin{esempio} ~
+
+\begin{multicols}{4}
+\begin{itemize}[nosep]
+ \item \(+127034\)
+ \item \(-3600\)
+ \item \(A+3\)
+ \item \(-B+2\)
+\end{itemize}
+\end{multicols}
+\vspace{-5mm}
+
+\begin{inaccessibleblock}[Applicazione di diversi telescopi.]
+\begin{minipage}{.48\linewidth}
+ \begin{center}
+\scalebox{0.7}{\telescopioa}
+ \end{center}
+% \caption{Telescopio per vedere \(127034\).} \label{fig:telescopioa}
+\end{minipage}
+\hfill
+\begin{minipage}{.48\linewidth}
+ \begin{center}
+\scalebox{0.7}{\telescopiob}
+ \end{center}
+% \caption{Telescopio per vedere \(A+3\).} \label{fig:telescopiob}
+\end{minipage}
+\end{inaccessibleblock}
+\end{esempio}
+
+Anche per i telescopi, i modelli più moderni offrono la possibilità di 
+operare ingrandimenti ``standard'' o ``non standard'' a piacere.
+
+\subsubsection{Grandangoli (Zoom)}
+\label{subsec:insnum_zoom}
+
+Il Grandangolo permette di cambiare la scala della visualizzazione della 
+retta, in questo modo possiamo far rientrare nel campo visivo anche numeri 
+molto lontani.
+Possiamo usare uno zoom per visualizzare i seguenti numeri:
+
+\begin{esempio}~
+
+\begin{multicols}{4}
+\begin{itemize}[nosep]
+ \item \(300\)
+ \item \(-5000\)
+ \item \(-2A\)
+ \item \(3B\)
+\end{itemize}
+\end{multicols}
+\vspace{-5mm}
+\begin{inaccessibleblock}[Applicazione di diversi grandangoli.]
+\begin{minipage}{.48\linewidth}
+ \begin{center}
+\scalebox{0.7}{\grandangoloa}
+ \end{center}
+% \caption{Grandangolo per vedere \(300\).} \label{fig:grandangoloa}
+\end{minipage}
+\hfill
+\begin{minipage}{.48\linewidth}
+ \begin{center}
+\scalebox{0.7}{\grandangolob}
+ \end{center}
+% \caption{Grandangolo per vedere \(-2A\).} \label{fig:grandangolob}
+\end{minipage}
+\end{inaccessibleblock}
+\end{esempio}
+
+Anche per i grandangoli utilizzeremo versioni che permettono zoomate 
+``standard'' e ``non standard''.
+
+\begin{inaccessibleblock}[Combinazione di diversi strumenti.]
+\begin{minipage}{.38\linewidth}
+\subsubsection{Combinazione di strumenti}
+\label{subsec:insnum_combinazione}
+
+Questi strumenti sono ``modulari'', possono essere combinati a piacere. 
+Per esempio per visualizzare il numero non standard: 
+\(1741,998 +2\epsilon\) posso utilizzare in sequenza un telescopio per 
+avvicinarmi al numero, un microscopio standard per poter vedere i 
+millesimi e un microscopio non standard per vedere il numero infinitamente 
+vicino al numero standard.
+\end{minipage}
+\hfill
+\begin{minipage}{.58\linewidth}
+ \begin{center}
+\scalebox{0.7}{\combinazione}
+ \end{center}
+\end{minipage}
+\end{inaccessibleblock}
+
+\vspace{-5mm}
+
+\subsection{Operazioni}
+\label{subsec:insnum_operazioni}
+
+Vediamo di seguito alcune regole relative alle operazioni 
+che valgono nei numeri Iperreali.
+
+\subsubsection{Addizione}
+\label{subsec:insnum_addizione}
+
+\begin{multicols}{2}
+Alcune osservazioni:
+
+\begin{enumerate} [noitemsep]
+ \item Le regole relative all'addizione valgono anche per la sottrazione, 
+se uno degli addendi è negativo. 
+ \item Zero è l'elemento neutro dell'addizione nei Reali e continua ad 
+esserlo anche negli Iperreali: \(x+0=0+x=x\).
+ \item Un infinitesimo più un altro infinitesimo dà per risultato un 
+infinitesimo: \(\alpha+\beta=\gamma\).
+ \item Un infinitesimo non nullo più un altro infinitesimo non nullo può 
+dare per risultato anche zero: \dots
+ \item Un finito più un infinitesimo dà come risultato un finito.
+ \item Un finito più un finito dà come risultato un finito.
+ \item Un finito più un finito può dare come risultato un infinitesimo.
+%  \item Un infinito più un infinitesimo dà come risultato un infinito.
+ \item Un infinito più un finito dà come risultato un infinito.
+ \item Un infinito più un infinito può dare come risultato zero, un 
+infinitesimo, un finito non infinitesimo, un infinito.
+\end{enumerate}
+
+Nel precedente elenco abbiamo visto che alcune addizioni danno un risultato 
+che dipende solo dai tipi degli operandi, altre operazioni danno dei 
+risultati 
+che dipendono dal valore degli operandi. Possiamo costruire una tabella che 
+organizza le precedenti osservazioni.
+
+\begin{center}
+\renewcommand{\arraystretch}{.0}
+\scalebox{0.7}{
+\begin{tabular}{p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|}
+\centra{\(+\)} & \centra{0} & \centra{inn} & \centra{fni} & \centra{I} 
+\\\hline
+\centra{0} & \centra{0} & \centra{inn}& \centra{fni} & \centra{I} \\\hline
+\centra{inn} & \centra{inn} & \centra{i}& \centra{fni} & \centra{I} \\\hline
+\centra{fni} & \centra{fni} & \centra{fni}& \centra{f} & \centra{I} \\\hline
+\centra{I} & \centra{I} & \centra{I}& \centra{I} & \centra{?} \\\hline
+\end{tabular}}
+\end{center}
+% \vspace{2mm}
+\end{multicols}
+
+\newpage %--------------------------------------------------
+
+\subsubsection{Moltiplicazione}
+\label{subsec:insnum_moltiplicazione}
+
+\begin{multicols}{2}
+Alcune osservazioni:
+\begin{enumerate} [noitemsep]
+ \item Zero è l'elemento assorbente: il prodotto di un iperreale per zero
+dà come risultato zero: \(x \cdot 0=0 \cdot x=0\).
+ \item Uno è l'elemento neutro della moltiplicazione nei Reali e continua 
+ad esserlo anche negli Iperreali: \(x \cdot 1=1 \cdot x=x\).
+ \item Un infinitesimo per un altro infinitesimo dà per risultato un 
+infinitesimo: \(\alpha \cdot \beta=\gamma\).
+ \item Un infinitesimo non nullo per un altro infinitesimo non nullo dà 
+per risultato un infinitesimo non nullo.
+ \item \dots
+ \item \dots
+%  \item Un finito per un infinitesimo dà come risultato un finito.
+%  \item Un finito per un finito dà come risultato un finito.
+%  \item Un finito per un finito può dare come risultato un infinitesimo.
+% %  \item Un infinito per un infinitesimo dà come risultato un infinito.
+%  \item Un infinito per un finito dà come risultato un infinito.
+%  \item Un infinito per un infinito può dare come risultato zero, un 
+% infinitesimo, un finito non infinitesimo, un finito, un infinito;
+ \item Il prodotto fra un finito e un infinitesimo richiama le osservazioni 
+fatte sul postulato di Eudosso-Archimede.
+ \end{enumerate}
+E la tabella corrispondente:
+\begin{center}
+\renewcommand{\arraystretch}{.0}
+\scalebox{0.7}{
+\begin{tabular}{p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|}
+\centra{\(\times\)} & \centra{0} & \centra{1} & 
+\centra{inn} & \centra{fni} & \centra{I} \\\hline
+\centra{0} & \centra{0} & \centra{0} & 
+\centra{0}& \centra{0} & \centra{0} \\\hline
+\centra{1} & \centra{0} & \centra{1} & 
+\centra{inn} & \centra{fni} & \centra{I} \\\hline
+\centra{inn} & \centra{0} & \centra{inn} & 
+\centra{inn}& \centra{inn} & \centra{?} \\\hline
+\centra{fni} & \centra{0} & \centra{fni} & 
+\centra{inn}& \centra{fni} & \centra{I} \\\hline
+\centra{I} & \centra{0} & \centra{I} & 
+\centra{?}& \centra{I} & \centra{I} \\\hline
+\end{tabular}}
+\end{center}
+\end{multicols}
+
+\subsubsection{Reciproco}
+\label{subsec:insnum_reciproco}
+
+\begin{multicols}{2}
+Alcune osservazioni:
+\begin{enumerate} [noitemsep]
+ \item Dalla tabella precedente si può estrarre la riga corrispondente a~1
+e si ottiene la tabella del reciproco.
+ \item Una volta convinti della regola del reciproco, si può ricavare la 
+tabella della divisione attraverso la 
+regola:\\
+\(x : y = x \cdot \frac{1}{y}\).
+\end{enumerate}
+E la tabella corrispondente:
+\begin{center}
+\renewcommand{\arraystretch}{.0}
+\scalebox{0.7}{
+\begin{tabular}{p{1.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|}
+\centra{numero} & \centra{0} & \centra{1} & 
+\centra{inn} & \centra{fni} & \centra{I} \\\hline
+\centra{reciproco} &  & \centra{1} & 
+\centra{I} & \centra{fni} & \centra{inn} %\\\hline
+\end{tabular}}
+\end{center}
+% \vspace{11mm}
+\end{multicols}
+
+\subsubsection{Divisione}
+\label{subsec:insnum_divisione}
+
+\begin{multicols}{2}
+Alcune osservazioni:
+\begin{enumerate} [noitemsep]
+ \item Anche negli Iperreali la divisione per zero non è definita.
+ \item Uno può essere visto come un elemento neutro solo destro: \(x \div 
+1=x\).
+ \item Per cercare i risultati possiamo rifarci alla definizione di 
+quoziente.
+ \item \dots
+\end{enumerate}
+E la tabella corrispondente:
+\begin{center}
+\renewcommand{\arraystretch}{.0}
+\scalebox{0.7}{
+\begin{tabular}{p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|p{.7cm}|}
+% \begin{tabular}{c|c|c|c|c|c|}
+\centra{\(\div\)} & \centra{0} & \centra{1} & 
+\centra{inn} & \centra{fni} & \centra{I} \\\hline
+\centra{0} &  & \centra{0} & 
+\centra{0}& \centra{0} & \centra{0} \\\hline
+\centra{1} &  & \centra{1} & 
+\centra{I} & \centra{fni} & \centra{inn} \\\hline
+\centra{inn} &  & \centra{inn} & 
+\centra{?}& \centra{inn} & \centra{inn} \\\hline
+\centra{fni} &  & \centra{fni} & 
+\centra{I}& \centra{fni} & \centra{inn} \\\hline
+\centra{I} &  & \centra{I} & 
+\centra{I}& \centra{I} & \centra{?} \\\hline
+\end{tabular}}
+\end{center}
+\end{multicols}
+
+\newpage %--------------------------------------------------
+
+\begin{osservazione}
+Non ci sono regole immediate per le seguenti operazioni:
+\begin{multicols}{4}
+\begin{itemize} [nosep]
+ \item \(\dfrac{\epsilon}{\delta}\)
+ \item \(\dfrac{A}{B}\)
+ \item \(A \cdot \epsilon\)
+ \item \(A + B\)
+\end{itemize}
+\end{multicols}
+In questi casi il tipo di risultato dipende dall'effettivo valore degli 
+operandi. Ad esempio, nel caso del quoziente tra due infinitesimi possiamo 
+trovarci nelle seguenti situazioni:
+\begin{multicols}{3}
+\begin{itemize} [nosep]
+ \item \(\dfrac{\epsilon^2}{\epsilon} = \epsilon\) \quad (i)
+ \item \(\dfrac{2\epsilon}{\epsilon} = 2\) \quad (fni)
+ \item \(\dfrac{\epsilon}{\epsilon^2} = \frac{1}{\epsilon}\) \quad (I)
+\end{itemize}
+\end{multicols}
+\end{osservazione}
+
+Possiamo ora esercitarci nel calcolo con questi nuovi numeri. 
+Continuiamo ad utilizzare la convenzione di indicare gli 
+infinitesimi con lettere greche minuscole
+(\(\alpha,~\beta,~\gamma,~\delta,~\epsilon,~\dots\)), 
+i finiti non infinitesimi con lettere latine minuscole 
+(\(a,~b,~c~,~\dots,~m,~n,~\dots\)) 
+e gli infiniti con lettere latine maiuscole 
+(\(A,~B,~C~,~\dots,~M,~N,~\dots\)).
+
+\begin{exrig}
+Semplifichiamo le seguenti espressioni scrivendo il tipo di risultato 
+ottenuto.
+
+ \begin{esempio}
+  \(3\epsilon +5 +6M -2\epsilon +7 -2M = 4M +12 +\epsilon \quad (tipo=I)\)
+ \end{esempio}
+
+\begin{osservazione}
+Quando il risultato è la somma di più elementi, li scriviamo, ordinandoli 
+dal più grande, in valore assoluto, al più piccolo.
+%  Quando possibile scriviamo un risultato composto da più elementi 
+scrivendoli 
+% dal più grande, in valore assoluto, al più piccolo.
+\end{osservazione}
+
+ \begin{esempio}
+\(7 +8M -5\epsilon  -4 +3\epsilon-2N = 8M -2N +3 -2\epsilon\)
+\quad (tipo non definito)
+ \end{esempio}
+ 
+ \begin{esempio}
+\(\tonda{3M +2\epsilon} \tonda{3M -2\epsilon} = 9M -4\epsilon\)
+\quad (tipo=I)
+ \end{esempio}
+ 
+ \begin{esempio}
+\(\tonda{M +3} \tonda{M -3} - \tonda{M+2}^2 +4\tonda{M +3}=\)
+
+\(=M^2 -9 -M^2 -4M -4 +4M +12 = -1\)
+\quad (tipo=fni)
+ \end{esempio}
+ 
+ \begin{esempio}
+\(10a -\tonda{A +1}^2 -3a +2\tonda{a+2\alpha} +A^2 +6\tonda{b -3\alpha} 
++2A= 
+\)
+
+\(=10a -A^2 -2A -1 -3a +2a+4\alpha +A^2 +6b -18\alpha +2A = 9a +6b 
+-14\alpha\) 
+\quad (tipo=fni)
+ \end{esempio}
+\end{exrig}
+
+% \subsection{Espressioni}
+% \label{subsec:insnum_espressioni}
+
+\subsection{Confronto}
+\label{subsec:insnum_confronto}
+
+L'insieme dei numeri Reali ha un ordinamento completo, se \(a\) e \(b\) sono 
+due numeri reali qualunque è sempre valida una e una sola delle seguenti 
+affermazioni:
+
+\[a<b \quad a=b \quad b<a\]
+
+Per confrontare due numeri Reali possiamo utilizzare le seguenti regole:
+
+\begin{enumerate} [noitemsep]
+ \item qualunque numero negativo è minore di qualunque numero positivo;
+ \item se due numeri sono negativi, è minore quello che ha il modulo 
+maggiore;
+ \item se \(a\) e \(b\) sono due numeri positivi, 
+ \[a<b \sLRarrow a-b<0 \quad \text{ (o } \quad b-a>0 \text{ )}\]
+oppure
+ \[a<b \sLRarrow \frac{a}{b}<1 \quad \text{ (o } \quad \frac{b}{a}>1 
+   \text{ )}\]
+\end{enumerate}
+
+\begin{osservazione}
+Le prime due regole ci permettono di restringere le nostre riflessioni al 
+solo caso del confronto tra numeri positivi.
+Nei prossimi paragrafi assumeremo che le variabili si riferiscano solo a 
+numeri positivi.
+\end{osservazione}
+
+\begin{osservazione}
+Nella terza regola abbiamo presentato due criteri. Quello usato di solito
+è il primo, ma useremo anche il secondo perché il rapporto tra due 
+grandezze permette di ottenere informazioni interessanti.
+\end{osservazione}
+
+\vspace{1em}
+
+Anche negli Iperreali valgono le proprietà dei Reali richiamate sopra. 
+% Ma l'insieme degli Iperreali non ha un ordinamento completo:
+% se di \(\epsilon\) e \(\delta\) sappiamo solo che sono due infinitesimi,
+% non è possibile dire se \(\epsilon < \delta\) o \(\epsilon > \delta\).
+% E questo si ripercuote anche su tutti gli altri numeri: senza ulteriori 
+% informazioni non possiamo dire se \(a+\epsilon\) è maggiore minore o uguale 
+% a \(a+\delta\). 
+% Problemi analoghi si incontrano nel confronto degli infiniti.
+Vediamo allora come è possibile affrontare il problema del confronto tra 
+Iperreali.
+
+Restringendo l'osservazione ai numeri positivi possiamo affermare che gli 
+infinitesimi sono più piccoli dei non infinitesimi e i finiti sono più 
+piccoli degli infiniti:
+
+\[i \quad < \quad fni \quad < \quad I\]
+
+Passiamo ora al confronto all'interno dei diversi tipi di numeri Iperreali.
+
+\subsubsection{Confronto tra finiti non infinitesimi}
+\label{subsubsec:insnum_confrontoreali}
+
+Se due numeri Iperreali hanno parte standard diversa allora è maggiore 
+quello 
+che ha la parte standard maggiore:
+\[x < y \sLRarrow \st(x) < st(y)\]
+Nel caso i due numeri abbiano la stessa parte standard si deve studiare 
+l'ordinamento degli infinitesimi, cosa che faremo nel prossimo paragrafo.
+
+\subsubsection{Confronto tra infinitesimi}
+\label{subsubsec:insnum_confrontoreali}
+
+Di seguito vediamo i diversi casi in cui ci possiamo 
+imbattere quando vogliamo confrontare i numeri infinitesimi.
+
+\paragraph{Zero}
+Zero è minore di qualunque infinitesimo positivo:
+\[\epsilon-0 = \epsilon>0\]
+\paragraph{Somma}
+La somma di infinitesimi positivi è maggiore di ognuno dei due:
+\[\tonda{\epsilon+\delta}-\epsilon = \delta > 0\]
+\paragraph{Multiplo}
+Il multiplo di un infinitesimo positivo è maggiore dell'infinitesimo di 
+partenza. Usando il primo metodo per il confronto:
+\[\forall n > 1 \quad n\epsilon-\epsilon = \tonda{n-1}\epsilon > 0\]
+e usando il secondo metodo: 
+\[\forall n > 1 \quad \frac{n\epsilon}{\epsilon} = n > 1\]
+\paragraph{Sottomultiplo}
+Il sottomultiplo di un infinitesimo è minore dell'infinitesimo di partenza. 
+Usando il primo metodo per il confronto:
+\[\forall n > 1 \quad \frac{\epsilon}{n}-\epsilon = 
+                      \frac{\epsilon-n\epsilon}{n} = 
+                      \frac{\tonda{1-n}\epsilon}{n} < 0\]
+e usando il secondo metodo: 
+\[\forall n > 1 \quad \frac{\epsilon}{n}:\epsilon =
+                      \frac{\epsilon}{n\epsilon} =
+                      \frac{1}{n} < 1\]
+\begin{definizione}
+ Diremo che \(\gamma\) e \(\epsilon\) sono \textbf{infinitesimi dello 
+stesso ordine} se il rapporto tra \(\gamma\) e \(\epsilon\) è un 
+finito non infinitesimo.
+\end{definizione}
+\paragraph{Parte infinitesima di un infinitesimo}
+La parte infinitesima di un infinitesimo positivo è minore 
+dell'infinitesimo di partenza:
+\[\frac{\epsilon \delta}{\epsilon} = \delta < 1\]
+% \begin{osservazione}
+In questo caso il rapporto non solo è più piccolo di~1 ma è addirittura un 
+\emph{infinitesimo}, 
+cioè~\(\gamma\) è una parte infinitesima di~\(\epsilon\). 
+% Quando il rapporto tra due infinitesimi è un infinitesimo 
+% cioè se~\(\gamma\) è un infinitesimo di \(\epsilon\)
+In questo caso 
+si dice che \(\gamma\) è un infinitesimo di \emph{ordine superiore} a 
+\(\epsilon\) e si scrive:
+\[\gamma=o(\epsilon)\]
+% \end{osservazione}
+\begin{definizione}
+ Diremo che \(\gamma\) è un \textbf{infinitesimo di ordine superiore} a 
+\(\epsilon\) se il rapporto tra \(\gamma\) e \(\epsilon\) è un infinitesimo:
+\[\gamma=o(\epsilon) \sLRarrow \frac{\gamma}{\epsilon}=\delta\]
+Diremo anche che 
+\(\epsilon\) è un \textbf{infinitesimo di ordine inferiore} a \(\gamma\).
+\end{definizione}
+
+\subsubsection{Confronto tra infiniti}
+\label{subsubsec:insnum_confrontoreali}
+
+Anche tra gli infiniti possiamo effettuare il confronto calcolando la 
+differenza tra due numeri o il quoziente e anche tra gli infiniti l'uso del 
+quoziente ci dà delle informazioni interessanti.
+
+% \paragraph{Infinito più infinitesimo}
+% Confrontiamo \(M+\epsilon\) con \(M\). 
+% Usando il primo metodo:
+% \[M+\epsilon-M = \epsilon > 0\]
+% e usando il secondo metodo: 
+% \[\frac{M+\epsilon}{M} =
+%   \frac{M}{M} \frac{\epsilon}{M} = 
+%   1 + \frac{\epsilon}{M} > 1\]
+
+\paragraph{Infinito più finito}
+Se \(a\) è un finito positivo (anche infinitesimo), confrontiamo \(M+a\) 
+con \(M\). 
+Usando il primo metodo:
+\[M+a-M = a > 0\]
+e usando il secondo metodo: 
+\[\frac{M+a}{M} =
+  \frac{M}{M} + \frac{a}{M} = 
+  1 + \frac{a}{M} > 1\]
+\paragraph{Somma di infiniti}
+Se \(M\) e \(N\) sono due infiniti positivi, confrontiamo \(M+N\) 
+con \(M\). 
+Usando il primo metodo:
+\[M+N-M = N > 0\]
+e usando il secondo metodo: 
+\[\frac{M+N}{M} =
+  \frac{M}{M} + \frac{N}{M} = 
+  1 + \frac{N}{M} > 1\]
+\paragraph{Multiplo}
+Se \(n>1\), confrontiamo \(nM\) con \(M\). 
+Usando il primo metodo:
+\[\forall n>1 \quad nM-M = \tonda{n-1}M > 0\]
+e usando il secondo metodo: 
+\[\frac{nM}{M} = n > 1\]
+\begin{definizione}
+ Diremo che \(M\) e \(N\) sono \textbf{infiniti dello stesso ordine}  
+se il rapporto tra \(M\) e \(N\) è un finito non infinitesimo.
+\end{definizione}
+\paragraph{Infinito di infinito}
+Confrontiamo \(MN\) con \(M\). 
+Usando il primo metodo:
+\[MN-M = \tonda{N-1}M > 0\]
+e usando il secondo metodo: 
+\[\frac{MN}{M} = N > 1\]
+% \begin{osservazione}
+In questo caso il rapporto non solo è maggiore di~1 ma è addirittura un 
+\emph{infinito}. 
+\begin{definizione}
+ Diremo che \(M\) è un \textbf{infinito di ordine superiore} a 
+\(N\) se il rapporto tra \(M\) e \(N\) è un infinito:
+\[M=\omega(N) \sLRarrow \frac{M}{N}=I\]
+Diremo anche che 
+\(N\) è un \textbf{infinito di ordine inferiore} a \(M\).
+\end{definizione}
+% Quando il rapporto tra due infiniti è un infinito cioè 
+% se~\(A\) vale infinite volte~\(B\) diremo che~\(A\) è un infinito di 
+% \emph{ordine superiore} a~\(B\).
+% \end{osservazione}
+% 
+% \vspace{1em}
+% Ora confrontiamo \(M\) con \(MN\) usando il secondo metodo: 
+% \[\frac{M}{MN} = \frac{1}{N} = \epsilon < 1\]
+% 
+% \begin{osservazione}
+% In questo caso il rapporto non solo è minore di~1 ma è addirittura un 
+% \emph{infinitesimo}. 
+% Quando il rapporto tra due infiniti è un infinitesimo cioè 
+% se~\(B\) vale infinite volte~\(A\) diremo che~\(A\) è un infinito di 
+% \emph{ordine inferiore} a~\(B\).
+% \end{osservazione}
+
+\vspace{1em}
+A volte il confronto tra due Iperreali è meno immediato dei casi precedenti:
+\begin{esempio}
+ Confrontare \(M\) e \(2^M\). 
+ Dobbiamo calcolare: \(\frac{M}{2^M}\). 
+Possiamo usare un duplice trucco: 
+\begin{itemize} [nosep]
+ \item invece di confrontare \(M\) e \(2^M\) confrontiamo \(M^2\) e \(2^M\);
+ \item invece che confrontare direttamente i due valori richiesti, vediamo 
+come si comportano, con numeri naturali piccoli, le due funzioni 
+\(y_1=x^2\) e \(y_2=2^x\)
+\end{itemize}
+% invece che confrontare direttamente i due 
+% valori 
+% richiesti, vediamo come si comportano, con numeri naturali piccoli le due 
+% funzioni  
+% % \(y_1=\angolare{x^2}\) e \(y_2=\angolare{2^x}\):
+% \(y_1=x^2\) e \(y_2=2^x\):
+\begin{center}
+\begin{tabular}{cccccccc}
+\(x^2\) & 0 & 1 & 4 & 9 & 16 & 25 & 36\\
+\(2^x\) & 1 & 2 & 4 & 8 & 16 & 32 & 64
+\end{tabular}
+\end{center}
+Possiamo vedere che dal quinto elemento in poi la prima successione è sempre
+maggiore della seconda ed essendo l'infinito più grande di cinque 
+otteniamo che \(2^M > M^2\) quindi possiamo scrivere:
+\[\frac{M}{2^M} < \frac{M}{M^2} = \frac{1}{M} < 1\]
+Ma \(\frac{1}{M}\) è un infinitesimo quindi \(M\) è un infinito di ordine 
+inferiore a \(2^M\).
+\end{esempio}
+
+In conclusione, possiamo confrontare fra di loro i numeri Iperreali 
+utilizzando la differenza o il quoziente tra i numeri. L'uso del quoziente 
+ci permette di ricavare un'informazione interessante l'ordine di 
+infinitesimo o di infinito.
+\begin{itemize} [noitemsep]
+ \item un infinitesimo di ordine superiore è un infinitesimo infinitamente 
+ più piccolo;
+ \item un infinito di ordine superiore è un infinito infinitamente più 
+grande.
+\end{itemize}
+
+\subsection{Indistinguibili}
+\label{subsec:insnum_indistinguibili}
+
+Quando risolviamo un problema pratico, a noi serve, alla fine dei calcoli, 
+ottenere un numero razionale, con un certo numero di cifre significative.
+È chiaro che se il risultato di un calcolo è~\(4,37+5\epsilon\) sostituire 
+questo risultato con il più semplice~4,37 non ci fa perdere in precisione, 
+in questo caso~\(5\epsilon\) può essere trascurato.
+Ben diverso è se all'interno di un calcolo  
+otteniamo:~\(\epsilon+5\epsilon\), in questo caso non posso 
+trascurare~\(5\epsilon\) anche se è una quantità infinitesima. 
+
+In certi casi posso avere due espressioni diverse che, in prima 
+approssimazione, possono essere considerate equivalenti. Quando è così dirò 
+che i due numeri iperreali sono \emph{indistinguibili}.
+Due numeri sono indistinguibili quando la differenza tra i due è 
+infinitesima rispetto a ciascuno dei due.
+
+\begin{definizione}
+Due numeri si dicono \textbf{indistinguibili} (simbolo:~\(\sim\)) se il 
+rapporto tra la loro differenza e ciascuno di essi è un infinitesimo:
+\[x \sim y \sLRarrow 
+\tonda{\frac{y-x}{x} = \epsilon \quad \wedge \quad \frac{y-x}{y} = \delta}
+\]
+\end{definizione}
+
+\begin{osservazione}
+ È importante osservare che per poter applicare la definizione entrambi i 
+numeri che vogliamo confrontare devono essere diversi da \emph{zero}.
+Cioè nessun numero diverso da zero può essere considerato indistinguibile 
+da zero:~\(\nexists~x \neq 0 ~|~x \sim 0\)
+\end{osservazione}
+
+Di seguito esploriamo i tre casi possibili.
+
+\subsubsection{Finiti non infinitesimi}
+\label{subsubsec:insnum_finitini}
+
+Se due numeri finiti non infinitesimi differiscono per un 
+infinitesimo, sono indistinguibili.
+
+\begin{teorema}
+Due numeri \(x\) e \(y\), finiti non infinitesimi, 
+sono indistinguibili se e solo se sono infinitamente vicini:
+\[x \approx y \sLRarrow x \sim y\]
+\end{teorema}
+
+\begin{proof}
+Iniziamo dimostrando che se sono infinitamente vicini allora sono 
+indistinguibili:
+\begin{center}
+Ipotesi: \(\tonda{x,~y:\ fni \sand y = x+\epsilon} \qquad \sLRarrow \qquad\) 
+Tesi: \(x \sim y\).
+\end{center}
+Dimostrazione
+\[\frac{y-x}{x}=\frac{x-\tonda{x+\epsilon}}{x} = 
+\frac{\epsilon}{x}= \gamma \quad \wedge \quad 
+\frac{y-x}{x}=\frac{x-\tonda{x+\epsilon}}{y} = 
+\frac{\epsilon}{y}= \delta
+\]
+Il teorema inverso dirà:
+\begin{center}
+Ipotesi: \(\tonda{x,~y:\ fni \sand x \sim y} \qquad \sLRarrow \qquad\) 
+Tesi: \(x \approx y\).
+\end{center}
+Dimostrazione
+\[\frac{y-x}{x} = \epsilon
+\sRarrow y-x=\epsilon x \sRarrow x=y+\epsilon x=y+\beta 
+\]
+\end{proof}
+
+\subsubsection{Infinitesimi}
+\label{subsubsec:insnum_infinitesimi}
+
+Per quanto riguarda gli infinitesimi, non basta che siano infinitamente 
+vicini infatti tutti gli infinitesimi sono infinitamente vicini tra di loro.
+Per essere indistinguibili serve una condizione più ristretta.
+
+\begin{teorema}
+Due numeri \(\alpha\) e \(\beta\), infinitesimi, 
+sono indistinguibili se e solo se la loro differenza è un infinitesimo di 
+ordine superiore.
+\[\beta-\alpha = o(\alpha) \sLRarrow \alpha \sim \beta\] 
+\end{teorema}
+
+\begin{osservazione}
+ Se due infinitesimi differiscono per un infinitesimo di ordine superiore 
+allora sono dello stesso ordine, quindi la differenza sarà di ordine 
+superiore sia al primo sia al secondo infinitesimo.
+\end{osservazione}
+
+\begin{proof}
+Iniziamo dimostrando che se differiscono per un infinitesimo di ordine 
+superiore allora sono indistinguibili:
+\begin{center}
+Ipotesi: \(\tonda{\alpha,~\beta:\ inn \sand \beta = \alpha +o(\alpha)}
+\qquad \sLRarrow\qquad\) 
+Tesi: \(\alpha \sim \beta\)
+\end{center}
+Dimostrazione
+\[\frac{\beta-\alpha}{\alpha}=
+\frac{\alpha-\tonda{\alpha +o(\alpha)}}{\alpha} = 
+\frac{o(\alpha)}{\alpha}= \gamma \quad \wedge \quad 
+\frac{\beta-\alpha}{\beta}=
+\frac{\alpha-\tonda{\alpha +o(\beta)}}{\beta} = 
+\frac{o(\beta)}{\beta}= \delta
+\]
+Il teorema inverso dirà:
+\begin{center}
+Ipotesi: \(\tonda{\alpha,~\beta:\ inn \sand \alpha \sim \beta}
+\qquad \sLRarrow \qquad\) 
+Tesi: \(\beta-\alpha = o(\alpha)\)
+\end{center}
+Dimostrazione
+\[\frac{\beta - \alpha}{\alpha} = \epsilon \sRarrow 
+\beta - \alpha =\epsilon \alpha \sRarrow 
+\beta - \alpha = o(\alpha)
+\]
+\end{proof}
+
+\subsubsection{Infiniti}
+\label{subsubsec:insnum_infiniti}
+
+La situazione si ribalta se i due numeri sono infiniti infatti, in 
+questo caso, sono indistinguibili anche se differiscono di 
+un valore finito o addirittura infinito. 
+
+Si può dimostrare il seguente
+\begin{teorema}
+Due numeri \(M\) e \(N\), infiniti, 
+sono indistinguibili se e solo se la loro differenza è un finito o 
+un infinito di ordine inferiore.
+\[M-N = a \sRarrow M \sim N\] 
+e vale anche:
+\[\tonda{M-N = P \text{ con P infinito di ordine inferiore }} 
+\sRarrow M \sim N\] 
+\end{teorema}
+\begin{proof}
+Di seguito dimostriamo che se differiscono per un finito allora 
+sono indistinguibili:
+\begin{center}
+Ipotesi: \(\tonda{M,~N:\ I \sand N = M+a}
+\qquad \sLRarrow\qquad\) 
+Tesi: \(M \sim N\)
+\end{center}
+Dimostrazione
+\[\frac{M-N}{M}=
+\frac{M-\tonda{M +a}}{M} = 
+-\frac{a}{M}= \epsilon \quad \wedge \quad 
+\frac{M-N}{N}=
+\frac{M-\tonda{N +a}}{N} = 
+-\frac{a}{N}= \delta
+\]
+In modo analogo si può procedere con la second parte del teorema.
+\end{proof}
+
+\subsection{Principio di tranfer}
+\label{subsec:insnum_nonarchimedei}
+
+Abbiamo applicato agli Iperreali le operazioni aritmetiche con grande 
+naturalezza estendendo i metodi e i risultati che già conosciamo nei Reali. 
+Ma è possibile fare ciò per qualunque funzione? 
+Sì, è possibile assumere che per ogni funzione definita nei Reali esista 
+una 
+corrispondente funzione con dominio e codominio negli Iperreali che, 
+ristretta ai Reali, coincida con la funzione reale.
+In questo modo tutto quello che è possibile fare con i numeri Reali lo si 
+può 
+fare anche con gli Iperreali.
+
+\begin{osservazione}
+ Non vale il viceversa. Dato che gli Iperreali estendono i Reali, ci sono 
+delle funzioni che, definite negli Iperreali, non hanno un valore 
+corrispondente nei Reali. Ad esempio la funzione iperreale \emph{parte 
+standard} non ha una funzione corrispondente nei numeri reali.
+
+\begin{esempio}
+ Consideriamo ad esempio la funzione: 
+\(f: x \mapsto \frac{1}{x} \quad \forall x \in \R\), definita per \(x\ne 0\)
+
+È facile costruire la funzione \(\effestar\) (\emph{effe star}) con dominio e 
+codominio negli Iperreali:
+
+\(\effestar: x \mapsto \frac{1}{x} \quad \forall x \in \IR\), definita per 
+\(x\ne 0\).
+
+Ogni volta che \(\effestar\) è applicata a numeri standard (fni), si comporta 
+come
+la funzione \(f\), applicata a \(x \in \R\); ma, in più, la 
+funzione~\(\effestar\):
+\begin{itemize} [noitemsep]
+ \item 
+è definita anche per valori infinitamente vicini a zero e 
+in questo caso dà come risultato un valore infinito che non è un numero 
+reale;
+ \item 
+è definita anche per valori infiniti e
+in questo caso dà come risultato un valore infinitesimo che non è un numero 
+reale. 
+\end{itemize}
+\end{esempio}
+\end{osservazione}
+
+\section{Applicazioni}
+\label{sec:insnum_applicazioni}
+
+Dopo aver dato un'occhiata a cosa sono e come funzionano i numeri iperreali 
+vediamo qualche problema che si può convenientemente risolvere con gli 
+Iperreali.
+
+\subsection{Problemi con gli Iperreali}
+\label{subsec:insnum_problemi}
+
+\begin{esempio}
+ % Quadrato di lato l+eps.
+Calcola l'area iperreale di una cornice quadrata, di lato interno pari a 
+\(l\) e
+spessore infinitesimo \(\epsilon\). Calcola infine l'area reale.\\
+Chiamiamo \(dS\) l'area iperreale della cornice:
+\(dS=\tonda{l+\epsilon^2}
+-l^2=l^2+2l\epsilon+\epsilon^2-l^2=2l\epsilon+\epsilon^2.\)\\
+Chiamiamo \(\Delta S\) la corrispondente area reale:
+\(\Delta S=\st\tonda{dS}=\st\tonda{2l\epsilon+\epsilon^2}=
+\st(2l\epsilon)+\st(\epsilon^2)=0+0=0\).\\
+Poiché la differenza di area \(dS\) è la somma di due infinitesimi, uno del 
+primo e 
+l'altro del secondo ordine, la parte standard di entrambi è nulla e la 
+somma 
+risulta nulla. In conclusione, se l'incremento del lato è infinitesimo,
+cioè infinitamente vicino a zero, a maggior ragione sarà infinitamente 
+vicino
+a zero l'incremento dell'area.
+\end{esempio}
+
+\begin{esempio}
+ % contrazione circonferenza.
+Calcola di quanto diminuisce rispetto al raggio una circonferenza di raggio 
+\(r\),
+quando il raggio subisce una contrazione infinitesima \(dr=-\epsilon\).\\
+Chiamiamo \(dC\) (differenza di C) la contrazione della circonferenza:
+\(dC=2\pi r-2\pi (r-\epsilon)=2\pi r-2\pi r+2\pi \epsilon= 2\pi \epsilon\).
+Dunque la circonferenza si riduce di un infinitesimo, cioè \(0\) in numeri 
+standard.
+Ma se misuriamo la riduzione della circonferenza in termini
+di riduzione del raggio, si ha:
+\(\frac{dC}{dr}=\frac{2\pi \epsilon}{-\epsilon}=-2\pi\): ogni unità di 
+variazione 
+del raggio, comporta una variazione della circonferenza pari a \(2\pi\).
+\end{esempio}
+
+\begin{esempio}
+ % guscio sferico.
+Quanto volume acquisisce un guscio sferico di raggio \(r\) nel gonfiarsi
+progressivamente?\\
+Volume iniziale: \(V(r)=\frac{4}{3}\pi r^3\). Se il raggio aumenta e diventa 
+\(r+\epsilon\), 
+la variazione di volume sarà:\\
+\(V(r+\epsilon)-V(r)=\frac{4}{3}\pi (r+\epsilon)^3-\frac{4}{3}\pi r^3=
+\frac{4}{3}\pi (r^3+3r^2\epsilon+3r\epsilon^2+\epsilon^3-r^3)=
+\frac{4}{3}\pi (3r^2\epsilon+3r\epsilon^2+\epsilon^3)\).\\
+Per sapere quanto varia il volume per ogni variazione infinitesima di 
+raggio, si calcola:\\
+\(\frac{dV}{dr}=\frac{\frac{4}{3}\pi 
+(3r^2\epsilon+3r\epsilon^2+\epsilon^3)}{\epsilon}=
+\frac{4}{3}\pi (3r^2+3r\epsilon+\epsilon^2)\), che è un numero di tipo inn.
+La sua parte standard è \(\st\tonda{\frac{dV}{dr}}=4\pi r^2\). Nota che questa
+è l'espressione dell'area della superficie sferica. Come era prevedibile, 
+infatti, 
+un guscio sferico di spessore infinitesimo approssima la superficie sferica.
+\end{esempio}
+
+\subsection{Espressioni con gli Iperreali}
+\label{subsec:insnum_espressioni}
+
+I numeri iperreali semplificano la ricerca della soluzione di molti 
+problemi.
+Il calcolo delle soluzioni ci porta a risultati espressi quasi sempre da 
+numeri standard, che corrispondono ai reali. Infatti ,quasi sempre, il 
+calcolo termina ricorrendo alla funzione \(\st()\).\\
+Questo metodo, cioè ricorrere ad un insieme più astratto di \(\R\), 
+svolgervi i calcoli secondo le nuove regole e alla fine esprimere i 
+risultati in \(\R\), 
+sembra inutilmente complicato, 
+ma in realtà semplifica la soluzione di molti problemi 
+(come vedremo più avanti).
+
+Vediamo, con alcuni esempi, come si possono applicare 
+le regole presentate in precedenza al calcolo di espressioni 
+contenenti numeri Iperreali. 
+Di seguito richiamiamo le convenzioni già presentate:
+\begin{itemize} [nosep]
+ \item con le lettere greche minuscole indichiamo gli infinitesimi non 
+nulli;
+ \item con \emph{x, y, z} indichiamo un numero iperreale qualsiasi;
+ \item con le altre lettere latine minuscole indichiamo i numeri finiti non 
+infinitesimi;
+ \item con le lettere latine maiuscole indichiamo gli infiniti.;
+ \item con \(\pst{x}\) indichiamo la parte standard di \(x\).
+\end{itemize}
+
+\begin{esempio}
+Calcola un valore indistinguibile da:
+\(\dfrac{7 -3 \epsilon}{9 +2 \delta}\)
+\[\dfrac{7 -2 \epsilon}{9 +3 \delta} 
+~ \stackrel{1}{=} ~
+  \dfrac{7 -\alpha}{9 +\beta}
+~ \stackrel{2}{\sim} ~ \dfrac{7}{9}\]
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep] 
+ \item se \(\epsilon \text{ e } \delta\) sono infinitesimi, 
+ anche \(3\epsilon\) e \(2 \delta\) sono infinitesimi;
+ \item la somma algebrica di un numero non infinitesimo e un numero 
+infinitesimo è indistinguibile dal numero non infinitesimo.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Calcola un valore indistinguibile da:
+\(\dfrac{4 \epsilon^4 -7 \epsilon^3 + \epsilon^2}{5 \epsilon}\)
+\[\dfrac{4 \epsilon^4 -7 \epsilon^3 + \epsilon^2}{5 \epsilon} 
+~ \stackrel{1}{=} ~
+  \dfrac{\tonda{4 \epsilon^3 -7 \epsilon^2 + \epsilon} \cancel{\epsilon}}
+                    {5 \cancel{\epsilon}} 
+~ \stackrel{2}{=} ~ 
+  \dfrac{4 \epsilon^3 -7 \epsilon^2 + \epsilon}{5}
+~ \stackrel{3}{=} ~
+  \dfrac{\alpha}{5}
+~ \stackrel{4}{=} ~
+  \beta
+~ \stackrel{5}{\approx} ~
+  0\]
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item si può raccogliere \(\epsilon\) al numeratore; 
+ \item dato che \(\epsilon\) è diverso da zero, si può semplificare la 
+frazione; 
+ \item i prodotti tra un finito e un infinitesimo sono infinitesimi e la 
+somma di infinitesimi è un infinitesimo;
+ \item il quoziente tra un infinitesimo e un non infinitesimo è un 
+infinitesimo che qui chiamiamo (\(\alpha\));
+ \item Un infinitesimo è infinitamente vicino (\(\approx\)) a zero. 
+Ma zero non può mai essere indistinguibile da un infinitesimo non nullo!
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+La stessa espressione, con un altro metodo:
+\(\dfrac{4 \epsilon^4 -7 \epsilon^3 + \epsilon^2}{5 \epsilon}\)
+
+Allo stesso risultato si perviene utilizzando nel primo passaggio la 
+relazione: \emph{essere indistinguibili}:
+\[\dfrac{4 \epsilon^4 -7 \epsilon^3 + \epsilon^2}{5 \epsilon} 
+~ \stackrel{1}{\sim} ~
+  \dfrac{\epsilon^{\cancel{2}}}{5 \cancel{\epsilon}} 
+~ \stackrel{2}{=} ~
+  \dfrac{\epsilon}{5}
+~ \stackrel{3}{\approx} ~
+  0\]
+
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item tengo solo la parte principale del numeratore e del denominatore, 
+cioè ignoro gli infinitesimi di ordine superiore; 
+ \item riduco la frazione semplificando i fattori uguali; 
+ \item il quoziente tra un infinitesimo e un non infinitesimo è un 
+infinitesimo che è infinitamente vicino a (non indistinguibile da) zero.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Calcola un valore indistinguibile da:
+\(\dfrac{5\epsilon -3 \epsilon^2 + 6 \epsilon^3}
+         {2\epsilon + 4 \epsilon^2}\)
+\[\dfrac{5\epsilon -3 \epsilon^2 + 6 \epsilon^3}
+         {2\epsilon + 4 \epsilon^2} 
+~ \stackrel{1}{\sim} ~
+  \dfrac{5 \cancel{\epsilon}}{2 \cancel{\epsilon}} 
+~ \stackrel{2}{=} ~
+  \dfrac{5}{2}\]
+\begin{enumerate} [nosep]
+ \item Tengo solo la parte principale dei polinomi ottenendo un'espressione 
+indistinguibile;
+ \item riduco la frazione semplificando i fattori uguali.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Calcola:\quad \(\pst{\dfrac{-6\epsilon^2 +4 \epsilon^3 -8 \epsilon^5}
+             {7\epsilon^3 + 2 \epsilon^4}}\)
+\[\pst{\dfrac{-6\epsilon^2 +4 \epsilon^3 -8 \epsilon^5}
+             {7\epsilon^3 + 2 \epsilon^4}} 
+~ \stackrel{1}{=} ~
+  \pst{\dfrac{-6\cancel{\epsilon^2}}
+             {7\epsilon^{\cancel{3}}}} 
+~ \stackrel{2}{=} ~
+  \pst{-\dfrac{6}{7\epsilon}}  
+~ \stackrel{3}{=} ~
+  \pst{-M} 
+~ \stackrel{4}{\longrightarrow} ~
+  \infty\]
+
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item tengo solo la parte principale dei polinomi ottenendo un'espressione 
+indistinguibile che, quindi ha la stessa parte standard;
+ \item semplifico i fattori uguali;
+ \item il quoziente tra un finito e un infinitesimo non nullo è un 
+infinito (\(M\));
+ \item l'infinito non ha parte standard ma viene indicato in analisi con 
+il simbolo: \(\infty\) (che, comunque, non è un numero reale).
+\end{enumerate}
+\begin{osservazione}
+ Attenzione, non possiamo dire se \(\infty\) sarà positivo o negativo 
+infatti, in questo caso, se \(\epsilon\) è positivo, l'infinito sarà 
+negativo,  se \(\epsilon\) è negativo, l'infinito sarà positivo.
+\end{osservazione}
+\end{esempio}
+
+\begin{esempio}
+Calcola: \quad \(\pst{\dfrac{-3H^2 -4H}{2H^2 +4H -3}}\)
+\[\pst{\dfrac{-3H^2 -4H}{2H^2 +4H -3}} 
+~ \stackrel{1}{=} ~
+  \pst{\dfrac{-3\cancel{H^2}}{2\cancel{H^2}}} 
+~ \stackrel{2}{=} ~
+  \pst{\dfrac{-3}{2}} 
+~ \stackrel{3}{=} ~
+  -\dfrac{3}{2}\]
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item teniamo la parte principale delle espressioni tenendo solo gli 
+infiniti ordine maggiore; 
+ \item semplifichiamo i fattori uguali al numeratore e al denominatore; 
+ \item teniamo la parte standard.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Calcola: \quad \(\pst{\tonda{7 -3\epsilon} - \tonda{7 +8\epsilon}}\)
+
+\begin{osservazione}
+ Si potrebbe pensare che essendo~\(7 -3\epsilon\) indistinguibile da~\(7\) 
+e~\(7 +8\epsilon\) indistinguibile da~\(7\) la precedente espressione 
+sia indistinguibile da \(7 - 7 = 0\).
+Ma il concetto di indistinguibile non si può mai applicare tra un numero e 
+lo zero quindi non possiamo dire che 
+\(\tonda{7 -3\epsilon} - \tonda{7 +8\epsilon} \sim 0\) e 
+tanto meno: \(\tonda{7 -3\epsilon} - \tonda{7 +8\epsilon} = 0\).
+\end{osservazione}
+
+In questo caso la soluzione è semplice...
+\[\pst{\tonda{7 -3\epsilon} - \tonda{7 +8\epsilon}}
+~ \stackrel{1}{=} ~
+   \pst{7 -3\epsilon -7 -8\epsilon} 
+~ \stackrel{2}{=} ~
+   \pst{-11 \epsilon}
+~ \stackrel{3}{=} ~ 0\]
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item semplifichiamo l'espressione eliminando le parentesi; 
+ \item \(7\) e \(-7\) si annullano; 
+ \item la parte standard di un infinitesimo è zero.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Calcola un valore indistinguibile da:
+\(\sqrt{4H^2 -3H} - \sqrt{4H^2 +1}\)
+
+\begin{osservazione}
+ Anche qui si potrebbe pensare che essendo~\(4H^2 -3H\) indistinguibile 
+da~\(4H^2\) e~\(4H^2 +1\) indistinguibile da~\(4H^2\) la precedente 
+espressione sia indistinguibile da \\
+\(\sqrt{4H^2} - \sqrt{4H^2} = 0\)\\
+Ma il concetto di indistinguibile, per come è definito, non si può mai 
+applicare tra un numero e lo zero quindi non possiamo dire che 
+\(\sqrt{4H^2 -3H} - \sqrt{4H^2 +1} \approx 0\).
+\end{osservazione}\\
+
+In questo caso usiamo un trucco una specie di inverso della 
+razionalizzazione:
+
+\(\sqrt{4H^2 -3H} - \sqrt{4H^2 +1}
+~ \stackrel{1}{=} ~
+   \tonda{\sqrt{4H^2 -3H} - \sqrt{4H^2 +1}} \cdot 1 
+~ \stackrel{2}{=} ~\)
+
+\(~ \stackrel{2}{=} ~\tonda{\sqrt{4H^2 -3H}-\sqrt{4H^2 +1}} \cdot 
+   \dfrac{\sqrt{4H^2 -3H}+\sqrt{4H^2 +1}}{\sqrt{4H^2 -3H}+\sqrt{4H^2+1}}
+~ \stackrel{3}{=} ~\)
+
+\(~ \stackrel{3}{=} ~
+   \dfrac{\cancel{4H^2} -3H - \cancel{4H^2} -1}
+         {\sqrt{4H^2 -3H}+\sqrt{4H^2+1}}
+~ \stackrel{4}{\sim} ~
+   \dfrac{-3H}{\sqrt{4H^2} + \sqrt{4H^2}}
+~ \stackrel{5}{=} ~
+   \dfrac{-3\cancel{H}}{4\cancel{H}}
+~ \stackrel{}{=} ~
+   -\dfrac{3}{4}\)\\
+
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item la prima uguaglianza è banale essendo~1 l'elemento 
+neutro della moltiplicazione; 
+ \item al posto del numero~1 sostituiamo una frazione con 
+il numeratore e il denominatore uguali; 
+ \item eseguendo il prodotto magari tenendo conto di uno 
+dei prodotti notevoli imparati qualche anno fa, otteniamo questa 
+frazione;
+ \item tenendo conto che \(+H\) e \(-H\) si annullano 
+otteniamo una nuova frazione che, a prima vista non sembra 
+aver semplificato il problema iniziale, 
+ma a denominatore non ho una differenza tra due radici 
+ma una somma e quindi posso ottenere un'espressione più semplice 
+indistinguibile da quella originale;
+ \item estraiamo le radici, sommiamo, semplifichiamo.
+\end{enumerate}
+\end{esempio}
+
+
+
+\begin{comment}
+TODO
+Iniziamo studiando più in particolare come eseguire i calcoli in 
+\(\IR\). 
+Riprendiamo il problema della velocità istantanea visto nel paragrafo 
+\ref{subsec:insnum_velocita}.
+
+
+\subsection{Vertice della parabola}
+\label{subsec:insnum_vertice_parabola}
+
+
+\subsection{Tangenti ad una parabola}
+\label{subsec:insnum_tangenti_parabola}
+
+
+\subsection{Cerchio osculatore}
+\label{subsec:insnum_cerchio_osculatore}
+
+
+\subsection{Area di un segmento parabolico}
+\label{subsec:insnum_segmento_parabolico}
+
+
+\subsection{Problemi di massimo o minimo}
+\label{subsec:insnum_massimo_minimo}
+
+\end{comment}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

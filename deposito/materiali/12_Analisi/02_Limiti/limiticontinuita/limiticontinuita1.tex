@@ -1,0 +1,874 @@
+% (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
+
+\input{\folder limiticontinuita1_grafici.tex}
+
+\chapter{Funzioni: limiti e continuità}
+
+\section{Limiti}
+\label{sec:cont_limiti}
+
+\footnote{Per scrivere questo capitolo mi sono ispirato 
+al testo di H. Jerome KeislerKeissler ``Elementary Calculus: An Infinitesimal 
+Approach''. 
+Chi volesse approfondire l'argomento può acquistare il testo 
+all'indirizzo: 
+\href{https://www.math.wisc.edu/~keisler/calc.html}
+     {www.math.wisc.edu/~keisler/calc.html}}
+In alcuni problemi non siamo interessati a sapere come si comporta una funzione 
+per un valore ben preciso, ci interessa di più 
+sapere come si comporta quando la variabile \(x\) è \emph{infinitamente 
+vicina} a quel valore.
+Per un certo valore di \(x\) potrebbe anche \emph{non} essere definita, ma 
+cosa succede quando \(x\) si avvicina infinitamente a quel valore?
+
+Vediamo un esempio:
+
+\begin{esempio}
+ Studia l'Insieme di Definizione della funzione: 
+ \(\dfrac{x^2-6x+5}{x^2+2x-3}\)
+ Poi studia come si comporta la funzione per valori infinitamente vicini 
+agli estremi dell'Insieme di Definizione.
+
+La funzione fratta non è definita quando il denominatore vale zero:
+\[x^2+2x-3=0 \sRarrow \tonda{x+3}\tonda{x-1}=0 \sRarrow x_1=-3;~x_2=+1\]
+L'insieme di definizione è formato quindi dai seguenti intervalli:
+\[\intervaa{-\infty}{-3} \quad \cup \quad \intervaa{+1}{-\infty}\]
+Calcoliamo alcuni valori della funzione ``vicini'' agli estremi 
+dell'Insieme di Definizione.
+
+\begin{minipage}{.24\textwidth}
+\begin{center}
+\(-\infty\)\\
+\begin{tabular}{r|r}
+x & y\\\hline
+-100 & 1.0824 \\
+-1000 & 1.0080 \\
+-10000 & 1.0008 \\
+&\\
+&\\
+&
+\end{tabular}
+\end{center}
+\end{minipage}
+\begin{minipage}{.24\textwidth}
+\begin{center}
+\(-3\)\\
+\begin{tabular}{r|r}
+x & y\\\hline
+-2.9 & -79.0 \\
+-2.99 & -799.0 \\
+-2.999 & -7999.0 \\
+-3.001 & 8001.0 \\
+-3.01 & 801.0 \\
+-3.1 & 80.9 \\
+\end{tabular}
+\end{center}
+\end{minipage}
+\begin{minipage}{.24\textwidth}
+\begin{center}
+\(+1\)\\
+\begin{tabular}{r|r}
+x & y\\\hline
+0.9 & -1.0512\\
+0.99 & -1.0050 \\
+0.999 & -1.0005 \\
+1.001 & -0.9995 \\
+1.01 & -0.9950 \\
+1.1 & -0.9512 \\
+\end{tabular}
+\end{center}
+\end{minipage}
+\begin{minipage}{.24\textwidth}
+\begin{center}
+\(+\infty\)\\
+\begin{tabular}{r|r}
+x & y\\\hline
+100 & 0.9223 \\
+1000 & 0.9920 \\
+10000 & 0.9992 \\
+&\\
+&\\
+&
+\end{tabular}
+\end{center}
+\end{minipage}
+Possiamo osservare che:
+\begin{itemize} [nosep]
+ \item 
+Quando \(x\) si avvicina a meno infinito, \(f(x)\) si avvicina a~\(1\) dall'alto.
+ \item 
+Quando \(x\) si avvicina a~\(-3\) da sinistra, \(f(x)\) diventa sempre più 
+piccolo.
+ \item 
+Quando \(x\) si avvicina a~\(-3\) da destra, \(f(x)\) diventa sempre più 
+grande.
+ \item 
+Quando \(x\) si avvicina a~\(+1\) da sinistra, \(f(x)\)  si avvicina a~\(-1\) dal 
+basso.
+ \item 
+Quando \(x\) si avvicina a~\(+1\) da sinistra, \(f(x)\)  si avvicina a~\(-1\) 
+dall'alto.
+ \item 
+Quando \(x\) si avvicina a più infinito, \(f(x)\) si avvicina a~\(1\) dal basso.
+\end{itemize}
+\begin{center}\scalebox{.6}{\limitigraficoa}\end{center}
+\end{esempio}
+
+Osservando il grafico provate a descrivere a parole cosa succede: 
+\begin{itemize} [nosep]
+ \item quando \(x\) si avvicina a \(-\infty\); 
+ \item quando si avvicina a \(-3\) e quando vale proprio \(-3\);
+ \item quando si avvicina a \(+1\) e quando vale proprio \(+1\); 
+ \item e, infine, quando si avvicina a \(+\infty\).
+\end{itemize}
+\vspace{1em}
+Prima della nascita dell'analisi non standard, per trattare queste 
+situazioni i matematici si sono inventati il concetto di 
+\emph{limite}.
+
+\begin{definizione}
+\(l\) è il \textbf{limite} di una funzione \(f(x)\) per \(x\) 
+che tende a un 
+valore \(c\), se, quando \(x\) è infinitamente vicino a \(c\), 
+ma diverso da \(c\), 
+allora \(f(x)\) è infinitamente vicino a \(l\). E si scrive:
+
+\[l=\lim_{x \rightarrow c} f(x) \Leftrightarrow 
+\forall x \tonda{\tonda{x \approx c \wedge x \neq c} \Rightarrow 
+\tonda{f(x) \approx l}}\]
+\end{definizione}
+
+Per calcolare il limite di una funzione per \(x\) che tende a un certo 
+valore, \(c\), basta calcolare la parte standard del valore della funzione 
+per un numero infinitamente vicino a \(c\):
+\[l=\lim_{x \rightarrow c} f(x) = \pst{f(c+\epsilon)}\]
+
+Nel caso \(c\) sia un numero finito basta sostituire la \(x\) con \(c+\epsilon\) 
+e poi prendere la parte standard.
+
+\begin{esempio}
+Calcola: \quad \(\displaystyle \lim_{x \rightarrow 3} \tonda{x^2-4x+2}\)
+\begin{align*}
+\lim_{x \rightarrow 3} \tonda{x^2-4x+2} & \stackrel{1}{=} 
+  \pst{\tonda{3+\epsilon}^2-4\tonda{3+\epsilon}+2} \stackrel{2}{=}\\  
+  & =\pst{9 + 6 \epsilon + \epsilon^2 - 12 - 4\epsilon + 2} \stackrel{3}{=}
+  \pst{9 - 12 + 2} = -1
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo \(x\) con \(\tonda{3+\epsilon}\);
+ \item eseguiamo i calcoli algebrici;
+ \item sostituiamo l'espressione con una espressione indistinguibile,
+   eseguiamo i calcoli e calcoliamo la parte standard.
+\end{enumerate}
+\end{esempio}
+
+Se \(c=0\) ci possiamo semplificare notevolmente i calcoli ricordando 
+che~\(0 + \epsilon = \epsilon\).
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow 0} \frac{x^2-4x+2}{x^2-4}\)
+\begin{align*}
+\lim_{x \rightarrow 0} \frac{x^2-4x+2}{x^2-4} & \stackrel{1}{=} 
+  \pst{\frac{\epsilon^2-4\epsilon+2}{\epsilon^2-4}} \stackrel{2}{=}  
+  \pst{\frac{2}{-4}} = -\frac{1}{2}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo \(x\) con \(\tonda{0+\epsilon}=\epsilon\);
+ \item sostituiamo l'espressione ottenuta con una espressione 
+   indistinguibile, eseguiamo i calcoli e calcoliamo la parte standard.
+\end{enumerate}
+\end{esempio}
+
+Se \(c\) è un numero infinito sostituiremo \(x\) con un generico 
+infinito~\(M\), svolti i calcoli, prenderemo la parte standard.
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow \infty} \frac{3x^2-3x+7}{5x^2-6}\)
+\begin{align*}
+\lim_{x \rightarrow \infty} \frac{3x^2-3x+7}{5x^2-6} & \stackrel{1}{=} 
+  \pst{\frac{3M^2-3M+7}{5M^2-6}} \stackrel{2}{=}  
+  \pst{\frac{3\cancel{M^2}}{5\cancel{M^2}}} = \frac{3}{5}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo \(x\) con \(M\);
+ \item sostituiamo l'espressione ottenuta con una espressione 
+   indistinguibile, eseguiamo i calcoli e calcoliamo la parte standard.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow -5} \frac{x+5}{x-3}\)
+\begin{align*}
+\lim_{x \rightarrow -5} \frac{x+5}{x-3} & \stackrel{1}{=} 
+  \pst{\frac{-5+\epsilon+5}{-5+\epsilon-3}} \stackrel{2}{=}  
+  \pst{\frac{\epsilon}{\epsilon-8}} \stackrel{3}{=} 
+  \pst{\frac{\epsilon}{-8}} \stackrel{4}{=} \pst{\delta} = 0
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo \(x\) con \(-5+\epsilon\);
+ \item eseguiamo i calcoli;
+ \item sostituiamo l'espressione ottenuta con una espressione 
+   indistinguibile;
+ \item un infinitesimo diviso un finito non infinitesimo dà come risultato 
+un infinitesimo e la sua parte standard è zero.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow 4} \frac{2x+6}{x-4}\)
+\begin{align*}
+\lim_{x \rightarrow 4} \frac{2x+6}{x-4} & \stackrel{1}{=} 
+  \pst{\frac{2\tonda{4+\epsilon}+6}{4+\epsilon-4}} \stackrel{2}{=}  
+  \pst{\frac{14 + 2 \epsilon}{\epsilon}} \stackrel{3}{=} 
+  \pst{\frac{14}{\epsilon}} \stackrel{4}{=} 
+  \pst{M} \stackrel{5}{~\longrightarrow~} \infty
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo \(x\) con \(4+\epsilon\);
+ \item eseguiamo i calcoli;
+ \item sostituiamo l'espressione ottenuta con una espressione 
+   indistinguibile;
+ \item un finito fratto un infinitesimo dà come risultato un infinito; 
+ \item gli infiniti non hanno parte standard quindi qui non possiamo usare 
+l'``\(=\)''. Ma i matematici per indicare un infinito usano il simbolo 
+``\(\infty\)'', quindi quando dobbiamo calcolare la parte standard di un 
+numero non finito, tracceremo una freccia seguita da ``\(\infty\)''.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+\textbf{Importante}, calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow \infty} \tonda{2x-\sqrt{4x^2-8x+3}}\)
+\begin{align*}
+\lim_{x \rightarrow \infty} \tonda{2x-\sqrt{4x^2-8x+3}} & \stackrel{1}{=} 
+  \pst{2M-\sqrt{4M^2-8M+3}} \stackrel{2}{=}  
+  \pst{2M-\sqrt{4M^2}} \stackrel{3}{=} 
+  \pst{2M-2M} = 0
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo \(x\) con \(M\);
+ \item sostituiamo l'espressione ottenuta con una espressione 
+   indistinguibile;
+ \item eseguiamo i calcoli \dots
+\end{enumerate}
+\vspace{1em}
+\begin{minipage}{.69\textwidth}
+Ma questa volta nei ragionamenti fatti c'è un errore. Proviamo a calcolare 
+la funzione per alcuni valori abbastanza grandi di \(x\).
+I risultati dovrebbero avvicinarsi a zero, ma non è così, sembra si 
+avvicinino a due. Dove abbiamo sbagliato?
+\end{minipage}
+\begin{minipage}{.39\textwidth}
+\begin{center}
+\begin{tabular}{r|r}
+x & y\\\hline
+100 & 2.00252 \\
+1000 & 2.00025 \\
+10000 & 2.00002 \\
+\end{tabular}
+\end{center}
+\end{minipage}
+
+Abbiamo usato in modo improprio la relazione \emph{indistinguibile}: 
+abbiamo ottenuto un'espressione indistinguibile da zero, ma ciò non è 
+possibile. Dobbiamo seguire un'altra strada.
+
+Consideriamo l'espressione data come una frazione e razionalizziamo il 
+numeratore:
+\[\lim_{x \rightarrow \infty} \frac{2x-\sqrt{4x^2-8x+3}}{1}=
+  \pst{\frac{\cancel{4M^2}-\cancel{4M^2}+8M-3}{2M+\sqrt{4M^2-8M+3}}}=\]
+Questa volta possiamo sostituire l'espressione sotto radice senza ottenere 
+zero:
+\[=\pst{\frac{8M-3}{2M+\sqrt{4M^2-8M+3}}} =
+   \pst{\frac{8M}{2M+\sqrt{4M^2}}}=\]
+e svolgendo i calcoli otteniamo:
+\[=\pst{\frac{8M}{2M+2M}}=
+   \pst{\frac{8\cancel{M}}{4\cancel{M}}} = 2\]
+\end{esempio}
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6}\)
+ 
+Seguendo il metodo proposto sopra otteniamo:
+
+\begin{align*}
+\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
+\pst{\frac
+  {\tonda{-2+\epsilon}^3+3\tonda{-2+\epsilon}^2+2\tonda{-2+\epsilon}}
+  {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6}} \stackrel{2}{=}\\ 
+  &=\pst{\frac{-8+12\epsilon-6\epsilon^2+\epsilon^3+
+             3\tonda{4-4\epsilon+\epsilon^2}-4+2\epsilon}
+             {4-4\epsilon+\epsilon^2-\tonda{-2+\epsilon}-6}} =\\ 
+  &=\pst{\frac{\cancel{-8}+\cancel{12\epsilon}-6\epsilon^2+\epsilon^3+
+          \cancel{12}\cancel{-12\epsilon}+3\epsilon^2\cancel{-4}+2\epsilon}
+             {\cancel{4}-4\epsilon+
+              \epsilon^2\cancel{+2}-\epsilon\cancel{-6}}}=\\ 
+  &=\pst{\frac{\epsilon^3+2\epsilon}{\epsilon^2-5\epsilon}} = 
+    \pst{\frac{\cancel{\epsilon} \tonda{\epsilon^2+2}}
+             {\cancel{\epsilon} \tonda{\epsilon-5}}}  \stackrel{3}{=} 
+    \pst{\frac{2}{-5}} = -\frac{2}{5}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo \(x\) con \(-2+\epsilon\);
+ \item eseguiamo tutti i calcoli e semplifichiamo;
+ \item sostituiamo l'espressione con una indistinguibile.
+\end{enumerate}
+\end{esempio}
+
+\begin{osservazione}
+Pensate a cosa succederebbe se ci fosse un qualche \(x^4\) \dots
+Vedremo ora un altro modo di calcolare il limite che risulta molto meno 
+complicato.
+
+Nei prossimi due esempi, che vanno studiati assieme, vedremo un metodo che 
+permette di svolgere meno calcoli.
+\end{osservazione}
+
+% 
+% Per essere precisi questo esempio andrebbe affrontato dopo il prossimo 
+% paragrafo sulle funzioni continue. Lo abbiamo inserito qui per completare 
+% la trattazione dei limiti.
+% 
+% Anticipiamo quindi due affermazioni che saranno giustificate più avanti:
+% \begin{itemize} [nosep]
+%  \item Le funzioni fratte sono continue dove sono definite.
+%  \item Se una funzione è continua in un punto, allora il limite per \(x\) 
+% che 
+% tende a quel punto è uguale al valore che la funzione ha in quel punto.
+% \end{itemize}
+
+
+\begin{esempio}
+\textbf{Importante 1}, calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow +2} \frac{x^3+3x^2+2x}{x^2-x-6}\)
+ 
+Seguendo il metodo proposto sopra otteniamo:
+
+\begin{align*}
+\lim_{x \rightarrow 2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
+\tonda{\pst{\frac
+  {\tonda{2+\epsilon}^3+3\tonda{2+\epsilon}^2+2\tonda{2+\epsilon}}
+  {\tonda{2+\epsilon}^2-\tonda{2+\epsilon}-6}} \stackrel{2}{=}}\\ 
+  &=\frac{2^3+3\cdot 2^2+2\cdot 2}{2^2-2-6} =
+  \pst{\frac{8+12+4}{4-2-6}} \stackrel{3}{=} \pst{\frac{24}{-4}} =-6
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo \(x\) con un numero infinitamente vicino a \(+2\);
+ \item sostituiamo le espressioni tra parentesi con espressioni 
+indistinguibili;
+ \item poiché i risultati ottenuti sono diversi da zero, il risultato è 
+effettivamente indistinguibile. Quindi il risultato ottenuto è valido.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+\textbf{Importante 2}, calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6}\)
+ 
+Seguendo il metodo proposto sopra otteniamo:
+
+\begin{align*}
+\lim_{x \rightarrow 2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
+\tonda{\pst{\frac
+  {\tonda{-2+\epsilon}^3+3\tonda{-2+\epsilon}^2+2\tonda{-2+\epsilon}}
+  {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6}} \stackrel{2}{=}}\\ 
+  &=\pst{\frac{-8+12-4}{4+2-6}} = \pst{\frac{0}{0}} 
+  \text{ Indistinguibile non è applicabile.}
+\end{align*}
+
+È evidente che \(-2\) è uno zero sia del numeratore sia del denominatore 
+quindi, per il teorema di Ruffini, entrambi questi polinomi sono divisibili 
+per \(x+2\).
+Possiamo scomporre i due polinomi, semplificarli procedendo nel seguente 
+modo:
+
+\begin{align*}
+\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} &=
+\lim_{x \rightarrow -2} \frac{x \tonda{x+1} \cancel{\tonda{x+2}}}
+          {\tonda{x-3} \cancel{\tonda{x+2}}} \stackrel{1}{=}
+\lim_{x \rightarrow -2} \frac{x^2+x}{x-3}=\\
+&=\tonda{\pst{\frac{\tonda{-2+\epsilon}^2-\tonda{2+\epsilon}}
+                   {\tonda{-2+\epsilon}-3}}}\stackrel{2}{=}
+\pst{\frac{\tonda{-2}^2-2}{-2-3}}=
+\pst{\frac{2}{-5}} = -\frac{2}{5}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item possiamo semplificare perché \(x\) è infinitamente vicino a \(-2\) ma è 
+diverso da \(-2\);
+ \item sostituiamo l'espressione con una indistinguibile operazione, questa 
+volta, applicabile perché le due espressioni sono diverse da zero.
+\end{enumerate}
+\end{esempio}
+
+\begin{osservazione}
+Abbiamo ottenuto lo stesso valore ricavato più sopra facendo tutti i 
+calcoli algebrici, ma i passaggi sono estremamente più semplici.
+\end{osservazione}
+
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow \infty} \tonda{1+\dfrac{k}{x}}^x\)
+  
+Ricordiamo che, per definizione:  
+\(\pst{\tonda{1+\epsilon)^{\frac{1}{\epsilon}}}} = 
+  \pst{\tonda{1+\dfrac{1}{N}}^N} = e\)
+\begin{align*}
+ \lim_{x \rightarrow \infty} \tonda{1+\dfrac{k}{x}}^x =
+ \pst{\tonda{1+\dfrac{k}{N}}^N}
+~ \stackrel{1}{=} ~  
+\pst{\tonda{1+\dfrac{1}{M}}^{kM}}
+~ \stackrel{2}{=} ~
+\pst{\quadra{\tonda{1+\dfrac{1}{M}}^M}}^k
+~ \stackrel{3}{=} ~ e^k
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item uno sporco trucco: la sostituzione. Supponiamo
+\(\frac{k}{N}=\dfrac{1}{M}\). Allora \(N=kM\);
+ \item una potenza di potenza è una potenza che ha...
+ \item per la definizione del numero \(e\) e per le proprietà della funzione 
+\(\st()\).
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow 0} \dfrac{a^x-1}{x}\)
+\begin{align*}
+\lim_{x \rightarrow 0} \dfrac{a^x-1}{x} =
+\pst{\dfrac{a^\epsilon-1}{\epsilon}}
+~ \stackrel{1}{=} ~  
+\pst{\dfrac{\delta}{\log_a{(\delta+1)}}}
+~ \stackrel{2}{=} ~
+\pst{\frac{1}{\dfrac{\log_a{(\delta+1)}}{\delta}}}
+~ \stackrel{3}{=} ~ 
+\pst{\frac{1}{\dfrac{1}{\ln{a}}}}=\ln{a}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item ancora una sostituzione: poniamo
+\(a^\epsilon-1=\delta\). Allora \(\epsilon=\log_a(\delta+1)\);
+ \item una capriola algebrica: oplà! 
+ \item per le forme di indecisione discusse a proposito del numero di Nepero
+e per il cambiamento di base;
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow 0} \dfrac{a^x-1}{x}\)
+\begin{align*}
+\lim_{x \rightarrow 0} \dfrac{a^x-1}{x} =
+\pst{\dfrac{a^\epsilon-1}{\epsilon}}
+~ \stackrel{1}{=} ~  
+\pst{\dfrac{\delta}{\log_a{(\delta+1)}}}
+~ \stackrel{2}{=} ~
+\pst{\frac{1}{\dfrac{\log_a{(\delta+1)}}{\delta}}}
+~ \stackrel{3}{=} ~ 
+\pst{\frac{1}{\dfrac{1}{\ln{a}}}}=\ln{a}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item ancora una sostituzione: poniamo
+\(a^\epsilon-1=\delta\). Allora \(\epsilon=\log_a(\delta+1)\);
+ \item una capriola algebrica: oplà! 
+ \item per le forme di indecisione discusse a proposito del numero di Nepero
+e per il cambiamento di base;
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Calcola: \quad 
+  \(\displaystyle \lim_{x \rightarrow 0} \dfrac{1-\cos x}{\sin x}\)
+ % limite notevole seno e coseno
+\[\lim_{x \rightarrow 0} \dfrac{1-\cos x}{\sin x} =
+  \pst{\dfrac{1-\cos \delta}{\sin \delta}}=0\]
+Dove l'uguaglianza si giustifica per quanto detto a proposito dell'ordine 
+degli infinitesimi, ma gli appassionati del calcolo possono provare a 
+dividere il numeratore e il denominatore per \(x\)...
+\end{esempio}
+
+
+
+\section{Continuità}
+\label{sec:cont_continuita}
+
+\subsection{Definizione di continuità in un punto}
+\label{subsec:cont_definizione}
+
+
+\begin{definizione}
+Diremo che una funzione è \textbf{continua} in un punto \(c\), 
+se è definita in \(c\) e, 
+quando \(x\) è infinitamente vicino a \(c\), 
+allora \(f(x)\) è infinitamente vicino a \(f(c)\). E si scrive::
+
+\[f \text{ è continua in } c \Leftrightarrow 
+\forall x \tonda{\tonda{x \approx c} \Rightarrow 
+\tonda{f(x) \approx f(c)}}\]
+
+\end{definizione}
+
+\begin{esempio}
+ Data la funzione \(f(x)=x^2-3x\) dimostrare che \(f(x)\) è continua in~4.
+ 
+ La funzione è continua in~4 se per ogni \(x\) infinitamente vicino a~4 
+ \(f(x)\) è infinitamente vicino a \(f(4)\). Cioè se \(x -4=\epsilon\) allora
+ \(f(x) -f(4) = \delta\) dove \(\epsilon\) e \(\delta\) sono due infinitesimi.
+ 
+\emph{dimostrazione}
+
+Da \(x-4=\epsilon\) si ricava che \(x=4+\epsilon\), quindi: 
+\[f(x) -f(4) = f(4+\epsilon) -f(4) = 
+\tonda{4+\epsilon}^2-3\tonda{4+\epsilon}-\tonda{4^2-3\cdot 4}=\]
+\[=\cancel{16}+8\epsilon+\epsilon^2\cancel{-12} 
+  -3\epsilon\cancel{-16}\cancel{+12} = 
+  +8\epsilon+\epsilon^2 -3\epsilon = 
+\epsilon \tonda{5 + \epsilon}\]
+
+Ora, il prodotto tra un infinitesimo e un finito è un infinitesimo, quindi, se 
+la distanza tra \(x\) e \(4\) è infinitesima, anche la distanza tra 
+\(f(x)\) e \(f(4)\) è infinitesima. \hfill \textbf{qed} 
+ 
+\end{esempio}
+
+\begin{esempio}
+ Dimostrare che \(f(x)=\frac{\abs{x}}{x}\) non è continua in~0.
+ 
+\emph{dimostrazione}\\
+Perché una funzione sia continua per un certo valore di \(x\) lì deve essere 
+definita. 
+\end{esempio}
+
+\begin{esempio}
+ Dimostrare che \(f(x)=\frac{\abs{x}}{4}\) è continua in~0.
+ 
+\emph{dimostrazione}:
+\[f(\epsilon) - f(0) = \frac{\abs{\epsilon}}{4} - \frac{\abs{0}}{4} = 
+ \frac{\abs{\epsilon}}{4} \approx 0\]
+\end{esempio}
+
+\begin{esempio}
+Studia la continuità della funzione 
+\(y=\begin{cases} 
+    \dfrac{1}{2}x-2 & \mbox{se }x \leqslant 2 \\ 
+    x^2-6x+7 & \mbox{se }x > 2
+  \end{cases}\)
+\quad in \(x_0=2\)
+
+La funzione è definita per \(x=2\) e vale:\\
+\(f(2) = \dfrac{1}{2} \cdot 2-2 = -1\)\\
+Dobbiamo  verificare che, se \(x\) è infinitamente vicino a~\(2\) allora 
+\(f(x)\) sia infinitamente vicino a~\(-1\).
+
+\begin{minipage}{.49\textwidth}
+Dobbiamo distinguere i casi in cui ci avviciniamo a~2 da sinistra o da 
+destra. In entrambi i casi consideriamo \(epsilon\) positivo e esplicitiamo 
+il segno:
+\begin{description}
+ \item [da sinistra:]
+ ~\\
+\(f(2-\epsilon) - f(2) =
+  \dfrac{1}{2} \cdot \tonda{2-\epsilon}-2-\tonda{-1} =\)\\
+\(= 1 - \dfrac{\epsilon}{2} -2 +1 = -\dfrac{\epsilon}{2}\)\\
+Che è un infinitesimo.
+ \item [da destra:]
+ ~\\
+\(f(2+\epsilon) - f(2) =\)\\
+\(\tonda{2+\epsilon}^2-6 \cdot \tonda{2+\epsilon}+7-\tonda{-1} =\)\\
+\(4+4\epsilon+\epsilon^2-12-6 \epsilon+7+1 =\)\\
+\(\epsilon^2-2 \epsilon =\)\\
+Che è un infinitesimo.
+\end{description}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\begin{center}\continuitagraficoa\end{center}
+\end{minipage}
+
+\end{esempio}
+
+Data una funzione \(y=f(x)\) definita in \(c\), le seguenti 
+affermazioni sono equivalenti:
+
+\begin{enumerate}[noitemsep]
+ \item \(f\) è continua in \(c\);
+ \item se \(x \approx c\) allora \(f(x) \approx f(c)\);
+ \item se \(\st(x) = c\) allora \(\st(f(x)) = f(c)\);
+ \item \(\lim_{x \to c} f(x) = f(c)\);
+ \item se \(x\) si allontana da \(c\) di un infinitesimo allora 
+   \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
+ \item se \(\Delta x\) è infinitesimo allora il corrispondente \(\Delta y\) 
+   è infinitesimo.
+\end{enumerate}
+
+\begin{comment}
+\begin{teorema}[Derivabilità e continuità]
+Se una funzione è derivabile in un punto allora è continua in quel punto.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ è derivabile in } c\)
+\tab Tesi: 
+\(f(x) \text{ è continua in } c\).
+
+\begin{proof}
+TODO
+\end{proof}
+\end{comment}
+
+\subsection{Definizione di continuità in un intervallo}
+\label{subsec:cont_definizione}
+
+Dimostrare che una funzione è continua in un punto è piuttosto laborioso, 
+pur non essendo complicato, ma quando sono interessato a studiare la 
+continuità di una funzione in un intervallo sorge un ulteriore problema. 
+Infatti in un intervallo, anche piccolo, i punti sono infiniti e dimostrare 
+la continuità per ognuno di essi risulta piuttosto lungo\dots.
+
+Per superare questo scoglio, i matematici hanno pensato un approccio diverso:
+
+\begin{itemize}
+ \item dimostrare che alcune funzioni elementari sono continue;
+ \item dimostrare che la combinazione di funzioni continue è ancora una 
+funzione continua.
+\end{itemize}
+
+In questo modo si può riconoscere la continuità di un gran numero di funzioni 
+senza fare noiosi calcoli. Di seguito vediamo qualcuno di questi teoremi.
+
+\subsubsection{Funzioni elementari}
+\label{subsubsec:cont_funzionielementari}
+
+Dimostriamo la continuità di alcune funzioni elementari.
+
+\begin{teorema}[Continuità delle costanti]
+Le funzioni costanti sono continue.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f(x)\) è continua.
+
+\begin{proof}
+Per la definizione di continuità vogliamo dimostrare che 
+\[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
+Poniamo \(x_0=x+\epsilon\), essendo la funzione costante, anche 
+\[f(x+\epsilon)=k\] 
+che, ovviamente, è infinitamente vicino a \(k\). In simboli:
+\[f(x+\epsilon) = k \approx k = f(x)\] 
+\end{proof}
+
+\begin{teorema}[Continuità della funzione identica]
+La funzione identica (\(y=x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=x\).\tab Tesi: \(f(x)\) è continua.
+
+\begin{proof}
+Per la definizione di continuità vogliamo dimostrare che 
+\[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
+Poniamo \(x_0=x+\epsilon\), \(f(x_0) = f(x+\epsilon)=x+\epsilon\). 
+Dato che la differenza:
+\[f(x+\epsilon)-f(x) = x+\epsilon-x= \epsilon\]
+è un infinitesimo, allora i due valori sono infinitamente vicini. In simboli:
+\[f(x+\epsilon) = x+\epsilon \approx x = f(x)\] 
+\end{proof}
+
+\begin{teorema}[Continuità della funzione seno]
+La funzione seno (\(y=\sen x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=\sen x\).\tab Tesi: \(f(x)\) è continua.
+
+\begin{proof}
+Usando la formula del seno della somma di due angoli:
+\[f(x+\epsilon) =
+\sen{(x+\epsilon)} = \sen x \cos \epsilon - \cos x \sen \epsilon\]
+Se un angolo è infinitamente vicino a zero avrà il coseno infinitamente vicino 
+a uno e il seno infinitamente vicino a zero. Quindi:
+\[\sen{(x+\epsilon)} = \sen x + \delta\]
+Perciò:
+\[f(x+\epsilon) =
+\sen{(x+\epsilon)} = \sen{(x+\epsilon)} = 
+\sen x + \delta \approx \sen x = f(x)\]
+\end{proof}
+% 
+% \begin{teorema}[Continuità della funzione esponenziale]
+% La funzione esponenziale (\(y=a^x\)) è continua.
+% \end{teorema}
+% 
+% \noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
+% 
+% \begin{proof}
+% Usando la prima proprietà delle potenze:
+% \[f(x+\epsilon) =
+% a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = a^{x} \cdot \tonda{1 + \delta} 
+% \approx a^{x} = f(x)\]
+% \end{proof}
+
+%---------- tentativi inutili
+% \nopagebreak
+% \samepage
+% \filbreak
+%----------
+
+%----------
+% 13
+%  \setlength{\columnsep}{1.5pc}
+% We want a rule between columns.
+% 14
+%  \setlength\columnseprule{.4pt}
+% We also want to ensure that a new multicols envi-
+% ronment finds enough space at the bottom of the
+% page.
+% 15
+%  \setlength\premulticols{6\baselineskip}
+
+%----------
+
+\noindent\begin{minipage}{\textwidth}
+Oltre alle funzioni precedenti, anche altre funzioni elementari sono 
+continue, il seguente elenco riporta le principali funzioni continue:
+
+\noindent\begin{minipage}{1.05\textwidth}
+\begin{multicols}{5}
+\begin{itemize} [noitemsep]
+ \item \(y=k\)
+ \item \(y=x\)
+ \item \(y=\frac{1}{x}\)  \textasteriskcentered
+ \item \(y=\sqrt[n]{x}\)  \textasteriskcentered
+ \item \(y=\abs{x}\)
+ \item \(y=a^x\)
+ \item \(y=\log_a x\)  \textasteriskcentered
+ \item \(y=\sen x\)
+ \item \(y=\cos x\)
+ \item \(y=\tg x\)  \textasteriskcentered
+\end{itemize}
+\end{multicols}
+\end{minipage}
+
+\begin{osservazione}
+Le funzioni segnate da ``\textasteriskcentered'' sono continue non su 
+tutto \(\R\), 
+ma solo \textbf{all'interno del loro Insieme di Definizione}.
+\end{osservazione}
+\end{minipage}
+
+\subsubsection{Composizione di funzioni}
+\label{subsubsec:cont_composizionefunzioni}
+
+Vediamo ora che anche componendo in alcuni modi funzioni continue otteniamo 
+ancora funzioni continue.
+
+\begin{teorema}[Somma di funzioni continue]
+Se \(f\) e \(g\) sono funzioni continue, anche \(f+g\) è continua.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ e} g(x)\) sono continue
+\tab Tesi: 
+\(f(x)+g(x)\) è continua.
+
+\begin{proof}
+Dato che sono continue: 
+\[f(x+\epsilon) + g(x+\epsilon) = f(x)+\alpha + g(x)+\beta\]
+Ma la somma di due infinitesimi è ancora un infinitesimo quindi:
+\[f(x)+g(x)+\tonda{\alpha + \beta} \approx f(x)+g(x)\]
+\end{proof}
+
+\begin{teorema}[Prodotto di funzioni continue]
+Se \(f\) e \(g\) sono funzioni continue, anche \(f \cdot g\) è continua.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ e} g(x)\) sono continue
+\tab Tesi: 
+\(f(x) \cdot g(x)\) è continua.
+
+\begin{proof}
+Dato che sono continue: 
+\[f(x+\epsilon) \cdot g(x+\epsilon) = 
+\tonda{f(x)+\alpha} \cdot \tonda{g(x)+\beta} = 
+f(x) \cdot g(x) + f(x) \cdot \beta + g(x) \cdot \alpha + \alpha \cdot \beta
+\approx f(x) \cdot g(x)\]
+
+Dato che sia il prodotto tra un numero finito e un infinitesimo, sia il 
+prodotto tra due infinitesimi sono infinitesimi e lo è anche la loro somma. 
+\end{proof}
+
+\begin{corollario}
+ Ogni funzione polinomiale è continua.
+\end{corollario}
+
+\begin{proof}
+Dato che una funzione polinomiale si può ottenere partendo da funzioni 
+costanti e da funzioni identiche attraverso moltiplicazioni e addizioni, 
+la tesi consegue dai teoremi precedenti. 
+\end{proof}
+
+\begin{esempio}
+ Dimostrare che \(f(x)=2x^2 + 3\) è una funzione continua.
+
+\begin{proof}
+
+\(f(x)=2x^2 + 3\) è continua perché è somma di due funzioni continue: 
+% \begin{itemize}[noitemsep]
+%  \item \(f(x)=2x^2 + 3\) è continua perché è somma di due funzioni continue: 
+ \begin{itemize}[nosep]
+  \item \(y=2x^2\) è continua perché è prodotto di due funzioni continue:
+  \begin{itemize}[nosep]
+   \item \(y=2\) è continua perché è una costante;
+   \item \(y=x^2\) è continua perché è prodotto di due funzioni continue:
+   \begin{itemize}[nosep]
+    \item \(y=x\) è continua perché è una funzione identica;
+    \item \(y=x\) è continua perché è una funzione identica;
+   \end{itemize}
+  \end{itemize}
+  \item \(y=3\) è continua perché è una costante;
+ \end{itemize}
+% \end{itemize}
+\end{proof}
+
+\end{esempio}
+
+\begin{teorema}[Funzioni di funzioni]
+Se \(f(x)\) e \(g(x)\) sono funzioni continue, anche \(f(g(x))\) è continua.
+\end{teorema}
+
+\noindent Ipotesi: 
+\(f(x) \text{ e} g(x)\) sono continue
+\tab Tesi: 
+\(f(x) \star g(x) = f(g(x))\) è continua.
+
+\begin{proof}
+Dato che \(g\) è continua: 
+\[f(g(x+\epsilon)) = f(g(x)+\alpha)\]
+e dato che \(f\) è continua: 
+\[f(g(x)+\alpha)=f(g(x))+\beta\]
+quindi: 
+\[f(g(x+\epsilon)) = f(g(x)+\alpha) = f(g(x))+\beta \approx f(g(x))\]
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
