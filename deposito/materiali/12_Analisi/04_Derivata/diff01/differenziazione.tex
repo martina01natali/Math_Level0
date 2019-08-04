@@ -63,8 +63,7 @@ la legge del moto, sarà:
  gtdt+\frac{1}{2}(dt)^2. 
 \]
 Dividendo il tutto per $dt$ si ottiene la velocità istantanea, quella che 
-cambia
-in ogni istante $t$:
+cambia istante per istante:
 \[
  v(t)=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt.
 \]
@@ -106,7 +105,7 @@ risultati, espressi attraverso numeri infinitesimi, alla fine diventano numeri
 ``di uso comune``.
 Oggi i matematici conoscono meglio la materia e queste difficoltà sono 
 superate.
-Siamo quindi in grado di procedere nello studio dei questa nuova branca 
+Siamo quindi in grado di procedere nello studio di questa nuova branca 
 della 
 matematica, che si chiama \emph{Analisi infinitesimale}.
 
@@ -133,11 +132,10 @@ senza salti.
 \end{definizione}
 
 Il più semplice esempio di una variabile continua in matematica è la 
-posizione $x$ sull'asse reale dei numeri. Infatti sappiamo che la retta reale 
+posizione $x$ sull'asse dei numeri reali. Infatti sappiamo che la retta reale 
 non
-ha buchi. A maggior ragione, è una variabile continua anche la posizione 
-sull'asse 
-degli Iperreali: $x$, con $x\in\IR$. \\
+ha buchi. A maggior ragione, è una variabile continua anche $x$, con $x\in\IR$,
+con la quale rappresentiamo la posizione sull'asse iperreale. \\
 Viceversa una variabile che pesca i suoi valori in un insieme formato da 
 numeri isolati,
 cioè con differenze finite fra l'uno e l'altro, si dice \emph{variabile 
@@ -172,7 +170,7 @@ contiene un punto
 (o più punti) di discontinuità, per esempio $d$, allora occorre usare 
 indicazioni
 diverse: $\intervca{a}{d}\cup\intervac{d}{b}$\\ 
-La differenza $a-b$ fra due numeri della retta iperreale $a, b \in \IR$, 
+La differenza $b-a$ fra due numeri della retta iperreale $a, b \in \IR$, 
 può essere positiva, negativa o nulla. Indicheremo con $\Delta$ la 
 differenza fra due numeri standard, cioè una differenza finita, mentre, se la 
 differenza è infinitesima, sarà indicata con $\delta$ oppure $\epsilon$
@@ -185,7 +183,7 @@ In analisi infinitesimale, le differenze infinitesime sono protagoniste.
 
 \subsubsection{Parte principale}
 \label{subsubsec:diff01_parteprincipale}
-I risultati dei calcoli che seguono in molti casi hanno la forma di una 
+I risultati dei calcoli che seguiranno in molti casi hanno la forma di una 
 somma fra infinitesimi di ordine diverso, come avviene nel prossimo esempio 
 sul differenziale della funzione quadratica e più avanti con le funzioni 
 potenza.\\
@@ -193,35 +191,37 @@ In una somma di infinitesimi, gli infinitesimi di
 grado superiore (che sono quelli più vicini allo zero) pesano 
 sul risultato infinitamente meno degli altri: sono più trascurabili.
 Quando in una somma di infinitesimi si trascurano quelli di minor peso,
-si dice che si prende la \emph{parte principale della somma}.
+si dice che si prende la \emph{parte principale} della somma.
 Lo si può fare perché la somma esatta e quella approssimata sono 
 numeri indistinguibili.
 
 \subsubsection{Incremento di una funzione}
 \label{subsubsec:diff01_incremento}
+    
 
-\begin{definizione}
- L'incremento di una funzione è un valore che indica di quanto aumenta una 
-funzione partendo da un certo valore della variabile indipendente (\(x\)) 
-quando la variabile indipendente aumenta di una certa quantità:
-\[\Delta f(x_0) = f \tonda{x_0 + \Delta} - f(x_0)\]
-\end{definizione}
+Si intuisce che la parola incremento significa aumento, cioè differenza fra due 
+valori nel passare dall'uno all'altro. In matematica si chiama incremento anche 
+quando il secondo valore è minore del primo, sicché la differenza risulta 
+negativa.
 
 \begin{minipage}{.48 \textwidth}
 Vediamo un esempio: 
 Vogliamo calcolare l'incremento della 
 funzione:~\(f(x) = \dfrac{1}{4} x^2 -x -3\)
-Quando \(x\) parte da~\(3\) e aumenta di~\(4\).
+quando \(x\) parte da~\(3\) e aumenta di~\(4\).
 
-Devo calcolare quanto vale la funzione nei due punti~$3$ e~$3+4=7$ e 
-calcolare la differenza del secondo valore meno il primo:
+Devo calcolare:
+\begin {itemize}[nosep, noitemsep]
+ \item quanto vale la funzione per~$x_0=3$ e $x_1=3+4=7$;
+ \item la differenza del secondo valore meno il primo: $f(7)-f(4)$.
+\end {itemize}
+ 
 \begin{align*}
  \Delta &= f(3+4) - f(3) = \\
         &= f(7) - f(3) = \\
         &= \dfrac{7^2}{4}  -7 -3 - \dfrac{3^2}{4}  +3 +3 =\\
         &= \dfrac{49}{4} -10 - \dfrac{9}{4} +6 =\\
-        &= 12,25 -10 - 2,25 +6 = \\
-        &= 2,25 + 3,75 = 6\\
+        &= 12,25 -10 - 2,25 +6 = 6.
 \end{align*}
 
 \[\]
@@ -236,39 +236,59 @@ calcolare la differenza del secondo valore meno il primo:
 È abbastanza evidente che il valore dell'incremento dipende dalla funzione, 
 dal punto di partenza e dall'incremento della $x$.
 
+\begin{definizione}
+ L'incremento di una funzione indica di quanto aumenta (diminuisce) il valore 
+di 
+quella funzione quando la sua variabile indipendente (\(x\)) varia di una certa 
+quantità $a$ nel passare da $x_0$ a $x_0+a$:
+\[
+\Delta f(x_0) = f \tonda{x_0 + a} - f(x_0).
+\]
+\end{definizione}
+
+
 \ifcoding
 Con Python.
 \lstinputlisting[firstline=2]{\folder src/01incremento.py} %, lastline=5]
 \fi
 
 Quindi la funzione ~ \texttt{incremento} ~ ha~$3$ 
-parametri, possiamo eseguirla variando il loro valori e otterremo nel 
-primo caso~$6$, nel secondo~$2$ e nel terzo~$0$. Ovviamente possiamo 
-variare anche la funzione ottenendo dei valori completamente diversi. 
+parametri, nel programma precedente l'ho invocata tre volte con argomenti 
+diversi e ottenendo: nel primo caso~$6$, nel secondo~$2$ e nel terzo~$0$. 
+Ovviamente, utilizzando una funzione diversa, gli incrementi calcolati con 
+gli stessi parametri saranno, in generale diversi. (Prova ad esempio 
+con la funzione \(f(x)= 2^x\))
 
 
 \subsubsection{Differenziale di una funzione}
 \label{subsubsec:diff01_parteprincipale}
 
+In matematica, e nelle sue applicazioni, sono particolarmente importanti 
+gli incrementi che una funzione subisce quando la variabile 
+indipendente (\(x\)) varia di una quantità infinitesima. Incrementi di 
+questo tipo, se esistono e se sono infinitesimi, si chiamano ''differenziali``.
+
 \begin{definizione}
- Il differenziale di una funzione è un valore che indica di quanto aumenta 
-la funzione partendo da un certo valore della variabile indipendente 
-(\(x\)) quando la variabile indipendente aumenta di una quantità 
-infinitesima:
-\[df(x_0) = f \tonda{x_0 + \epsilon} - f(x_0)\]
+ Il differenziale di una funzione è l'incremento infinitesimo, se esiste, 
+ che la funzione subisce a causa di una variazione infinitesima della sua 
+variabile indipendente:
+\[df(x_0) = f \tonda{x_0 + \epsilon} - f(x_0).\]
 \end{definizione}
 
-Nelle funzioni \emph{continue}, incrementi infinitesimi della~$x$ producono 
-incrementi infinitesimi della~$y$.
-Questi incrementi sono osservabili solo utilizzando un microscopio non 
-standard.
+Come già visto per l'incremento finito $\Delta f$, anche il differenziale $df$ 
+dipende dall'espressione della funzione, dal valore $x_0$ dove inizia la 
+variazione della $x$ e dal suo incremento infinitesimo~$\epsilon$.\\
+Quindi il differenziale di una funzione \(df\) è esso stesso  una funzione:
+\(df=F(f, x_0, \epsilon)\).\\
+I differenziali, essendo infinitesimi, sono osservabili solo con 
+microscopi non standard.\\
 
 \begin{minipage}{.48 \textwidth}
 Vediamo un esempio: 
 
 Vogliamo calcolare l'incremento della 
 funzione:~\(f(x) = \dfrac{1}{4} x^2 -x -3\)
-Quando \(x\) parte da~\(7\) e aumenta di~\(\epsilon\).
+quando \(x\) parte da~\(7\) e aumenta di~\(\epsilon\).
 \begin{align*}
   df(7) &= f(7+\epsilon) - f(7) = \\
         &= \dfrac{\tonda{7 +\epsilon}^2}{4}  -\tonda{7 +\epsilon} -3 - 
@@ -277,7 +297,7 @@ Quando \(x\) parte da~\(7\) e aumenta di~\(\epsilon\).
            \dfrac{49}{4} +10 =\\
         &= \dfrac{14 \epsilon +\epsilon^2}{4} -\epsilon =\\
         &= \dfrac{10 \epsilon +\epsilon^2}{4} =\\
-        &= 2,5 \epsilon + \dfrac{\epsilon^2}{4} %\sim 2,5 \epsilon
+        &= 2,5 \epsilon + \dfrac{\epsilon^2}{4}. %\sim 2,5 \epsilon
 \end{align*}
 \end{minipage}
  \hfill
@@ -287,42 +307,31 @@ Quando \(x\) parte da~\(7\) e aumenta di~\(\epsilon\).
  \end{center}
 \end{minipage}
 
-Possiamo osservare che, in questo caso, il differenziale della funzione è 
-un infinitesimo che è la somma di due infinitesimi di ordine diverso.
+Possiamo osservare che, in questo caso, l'incremento della funzione è 
+un differenziale: un infinitesimo che è la somma di due infinitesimi di 
+ordine diverso.
 
-Per calcolare il differenziale di una funzione devo 
-conoscere la funzione~\(f(x)\), 
-il punto in cui calcolarlo~\(x_0\) e 
-l'incremento infinitesimo~\(\epsilon\).
-
+\begin{comment}
+ 
 \subsection{Differenziale della variabile $x$}
 \label{subsec:diff01_diffx}
 
 Chiamiamo \(dx\) la differenza fra i due valori 
-infinitamente vicini della variabile \(x\) (\(dx\) si legge 
+infinitamente vicini della funzione \(f(x)=x\) (\(dx\) si legge 
 ''\emph{de x}``).
 
-Vogliamo calcolare il differenziale della variabile \(x\) partendo dal 
-punto \(x_0\) quando l'incremento è \(\epsilon\). In simboli: 
-$dx|_{x=x_0}$. 
-Questa espressione si legge: ''\emph{de x, per x uguale a x zero}``.
+Vogliamo calcolare il differenziale di \(f(x)=(x\) partendo dal 
+punto \(x=x_0\) quando l'incremento è \(\epsilon\). In simboli: 
+$dx|_{x_0}$. 
+Questa espressione si legge: ''\emph{de x, a partire da x zero}``.
 
 Svolgendo i calcoli si ottiene:
-\[dx|_{x=x_0}=(x_0+\epsilon)-x_0=\epsilon\]
+\[dx|_{x_0}=(x_0+\epsilon)-x_0=\epsilon\]
 Si può osservare che il risultato non dipende dal valore in cui viene 
 calcolato il differenziale, ma solo dal valore dell'incremento \(\epsilon\),
 infatti, nel risultato, \(x_0\) scompare.
 
-\begin{osservazione}
- L'infinitesimo $\epsilon$ potrebbe anche essere negativo, in questo caso 
-sarebbe un ''decremento``. 
-Il segno di \(\epsilon\) non cambia comunque il calcolo.
 
-\(x_0 + \epsilon\) indica valori che possono trovarsi a destra di \(x_0\) 
-(più grandi) o alla sua sinistra (più piccoli).
-\end{osservazione}
-
-\begin{comment}
 \begin{esempio}
  Calcola il differenziale della variabile $x$ nel punto $x=-7$. Ripeti poi 
  il  calcolo in altri punti.\\
@@ -382,29 +391,43 @@ parte dei casi, invece, ha un diretto influsso sul risultato.\\
  \end{align*}
 \end{esempio}
 
-
 \begin{osservazione}
  Non abbiamo fatto alcuna ipotesi su $\epsilon$. 
  Potrebbe essere un infinitesimo positivo o negativo, 
  potrebbe essere il triplo o il quadrato di un altro infinitesimo. 
  Il risultato non cambia e ha valore per qualsiasi $\epsilon$.
 \end{osservazione}
-
 \end{comment}
 
 \subsection{Differenziale di alcune funzioni}
 \label{subsec:diff01_difffun}
+
+Nello svolgere i calcoli che seguono potremo indicare il differenziale in due
+modi diversi, ma equivalenti. Per esempio: \(df(7)\), come nell'esempio 
+precedente, oppure \(df(x)|_{x=7}\).\\
+Altro esempio: se \(f(x)= 5x-9\), il suo differenziale calcolato in $x_0$ si 
+indica con:\\
+\(df(x_0)=f(x_0+\epsilon)-f(x_0)=5(x_0+\epsilon)-9- (5x_0-9)=\dots\)\\ oppure 
+con: \(df(x)|_{x=x_0}=f(x_0+\epsilon)-f(x_0)=\dots\). 
+
+\begin{osservazione}
+ L'infinitesimo $\epsilon$ potrebbe anche essere negativo, in questo caso 
+rappresenterebbe un ''decremento``. 
+\(x_0 + \epsilon\) indica numeri iperreali che sulla retta iperreale possono
+trovarsi a destra di \(x_0\) (più grandi) o alla sua sinistra (più piccoli).\\
+\noindent Quando il segno di \(\epsilon\) diventerà importante ai fini del 
+calcolo, ne 
+tratteremo esplicitamente.\\
+\end{osservazione}
+
 Iniziamo a differenziare le funzioni più semplici, in un generico punto 
-$x_0$.
-% Se ci accorgeremo che il risultato non dipende da $x_0$, ne trarremo regole
-% di carattere generale.\\
-Ma prima di tutto, una precisazione essenziale:
+$x_0$. Ma prima di tutto, una precisazione essenziale:
 
 \begin{osservazione}
  Il differenziale di una funzione è calcolabile solo negli intervalli in cui
- la funzione è continua. 
- Perché solo in questo caso a incrementi \emph{infinitesimi} di $x$ 
- corrispondono incrementi \emph{infinitesimi} di $f(x)$.
+ la funzione è continua, perché solo in questo caso a incrementi 
+\emph{infinitesimi} di $x$ corrispondono incrementi \emph{infinitesimi} di 
+$f(x)$.
 \end{osservazione}
 
 \subsubsection{Funzione costante}
@@ -415,7 +438,7 @@ sempre lo stesso. Possiamo indicare questa funzione in diversi modi:
 \[f: x \mapsto k \quad \text{o} \quad f(x)=k \quad \text{o} \quad y = k\]
 
 Il suo differenziale sarà:
-\[df(x)|_{x=x_0}=f(x_0+\epsilon)-f(x_0)=k-k=0\]
+\[df(x_0)=f(x_0+\epsilon)-f(x_0)=k-k=0\]
 Quindi, se la funzione è costante, il suo differenziale è nullo.
 Infatti, avendo sempre lo stesso valore per qualsiasi \(x\), la differenza 
 tra due suoi valori è zero. 
@@ -454,7 +477,7 @@ in diversi modi:
 
 Se $f(x)=x$, allora, banalmente: $df(x)=dx=\epsilon$. Il risultato è
 generale, cioè non dipende da $x_0$. Infatti:\\
-\[df(x)|_{x=x_0}=f(x_0+\epsilon)-f(x_0)=(x_0+\epsilon)-x_o=\epsilon\] 
+\[df(x_0)=f(x_0+\epsilon)-f(x_0)=(x_0+\epsilon)-x_o=\epsilon\] 
 
 %\begin{figure}[h!]
 \begin{inaccessibleblock}
@@ -470,7 +493,8 @@ generale, cioè non dipende da $x_0$. Infatti:\\
 \begin{teorema}
 Il differenziale della funzione identica è $dx=\epsilon$.
 \end{teorema}
-D'ora in poi useremo indifferentemente $dx$ oppure $\epsilon$, dato che
+D'ora in poi, per indicare una variazione infinitesima della variabile $x$
+potremo usare indifferentemente $dx$ oppure $\epsilon$, dato che
 sono equivalenti.\\
 Il grafico di $f(x)=x$ nel piano cartesiano è dato dalla retta $y=x$. 
 Che significato dobbiamo attribuire a $dy=dx$?
@@ -483,9 +507,9 @@ uguali.
 \label{fig:diff01_diffcostante}
 %\end{figure}
   
-
-Succederebbe la stessa cosa con altre rette, più o meno inclinate passanti o
-non passanti dall'origine?
+Anche con altre rette, più o meno inclinate e passanti o non passanti per 
+l'origine, succede che uno spostamento infinitesimo sull'asse $X$ causi 
+un identico spostamento sull'asse $Y$?
 
 \subsubsection{Funzione lineare}
 \label{subsubsec:diff01_flineare}
@@ -496,38 +520,39 @@ Una funzione lineare è una funzione espressa da un polinomio di primo grado:
   y = mx +q\]
 
 \begin{esempio}
- Iniziamo con un esempio numerico, supponiamo 
- che \(m=\dfrac{2}{3}\) e \(q=4\)
+ Iniziamo con un esempio numerico, supponiamo \(m=\dfrac{2}{3}\) e \(q=4\).
  Proviamo quindi a differenziare in $x_0$ la 
  funzione $f(x)=\dfrac{2}{3}x +4$.
 \begin{align*}
-df(x)|_{x=x_0} &=f(x_0+dx)-f(x_0)=\\
-               &=\frac{2}{3}(x_0+dx)+4-\tonda{\frac{2}{3}x_0+4}=
+df(x_0) &=f(x_0+dx)-f(x_0)=\\
+             &=\frac{2}{3}(x_0+dx)+4-\tonda{\frac{2}{3}x_0+4}=
                  \frac{2}{3}x_0+\frac{2}{3}dx+4-\frac{2}{3}x_0-4=
-                 \frac{2}{3}dx
+                 \frac{2}{3}dx.
 \end{align*}
-Questa volta il grafico della funzione $y=\frac{2}{3}x$ mostra che
-l'incremento infinitesimo dei valori $x$ provoca un incremento 
-corrispondente a $\frac{2}{3}$ sui valori $y$. 
+Se disegni il grafico della funzione $y=\frac{2}{3}x$ puoi verificare che
+l'incremento infinitesimo dei valori $y$ corrisponde a $\frac{2}{3}$ 
+dell'incremento infinitesimo dei valori $x$. 
 Il risultato è generale, cioè vale $\forall x_0$, il differenziale non 
-dipende dal particolare punto in cui lo calcolo.
+dipende dal particolare $x_0$ in cui lo si calcola.
 \end{esempio}
 
 \begin{esempio}
-Proviamo con la funzione di un'altra retta: \(f(x) = -5x-2\). 
+Proviamo con un'altra funzione lineare: \(f(x) = -5x-2\). 
 Ci aspettiamo che anche in questo caso il differenziale sia indipendente 
-dal punto in cui lo calcolo:
+da $x_0$:
 \begin{align*}
 df(x)|_{x=x_0} &=f(x_0+dx)-f(x_0)=\\
                &=-5(x_0+dx)-2-\tonda{-5x_0-2}=
                  -5x_0-5dx-2+5x_0+2=
-                 -5dx
+                 -5dx.
 \end{align*}
-Quindi $df(x)=-5dx, \forall x_0 \in \IR$. 
+Quindi $df(x_0)=-5dx, \forall x_0 \in \IR$. Sottolineare che il risultato è 
+indifferente al valore di $x_0$ è come dire che vale per qualsiasi $x$: 
+$df(x_0)=-5dx, \forall x \in \IR$.
 \end{esempio}
 
 \begin{teorema}
- Il differenziale di una funzione lineare $f(x)=mx+q$ è $mdx$, 
+ Il differenziale di una funzione lineare $f(x)=mx+q$, (con $m\ne 0$) è $mdx$, 
  $\forall x\in \IR$.
 \end{teorema}
 
@@ -535,19 +560,19 @@ Quindi $df(x)=-5dx, \forall x_0 \in \IR$.
 
 \begin{proof}
 \begin{align*}
-df(x)|_{x=x_0} &=f(x_0+dx)-f(x_0)=\\
+df(x_0) &=f(x_0+dx)-f(x_0)=\\
                &=m(x_0+dx)+q-\tonda{mx_0+q}=
                  mx_0-mdx+q-mx_0-q=
-                 mdx
+                 mdx.
 \end{align*}
 Poiché nel risultato non compare $x_0$, anche in questo caso $df(x)$ non 
-dipende dal punto $x_0$.
+dipende dal punto $x_0$, cioè vale \(\forall x\).
 \end{proof}
 
 \subsubsection{Funzione quadratica}
 \label{subsubsec:diff01_diffquad}
 
-Una funzione quadratica è una funzione che dà come risultato il quadrato 
+La funzione quadratica più elementare dà come risultato il quadrato 
 della variabile indipendente:
 \[f: x \mapsto x^2 \quad \text{o} \quad 
   f(x)=x^2 \quad \text{o} \quad 
@@ -562,7 +587,7 @@ della variabile indipendente:
 
 \begin{proof}
 \[
- df(x)|_{x=x_0}= 
+ df(x_0)= 
 f(x_0+dx)-f(x_0)=(x_0+dx)^2-x_0^2=x_0^2+2x_0dx+(dx)^2-x_0^2=2x_0dx+(dx)^2
 \]
 Questa volta nel risultato compare $x_0$. Quindi il valore del 
@@ -571,6 +596,16 @@ incrementato.
 Anche in questo caso il differenziale è un infinitesimo, ma questa volta è 
 dato dalla somma di due infinitesimi di diverso ordine.
 \end{proof}
+
+Prova a differenziare altre funzioni quadratiche, espresse da polinomi,
+e verifica che i risultati sono analoghi a quello dimostrato: 
+\begin{align*}
+&f(x) = x^2 - 12  &df(x_0)=\\
+&f(x) = 3x^2 +\dfrac{2}{3}  &df(x_0)=\\
+&f(x) = \dfrac{1}{2}x^2 - x  &df(x_0)=\\
+&f(x) = x^2 - \dfrac{2}{3} +5 &df(x)|_{x=x_0}=\\
+\end{align*}
+
 
 \subsubsection{Funzioni potenza}
 \label{subsubsec:diff01_diffpot}
@@ -584,7 +619,10 @@ della variabile indipendente:
 Ricaviamo per gradi il differenziale della funzione potenza è $f(x)=x^n$, 
 con un procedimento per induzione.\\
 Iniziamo dai casi già noti $f(x)=x$ e $f(x)=x^2$ e esaminiamo i successivi
-aumentando progressivamente l'esponente.
+aumentando progressivamente l'esponente. Questa volta non inseriamo 
+l'indicazione relativa a $x_0$ perché ci siamo accorti che i risultati cambiano 
+al cambiare di $x_0$, il che equivale a dire che dipendono da $x$.
+
 
 \begin{align*}
   d(x) &=x+dx-x =dx\\
@@ -594,21 +632,17 @@ aumentando progressivamente l'esponente.
   d(x^4) &=(x+dx)^4-x^4 = [x^4+4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4]-x^4=\\
                       &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4      
 \end{align*}
-L'unico risultato esatto è il primo; gli altri si sintetizzano scrivendo 
-$\delta(x)$
-che rappresenta gli infinitesimi di ordine superiore. $\delta(x)$ aggiunge
-delle quantità infinitamente meno importanti del primo addendo.
-A sinistra e a destra dell'ultimo segno di uguale si trovano quindi 
-numeri indistinguibili, cioè le loro differenze non si possono cogliere perché
-sono ''più infinitesime`` di quanto lo sono questi numeri.\\
 
-Possiamo osservare che il termine non infinitesimo si annulla sempre quindi 
-qualunque sia il valore nel quale si calcola il differenziale si ottiene un 
-valore infinitesimo queste funzioni sono quindi continue in tutto \(\IR\).
+
+Possiamo osservare che il termine non infinitesimo si annulla sempre. Quindi,
+qualunque sia il valore di \(x\), l'incremento della funzione è infinitesimo. 
+Queste funzioni sono quindi continue in tutto \(\IR\) perché a variazioni 
+infinitesime della variabile \(x\) corrispondono sempre variazioni
+infinitesime della funzione.
 
 Possiamo anche osservare che il differenziale è sempre più complesso, ma 
-se consideriamo la parte principale dell'infinitesimo cioè se trascuriamo 
-gli infinitesimi di ordine superiore il risultato si semplifica e diventa 
+se consideriamo la parte principale dell'infinitesimo, cioè se trascuriamo 
+gli infinitesimi di ordine superiore, il risultato si semplifica e diventa 
 facilmente memorizzabile.
 
 Quindi se invece del valore esatto ci accontentiamo della parte principale, 
@@ -625,20 +659,21 @@ abbiamo:
   \dots &= \dots\\
   d(x^{10}) &=10x^9(dx)+\dots+(dx)^{10} \sim 10x^9dx\\
   \dots &= \dots\\
-  d(x^n) &=nx^{n-1}(dx)+\dots+(dx)^{n} \sim nx^{n-1}dx\\    
+  d(x^n) &=nx^{n-1}(dx)+\dots+(dx)^{n} \sim nx^{n-1}dx.\\    
 \end{align*}
-Ora che il meccanismo è chiaro e possiamo ritenere sufficientemente 
-dimostrato il teorema seguente.
+Ora che il meccanismo è chiaro, possiamo ritenere dimostrato il teorema 
+seguente.
 
 \begin{teorema}
- Il differenziale della funzione potenza è 
- \[d(x^n) \sim nx^{n-1}dx\]
+ Il differenziale della funzione potenza, con esponente naturale, è 
+ \[d(x^n) \sim nx^{n-1}dx.\]
 \end{teorema}
 
 \begin{osservazione}
-Anche se abbiamo usato solo esponenti interi, si dimostra che 
-la regola vale per qualsiasi esponente reale. Lo puoi verificare nei due 
-casi che seguono, riscrivendo le funzioni come potenze.
+Il teorema precedente si riferisce alle sole potenze con esponente
+naturale. Per altre vie si può dimostrare un teorema analogo, relativo
+a \emph{qualsiasi esponente reale}.
+Ne hai un esempio nei casi che seguono.
 \end{osservazione}
 
 \subsubsection{Funzione radice quadrata}
@@ -646,7 +681,7 @@ casi che seguono, riscrivendo le funzioni come potenze.
 
 \begin{teorema}
  Il differenziale della funzione radice quadrata $f(x)=\sqrt{x}$ è
- $\sim\frac{dx}{2\sqrt{x_0}}$, $\forall x\in \IR$, $x\neq 0$.
+ $\sim\frac{dx}{2\sqrt{x}}$, $\forall x\in \IR$, $x\neq 0$.
 \end{teorema}
 
 \noindent Ipotesi: \(f(x)=\sqrt{x}\).\tab Tesi: 
@@ -654,13 +689,14 @@ casi che seguono, riscrivendo le funzioni come potenze.
 
 \begin{proof}
 \begin{align*}
- df(x)|_{x=x_0} &= f(x_0+dx)-f(x_0)=\sqrt{x_0+dx}-\sqrt{x_0}=\\
- &=\tonda{\sqrt{x_0+dx}-\sqrt{x_0}}\times\frac{\sqrt{x_0+dx}+
- \sqrt{x_0}}{\sqrt{x_0+dx}+\sqrt{x_0}}=\\
- &=\frac{x_0+dx-x_0}{\sqrt{x_0+dx}+\sqrt{x_0}}
- =\frac{dx}{\sqrt{x_0+dx}+\sqrt{x_0}}\sim\frac{dx}{2\sqrt{x_0}}
+ df(x) &= f(x+dx)-f(x)=\sqrt{x+dx}-\sqrt{x}=\\
+ &=\tonda{\sqrt{x+dx}-\sqrt{x}}\times\frac{\sqrt{x+dx}+
+ \sqrt{x}}{\sqrt{x+dx}+\sqrt{x}}=\\
+ &=\frac{x+dx-x}{\sqrt{x+dx}+\sqrt{x}}
+ =\frac{dx}{\sqrt{x+dx}+\sqrt{x}}\sim\frac{dx}{2\sqrt{x}}.
 \end{align*}
-Anche questa volta il risultato dipende da $x_0$. 
+ Poiché nel risultato compare $x$, anche questa volta il risultato
+ dipende dal valore a partire dal quale si vuole differenziare. 
 
 Prendendo la parte principale dell'infinitesimo possiamo confrontare il 
 risultato con quello ottenuto applicando la regola della funzione potenza:
@@ -668,95 +704,91 @@ risultato con quello ottenuto applicando la regola della funzione potenza:
   \sim\frac{1}{2}x^{\tonda{\frac{1}{2}-1}}dx 
   =\frac{1}{2}x^{-\frac{1}{2}}dx
   =\frac{dx}{2x^{\frac{1}{2}}}
-  =\frac{dx}{2\sqrt{x}}\]
+  =\frac{dx}{2\sqrt{x}}.\]
 
 \end{proof}
 
 \subsubsection{Funzione reciproca}
 \label{subsubsec:diff01_diffrecip}
 \begin{teorema}
- Il differenziale della funzione reciproca $f(x)=\frac{1}{x}$ è 
- \[d\tonda{\frac{1}{x}}\sim\frac{dx}{x^2} \quad \text{se} \quad x \neq 0\]
+ Il differenziale della funzione reciproca $f(x)=\frac{1}{x}$ (con $x \ne 0$)
+ è  \[d\tonda{\frac{1}{x}}\sim\frac{dx}{x^2} \quad \text{se} \quad x \ne 0.\]
 \end{teorema}
 
 \noindent Ipotesi: $f(x)=\dfrac{1}{x}$\tab 
-Tesi: $df(x)\sim-\dfrac{dx}{x^2}$
+Tesi: $df(x)\sim-\dfrac{dx}{x^2}.$
 
 \begin{proof}
 \[
- df(x)|_{x=x_0}= f(x_0+dx)-f(x_0)=\frac{1}{(x_0+dx)}-\frac{1}{x_0}=
- \frac{x_0-x_0-dx}{x_0(x_0+dx)}=\frac{-dx}{x_0^2+x_0dx}\sim-\frac{dx}{x_0^2}
+ df(x)= f(x+dx)-f(x)=\frac{1}{(x+dx)}-\frac{1}{x}=
+ \frac{x-x-dx}{x(x+dx)}=\frac{-dx}{x^2+xdx}\sim-\frac{dx}{x^2}.
 \]
-Anche questa volta il valore del differenziale dipende dal punto in cui si 
-calcola $x_0$. 
+Anche questa volta il valore del differenziale dipende dal punto in cui
+lo si calcola. 
 
-Anche in questo caso possiamo vedere la funzione reciproca come una 
-funzione potenza:
+Riscriviamo la funzione reciproca come una funzione potenza:
 \[d\tonda{\frac{1}{x}} = d\tonda{x^{-1}}
   \sim -x^{\tonda{-1-1}}dx 
   =-x^{-2}dx
-  =-\frac{dx}{x^{2}}\]
+  =-\frac{dx}{x^{2}}.\]
 
 \end{proof}
+
+Per quanto visto sopra, concludiamo che vale il seguente teorema, anche se non
+lo abbiamo dimostrato completamente:
+
+\begin{teorema}
+ Il differenziale della funzione potenza, con esponenete reale qualsiasi, è 
+ \[d(x^a) \sim ax^{a-1}dx \quad \forall a \in \R.\]
+\end{teorema}
 
 \subsubsection{Differenziali problematici}
 \label{subsubsec:diff01_diffproblemi}
 
-Quest'ultimo calcolo ci porta un punto importante: dato che nel risultato
-$x_0$ si trova al denominatore, abbiamo un problema. Che succede se $x_0=0$?
+L'ultimo calcolo ci porta un punto importante: dato che
+$x$ risulta al denominatore, abbiamo un problema. Che succede se $x=0$?
 \begin{esempio}
  Calcola $df(x)|_{x=0}$, con $f(x)=\frac{1}{x}$.\\
- $d\tonda{\frac{1}{x}}|_{x=0}=\frac{1}{0+dx}-\frac{1}{0}=$ ?\\
- La funzione è differenziabile $\forall x$, ma non per $x=0$. Se $x\approx 
-0$
- il differenziale diventa la differenza fra due infiniti, una forma di 
- indecisione che non siamo in grado di risolvere. Il problema viene dal 
-fatto 
- che in $x=0$, $f(x)$ non è definita.
+ $d\tonda{\frac{1}{x}}|_{x=x_0}=\frac{1}{0+dx}-\frac{1}{0}=$ ?\\
+ La funzione non è differenziabile per $x=0$ perché la frazione \(1/0\) non 
+esiste.
 \end{esempio}
 
 \begin{esempio}
-Differenzia la funzione $f(x)=\frac{1}{x^2-1}$ per $x_0=1$ e $x_0=-1$.\\
-$d\tonda{\frac{1}{x^2-1}}|_{x=1}=\frac{1}{(x+dx)^2-1}-\frac{1}{x^2-1}=
+Differenzia la funzione $f(x)=\frac{1}{x^2-1}$ per $x=1$ e $x=-1$.\\
+$d\tonda{\frac{1}{x^2-1}}\big|_{x=1}=\frac{1}{(1+dx)^2-1}-\frac{1}{1^2-1}=
 \frac{1}{2dx+(dx)^2}-\frac{1}{0}=$?\\
-$d\tonda{\frac{1}{x^2-1}}|_{x=-1}=\frac{1}{(x+dx)^2-1}-\frac{1}{x^2-1}=
+$d\tonda{\frac{1}{x^2-1}}\big|_{x=-1}=\frac{1}{(-1+dx)^2-1}-\frac{1}{(-1)^2-1}=
 \frac{1}{-2dx+(dx)^2}-\frac{1}{0}=$?\\
 Questa volta i punti critici sono due. Poiché la funzione non è calcolabile
-per $x_0=1$ e $x_0=-1$, non è calcolabile nemmeno il suo differenziale.
+per $x=1$ e $x=-1$, non è calcolabile nemmeno il suo differenziale.
 \end{esempio}
 
-\begin{esempio}
-Nei due esempi precedenti cercavamo di calcolare il differenziale in un 
-punto in cui la funzione non era definita ci vuole poca immaginazione per 
-capire che se no è definita la funzione non può essere definito neppure il 
+Nei due esempi precedenti si tenta di calcolare il differenziale in un 
+punto in cui la funzione non è definita. Ci vuole poca immaginazione per 
+capire che se non è definita la funzione non può essere definito neppure il 
 differenziale.
 
+\begin{esempio}
 Ma che dire del differenziale della radice quadrata in zero? Lì la funzione 
 è definita: \(f(0)=\sqrt{0}=0\). 
-Mentre non è definito il suo 
-differenziale: \(df(0) \sim \dfrac{dx}{2 \sqrt{0}}\)
+Mentre non è definita l'espressione che calcola il suo differenziale: 
+\(df(0) \sim \dfrac{dx}{2 \sqrt{0}}.\)
 
-Recuperiamo il differenziale esatto della funzione:
-\[d\tonda{\sqrt(0)}=\frac{dx}{\sqrt{0+dx}+\sqrt{0}}\]
-Intanto possiamo osservare che per poter effettuare i calcoli \(dx\) deve 
-essere positivo quindi il resto del ragionamento ha senso soltanto 
-assumendo \(dx>0\).
+Però se applichiamo la definizione, il differenziale della radice in zero non 
+sembra presentare difficoltà:
+\[df(0) = f(0+dx)-f(0)=\sqrt{0+dx}-\sqrt{0}=\sqrt{dx}.\]
+(Per poter effettuare i calcoli \(dx\) deve essere positivo: assumiamo perciò:
+\(dx>0\).)
 
-In questo caso otteniamo:
-\[d\tonda{\sqrt(0)}=\frac{dx}{\sqrt{dx}}\]
-Razionalizzando il denominatore della frazione, il differenziale diventa:
-\[d\tonda{\sqrt(0)}=\frac{dx}{\sqrt{dx}} \cdot \frac{\sqrt{dx}}{\sqrt{dx}}
-  \sqrt{dx}\]
-Ma \(\sqrt{dx}\) è un infinitesimo ''molto`` più grande di \(dx\). 
+Il risultato, \(\sqrt{dx}\), è un infinitesimo ''molto`` più 
+grande di \(dx\). 
 Se \(\sqrt{dx} = \delta\) allora \(dx = \delta \cdot \delta\) cioè \(dx\) è 
-un infinitesimo di \(\sqrt{dx}\). Quando con uno strumento ottico non 
-standard riesco a visualizzare \(dx\), non potrò vedere anche 
-\(\sqrt{dx}\), questo sarà fuori dal campo visivo, si troverà all'infinito.
-
-Possiamo concludere che in zero la funzione radice ha un differenziale 
-(solo sul lato positivo), ma questo differenziale è infinitamente più 
-grande di \(dx\).
+un infinitesimo ''più potente`` rispetto a \(\sqrt{dx}\). Se con uno strumento 
+ottico non standard  visualizzo \(dx\), non posso vedere contemporaneamente
+anche \(\sqrt{dx}\), perché questo è fuori dal campo visivo, è all'infinito.
 \end{esempio}
+
 
 Nel piano cartesiano tracciamo il grafico delle funzioni degli ultimi 
 tre esempi: $y=\sqrt{x}$, $y=\frac{1}{x}$ e $y=\frac{1}{x^2-1}$.
@@ -782,23 +814,15 @@ tre esempi: $y=\sqrt{x}$, $y=\frac{1}{x}$ e $y=\frac{1}{x^2-1}$.
 \label{fig:diff01_grafici}
 \end{figure}
 
-Si può osservare che $y=\sqrt{x}$, essendo definita per i valori $x\ge 0$, 
-non può essere calcolata per esempio, se $x=-2$ e quindi nemmeno il suo 
-differenziale ha senso in questo punto.\\
-Gli altri due grafici mettono in evidenza questo problema: dove la funzione 
-non è calcolabile, non esiste il punto che rappresenta la funzione nel 
-piano cartesiano reale. 
+Guardando i grafici si ha evidenza di quanto appena discusso.
+Nel secondo e nel terzo grafico: se si volesse 
+differenziare la funzione ''a cavallo``di un punto in cui essa non è 
+definita, le differenze sull'asse \(Y\) risulterebbero infinite.\\
+Relativamente al primo grafico: si può tentare di differenziare la funzione 
+solo se \(x \ge 0\). Nell'infinitamente vicino all'origine l'andamento della 
+funzione è quasi verticale, il che rende conto dei ragionamenti fatti sul 
+confronto fra l'incremento lungo l'asse \(Y\) e l'incremento lungo l'asse \(X\).
 
-% 
-% TODO chiedere: 1/0 non è definito neppure in *R quindi non c'è telescopio 
-% che tenga...
-% Nel piano iperreale, puntando l'infinito con un telescopio,
-% non riusciamo a focalizzare la differenza infinitesima fra due valori 
-% infiniti della funzione.
-% 
-
-
-% \begin{figure}[h]
 \begin{inaccessibleblock}
   [Discontinuità a salto]
  \begin{center}
@@ -814,74 +838,17 @@ x-1, & \mbox{se }x<2 \\
 x+1, & \mbox{se }x\ge 2
 \end{cases}
 \]
-$f(x)$ ha due rami e il grafico compie un salto per $x~=~2$. Le differenze
-infinitesime calcolate a destra di tale punto saranno diverse da quelle 
-calcolate a sinistra: i differenziali sono calcolabili ma non hanno
-uguali valori. Anche in questo caso $f(x)$ non è differenziabile per $x=2$
+$f(x)$ ha due rami e il grafico compie un salto per $x~=~2$, dove \(f(x)=3\).
+Se \(dx>0\), \(df(x)|_2\) è calcolabile e risulta \(=dx\), mentre se \(dx<0\)
+le differenze non possono essere infinitesime perché la funzione ha un salto 
+nel 
+punto considerato. In casi come questo $f(x)$ è differenziabile solo a destra 
+del punto critico $x=2$.
  \end{minipage}
  \end{center}
 \end{inaccessibleblock}
 \label{fig:diff01_salto}
 % \end{figure}
-
-
-\subsubsection{Continuità e funzioni}
-\label{subsubsec:diff01_diffcontinue}
-Il tema della continuità è vasto e importante e viene trattato nei dettagli
-nel prossimo capitolo. Per ora ci limitiamo a considerazioni di carattere 
-intuitivo.\\
-\emph{Se una funzione è continua, ne puoi tracciare il grafico nel piano 
-cartesiano senza staccare la matita dal foglio}. 
-Se ci fosse un punto (o più punti) di discontinuità, saresti obbligato a 
-interrompere il disegno e riprenderlo da punti vicini.
-\begin{esempio}
- La funzione $f(x)=x$, che ha per grafico la retta $y=x$ è evidentemente 
- una funzione continua: puoi tracciarne il grafico senza interruzioni
- nell'intervallo $(-M,\ M)$. Sono anche continue tutte le funzioni che hanno
- per grafico una retta, come per esempio $f(x)=-\frac{4}{5}x+9$.\\
- Quindi anche la funzione costante $f(x)=k$, che ha per grafico una retta
- orizzontale, è una funzione continua.
-\end{esempio}
-\begin{esempio}
- La funzione $f(x)=\frac{1}{x}$ è continua ovunque in $\R$, tranne che per 
-$x=0$.
- Infatti se $x=0$, $f(x)$ non è calcolabile, quindi nel piano cartesiano 
- non puoi disegnare un punto  che rappresenta il valore standard 
- $(0;~\frac{1}{0})$. 
- Il punto è comunque visibile nel piano iperreale, con  un telescopio.
- \end{esempio}
-\begin{esempio}
- Per ragioni simili, sono discontinue in uno o più punti le funzioni
- (algebriche o trascendenti), per le quali occorra specificare condizioni 
- di esistenza relative a questi punti.
- Così $f(x)=\frac{1}{x^2-1}$ è discontinua per $x=\pm 1$, mentre 
- $f(x)=\frac{1}{x^2+1}$ è continua.
-\end{esempio}
-
-Dagli esempi si capisce che \emph{la continuità delle funzioni è una 
-condizione di carattere locale}, cioè per punti. Infatti si possono 
-riconoscere dei punti di discontinuità di una funzione, non degli insiemi di 
-discontinuità.
-Se ci si accorge che un punto $(x_0;\ f(x_0))$ è di discontinuità
-per $f(x)$, allora si dice: \emph{$f(x)$ è discontinua per $x=x_0$},
-cioè si indica solo la coordinata $x$ che pone questo problema 
-(non si usa dire: $f(x_0)$ è discontinua).
-Una funzione può essere discontinua in infiniti punti.
-\begin{esempio}
- La funzione $f(x)= \tan x$ è discontinua per $x=\frac{\pi}{2}\pm k\pi$.
-\end{esempio}
-
-\begin{definizione}
-Se una funzione è continua in tutti i punti di un intervallo 
-$\intervcc{a}{b}$, allora si dice continua in $\intervcc{a}{b}$.
-\end{definizione}
-\begin{osservazione}
- Ovviamente la definizione non cambia se l'intervallo è di tipo diverso.
-\end{osservazione}
-
-\begin{esempio}
- $f(x)=\ln x$ è definita per $x \in (0;\ M)$ ed è ivi continua.
-\end{esempio}
 
 
 \subsection{Combinare differenziali}
@@ -923,30 +890,31 @@ df_2(x)$.
 \end{align*}
 \end{proof}
 
+
 \begin{esempio}
  Un generico polinomio di secondo grado \(f(x)=ax^2+bx+c\) è una
  funzione quadratica composta di tre termini. 
  Con le regole precedenti abbiamo: \(f(x)=f_1+f_2+f_3\) e
  \(df(x)~=~df_1+df_2+df_3\).
- \begin{itemize} [noitemsep]
-  \item $f_1=ax^2 \sRarrow df_1\sim 2axdx+$; 
+ \begin{itemize} [nosep, noitemsep]
+  \item $f_1=ax^2 \sRarrow df_1\sim 2axdx$; 
   \item $f_2=bx \sRarrow df_2=bdx$
   \item $f_3=c \sRarrow df_3=0$
  \end{itemize}
 Quindi $df(x)\sim 2axdx+bdx$. Il grafico della funzione è una parabola 
 generica
 e il differenziale ci dice che l'incremento infinitesimo 
-$dx$ provoca un incremento (o un decremento) variabile sull'asse $Y$, che 
-dipende dal punto $x$ a partire dal quale si calcola $dx$.
+$dx$ provoca un incremento (eventualmente di segno opposto) infinitesimo
+variabile sull'asse $Y$, che dipende dal valore $x$ a partire dal quale si 
+calcola $dx$.
 \end{esempio}
 
 Completiamo il quadro delle regole di calcolo con l'esame dei differenziali
-del prodotto e del rapporto di funzioni. Lo studente smart, che si fida un 
-po' 
-troppo delle analogie, potrebbe pensare: ''siccome il differenziale di una 
-somma è la somma dei differenziali e lo stesso avviene per la differenza, 
-succederà una cosa simile anche per il prodotto e per il rapporto``. 
-Per (s)fortuna le cose a volte sono un po' meno smart.
+del prodotto e del rapporto di funzioni. Verrebbe da pensare: ''siccome il 
+differenziale di una somma è la somma dei differenziali e lo stesso avviene
+per la differenza, succederà una cosa simile anche per il prodotto e per il 
+rapporto``. 
+Per (s)fortuna le cose a volte sono un po' meno banali.
 
 \subsubsection{Differenziale del prodotto di due funzioni}
 \label{}
@@ -1002,12 +970,12 @@ crescita dell'area di un rettangolo.
 \begin{proof}
 L'incremento infinitesimo di area è la zona colorata del disegno, lo 
 \emph{gnomone}. È formato da tre parti:
-\begin{itemize} [noitemsep]
+\begin{itemize} [nosep, noitemsep]
  \item un rettangolo sottile, verticale e sulla destra, di base
  infinitesima $db(x)$ e altezza $h(x)$;
  \item un rettangolo orizzontale, in alto, di base $b(x)$ e
  altezza infinitesima $dh(x)$;
- \item un rettangolino in alto a destra, di area $db(x) dh(x)$.
+ \item un rettangolino in alto a destra, di area $db(x) \times dh(x)$.
 \end{itemize}
 La descrizione geometrica rappresenta bene la tesi e per i nostri scopi è
 una prova sufficiente. 
@@ -1080,11 +1048,6 @@ Dunque:
 \end{align}
 \end{proof}
 
-\begin{osservazione}
- Si chiama gnomone la figura, a forma di L rovesciata, che rappresenta la 
-crescita dell'area di un rettangolo.
-\end{osservazione}
-
 
 \subsubsection{Sintesi della sezione}
 \label{subsubsec:diff01_diffsint}
@@ -1094,7 +1057,6 @@ e dimostrazioni. Manca del tutto la trattazione dei differenziali delle
 funzioni trascendenti. Avremo modo di vedere anche questi nel corso della 
 prossima
 sezione, dove quanto ottenuto fin qui viene utilmente ripreso e ampliato.\\
-\newline
 I risultati che abbiamo visto valgono sotto le ovvie ipotesi
 che si parli di funzioni continue e che i differenziali siano calcolabili
 per tutti i possibili $x$ del dominio di tali funzioni. Unificando i simboli 
@@ -1133,7 +1095,7 @@ $h=\sqrt{l^2-\tonda{\frac{l}{2}}^2}=\frac{\sqrt{3}}{2}l$.
 Quindi $l=\frac{2}{\sqrt{3}}h$ e $2p=2\sqrt{3}h$. 
 Incrementiamo l'altezza a partire da $h_0=8$ e ricaviamo il perimetro 
 corrispondente.\\
-$d(2p)|_{h_0=8}=
+$d(2p)|_8=
 d\tonda{2\sqrt{3}h}|_{h_0=8}=
 2 \sqrt{3} \cdot (8+dh)-2\sqrt{3} \cdot 8 = 2 \sqrt{3} \cdot dh$.\\
 Per ogni incremento infinitesimo dell'altezza, il perimetro aumenta di 
@@ -1177,13 +1139,14 @@ $dl\sim\frac{2}{\sqrt{3}}\frac{d\tonda{\mathit{A}}}{l}$.
 l=\sqrt{\frac{4}{\sqrt{3}}\mathit{A}}=
  \frac{2}{\sqrt[4]{3}}\sqrt{\mathit{A}}\srarrow dl=
  d\tonda{\frac{2}{\sqrt[4]{3}}\sqrt{\mathit{A}}}=
- \frac{2}{\sqrt[4]{3}}d\tonda{\sqrt{\mathit{A}}}$\\
+ \frac{2}{\sqrt[4]{3}}d\tonda{\sqrt{\mathit{A}}}$.\\
  A questo punto dobbiamo fermare il calcolo, perché 
  sappiamo calcolare $d\tonda{\sqrt{x}}$, ma 
  non sappiamo ancora come calcolare $d\tonda{\sqrt{f(x)}}$. Per farlo, 
- occorre approfondire le conoscenze.
+ occorre approfondire le conoscenze precedenti.
 \end{osservazione}
 \end{esempio}
+
 
 \section{Introduzione alla derivata}
 \label{sec:diff01_derivata}
@@ -1239,7 +1202,7 @@ ci riporta all'equazione di una retta generica in forma esplicita
 $y=mx+q$, dove $m$ rappresenta appunto il coefficiente angolare, cioè 
 l'inclinazione o pendenza.
 \begin{osservazione}
-Secondo l'uso del capitolo precedente, le indicazioni con la lettera
+Secondo l'uso della sezione, le indicazioni con la lettera
 maiuscola $\Delta$ ($\Delta x$, $\Delta y$) si riferiscono a \emph{quantità 
 finite},
 cioè a numeri standard.
@@ -1264,10 +1227,9 @@ $\Delta x$, $\Delta y$ sono anche chiamati \emph{incrementi} e quindi...
 \end{definizione}
 Si tratta di una quantità finita, calcolabile se $\Delta x \ne 0$.\\
 Il Rapporto Incrementale, calcolato su una retta fornisce la sua pendenza 
-ed 
-è un valore costante, come abbiamo visto.\\
+ed è un valore costante, come abbiamo visto.\\
 Ma il calcolo si può applicare a qualsiasi funzione, anche a quelle che nel 
-piano cartesiano sono rappresentate da curve. Allora le cose cambiano.\\
+piano cartesiano sono rappresentate da curve. Allora però le cose cambiano.
 
 \begin{esempio}
 I prossimi grafici appartengono alla stessa funzione.
@@ -1304,7 +1266,7 @@ Rapporti Incrementali:
   \frac{1-3.8}{3.5-2.3)}=\frac{-2.8}{1.2}=-\frac{7}{3}
 \end{align*}
 
-Pendenze.\\
+Pendenze:
 $$  m_{AB}=-2 \qquad m_{BC}=\frac{1}{2}\qquad m_{CD}=\frac{1}{3}\qquad  
 m_{DE}=-\frac{7}{3}$$
 \end{esempio}
@@ -1317,7 +1279,7 @@ Se si traccia la retta che unisce la coppia di punti, ne risulta una secante
 alla curva.\\
 In conclusione, si hanno le seguenti proprietà:
 
-\begin{enumerate}[noitemsep]
+\begin{enumerate}[nosep, noitemsep]
 \item Il R.I. è un numero finito e esiste solo se $\Delta x\ne 0$.
 \item Il R.I fra le coppie di valori di una funzione è 
  a sua volta una funzione, che dipende dalla coppia scelta. 
@@ -1362,14 +1324,14 @@ fornisce.\\
 Se escludiamo il caso $dx=0$ ($P_n$ coinciderebbe con $A$) e se il rapporto
 dà un risultato finito, otterremo la pendenza della secante fra i due 
 punti infinitamente vicini $A\punto{x_A}{y_A}$ e $P_n\punto{x_A+dx}{f(x_A+dx)}$,
-quindi di una retta infinitamente vicina alla tangente, cioè distinta da essa 
-solo se guardata con il microscopio a ingrandimento infinito.
+quindi di una retta infinitamente vicina alla tangente, cioè distinguibile da 
+essa solo grazie ad un microscopio a ingrandimento infinito.
 
 \begin{definizione}
  Si dice Rapporto Differenziale della funzione $f(x)$, relativo a $x_0$
- il rapporto $\frac{df(x)}{dx}\big|_{x=x_0}$ fra il differenziale della 
+ il rapporto $\frac{df(x)}{dx}\big|_{x_0}$ fra il differenziale della 
 funzione  e quello della variabile, calcolati nel punto $x_0$. \\
- $\frac{df(x)}{dx}\big|_{x=x_0}=\frac{f(x_0+dx)-f(x_0)}{dx}$, con $dx\ne 0$.
+ $\frac{df(x)}{dx}\big|_{x_0}=\frac{f(x_0+dx)-f(x_0)}{dx}$, con $dx\ne 0$.
 \end{definizione}
 
 \begin{figure}[h]
@@ -1387,20 +1349,18 @@ funzione  e quello della variabile, calcolati nel punto $x_0$. \\
   La curva della Fig.12 rappresenta la parabola di equazione 
   $y=\dfrac{x^2}{5}-\dfrac{3}{5}x+2$. Calcoliamo la pendenza della secante che
   passa per $A\punto{5}{4}$ e per un altro punto infinitamente vicino.\\
-  La funzione è visibilmente continua nel punto $A$ e il differenziale per 
+  La funzione è continua nel punto $A$ e il differenziale per 
   $x=x_A$, secondo le regole della sezione precedente, è:\\ 
-  $d(f(x)\big|_{x=5}=d\tonda{\dfrac{x^2}{5}-\dfrac{3}{5}x+2}\bigg|_{x=5}=
-  d\tonda{\dfrac{x^2}{5}}\bigg|_{x=5}-d\tonda{\dfrac{3}{5}x}\bigg|_{x=5}+
-  d(2)\big|_{x=5}=\\
-  =\dfrac{1}{5}\tonda{2xdx+(dx)^2}\big|_{x=5}-\dfrac{3}{5}dx\big|_{x=5}+0=
-  \dfrac{2}{5}x|_{x=5}dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=$\\
-  $=\dfrac{2}{5}5dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=
-  2dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=
-  \dfrac{7}{5}dx+\dfrac{1}{5}(dx)^2$\\
-  Raccogliendo $dx$ nel differenziale della funzione, il rapporto 
-differenziale 
-  è:\\
-  $\dfrac{d(f(x)}{dx}\bigg|_{x=5}=\dfrac{\tonda{\dfrac{7}{5}+\dfrac{1}{5}dx}dx}
+  $d(f(5))=f(5+dx)-f(5)=\tonda{\dfrac{(5+dx)^2}{5}-\dfrac{3}{5}(5+dx)+2}
+  -\tonda{\dfrac{5^2}{5}-\dfrac{3}{5}5+2}=\\
+  =\dfrac{1}{5}\tonda{2xdx+(dx)^2}\big|_{5}-\dfrac{3}{5}dx\big|_{5}+0=
+  \dfrac{2}{5}5dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=\\
+  =2dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=
+  \dfrac{7}{5}dx+\dfrac{1}{5}(dx)^2=\tonda{\dfrac{7}{5}+\dfrac{1}{5}dx}dx$.\\
+ 
+ Raccogliendo $dx$ nel differenziale della funzione, il rapporto 
+differenziale è:\\
+  $\dfrac{d(f(x)}{dx}\bigg|_{5}=\dfrac{\tonda{\dfrac{7}{5}+\dfrac{1}{5}dx}dx}
   {dx}=\dfrac{7}{5}+\dfrac{1}{5}dx$.\\
   Come si vede, la pendenza di questa secante è un numero finito del tipo 
   $a+\epsilon$, che dipende sia dal valore $x_A=5$, sia dall'infinitesimo 
@@ -1411,10 +1371,7 @@ differenziale
 \begin{esempio}
  \label{esempio:diff01_m0diff}
  Ripetiamo il calcolo precedente, con riferimento all'ascissa del vertice 
- $x_V=\dfrac{3}{2}$ (per il valore dell'ascissa può essere di aiuto la 
-lettura
- del grafico, se per caso nel tempo si fosse attenuato il ricordo della
- regola: $x_V=-b/2a$).\\
+ $x_V=\dfrac{3}{2}$.\\
  $d(f(x)\big|_{x=3/2}=
   \dfrac{2}{5}x|_{x=3/2} dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=
   \dfrac{2}{5}\dfrac{3}{2}dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=\\
@@ -1424,7 +1381,7 @@ lettura
  =\dfrac{1}{5}dx$.\\
  La secante per punti infinitamente vicini al vertice della parabola
  differisce dalla retta orizzontale per un infinitesimo, cioè è
- infinitamente vicina alla retta orizzontale.
+ infinitamente vicina alla retta orizzontale che passa per il vertice.
 \end{esempio}
 
 \begin{osservazione}
@@ -1432,32 +1389,30 @@ La pendenza calcolata nell'esempio \ref{esempio:diff01_mdiff} è
 $m\approx\dfrac{7}{5}$, mentre in quest'ultimo esempio 
 \ref{esempio:diff01_m0diff} è
 $m\approx 0$. Questo conferma che $m$ cambia a seconda del punto della 
-curva: 
-$m=m(x)$.
+curva: $m=m(x)$.
 \end{osservazione}
 
 \begin{esempio}
  In quale punto del piano cartesiano la parabola precedente è inclinata 
  di $45^\circ$ rispetto all'orizzontale?\\
- Risposta: poiché solo la retta $y=x$ ha in qualsiasi suo punto
- l'inclinazione richiesta dal problema, occorre cercare in quale punto
+ Risposta: poiché solo le rette $y=x+k$ hanno l'inclinazione richiesta dal 
+problema, occorre cercare in quale punto
  la parabola risulta inclinata come la retta, cioè ha lo stesso 
-coefficiente 
- angolare. È chiaro che non si può calcolare il coefficiente angolare
- di una parabola, ma si può immaginare che nel punto desiderato esista una 
-retta
- tangente che risponde alle nostre esigenze. Cerchiamo quindi in quale
- punto, almeno approssimativamente, si possa disegnare una retta che ha $m=1$ e
- che quasi coincida con la parabola.\\
+coefficiente  angolare. È chiaro che non si può calcolare il coefficiente 
+angolare di una parabola, ma si può immaginare che nel punto desiderato esista 
+una retta tangente che risponde alle nostre esigenze. Cerchiamo quindi in quale
+ punto si possa disegnare una retta che ha $m=1$ e che sia tangente 
+ alla parabola.\\
  Utilizziamo i calcoli precedenti e teniamo incognita $x$, dato che conosciamo
  già la pendenza desiderata:\\
- $\dfrac{d(f(x)}{dx}\bigg|_{x=?}=1 \srarrow 
+ $\dfrac{d(f(x)}{dx}=1 \srarrow 
  \dfrac{2}{5}x+\dfrac{1}{5}dx-\dfrac{3}{5}=1
  \srarrow \dfrac{2}{5}x=1+\dfrac{3}{5}-\dfrac{1}{5}dx
  \srarrow x=\dfrac{8-dx}{5}\dfrac{5}{2}=\dfrac{8-dx}{2}$.\\
  Il punto in questione ha coordinata $x= 4-\dfrac{1}{2}dx\approx 4$.  
 \end{esempio}
 
+\begin{comment}
 \section{Derivata: definizione}
 \label{sec:diff01_deriv}
 Gli esercizi precedenti sono stati risolti con esattezza.
@@ -1947,7 +1902,8 @@ varia come varia la $y$ rispetto alla $x$ in una retta.
 
 \begin{osservazione}
  Ripetendo l'osservazione a pag.\pageref{subsubsec:diff01_diffpot} relativa 
- a queste funzioni, il teorema \ref{diff01_teoderpotenza} è del tutto generale: si
+ a queste funzioni, il teorema \ref{diff01_teoderpotenza} è del tutto generale: 
+si
  applica con qualsiasi esponente reale.
 Vale quindi anche per le funzioni radicali di qualsiasi indice e per le funzioni
 razionali fratte, come esemplifichiamo nei prossimi due casi, molto comuni.
@@ -3360,3 +3316,4 @@ di
 
 \end{esempio}
 
+\end{comment}
