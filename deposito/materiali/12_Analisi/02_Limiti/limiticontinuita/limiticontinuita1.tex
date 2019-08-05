@@ -18,8 +18,9 @@ In alcuni problemi non siamo interessati a sapere come si comporta una funzione
 per un valore ben preciso, ci interessa di più 
 sapere come si comporta quando la variabile \(x\) è \emph{infinitamente 
 vicina} a quel valore.
-Per un certo valore di \(x\) potrebbe anche \emph{non} essere definita, ma 
-cosa succede quando \(x\) si avvicina infinitamente a quel valore?
+Per un certo valore di \(x\) la funzione potrebbe anche \emph{non} essere 
+definita, ma cosa succede quando \(x\) si avvicina infinitamente a quel 
+valore?
 
 Vediamo un esempio:
 
@@ -29,11 +30,12 @@ Vediamo un esempio:
  Poi studia come si comporta la funzione per valori infinitamente vicini 
 agli estremi dell'Insieme di Definizione.
 
-La funzione fratta non è definita quando il denominatore vale zero:
+La funzione è fratta e quindi non è definita quando il denominatore vale 
+zero:
 \[x^2+2x-3=0 \sRarrow \tonda{x+3}\tonda{x-1}=0 \sRarrow x_1=-3;~x_2=+1\]
 L'insieme di definizione è formato quindi dai seguenti intervalli:
 \[\intervaa{-\infty}{-3} \quad \cup \quad \intervaa{+1}{-\infty}\]
-Calcoliamo alcuni valori della funzione ``vicini'' agli estremi 
+Calcoliamo alcuni valori della funzione ``vicini'' ai 4 estremi 
 dell'Insieme di Definizione.
 
 \begin{minipage}{.24\textwidth}
@@ -44,6 +46,7 @@ x & y\\\hline
 -100 & 1.0824 \\
 -1000 & 1.0080 \\
 -10000 & 1.0008 \\
+\dots \\
 &\\
 &\\
 &
@@ -58,6 +61,7 @@ x & y\\\hline
 -2.9 & -79.0 \\
 -2.99 & -799.0 \\
 -2.999 & -7999.0 \\
+\dots \\
 -3.001 & 8001.0 \\
 -3.01 & 801.0 \\
 -3.1 & 80.9 \\
@@ -72,6 +76,7 @@ x & y\\\hline
 0.9 & -1.0512\\
 0.99 & -1.0050 \\
 0.999 & -1.0005 \\
+\dots \\
 1.001 & -0.9995 \\
 1.01 & -0.9950 \\
 1.1 & -0.9512 \\
@@ -86,6 +91,7 @@ x & y\\\hline
 100 & 0.9223 \\
 1000 & 0.9920 \\
 10000 & 0.9992 \\
+\dots \\
 &\\
 &\\
 &
@@ -114,61 +120,126 @@ Quando \(x\) si avvicina a più infinito, \(f(x)\) si avvicina a~\(1\) dal basso
 \begin{center}\scalebox{.6}{\limitigraficoa}\end{center}
 \end{esempio}
 
-Osservando il grafico provate a descrivere a parole cosa succede: 
+Osservando il grafico provate a descrivere a parole cosa succede:
+
+\begin{minipage}{.64\textwidth}
 \begin{itemize} [nosep]
  \item quando \(x\) si avvicina a \(-\infty\); 
  \item quando si avvicina a \(-3\) e quando vale proprio \(-3\);
  \item quando si avvicina a \(+1\) e quando vale proprio \(+1\); 
  \item e, infine, quando si avvicina a \(+\infty\).
 \end{itemize}
+
+\begin{osservazione}
+Nel tratto crescente della funzione, che appare come linea continua, in 
+realtà manca un punto: il punto \(\punto{1}{-1}\). 
+Questo punto mancante è invisibile, quindi il grafico della funzione appare 
+continuo. 
+Possiamo indicare un punto mancante in una linea con un cerchietto vuoto 
+come nell'ingrandimento a fianco.
+\end{osservazione}
+
+\end{minipage}
+\hfill
+\begin{minipage}{.34\textwidth}
+\begin{center}\scalebox{1.2}{\limitigraficob}\end{center}
+\end{minipage}
+
 \vspace{1em}
 Prima della nascita dell'analisi non standard, per trattare queste 
 situazioni i matematici si sono inventati il concetto di 
 \emph{limite}.
 
 \begin{definizione}
-\(l\) è il \textbf{limite} di una funzione \(f(x)\) per \(x\) 
-che tende a un 
-valore \(c\), se, quando \(x\) è infinitamente vicino a \(c\), 
+Il \textbf{limite} di una funzione \(f(x)\) per \(x\) 
+che tende a un valore \(c\) è \(l\),
+se, quando \(x\) è infinitamente vicino a \(c\), 
 ma diverso da \(c\), 
 allora \(f(x)\) è infinitamente vicino a \(l\). E si scrive:
-
-\[l=\lim_{x \rightarrow c} f(x) \Leftrightarrow 
+\[\lim_{x \rightarrow c} f(x) = l \Leftrightarrow 
 \forall x \tonda{\tonda{x \approx c \wedge x \neq c} \Rightarrow 
 \tonda{f(x) \approx l}}\]
 \end{definizione}
+\begin{osservazione}
+~
 
+Seguendo uno schema già incontrato: 
+il valore di partenza \(c\) è un numero reale, 
+poi si usano numeri iperreali \(x\) e \(f(x)\)
+per ottenere la soluzione \(l\) che è, di nuovo, un numero reale.
+
+\textbf{Esiste il limite} solo se per \textbf{qualunque} numero 
+infinitamente 
+vicino a \(c\), \(f(x)\) è infinitamente vicino ad \textbf{un solo} valore 
+reale \(l\).
+\footnote{Possiamo inserire queste osservazioni nella definizione ottenendo:
+\begin{definizione}
+Il numero reale \(l\) è il \textbf{limite} di una funzione reale \(f(x)\) 
+per \(x\) che tende a un valore reale \(c\), se, 
+quando \(x\) è un qualunque numero iperreale infinitamente vicino a \(c\), 
+ma diverso da \(c\), 
+allora il valore della corrispondente funzione iperreale \({}^*f(x)\) è 
+infinitamente vicino a \(l\).
+\end{definizione}}
+\end{osservazione}
+
+\subsection{Calcolare limiti}
+\label{subsec:cont_limiti_calcolo}
+
+\begin{procedura}
 Per calcolare il limite di una funzione per \(x\) che tende a un certo 
-valore, \(c\), basta calcolare la parte standard del valore della funzione 
-per un numero infinitamente vicino a \(c\):
+valore, \(c\) finito, basta calcolare la parte standard del valore della 
+funzione per un numero infinitamente vicino a \(c\):
 \[l=\lim_{x \rightarrow c} f(x) = \pst{f(c+\epsilon)}\]
+Se \(c\) è infinito basta calcolare la parte standard della funzione 
+calcolata per un valore infinito:
+\[l=\lim_{x \rightarrow \infty} f(x) = \pst{f(M)}\]
+\end{procedura}
 
-Nel caso \(c\) sia un numero finito basta sostituire la \(x\) con \(c+\epsilon\) 
-e poi prendere la parte standard.
+I prossimi esempi mostrano come è possibile applicare la procedura per il 
+calcolo del limite a diversi casi che potrai incontrare.
 
 \begin{esempio}
-Calcola: \quad \(\displaystyle \lim_{x \rightarrow 3} \tonda{x^2-4x+2}\)
+\textbf{Limite per \(x\) che tende ad un valore finito \(c\)}:
+in questo caso basta sostituire, nella funzione, la variabile \(x\) con 
+\(c+\epsilon\) e poi calcolare la parte standard.
 \begin{align*}
 \lim_{x \rightarrow 3} \tonda{x^2-4x+2} & \stackrel{1}{=} 
   \pst{\tonda{3+\epsilon}^2-4\tonda{3+\epsilon}+2} \stackrel{2}{=}\\  
-  & =\pst{9 + 6 \epsilon + \epsilon^2 - 12 - 4\epsilon + 2} \stackrel{3}{=}
-  \pst{9 - 12 + 2} = -1
+  & \stackrel{2}{=} \pst{9 + 6 \epsilon + \epsilon^2 - 12 - 4\epsilon + 2} 
+  \stackrel{3}{=} \pst{9 - 12 + 2} \stackrel{4}{=} -1
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item sostituiamo \(x\) con \(\tonda{3+\epsilon}\);
  \item eseguiamo i calcoli algebrici;
- \item sostituiamo l'espressione con una espressione indistinguibile,
-   eseguiamo i calcoli e calcoliamo la parte standard.
+ \item sostituiamo l'espressione con una espressione indistinguibile;
+ \item eseguiamo i calcoli e calcoliamo la parte standard.
 \end{enumerate}
 \end{esempio}
 
-Se \(c=0\) ci possiamo semplificare notevolmente i calcoli ricordando 
-che~\(0 + \epsilon = \epsilon\).
+\begin{esempio}
+\textbf{Metodo rapido}, ma che non sempre funziona:
+\begin{align*}
+\lim_{x \rightarrow 3} \tonda{x^2-4x+2} & \stackrel{1}{=} 
+  \pst{\tonda{3+\epsilon}^2-4\tonda{3+\epsilon}+2} \stackrel{2}{=}\\ 
+  & \stackrel{2}{=}\pst{\tonda{3}^2-4\tonda{3}+2} \stackrel{3}{=}
+  \pst{9 - 12 + 2} \stackrel{4}{=} -1
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo \(x\) con \(\tonda{3+\epsilon}\);
+ \item sostituiamo l'espressione con una espressione indistinguibile;
+ \item eseguiamo i calcoli algebrici;
+ \item eseguiamo i calcoli e calcoliamo la parte standard.
+\end{enumerate}
+\end{esempio}
 
 \begin{esempio}
-Calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow 0} \frac{x^2-4x+2}{x^2-4}\)
+\textbf{Limite per \(x\) che tende a 
+\mathversion{bold}\(0\)\mathversion{normal}}:
+in questo caso i calcoli risultano più semplici dato che
+\(0 + \epsilon = \epsilon\).: 
 \begin{align*}
 \lim_{x \rightarrow 0} \frac{x^2-4x+2}{x^2-4} & \stackrel{1}{=} 
   \pst{\frac{\epsilon^2-4\epsilon+2}{\epsilon^2-4}} \stackrel{2}{=}  
@@ -182,12 +253,9 @@ Dove le uguaglianze hanno i seguenti motivi:
 \end{enumerate}
 \end{esempio}
 
-Se \(c\) è un numero infinito sostituiremo \(x\) con un generico 
-infinito~\(M\), svolti i calcoli, prenderemo la parte standard.
-
 \begin{esempio}
-Calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow \infty} \frac{3x^2-3x+7}{5x^2-6}\)
+\textbf{Limite per \(x\) che tende a un numero infinito}:
+sostituiremo \(x\) con un generico infinito~\(M\).
 \begin{align*}
 \lim_{x \rightarrow \infty} \frac{3x^2-3x+7}{5x^2-6} & \stackrel{1}{=} 
   \pst{\frac{3M^2-3M+7}{5M^2-6}} \stackrel{2}{=}  
@@ -195,15 +263,17 @@ Calcola: \quad
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(M\);
+ \item sostituiamo \(x\) con \(M\), un generico iperreale infinito;
  \item sostituiamo l'espressione ottenuta con una espressione 
    indistinguibile, eseguiamo i calcoli e calcoliamo la parte standard.
 \end{enumerate}
 \end{esempio}
 
+Ora vediamo alcuni casi un po' più delicati: ricordiamoci che un numero 
+iperreale diverso da zero non può mai essere indistinguibile da zero.
+
 \begin{esempio}
-Calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow -5} \frac{x+5}{x-3}\)
+\textbf{Infinitesimo fratto finito non infinitesimo (\emph{i/fni}).}
 \begin{align*}
 \lim_{x \rightarrow -5} \frac{x+5}{x-3} & \stackrel{1}{=} 
   \pst{\frac{-5+\epsilon+5}{-5+\epsilon-3}} \stackrel{2}{=}  
@@ -222,8 +292,7 @@ un infinitesimo e la sua parte standard è zero.
 \end{esempio}
 
 \begin{esempio}
-Calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow 4} \frac{2x+6}{x-4}\)
+\textbf{Finito non infinitesimo fratto infinitesimo (\emph{fni/i}).}
 \begin{align*}
 \lim_{x \rightarrow 4} \frac{2x+6}{x-4} & \stackrel{1}{=} 
   \pst{\frac{2\tonda{4+\epsilon}+6}{4+\epsilon-4}} \stackrel{2}{=}  
@@ -246,12 +315,11 @@ numero non finito, tracceremo una freccia seguita da ``\(\infty\)''.
 \end{esempio}
 
 \begin{esempio}
-\textbf{Importante}, calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow \infty} \tonda{2x-\sqrt{4x^2-8x+3}}\)
+\textbf{Funzione irrazionale, con radici quadrate}.
 \begin{align*}
 \lim_{x \rightarrow \infty} \tonda{2x-\sqrt{4x^2-8x+3}} & \stackrel{1}{=} 
-  \pst{2M-\sqrt{4M^2-8M+3}} \stackrel{2}{=}  
-  \pst{2M-\sqrt{4M^2}} \stackrel{3}{=} 
+  \pst{2M-\sqrt{4M^2-8M+3}} \stackrel{2}{=} \\
+  &=\pst{2M-\sqrt{4M^2}} \stackrel{3}{=} 
   \pst{2M-2M} = 0
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
@@ -264,9 +332,9 @@ Dove le uguaglianze hanno i seguenti motivi:
 \vspace{1em}
 \begin{minipage}{.69\textwidth}
 Ma questa volta nei ragionamenti fatti c'è un errore. Proviamo a calcolare 
-la funzione per alcuni valori abbastanza grandi di \(x\).
+la funzione per alcuni valori abbastanza grandi di \(x\).\\
 I risultati dovrebbero avvicinarsi a zero, ma non è così, sembra si 
-avvicinino a due. Dove abbiamo sbagliato?
+avvicinino, invece, a due. Dove abbiamo sbagliato?
 \end{minipage}
 \begin{minipage}{.39\textwidth}
 \begin{center}
@@ -277,37 +345,85 @@ x & y\\\hline
 10000 & 2.00002 \\
 \end{tabular}
 \end{center}
-\end{minipage}
+\end{minipage}\\
 
 Abbiamo usato in modo improprio la relazione \emph{indistinguibile}: 
 abbiamo ottenuto un'espressione indistinguibile da zero, ma ciò non è 
-possibile. Dobbiamo seguire un'altra strada.
+possibile (vedi la definizione di indistinguibile) \dots \\
+Dobbiamo seguire un'altra strada.
 
 Consideriamo l'espressione data come una frazione e razionalizziamo il 
 numeratore:
-\[\lim_{x \rightarrow \infty} \frac{2x-\sqrt{4x^2-8x+3}}{1}=
-  \pst{\frac{\cancel{4M^2}-\cancel{4M^2}+8M-3}{2M+\sqrt{4M^2-8M+3}}}=\]
-Questa volta possiamo sostituire l'espressione sotto radice senza ottenere 
-zero:
+\begin{align*}
+\lim_{x \rightarrow \infty} 2x-\sqrt{4x^2-8x+3}=
+&\pst{\frac{\tonda{2M}-\sqrt{4M^2-8M+3}}{1} \cdot 
+\frac{\tonda{2M}+\sqrt{4M^2-8M+3}}{\tonda{2M}+\sqrt{4M^2-8M+3}}}=\\
+&=\pst{\frac{\cancel{4M^2}-\cancel{4M^2}+8M-3}{2M+\sqrt{4M^2-8M+3}}}=
+\end{align*}
+Questa volta possiamo sostituire l'espressione sotto radice con 
+un'espressione indistinguibile, senza ottenere zero:
 \[=\pst{\frac{8M-3}{2M+\sqrt{4M^2-8M+3}}} =
    \pst{\frac{8M}{2M+\sqrt{4M^2}}}=\]
 e svolgendo i calcoli otteniamo:
 \[=\pst{\frac{8M}{2M+2M}}=
    \pst{\frac{8\cancel{M}}{4\cancel{M}}} = 2\]
+Ottenendo un risultato in accordo con l'andamento della funzione.
 \end{esempio}
 
 \begin{esempio}
-Calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6}\)
- 
-Seguendo il metodo proposto sopra otteniamo:
+\textbf{Funzione razionale}: metodo rapido ma non sempre funzionante.
+\begin{align*}
+\lim_{x \rightarrow 2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
+\tonda{\pst{\frac
+  {\tonda{2+\epsilon}^3+3\tonda{2+\epsilon}^2+2\tonda{2+\epsilon}}
+  {\tonda{2+\epsilon}^2-\tonda{2+\epsilon}-6}} \stackrel{2}{=}}\\ 
+  &=\frac{2^3+3\cdot 2^2+2\cdot 2}{2^2-2-6} =
+  \pst{\frac{8+12+4}{4-2-6}} \stackrel{3}{=} \pst{\frac{24}{-4}} =-6
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo \(x\) con un numero infinitamente vicino a \(+2\);
+ \item sostituiamo le espressioni tra parentesi con espressioni 
+indistinguibili;
+ \item poiché i risultati ottenuti sono diversi da zero, il risultato è 
+effettivamente indistinguibile. Quindi il risultato ottenuto è valido.
+\end{enumerate}
+\end{esempio}
+
+Ora vediamo un caso in cui il metodo precedente non funziona. Prima di 
+affrontare l'esempio ricordiamoci che se non abbiamo maggiori informazioni 
+sugli infinitesimi \(\alpha\) e \(\beta\), non possiamo calcolare 
+\(\frac{\alpha}{\beta}\).
+
+\begin{esempio}
+\textbf{Funzione razionale}: metodo rapido ma inconcludente.
+\begin{align*}
+\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} & = 
+\pst{\frac
+  {\tonda{-2}^3+3\tonda{-2}^2+2\tonda{-2}}
+  {\tonda{-2}^2-\tonda{-2}-6}} =\\ 
+  &=\pst{\frac{-8+12-4}
+              {4+2-6}} = \pst{\frac{0}{0}} = \dots
+\end{align*}
+Ma qui ci scontriamo con 2 problemi: abbiamo usato la relazione di 
+indistinguibile con lo zero, e abbiamo ottenuto una divisione per zero che 
+non è definita. Potremmo essere un po' più pignoli ma ancora troppo 
+grossolani osservando che quando \(x\) si avvicina a \(2\) il numeratore e 
+il denominatore si avvicinano a zero, sono cioè degli infinitesimi e quindi 
+otteniamo: \(\frac{\alpha}{\beta}\) ma anche questa maggior precisione non 
+è sufficiente.
+
+Metodo lungo ma sicuro:
+dobbiamo rimboccarci le maniche e affrontare il calcolo algebrico 
+ricordandoci che: \\
+\(\tonda{x+a}^3= x^3+3x^2a+3xa^2+a^3\)
 
 \begin{align*}
 \lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
 \pst{\frac
   {\tonda{-2+\epsilon}^3+3\tonda{-2+\epsilon}^2+2\tonda{-2+\epsilon}}
   {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6}} \stackrel{2}{=}\\ 
-  &=\pst{\frac{-8+12\epsilon-6\epsilon^2+\epsilon^3+
+  &\stackrel{2}{=}\pst{\frac{-8+12\epsilon-6\epsilon^2+\epsilon^3+
              3\tonda{4-4\epsilon+\epsilon^2}-4+2\epsilon}
              {4-4\epsilon+\epsilon^2-\tonda{-2+\epsilon}-6}} =\\ 
   &=\pst{\frac{\cancel{-8}+\cancel{12\epsilon}-6\epsilon^2+\epsilon^3+
@@ -328,105 +444,138 @@ Dove le uguaglianze hanno i seguenti motivi:
 \end{esempio}
 
 \begin{osservazione}
-Pensate a cosa succederebbe se ci fosse un qualche \(x^4\) \dots
-Vedremo ora un altro modo di calcolare il limite che risulta molto meno 
+Pensate alla complicazione dei calcoli se ci fosse un qualche \(x^4\) o
+\(x^5\)\dots
+Vedremo ora un altro modo di calcolare il limite che risulta meno 
 complicato.
+\end{osservazione}\\
 
-Nei prossimi due esempi, che vanno studiati assieme, vedremo un metodo che 
-permette di svolgere meno calcoli.
-\end{osservazione}
-
-% 
-% Per essere precisi questo esempio andrebbe affrontato dopo il prossimo 
-% paragrafo sulle funzioni continue. Lo abbiamo inserito qui per completare 
-% la trattazione dei limiti.
-% 
-% Anticipiamo quindi due affermazioni che saranno giustificate più avanti:
-% \begin{itemize} [nosep]
-%  \item Le funzioni fratte sono continue dove sono definite.
-%  \item Se una funzione è continua in un punto, allora il limite per \(x\) 
-% che 
-% tende a quel punto è uguale al valore che la funzione ha in quel punto.
-% \end{itemize}
-
+Prima di affrontare il prossimo metodo ricordiamoci che possiamo 
+raccogliere tutti gli infinitesimi di ordine superiore ad un certo 
+infinitesimo \(\epsilon\) nel simbolo: \(o\tonda{\epsilon}\).
 
 \begin{esempio}
-\textbf{Importante 1}, calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow +2} \frac{x^3+3x^2+2x}{x^2-x-6}\)
- 
-Seguendo il metodo proposto sopra otteniamo:
-
+\textbf{Funzione razionale}: altro metodo.
 \begin{align*}
-\lim_{x \rightarrow 2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
-\tonda{\pst{\frac
-  {\tonda{2+\epsilon}^3+3\tonda{2+\epsilon}^2+2\tonda{2+\epsilon}}
-  {\tonda{2+\epsilon}^2-\tonda{2+\epsilon}-6}} \stackrel{2}{=}}\\ 
-  &=\frac{2^3+3\cdot 2^2+2\cdot 2}{2^2-2-6} =
-  \pst{\frac{8+12+4}{4-2-6}} \stackrel{3}{=} \pst{\frac{24}{-4}} =-6
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
-\begin{enumerate} [nosep]
- \item sostituiamo \(x\) con un numero infinitamente vicino a \(+2\);
- \item sostituiamo le espressioni tra parentesi con espressioni 
-indistinguibili;
- \item poiché i risultati ottenuti sono diversi da zero, il risultato è 
-effettivamente indistinguibile. Quindi il risultato ottenuto è valido.
-\end{enumerate}
-\end{esempio}
-
-\begin{esempio}
-\textbf{Importante 2}, calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6}\)
- 
-Seguendo il metodo proposto sopra otteniamo:
-
-\begin{align*}
-\lim_{x \rightarrow 2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
-\tonda{\pst{\frac
+\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
+\pst{\frac
   {\tonda{-2+\epsilon}^3+3\tonda{-2+\epsilon}^2+2\tonda{-2+\epsilon}}
-  {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6}} \stackrel{2}{=}}\\ 
-  &=\pst{\frac{-8+12-4}{4+2-6}} = \pst{\frac{0}{0}} 
-  \text{ Indistinguibile non è applicabile.}
-\end{align*}
-
-È evidente che \(-2\) è uno zero sia del numeratore sia del denominatore 
-quindi, per il teorema di Ruffini, entrambi questi polinomi sono divisibili 
-per \(x+2\).
-Possiamo scomporre i due polinomi, semplificarli procedendo nel seguente 
-modo:
-
-\begin{align*}
-\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} &=
-\lim_{x \rightarrow -2} \frac{x \tonda{x+1} \cancel{\tonda{x+2}}}
-          {\tonda{x-3} \cancel{\tonda{x+2}}} \stackrel{1}{=}
-\lim_{x \rightarrow -2} \frac{x^2+x}{x-3}=\\
-&=\tonda{\pst{\frac{\tonda{-2+\epsilon}^2-\tonda{2+\epsilon}}
-                   {\tonda{-2+\epsilon}-3}}}\stackrel{2}{=}
-\pst{\frac{\tonda{-2}^2-2}{-2-3}}=
-\pst{\frac{2}{-5}} = -\frac{2}{5}
+  {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6}} \stackrel{2}{=}\\ 
+  &\stackrel{2}{=}\pst{\frac{-8+12\epsilon+12-12\epsilon-4+2\epsilon+
+                             o\tonda{\epsilon}}
+                           {4-4\epsilon+2-\epsilon-6+o\tonda{\epsilon}
+                           }}=\\ 
+  &=\pst{\frac{\cancel{-8}+\cancel{12\epsilon}+
+               \cancel{12}\cancel{-12\epsilon}\cancel{-4}+2\epsilon+
+               o\tonda{\epsilon}}
+              {\cancel{4}-4\epsilon\cancel{+2}-\epsilon\cancel{-6}+
+               o\tonda{\epsilon}}}\stackrel{3}{=}
+    \pst{\frac{2\cancel{\epsilon}}{-5\cancel{\epsilon}}} = -\frac{2}{5}
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item possiamo semplificare perché \(x\) è infinitamente vicino a \(-2\) ma è 
-diverso da \(-2\);
- \item sostituiamo l'espressione con una indistinguibile operazione, questa 
-volta, applicabile perché le due espressioni sono diverse da zero.
+ \item sostituiamo \(x\) con \(-2+\epsilon\);
+ \item eseguiamo i calcoli riunendo in un unico simbolo tutti gli 
+infinitesimi di ordine superiore e perciò trascurabili;
+ \item sostituiamo l'espressione con una indistinguibile poi calcoliamo la 
+parte standard.
 \end{enumerate}
 \end{esempio}
+
+% \begin{esempio}
+% \textbf{Funzione razionale}: altro metodo.
+% \begin{align*}
+% \lim_{x \rightarrow 2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
+% \tonda{\pst{\frac
+%   {\tonda{-2+\epsilon}^3+3\tonda{-2+\epsilon}^2+2\tonda{-2+\epsilon}}
+%   {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6}} \stackrel{2}{=}}\\ 
+%   &=\pst{\frac{-8+12-4}{4+2-6}} = \pst{\frac{0}{0}} 
+%   \text{ Indistinguibile non è applicabile.}
+% \end{align*}
+% 
+% È evidente che \(-2\) è uno zero sia del numeratore sia del denominatore 
+% quindi, per il teorema di Ruffini, entrambi questi polinomi sono divisibili 
+% per \(x+2\).
+% Possiamo scomporre i due polinomi, semplificarli procedendo nel seguente 
+% modo:
+% 
+% \begin{align*}
+% \lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} &=
+% \lim_{x \rightarrow -2} \frac{x \tonda{x+1} \cancel{\tonda{x+2}}}
+%           {\tonda{x-3} \cancel{\tonda{x+2}}} \stackrel{1}{=}
+% \lim_{x \rightarrow -2} \frac{x^2+x}{x-3}=\\
+% &=\tonda{\pst{\frac{\tonda{-2+\epsilon}^2-\tonda{2+\epsilon}}
+%                    {\tonda{-2+\epsilon}-3}}}\stackrel{2}{=}
+% \pst{\frac{\tonda{-2}^2-2}{-2-3}}=
+% \pst{\frac{2}{-5}} = -\frac{2}{5}
+% \end{align*}
+% Dove le uguaglianze hanno i seguenti motivi:
+% \begin{enumerate} [nosep]
+%  \item possiamo semplificare perché \(x\) è infinitamente vicino a \(-2\) ma 
+% è 
+% diverso da \(-2\);
+%  \item sostituiamo l'espressione con una indistinguibile operazione, questa 
+% volta, applicabile perché le due espressioni sono diverse da zero.
+% \end{enumerate}
+% \end{esempio}
 
 \begin{osservazione}
 Abbiamo ottenuto lo stesso valore ricavato più sopra facendo tutti i 
-calcoli algebrici, ma i passaggi sono estremamente più semplici.
+calcoli algebrici, ma i passaggi sono più semplici.
 \end{osservazione}
 
 
+\subsection{Limiti notevoli}
+\label{subsec:cont_limiti_notevoli}
+
+Ci sono alcuni limiti che hanno delle dimostrazioni particolari e che è 
+utile conoscere per poter risolvere dei casi particolari.
+
+\subsubsection{\mathversion{bold}$\sen x$}
+Conoscendo la funzione seno, risulta abbastanza evidente che:
+\[\lim_{x \rightarrow }\tonda{\sen x} = 0\]
+e che 
+\[\lim_{x \rightarrow \infty}\tonda{\sen x} = \text{ non esiste}\]
+Infatti man mano che \(x\) aumenta, \(\sen \)
+continua a variare tra \(-1\) e \(+1\) e quindi 
+\(\sen M\) non può essere infinitamente vicino ad un solo numero reale.
+
+Ma il seguente è un limite notevole di cui proponiamo una dimostrazione 
+grafica:
+\[\lim_{x \rightarrow }\frac{\sen x}{x} = 1\]
+\begin{minipage}{.49\textwidth}
+Una circonferenza non ha differenze reali da un poligono regolare di 
+infiniti lati quindi un arco infinitesimo differisce dalla corda 
+sottesa per infinitesimi di ordine superiore alle loro lunghezze. Perciò il 
+loro rapporto è \(1\).
+Se rappresentiamo in una circonferenza goniometrica un arco di ampiezza 
+infinitesima e il corrispondente seno, appaiono non distinguibili ad ogni 
+ingrandimento finito. Se li ingrandiamo con un microscopio non standard con 
+infiniti ingrandimenti, possiamo vedere che sono ancora indistinguibili 
+cioè differiscono per infinitesimi di ordine superiore. 
+
+Quindi il loro rapporto è \(1\).
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+\begin{center} \limiteseno \end{center}
+\end{minipage}
+
+\subsubsection{Numero di Eulero}
+
+\subsubsection{}
+\subsubsection{}
+\subsubsection{}
+\subsubsection{}
+\subsubsection{}
+\subsubsection{}
+
+% Quando dobbiamo calcolare il limite di certe funzioni esponenziali è 
+% importante ricordare la definizione del numero di Eulero (o di Nepero):
+% \[e=\tonda{1+\frac{1}{M}}^M = \tonda{1+\epsilon}^{\frac{1}{\epsilon}}\]
+
 \begin{esempio}
-Calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow \infty} \tonda{1+\dfrac{k}{x}}^x\)
-  
-Ricordiamo che, per definizione:  
-\(\pst{\tonda{1+\epsilon)^{\frac{1}{\epsilon}}}} = 
-  \pst{\tonda{1+\dfrac{1}{N}}^N} = e\)
+Limite di una particolare funzione esponenziale:
 \begin{align*}
  \lim_{x \rightarrow \infty} \tonda{1+\dfrac{k}{x}}^x =
  \pst{\tonda{1+\dfrac{k}{N}}^N}
@@ -438,25 +587,30 @@ Ricordiamo che, per definizione:
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item uno sporco trucco: la sostituzione. Supponiamo
-\(\frac{k}{N}=\dfrac{1}{M}\). Allora \(N=kM\);
+ \item uno sporco trucco: se al posto di \(\dfrac{k}{N}\) 
+scrivo \(\dfrac{1}{M}\) allora al posto di \(N\) dovrò scrivere \(N=kM\);
+\(\dfrac{k}{N}=\dfrac{1}{M} \sLRarrow N=kM\);
  \item una potenza di potenza è una potenza che ha...
  \item per la definizione del numero \(e\) e per le proprietà della funzione 
 \(\st()\).
 \end{enumerate}
 \end{esempio}
 
+Prima di affrontare il prossimo esempio ricordiamo che se 
+\(a^\epsilon = 1+\delta\) allora \(\epsilon\) è l'esponente da dare a \(a\) 
+per ottenere \(1+\delta\): \(\epsilon = \log_{a}{\tonda{1+\delta}}\)
+
 \begin{esempio}
 Calcola: \quad 
   \(\displaystyle \lim_{x \rightarrow 0} \dfrac{a^x-1}{x}\)
 \begin{align*}
-\lim_{x \rightarrow 0} \dfrac{a^x-1}{x} =
+\lim_{x \rightarrow 0} \dfrac{a^x-1}{x} &=
 \pst{\dfrac{a^\epsilon-1}{\epsilon}}
 ~ \stackrel{1}{=} ~  
-\pst{\dfrac{\delta}{\log_a{(\delta+1)}}}
-~ \stackrel{2}{=} ~
-\pst{\frac{1}{\dfrac{\log_a{(\delta+1)}}{\delta}}}
-~ \stackrel{3}{=} ~ 
+\pst{\dfrac{\delta}{\log_a{(\delta+1)}}}~ \stackrel{2}{=}\\
+&\stackrel{2}{=} 
+\pst{\frac{1}{\dfrac{\log_a{(\delta+1)}}{\delta}}}\stackrel{3}{=}\\
+&\stackrel{3}{=} ~ 
 \pst{\frac{1}{\dfrac{1}{\ln{a}}}}=\ln{a}
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
@@ -566,8 +720,8 @@ definita.
 \begin{esempio}
 Studia la continuità della funzione 
 \(y=\begin{cases} 
-    \dfrac{1}{2}x-2 & \mbox{se }x \leqslant 2 \\ 
-    x^2-6x+7 & \mbox{se }x > 2
+    \dfrac{1}{2}x-2 & \text{se }x \leqslant 2 \\ 
+    x^2-6x+7 & \\text{se }x > 2
   \end{cases}\)
 \quad in \(x_0=2\)
 
@@ -696,7 +850,7 @@ La funzione seno (\(y=\sen x\)) è continua.
 \begin{proof}
 Usando la formula del seno della somma di due angoli:
 \[f(x+\epsilon) =
-\sen{(x+\epsilon)} = \sen x \cos \epsilon - \cos x \sen \epsilon\]
+\sen{(x+\epsilon)} = \sen x \cos \epsilon + \cos x \sen \epsilon\]
 Se un angolo è infinitamente vicino a zero avrà il coseno infinitamente vicino 
 a uno e il seno infinitamente vicino a zero. Quindi:
 \[\sen{(x+\epsilon)} = \sen x + \delta\]
