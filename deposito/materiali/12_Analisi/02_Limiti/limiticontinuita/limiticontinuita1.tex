@@ -531,18 +531,36 @@ calcoli algebrici, ma i passaggi sono più semplici.
 Ci sono alcuni limiti che hanno delle dimostrazioni particolari e che è 
 utile conoscere per poter risolvere dei casi particolari.
 
-\subsubsection{\mathversion{bold}$\sen x$}
-Conoscendo la funzione seno, risulta abbastanza evidente che:
-\[\lim_{x \rightarrow }\tonda{\sen x} = 0\]
-e che 
-\[\lim_{x \rightarrow \infty}\tonda{\sen x} = \text{ non esiste}\]
+\subsubsection{Funzioni goniometriche}
+
+Se consideriamo le funzioni seno, coseno e tangente, possiamo vedere che 
+alcuni limiti risultano banali, ma altri sono interessanti e possono essere 
+dimostrati.
+
+\begin{minipage}{.66\textwidth}
+\begin{center} \sinusoide \end{center}
+% \begin{center} \sincos{sin(x)}{$y=\sen x$}{Blue} \end{center}
+\begin{center} \cosinusoide \end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{.33\textwidth}
+\begin{center} \tangente \end{center}
+\end{minipage}
+
+\paragraph{Funzione seno}~
+
+Osservando il grafico della funzione seno, risulta abbastanza evidente che:
+\[\lim_{x \rightarrow 0}{\sen x} = \pst{\sen \epsilon} = 0
+\quad \text{e che} \quad 
+\lim_{x \rightarrow \infty}{\sen x} = \pst{\sen M} = \text{ non esiste}\]
 Infatti man mano che \(x\) aumenta, \(\sen \)
 continua a variare tra \(-1\) e \(+1\) e quindi 
 \(\sen M\) non può essere infinitamente vicino ad un solo numero reale.
 
 Ma il seguente è un limite notevole di cui proponiamo una dimostrazione 
 grafica:
-\[\lim_{x \rightarrow }\frac{\sen x}{x} = 1\]
+\[\lim_{x \rightarrow 0}\frac{\sen x}{x} = 
+  \pst{\frac{\sen \delta}{\delta}} = 1\]
 \begin{minipage}{.49\textwidth}
 Una circonferenza non ha differenze reali da un poligono regolare di 
 infiniti lati quindi un arco infinitesimo differisce dalla corda 
@@ -561,18 +579,169 @@ Quindi il loro rapporto è \(1\).
 \begin{center} \limiteseno \end{center}
 \end{minipage}
 
-\subsubsection{Numero di Eulero}
+\paragraph{Funzione tangente}~
 
-\subsubsection{}
-\subsubsection{}
-\subsubsection{}
-\subsubsection{}
-\subsubsection{}
-\subsubsection{}
+Anche nella funzione tangente valgono i seguenti limiti:
+\[\lim_{x \rightarrow 0}{\tan x} = \pst{} = 0; \quad
+\lim_{x \rightarrow \infty}{\tan x} = \pst{\tan M} = 
+                                      \text{ non esiste}; \quad
+\lim_{x \rightarrow 0}\frac{\tan x}{x} = \pst{\frac{\tan \delta}{\delta}} 
+                                       = 1\]
+per considerazioni analoghe a quelle fatte per la funzione seno.
 
-% Quando dobbiamo calcolare il limite di certe funzioni esponenziali è 
-% importante ricordare la definizione del numero di Eulero (o di Nepero):
-% \[e=\tonda{1+\frac{1}{M}}^M = \tonda{1+\epsilon}^{\frac{1}{\epsilon}}\]
+\paragraph{Funzione coseno}~
+
+Per la funzione coseno valgono i seguenti limiti:
+\[\lim_{x \rightarrow 0}{\cos x} = \pst{\cos \delta} = 1; \qquad
+\lim_{x \rightarrow 0}\tonda{1-\cos x} = \pst{1-\cos \delta} = 0; \qquad
+\lim_{x \rightarrow \infty}{\cos x} = \pst{\cos M} = \text{ non esiste}\]
+
+Sono interessanti i seguenti due limiti che riguardano il coseno:
+
+\begin{align*}
+ \lim_{x \rightarrow 0} \frac{1-\cos x}{x} &=
+ \pst{\frac{1-\cos \delta}{\delta}}
+~ \stackrel{1}{=} ~  
+ \pst{\frac{1-\cos \delta}{\delta} \cdot 
+      \frac{1+\cos \delta}{1+\cos \delta}}
+~ \stackrel{2}{=} ~ 
+ \pst{\frac{1-\cos^2 \delta}{\delta \tonda{1+\cos \delta}}}~ 
+\stackrel{3}{=} \\
+& \stackrel{3}{=} ~
+ \pst{\frac{\sen^2 \delta}{\delta \tonda{1+\cos \delta}}}
+~ \stackrel{4}{=}
+ \pst{\frac{\sen \delta}{\delta} \cdot 
+      \frac{\sen \delta}{1+\cos \delta}}
+~ \stackrel{5}{=}
+ \pst{1 \cdot \frac{\delta}{2}} = 0
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item moltiplico la funzione per una frazione equivalente a 1;
+ \item prodotto notevole;
+ \item ricordando che \(\sen^x + \cos^2 x = 1\);
+ \item un infinitesimo fratto un non infinitesimo è un infinitesimo 
+e la sua parte standard è 0.
+\end{enumerate}
+
+\begin{osservazione}
+Dato che \(\sen \delta \sim \delta\), i seguenti due limiti sono 
+equivalenti:
+\[\lim_{x \rightarrow 0} \frac{1-\cos x}{x} =
+ \pst{\frac{1-\cos \delta}{\delta}} =
+ \pst{\frac{1-\cos \delta}{\sen \delta}} =
+ \lim_{x \rightarrow 0} \frac{1-\cos x}{\sen x}\]
+\end{osservazione}
+
+L'altro limite notevole, che si dimostra in modo analogo a quello 
+precedente, è:
+\begin{align*}
+ \lim_{x \rightarrow 0} \frac{1-\cos x}{x^2} &=
+ \pst{\frac{1-\cos \delta}{\delta^2}}
+~ \stackrel{1}{=} ~  
+ \pst{\frac{1-\cos \delta}{\delta^2} \cdot 
+      \frac{1+\cos \delta^2}{1+\cos \delta}}
+~ \stackrel{2}{=} ~ 
+ \pst{\frac{1-\cos^2 \delta}{\delta^2 \tonda{1+\cos \delta}}}~ 
+\stackrel{3}{=} \\
+& \stackrel{3}{=} ~
+ \pst{\frac{\sen^2 \delta}{\delta^2 \tonda{1+\cos \delta}}}
+~ \stackrel{4}{=}
+ \pst{\frac{\sen \delta}{\delta} \cdot 
+      \frac{\sen \delta}{\delta \tonda{1+\cos \delta}}}
+~ \stackrel{5}{=}
+ \pst{1 \cdot \frac{\cancel{\delta}}{2 \cancel{\delta}}} = \frac{1}{2}
+\end{align*}
+
+\subsubsection{Esponenziali e logaritmi}
+
+\paragraph{Numero di Eulero (o di Nepero)}
+
+Ricordiamo come è definita la costante di Eulero:
+\[e = \pst{\tonda{1+\frac{1}{M}}^M} = 
+\pst{\tonda{1+\delta}^\frac{1}{\delta}} 
+\]
+\[e=\sum_{n=0}^{\infty}{\frac{1}{n!}}=
+\frac{1}{1}+\frac{1}{1}+\frac{1}{2}+\frac{1}{2\cdot3}+
+\frac{1}{2\cdot3\cdot4}+\frac{1}{2\cdot3\cdot4\cdot5}+\dots\]
+Mentre la seconda definizione risulta molto efficiente per il calcolo, la 
+prima ha delle interessanti applicazioni matematiche.
+
+\begin{esempio}
+\label{esempio:log}
+Limite di una particolare funzione logaritmica:
+\begin{align*}
+ \lim_{x \rightarrow 0} \dfrac{\ln\tonda{1+x}}{x} &=
+ \pst{\dfrac{\ln\tonda{1+\delta}}{\delta}}~ = ~  
+ \pst{\frac{1}{\delta}\ln\tonda{1+\delta}} ~\stackrel{1}{=} ~
+ \pst{\ln\tonda{1+\delta}^\frac{1}{\delta}}
+~ \stackrel{2}{=} ~
+\pst{\ln\tonda{e}} \stackrel{3}{=} ~ 1
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item per una proprietà dei logaritmi;
+ \item l'argomento del logaritmo è proprio la definizione di \(e\);
+ \item l'esponente da dare a \(e\) per ottenere \(e\) è \(1\).
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Come nell'esempio precedente ma con una base generica:
+\begin{align*}
+ \lim_{x \rightarrow 0} \dfrac{\log_a\tonda{1+x}}{x} &=
+ \pst{\dfrac{\log_a\tonda{1+\delta}}{\delta}}~\stackrel{1}{=} ~  
+ \pst{\dfrac{\frac{\ln\tonda{1+\delta}}{\ln a}}{\delta}}~\stackrel{1}{=} ~
+ \pst{\dfrac{\ln\tonda{1+\delta}}{\delta}\cdot \dfrac{1}{\ln a}}
+ ~ \stackrel{2}{=} ~
+ \dfrac{1}{\ln a}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item cambio di base del logaritmo;
+ \item per quanto visto nell'esempio \ref{esempio:log}.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Limite di una particolare funzione esponenziale:
+\begin{align*}
+\lim_{x \rightarrow 0} \dfrac{e^x-1}{x} &=
+\pst{\dfrac{e^\epsilon-1}{\epsilon}}
+~ \stackrel{1}{=} ~  
+\pst{\dfrac{\delta}{\ln{(\delta+1)}}}~ \stackrel{2}{=} ~ 1
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item ancora una sostituzione: poniamo \(e^\epsilon-1=\delta\). 
+Allora \(e^\epsilon = 1+\delta\) quindi \(\epsilon\) è l'esponente da dare 
+a \(e\) per ottenere \(1+\delta\) cioè: 
+\(\epsilon = \ln{\tonda{1+\delta}}\);
+ \item per quanto visto nell'esempio \ref{esempio:log}.
+\end{enumerate}
+\end{esempio}
+
+\begin{esempio}
+Simile all'esempio precedente, ma con una base generica.
+\begin{align*}
+\lim_{x \rightarrow 0} \dfrac{a^x-1}{x} &=
+\pst{\dfrac{a^\epsilon-1}{\epsilon}}
+~ \stackrel{1}{=} ~  
+\pst{\dfrac{\delta}{\log_a{(\delta+1)}}}~ \stackrel{2}{=}\\
+&\stackrel{2}{=} 
+\pst{\frac{\delta}{\dfrac{\ln{(\delta+1)}}{\ln a}}} ~=~
+\pst{\frac{\delta \cdot \ln a}{\ln{(\delta+1)}}} %\stackrel{3}{=}\\
+\stackrel{3}{=} ~ 
+\pst{1 \cdot \ln a}=\ln{a}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item ancora una sostituzione: poniamo
+\(a^\epsilon-1=\delta\), allora \(\epsilon=\log_a(\delta+1)\);
+ \item applichiamo la formula del cambiamento di base di un logaritmo; 
+ \item per quanto visto nell'esempio \ref{esempio:log}.
+\end{enumerate}
+\end{esempio}
 
 \begin{esempio}
 Limite di una particolare funzione esponenziale:
@@ -582,81 +751,20 @@ Limite di una particolare funzione esponenziale:
 ~ \stackrel{1}{=} ~  
 \pst{\tonda{1+\dfrac{1}{M}}^{kM}}
 ~ \stackrel{2}{=} ~
-\pst{\quadra{\tonda{1+\dfrac{1}{M}}^M}}^k
+\pst{\quadra{\tonda{1+\dfrac{1}{M}}^M}^k}
 ~ \stackrel{3}{=} ~ e^k
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item uno sporco trucco: se al posto di \(\dfrac{k}{N}\) 
-scrivo \(\dfrac{1}{M}\) allora al posto di \(N\) dovrò scrivere \(N=kM\);
-\(\dfrac{k}{N}=\dfrac{1}{M} \sLRarrow N=kM\);
- \item una potenza di potenza è una potenza che ha...
- \item per la definizione del numero \(e\) e per le proprietà della funzione 
-\(\st()\).
+ \item se al posto di \(\dfrac{k}{N}\) scrivo \(\dfrac{1}{M}\) 
+allora al posto di \(N\) dovrò scrivere \(N=kM\), 
+% infatti:
+% \(\dfrac{k}{N}=\dfrac{1}{M} \sLRarrow N=kM\);
+ \item la potenza di potenza è una potenza che ha per base la stessa base 
+e per \dots
+ \item l'espressione tra parentesi quadre è proprio la definizione di \(e\).
 \end{enumerate}
 \end{esempio}
-
-Prima di affrontare il prossimo esempio ricordiamo che se 
-\(a^\epsilon = 1+\delta\) allora \(\epsilon\) è l'esponente da dare a \(a\) 
-per ottenere \(1+\delta\): \(\epsilon = \log_{a}{\tonda{1+\delta}}\)
-
-\begin{esempio}
-Calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow 0} \dfrac{a^x-1}{x}\)
-\begin{align*}
-\lim_{x \rightarrow 0} \dfrac{a^x-1}{x} &=
-\pst{\dfrac{a^\epsilon-1}{\epsilon}}
-~ \stackrel{1}{=} ~  
-\pst{\dfrac{\delta}{\log_a{(\delta+1)}}}~ \stackrel{2}{=}\\
-&\stackrel{2}{=} 
-\pst{\frac{1}{\dfrac{\log_a{(\delta+1)}}{\delta}}}\stackrel{3}{=}\\
-&\stackrel{3}{=} ~ 
-\pst{\frac{1}{\dfrac{1}{\ln{a}}}}=\ln{a}
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
-\begin{enumerate} [nosep]
- \item ancora una sostituzione: poniamo
-\(a^\epsilon-1=\delta\). Allora \(\epsilon=\log_a(\delta+1)\);
- \item una capriola algebrica: oplà! 
- \item per le forme di indecisione discusse a proposito del numero di Nepero
-e per il cambiamento di base;
-\end{enumerate}
-\end{esempio}
-
-\begin{esempio}
-Calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow 0} \dfrac{a^x-1}{x}\)
-\begin{align*}
-\lim_{x \rightarrow 0} \dfrac{a^x-1}{x} =
-\pst{\dfrac{a^\epsilon-1}{\epsilon}}
-~ \stackrel{1}{=} ~  
-\pst{\dfrac{\delta}{\log_a{(\delta+1)}}}
-~ \stackrel{2}{=} ~
-\pst{\frac{1}{\dfrac{\log_a{(\delta+1)}}{\delta}}}
-~ \stackrel{3}{=} ~ 
-\pst{\frac{1}{\dfrac{1}{\ln{a}}}}=\ln{a}
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
-\begin{enumerate} [nosep]
- \item ancora una sostituzione: poniamo
-\(a^\epsilon-1=\delta\). Allora \(\epsilon=\log_a(\delta+1)\);
- \item una capriola algebrica: oplà! 
- \item per le forme di indecisione discusse a proposito del numero di Nepero
-e per il cambiamento di base;
-\end{enumerate}
-\end{esempio}
-
-\begin{esempio}
-Calcola: \quad 
-  \(\displaystyle \lim_{x \rightarrow 0} \dfrac{1-\cos x}{\sin x}\)
- % limite notevole seno e coseno
-\[\lim_{x \rightarrow 0} \dfrac{1-\cos x}{\sin x} =
-  \pst{\dfrac{1-\cos \delta}{\sin \delta}}=0\]
-Dove l'uguaglianza si giustifica per quanto detto a proposito dell'ordine 
-degli infinitesimi, ma gli appassionati del calcolo possono provare a 
-dividere il numeratore e il denominatore per \(x\)...
-\end{esempio}
-
 
 
 \section{Continuità}
