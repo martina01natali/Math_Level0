@@ -2115,7 +2115,7 @@ $\mathit{D}\quadra{x+9}=1$.
 
 Sempre in riferimento a quanto appreso sui differenziali 
 e vista la definizione di derivata e le proprietà della parte standard, 
-giustifichiamo facilmente anche le regole 3 e 4:
+anche le regole 3 e 4 risultano giustificate:
 \begin{enumerate}[noitemsep]
 \setcounter{enumi}{2}
 \item La derivata del prodotto fra due funzioni è la somma fra due prodotti:
@@ -2136,15 +2136,18 @@ g'(x)}
   Calcola la derivata del prodotto $f(x)=x\sqrt{x}$.\\
   $f'(x)=1\cdot \sqrt{x}+x\cdot\frac{1}{2\sqrt{x}}=
   \sqrt{x}+\frac{x}{2\sqrt{x}}$ (se \(x\ne 0\)).\\
-  Fin qui l'applicazione della regola. Ma il risultato si può scrivere 
+  Fin qui l'applicazione della regola 3. Ma il risultato si può scrivere 
   in forma più compatta, perché $\sqrt{x}+\frac{x}{2\sqrt{x}}=
-  \sqrt{x}+\frac{\sqrt{x}}{2}=\frac{3}{2}\sqrt{x}$.\\
-  In realtà per fare questo calcolo non avremmo bisogno della regola del 
-  prodotto, poiché $f(x)=x\sqrt{x}=x^{1+\frac{1}{2}}=x^{\frac{3}{2}}$. Puoi 
-  quindi applicare il teorema \ref{diff01_teoderpotenza} e controllare il 
-  risultato.
-\end{esempio}
-\begin{comment}
+  \sqrt{x}+\frac{\sqrt{x}}{2}=\frac{3}{2}\sqrt{x}$.
+  \end{esempio}
+\begin{osservazione}
+  In realtà per fare questo calcolo non siamo obbligati ad applicare la regola 
+  3, poiché $f(x)=x\sqrt{x}=x^{1+\frac{1}{2}}=x^{\frac{3}{2}}$. Verifica che 
+  applicando il teorema \ref{diff01_teoderpotenza} a $f(x)$ espressa in questa 
+  forma la derivata risulta la stessa.
+ \end{osservazione}
+
+
 \begin{esempio}
   Derivare $f(x)=\dfrac{x}{\sqrt{x}}$.\\
   Seguendo la regola n.4: $f'(x)= 
@@ -2152,17 +2155,13 @@ g'(x)}
   {\tonda{\sqrt{x}}^2}=\dfrac{\sqrt{x}-\dfrac{\sqrt{x}}{2}}{x}=
   \dfrac{\dfrac{\sqrt{x}}{2}}{x}=\dfrac{1}{2\sqrt{x}}$.\\
   Ma guarda che combinazione: abbiamo ottenuto la derivata della radice! 
-Allora 
-  la funzione di partenza è equivalente a una radice? (Ad essere precisi, 
-non 
-  esattamente. Infatti \dots)
+Allora la funzione di partenza è equivalente a $f(x)=\sqrt{x}$? (Ad essere precisi, 
+non   esattamente. Infatti \dots)
 \end{esempio}
 \begin{esempio}
   Sappiamo già che $\mathit{D}\tonda{\dfrac{1}{x}}=\dfrac{-1}{x^2}$. 
-Mettiamo 
-  alla prova ancora una volta la regola n.4: $f'(x)=\dfrac{0\cdot x-1\cdot 
-1}
-  {x^2}= \dots$
+  Mettiamo alla prova ancora una volta la regola n.4:
+  $f'(x)=\dfrac{0\cdot x-1\cdot 1}{x^2}= \dots$
 \end{esempio}
 
 \begin{esempio}
@@ -2184,39 +2183,32 @@ Mettiamo
 \begin{esempio}
  $s(t)~=~s_0~+~v_0t~+~\frac{1}{2}at^2$ è la legge oraria del moto rettilineo
  uniformemente accelerato. Anche se nella formula mancano le usuali 
- sigle $f(x)$, $y$, $x$, si tratta di una comunissima funzione polinomiale
- di 2° grado e le si possono applicare le regole che stiamo studiando, senza
- problemi.\\
- Infatti, derivando si ottiene $s'(t)=0+v_0+\frac{1}{2}\cdot 2at=v_0+at$ 
-che,
- essendo la derivata dello spazio rispetto al tempo, esprime la velocita 
-$v(t)$
- in questo tipo di moto.
+ sigle $f(x)$, $y$, $x$, si tratta di una comune funzione polinomiale
+ di 2° grado e le si possono applicare le regole che stiamo studiando.\\
+ Derivando si ottiene $s'(t)=0+v_0+\frac{1}{2}\cdot 2at=v_0+at$ 
+che, essendo la derivata dello spazio rispetto al tempo, esprime la velocita 
+$v(t)$ in questo tipo di moto.
 \end{esempio}
 L'esempio serve a ricordare che le funzioni e le variabili si esprimono con 
-sigle qualsiasi, ma questo non cambia le regole dell'analisi o, più in
-generale, della matematica. La libertà di uso dei simboli può facilitare i
-calcoli, come si vede nel caso della derivata di una funzione composta.
+sigle qualsiasi, ma questo non cambia le regole. La libertà di uso dei simboli
+può facilitare i calcoli, come si vede nel prossimo caso.
 \begin{esempio}
   Deriva la funzione $v(u)=\dfrac{u^2}{8}$. 
-  Soluzione: $v'(u)=\dfrac{1}{8}2u=\dfrac{u}{4}$. Infatti il 
-  differenziale è $dv(u)=\dfrac{1}{8}[2udu+(du)^2]$ perché 
-$df(x)=2xdx+(dx)^2$ 
-  e $d(kf(x)=kdf(x)$. Allora  la parte 
- standard del rapporto differenziale fornisce il risultato $\dfrac{u}{4}$.
+  Soluzione: $v'(u)=\dfrac{1}{8}2u=\dfrac{u}{4}$. Infatti il differenziale è $dv(u)=\dfrac{1}{8}[2udu+(du)^2]$ perché $df(x)=2xdx+(dx)^2$ 
+  e $d(kf(x)=kdf(x)$. La parte standard del rapporto differenziale fornisce
+  il risultato $\dfrac{u}{4}$.
 \end{esempio}
 
 \begin{esempio}
 Deriva la funzione $u(t)=3t-2$. Soluzione: $u'(t)=3$. Infatti il 
- differenziale è $du(t)=3dt+ 0$. Allora la parte 
+ differenziale è $du(t)=3dt-0$. Allora la parte 
  standard del rapporto differenziale fornisce il risultato $3$.
 \end{esempio}
 
 Combiniamo i due esempi: $v=f(u)$ e $u=f(t)$, cioè $v$ è funzione di $u$, 
-perché i suoi valori dipendono dai quadrati, divisi per $8$, dei numeri $u$ 
-,
-invece $u$ è funzione di $t$, nel senso che i suoi valori sono i valori $t$ 
-triplicati e poi ridotti di 2. In ``matematichese'' 
+perché i suoi valori dipendono dai quadrati, divisi per $8$, dei numeri $u$.
+Invece $u$ è funzione di $t$, nel senso che i suoi valori sono i valori $t$ 
+triplicati e poi ridotti di 2. In ``matematichese'':\\
 $v(u(t))=\dfrac{[u(t)]^2}{8}=\dfrac{(3t-2)^2}{8}$.
 
 
@@ -2228,10 +2220,10 @@ $v(u(t))=\dfrac{[u(t)]^2}{8}=\dfrac{(3t-2)^2}{8}$.
  \end{minipage} 
  \hfill
  \begin{minipage}[]{.48\textwidth}
-Si tratta di una specie di catena:\\
-se si immette il valore $t=6$, la macchina sviluppa $u(6)=3\cdot 6-2=16$ in $u$
-e infine produce $v(16)=\dfrac{16^2}{8}=32$. Una catena del genere si chiama 
-\emph{funzionedi funzione} e $v$, che produce il risultato finale, si dice
+Si tratta di una macchina che incatena due calcoli successivi.\\
+Immettiamo ad esempio il valore $t=6$. La macchina sviluppa al suo interno 
+$u(6)=3\cdot 6-2=16$ grazie a $u$ e infine produce $v(16)=\dfrac{16^2}{8}=32$.
+Una catena del genere si chiama \emph{funzione di funzione} o
 \emph{funzione composta}: $v(u(t))$.\\
  \end{minipage}
  \end{center}
@@ -2240,7 +2232,7 @@ e infine produce $v(16)=\dfrac{16^2}{8}=32$. Una catena del genere si chiama
 
 Come deriviamo  $v$ rispetto a $t$? Dalla definizione di derivata: 
 $\mathit{D}\quadra{v(u(t))}=\pst{\dfrac{d(v(u(t)))}{dt}}$, 
-quindi il punto è il calcolo dei differenziali.
+e il punto è il calcolo dei differenziali.
 \begin{inaccessibleblock}
   [differenziale funzione composta]
  \begin{center}
@@ -2256,18 +2248,16 @@ Poiché $u=3t-2$, $du=3dt$, avremo:\\
 $dv\approx \dfrac{u}{4}du$. \hspace{1cm} $du=3dt$. $\srarrow 
 dv=\dfrac{3t-2}{4}3dt \srarrow\\ 
 \srarrow 
-\pst{\dfrac{d(v(u(t)))}{dt}}=\dfrac{(3t-2)3dt}{4dt}=\dfrac{9}{4}t-\dfrac{3}{
-2}$.\\
+\pst{\dfrac{d(v(u(t)))}{dt}}=\pst{\dfrac{(3t-2)3dt}{4dt}}=$
+$=\dfrac{9t-6}{4}$.
  \end{minipage}
  \end{center}
 \end{inaccessibleblock}
 \label{}
 
-C'è un modo più semplice? Sì: basta sviluppare il quadrato $(3t-2)^2$, 
-dividere
-ogni termine per $8$ e poi derivare il polinomio. Ma a volte il modo più 
-semplice 
-non c'è.
+C'è un modo più semplice? In questo caso, sì: basta sviluppare il quadrato
+$(3t-2)^2$, dividere ogni termine per $8$ e poi derivare il polinomio. 
+Ma a volte il modo più semplice non c'è.
 \begin{esempio}
   Calcolare $f'(x)$, con $f(x)=\sqrt{3-x^2}$.\\
   $f(x)$ è composta: si può pensare
@@ -2287,32 +2277,38 @@ dg(x)+\delta=
 \end{esempio}
 Esaminiamo in modo astratto come abbiamo costruito il rapporto 
 differenziale della funzione composta nell'esempio precedente: 
-$\dfrac{df}{dx}=\dfrac{df}{dg}\dfrac{dg}{dx}$. 
-Sembra un'uguaglianza banale, perché semplificando si ottiene
-l'identità. In realtà i due differenziali $dg$ hanno un significato
-diverso. Quello al denominatore differenzia la variabile indipendente per 
-$f$, quello al numeratore differenzia la variabile che dipende da $x$.\\
-L'espressione giustifica il teorema seguente.
+$\dfrac{df}{dx}=\dfrac{df}{dg}\dfrac{dg}{dx}$. \\
+Sembra un'uguaglianza banale, perché semplificando si otterrebbe l'identità.
+In realtà i due differenziali $dg$ sono scritti allo stesso modo ma hanno un
+significato diverso e non è detto che si possano semplificare.\\
+$dg$ al denominatore differenzia la variabile indipendente della funzione 
+$f$, $dg$ al numeratore è la conseguenza del differenziale $dx$. Perciò
+se varia $x$ si ha un effetto su $g(x)$ e se varia $g$ si ha un effetto 
+su  $f(g)$. In generale le due variazioni $dg$ saranno diverse per infinitesimi
+di ordine superiore, che possono essere eliminati considerando le parti 
+standard.\\
+Non avremo occasione di affrontare queste difficoltà, nei nostri esercizi.
+Ma sono questioni importanti per una regola che vogliamo sempre valida. 
+Perciò il prossimo enunciato deve contenere tutti i dettagli.
 
 \begin{teorema}
   \label{teo:diff01_dericomp}
  Se esistono le derivate $g'(x)$ e $f'(g(x))$ per il medesimo valore $x$,
  la funzione composta $f(g(x))$ è derivabile e la sua derivata si calcola
- così: $f'(x)=f'(g(x))=f'(g)g'(x)$, cioè la derivata di una funzione 
-composta
- è il prodotto delle derivate delle funzioni componenti, ciascuna rispetto
- alla propria variabile.
+ così: $f'(x)=f'(g(x))=f'(g)\cdot g'(x)$, cioè la derivata di una funzione 
+composta è il prodotto delle derivate delle funzioni componenti, 
+ciascuna rispetto alla propria variabile.
 \end{teorema}
-\noindent Ipotesi: $f(x)=f(g(x))$, $f$,$g$ derivabili .\tab 
-Tesi: $f'(x)=f'(g(x))=f'(g(x))g'(x)$.
-\begin{proof}
-  Tralasciando di specificare la scomparsa degli infinitesimi di ordine 
-  superiore e grazie alle proprietà della funzione $\pst{}$, abbiamo:\\
-  $f'(g(x))=\pst{\dfrac{df(x)}{dx}}=
-  \pst{\dfrac{df(g)}{dg}\dfrac{dg(x)}{dx}}=
-  \pst{\dfrac{df(g))}{dg}}\pst{\dfrac{dg(x)}{dx}}=
-  f'(g(x))g'(x)$.
-\end{proof}
+\noindent Ipotesi: $f(x)=f(g(x))$, $f$, $g$ derivabili .\tab 
+Tesi: $f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)$.
+% \begin{proof}
+%   Tralasciando di specificare la scomparsa degli infinitesimi di ordine 
+%   superiore e grazie alle proprietà della funzione $\pst{}$, abbiamo:\\
+%   $f'(g(x))=\pst{\dfrac{df(x)}{dx}}=
+%   \pst{\dfrac{df(g)}{dg}\dfrac{dg(x)}{dx}}=
+%   \pst{\dfrac{df(g))}{dg}}\pst{\dfrac{dg(x)}{dx}}=
+%   f'(g(x))g'(x)$.
+% \end{proof}
 \begin{esempio}
   Derivare $f(x)=\tonda{-\dfrac{3}{2}x^3+2x^2-6}^5$.\\
   Poniamo $g(x)=-\dfrac{2}{3}x^3+2x^2-6$ e $f(g)=g^5$. \\
@@ -2320,8 +2316,7 @@ Tesi: $f'(x)=f'(g(x))=f'(g(x))g'(x)$.
   $f'(g)= 5g^4$ e $g'(x)=-2x^2+4x$, \\
   quindi: 
   $f'(x)=f'(g)\cdot g'(x)=5g^4(-2x^2+4x)=
-  5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)=\\
-  =10x\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-x+2)$ .
+  5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)$.
 \end{esempio}
 \begin{osservazione}
  La regola della funzione composta si estende ai casi in cui le funzioni 
@@ -2334,18 +2329,18 @@ Tesi: $f'(x)=f'(g(x))=f'(g(x))g'(x)$.
  il prodotto delle derivate non è la derivata di un prodotto.
 \end{osservazione}
 
-
 \subsection{Funzioni inverse}
 \label{subsec:diff01_derifuninverse}
 Non è difficile invertire una funzione nota, partendo dalla sua espressione 
 analitica.  Con pochi pochi passaggi elementari, si ricava la formula
-inversa.. Ecco alcuni esempi di semplici funzioni algebriche.
+inversa. Ecco alcuni esempi di semplici funzioni algebriche, dirette e inverse,
+con le rispettive derivate..
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 $y=f(x)$ & $x=g(y)$ & $f'(x)$ & $g'(y)$\\\hline
 $y=x+c$ & $x=y-c$ & 1 & 1\\
 $y=kx$ & $x=y/k$ & $k$ & $\frac{1}{k}$\\
-$y=x^2$, $x\ge 0$ & $x=\sqrt{y}$ & $2x$ & 
+$y=x^2$, $x> 0$ & $x=\sqrt{y}$ & $2x$ & 
 $\frac{1}{2\sqrt{y}}=\frac{1}{2x}$\\
 $y=\frac{1}{x}$ & $x=\frac{1}{y}$ & $-\frac{1}{x^2}$ & 
 $-\frac{1}{y^2}=-x^2$\\
@@ -2354,19 +2349,13 @@ $-\frac{1}{y^2}=-x^2$\\
 \end{center}
 
 \begin{osservazione}
-La funzione  $y=x^2$, nella terza riga della tabella, è definita $\forall 
-x$.
+La funzione  $y=x^2$, nella terza riga della tabella, è definita $\forall x$.
 Tuttavia qui si restringe il dominio, in modo da considerare un solo ramo 
-della
-parabola, perché altrimenti la formula inversa non potrebbe essere una 
-funzione.
-Occorre sempre porre attenzione al dominio di $f$, quando si vuole 
-definirne 
-l'inversa. Una buona regola pratica per capire se $f^{-1}$ è definibile, è 
-di
-tagliare il grafico di $f$ con una retta orizzontale: se la retta incrocia 
-il 
-grafico di $f$ in più punti, $f^{-1}$ non esiste.\\
+della parabola, perché altrimenti la formula inversa non potrebbe essere una 
+funzione. Occorre sempre porre attenzione al dominio di $f$, quando si vuole 
+definirne l'inversa. Una buona regola pratica per capire se $f^{-1}$ è 
+definibile, è di tagliare il grafico di $f$ con una retta orizzontale: se la
+retta incrocia il grafico di $f$ in più punti, $f^{-1}$ non esiste.
 \end{osservazione}
 
 Le ultime due colonne riportano le derivate rispettive e insinuano in
@@ -2374,16 +2363,16 @@ noi qualche sospetto.\\
 Considera il caso semplice che segue.
 \begin{esempio}
   Derivare $f(x)=\sqrt{x^2}$.\\
-  Si dirà: non c'è problema, si calcola la funzione e risulta 
-  $f(x)=\sqrt{x^2}=x$, perciò  $f'(x)=1$. \\
+  Si dirà: non c'è problema, $f(x)$ corrisponde algebricamente a 
+  $f(x)=\sqrt{x^2}=x$, perciò  $f'(x)=1$.\\
   Vero. Ma poniamo $g(x)=x^2$ e $f(x)=f(g(x))=\sqrt{g(x)}$.\\
   Con la regola delle funzioni composte si ha:\\ 
-  $f'(x)=f'(g)g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
+  $f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
   \dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x=1$.\\
   Conclusione: 
 $\mathit{D}\quadra{x^2}=\dfrac{1}{\mathit{D}\quadra{\sqrt{x}}}$
 \end{esempio}
-Si intuisce che: siccome $f'(g)g'(x)=1$, allora $g'(x)=\dfrac{1}{f'(g)}$.
+Si intuisce che: siccome $f'(g)\cdot g'(x)=1$, allora $g'(x)=\dfrac{1}{f'(g)}$.
 Se fosse dimostrato, diventerebbe più facile derivare per esempio le 
 funzioni 
 logaritmiche: basterebbe saper derivare le corrispondenti esponenziali. E 
@@ -2415,7 +2404,7 @@ $x=\frac{y}{k}$
 \end{osservazione}
 
 \begin{inaccessibleblock}
-  [differenziale funzione composta]
+  [differenziale funzione invera]
  \begin{center}
  \begin{minipage}[]{.55\textwidth}
   \diffinversa
@@ -2424,8 +2413,7 @@ $x=\frac{y}{k}$
  \begin{minipage}[]{.42\textwidth}
 Ogni punto $\punto{x}{f^{-1}(x)}$ sulla curva della funzione inversa ha un
 corrispondente $\punto{y}{f(y)}$ sulla curva $y=f(x)$, nella simmetria 
-rispetto
-alla bisettrice. Guardiamo come si corrispondono i differenziali:
+rispetto alla bisettrice. Guardiamo come si corrispondono i differenziali:
 $dx$ e $dy$ sono invertiti in una curva rispetto all'altra. Quindi le 
 derivate corrispondenti sono reciproche l'una con l'altra.
  \end{minipage}
@@ -2437,20 +2425,18 @@ derivate corrispondenti sono reciproche l'una con l'altra.
  Le derivate di due funzioni $f$, $g$, inverse l'una dell'altra, se esistono
  e sono diverse da zero, sono reciproche l'una rispetto all'altra.
 \end{teorema}
-\noindent Ipotesi: $y=f(x)$, $x=g(y)$ $f$,$g$ derivabili, con $f'\ne0$, 
+\noindent Ipotesi: $y=f(x)$, $x=g(y)$ $f$, $g$ derivabili, con $f'\ne0$, 
 $g'\ne 0$.
 \hspace{2cm} Tesi: $f'(x)=\dfrac{1}{g'(y)}$.
-\begin{proof}
-  Grazie alle proprietà della funzione $\pst{}$, abbiamo:\\
-  $f'(x)\cdot g'(y)=\pst{\dfrac{dy}{dx}}\cdot\pst{\dfrac{dx}{dy}}=
-  \pst{\dfrac{dy}{dx}\cdot\dfrac{dx}{dy}}=\pst{1}=1$\\
-  per cui: $f'(x)=\dfrac{1}{g'(y)}$.
-\end{proof}
+% \begin{proof}
+%   Grazie alle proprietà della funzione $\pst{}$, abbiamo:\\
+%   $f'(x)\cdot g'(y)=\pst{\dfrac{dy}{dx}}\cdot\pst{\dfrac{dx}{dy}}=
+%   \pst{\dfrac{dy}{dx}\cdot\dfrac{dx}{dy}}=\pst{1}=1$\\
+%   per cui: $f'(x)=\dfrac{1}{g'(y)}$.
+% \end{proof}
 \begin{osservazione}
- La dimostrazione fa leva su una semplificazione che sembra banale. In 
-realtà
- i due rapporti differenziali sono diversi per significato: nel primo la 
- variabile indipendente è $x$, nel secondo è $y$.
+ Anche questo teorema necessita di un'introduzione simile a quella che precede 
+ l'enunciato sulla derivata della funzione composta. Perciò rimandiamo a quelle parole, evitando la dimostrazione.
 \end{osservazione}
 \begin{esempio}
   Trova la derivata di $f(x)=\dfrac{1}{\sqrt{5-x^2}}$.
@@ -2464,11 +2450,11 @@ precedenti:\\
    Costruiamo la formula inversa con pochi passaggi algebrici: riavremo la 
    stessa funzione, in cui $y$ figura come variabile indipendente: 
 $x=f(y)$.\\
-   Quindi deriviamo: $\mathit{D}\quadra{x}=x'=f'(y)=\dfrac{dx}{dy}$.\\
+   Quindi deriviamo: $\mathit{D}\quadra{x}=x'=f'(y)=\pst{\dfrac{dx}{dy}}$.\\
    $f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x}\srarrow 
    y^{-2}=5-x\srarrow x=5-y^{-2}$  (formula inversa)\\
-   $x'=\dfrac{dx}{dy}=-2y^{-3}$ (derivata della funzione inversa)
-   $\srarrow \dfrac{dy}{dx}=\dfrac{y^3}{2}=
+   $x'=\pst{\dfrac{dx}{dy}}=-2y^{-3}$ (derivata della funzione inversa)\\
+   $\srarrow y'=\pst{\dfrac{dy}{dx}}=\dfrac{y^3}{2}=
    \dfrac{1}{2(\sqrt{5-x})^3}$.
   \end{enumerate}
 In genere la funzione inversa si costruisce in pochi passaggi semplici, poi 
@@ -2476,18 +2462,14 @@ la derivazione risulta elementare.
 \end{esempio}
 
 
-
 \section{Derivare funzioni trascendenti}
 \label{sec:diff01_deritrasc}
 Nel capitolo \ref{sec:diff01_differenziale} abbiamo imparato a 
-differenziare 
-le funzioni algebriche. In questa parte, quindi, per imparare
-a derivare le funzioni trascendenti, dovremo calcolare anche i loro 
-differenziali. Si tratta in realtà di un lavoro minimo, perché abbiamo già
-discusso (pag.\pageref{subsubsec:insnum_expstar} il comportamento di queste 
-funzioni
-nell'insieme degli Iperreali e abbiamo ormai un bagaglio di conoscenze 
-sulle derivate che agevola il lavoro.
+differenziare solo funzioni algebriche. In questa sezione, quindi, prima di
+derivare le funzioni trascendenti, dovremo imparare a differenziarle.
+Abbiamo già discusso (pag.\pageref{subsubsec:insnum_expstar} il comportamento
+di queste funzioni nell'insieme degli Iperreali e abbiamo ormai un bagaglio
+di conoscenze sulle derivate che agevola il lavoro.
 \subsection{Derivata di $f(x)=a^x$}
 \label{}
 Il grafico di una generica funzione esponenziale $y=a^x$, confrontato con 
@@ -2508,7 +2490,7 @@ rivelano uguali pendenze in coppie di punti di uguale ordinata.
  \end{minipage}
 \end{inaccessibleblock}
 \label{}
-\\
+
 Anche se i due grafici non sono esattamente identici, l'andamento delle 
 pendenze delle tangenti, cioè l'andamento della derivata della funzione, è 
 anch'esso esponenziale.
@@ -2517,49 +2499,46 @@ delle potenze.\\
 Differenziale di $y=a^x$: 
 $dy=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1}$.\\
 Rapporto differenziale: $\dfrac{dy}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x$.\\
-Ora dovremmo applicare la parte standard e se vogliamo seguire le 
-indicazioni
-del grafico, il risultato dovrà essere un'esponenziale. Quindi dobbiamo 
-concentrarci sul rapporto $\dfrac{\tonda{a^{dx}-1}}{dx}$, il fattore che 
-potrebbe
-provocare l'allontanamento del grafico dalla forma esponenziale a cui 
-puntiamo.\\
-Negli esponenziali succede che $f(0)=1$ e $f(x+dx)=f(x)f(dx)$ e il rapporto 
-differenziale in queste funzioni diventa:\\
+Per  derivare, ora dovremmo applicare la parte standard e se vogliamo seguire
+le indicazioni del grafico, il risultato dovrà essere un'esponenziale. Quindi
+dobbiamo concentrarci sul rapporto $\dfrac{\tonda{a^{dx}-1}}{dx}$, che 
+nell'espressione precedente è il fattore che potrebbe causare un grafico della 
+derivata diverso da quello esponenziale che abbiamo intuito.\\
+La funzione esponenziale generica $f(x)=a^x$ ha proprietà caratteristiche:\\
+$f(0)=a^0=1$ e $f(x+y)=a^{x+y}~=~a^x\cdot a^y$.\\
+Quindi: $f(0)=1$ e $f(x+dx)=f(x)f(dx)$. Così il rapporto differenziale in 
+queste funzioni diventa:\\
 $\dfrac{df(x)}{dx}=\dfrac{f(x+dx)-f(x)}{dx}=\dfrac{f(x)f(dx)-f(x)}{dx}=
-\dfrac{f(dx)-1}{dx}f(x)=\dfrac{f(0+dx)-f(0)}{dx}f(x)\sim\\
-\sim f'(0)f(x)\srarrow f'(x)=f'(0)f(x)$.\\
-La derivata di una funzione esponenziale generica è proporzionale alla
+\dfrac{f(dx)-1}{dx}f(x)=\dfrac{f(0+dx)-f(0)}{dx}f(x)$.\\
+L'ultima espressione contiene il rapporto differenziale calcolato in $x=0$,
+quindi $\dfrac{df(x)}{dx}\sim f'(0)\cdot f(x)$.\\
+Allora per la derivata, si ha:\\
+$f'(x)= f'(0)\cdot f(x)$.\\
+La derivata di una funzione esponenziale è proporzionale alla
 funzione stessa, attraverso un fattore che corrisponde alla derivata 
-calcolata
-in $x=0$.\\
-Per capire di più cos'è questo fattore, forziamo la situazione e imponiamo 
-che
-corrisponda a $1$. In questo modo la funzione e la sua derivata saranno 
-proprio
-identiche e i due grafici saranno sovrapposti: finalmente potremo conoscere
-quanto vale la base generica $a$.\\
-$f'(0)=1\srarrow \dfrac{\tonda{a^{dx}-1}}{dx}=1\srarrow a^{dx}=dx +1
-\srarrow a=(dx+1)^\frac{1}{dx}$.\\
+calcolata in $x=0$.\\
+Per capire meglio l'effetto di questo fattore, fingiamo per un attimo che non
+esista, cioè che nell'espressione valga $1$. In questo modo la funzione e la
+sua derivata sarebbero proprio identiche e i due grafici sarebbero sovrapposti:\\
+$f'(0)=1\srarrow \pst{\dfrac{a^{dx}-1}{dx}}=1\srarrow a^{dx}\sim dx +1
+\srarrow a\sim(dx+1)^\frac{1}{dx}$.\\
 Abbiamo già incontrato un'espressione analoga in 
 \ref{subsubsec:insnum_nepero}:
-l'espressione individua il Numero di Nepero $e$.
+l'espressione individua il Numero di Nepero $e=\pst{(dx+1)^\frac{1}{dx}}$.
 \begin{teorema}
  La derivata della funzione esponenziale $\mathit{D}\quadra{e^x}$ coincide 
 con
  la funzione stessa.
 \end{teorema}
-\noindent Ipotesi: $f(x)=e^x$. \tab $f'(x)=e^x$
+\noindent Ipotesi: $f(x)=e^x$. \tab $f'(x)=e^x$.
 \begin{proof}
  La dimostrazione è già stata costruita gradualmente per via intuitiva. 
  Occorrerebbe dimostrare l'unicità della tesi, ma non è essenziale
- per i nostri scopi. Resta comunque stabilito che \emph{se una funzione 
-coincide
-   con la propria derivata, allora è una funzione esponenziale}.
+ per i nostri scopi. Resta comunque stabilito che  \emph{la funzione
+ esponenziale pura $f(x)=e^x$ coincide con la propria derivata}.
 \end{proof}
 A questo punto, l'importanza del numero $e$ risulta ingigantita. Ce ne 
-serviamo 
-subito.
+serviamo subito.
 
 \begin{teorema}
   La derivata della generica funzione esponenziale è: 
@@ -2584,6 +2563,8 @@ $\mathit{D}\quadra{a^x}=
   Poniamo $g(x)=x^2\srarrow f(x)=e^{g(x)}\srarrow f'(x)=e^{g(x)}\cdot g'(x)=
   e^{x^2}\cdot 2x=2xe^{x^2}$.
 \end{esempio}
+
+\begin{comment}
 
 \subsection{Derivata di $f(x)=\log_a x$}
 \label{}
