@@ -1,6 +1,6 @@
 % (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 
-\input{\folder esp_log_graf.tex}
+\input{\folder esp_log_grafici.tex}
 
 \chapter[Esponenziali e logaritmi]{Esponenziali e logaritmi}
 
@@ -8,20 +8,25 @@
 \label{sec:esplog_problemi}
 
 \emph{
-Di ritorno da una viaggio nella foresta pluviale, mi sono portato come ricordo 
+Di ritorno da una viaggio nella foresta pluviale, mi sono portato come 
+ricordo 
 una piccola piantina che vive sulla superficie dell'acqua. 
-Il primo giorno di giugno getto la piantina nello stagno vicino a casa, che ha 
+Il primo giorno di giugno getto la piantina nello stagno vicino a casa, che 
+ha 
 una superficie di circa \(1\) km\(\,^2\).
-Nei giorni seguenti vado a controllare lo stagno e non vedo più la pianta: il 
+Nei giorni seguenti vado a controllare lo stagno e non vedo più la pianta: 
+il 
 vento l'avrà spinta chissà dove! 
-Questa specie ha la particolarità di duplicarsi ogni giorno e gli animali che 
+Questa specie ha la particolarità di duplicarsi ogni giorno e gli animali 
+che 
 vivono dalle nostre parti non la conoscono e non se ne cibano.
 Parto per un altro viaggio, torno il trenta giugno e scopro che la piantina 
 ha ricoperto tutto lo stagno.}
 
 \begin{enumerate}
  \item
-\emph{Se in 30 giorni la pianta ha ricoperto tutto lo stagno, in quanti giorni 
+\emph{Se in 30 giorni la pianta ha ricoperto tutto lo stagno, in quanti 
+giorni 
 ne aveva coperto metà?}
  \item 
 \emph{Quanta superficie era ricoperta il 20 giugno?}
@@ -34,18 +39,24 @@ ne aveva coperto metà?}
 \begin{enumerate}
  \item
 L'idea è quella di non guardare il periodo complessivo 
-ragionando in avanti. Con questa impostazione verrebbe spontaneo pensare che se 
-in 30 giorni copre tutto lo stagno, metà stagno sarà coperto in 15 giorni. Purtroppo non 
+ragionando in avanti. Con questa impostazione verrebbe spontaneo pensare 
+che se 
+in 30 giorni copre tutto lo stagno, metà stagno sarà coperto in 15 giorni. 
+Purtroppo non 
 è così.
-Innanzitutto noi non abbiamo informazioni su quanto la pianta ricopre lo stagno il primo 
+Innanzitutto noi non abbiamo informazioni su quanto la pianta ricopre lo 
+stagno il primo 
 giorno, ma su quanta parte di stagno è ricoperta il trentesimo giorno.
 Quindi dobbiamo partire dalla fine: se il primo luglio la superficie dello 
-stagno è tutta coperta e ogni giorno la pianta raddoppia, il giorno precedente 
-sarà ricoperta solo la metà dello stagno. Quindi per ricoprire metà dello stagno 
+stagno è tutta coperta e ogni giorno la pianta raddoppia, il giorno 
+precedente 
+sarà ricoperta solo la metà dello stagno. Quindi per ricoprire metà dello 
+stagno 
 ha impiegato 29 giorni e per ricoprire l'altra metà impiega solo un giorno.
 
  \item
-Per calcolare quale superficie è ricoperta dalla pianta il ventesimo giorno, 
+Per calcolare quale superficie è ricoperta dalla pianta il ventesimo 
+giorno, 
 possiamo costruire una tabella, sempre partendo dalla fine:
 
 \begin{center}
@@ -77,34 +88,44 @@ superficie & 1 & \(\dfrac{1}{2^1}\) &
 \end{tabular}
 \end{center}
 
-Risulta definita automaticamente una formula che permette di calcolare la parte di stagno ricoperta
+Risulta definita automaticamente una formula che permette di calcolare la 
+parte di stagno ricoperta
 \(n\) giorni prima dell'ultimo.
 \begin{itemize}
- \item 3 giorni prima dell'ultimo giorno è ricoperto \(\dfrac{1}{2^3}\) di stagno.
- \item 10 giorni prima dell'ultimo giorno (ovvero il \(20^\circ\) giorno) è ricoperto \(\dfrac{1}{2^{10}}\) di stagno.
- \item \(n\) giorni prima dell'ultimo giorno è ricoperto \(\dfrac{1}{2^{n}}\) di stagno.
+ \item 3 giorni prima dell'ultimo giorno è ricoperto \(\dfrac{1}{2^3}\) di 
+stagno.
+ \item 10 giorni prima dell'ultimo giorno (ovvero il \(20^\circ\) giorno) è 
+ricoperto \(\dfrac{1}{2^{10}}\) di stagno.
+ \item \(n\) giorni prima dell'ultimo giorno è ricoperto 
+\(\dfrac{1}{2^{n}}\) di stagno.
 \end{itemize}
 
 \item Con quest'ultima formula è possibile calcolare immediatamente quanta 
-superficie dello stagno è ricoperta il decimo giorno (ovvero 20 giorni prima della fine):
+superficie dello stagno è ricoperta il decimo giorno (ovvero 20 giorni 
+prima della fine):
 \[\text{superficie} = \dfrac{1}{2^{20}} \approx 
 \text{ 1 milionesimo della superficie}\]
-Ciò significa che nei primi 10 giorni arriva a coprire meno di un milionesimo 
-della superficie dello stagno e poi in un giorno da metà lago lo copre tutto.
+Ciò significa che nei primi 10 giorni arriva a coprire meno di un 
+milionesimo 
+della superficie dello stagno e poi in un giorno da metà lago lo copre 
+tutto.
 \end{enumerate}
 
 \section{Esponenziali}
 \label{sec:esplog_esponenziali}
 
-Il fenomeno riportato nel problema precedente trova un proprio modello nelle 
+Il fenomeno riportato nel problema precedente trova un proprio modello 
+nelle 
 funzioni esponenziali. Studiamone in dettaglio il comportamento.
 
 \subsection{La successione delle potenze di~2}
 \label{subsec:esplog_succpotdue}
 
-Riprendiamo l'esempio precedente, ma poniamo come giorno zero quello in cui viene 
+Riprendiamo l'esempio precedente, ma poniamo come giorno zero quello in cui 
+viene 
 ricoperto l'intero stagno: al valore zero corrisponde la superficie uno, al 
-valore uno la superficie doppia, \dots. Nei giorni precedenti: al valore meno uno 
+valore uno la superficie doppia, \dots. Nei giorni precedenti: al valore 
+meno uno 
 corrisponde la superficie \(1/2\), al valore meno due \dots.
 
 Completando la tabella e riportando i valori nel grafico si ottiene:
@@ -131,7 +152,8 @@ Completando la tabella e riportando i valori nel grafico si ottiene:
  \end{minipage}
 \begin{minipage}[]{.48\textwidth}
 \begin{center}
-\begin{inaccessibleblock}[I punti della tabella precedente riportati nel piano 
+\begin{inaccessibleblock}[I punti della tabella precedente riportati nel 
+piano 
 cartesiano si dispongono lungo una curva che 
 a sinistra si trovano appena sopra all'asse x, 
 attraversano l'asse y nel punto~1, poi crescono molto rapidamente.]
@@ -149,14 +171,17 @@ Possiamo fare alcune osservazioni su questa successione.
  \item 
   È sempre crescente: se \(n_1 > n_0\) allora \(2^{n_1} > 2^{n_0}\)
  \item 
-  Verso sinistra i valori di \(2^n\) diventano sempre più piccoli, ma rimangono 
+  Verso sinistra i valori di \(2^n\) diventano sempre più piccoli, ma 
+rimangono 
   sempre maggiori di zero. Quindi se \(n\) è un infinito negativo 
   allora \(2^n\) sarà un infinitesimo.
  \item 
-  Verso destra cresce molto rapidamente. Quindi se \(n\) è un infinito positivo 
+  Verso destra cresce molto rapidamente. Quindi se \(n\) è un infinito 
+positivo 
   allora \(2^n\) sarà anch'esso un infinito positivo.
  \item 
-  \'E interessante studiare l'incremento della funzione \;\(\Delta y_n = y_{n+1}-y_n\):
+  \'E interessante studiare l'incremento della funzione \;\(\Delta y_n = 
+y_{n+1}-y_n\):
 \begin{center}
 \renewcommand\arraystretch{1.8}
 \begin{tabular}{c|ccccccccc}
@@ -171,7 +196,8 @@ Possiamo fare alcune osservazioni su questa successione.
 \end{tabular}
 \end{center}
 
-  Possiamo osservare che l'incremento della successione in un punto \(\Delta y_n\)
+  Possiamo osservare che l'incremento della successione in un punto 
+\(\Delta y_n\)
   è uguale al valore della successione in quel punto \(y_n\)
 
 \end{enumerate}
@@ -181,8 +207,10 @@ Possiamo fare alcune osservazioni su questa successione.
 \label{subsec:esplog_potdue}
 
 Abbiamo visto quanto vale \(2^0\) e \(2^1\), ma se l'esponente è in mezzo 
-tra zero e uno, cosa succede? Ingrandiamo la scala del grafico disegnato sopra 
-e andiamo a studiare il comportamento della funzione reale: \(y=2^x\) quando 
+tra zero e uno, cosa succede? Ingrandiamo la scala del grafico disegnato 
+sopra 
+e andiamo a studiare il comportamento della funzione reale: \(y=2^x\) 
+quando 
 \(x\) assume valori non interi:
 
 \begin{figure}[h]
@@ -196,9 +224,11 @@ e andiamo a studiare il comportamento della funzione reale: \(y=2^x\) quando
     \hline
     \dots & \dots \\
     \(-1\) & \(2^{-1} = 0,5\) \\
-    \(-0,75\) & \(2^{-0,75} = 2^{\frac{-3}{4}} = \sqrt[4]{2^{-3}} = 0,5946\) \\
+    \(-0,75\) & \(2^{-0,75} = 2^{\frac{-3}{4}} = \sqrt[4]{2^{-3}} = 
+0,5946\) \\
     \(-0,5\) & \(2^{-0,5} = 2^{\frac{-1}{2}} = \sqrt{2^{-1}} = 0,7071\) \\
-    \(-0,25\) & \(2^{-0,25} = 2^{\frac{-1}{4}} = \sqrt[4]{2^{-1}} = 0,8409\) \\
+    \(-0,25\) & \(2^{-0,25} = 2^{\frac{-1}{4}} = \sqrt[4]{2^{-1}} = 
+0,8409\) \\
     \(0\) & \(2^{0} = 1\) \\
     \(0,25\) & \(2^{0,25} = 2^{\frac{1}{4}} = \sqrt[4]{2} = 1,1892\) \\
     \(+0,5\) & \(2^{0,5} = 2^{\frac{1}{2}} = \sqrt{2} = 1,4142\) \\
@@ -223,16 +253,19 @@ punti interpolati.]
 \end{figure}
 
 Disegnando punti sempre più fitti si può pensare di disegnare i punti 
-corrispondenti ad ogni valore \(x \in \R\) ed ottenere così il grafico della 
+corrispondenti ad ogni valore \(x \in \R\) ed ottenere così il grafico 
+della 
 funzione reale \(y=2^x\).
 
 \begin{definizione}[Funzioni esponenziali]{
-Chiamiamo \emph{funzione esponenziale} una funzione in cui la variabile indipendente compare all'esponente.
+Chiamiamo \emph{funzione esponenziale} una funzione in cui la variabile 
+indipendente compare all'esponente.
 }
 \end{definizione}
 
 Molti fenomeni hanno, per certi periodi, un andamento che può essere 
-modellizzato da una funzione esponenziale, sono i fenomeni dove la crescita è 
+modellizzato da una funzione esponenziale, sono i fenomeni dove la crescita 
+è 
 proporzionale al valore in un dato momento. Alcuni esempi:
 
 \begin{figure}[h]
@@ -245,8 +278,10 @@ proporzionale al valore in un dato momento. Alcuni esempi:
 Il capitale che cresce con un certo tasso di interesse e che quindi ha una 
 crescita proporzionale al valore del capitale stesso.
  \item 
-La crescita di una popolazione, in condizioni favorevoli: maggiori sono gli individui fertili e più rapidamente cresce
-la popolazione. Si può pensare in particolare alla diffusione di specie non autoctone in 
+La crescita di una popolazione, in condizioni favorevoli: maggiori sono gli 
+individui fertili e più rapidamente cresce
+la popolazione. Si può pensare in particolare alla diffusione di specie non 
+autoctone in 
 territori dove non trovano predatori.
  \item 
 Crescita del numero di batteri o virus in un 
@@ -255,7 +290,8 @@ individuo contagiato da una malattia.
 La diffusione di un'epidemia.
  \item 
 L'aumento di temperatura dovuto all'aumento di ``gas serra'' che porta allo 
-scioglimento delle calotte polari con la diffusione di ulteriori quantità di 
+scioglimento delle calotte polari con la diffusione di ulteriori quantità 
+di 
 ``gas serra''.
 \end{itemize}
 
@@ -279,8 +315,10 @@ attraversa l'asse y nel punto~1, poi cresce molto rapidamente.]
 Studiamo come si comporta la funzione \(y=a^x\) per diversi valori di \(a\).
 Cosa succede se la base della potenza è un numero diverso da 2? 
 Come cambierà il suo grafico?\\[10pt]
-\fbox{{\(a<0\)}}\; Proviamo a disegnare, per esempio, il grafico della funzione: \(y=(-2)^x\).\\[4pt]
-Diamo ad \(x\) diversi valori, calcoliamo i corrispondenti valori di \(y\) e 
+\fbox{{\(a<0\)}}\; Proviamo a disegnare, per esempio, il grafico della 
+funzione: \(y=(-2)^x\).\\[4pt]
+Diamo ad \(x\) diversi valori, calcoliamo i corrispondenti valori di \(y\) 
+e 
 riportiamoli su un grafico (vedi Figura \ref{fig:potmenodue0}).
 \begin{figure}[h]
  \centering
@@ -307,8 +345,10 @@ riportiamoli su un grafico (vedi Figura \ref{fig:potmenodue0}).
  \end{minipage}
 \begin{minipage}[]{.48\textwidth}
 \begin{center}
-\begin{inaccessibleblock}[I punti della tabella precedente riportati nel piano 
-cartesiano si dispongono alcuni nel semipiano positivo e alcuni nel semipiano 
+\begin{inaccessibleblock}[I punti della tabella precedente riportati nel 
+piano 
+cartesiano si dispongono alcuni nel semipiano positivo e alcuni nel 
+semipiano 
 negativo.]
   \puntimenodue
   \caption{Grafico di \(y=(-2)^n\)} \label{fig:potmenodue0}
@@ -316,7 +356,8 @@ negativo.]
 \end{center}
 \end{minipage}
 \end{figure}
-La successione risulta un po' strana, ma è accettabile. Cosa succede però se 
+La successione risulta un po' strana, ma è accettabile. Cosa succede però 
+se 
 l'esponente è un numero con la virgola? Proviamo a far calcolare alla 
 calcolatrice le seguenti espressioni:
 \[\tonda{-2}^{1,5}= \dots \qquad \tonda{-2}^{2/7}= \dots \qquad 
@@ -325,46 +366,59 @@ calcolatrice le seguenti espressioni:
 Molto probabilmente la calcolatrice si rifiuterà di calcolare queste 
 espressioni perché il loro risultato non è un numero reale. 
 Quanto visto per \(-2\) vale per qualunque base negativa.
-Possiamo concludere che, se la base è negativa, possiamo calcolare la successione 
+Possiamo concludere che, se la base è negativa, possiamo calcolare la 
+successione 
 delle sue potenze, ma non possiamo calcolare i valori della funzione 
 per qualunque \(x \in \R\). 
 La funzione \(y=a^x \text{ con } a<0\) non è definita nei numeri reali 
 (in \(\R\)).
-\paragraph{\fbox{\(a=0\)}} Se \(a=0\), otteniamo di nuovo una funzione alquanto strana. Infatti \(y = 0^x\) vale
+\paragraph{\fbox{\(a=0\)}} Se \(a=0\), otteniamo di nuovo una funzione 
+alquanto strana. Infatti \(y = 0^x\) vale
 zero per qualunque \(x>0\), mentre non esiste per valori \(x<0\).\\[4pt]
 
 D'ora in avanti considereremo esponenziali solamente con base \(a>1\).
 
 \paragraph{\fbox{\(a>1\)}}
 Tenendo presente il valore delle potenze che abbiamo imparato, possiamo 
-affermare che maggiore è la base e più ripido diventa il grafico della funzione 
-sulla destra (per valori positivi) mentre a sinistra (per valori negativi) il 
+affermare che maggiore è la base e più ripido diventa il grafico della 
+funzione 
+sulla destra (per valori positivi) mentre a sinistra (per valori negativi) 
+il 
 grafico si appiattisce più rapidamente sull'asse \(x\).
 \paragraph{\fbox{\(a=1\)}}
-% Se la base è uguale a~1 la qualunque potenza sarà uguale a~1 quindi la funzione 
+% Se la base è uguale a~1 la qualunque potenza sarà uguale a~1 quindi la 
+funzione 
 % diventa una costante:~\(y=1\). 
 Se la base è proprio 1, la funzione esponenziale 
-diventa molto particolare: infatti per ogni valore di \(x\) la funzione \(y=1^x\) vale sempre 1.
+diventa molto particolare: infatti per ogni valore di \(x\) la funzione 
+\(y=1^x\) vale sempre 1.
 \paragraph{\fbox{\(0<a<1\)}}
 Calcolando alcuni valori di una funzione con la base minore di~1, 
-ad esempio \(y=\tonda{\frac{1}{2}}^x\), possiamo osservare facilmente che il 
+ad esempio \(y=\tonda{\frac{1}{2}}^x\), possiamo osservare facilmente che 
+il 
 comportamento della funzione assomiglia molto a quello della funzione
 \(y=2^x\), ma i valori ottenuti sono simmetrici rispetto all'asse \(y\). 
-La funzione è decrescente, i valori verso sinistra crescono rapidamente, mentre 
+La funzione è decrescente, i valori verso sinistra crescono rapidamente, 
+mentre 
 verso destra si appiattiscono sull'asse \(x\) rimanendo comunque sempre 
 positivi. In effetti si può notare che:
-\[\tonda{\frac{1}{2}}^x = 2^{-x} \quad \text{e quindi, in generale: }\quad \tonda{\frac{1}{a}}^x = a^{-x}\]
-Quindi una funzione esponenziale con base minore di 1 è equivalente alla rotazione intorno all'asse \(x\) della
-corrispondente funzione esponenziale con base maggiore di 1. Da notare inoltre che, se la base si avvicina
+\[\tonda{\frac{1}{2}}^x = 2^{-x} \quad \text{e quindi, in generale: }\quad 
+\tonda{\frac{1}{a}}^x = a^{-x}\]
+Quindi una funzione esponenziale con base minore di 1 è equivalente alla 
+rotazione intorno all'asse \(x\) della
+corrispondente funzione esponenziale con base maggiore di 1. Da notare 
+inoltre che, se la base si avvicina
 a 1, rimanendo maggiore di 1, la funzione a destra si 
 appiattisce crescendo più lentamente e a sinistra si avvicina più 
-lentamente all'asse \(x\). Se la base si avvicina a 0 o all'infinito, la funzione si avvicina agli assi.
+lentamente all'asse \(x\). Se la base si avvicina a 0 o all'infinito, la 
+funzione si avvicina agli assi.
 
 \vspace{5pt}
 
 \begin{figure}[h]
 \begin{minipage}{.69\textwidth}
- \begin{inaccessibleblock}[Grafici di funzioni esponenziali con basi diverse.]
+ \begin{inaccessibleblock}[Grafici di funzioni esponenziali con basi 
+diverse.]
   \espdiversebasi
 \end{inaccessibleblock}
 \end{minipage}
@@ -388,31 +442,185 @@ lentamente all'asse \(x\). Se la base si avvicina a 0 o all'infinito, la funzion
 
 Possiamo quindi riassumere quanto detto in poche semplici regole: 
 \begin{enumerate*}
- \item La funzione esponenziale è sempre maggiore di zero qualunque sia la base 
+ \item La funzione esponenziale è sempre maggiore di zero qualunque sia la 
+base 
 e l'esponente.
  \item Se la base \(a>1\) la funzione è strettamente crescente.
  \item Se la base \(0<a<1\) la funzione è strettamente decrescente.
  \item Se \(a=1\) la funzione è costante.
- \item Se il valore assoluto di \(a\) è grande, il grafico si avvicina agli assi.
- \item Se il valore assoluto di \(a\) è vicino a uno, il grafico si avvicina alla 
+ \item Se il valore assoluto di \(a\) è grande, il grafico si avvicina agli 
+assi.
+ \item Se il valore assoluto di \(a\) è vicino a uno, il grafico si 
+avvicina alla 
 retta~\(y=1\).
  \item La concavità è sempre verso l'alto.
-%  \item Nel grafico precedente ho evidenziato dei punti che dovrebbero aiutare 
+%  \item Nel grafico precedente ho evidenziato dei punti che dovrebbero 
+aiutare 
 % a scoprire la base della funzione esponenziale.
 \end{enumerate*}
 
 In figura \ref{fig:diversebasi} sono evidenziati dei punti che dovrebbero 
 aiutare a scoprire la base della funzione esponenziale corrispondente.
 
-\begin{osservazione}
-La base dell'esponenziale può essere un numero qualunque: per esempio è possibile disegnare il grafico di \(y=\pi^x\)
-come pure il grafico di \(y = \sqrt{7}^{\,x}\). Una base che riveste particolare importanza nello studio di
-problemi di matematica avanzata è il \emph{Numero di Nepero}, espresso solitamente col simbolo ``\(e\)''.
-Si tratta di un numero reale che si calcola come:
-\[e = \frac{1}{0!}+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\frac{1}{4!}+\frac{1}{5!}+\dots \approx 2,718281828459\]
-Sulle calcolatrici solitamente è presente il tasto per calcolare la funzione \(y = e^x\). Prova per esercizio a disegnarne il grafico
-(poiché \(e>1\) il grafico sarà crescente, \dots).
-\end{osservazione}
+\subsection{Numero di Eulero (o di Nepero)}
+\label{subsec:esplog_eulero}
+
+\begin{minipage}{.55\textwidth}
+La base dell'esponenziale può essere un numero positivo qualunque: per 
+esempio è possibile disegnare il grafico di \(y=\pi^x\)
+come pure il grafico di \(y = \sqrt{2}^{\,x}\) o 
+\(y = \tonda{\frac{1}{9}}^{x}\). 
+Ma esiste una particolare base che ha delle proprietà meravigliose e che 
+semplifica molto una grande quantità di calcoli che incontreremo più avanti.
+
+Questo numero è un numero irrazionale compreso tra~\(2\) e~\(3\) ed è uno 
+tra i pochi numeri a cui è stato assegnato un nome proprio: ``\(e\)''; 
+nome scelto per onorare il matematico svizzero 
+Leonhard Euler, noto in Italia come Eulero 
+(Basilea, 15 aprile 1707 – San Pietroburgo, 18 settembre 
+1783).\footnote{vedi: \href{it.wikipedia.org/wiki/Eulero}
+{it.wikipedia.org/wiki/Eulero}.}
+\vspace{3em}
+\end{minipage}
+\hfill
+\begin{minipage}{.35\textwidth}
+\begin{center} \altrebasi \end{center}
+\end{minipage}
+
+\paragraph{La costante di Eulero può essere definita come:}
+\[e = \pst{\tonda{1+\frac{1}{M}}^M} = 
+\pst{\tonda{1+\delta}^\frac{1}{\delta}} 
+\]
+o come:
+\[e=\sum_{n=0}^{\infty}{\frac{1}{n!}}=
+\frac{1}{1}+\frac{1}{1}+\frac{1}{2}+\frac{1}{2\cdot3}+
+\frac{1}{2\cdot3\cdot4}+\frac{1}{2\cdot3\cdot4\cdot5}+\dots\]
+
+\begin{minipage}{.49\textwidth}
+La tabella di fianco riporta i valori di \(e\) calcolati per diversi valori 
+di \(n\) usando le due definizioni precedenti.
+
+Osservando le due colonne può sorgere legittimamente il dubbio che queste 
+due successioni di numeri convergano verso lo stesso valore, 
+infatti alla tredicesima iterazione, la successione 
+basata sulla somma di frazioni si stabilizza verso un valore di 10 cifre 
+esatte, 
+mentre la successione basata sulla potenza ha ancora solo una sola cifra 
+esatta.
+
+Si può osservare che entrambe le successioni partono da \(2\) e sono 
+crescenti e crescono sempre più lentamente.
+
+I matematici hanno comunque dimostrato che le due definizioni sono 
+equivalenti.
+
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+\begin{center}
+\begin{tabular}{rrr}
+\(\quad n\) &
+\(\quad \tonda{1+\dfrac{1}{n}}^n\) &
+\(\quad \displaystyle \sum_{i=0}^{n}{\frac{1}{i!}} \quad\)\\
+\hline
+0 &        2.0 &           2.0 \\
+1 &       2.25 &           2.5 \\
+2 &  2.3703704 &  2.6666666667 \\
+3 &  2.4414062 &  2.7083333333 \\
+4 &  2.4883200 &  2.7166666667 \\
+5 &  2.5216264 &  2.7180555556 \\
+6 &  2.5464997 &  2.7182539683 \\
+7 &  2.5657845 &  2.7182787698 \\
+8 &  2.5811748 &  2.7182815256 \\
+9 &  2.5937425 &  2.7182818011 \\
+10 & 2.6041990 &  2.7182818262 \\
+11 & 2.6130353 &  2.7182818283 \\
+12 & 2.6206009 &  2.7182818284\\
+\end{tabular}
+\end{center}
+\end{minipage}
+\vspace{1em}
+
+\begin{minipage}{.49\textwidth}
+Effettivamente le due formule non sono equivalenti, o meglio, sono 
+equivalenti solo quando \(n\) è un infinito.
+Dal punto di vista del calcolo numerico, la prima successione è 
+inutilizzabile (non solo per la lentezza), mentre la seconda ha una buona 
+efficienza convergendo in poche iterazioni.
+
+La prima successione converge molto lentamente, per poter ottenere otto 
+cifre significative esatte bisogna porre \(n = 10\,000\,000\)!
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+\begin{center}
+\begin{tabular}{rr}
+\(\quad n\) &
+\(\quad \tonda{1+\dfrac{1}{n}}^n\) \\
+\hline
+1 &  2.5937425 \\
+10 &  2.7048138 \\
+100 &  2.7169239 \\
+1000 &  2.7181459 \\
+10\,000 &  2.7182682 \\
+100\,000 &  2.7182805 \\
+1\,000\,000 &  2.7182817 \\
+10\,000\,000 &  2.7182818 \\
+\end{tabular}
+\end{center}
+\end{minipage}\\
+
+Sono stati sviluppati algoritmi per calcolare \(e\) con grande precisione, 
+ora si conoscono milioni di cifre decimali esatte di questa costante.
+Le prime cifre sono:
+\[2,71828182845904523536028747135266249775724709369995957
+49669676277240766303535\dots\]
+
+Sulle calcolatrici solitamente è presente il tasto per calcolare la 
+funzione \(y = e^x\) Per ottenere il valore di \(e\) usato dalla nostra 
+calcolatrice, basta calcolare \(e^1\).
+
+\paragraph{Proprietà della funzione \(y=e^x\)}
+~
+\nopagebreak
+
+\begin{minipage}{\textwidth}
+\begin{minipage}{.47\textwidth}
+In ogni punto del grafico, la pendenza della funzione \(f(x)=e^x\) è uguale 
+al valore della funzione stessa in quel punto.
+\end{minipage}
+\hfill
+\begin{minipage}{.47\textwidth}
+L'area sottesa alla funzione, da \(-\infty\) fino a un punto è uguale al 
+valore che la funzione ha in quel punto.
+\end{minipage}
+\begin{minipage}{.47\textwidth}
+\begin{center} \pendenzae \end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{.47\textwidth}
+\begin{center} \areasottesa \end{center}
+\vspace{1em}
+\end{minipage}
+\begin{minipage}{.47\textwidth}
+Ad esempio le tre tangenti riportate nel grafico precedente hanno:
+\begin{center}
+\begin{tabular}{ccc}
+Punto & coordinate & coeff. angolare\\
+\hline
+\(P_0\) & \(\punto{0}{1}\) & \(1\) \\
+\(P_1\) & \(\punto{1}{e}\) & \(e\) \\
+\(P_2\) & \(\punto{\ln{6}}{6}\) & \(6\) 
+\end{tabular}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{.47\textwidth}
+Ad esempio, dato che quando \(f(2)=e^2 \approx 7,389\), l'area sottesa alla 
+funzione, da \(-\infty\) a \(2\) vale: \(e^2 \approx 7,389\)
+\vspace{5em}
+\end{minipage}
+\end{minipage}
 
 
 
@@ -420,7 +628,8 @@ Sulle calcolatrici solitamente è presente il tasto per calcolare la funzione \(
 \label{subsec:esplog_equazioniesponenziali}
 
 \begin{definizione}[Equazioni esponenziali]{
-Chiamiamo \emph{equazione esponenziale} un'equazione nella quale l'incognita compare all'esponente.
+Chiamiamo \emph{equazione esponenziale} un'equazione nella quale 
+l'incognita compare all'esponente.
 }
 \end{definizione}
 
@@ -431,14 +640,18 @@ abbastanza facilmente.
 \label{subsubsec:esplog_eq_elementari}
 
 Sono equazioni di forma:  \;\; \fbox{\( a^x=b\)} \quad (con \(a>0\))\\[4pt]
-Per quanto abbiamo detto precedentemente, essendo \(a\) positiva, anche \(b\) 
-dovrà essere un numero positivo perché nessuna potenza con base positiva può 
+Per quanto abbiamo detto precedentemente, essendo \(a\) positiva, anche 
+\(b\) 
+dovrà essere un numero positivo perché nessuna potenza con base positiva 
+può 
 avere valore negativo.
 
 Per risolvere equazioni di questo tipo dovremo utilizzare una delle 
-operazioni inverse della potenza: il \emph{logaritmo} (ulteriori informazioni verranno
+operazioni inverse della potenza: il \emph{logaritmo} (ulteriori 
+informazioni verranno
 date nelle seguenti pagine). Si tratta di un'operazione che 
-restituisce il valore dell'esponente, conoscendo la base e il valore della potenza. 
+restituisce il valore dell'esponente, conoscendo la base e il valore della 
+potenza. 
 In pratica l'equazione precedente è automaticamente risolta col logaritmo:
 \[ a^x=b \quad \Longrightarrow \quad x = \log_a b\]
 
@@ -448,8 +661,10 @@ infatti se con la calcolatrice calcolate \(5^{1,4306765580733933}\)
 otterrete proprio~10.
 \end{esempio}
 
-Spesso gli esercizi proposti si possono risolvere con un semplice trucco che 
-permette di evitare il calcolo del logaritmo. Il metodo nasce dalla seguente osservazione:
+Spesso gli esercizi proposti si possono risolvere con un semplice trucco 
+che 
+permette di evitare il calcolo del logaritmo. Il metodo nasce dalla 
+seguente osservazione:
 
 \begin{osservazione}
  Se due potenze sono uguali e hanno la stessa base, dovranno per 
@@ -463,37 +678,46 @@ e quindi: \(x=3\).
 \end{esempio}
 
 \begin{esempio}
-\(3^{2x+3}=81\)\\[4pt] Anche in questo caso possiamo riportarci al meccanismo 
+\(3^{2x+3}=81\)\\[4pt] Anche in questo caso possiamo riportarci al 
+meccanismo 
 utilizzato precedentemente: \(3^{2x+3}=3^4\), quindi 
-\({2x+3}=4\). In questo modo abbiamo trasformato un'equazione esponenziale in 
+\({2x+3}=4\). In questo modo abbiamo trasformato un'equazione esponenziale 
+in 
 una semplice equazione polinomiale.
 \end{esempio}
 
 \subsubsection{Applicazione delle proprietà delle potenze}
 \label{subsubsec:esplog_eq_proprpot}
 
-A volte per riportarci al caso elementare è necessario applicare le proprietà delle 
+A volte per riportarci al caso elementare è necessario applicare le 
+proprietà delle 
 potenze. Rivediamole:
 
 \begin{itemize} %[nosep]% [nosepitem]
  \item \fbox{\(a^m \cdot a^n = a^{m+n}\)}
- Il prodotto di due  potenze che hanno la stessa base è una potenza che ha per 
+ Il prodotto di due  potenze che hanno la stessa base è una potenza che ha 
+per 
 base la stessa base e per esponente la somma degli esponenti.
  \item \fbox{\(a^m \div a^n = a^{m-n}\)}
- Il quoziente di due  potenze che hanno la stessa base è una potenza che ha per 
+ Il quoziente di due  potenze che hanno la stessa base è una potenza che ha 
+per 
 base la stessa base e per esponente la differenza degli esponenti.
  \item \fbox{\(\tonda{a^m}^n = a^{m \cdot n}\)}
- La potenza di una potenza è una potenza che ha per base la stessa base e per 
+ La potenza di una potenza è una potenza che ha per base la stessa base e 
+per 
 esponente il prodotto degli esponenti.
  \item \fbox{\(a^n \cdot b^n = \tonda{a \cdot b}^n\)}
- Il prodotto di due  potenze che hanno lo stesso esponente è una potenza che ha 
+ Il prodotto di due  potenze che hanno lo stesso esponente è una potenza 
+che ha 
 per base il prodotto delle basi e per esponente lo stesso esponente.
  \item \fbox{\(a^n \div b^n = \tonda{a \div b}^n\)}
- Il quoziente di due  potenze che hanno lo stesso esponente è una potenza che 
+ Il quoziente di due  potenze che hanno lo stesso esponente è una potenza 
+che 
 ha per base il quoziente delle basi e per esponente lo stesso esponente.
 \end{itemize}
 
-\begin{esempio}\(7^{x^2} \div 7^{\,5} - \frac{49}{7^{6x}} = 0\)\\[4pt] Usando le proprietà delle potenze 
+\begin{esempio}\(7^{x^2} \div 7^{\,5} - \frac{49}{7^{6x}} = 0\)\\[4pt] 
+Usando le proprietà delle potenze 
 ci riportiamo ad una situazione nota. 
 % \footnote{
 % Un rapido richiamo alle cinque proprietà delle potenze:
@@ -511,63 +735,81 @@ L'equazione precedente è equivalente a:
 \(7^{x^2-5} - 7^{2-6x} = 0\) che può essere riscritta come:
 \(7^{x^2-5} = 7^{2-6x}\) e usando i metodi precedenti viene 
 trasformata in un'equazione polinomiale facilmente risolvibile:
-\[x^2-5 = 2-6x \quad\Rightarrow\quad \dots\quad \Rightarrow \quad x_1=-7 \quad;\quad  x_2=1\]
+\[x^2-5 = 2-6x \quad\Rightarrow\quad \dots\quad \Rightarrow \quad x_1=-7 
+\quad;\quad  x_2=1\]
 \end{esempio}
 
 \begin{esempio}
 \({5}^{3x} \div 5^2-{2}^{9x-6}=0\)\\[4pt]
-Usando le proprietà delle potenze possiamo scrivere: \({5}^{3x-2}-{2}^{9x-6}=0\).\\
-Ma a questo punto abbiamo due potenze con basi diverse, perciò i trucchi visti sopra 
+Usando le proprietà delle potenze possiamo scrivere: 
+\({5}^{3x-2}-{2}^{9x-6}=0\).\\
+Ma a questo punto abbiamo due potenze con basi diverse, perciò i trucchi 
+visti sopra 
 non possiamo usarli! Dobbiamo escogitare qualcos'altro! Possiamo 
-raccogliere 3 nell'esponente della seconda potenza: in questo modo otteniamo due 
+raccogliere 3 nell'esponente della seconda potenza: in questo modo 
+otteniamo due 
 potenze con basi diverse, ma con gli esponenti che si assomigliano:
-\[{5}^{3x-2}-{2}^{3\tonda{3x-2}}=0 \quad \Rightarrow \quad {5}^{3x-2}-{8}^{3x-2}=0 \quad 
+\[{5}^{3x-2}-{2}^{3\tonda{3x-2}}=0 \quad \Rightarrow \quad 
+{5}^{3x-2}-{8}^{3x-2}=0 \quad 
 \Rightarrow \quad {5}^{3x-2}={8}^{3x-2}\]
 Dividendo entrambi i membri per l'espressione che si trova a secondo membro:
 \(\tonda{\frac{5}{8}}^{3x-2}=1\).\\
 Ma ora 1 si può sostituire con \(\tonda{\frac{5}{8}}^{0}\) e quindi:
-\(\tonda{\frac{5}{8}}^{3x-2}=\tonda{\frac{5}{8}}^{0} \quad\Rightarrow\quad 3x-2=0 \quad\dots\)
+\(\tonda{\frac{5}{8}}^{3x-2}=\tonda{\frac{5}{8}}^{0} \quad\Rightarrow\quad 
+3x-2=0 \quad\dots\)
 \end{esempio}
 
 \subsubsection{Sostituzione di variabile}
 \label{subsubsec:esplog_sostituzione}
 
-A volte un'opportuna sostituzione di variabile rende l'equazione più semplice. 
-Si può effettuare la sostituzione, risolvere l'equazione più semplice ottenuta e 
-poi ripristinare la variabile originale nelle soluzioni trovate. Qualche esempio può aiutare a capire.
+A volte un'opportuna sostituzione di variabile rende l'equazione più 
+semplice. 
+Si può effettuare la sostituzione, risolvere l'equazione più semplice 
+ottenuta e 
+poi ripristinare la variabile originale nelle soluzioni trovate. Qualche 
+esempio può aiutare a capire.
 
 \begin{esempio} 
 \(5^{2x} +6 \cdot 5^x -7=0\) \\[4pt]
 \textbf{\underline{Sostituzione}}:
-ponendo \(5^x=z\) l'equazione diventa: \(z^2 +6z -7=0\), ovvero un'equazione di secondo grado, facile da risolvere:
+ponendo \(5^x=z\) l'equazione diventa: \(z^2 +6z -7=0\), ovvero 
+un'equazione di secondo grado, facile da risolvere:
 \(\tonda{z-1} \tonda{z+7}=0 \quad \Rightarrow \quad z_1=+1 \;,\; z_2=-7\) 
  \\[4pt]
-\textbf{\underline{Risostituzione}}: al posto di \(z\) mettiamo le soluzioni trovate:
+\textbf{\underline{Risostituzione}}: al posto di \(z\) mettiamo le 
+soluzioni trovate:
 
-\(z = 1\quad \Rightarrow \quad 5^x=1 \quad \Rightarrow \quad 5^x=5^0\quad \Rightarrow \quad x=0\)
+\(z = 1\quad \Rightarrow \quad 5^x=1 \quad \Rightarrow \quad 5^x=5^0\quad 
+\Rightarrow \quad x=0\)
 
-\(z = -7 \quad \Rightarrow \quad 5^x=-7 \quad \Rightarrow \quad \text{Non ha soluzioni reali}\)
+\(z = -7 \quad \Rightarrow \quad 5^x=-7 \quad \Rightarrow \quad \text{Non 
+ha soluzioni reali}\)
 \end{esempio}
 
 \begin{esempio} 
 \(2^{\frac{4}{3}x} +4 \cdot 2^{\frac{2}{3}x} -32=0\) \\[4pt]
 \textbf{\underline{Sostituzione}}:
-ponendo \(2^{\frac{2}{3}x}=z\) l'equazione diventa: \(z^2 +4z -32=0\), che può essere
+ponendo \(2^{\frac{2}{3}x}=z\) l'equazione diventa: \(z^2 +4z -32=0\), che 
+può essere
 risolta come sopra:
 \(\tonda{z+8}\tonda{z-4}=0 \quad \Rightarrow \quad z_1=-8 \;,\; z_2=+4\) 
 \\[4pt]
-\textbf{\underline{Risostituzione}}: al posto di \(z\) sostituiamo le soluzioni trovate:
+\textbf{\underline{Risostituzione}}: al posto di \(z\) sostituiamo le 
+soluzioni trovate:
 
-\(z = -8\quad \Rightarrow \quad 2^{\frac{2}{3}x}=-8 \quad \Rightarrow \quad \text{Non ha soluzioni reali}\)
+\(z = -8\quad \Rightarrow \quad 2^{\frac{2}{3}x}=-8 \quad \Rightarrow \quad 
+\text{Non ha soluzioni reali}\)
 
-\(z = 4\quad \Rightarrow \quad 2^{\frac{2}{3}x}=4 \quad \Rightarrow \quad 2^{\frac{2}{3}x}=2^2
+\(z = 4\quad \Rightarrow \quad 2^{\frac{2}{3}x}=4 \quad \Rightarrow \quad 
+2^{\frac{2}{3}x}=2^2
 \quad \Rightarrow \quad\dfrac{2}{3}x=2 \quad \Rightarrow \quad x=3\)
 \end{esempio}
 
 \subsection{Le disequazioni esponenziali}
 \label{subsubsec:esplog_disequazioniesponenziali}
 
-L'altro problema che ci resta da risolvere è la soluzione di disequazioni in 
+L'altro problema che ci resta da risolvere è la soluzione di disequazioni 
+in 
 cui la variabile indipendente si trova ad esponente. 
 % Innanzitutto recuperiamo 
 % il metodo seguito finora per risolvere le disequazioni:
@@ -595,19 +837,22 @@ Si possono utilizzare due metodi equivalenti. Vediamo due esempi:
  \begin{itemize} [noitemsep]
   \item Equazione Associata: 
   \(\tonda{\dfrac{1}{2}}^x = \dfrac{1}{64} \quad\Rightarrow \quad\)
-   \(\tonda{\dfrac{1}{2}}^x = \tonda{\dfrac{1}{2}}^6 \quad \Rightarrow \quad x= 6\)
+   \(\tonda{\dfrac{1}{2}}^x = \tonda{\dfrac{1}{2}}^6 \quad \Rightarrow 
+\quad x= 6\)
  \end{itemize}
 \begin{minipage}{.5\textwidth}
 \begin{itemize} [noitemsep]
 \item Funzione Associata: \(y=\tonda{\dfrac{1}{2}}^x -\dfrac{1}{64}\)
 \end{itemize}
  
-prima di \(x=6\) la funzione è positiva, dopo questo valore è negativa e non 
+prima di \(x=6\) la funzione è positiva, dopo questo valore è negativa e 
+non 
 può ridiventare positiva dato che continua a calare.
 \end{minipage}
  \begin{minipage}{.5\textwidth}
  \begin{inaccessibleblock}[Funzione esponenziale decrescente che taglia 
-l'asse~\(x\) nel punto~6 con un segno più prima di questo valore e meno dopo.]
+l'asse~\(x\) nel punto~6 con un segno più prima di questo valore e meno 
+dopo.]
   \grafdiseq{.8}{6}{-4}
  \end{inaccessibleblock}
   \end{minipage}
@@ -616,7 +861,8 @@ l'asse~\(x\) nel punto~6 con un segno più prima di questo valore e meno dopo.]
   
  \item Individuazione dell'intervallo soluzione:
  dato che la disequazione richiede che la funzione sia maggiore di zero, i 
-valori che la rendono tale sono quelli positivi. Quindi la soluzione è:\\[7pt]
+valori che la rendono tale sono quelli positivi. Quindi la soluzione 
+è:\\[7pt]
 \begin{minipage}{.5\textwidth}
  \begin{enumerate} [noitemsep]
   \item modo Grafico (vedi figura a lato)
@@ -625,7 +871,8 @@ valori che la rendono tale sono quelli positivi. Quindi la soluzione è:\\[7pt]
  \end{enumerate}
 \end{minipage}
 \begin{minipage}{.5\textwidth}
-\begin{inaccessibleblock}[un asse delle~\(x\) con evidenziati i punti che nel 
+\begin{inaccessibleblock}[un asse delle~\(x\) con evidenziati i punti che 
+nel 
 grafico precedente erano segnati come positivi.]
 \dissolincl{-6}{6}
  \end{inaccessibleblock}
@@ -655,18 +902,24 @@ concludere che:
  a^b<a^c \quad \Rightarrow \quad b>c \\
 \end{matrix}\)
 \end{itemize}
-In pratica, passando dagli esponenziali agli esponenti, nella disequazione è necessario stare attenti
-al valore della base: se la base è minore di 1, si cambia il verso alla disequazione. 
-Vediamo subito come utilizzare questa osservazione per risolvere l'esercizio precedente:
+In pratica, passando dagli esponenziali agli esponenti, nella disequazione 
+è necessario stare attenti
+al valore della base: se la base è minore di 1, si cambia il verso alla 
+disequazione. 
+Vediamo subito come utilizzare questa osservazione per risolvere 
+l'esercizio precedente:
 
 
 \begin{esempio}
  \(\tonda{\dfrac{1}{2}}^x \geqslant \dfrac{1}{64}\)\\[4pt]
- Riscriviamo:  \(\tonda{\dfrac{1}{2}}^x \geqslant \dfrac{1}{64} \quad\Rightarrow\quad
-    \tonda{\dfrac{1}{2}}^x \geqslant \tonda{\dfrac{1}{2}}^6 \quad\Rightarrow\quad 
+ Riscriviamo:  \(\tonda{\dfrac{1}{2}}^x \geqslant \dfrac{1}{64} 
+\quad\Rightarrow\quad
+    \tonda{\dfrac{1}{2}}^x \geqslant \tonda{\dfrac{1}{2}}^6 
+\quad\Rightarrow\quad 
     x \leqslant 6\)
 \\[6pt]
-Se mi ricordo di cambiar verso al predicato, quando necessario, questo metodo 
+Se mi ricordo di cambiar verso al predicato, quando necessario, questo 
+metodo 
 risulta decisamente più rapido.
 \end{esempio}
 
@@ -675,14 +928,17 @@ risulta decisamente più rapido.
 \section{Logaritmi}
 \label{sec:esplog_logaritmi}
 
-Cerchiamo di studiare un pò meglio il \emph{logaritmo}, ovvero quella funzione inversa
-dell'esponenziale che ci è servita per calcolare la soluzione nel caso di equazioni esponenziali elementari.
+Cerchiamo di studiare un pò meglio il \emph{logaritmo}, ovvero quella 
+funzione inversa
+dell'esponenziale che ci è servita per calcolare la soluzione nel caso di 
+equazioni esponenziali elementari.
 
 \subsection{Le operazioni inverse e la potenza}
 \label{subsec:esplog_operazioni_inverse}
 
 Fin dalle elementari abbiamo imparato che alcune operazioni sono tra loro 
-inverse: se ad un numero ne aggiungo un altro e poi lo tolgo ritorno al numero 
+inverse: se ad un numero ne aggiungo un altro e poi lo tolgo ritorno al 
+numero 
 di partenza. Quindi l'operazione inversa dell'addizione è la sottrazione:
 \[7 + 5 = 12 \quad \sRarrow \quad 12 - 5 = 7 \sand 12 - 7 = 5\]
 E fin qui è semplice, ma qual è l'operazione inversa della sottrazione?
@@ -691,26 +947,32 @@ Spontaneamente diremmo: l'addizione! Proviamo:
 C'è qualcosa che non va! Perché i conti tornino dobbiamo scrivere:
 \[15 - 7 = 8 \quad \sRarrow \quad 8 + 7 = 15 \sand 15 - 8 = 7\]
 L'addizione ha un'operazione inversa, la sottrazione 
-ne ha due a seconda se dobbiamo trovare il primo operando (detto minuendo) o il 
+ne ha due a seconda se dobbiamo trovare il primo operando (detto minuendo) 
+o il 
 secondo (detto sottraendo). Questo comportamento è dovuto al fatto che 
 l'addizione è \emph{commutativa} mentre la sottrazione non lo è.
 
 È possibile fare una discorso analogo per la moltiplicazione e per la 
 divisione, ma qui vogliamo concentrarci sulla potenza. Se di una potenza 
-conosciamo il risultato e l'esponente per calcolare la base possiamo utilizzare 
+conosciamo il risultato e l'esponente per calcolare la base possiamo 
+utilizzare 
 l'operazione di radice:
 \[2^3 = 8 \sRarrow \sqrt[3]{8} = 2 \]
-Ma se conosciamo il risultato e la base come facciamo a calcolare l'esponente?
+Ma se conosciamo il risultato e la base come facciamo a calcolare 
+l'esponente?
 La radice non ci serve in questo caso:
 \[2^3 = 8 \sRarrow \sqrt[2]{8} = 3 \]
-Il risultato è chiaramente sbagliato. Per risolvere questo problema dobbiamo 
+Il risultato è chiaramente sbagliato. Per risolvere questo problema 
+dobbiamo 
 utilizzare una nuova operazione: il \emph{logaritmo}.
 
 \begin{definizione}[Logaritmo]
- Si dice \emph{logaritmo} di un numero in una determinata base l'esponente da 
+ Si dice \emph{logaritmo} di un numero in una determinata base l'esponente 
+da 
 dare alla base per ottenere il numero:
 \[\log_a {b} = c \sLRarrow a^c = b\]
-diciamo che \(a\) è la \emph{base} del logaritmo, mentre \(b\) è il suo argomento.
+diciamo che \(a\) è la \emph{base} del logaritmo, mentre \(b\) è il suo 
+argomento.
 \end{definizione}
 
 È importante tenere presente che il logaritmo è un esponente. 
@@ -721,10 +983,13 @@ diciamo che \(a\) è la \emph{base} del logaritmo, mentre \(b\) è il suo argome
 Su questa nuova operazione possiamo fare alcune osservazioni:
 
 \begin{itemize}
- \item La base, come per gli esponenziali, dev'essere un numero positivo e diverso da 1, altrimenti si ricade in casistiche strane o prive di utilità.
+ \item La base, come per gli esponenziali, dev'essere un numero positivo e 
+diverso da 1, altrimenti si ricade in casistiche strane o prive di utilità.
 Quindi \(0<a<1 \lor a>1\).
- \item L'argomento dovrà essere per forza un numero positivo, perché non esiste 
-nessun esponente che, dato ad una base positiva, possa far ottenere un numero 
+ \item L'argomento dovrà essere per forza un numero positivo, perché non 
+esiste 
+nessun esponente che, dato ad una base positiva, possa far ottenere un 
+numero 
 negativo. Quindi \(b>0\)
  \item Nel logaritmo, come nella potenza, non valgono né la proprietà 
 associativa né la proprietà commutativa.
@@ -733,14 +998,16 @@ associativa né la proprietà commutativa.
 
 \noindent Ma allora nei logaritmi vale qualche proprietà? 
 Dalle proprietà delle potenze viste dal punto di vista degli 
-esponenti si ricavano tre proprietà dei logaritmi, a cui se ne aggiungono altre molto importanti:
+esponenti si ricavano tre proprietà dei logaritmi, a cui se ne aggiungono 
+altre molto importanti:
 % 
 % \begin{enumerate} 
 %  \item Da \(a^m \cdot a^n = a^{m+n}\) si ricava:
 %  \[log_a {b} + log_a {c} = log_a \tonda{b \cdot c} \]
 % \paragraph{Dimostrazione} 
 % Poniamo \(a^m = b\) e \(a^n = c\) 
-% allora: \(m = log_a {b}\) e \(n = log_a {c}\) possiamo allora costruire la 
+% allora: \(m = log_a {b}\) e \(n = log_a {c}\) possiamo allora costruire 
+la 
 % seguente catena di uguaglianze:
 % \[log_a {b} + log_a {c} =
 % m + n =  
@@ -809,7 +1076,8 @@ logaritmo da una base in un'altra è: \quad
 
 \noindent
 Dato che è sempre possibile cambiare base a un logaritmo, spesso si 
-usano logaritmi in particolari basi. Quelle più diffuse e presenti in tutte le 
+usano logaritmi in particolari basi. Quelle più diffuse e presenti in tutte 
+le 
 calcolatrici scientifiche sono: 
 \begin{itemize}
  \item 
@@ -847,10 +1115,13 @@ la base \(e\) che dà origine ai logaritmi naturali anche scritti: \(\ln\).
 \noindent
 \begin{minipage}[]{.60\textwidth}
 Prima di disegnare per punti la funzione logaritmo, riesaminiamo una 
-trasformazione geometrica: la simmetria rispetto alla bisettrice del primo e terzo quadrante (ovvero
+trasformazione geometrica: la simmetria rispetto alla bisettrice del primo 
+e terzo quadrante (ovvero
 la retta \(y=x\)).\\[7pt]
-Confrontando le coordinate di \(A\) e \(A'\), \(B\) e \(B'\), si può osservare che per 
-passare da un punto al suo simmetrico basta semplicemente scambiare l'ascissa 
+Confrontando le coordinate di \(A\) e \(A'\), \(B\) e \(B'\), si può 
+osservare che per 
+passare da un punto al suo simmetrico basta semplicemente scambiare 
+l'ascissa 
 con l'ordinata, ovvero:
 \[ x'=y \quad ; \quad  y'=x\]
 
@@ -878,7 +1149,8 @@ il suo simmetrico rispetto a y=x]
 \end{minipage} \qquad
 \begin{minipage}{.6\textwidth}
 Ma se in una funzione esponenziale: \(y=a^x\) scambiamo \(x\) e \(y\) 
-otteniamo: \(x=a^y\) da cui, esplicitando \(y\), si ha: \(y=\log_a x\).\\[7pt] Si può quindi 
+otteniamo: \(x=a^y\) da cui, esplicitando \(y\), si ha: \(y=\log_a 
+x\).\\[7pt] Si può quindi 
 osservare che la funzione logaritmo è la funzione inversa della funzione 
 esponenziale: il suo grafico si ottiene quindi applicando alla funzione 
 esponenziale la simmetria di asse: \(y=x\).
@@ -895,15 +1167,19 @@ esponenziale la simmetria di asse: \(y=x\).
  ordinata~1 (o~\(-1\)).
  \item Quando x è un infinitesimo positivo, y è un infinito (negativo o 
 positivo).
- \item Quando x è un infinito positivo, y è un infinito (positivo o negativo).
+ \item Quando x è un infinito positivo, y è un infinito (positivo o 
+negativo).
 \end{enumerate}
 \end{minipage} \qquad 
 \begin{minipage}{.45\textwidth}
- \begin{inaccessibleblock}[Grafici di funzioni logaritmiche con basi diverse.]
+ \begin{inaccessibleblock}[Grafici di funzioni logaritmiche con basi 
+diverse.]
   \logdiversebasi
-%   \caption{Funzioni logaritmiche con diverse basi.} \label{fig:diversebasi}
+%   \caption{Funzioni logaritmiche con diverse basi.} 
+\label{fig:diversebasi}
 \end{inaccessibleblock}
- % \caption{Funzioni logaritmiche con diverse basi.} \label{fig:log_diversebasi}
+ % \caption{Funzioni logaritmiche con diverse basi.} 
+\label{fig:log_diversebasi}
 \end{minipage}
 
 \vspace{.5cm}
@@ -911,13 +1187,15 @@ positivo).
 Al variare della base cambia il grafico della funzione: 
 se la base si avvicina a 1, la funzione si avvicina 
 alla retta \(x=1\). 
-Se la base si avvicina a 0 o all'infinito, la funzione si avvicina agli assi.
+Se la base si avvicina a 0 o all'infinito, la funzione si avvicina agli 
+assi.
 
 \subsection{Le equazioni logaritmiche}
 \label{subsec:esplog_equazionilogaritmiche}
 
 \begin{definizione}[Equazioni logaritmiche]{
-Chiamiamo \emph{equazione logaritmica} un'equazione in cui l'incognita compare 
+Chiamiamo \emph{equazione logaritmica} un'equazione in cui l'incognita 
+compare 
 nell'argomento di un logaritmo.
 }
 \end{definizione}
@@ -928,22 +1206,28 @@ abbastanza facilmente.
 \subsubsection{Equazioni logaritmiche elementari}
 \label{subsubsec:esplog_eq_log_elementari}
 
-\noindent Sono le equazioni nella forma: \quad \fbox{\(\log_a{f(x)} = b\)} \\[7pt]
-Questo tipo di equazione può essere risolta tenendo semplicemente conto della definizione stessa di logaritmo:
+\noindent Sono le equazioni nella forma: \quad \fbox{\(\log_a{f(x)} = b\)} 
+\\[7pt]
+Questo tipo di equazione può essere risolta tenendo semplicemente conto 
+della definizione stessa di logaritmo:
 \[\log_a{f(x)} = b \quad \Rightarrow \quad f(x)=a^b\]
 \begin{esempio}
  \(\log_2{x} = 8\)\\[4pt] 
- Ricordando la definizione di logaritmo posso risolvere facilmente: \; \(x = 2^8 = 256\)
+ Ricordando la definizione di logaritmo posso risolvere facilmente: \; \(x 
+= 2^8 = 256\)
 \end{esempio}
 \begin{esempio}
  \(\log_{3,6}{x} = 4\)\\[4pt]
- Anche in questo caso è sufficiente calcolare: \quad \( x = 3,6^{\,4} = 167,9616\)
+ Anche in questo caso è sufficiente calcolare: \quad \( x = 3,6^{\,4} = 
+167,9616\)
 \end{esempio}
 
-In realtà, come per le esponenziali, anche per le equazioni logaritmiche può essere usato qualche piccolo
+In realtà, come per le esponenziali, anche per le equazioni logaritmiche 
+può essere usato qualche piccolo
 accorgimento che permette di semplificare la struttura dell'equazione.
 \[\log_a{f(x)} = \log_a{g(x)} \sRarrow f(x) = g(x)\]
-Infatti se sono uguali le basi e i logaritmi, allora saranno equivalenti gli argomenti, 
+Infatti se sono uguali le basi e i logaritmi, allora saranno equivalenti 
+gli argomenti, 
 dato che anche la funzione logaritmo è biunivoca.
 
 \begin{esempio}
@@ -977,33 +1261,46 @@ Sostituendo l'incognita otteniamo:
    \ln\tonda{9 \cdot \tonda{-2} +15} \sRarrow 
    \ln\tonda{-3} = \ln\tonda{-3}\)
    \\[4pt]
- Ma il logaritmo di un numero negativo non dà un risultato reale! Prova con la calcolatrice.
+ Ma il logaritmo di un numero negativo non dà un risultato reale! Prova con 
+la calcolatrice.
 \end{esempio}
 
 L'ultimo esempio ci mostra come le cose siano un po' più complicate: 
-l'operazione di passaggio dall'uguaglianza dei logaritmi all'uguaglianza degli 
-argomenti fa perdere delle informazioni (come quando in un'equazione fratta si 
+l'operazione di passaggio dall'uguaglianza dei logaritmi all'uguaglianza 
+degli 
+argomenti fa perdere delle informazioni (come quando in un'equazione fratta 
+si 
 eliminano i denominatori uguali). 
-Quando eliminiamo i logaritmi scompare l'informazione che ``certe espressioni 
-erano argomenti del logaritmo'' e quindi che l'espressione originaria ha valore 
+Quando eliminiamo i logaritmi scompare l'informazione che ``certe 
+espressioni 
+erano argomenti del logaritmo'' e quindi che l'espressione originaria ha 
+valore 
 reale solo se questa espressione è maggiore di zero. 
-Scrivere questa condizione si traduce nel classico: ``porre le condizioni di esistenza''.
-Vediamo allora come risolvere l'esercizio precedente senza perdere informazioni.
+Scrivere questa condizione si traduce nel classico: ``porre le condizioni 
+di esistenza''.
+Vediamo allora come risolvere l'esercizio precedente senza perdere 
+informazioni.
 
 \begin{esempio}
 \(\ln\tonda{5x +7} = \ln\tonda{9x +15}\)
  \\[4pt]
  Uguali i logaritmi, uguali le basi, quindi:
  \\[4pt]
-\(\sistema{5x +7 >0 & \quad\text{(Condizione d'esistenza del \(1^\circ\) logaritmo)}\\ 
-           9x +15 > 0 & \quad \text{(Condizione d'esistenza del \(2^\circ\) logaritmo)}\\
-           5x +7 = 9x +15 & \quad \text{(Equazione ottenuta eliminando i logaritmi)}}\)
+\(\sistema{5x +7 >0 & \quad\text{(Condizione d'esistenza del \(1^\circ\) 
+logaritmo)}\\ 
+           9x +15 > 0 & \quad \text{(Condizione d'esistenza del \(2^\circ\) 
+logaritmo)}\\
+           5x +7 = 9x +15 & \quad \text{(Equazione ottenuta eliminando i 
+logaritmi)}}\)
  \\[4pt]
-\(\sistema{x > -\frac{7}{5} \\[3pt] x > -\frac{5}{3} \\[3pt] 5x - 9x = +15 -7} \quad \Longrightarrow \quad
-\sistema{x > -\frac{7}{5} \\[3pt] x > -\frac{5}{3} \\[3pt] x = -2}  \quad \Longrightarrow \quad
+\(\sistema{x > -\frac{7}{5} \\[3pt] x > -\frac{5}{3} \\[3pt] 5x - 9x = +15 
+-7} \quad \Longrightarrow \quad
+\sistema{x > -\frac{7}{5} \\[3pt] x > -\frac{5}{3} \\[3pt] x = -2}  \quad 
+\Longrightarrow \quad
 \sistema{x > -\frac{7}{5} \\x = -2}\)
  \\[4pt]
-L'ultimo passaggio è giustificato dal fatto che, se un numero è più grande di \(-\frac{7}{5} \approx −1,4\) 
+L'ultimo passaggio è giustificato dal fatto che, se un numero è più grande 
+di \(-\frac{7}{5} \approx −1,4\) 
 sarà senz'altro più grande anche di~\(-\frac{5}{3} \approx −1,67\).
 Ma ora questo sistema non ha soluzioni, perché se \(x=-2\), di certo 
 non è più grande di \(-\frac{7}{5}\).
@@ -1018,7 +1315,8 @@ non è più grande di \(-\frac{7}{5}\).
 Non possiamo di certo far finta che non ci siano i logaritmi e scrivere:
 \(5x -7 + 2x = 2x -4\)\\
 Per convincersi dell'errore, è sufficiente guardare l'esempio seguente:
-\[\log_2 32 -\log_2 4 = \log_2 8 \quad \nRightarrow\quad 32 -4 = 8 \quad \Rightarrow\quad 28 = 8\]
+\[\log_2 32 -\log_2 4 = \log_2 8 \quad \nRightarrow\quad 32 -4 = 8 \quad 
+\Rightarrow\quad 28 = 8\]
 Per risolvere queste equazioni bisogna:
 \begin{enumerate}
  \item ricorrere alle proprietà dei logaritmi presentate in precedenza;
@@ -1030,7 +1328,8 @@ Per risolvere queste equazioni bisogna:
  \(\ln\tonda{3x - 1} + \ln\tonda{2x +2} = \ln 5 + \ln\tonda{x^2 +2}\)
  \\[4pt]
 Ricordando la prima proprietà, l'equazione è equivalente a:
-\[\cancel{\ln}\tonda{\tonda{3x - 1} \tonda{2x +2}}= \cancel{\ln}\tonda{5\tonda{x^2 +2}} \quad \Rightarrow\quad
+\[\cancel{\ln}\tonda{\tonda{3x - 1} \tonda{2x +2}}= 
+\cancel{\ln}\tonda{5\tonda{x^2 +2}} \quad \Rightarrow\quad
 x^2 +4x -12 = 0\]
   
 Tenendo conto anche delle condizioni di esistenza dei vari logaritmi, 
@@ -1048,7 +1347,8 @@ x > -1 \\
 x > \frac{1}{3} \\[3pt]
 x = -6 \lor x=2
 }\)\\[4pt]
-Abbiamo quindi trovato due soluzioni: in particolare, guardando la disequazione \(x>\frac{1}{3}\),
+Abbiamo quindi trovato due soluzioni: in particolare, guardando la 
+disequazione \(x>\frac{1}{3}\),
 possiamo concludere che:
 \[x_1 = -6  \text{ (Soluzione Non Accettabile)} \quad;\quad 
   x_2 = +2 \text{ (Soluzione Accettabile)}\]
@@ -1077,7 +1377,8 @@ x > 2 \\
 Risolviamo l'equazione di secondo grado: 
 \(x_{1,2} = \frac{4 \pm \sqrt{16-10}}{5} = \frac{4 \pm \sqrt{6}}{5}\)
 \\[7pt]
-Tenendo conto della condizione \(x > 2\) possiamo concludere che: \[x_1 = \frac{4 - \sqrt{6}}{5} \approx 0,310102
+Tenendo conto della condizione \(x > 2\) possiamo concludere che: \[x_1 = 
+\frac{4 - \sqrt{6}}{5} \approx 0,310102
 \quad\text{(Soluzione Non Accettabile)} \] 
 \[x_2 = \frac{4 + \sqrt{6}}{5} \approx 1,289898
  \quad \text{(Soluzione Non Accettabile)}\]
@@ -1089,15 +1390,18 @@ Tenendo conto della condizione \(x > 2\) possiamo concludere che: \[x_1 = \frac{
 \label{subsubsec:esplog_disequazionilogaritmiche}
 
 Ricordiamo che, come la funzione esponenziale, anche quella logaritmica è 
-crescente se la base è maggiore di 1 e decrescente se la base è compresa tra 
+crescente se la base è maggiore di 1 e decrescente se la base è compresa 
+tra 
 zero e uno.
 Le disequazioni logaritmiche si possono quindi risolvere in modo analogo a 
 quelle esponenziali.
 
 \begin{esempio}
- \(\log_{\frac{2}{3}} \tonda{4x -6} \leqslant \log_{\frac{2}{3}} \tonda{x -3}\)
+ \(\log_{\frac{2}{3}} \tonda{4x -6} \leqslant \log_{\frac{2}{3}} \tonda{x 
+-3}\)
 \\[4pt]
-Eliminando i logaritmi, tenendo conto delle condizioni di esistenza, e cambiando verso alla disequazione, in quanto la
+Eliminando i logaritmi, tenendo conto delle condizioni di esistenza, e 
+cambiando verso alla disequazione, in quanto la
 base dei logaritmi è minore di uno:
 \\[4pt]
 \(\sistema{
@@ -1192,7 +1496,8 @@ Per cui la soluzione, descritta per intervalli e con i predicati, è:
 % \begin{minipage}{.48\textwidth}
 % Soluzione grafica del sistema:
 % 
-% \begin{inaccessibleblock}[Soluzione grafica di un sistema di disequazioni.]
+% \begin{inaccessibleblock}[Soluzione grafica di un sistema di 
+disequazioni.]
 %   \dissistema
 % \end{inaccessibleblock}
 % \end{minipage}
