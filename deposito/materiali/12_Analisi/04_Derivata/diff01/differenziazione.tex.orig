@@ -130,7 +130,6 @@ senza salti.
  Le variazioni dei suoi valori possono essere arbitrariamente piccole.
 \end{definizione}
 
-
 Il più semplice esempio di una variabile continua in matematica è la 
 posizione $x$ sull'asse dei numeri reali. Infatti sappiamo che la retta reale 
 non
@@ -1444,7 +1443,6 @@ ottiene
  il valore reale infinitamente vicino al risultato esatto iperreale.
 \end{esempio}
 
-<<<<<<< working copy
 Verifichiamo che per $x=4-\dfrac{1}{2}dx$ il tratto di parabola abbia davvero 
 l'inclinazione cercata, cioè che una secante che passa per due punti 
 infinitamente vicini a quello di ascissa $x~=~4~-~\dfrac{1}{2}dx$ abbia 
@@ -1502,8 +1500,6 @@ Sappiamo già che esiste il modo corretto: \emph{la funzione parte standard $\ps
 applicata a un iperreale finito, isola il numero reale infinitamente vicino
 e permette così di ignorare i suoi infinitesimi}.
 
-=======
->>>>>>> merge rev
 \section{Derivata: definizione}
 \label{sec:diff01_deriv}
 \begin{definizione}
@@ -2471,13 +2467,16 @@ la derivazione risulta elementare.
 Nel capitolo \ref{sec:diff01_differenziale} abbiamo imparato a 
 differenziare solo funzioni algebriche. In questa sezione, quindi, prima di
 derivare le funzioni trascendenti, dovremo imparare a differenziarle.
-Abbiamo già discusso il comportamento di queste funzioni nell'insieme degli
-Iperreali e abbiamo ormai un bagaglio sufficiente di conoscenza delle derivate.
+Abbiamo già discusso (pag.\pageref{subsubsec:insnum_expstar} il comportamento
+di queste funzioni nell'insieme degli Iperreali e abbiamo ormai un bagaglio
+di conoscenze sulle derivate che agevola il lavoro.
 \subsection{Derivata di $f(x)=a^x$}
 \label{}
 Il grafico di una generica funzione esponenziale $y=a^x$, confrontato con 
-il grafico dell'andamento delle sue tangenti è una sorpresa rispetto ai confronti
-che abbiamo fatto per altre funzioni. I due grafici praticamente si accompagnano: 
+quello 
+dell'andamento delle tangenti è una sorpresa rispetto ai confronti che 
+abbiamo
+fatto per altre funzioni. I due grafici praticamente si accompagnano: 
 rivelano uguali pendenze in coppie di punti di uguale ordinata.
 
 \begin{inaccessibleblock}
@@ -2500,38 +2499,36 @@ delle potenze.\\
 Differenziale di $y=a^x$: 
 $dy=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1}$.\\
 Rapporto differenziale: $\dfrac{dy}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x$.\\
-Per  derivare, ora dovremmo applicare la parte standard e il risultato dovrebbe
-essere anch'esso una funzione esponenziale, se la nostra intuizione del grafico 
-è corretta.\\
-L'espressione del rapporto differenziale contiene \(a^x\), che è funzione 
-esponenziale, ed un fattore da interpretare per capirne il significato. Lo
-si può trasformare, ricorrendo alle proprietà delle potenze.\\
-$\dfrac{\tonda{a^{dx}-1}}{dx}= \dfrac{a^{(0+dx)}-a^0}{dx}=
-\dfrac{d(a^x)}{dx}\bigg |_{x=0}= \dfrac{df(x)}{dx}\bigg |_{x=0}$.\\
-Perciò il rapporto differenziale risulta:\\
-$\dfrac{dy}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x=
-\dfrac{d(a^x)}{dx}\bigg |_{x=0}\cdot a^x$\\
-Per la derivata, basta applicare la parte standard e si ottiene:\\
-$f'(x)= f'(0)\cdot f(x)$.
-\emph{La derivata di una funzione esponenziale è proporzionale alla
+Per  derivare, ora dovremmo applicare la parte standard e se vogliamo seguire
+le indicazioni del grafico, il risultato dovrà essere un'esponenziale. Quindi
+dobbiamo concentrarci sul rapporto $\dfrac{\tonda{a^{dx}-1}}{dx}$, che 
+nell'espressione precedente è il fattore che potrebbe causare un grafico della 
+derivata diverso da quello esponenziale che abbiamo intuito.\\
+La funzione esponenziale generica $f(x)=a^x$ ha proprietà caratteristiche:\\
+$f(0)=a^0=1$ e $f(x+y)=a^{x+y}~=~a^x\cdot a^y$.\\
+Quindi: $f(0)=1$ e $f(x+dx)=f(x)f(dx)$. Così il rapporto differenziale in 
+queste funzioni diventa:\\
+$\dfrac{df(x)}{dx}=\dfrac{f(x+dx)-f(x)}{dx}=\dfrac{f(x)f(dx)-f(x)}{dx}=
+\dfrac{f(dx)-1}{dx}f(x)=\dfrac{f(0+dx)-f(0)}{dx}f(x)$.\\
+L'ultima espressione contiene il rapporto differenziale calcolato in $x=0$,
+quindi $\dfrac{df(x)}{dx}\sim f'(0)\cdot f(x)$.\\
+Allora per la derivata, si ha:\\
+$f'(x)= f'(0)\cdot f(x)$.\\
+La derivata di una funzione esponenziale è proporzionale alla
 funzione stessa, attraverso un fattore che corrisponde alla derivata 
-calcolata in} $x=0$.\\
-
-Volevamo calcolare la derivata di \(f(x)=a^x\) e ci ritroviamo
-un risultato che contiene la derivata stessa \(f'(0)\), insomma non si direbbe 
-che ci siano stati progressi. Ma fingiamo per un attimo che $f'(0)$ non 
-incida sul risultato, cioè che \(f'(0)=1\). In questo modo la funzione e la
-sua derivata sarebbero proprio identiche e i due grafici sarebbero 
-sovrapponibili.\\
+calcolata in $x=0$.\\
+Per capire meglio l'effetto di questo fattore, fingiamo per un attimo che non
+esista, cioè che nell'espressione valga $1$. In questo modo la funzione e la
+sua derivata sarebbero proprio identiche e i due grafici sarebbero sovrapposti:\\
 $f'(0)=1\srarrow \pst{\dfrac{a^{dx}-1}{dx}}=1\srarrow a^{dx}\sim dx +1
 \srarrow a\sim(dx+1)^\frac{1}{dx}$.\\
-Abbiamo già incontrato un'espressione analoga in passato:
-l'espressione individua il Numero di Nepero $e=\pst{(dx+1)^\frac{1}{dx}}$.\\
-Conclusione:
-
+Abbiamo già incontrato un'espressione analoga in 
+\ref{subsubsec:insnum_nepero}:
+l'espressione individua il Numero di Nepero $e=\pst{(dx+1)^\frac{1}{dx}}$.
 \begin{teorema}
  La derivata della funzione esponenziale $\mathit{D}\quadra{e^x}$ coincide 
-con la funzione stessa.
+con
+ la funzione stessa.
 \end{teorema}
 \noindent Ipotesi: $f(x)=e^x$. \tab $f'(x)=e^x$.
 \begin{proof}
@@ -2540,7 +2537,8 @@ con la funzione stessa.
  per i nostri scopi. Resta comunque stabilito che  \emph{la funzione
  esponenziale pura $f(x)=e^x$ coincide con la propria derivata}.
 \end{proof}
-Attraverso l'uso del numero \(e\) siamo finalmente in grado di derivare la funzione esponenziale generica \(f(x)=a^x\).
+A questo punto, l'importanza del numero $e$ risulta ingigantita. Ce ne 
+serviamo subito.
 
 \begin{teorema}
   La derivata della generica funzione esponenziale è: 
@@ -3357,5 +3355,6 @@ la
 di
   primo grado come questo: avresti potuto risolverlo anche in terza media.
  \end{osservazione}
+
 \end{esempio}
 \end{comment}
