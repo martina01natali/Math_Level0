@@ -1,0 +1,218 @@
+﻿% (c) 2017 Daniele Zambelli - daniele.zambelli@gmail.com
+% 
+% I grafici per i teoremi sulle funzioni continue
+% 
+% 
+
+\newcommand{\parteintera}{% 
+  % prima funzione.
+  \disegno[4]{
+  \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+%   \tkzInit[xmin=-5.3, xmax=+7.3, ymin=-7.3, ymax=+7.3]
+    \foreach \pi in {-5, ..., +4}
+    {\draw [Maroon!50!black, ultra thick] (\pi, \pi) -- (\pi+1, \pi);
+    \filldraw [Maroon!50!black] (\pi, \pi) circle (1.7pt);
+    \draw [Maroon!50!black] (\pi+1, \pi) circle (1.7pt);}
+    \def \pi {5}
+    \draw [Maroon!50!black, ultra thick] (\pi, \pi) -- (\pi+.3, \pi);
+    \filldraw [Maroon!50!black] (\pi, \pi) circle (1.7pt);
+  }
+}
+
+\newcommand{\tzeri}{% 
+  % Teorema degli zeri.
+  \disegno[4]{
+  \rcom{-1}{+9}{-5}{+5}{gray!50, very thin, step=1}
+  \draw (+1, 0) node [above] {$a$} -- (+1, -2) -- 
+  (0, -2) node [left] {$f(a)$};
+  \draw (+6, 0) node [below] {$b$} -- (+6, +4) -- 
+  (0, +4) node [left] {$f(b)$};
+  \draw [Green!40!black, ultra thick] 
+        (+1, -2) .. controls (+3, -3) and (4, 3) .. (6, 4);
+  \microscopio{(3.3, 0)}{2}{-70}{120}{2.5}{(7.5, -1.7)}{\(\times \infty\)}
+  \draw [Green!40!black, ultra thick] (+3.65, -6) -- (6.4, -1.86);
+  \draw (2.75, -4) -- (7.75, -4)
+        (+4, -5.4) -- (+4, -3.8) node [above, xshift=.5mm] {$a+k \delta$}
+        (+6.3, -2.08) -- (+6.3, -4.3) node [below, xshift=5mm, yshift=+1mm] 
+        {$a+\tonda{k+1} \delta$};
+  }
+}
+
+% \newcommand{\tweierstrass}{% 
+%   % Teorema degli zeri.
+%   \disegno[4]{
+%   \rcom{-1}{+11}{-2}{+8}{gray!50, very thin, step=1}
+%   \draw (-1.3, 2) -- (+1, -2) -- 
+%   (0, -2) node [left] {$f(a)$};
+%   \draw (+6, 0) node [below] {$b$} -- (+6, +4) -- 
+%   (0, +4) node [left] {$f(b)$};
+%   \draw [Green!40!black, ultra thick] 
+%         (-1.3, 2) .. controls (+3, -3) and (5, 7) .. 
+%         (6, 7) .. controls (+8, 7) and (9, 3) .. (11.3, 4);
+%   }
+% }
+
+% \def \definizionilinea{
+%     \def \xi{-0.3};
+%     \def \yi{6.7};
+%     \def \xf{10.3};
+%     \def \yf{0.5};
+%     \def \xa{0.4};
+%     \def \ya{4.9};
+%     \def \xb{9.4};
+%     \def \yb{5.55};
+%     \coordinate (i) at (\xi, \yi);
+%     \coordinate (f) at (\xf, \yf);
+%     \coordinate (a) at (\xa, \ya);
+%     \coordinate (b) at (\xb, \yb);
+%     \coordinate (ctrli) at (3, -4);
+%     \coordinate (ctrlf) at (7, 17);
+%     \def \linea{(i) .. controls (ctrli) and (ctrlf) .. (f)}
+% }
+
+\newcommand{\tweierstrass}{% Teorema di Weierstrass.
+  \disegno[4.5]{
+    \def \xa{0.4};
+    \def \xb{9.4};
+    \def \dx{1};
+    \def \linea{(-0.3, 6.7) .. controls (3, -4) and (7, 17) .. (10.3, 0.5)}
+    \foreach \xa/\y in {0.4/4.9, 1.4/3.65, 2.4/3.57, 3.4/4.17, 4.4/5.15, 
+                        5.4/6.2, 6.4/6.9, 7.4/7.06, 8.4/6.25, 9.4/4.1}{
+      \draw(\xa, \y) -- (\xa, 0.015) ;
+    }
+    \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+    \draw [Green!40!black, ultra thick] \linea;    
+    \node at (\xa, 0) [below, yshift=-1.2em] {\(a\)};
+    \node at (\xb, 0) [below, yshift=-1em] {\(b\)};
+    \foreach \n in {0,1,2}
+      \node at (\xa+\n*\dx, 0) [below] {\(t_\n\)};
+    \foreach \n in {3.5,7}
+      \node at (\xa+\n*\dx, 0) [below, yshift=-6pt] {\(\dots\)};
+    \node at (\xa+5*\dx, 0) [below] {\(t_i\)};
+    \node at (\xa+9*\dx, 0) [below] {\(t_h\)};
+
+    }
+}
+
+\newcommand{\contsinusoide}{%
+\disegno[6]{
+  \rcom{-6.5}{+6.5}{-1.0}{+1.0}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-6.8,xmax=+6.8,ymin=-1.3,ymax=+1.3]
+    \tkzFct[domain=-6.8:+6.8, ultra thick, color=Blue!70!black]
+         {sin(x)}
+    \node at (0, -1.8) {$y=\sen x$};
+  }
+}
+
+\newcommand{\costante}{%
+\disegno[3]{
+  \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-6.3,xmax=+6.3,ymin=-6.3,ymax=+6.3]
+    \tkzFct[domain=-6.3:+6.3, ultra thick, color=Green!70!black] {3}
+    \node at (0, -7.5) {$y=3$};
+  }
+}
+
+\newcommand{\contiperbole}{%
+\disegno[3]{
+  \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-6.3,xmax=+6.3,ymin=-6.3,ymax=+6.3]
+    \tkzFct[domain=-6.3:-.1, ultra thick, color=Red!70!black] {1./x}
+    \tkzFct[domain=+.1:+7.3, ultra thick, color=Red!70!black] {1./x}
+    \node at (0, -7.5) {$y=\frac{1}{x}$};
+  }
+}
+
+\newcommand{\tfermat}{%% Teorema di Fermat.
+  \disegno[4.5]{
+    \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+    \def \xa{1.4};
+    \def \xb{8.6};
+%     \def \dx{1};
+    \draw [Green!40!black, ultra thick] 
+          (-0.3, 6.7) .. controls (5, -4) and (5, 17) .. (10.3, 0.5);
+    \draw (\xa, 4.1) -- (\xa, 0) node [below] {\(a\)}
+          (\xb, 5.0) -- (\xb, 0) node [below] {\(b\)};
+    \filldraw [Red!40!black] (2.6, 3.5) circle (2pt) node [below] {$m$};
+    \filldraw [Blue!40!black] (6.6, 7.1) circle (2pt) node [above] {$M$};
+    }
+}
+
+\newcommand{\estremo}{%
+\disegno[3]{
+  \rcom{-7}{+3}{-2}{+7}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-7.3,xmax=+7.3,ymin=-7.3,ymax=+7.3]
+    \tkzFct[domain=-4:+2, ultra thick, color=Red!70!black] 
+           {.125*x**2-.5*x+2}
+    \draw (-4, +6) -- (-4, 0) node [below] {$-4$};
+    \draw (+2, 1.5) -- (+2, 0) node [below] {$+2$};
+    \filldraw [Red!70!black](-4, +6) circle (2pt) node [above] {$M$};
+    \filldraw [Red!70!black](+2, +1.5) circle (2pt) node [right] {$m$};
+  }
+}
+
+\newcommand{\nonder}{%
+\disegno[3]{
+  \rcom{-7}{+3}{-2}{+7}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-7.3,xmax=+7.3,ymin=-7.3,ymax=+7.3]
+    \tkzFct[domain=-5:-2, ultra thick, color=Blue!70!black] 
+           {-.25*x**2-.5*x+5}
+    \tkzFct[domain=-2:+1, ultra thick, color=Blue!70!black] 
+           {+.25*x**2-x+2}
+    \draw (-5, 1.25) -- (-5, 0) node [below] {$-5$};
+    \draw (+1, 1.25) -- (+1, 0) node [below] {$+1$};
+    \filldraw [Blue!70!black](-2, +5) circle (2pt) node [above] {$M$};
+    \filldraw [Blue!70!black](-5, +1.25) circle (2pt) node [left] {$m$};
+    \filldraw [Blue!70!black](+1, +1.25) circle (2pt) node [right] {$m$};
+  }
+}
+
+\newcommand{\derzero}{%
+\disegno[3]{
+  \rcom{-7}{+3}{-2}{+7}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-7.3,xmax=+7.3,ymin=-7.3,ymax=+7.3]
+    \tkzFct[domain=-5:+2, ultra thick, color=Green!70!black] 
+           {-.25*x**2-.5*x+5}
+    \draw (-5, 1.25) -- (-5, 0) node [below] {$-5$};
+    \draw (+2, +3) -- (+2, 0) node [below] {$+2$};
+    \filldraw [Green!70!black](-1, +5.25) circle (2pt) node [above] {$M$};
+    \filldraw [Green!70!black](-5, +1.25) circle (2pt) node [left] {$m$};
+  }
+}
+
+\newcommand{\trolle}{%% Teorema di Rolle.
+  \disegno[4.5]{
+    \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+    \def \xa{1.4}; \def \ya{4.1};
+    \def \xb{9}; \def \yb{4.1};
+    \def \xmi{2.6}; \def \ymi{3.47};
+    \def \xma{6.6}; \def \yma{7.1};
+    \draw [Green!40!black, ultra thick] 
+          (-0.3, 6.7) .. controls (5, -4) and (5, 17) .. (10.3, 0.5);
+    \draw (\xa, \ya) -- (\xa, 0) node [below] {\(a\)}
+          (\xb, \yb) -- (\xb, 0) node [below] {\(b\)};
+    \filldraw [Red!40!black] (\xmi, \ymi) circle (2pt) node [below] {$m$};
+    \filldraw [Blue!40!black] (\xma, \yma) circle (2pt) node [above] {$M$};
+    \draw [thick] (\xmi-2, \ymi) -- (\xmi+2, \ymi)
+                  (\xma-2, \yma) -- (\xma+2, \yma);
+    }
+}
+
+\newcommand{\tlagrange}{%% Teorema di Lagrange.
+  \disegno[4.5]{
+    \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+    \def \xa{2}; \def \ya{4};
+    \def \xb{8}; \def \yb{6};
+    \def \xmi{3.6}; \def \ymi{3.52};
+    \def \xma{6.5}; \def \yma{7.08};
+    \draw [Green!40!black, ultra thick] 
+          (-0.3, 6.7) .. controls (6.7, -4) and (4.6, 17) .. (10.3, 0.5);
+    \draw (\xa, \ya) -- (\xa, 0) node [below] {\(a\)}
+          (\xb, \yb) -- (\xb, 0) node [below] {\(b\)};
+    \draw [thick] (\xa-1, \ya-.33) -- (\xb+1, \yb+.33);
+%     \filldraw [Red!40!black] (\xmi, \ymi) circle (2pt) node [below] {$m$};
+%     \filldraw [Blue!40!black] (\xma, \yma) circle (2pt) node [above] {$M$};
+    \draw [thick] (\xmi-2, \ymi-.66) -- (\xmi+2, \ymi+.66)
+                  (\xma-2, \yma-.66) -- (\xma+2, \yma+.66);
+    }
+}
