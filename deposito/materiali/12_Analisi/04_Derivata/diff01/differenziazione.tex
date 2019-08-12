@@ -614,7 +614,7 @@ e verifica che i risultati sono analoghi a quello dimostrato:
 &f(x) = x^2 - 12  &df(x_0)=\\
 &f(x) = 3x^2 +\dfrac{2}{3}  &df(x_0)=\\
 &f(x) = \dfrac{1}{2}x^2 - x  &df(x_0)=\\
-&f(x) = x^2 - \dfrac{2}{3} +5 &df(x)|_{x=x_0}=\\
+&f(x) = x^2 - \dfrac{2}{3}x +5 &df(x)|_{x=x_0}=\\
 \end{align*}
 
 
@@ -830,9 +830,9 @@ Nel secondo e nel terzo grafico: se si volesse
 differenziare la funzione ''a cavallo``di un punto in cui essa non è 
 definita, le differenze sull'asse \(Y\) risulterebbero infinite.\\
 Relativamente al primo grafico: si può tentare di differenziare la funzione 
-solo se \(x \ge 0\). Nell'infinitamente vicino all'origine l'andamento della 
-funzione è quasi verticale, il che rende conto dei ragionamenti fatti sul 
-confronto fra l'incremento lungo l'asse \(Y\) e l'incremento lungo l'asse \(X\).
+solo se \(x \ge 0\). Nell'infinitamente vicino all'origine il grafico della 
+funzione è pressoché verticale e qualsiasi incremento infinitesimo lungo l'asse
+\(X\) provoca un incremento ''non  così infinitesimo`` lungo l'asse \(Y\).
 
 % \begin{figure}[h]
 \begin{inaccessibleblock}
@@ -1112,11 +1112,10 @@ $d(2p)|_{h_0=8}=
 d\tonda{2\sqrt{3}h}|_{h_0=8}=
 2 \sqrt{3} \cdot (8+dh)-2\sqrt{3} \cdot 8 = 2 \sqrt{3} \cdot dh$.\\
 Per ogni incremento infinitesimo dell'altezza, il perimetro aumenta di 
-$2 \sqrt{3}$.
-Si tratta di un incremento costante, che non dipende dalla misura iniziale
+$2 \sqrt{3}$ volte quell'incremento.
+Si tratta di rapporto costante, perché non dipende dalla misura iniziale
 dell'altezza. Infatti, se si ripete il calcolo scrivendo il simbolo $h_0$ al 
-posto della 
-sua misura $8$, $h_0$ non compare nel risultato.\\
+posto della sua misura $8$, $h_0$ non compare nel risultato.\\
 La soluzione può essere ricavata in modo più diretto, applicando le regole
 4 e 2 della sintesi a pag.\pageref{subsubsec:diff01_diffsint}.
 \end{esempio}
@@ -1135,11 +1134,9 @@ $d\tonda{\mathit{A}}=d\tonda{\frac{\sqrt{3}}{4}l^2}=
  \frac{\sqrt{3}}{4}\tonda{2l \cdot dl+(dl)^2}=
  \frac{\sqrt{3}}{4}\tonda{2l+dl}dl$.\\
 Questa volta la relazione con l'incremento del lato non è elementare: per 
-ogni 
-incremento infinitesimo del lato si ha un incremento di area pari a 
+ogni incremento infinitesimo del lato si ha un incremento di area pari a 
 $\frac{\sqrt{3}}{4}\tonda{2l+dl}$, che dipende dalla misura iniziale del 
-lato
-e dallo stesso incremento. Per gestire il risultato, occorre approssimare
+lato e dallo stesso incremento. Per gestire il risultato, occorre approssimare
 questo numero all'indistinguibile più vicino:\\
 $d\tonda{\mathit{A}}=\frac{\sqrt{3}}{4}\tonda{2l+dl}dl\sim
 \frac{\sqrt{3}}{2}ldl$.\\
@@ -1341,9 +1338,9 @@ essa solo grazie ad un microscopio a ingrandimento infinito.
 
 \begin{definizione}
  Si dice Rapporto Differenziale della funzione $f(x)$, relativo a $x_0$
- il rapporto $\frac{df(x)}{dx}\big|_{x_0}$ fra il differenziale della 
+ il rapporto $\frac{df(x)}{dx}\big|_{x=x_0}$ fra il differenziale della 
 funzione  e quello della variabile, calcolati nel punto $x_0$. \\
- $\frac{df(x)}{dx}\big|_{x_0}=\frac{f(x_0+dx)-f(x_0)}{dx}$, con $dx\ne 0$.
+ $\frac{df(x)}{dx}\big|_{x=x_0}=\frac{f(x_0+dx)-f(x_0)}{dx}$, con $dx\ne 0$.
 \end{definizione}
 
 \begin{figure}[h]
@@ -1362,39 +1359,48 @@ funzione  e quello della variabile, calcolati nel punto $x_0$. \\
   $y=\dfrac{x^2}{5}-\dfrac{3}{5}x+2$. Calcoliamo la pendenza della secante che
   passa per $A\punto{5}{4}$ e per un altro punto infinitamente vicino.\\
   La funzione è continua nel punto $A$ e il differenziale per 
-  $x=x_A$, secondo le regole della sezione precedente, è:\\ 
+  $x=x_A$, si può calcolare applicando la definizione (oppure applicando le 
+  regole della sintesi \ref{subsubsec:diff01_diffsint}) alla funzione
+  $f(x)=\dfrac{x^2}{5}-\dfrac{3}{5}x+2$:\\ 
   $d(f(5))=f(5+dx)-f(5)=\tonda{\dfrac{(5+dx)^2}{5}-\dfrac{3}{5}(5+dx)+2}
   -\tonda{\dfrac{5^2}{5}-\dfrac{3}{5}5+2}=\\
-  =\dfrac{1}{5}\tonda{2xdx+(dx)^2}\big|_{5}-\dfrac{3}{5}dx\big|_{5}+0=
-  \dfrac{2}{5}5dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=\\
+  =\dfrac{\tonda{25+10dx+\tonda{dx}^2}}{5}-3-\dfrac{3}{5}dx+2-5+3-2= \\
+  =5+2dx+\dfrac{1}{5}\tonda{dx}^2-3-\dfrac{3}{5}dx+2-5+3-2=\\
   =2dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=
   \dfrac{7}{5}dx+\dfrac{1}{5}(dx)^2=\tonda{\dfrac{7}{5}+\dfrac{1}{5}dx}dx$.\\
  
- Raccogliendo $dx$ nel differenziale della funzione, il rapporto 
-differenziale è:\\
-  $\dfrac{d(f(x)}{dx}\bigg|_{5}=\dfrac{\tonda{\dfrac{7}{5}+\dfrac{1}{5}dx}dx}
+ Il rapporto differenziale è: 
+  $\dfrac{df(5)}{dx}=\dfrac{\tonda{\dfrac{7}{5}+\dfrac{1}{5}dx}dx}
   {dx}=\dfrac{7}{5}+\dfrac{1}{5}dx$.\\
   Come si vede, la pendenza di questa secante è un numero finito del tipo 
   $a+\epsilon$, che dipende sia dal valore $x_A=5$, sia dall'infinitesimo 
   $dx$ che compare nel risultato. Si tratta dunque di una pendenza 
-  infinitamente vicina al valore $m=\dfrac{7}{5}$.
+  infinitamente vicina al valore $m=\dfrac{7}{5}$ e questo vale per qualsiasi
+  valore \(dx\ne 0\) possiamo immaginare.
 \end{esempio}
 
 \begin{esempio}
  \label{esempio:diff01_m0diff}
  Ripetiamo il calcolo precedente, con riferimento all'ascissa del vertice 
- $x_V=\dfrac{3}{2}$.\\
+ $x_V=\dfrac{3}{2}$. Questa volta applichiamo direttamente le regole della 
+sintesi 
+ \ref{subsubsec:diff01_diffsint} alla funzione\\ 
+$f(x)=\dfrac{x^2}{5}-\dfrac{3}{5}x+2$.\\
  $d(f(x)\big|_{x=3/2}=
-  \dfrac{2}{5}x|_{x=3/2} dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=
-  \dfrac{2}{5}\dfrac{3}{2}dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=\\
+  \dfrac{1}{5}\tonda{2\dfrac{3}{2} dx+(dx)^2}-\dfrac{3}{5}dx=
+  \dfrac{3}{5}dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=\\
   =\dfrac{3}{5}dx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx=0+\dfrac{1}{5}(dx)^2$.\\
- Quindi il rapporto differenziale:\\
+ Quindi il rapporto differenziale è: 
  $\dfrac{d(f(x)}{dx}\bigg|_{x=3/2}=\dfrac{\dfrac{1}{5}(dx)^2}{dx}
  =\dfrac{1}{5}dx$.\\
  La secante per punti infinitamente vicini al vertice della parabola
  differisce dalla retta orizzontale per un infinitesimo, cioè è
  infinitamente vicina alla retta orizzontale che passa per il vertice.
-\end{esempio}
+ Anche in questo caso, il significato del rapporto differenziale non cambierebbe
+ se al posto di \(dx\) si scrivesse un infinitesimo diverso, come \(\epsilon\) 
+ oppure \(\delta\) o altro: la retta secante che abbiamo trovato è 
+indistinguibile da una retta orizzontale.
+ \end{esempio}
 
 \begin{osservazione}
 La pendenza calcolata nell'esempio \ref{esempio:diff01_mdiff} è 
@@ -1408,87 +1414,156 @@ curva: $m=m(x)$.
  In quale punto del piano cartesiano la parabola precedente è inclinata 
  di $45^\circ$ rispetto all'orizzontale?\\
  Risposta: poiché solo le rette $y=x+k$ hanno l'inclinazione richiesta dal 
-problema, occorre cercare in quale punto
- la parabola risulta inclinata come la retta, cioè ha lo stesso 
-coefficiente  angolare. È chiaro che non si può calcolare il coefficiente 
-angolare di una parabola, ma si può immaginare che nel punto desiderato esista 
-una retta tangente che risponde alle nostre esigenze. Cerchiamo quindi in quale
- punto si possa disegnare una retta che ha $m=1$ e che sia tangente 
- alla parabola.\\
- Utilizziamo i calcoli precedenti e teniamo incognita $x$, dato che conosciamo
- già la pendenza desiderata:\\
- $\dfrac{d(f(x)}{dx}=1 \srarrow 
+problema, occorre cercare in quale punto  la parabola risulta inclinata come
+una di queste rette, cioè ha lo stesso coefficiente  angolare. 
+È chiaro che non si può calcolare il coefficiente angolare di una parabola, 
+ma si può immaginare che nel punto desiderato esista una retta tangente che
+risponde alle nostre esigenze.\\
+Cerchiamo quindi per quale punto della parabola passa una retta che ha un
+coefficiente angolare infinitamente vicino a $m=1$.\\
+ La funzione: $f(x)=\dfrac{x^2}{5}-\dfrac{3}{5}x+2$.\\
+ Il differenziale, calcolato per un generico valore \(x\):\\
+ $d(f(x))=f(x+dx)-f(x)=\tonda{\dfrac{(x+dx)^2}{5}-\dfrac{3}{5}(x+dx)+2}
+  -\tonda{\dfrac{x^2}{5}-\dfrac{3}{5}x+2}=$\\
+ $=\tonda{\dfrac{x^2+2xdx+(dx)^2}{5}-\dfrac{3}{5}x-\dfrac{3}{5}dx+2}
+  -\dfrac{x^2}{5}+\dfrac{3}{5}x-2=$\\
+ $=\dfrac{1}{5}x^2+\dfrac{2}{5}xdx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}x-
+  \dfrac{3}{5}dx+2-\dfrac{x^2}{5}+\dfrac{3}{5}x-2=
+  \dfrac{2}{5}xdx+\dfrac{1}{5}(dx)^2-\dfrac{3}{5}dx$.\\
+E quindi il rapporto differenziale: 
+$\dfrac{df(x)}{dx}=\dfrac{2}{5}x+\dfrac{1}{5}dx-\dfrac{3}{5}$.\\
+Il problema chiede per quale valore \(x\) il rapporto differenziale diventa 
+uguale a 1, quindi:\\
+$\dfrac{df(x)}{dx}=1 \srarrow 
  \dfrac{2}{5}x+\dfrac{1}{5}dx-\dfrac{3}{5}=1
  \srarrow \dfrac{2}{5}x=1+\dfrac{3}{5}-\dfrac{1}{5}dx
  \srarrow x=\dfrac{8-dx}{5}\dfrac{5}{2}=\dfrac{8-dx}{2}$.\\
- Il punto in questione ha coordinata $x= 4-\dfrac{1}{2}dx\approx 4$.  
+ Il punto in questione ha ascissa $x= 4-\dfrac{1}{2}dx \approx 4$. Se si 
+ trascura la parte infinitesima $-\dfrac{1}{2}dx$, per qualsiasi $dx$, si 
+ottiene
+ il valore reale infinitamente vicino al risultato esatto iperreale.
 \end{esempio}
 
-\section{Derivata: definizione}
-\label{sec:diff01_deriv}
-Gli esercizi precedenti sono stati risolti con esattezza.
-Purtroppo, però, il rapporto differenziale ci dà le soluzioni più semplici 
-solo 
-in pochi casi, praticamente inutili, cioè quando si applica alle funzioni 
-polinomiali di primo grado (le rette nel p8iano cartesiano)).
-In tutti gli altri casi il risultato
-iperreale contiene infinitesimi che possono essere scomodi da gestire
-negli sviluppi successivi.
+<<<<<<< working copy
+Verifichiamo che per $x=4-\dfrac{1}{2}dx$ il tratto di parabola abbia davvero 
+l'inclinazione cercata, cioè che una secante che passa per due punti 
+infinitamente vicini a quello di ascissa $x~=~4~-~\dfrac{1}{2}dx$ abbia 
+coefficiente angolare $m\approx 1$.
+\begin{align*}
+ &\dfrac{df(x)}{dx}=\dfrac{2}{5}x+\dfrac{1}{5}dx-\dfrac{3}{5} \text{, (con } 
+dx\ne 0)
+ \qquad  \text{e} \qquad  x=4-\dfrac{1}{2}dx;\\
+ \srarrow &\dfrac{df(x)}{dx}=\dfrac{2}{5}\tonda{4-\dfrac{1}{2}dx}
++\dfrac{1}{5}dx-\dfrac{3}{5}=\dfrac{8}{5}-\dfrac{1}{5}dx+
+\dfrac{1}{5}dx-\dfrac{3}{5}=\dfrac{5}{5}=1.\\
+\end{align*}
 
+Abbiamo un risultato importante: se $x$ è esattamente uguale a 
+$4-\dfrac{1}{2}dx$, allora la pendenza della retta \emph{tangente} alla
+parabola è esattamente $=1$. Non conoscendo il valore numerico di $dx$
+(sappiamo solo che $0<|dx|<1/n, \forall n \in \N$), il risultato vale
+per qualsiasi infinitesimo: $\forall dx \ne 0$.\\
+Poiché il numero iperreale $x=4-\dfrac{1}{2}dx$ appartiene alla monade di $4$,
+la \emph{tangente} cercata passa per uno dei punti con ascissa $x \in \mon{4}$.
+Sono punti talmente vicini fra loro che la loro diversità diventa irrilevante
+rispetto alla parte principale del risultato, cioè $x=4$. La cosa si può 
+esprimere
+in due modi ugualmente corretti:
+\begin{itemize}[nosep, noitemsep]
+ \item se prendiamo due ascisse nella monade di $x=4$, per i punti della 
+parabola 
+con queste ascisse passa una secante infinitamente vicina alla tangente 
+desiderata;
+\item la tangente desiderata passa per il punto della parabola con ascissa 
+$x=4$.
+\end{itemize}
+È chiaro che, se si può, sceglieremo sempre il secondo modo. Prima di tutto 
+perché il ragionamento è corretto, poi perché è un modo molto più comodo, come 
+si vede anche dal prossimo esempio.
 \begin{esempio}
- Proseguendo con l'esempio \ref{esempio:diff01_mdiff}, calcoliamo in due 
- modi, esatto e approssimato, la coordinata $y$ del punto in questione:\\
- Calcolo esatto: $x=4-\dfrac{1}{2}dx\srarrow y=\dfrac{x^2}{5}-\dfrac{3}{5}x+2=
+ Proseguendo l'esercizio dell'esempio \ref{esempio:diff01_mdiff}, calcoliamo 
+ in due modi, negli iperreali e nei reali, la coordinata $y$ del punto di 
+ tangenza:\\
+ Negli iperreali: $x=4-\dfrac{1}{2}dx\srarrow y=\dfrac{x^2}{5}-\dfrac{3}{5}x+2=
  \dfrac{(4-\dfrac{1}{2}dx)^2}{5}-\dfrac{3}{5}(4-\dfrac{1}{2}dx)+2=\\
  =\dfrac{1}{5}\tonda{16-dx+\dfrac{1}{4}(dx)^2}-\dfrac{12}{5}+\dfrac{3}{10}dx+2=
- \cdots= \dfrac{14}{5}+\dfrac{1}{2}dx+\dfrac{1}{20}(dx)^2\approx \dfrac{14}{5}
- =2,8$\\
- Calcolo approssimato: $x\approx 4\srarrow 
+ \cdots= \dfrac{14}{5}+\dfrac{1}{2}dx+\dfrac{1}{20}(dx)^2.$\\
+ Nei reali: $x\approx 4\srarrow 
  y\approx\dfrac{4^2}{5}-\dfrac{3}{5}4+2=
- \dfrac{16}{5}-\dfrac{12}{5}+2=\dfrac{14}{5}=2,8$.\\
+ \dfrac{16}{5}-\dfrac{12}{5}+2=\dfrac{14}{5}$.\\
 \end{esempio}
 
-È chiaro che la seconda linea di calcoli è molto più gestibile della prima e
-vorremmo poter avere sempre la comodità di una gestione facilitata.\\
-Esiste una tecnica da applicare al risultato esatto iperreale per 
-trasformarlo nel numero reale più vicino? Se esiste, possiamo guadagnare in 
-agilità di calcolo, senza perdere troppo in precisione.
+Dato che gli infinitesimi che vogliamo trascurare hanno origine già nel rapporto 
+differenziale, chiediamoci:\\ 
+\emph{Possiamo trascurare, cioè fingere che valgano zero, gli infinitesimi del 
+rapporto differenziale, anche se abbiamo specificato che deve essere 
+$dx \ne 0$?}\\
+Sappiamo già che esiste il modo corretto: \emph{la funzione parte standard $\pst{}$, 
+applicata a un iperreale finito, isola il numero reale infinitamente vicino
+e permette così di ignorare i suoi infinitesimi}.
 
+=======
+>>>>>>> merge rev
+\section{Derivata: definizione}
+\label{sec:diff01_deriv}
 \begin{definizione}
   La \emph{derivata} della funzione $f(x)$ nel punto $\punto{x_0}{f(x_0)}$
-  è, se esiste, la parte standard del rapporto differenziale della funzione,
-  calcolato nello stesso punto. La derivata si indica con $f'(x_0)$.\\
+  è la parte standard del rapporto differenziale della funzione,
+  calcolato in $x_0$, purché essa esista e sia la stessa $\forall dx\ne 0$.\\
+  La derivata si indica con $f'(x_0)$.\\
   $f'(x_0)=\pst{\dfrac{d(f(x)}{dx}\bigg|_{x=x_0}}$.
 \end{definizione}
 
 La derivata, cioè l'applicazione della funzione $\pst{}$ al rapporto
-differenziale, soddisfa le nostre 
-esigenze: fornisce la migliore approssimazione reale del risultato ottenuto 
-con il rapporto differenziale. La differenza fra questo e la 
-derivata vale uno o più infinitesimi di ordine superiore, che nella 
-maggior parte dei casi sono trascurabili.\\
-$\dfrac{d(f(x)}{dx}\bigg|_{x=x_0}=f'(x_0)+\epsilon(x_0)\srarrow f'(x_0)
-\approx \dfrac{d(f(x)}{dx}\bigg|_{x=x_0}$.
+differenziale, soddisfa le nostre esigenze: fornisce il \emph{numero reale} 
+più vicino al numero iperreale che risulta dal rapporto differenziale. 
+La differenza fra questo e la derivata è un infinitesimo.\\
+$\dfrac{df(x)}{dx}\bigg|_{x=x_0}=f'(x_0)+\epsilon(x_0)\srarrow f'(x_0)
+\approx \dfrac{df(x)}{dx}\bigg|_{x=x_0}$.
+
+\begin{esempio}
+ Deriviamo la funzione più semplice: $f(x)=x$ per $x=0$.\\
+ Funzione: $f(x)=x$;\\
+ Differenziale per $x=0$: $df(0)=f(0+dx)-f(0)=0+dx-0=dx$;\\
+ Rapporto differenziale $\dfrac{df(0)}{dx}=\dfrac{dx}{dx}=1, \quad 
+ \forall dx \ne 0$;\\
+ Derivata: $f'(0)=\pst{\dfrac{df(0)}{dx}}=\pst{1}=1$.\\
+ In questo semplice caso il Rapporto differenziale e la derivata coincidono. 
+\end{esempio}
+
+Anche nel prossimo esempio il calcolo è molto semplice, tuttavia la derivata 
+non esiste.
+\begin{esempio}
+ Deriviamo $f(x)=|x|$ per $x=0$.\\
+ Funzione: \(f(x)=|x|=
+\begin{cases}
+ x\quad &\mbox{per }x\ge 0\\
+-x\quad &\mbox{ per }x<0
+\end{cases}\)\\
+ Differenziale per $x=0$: $df(0)=f(0+dx)-f(0)=0+dx-0=dx$;\\
+ Rapporto differenziale $\dfrac{df(0)}{dx}=\dfrac{dx}{dx}=
+ \begin{cases}
+ 1\quad &\mbox{per }x\ge 0\\
+-1\quad &\mbox{ per }x<0
+\end{cases}\)\\
+ Derivata: non esiste per $x=0$, perché il rapporto differenziale dipende dal 
+ segno di $x$. Infatti per $x<o$ ci si avvicina a $x=o$ da sinistra, cioè
+ si danno a $x=0$ incrementi $dx$ negativi. I valori corrispondenti della 
+ funzione $f(x)$ sono invece positivi.
+\end{esempio}
+
+L'esempio chiarisce perché nella definizione di derivata si debba specificare: 
+``...purché essa esista e sia la stessa $\forall dx\ne 0$''.
 
 \subsubsection{Significato della derivata}
-L'operazione di derivazione ha uno scopo molto più importante 
-dell'indubbia comodità di fornire un risultato privo di infinitesimi:
-essa consente di calcolare il tasso di variazione di una funzione in un 
-dato punto. Per tasso di variazione non si intende semplicemente la 
-differenza
-fra due valori prossimi della funzione $df(x)$, ma la misura di tale 
-differenza, ottenuta usando come unità di misura $dx$, cioè confrontandola
+L'operazione di derivazione consente di calcolare il tasso di variazione di una
+funzione in un dato punto. Per tasso di variazione non si intende semplicemente
+la differenza fra due valori prossimi della funzione $df(x)$, ma la misura di 
+tale differenza, ottenuta usando come unità di misura $dx$, cioè confrontandola
 con la variazione della variabile.\\
 Dal punto di vista geometrico, se si considera il grafico della funzione 
-nel 
-piano cartesiano iperreale, la derivata in un punto misura il tasso di 
-crescita
-della funzione lungo l'asse $Y$ rispetto alla variazione infinitesima lungo 
-l'asse $X$, quindi misura la pendenza della tangente al grafico in quel 
-punto.
-Queste osservazioni sono la conseguenza del fatto che la derivata di una 
-funzione 
-in un punto è un numero standard.
+nel piano cartesiano, la derivata in un punto misura la pendenza della tangente
+al grafico in quel punto.
 
 \begin{osservazione}
  L'operazione di derivazione è conosciuta dai tempi di Leibniz e di Newton, 
@@ -1504,42 +1579,31 @@ in un punto è un numero standard.
 \subsubsection{Nomi per la derivata}
 Il nome \emph{derivata} per indicare il calcolo che abbiamo descritto ha 
 origini storiche. Si è diffuso  ovunque (derivative, derivada, dérivée, 
-...) 
-anche se non rende pienamente il significato di ciò che rappresenta. Se ne 
-potrà intuire la ragione in un capitolo successivo, quando parleremo anche 
-di
-funzioni primitive.\\
+...) anche se non rende pienamente il significato di ciò che rappresenta. 
+Se ne potrà intuire la ragione in un capitolo successivo, quando parleremo 
+anche di funzioni primitive.\\
 Sempre per ragioni storiche, si sono diffusi vari simboli che rappresentano 
 l'operazione di derivazione:
 \begin{enumerate}[noitemsep]
  \item $f'(x_0)$ è il simbolo per il risultato della derivazione di $f$ 
  per $x= x_0$: semplice e sintetico;
  \item $\mathit{D}\quadra{f(x)}$ indica la formula della derivazione di 
-$f$, 
- per es. $\mathit{D}\quadra{5x\sqrt[3]{x^2}}=5\sqrt[3]{x^2}+\dfrac{10x}
+$f$,  per es. $\mathit{D}\quadra{5x\sqrt[3]{x^2}}=5\sqrt[3]{x^2}+\dfrac{10x}
  {3\sqrt[3]{x}}$;
  \item $\dot{f}$ equivale a $f'$; si usa in alcuni corsi universitari;
  \item $\dfrac{d}{dx}f(x)$ è come $f'(x)$: si pone in evidenza che si 
-tratta 
- di una rapporto con $dx$;
- \item $\dfrac{df(x)}{dx}$ si trova spesso nei libri come se fosse 
-esattamente 
- uguale a $f'(x)$. Sottolineamo che sono due cose diverse.  
- Nella maggior parte dei casi quest'uguaglianza si può accettare, 
-trattandosi 
- di quantità infinitamente vicine, anzi indistinguibili. Per praticità, 
-potremo
+tratta di un rapporto con $dx$;
+ \item $\dfrac{df(x)}{dx}$ si trova spesso nei libri come se il rapporto
+ differenziale fosse identico alla derivata. In realtà sono sono due cose
+ diverse.   Nella maggior parte dei casi quest'uguaglianza si può accettare, 
+trattandosi di quantità indistinguibili. Per praticità, potremo
  anche noi seguire quest'uso, specificando la distinzione solo quando sarà 
  necessario.
 \end{enumerate}
 
+
 \subsubsection{Derivate facili e meno facili}
-Nella definizione di derivata troviamo un inciso essenziale: \emph{se 
-esiste}.
-Significa che la derivata potrebbe anche non esistere, cioè non essere 
-calcolabile? Vediamo alcuni esempi di calcoli che si portano a termine 
-facilmente 
-ed altri più problematici.
+Vediamo alcuni esempi di derivazione.
 
 \begin{esempio}
   Calcola $f'(4)$ per la funzione $f(x)=1-2\sqrt{x}$.
@@ -1589,15 +1653,14 @@ Lo svolgimento dei calcoli:
   \tonda{\frac{-\frac{dx}{\sqrt{x}}}{dx}}\bigg|_{x=4}=-\frac{1}{\sqrt{4}}=
   -\frac{1}{2}$;
  \item calcolare la parte standard del risultato: 
-  la parte standard di un numero indistinguibile da $-\frac{1}{2}$ è
+  la parte standard di $-\frac{1}{2}$ è
   semplicemente: $\pst{-\frac{1}{2}}=-\frac{1}{2}$.
 \end{enumerate}
 La retta tangente in $\punto{4}{f(4)}$ ha pendenza pari a $-\frac{1}{2}$.
 \end{esempio}
 
 Con le regole già date sui differenziali il calcolo è privo di difficoltà, 
-non 
-sembra che la derivata per questa funzione possa creare problemi.
+non sembra che la derivata per questa funzione possa creare problemi.
 
 \begin{esempio}
   \label{esempio:diff01_deriradice}
@@ -1611,8 +1674,7 @@ Riutilizziamo i calcoli precedenti.
  \item ?
 \end{enumerate}
 Una frazione nulla al denominatore non ha senso, il rapporto differenziale 
-non 
-è calcolabile e la derivata non esiste. 
+non è calcolabile e la derivata non esiste. 
 \end{esempio}
 
 Cerchiamo allora di capire cosa succede se il radicando è un infinitesimo 
@@ -1630,10 +1692,8 @@ Calcolare $f'(\epsilon)$, sempre per  $f(x)=1-2\sqrt{x}$.\\
 \end{enumerate} 
 \begin{osservazione}
  $-M$ è un infinito negativo perché $\epsilon$ si suppone positivo. Non 
-avrebbe 
- senso, comunque, fare un tentativo con $\epsilon$ negativo, perché la 
-radice
- quadrata di numeri negativi (reali e iperreali) non è definita.\\
+avrebbe  senso, comunque, fare un tentativo con $\epsilon$ negativo, perché la 
+radice quadrata di numeri negativi (reali e iperreali) non è definita.\\
 \end{osservazione} 
 
 La parte standard di un numero infinito non esiste. La derivata non esiste, 
@@ -1651,45 +1711,41 @@ $\dfrac{x-x_A}{x_B-x_A}=\dfrac{y-y_A}{y_B-y_A}\srarrow
 y=\dfrac{-2\sqrt{\epsilon}}{\epsilon}x+\dfrac{1}{2\sqrt{\epsilon}}$.\\
 La pendenza di questa secante è $m=\dfrac{-2\sqrt{\epsilon}}{\epsilon}=
 -\dfrac{2}{\sqrt{\epsilon}}$.\\
-La frazione ha senso per qualsiasi $\epsilon>0$, quindi si deve pensare
-che se $x$ è un infinitesimo sempre più prossimo a $0$, $m$ diventa
-sempre più negativa: la retta accentua sempre più la sua inclinazione verso
-il basso fino ad assumere una direzione verticale, quando diventerà 
-tangente in 
-$\punto{0}{1}$.\\
-Come possiamo visualizzare la pendenza della secante per $x\approx 0$?
+La frazione ha senso per qualsiasi $\epsilon>0$, che è un numero 
+infinitamente vicino a $0$.  Se consideriamo vari $\epsilon$, sempre 
+più piccoli, $m$ diventa sempre più negativo. Possiamo quindi che per $x=0$
+la tangente ipotetica sarebbe una retta verticale.\\
 
-\begin{inaccessibleblock}
-  [Derivate radice]
- \begin{center}
- \begin{minipage}[]{.45 \textwidth}
-  \derivaradiceinzero
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.50 \textwidth}
-\vspace{-2em}
-In realtà non possiamo. Infatti se $dx=\epsilon$ abbiamo 
-$f(\epsilon)=1-2\sqrt{\epsilon}$.
-Realizziamo un primo microscopio con ingrandimento infinito, pari a 
-$\dfrac{1}{\sqrt{\epsilon}}$, così $df(x)$ può essere visualizzata con un 
-tratto verticale verso il basso, a partire dal punto $\punto{0}{1}$. Ma 
-l'ingrandimento non è sufficiente per cogliere $dx=\epsilon$,  
-infinitesimo di ordine superiore, quindi troppo piccolo.
-Se poi applichiamo un secondo microscopio che visualizza $dx$, allora 
-$df(x)$
-assume lunghezza infinita e non può essere valutato. Nel punto 
-$\punto{0}{1}$
-la tangente (linea tratteggiata) è verticale.
-\end{minipage}
-\end{center}
-\end{inaccessibleblock}
+% Come possiamo visualizzare la pendenza della secante per $x\approx 0$?
+% 
+% \begin{inaccessibleblock}
+%   [Derivate radice]
+%  \begin{center}
+%  \begin{minipage}[]{.45 \textwidth}
+%   \derivaradiceinzero
+%  \end{minipage} 
+%  \hfill
+%  \begin{minipage}[]{.50 \textwidth}
+% \vspace{-2em}
+% In realtà non possiamo. Infatti se $dx=\epsilon$ abbiamo 
+% $f(\epsilon)=1-2\sqrt{\epsilon}$.
+% Realizziamo un primo microscopio con ingrandimento infinito, pari a 
+% $\dfrac{1}{\sqrt{\epsilon}}$, così $df(x)$ può essere visualizzata con un 
+% tratto verticale verso il basso, a partire dal punto $\punto{0}{1}$. Ma 
+% l'ingrandimento non è sufficiente per cogliere $dx=\epsilon$,  
+% infinitesimo di ordine superiore, quindi troppo piccolo.
+% Se poi applichiamo un secondo microscopio che visualizza $dx$, allora 
+% $df(x)$ assume lunghezza infinita e non può essere valutato. Nel punto 
+% $\punto{0}{1}$ la tangente (linea tratteggiata) è verticale.
+% \end{minipage}
+% \end{center}
+% \end{inaccessibleblock}
 \label{}
 \end{esempio}
 
 \begin{esempio}
  %discontinua
- Per la funzione $f(x)=\dfrac{1}{x-2}$ calcola le derivate $f'(1)$ e 
-$f'(2)$.\\
+ Per la funzione $f(x)=\dfrac{1}{x-2}$ calcola la derivata $f'(1)$.\\
 %\begin{figure}[h]
 \begin{inaccessibleblock}
   [Derivate radice]
@@ -1717,9 +1773,12 @@ pag.\pageref{subsubsec:diff01_diffrecip}.
 \end{inaccessibleblock}
 \label{}
 %\end{figure} 
-
 Per $x=1$, la tangente ha pendenza $m=-1$.\\
-Vediamo ora la seconda risposta.
+\end{esempio}
+
+\begin{esempio}
+Per la funzione $f(x)=\dfrac{1}{x-2}$ calcola la derivata $f'(2)$.\\
+$f(x)$ è la stessa dell'esempio precedente, quindi:
 \begin{enumerate} [noitemsep]
  \item $d(f(x))=d\tonda {\frac{1}{x-2}}=-\dfrac{dx}{(x-2)^2+(x-2)dx}$;
  \item $\tonda{\dfrac{d(f(x)}{dx}}\bigg|_{x=2}=
@@ -1727,21 +1786,22 @@ Vediamo ora la seconda risposta.
   =-\dfrac{1}{0-0dx}=$?;
   \item è inutile calcolare la parte standard di un numero privo di senso.
 \end{enumerate}
-Cosa è successo nel secondo caso? Che la funzione è discontinua per $x=2$.
+Cosa è successo in questo secondo caso? Che la funzione non è definita per 
+$x=2$.
 Lo rende evidente il grafico, ma sarebbe stato meglio, prima ancora di
 disegnarlo, studiare l'insieme di definizione e evitare calcoli inutili.
-Infatti dobbiamo ricordarci che il differenziale è calcolabile solo nei 
-punti
-di continuità, di conseguenza il discorso vale anche per la derivata.
+Infatti il differenziale è calcolabile solo nei punti in cui $f(x)$ è
+definita, e lo stesso vale anche per la derivata.
 \end{esempio}
+
 
 \begin{esempio}
  %valore assoluto
  Per la funzione $f(x)=\dfrac{1}{2}|x-2|+2$ calcola le derivate $f'(0)$, 
 $f'(4)$
  e $f'(2)$.\\
- La funzione contiene un valore assoluto e può essere più semplice pensarla 
- come se fosse divisa in due rami:
+ La funzione contiene un valore assoluto e la si riscrive come  come se fosse 
+ divisa in due rami:
 
 \begin{figure}[h!]
 \begin{inaccessibleblock}
@@ -1770,27 +1830,25 @@ $f(x)= \dfrac{1}{2}|x-2|+2=\\
 \end{figure} 
 
 Si tratta di due semirette che si uniscono in $\punto{2}{2}$. L'equazione
-di ciascuna di loro è una funzione lineare e calcolare le derivate $f'(0)$
-e $f'(4)$ è inutile: ne ricaveremmo comunque la pendenze delle semirette, 
-cioè
+di ciascuna di loro è una funzione lineare. Abbiamo già visto che la derivata 
+dell'equazione di una retta coincide con il suo coefficiente angolare, 
+quindi, anche seza derivare, avremo:
 $f'(0)=\dfrac{1}{2}$ e $f'(4)=-\dfrac{1}{2}$.\\
-Il calcolo di $f'(2)$ invece è più interessante:\\
+Il calcolo di $f'(2)$ invece è meno banale:\\
 Abbiamo
 $f'(x)= \begin{cases}
  \dfrac{1}{2} &\text{ per } x<2 \\
  -\dfrac{1}{2} &\text{ per } x > 2
-\end{cases}$.
+\end{cases}$
 Quale è la pendenza giusta della tangente per
 $x=2$, nel punto cioè dove il grafico cambia pendenza all'improvviso?\\
 Tutto dipende dal differenziale e dal rapporto differenziale.
 La funzione è continua, perciò $df(x)$ è sempre calcolabile.\\
 Immagina $\dfrac{f(2+dx)-f(2)}{dx}$.
 Se $dx$ è un qualsiasi infinitesimo positivo, siamo nel ramo destro del 
-grafico
-e il rapporto risulta negativo. Al contrario, se $dx<0$ siamo nel ramo
+grafico e il rapporto risulta negativo. Al contrario, se $dx<0$ siamo nel ramo
 sinistro e il rapporto è positivo: la parte standard del rapporto 
-differenziale
-relativa al punto in cui $x=2$ non è unica, quindi non esiste.
+differenziale relativa al punto in cui $x=2$ non è unica.
 Di conseguenza la derivata non esiste.
 \end{esempio}
 
@@ -1820,7 +1878,6 @@ funzione.
  Una funzione derivabile è sicuramente continua, mentre il contrario non 
 vale.
 \end{osservazione}
-
 
 
 \section{Derivare funzioni algebriche}
@@ -1894,10 +1951,8 @@ grafico di $y=m(x)$ è una retta per l'origine.
 
 \begin{osservazione}
 Nota che la funzione derivata di una funzione quadratica è una funzione 
-lineare. Detto con eccessiva sintesi: la derivata di una parabola è una 
-retta.\\
-Con più precisione: la pendenza delle tangenti a una parabola
-varia come varia la $y$ rispetto alla $x$ in una retta.
+lineare: la pendenza delle tangenti a una parabola varia come varia la $y$
+rispetto alla $x$ in una retta.
 \end{osservazione}
 
 \begin{teorema}
@@ -1914,8 +1969,7 @@ varia come varia la $y$ rispetto alla $x$ in una retta.
 \begin{osservazione}
  Ripetendo l'osservazione a pag.\pageref{subsubsec:diff01_diffpot} relativa 
  a queste funzioni, il teorema \ref{diff01_teoderpotenza} è del tutto generale: 
-si
- applica con qualsiasi esponente reale.
+si  applica con qualsiasi esponente reale.
 Vale quindi anche per le funzioni radicali di qualsiasi indice e per le funzioni
 razionali fratte, come esemplifichiamo nei prossimi due casi, molto comuni.
 \end{osservazione}
@@ -1942,10 +1996,10 @@ simmetrici
 rispetto all'origine e quindi lo sono anche le pendenze delle tangenti. 
 Considerando le $x$ crescenti, quindi da sinistra verso destra, le pendenze 
 delle tangenti sono sempre positive, all'inizio molto accentuate, poi 
-diminuiscono
-fino a $m=0$. Oltre l'origine, riprendono a crescere, in maniera sempre più 
-accentuata. Il grafico di $y=m(x)=3 x^2$ ha infatti la forma di una parabola
-simmetrica rispetto all'asse $Y$.
+diminuiscono fino a $m=0$. Oltre l'origine, riprendono a crescere, in maniera 
+sempre più evidente. Il grafico di $y=m(x)=3 x^2$ ha infatti la forma di una 
+parabola simmetrica rispetto all'asse $Y$.
+
 
 \begin{corollario}
   La derivata della funzione radice quadrata è: 
@@ -2065,7 +2119,7 @@ $\mathit{D}\quadra{x+9}=1$.
 
 Sempre in riferimento a quanto appreso sui differenziali 
 e vista la definizione di derivata e le proprietà della parte standard, 
-giustifichiamo facilmente anche le regole 3 e 4:
+anche le regole 3 e 4 risultano giustificate:
 \begin{enumerate}[noitemsep]
 \setcounter{enumi}{2}
 \item La derivata del prodotto fra due funzioni è la somma fra due prodotti:
@@ -2085,15 +2139,18 @@ g'(x)}
 \begin{esempio}
   Calcola la derivata del prodotto $f(x)=x\sqrt{x}$.\\
   $f'(x)=1\cdot \sqrt{x}+x\cdot\frac{1}{2\sqrt{x}}=
-  \sqrt{x}+\frac{x}{2\sqrt{x}}$.\\
-  Fin qui l'applicazione della regola. Ma il risultato si può scrivere 
+  \sqrt{x}+\frac{x}{2\sqrt{x}}$ (se \(x\ne 0\)).\\
+  Fin qui l'applicazione della regola 3. Ma il risultato si può scrivere 
   in forma più compatta, perché $\sqrt{x}+\frac{x}{2\sqrt{x}}=
-  \sqrt{x}+\frac{\sqrt{x}}{2}=\frac{3}{2}\sqrt{x}$.\\
-  In realtà per fare questo calcolo non avremmo bisogno della regola del 
-  prodotto, poiché $f(x)=x\sqrt{x}=x^{1+\frac{1}{2}}=x^{\frac{3}{2}}$. Puoi 
-  quindi applicare il teorema \ref{diff01_teoderpotenza} e controllare il 
-  risultato.
-\end{esempio}
+  \sqrt{x}+\frac{\sqrt{x}}{2}=\frac{3}{2}\sqrt{x}$.
+  \end{esempio}
+\begin{osservazione}
+  In realtà per fare questo calcolo non siamo obbligati ad applicare la regola 
+  3, poiché $f(x)=x\sqrt{x}=x^{1+\frac{1}{2}}=x^{\frac{3}{2}}$. Verifica che 
+  applicando il teorema \ref{diff01_teoderpotenza} a $f(x)$ espressa in questa 
+  forma la derivata risulta la stessa.
+ \end{osservazione}
+
 
 \begin{esempio}
   Derivare $f(x)=\dfrac{x}{\sqrt{x}}$.\\
@@ -2102,17 +2159,13 @@ g'(x)}
   {\tonda{\sqrt{x}}^2}=\dfrac{\sqrt{x}-\dfrac{\sqrt{x}}{2}}{x}=
   \dfrac{\dfrac{\sqrt{x}}{2}}{x}=\dfrac{1}{2\sqrt{x}}$.\\
   Ma guarda che combinazione: abbiamo ottenuto la derivata della radice! 
-Allora 
-  la funzione di partenza è equivalente a una radice? (Ad essere precisi, 
-non 
-  esattamente. Infatti \dots)
+Allora la funzione di partenza è equivalente a $f(x)=\sqrt{x}$? (Ad essere precisi, 
+non   esattamente. Infatti \dots)
 \end{esempio}
 \begin{esempio}
   Sappiamo già che $\mathit{D}\tonda{\dfrac{1}{x}}=\dfrac{-1}{x^2}$. 
-Mettiamo 
-  alla prova ancora una volta la regola n.4: $f'(x)=\dfrac{0\cdot x-1\cdot 
-1}
-  {x^2}= \dots$
+  Mettiamo alla prova ancora una volta la regola n.4:
+  $f'(x)=\dfrac{0\cdot x-1\cdot 1}{x^2}= \dots$
 \end{esempio}
 
 \begin{esempio}
@@ -2134,39 +2187,32 @@ Mettiamo
 \begin{esempio}
  $s(t)~=~s_0~+~v_0t~+~\frac{1}{2}at^2$ è la legge oraria del moto rettilineo
  uniformemente accelerato. Anche se nella formula mancano le usuali 
- sigle $f(x)$, $y$, $x$, si tratta di una comunissima funzione polinomiale
- di 2° grado e le si possono applicare le regole che stiamo studiando, senza
- problemi.\\
- Infatti, derivando si ottiene $s'(t)=0+v_0+\frac{1}{2}\cdot 2at=v_0+at$ 
-che,
- essendo la derivata dello spazio rispetto al tempo, esprime la velocita 
-$v(t)$
- in questo tipo di moto.
+ sigle $f(x)$, $y$, $x$, si tratta di una comune funzione polinomiale
+ di 2° grado e le si possono applicare le regole che stiamo studiando.\\
+ Derivando si ottiene $s'(t)=0+v_0+\frac{1}{2}\cdot 2at=v_0+at$ 
+che, essendo la derivata dello spazio rispetto al tempo, esprime la velocita 
+$v(t)$ in questo tipo di moto.
 \end{esempio}
 L'esempio serve a ricordare che le funzioni e le variabili si esprimono con 
-sigle qualsiasi, ma questo non cambia le regole dell'analisi o, più in
-generale, della matematica. La libertà di uso dei simboli può facilitare i
-calcoli, come si vede nel caso della derivata di una funzione composta.
+sigle qualsiasi, ma questo non cambia le regole. La libertà di uso dei simboli
+può facilitare i calcoli, come si vede nel prossimo caso.
 \begin{esempio}
   Deriva la funzione $v(u)=\dfrac{u^2}{8}$. 
-  Soluzione: $v'(u)=\dfrac{1}{8}2u=\dfrac{u}{4}$. Infatti il 
-  differenziale è $dv(u)=\dfrac{1}{8}[2udu+(du)^2]$ perché 
-$df(x)=2xdx+(dx)^2$ 
-  e $d(kf(x)=kdf(x)$. Allora  la parte 
- standard del rapporto differenziale fornisce il risultato $\dfrac{u}{4}$.
+  Soluzione: $v'(u)=\dfrac{1}{8}2u=\dfrac{u}{4}$. Infatti il differenziale è $dv(u)=\dfrac{1}{8}[2udu+(du)^2]$ perché $df(x)=2xdx+(dx)^2$ 
+  e $d(kf(x)=kdf(x)$. La parte standard del rapporto differenziale fornisce
+  il risultato $\dfrac{u}{4}$.
 \end{esempio}
 
 \begin{esempio}
 Deriva la funzione $u(t)=3t-2$. Soluzione: $u'(t)=3$. Infatti il 
- differenziale è $du(t)=3dt+ 0$. Allora la parte 
+ differenziale è $du(t)=3dt-0$. Allora la parte 
  standard del rapporto differenziale fornisce il risultato $3$.
 \end{esempio}
 
 Combiniamo i due esempi: $v=f(u)$ e $u=f(t)$, cioè $v$ è funzione di $u$, 
-perché i suoi valori dipendono dai quadrati, divisi per $8$, dei numeri $u$ 
-,
-invece $u$ è funzione di $t$, nel senso che i suoi valori sono i valori $t$ 
-triplicati e poi ridotti di 2. In ``matematichese'' 
+perché i suoi valori dipendono dai quadrati, divisi per $8$, dei numeri $u$.
+Invece $u$ è funzione di $t$, nel senso che i suoi valori sono i valori $t$ 
+triplicati e poi ridotti di 2. In ``matematichese'':\\
 $v(u(t))=\dfrac{[u(t)]^2}{8}=\dfrac{(3t-2)^2}{8}$.
 
 
@@ -2178,10 +2224,10 @@ $v(u(t))=\dfrac{[u(t)]^2}{8}=\dfrac{(3t-2)^2}{8}$.
  \end{minipage} 
  \hfill
  \begin{minipage}[]{.48\textwidth}
-Si tratta di una specie di catena:\\
-se si immette il valore $t=6$, la macchina sviluppa $u(6)=3\cdot 6-2=16$ in $u$
-e infine produce $v(16)=\dfrac{16^2}{8}=32$. Una catena del genere si chiama 
-\emph{funzionedi funzione} e $v$, che produce il risultato finale, si dice
+Si tratta di una macchina che incatena due calcoli successivi.\\
+Immettiamo ad esempio il valore $t=6$. La macchina sviluppa al suo interno 
+$u(6)=3\cdot 6-2=16$ grazie a $u$ e infine produce $v(16)=\dfrac{16^2}{8}=32$.
+Una catena del genere si chiama \emph{funzione di funzione} o
 \emph{funzione composta}: $v(u(t))$.\\
  \end{minipage}
  \end{center}
@@ -2190,7 +2236,7 @@ e infine produce $v(16)=\dfrac{16^2}{8}=32$. Una catena del genere si chiama
 
 Come deriviamo  $v$ rispetto a $t$? Dalla definizione di derivata: 
 $\mathit{D}\quadra{v(u(t))}=\pst{\dfrac{d(v(u(t)))}{dt}}$, 
-quindi il punto è il calcolo dei differenziali.
+e il punto è il calcolo dei differenziali.
 \begin{inaccessibleblock}
   [differenziale funzione composta]
  \begin{center}
@@ -2206,18 +2252,16 @@ Poiché $u=3t-2$, $du=3dt$, avremo:\\
 $dv\approx \dfrac{u}{4}du$. \hspace{1cm} $du=3dt$. $\srarrow 
 dv=\dfrac{3t-2}{4}3dt \srarrow\\ 
 \srarrow 
-\pst{\dfrac{d(v(u(t)))}{dt}}=\dfrac{(3t-2)3dt}{4dt}=\dfrac{9}{4}t-\dfrac{3}{
-2}$.\\
+\pst{\dfrac{d(v(u(t)))}{dt}}=\pst{\dfrac{(3t-2)3dt}{4dt}}=$
+$=\dfrac{9t-6}{4}$.
  \end{minipage}
  \end{center}
 \end{inaccessibleblock}
 \label{}
 
-C'è un modo più semplice? Sì: basta sviluppare il quadrato $(3t-2)^2$, 
-dividere
-ogni termine per $8$ e poi derivare il polinomio. Ma a volte il modo più 
-semplice 
-non c'è.
+C'è un modo più semplice? In questo caso, sì: basta sviluppare il quadrato
+$(3t-2)^2$, dividere ogni termine per $8$ e poi derivare il polinomio. 
+Ma a volte il modo più semplice non c'è.
 \begin{esempio}
   Calcolare $f'(x)$, con $f(x)=\sqrt{3-x^2}$.\\
   $f(x)$ è composta: si può pensare
@@ -2237,32 +2281,38 @@ dg(x)+\delta=
 \end{esempio}
 Esaminiamo in modo astratto come abbiamo costruito il rapporto 
 differenziale della funzione composta nell'esempio precedente: 
-$\dfrac{df}{dx}=\dfrac{df}{dg}\dfrac{dg}{dx}$. 
-Sembra un'uguaglianza banale, perché semplificando si ottiene
-l'identità. In realtà i due differenziali $dg$ hanno un significato
-diverso. Quello al denominatore differenzia la variabile indipendente per 
-$f$, quello al numeratore differenzia la variabile che dipende da $x$.\\
-L'espressione giustifica il teorema seguente.
+$\dfrac{df}{dx}=\dfrac{df}{dg}\dfrac{dg}{dx}$. \\
+Sembra un'uguaglianza banale, perché semplificando si otterrebbe l'identità.
+In realtà i due differenziali $dg$ sono scritti allo stesso modo ma hanno un
+significato diverso e non è detto che si possano semplificare.\\
+$dg$ al denominatore differenzia la variabile indipendente della funzione 
+$f$, $dg$ al numeratore è la conseguenza del differenziale $dx$. Perciò
+se varia $x$ si ha un effetto su $g(x)$ e se varia $g$ si ha un effetto 
+su  $f(g)$. In generale le due variazioni $dg$ saranno diverse per infinitesimi
+di ordine superiore, che possono essere eliminati considerando le parti 
+standard.\\
+Non avremo occasione di affrontare queste difficoltà, nei nostri esercizi.
+Ma sono questioni importanti per una regola che vogliamo sempre valida. 
+Perciò il prossimo enunciato deve contenere tutti i dettagli.
 
 \begin{teorema}
   \label{teo:diff01_dericomp}
  Se esistono le derivate $g'(x)$ e $f'(g(x))$ per il medesimo valore $x$,
  la funzione composta $f(g(x))$ è derivabile e la sua derivata si calcola
- così: $f'(x)=f'(g(x))=f'(g)g'(x)$, cioè la derivata di una funzione 
-composta
- è il prodotto delle derivate delle funzioni componenti, ciascuna rispetto
- alla propria variabile.
+ così: $f'(x)=f'(g(x))=f'(g)\cdot g'(x)$, cioè la derivata di una funzione 
+composta è il prodotto delle derivate delle funzioni componenti, 
+ciascuna rispetto alla propria variabile.
 \end{teorema}
-\noindent Ipotesi: $f(x)=f(g(x))$, $f$,$g$ derivabili .\tab 
-Tesi: $f'(x)=f'(g(x))=f'(g(x))g'(x)$.
-\begin{proof}
-  Tralasciando di specificare la scomparsa degli infinitesimi di ordine 
-  superiore e grazie alle proprietà della funzione $\pst{}$, abbiamo:\\
-  $f'(g(x))=\pst{\dfrac{df(x)}{dx}}=
-  \pst{\dfrac{df(g)}{dg}\dfrac{dg(x)}{dx}}=
-  \pst{\dfrac{df(g))}{dg}}\pst{\dfrac{dg(x)}{dx}}=
-  f'(g(x))g'(x)$.
-\end{proof}
+\noindent Ipotesi: $f(x)=f(g(x))$, $f$, $g$ derivabili .\tab 
+Tesi: $f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)$.
+% \begin{proof}
+%   Tralasciando di specificare la scomparsa degli infinitesimi di ordine 
+%   superiore e grazie alle proprietà della funzione $\pst{}$, abbiamo:\\
+%   $f'(g(x))=\pst{\dfrac{df(x)}{dx}}=
+%   \pst{\dfrac{df(g)}{dg}\dfrac{dg(x)}{dx}}=
+%   \pst{\dfrac{df(g))}{dg}}\pst{\dfrac{dg(x)}{dx}}=
+%   f'(g(x))g'(x)$.
+% \end{proof}
 \begin{esempio}
   Derivare $f(x)=\tonda{-\dfrac{3}{2}x^3+2x^2-6}^5$.\\
   Poniamo $g(x)=-\dfrac{2}{3}x^3+2x^2-6$ e $f(g)=g^5$. \\
@@ -2270,8 +2320,7 @@ Tesi: $f'(x)=f'(g(x))=f'(g(x))g'(x)$.
   $f'(g)= 5g^4$ e $g'(x)=-2x^2+4x$, \\
   quindi: 
   $f'(x)=f'(g)\cdot g'(x)=5g^4(-2x^2+4x)=
-  5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)=\\
-  =10x\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-x+2)$ .
+  5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)$.
 \end{esempio}
 \begin{osservazione}
  La regola della funzione composta si estende ai casi in cui le funzioni 
@@ -2284,18 +2333,18 @@ Tesi: $f'(x)=f'(g(x))=f'(g(x))g'(x)$.
  il prodotto delle derivate non è la derivata di un prodotto.
 \end{osservazione}
 
-
 \subsection{Funzioni inverse}
 \label{subsec:diff01_derifuninverse}
 Non è difficile invertire una funzione nota, partendo dalla sua espressione 
 analitica.  Con pochi pochi passaggi elementari, si ricava la formula
-inversa.. Ecco alcuni esempi di semplici funzioni algebriche.
+inversa. Ecco alcuni esempi di semplici funzioni algebriche, dirette e inverse,
+con le rispettive derivate..
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 $y=f(x)$ & $x=g(y)$ & $f'(x)$ & $g'(y)$\\\hline
 $y=x+c$ & $x=y-c$ & 1 & 1\\
 $y=kx$ & $x=y/k$ & $k$ & $\frac{1}{k}$\\
-$y=x^2$, $x\ge 0$ & $x=\sqrt{y}$ & $2x$ & 
+$y=x^2$, $x> 0$ & $x=\sqrt{y}$ & $2x$ & 
 $\frac{1}{2\sqrt{y}}=\frac{1}{2x}$\\
 $y=\frac{1}{x}$ & $x=\frac{1}{y}$ & $-\frac{1}{x^2}$ & 
 $-\frac{1}{y^2}=-x^2$\\
@@ -2304,19 +2353,13 @@ $-\frac{1}{y^2}=-x^2$\\
 \end{center}
 
 \begin{osservazione}
-La funzione  $y=x^2$, nella terza riga della tabella, è definita $\forall 
-x$.
+La funzione  $y=x^2$, nella terza riga della tabella, è definita $\forall x$.
 Tuttavia qui si restringe il dominio, in modo da considerare un solo ramo 
-della
-parabola, perché altrimenti la formula inversa non potrebbe essere una 
-funzione.
-Occorre sempre porre attenzione al dominio di $f$, quando si vuole 
-definirne 
-l'inversa. Una buona regola pratica per capire se $f^{-1}$ è definibile, è 
-di
-tagliare il grafico di $f$ con una retta orizzontale: se la retta incrocia 
-il 
-grafico di $f$ in più punti, $f^{-1}$ non esiste.\\
+della parabola, perché altrimenti la formula inversa non potrebbe essere una 
+funzione. Occorre sempre porre attenzione al dominio di $f$, quando si vuole 
+definirne l'inversa. Una buona regola pratica per capire se $f^{-1}$ è 
+definibile, è di tagliare il grafico di $f$ con una retta orizzontale: se la
+retta incrocia il grafico di $f$ in più punti, $f^{-1}$ non esiste.
 \end{osservazione}
 
 Le ultime due colonne riportano le derivate rispettive e insinuano in
@@ -2324,16 +2367,16 @@ noi qualche sospetto.\\
 Considera il caso semplice che segue.
 \begin{esempio}
   Derivare $f(x)=\sqrt{x^2}$.\\
-  Si dirà: non c'è problema, si calcola la funzione e risulta 
-  $f(x)=\sqrt{x^2}=x$, perciò  $f'(x)=1$. \\
+  Si dirà: non c'è problema, $f(x)$ corrisponde algebricamente a 
+  $f(x)=\sqrt{x^2}=x$, perciò  $f'(x)=1$.\\
   Vero. Ma poniamo $g(x)=x^2$ e $f(x)=f(g(x))=\sqrt{g(x)}$.\\
   Con la regola delle funzioni composte si ha:\\ 
-  $f'(x)=f'(g)g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
+  $f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
   \dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x=1$.\\
   Conclusione: 
 $\mathit{D}\quadra{x^2}=\dfrac{1}{\mathit{D}\quadra{\sqrt{x}}}$
 \end{esempio}
-Si intuisce che: siccome $f'(g)g'(x)=1$, allora $g'(x)=\dfrac{1}{f'(g)}$.
+Si intuisce che: siccome $f'(g)\cdot g'(x)=1$, allora $g'(x)=\dfrac{1}{f'(g)}$.
 Se fosse dimostrato, diventerebbe più facile derivare per esempio le 
 funzioni 
 logaritmiche: basterebbe saper derivare le corrispondenti esponenziali. E 
@@ -2365,7 +2408,7 @@ $x=\frac{y}{k}$
 \end{osservazione}
 
 \begin{inaccessibleblock}
-  [differenziale funzione composta]
+  [differenziale funzione invera]
  \begin{center}
  \begin{minipage}[]{.55\textwidth}
   \diffinversa
@@ -2374,8 +2417,7 @@ $x=\frac{y}{k}$
  \begin{minipage}[]{.42\textwidth}
 Ogni punto $\punto{x}{f^{-1}(x)}$ sulla curva della funzione inversa ha un
 corrispondente $\punto{y}{f(y)}$ sulla curva $y=f(x)$, nella simmetria 
-rispetto
-alla bisettrice. Guardiamo come si corrispondono i differenziali:
+rispetto alla bisettrice. Guardiamo come si corrispondono i differenziali:
 $dx$ e $dy$ sono invertiti in una curva rispetto all'altra. Quindi le 
 derivate corrispondenti sono reciproche l'una con l'altra.
  \end{minipage}
@@ -2387,20 +2429,18 @@ derivate corrispondenti sono reciproche l'una con l'altra.
  Le derivate di due funzioni $f$, $g$, inverse l'una dell'altra, se esistono
  e sono diverse da zero, sono reciproche l'una rispetto all'altra.
 \end{teorema}
-\noindent Ipotesi: $y=f(x)$, $x=g(y)$ $f$,$g$ derivabili, con $f'\ne0$, 
+\noindent Ipotesi: $y=f(x)$, $x=g(y)$ $f$, $g$ derivabili, con $f'\ne0$, 
 $g'\ne 0$.
 \hspace{2cm} Tesi: $f'(x)=\dfrac{1}{g'(y)}$.
-\begin{proof}
-  Grazie alle proprietà della funzione $\pst{}$, abbiamo:\\
-  $f'(x)\cdot g'(y)=\pst{\dfrac{dy}{dx}}\cdot\pst{\dfrac{dx}{dy}}=
-  \pst{\dfrac{dy}{dx}\cdot\dfrac{dx}{dy}}=\pst{1}=1$\\
-  per cui: $f'(x)=\dfrac{1}{g'(y)}$.
-\end{proof}
+% \begin{proof}
+%   Grazie alle proprietà della funzione $\pst{}$, abbiamo:\\
+%   $f'(x)\cdot g'(y)=\pst{\dfrac{dy}{dx}}\cdot\pst{\dfrac{dx}{dy}}=
+%   \pst{\dfrac{dy}{dx}\cdot\dfrac{dx}{dy}}=\pst{1}=1$\\
+%   per cui: $f'(x)=\dfrac{1}{g'(y)}$.
+% \end{proof}
 \begin{osservazione}
- La dimostrazione fa leva su una semplificazione che sembra banale. In 
-realtà
- i due rapporti differenziali sono diversi per significato: nel primo la 
- variabile indipendente è $x$, nel secondo è $y$.
+ Anche questo teorema necessita di un'introduzione simile a quella che precede 
+ l'enunciato sulla derivata della funzione composta. Perciò rimandiamo a quelle parole, evitando la dimostrazione.
 \end{osservazione}
 \begin{esempio}
   Trova la derivata di $f(x)=\dfrac{1}{\sqrt{5-x^2}}$.
@@ -2414,11 +2454,11 @@ precedenti:\\
    Costruiamo la formula inversa con pochi passaggi algebrici: riavremo la 
    stessa funzione, in cui $y$ figura come variabile indipendente: 
 $x=f(y)$.\\
-   Quindi deriviamo: $\mathit{D}\quadra{x}=x'=f'(y)=\dfrac{dx}{dy}$.\\
+   Quindi deriviamo: $\mathit{D}\quadra{x}=x'=f'(y)=\pst{\dfrac{dx}{dy}}$.\\
    $f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x}\srarrow 
    y^{-2}=5-x\srarrow x=5-y^{-2}$  (formula inversa)\\
-   $x'=\dfrac{dx}{dy}=-2y^{-3}$ (derivata della funzione inversa)
-   $\srarrow \dfrac{dy}{dx}=\dfrac{y^3}{2}=
+   $x'=\pst{\dfrac{dx}{dy}}=-2y^{-3}$ (derivata della funzione inversa)\\
+   $\srarrow y'=\pst{\dfrac{dy}{dx}}=\dfrac{y^3}{2}=
    \dfrac{1}{2(\sqrt{5-x})^3}$.
   \end{enumerate}
 In genere la funzione inversa si costruisce in pochi passaggi semplici, poi 
@@ -2429,14 +2469,11 @@ la derivazione risulta elementare.
 \section{Derivare funzioni trascendenti}
 \label{sec:diff01_deritrasc}
 Nel capitolo \ref{sec:diff01_differenziale} abbiamo imparato a 
-differenziare 
-le funzioni algebriche. In questa parte, quindi, per imparare
-a derivare le funzioni trascendenti, dovremo calcolare anche i loro 
-differenziali. Si tratta in realtà di un lavoro minimo, perché abbiamo già
-discusso (pag.\pageref{subsubsec:insnum_expstar} il comportamento di queste 
-funzioni
-nell'insieme degli Iperreali e abbiamo ormai un bagaglio di conoscenze 
-sulle derivate che agevola il lavoro.
+differenziare solo funzioni algebriche. In questa sezione, quindi, prima di
+derivare le funzioni trascendenti, dovremo imparare a differenziarle.
+Abbiamo già discusso (pag.\pageref{subsubsec:insnum_expstar} il comportamento
+di queste funzioni nell'insieme degli Iperreali e abbiamo ormai un bagaglio
+di conoscenze sulle derivate che agevola il lavoro.
 \subsection{Derivata di $f(x)=a^x$}
 \label{}
 Il grafico di una generica funzione esponenziale $y=a^x$, confrontato con 
@@ -2457,7 +2494,7 @@ rivelano uguali pendenze in coppie di punti di uguale ordinata.
  \end{minipage}
 \end{inaccessibleblock}
 \label{}
-\\
+
 Anche se i due grafici non sono esattamente identici, l'andamento delle 
 pendenze delle tangenti, cioè l'andamento della derivata della funzione, è 
 anch'esso esponenziale.
@@ -2466,49 +2503,46 @@ delle potenze.\\
 Differenziale di $y=a^x$: 
 $dy=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1}$.\\
 Rapporto differenziale: $\dfrac{dy}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x$.\\
-Ora dovremmo applicare la parte standard e se vogliamo seguire le 
-indicazioni
-del grafico, il risultato dovrà essere un'esponenziale. Quindi dobbiamo 
-concentrarci sul rapporto $\dfrac{\tonda{a^{dx}-1}}{dx}$, il fattore che 
-potrebbe
-provocare l'allontanamento del grafico dalla forma esponenziale a cui 
-puntiamo.\\
-Negli esponenziali succede che $f(0)=1$ e $f(x+dx)=f(x)f(dx)$ e il rapporto 
-differenziale in queste funzioni diventa:\\
+Per  derivare, ora dovremmo applicare la parte standard e se vogliamo seguire
+le indicazioni del grafico, il risultato dovrà essere un'esponenziale. Quindi
+dobbiamo concentrarci sul rapporto $\dfrac{\tonda{a^{dx}-1}}{dx}$, che 
+nell'espressione precedente è il fattore che potrebbe causare un grafico della 
+derivata diverso da quello esponenziale che abbiamo intuito.\\
+La funzione esponenziale generica $f(x)=a^x$ ha proprietà caratteristiche:\\
+$f(0)=a^0=1$ e $f(x+y)=a^{x+y}~=~a^x\cdot a^y$.\\
+Quindi: $f(0)=1$ e $f(x+dx)=f(x)f(dx)$. Così il rapporto differenziale in 
+queste funzioni diventa:\\
 $\dfrac{df(x)}{dx}=\dfrac{f(x+dx)-f(x)}{dx}=\dfrac{f(x)f(dx)-f(x)}{dx}=
-\dfrac{f(dx)-1}{dx}f(x)=\dfrac{f(0+dx)-f(0)}{dx}f(x)\sim\\
-\sim f'(0)f(x)\srarrow f'(x)=f'(0)f(x)$.\\
-La derivata di una funzione esponenziale generica è proporzionale alla
+\dfrac{f(dx)-1}{dx}f(x)=\dfrac{f(0+dx)-f(0)}{dx}f(x)$.\\
+L'ultima espressione contiene il rapporto differenziale calcolato in $x=0$,
+quindi $\dfrac{df(x)}{dx}\sim f'(0)\cdot f(x)$.\\
+Allora per la derivata, si ha:\\
+$f'(x)= f'(0)\cdot f(x)$.\\
+La derivata di una funzione esponenziale è proporzionale alla
 funzione stessa, attraverso un fattore che corrisponde alla derivata 
-calcolata
-in $x=0$.\\
-Per capire di più cos'è questo fattore, forziamo la situazione e imponiamo 
-che
-corrisponda a $1$. In questo modo la funzione e la sua derivata saranno 
-proprio
-identiche e i due grafici saranno sovrapposti: finalmente potremo conoscere
-quanto vale la base generica $a$.\\
-$f'(0)=1\srarrow \dfrac{\tonda{a^{dx}-1}}{dx}=1\srarrow a^{dx}=dx +1
-\srarrow a=(dx+1)^\frac{1}{dx}$.\\
+calcolata in $x=0$.\\
+Per capire meglio l'effetto di questo fattore, fingiamo per un attimo che non
+esista, cioè che nell'espressione valga $1$. In questo modo la funzione e la
+sua derivata sarebbero proprio identiche e i due grafici sarebbero sovrapposti:\\
+$f'(0)=1\srarrow \pst{\dfrac{a^{dx}-1}{dx}}=1\srarrow a^{dx}\sim dx +1
+\srarrow a\sim(dx+1)^\frac{1}{dx}$.\\
 Abbiamo già incontrato un'espressione analoga in 
 \ref{subsubsec:insnum_nepero}:
-l'espressione individua il Numero di Nepero $e$.
+l'espressione individua il Numero di Nepero $e=\pst{(dx+1)^\frac{1}{dx}}$.
 \begin{teorema}
  La derivata della funzione esponenziale $\mathit{D}\quadra{e^x}$ coincide 
 con
  la funzione stessa.
 \end{teorema}
-\noindent Ipotesi: $f(x)=e^x$. \tab $f'(x)=e^x$
+\noindent Ipotesi: $f(x)=e^x$. \tab $f'(x)=e^x$.
 \begin{proof}
  La dimostrazione è già stata costruita gradualmente per via intuitiva. 
  Occorrerebbe dimostrare l'unicità della tesi, ma non è essenziale
- per i nostri scopi. Resta comunque stabilito che \emph{se una funzione 
-coincide
-   con la propria derivata, allora è una funzione esponenziale}.
+ per i nostri scopi. Resta comunque stabilito che  \emph{la funzione
+ esponenziale pura $f(x)=e^x$ coincide con la propria derivata}.
 \end{proof}
 A questo punto, l'importanza del numero $e$ risulta ingigantita. Ce ne 
-serviamo 
-subito.
+serviamo subito.
 
 \begin{teorema}
   La derivata della generica funzione esponenziale è: 
@@ -2533,6 +2567,8 @@ $\mathit{D}\quadra{a^x}=
   Poniamo $g(x)=x^2\srarrow f(x)=e^{g(x)}\srarrow f'(x)=e^{g(x)}\cdot g'(x)=
   e^{x^2}\cdot 2x=2xe^{x^2}$.
 \end{esempio}
+
+\begin{comment}
 
 \subsection{Derivata di $f(x)=\log_a x$}
 \label{}
@@ -3324,3 +3360,4 @@ di
   primo grado come questo: avresti potuto risolverlo anche in terza media.
  \end{osservazione}
 \end{esempio}
+\end{comment}
