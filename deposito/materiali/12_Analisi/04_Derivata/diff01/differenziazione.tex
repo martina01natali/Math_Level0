@@ -1493,12 +1493,14 @@ si vede anche dal prossimo esempio.
  \dfrac{16}{5}-\dfrac{12}{5}+2=\dfrac{14}{5}$.\\
 \end{esempio}
 
-Dato che gli infinitesimi che vogliamo trascurare hanno origine già nel rapporto 
+Dato che gli infinitesimi che vogliamo trascurare hanno origine già nel 
+rapporto 
 differenziale, chiediamoci:\\ 
 \emph{Possiamo trascurare, cioè fingere che valgano zero, gli infinitesimi del 
 rapporto differenziale, anche se abbiamo specificato che deve essere 
 $dx \ne 0$?}\\
-Sappiamo già che esiste il modo corretto: \emph{la funzione parte standard $\pst{}$, 
+Sappiamo già che esiste il modo corretto: \emph{la funzione parte standard 
+$\pst{}$, 
 applicata a un iperreale finito, isola il numero reale infinitamente vicino
 e permette così di ignorare i suoi infinitesimi}.
 
@@ -2159,7 +2161,8 @@ g'(x)}
   {\tonda{\sqrt{x}}^2}=\dfrac{\sqrt{x}-\dfrac{\sqrt{x}}{2}}{x}=
   \dfrac{\dfrac{\sqrt{x}}{2}}{x}=\dfrac{1}{2\sqrt{x}}$.\\
   Ma guarda che combinazione: abbiamo ottenuto la derivata della radice! 
-Allora la funzione di partenza è equivalente a $f(x)=\sqrt{x}$? (Ad essere precisi, 
+Allora la funzione di partenza è equivalente a $f(x)=\sqrt{x}$? (Ad essere 
+precisi, 
 non   esattamente. Infatti \dots)
 \end{esempio}
 \begin{esempio}
@@ -2198,7 +2201,8 @@ sigle qualsiasi, ma questo non cambia le regole. La libertà di uso dei simboli
 può facilitare i calcoli, come si vede nel prossimo caso.
 \begin{esempio}
   Deriva la funzione $v(u)=\dfrac{u^2}{8}$. 
-  Soluzione: $v'(u)=\dfrac{1}{8}2u=\dfrac{u}{4}$. Infatti il differenziale è $dv(u)=\dfrac{1}{8}[2udu+(du)^2]$ perché $df(x)=2xdx+(dx)^2$ 
+  Soluzione: $v'(u)=\dfrac{1}{8}2u=\dfrac{u}{4}$. Infatti il differenziale è 
+$dv(u)=\dfrac{1}{8}[2udu+(du)^2]$ perché $df(x)=2xdx+(dx)^2$ 
   e $d(kf(x)=kdf(x)$. La parte standard del rapporto differenziale fornisce
   il risultato $\dfrac{u}{4}$.
 \end{esempio}
@@ -2335,16 +2339,24 @@ Tesi: $f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)$.
 
 \subsection{Funzioni inverse}
 \label{subsec:diff01_derifuninverse}
-Non è difficile invertire una funzione nota, partendo dalla sua espressione 
-analitica.  Con pochi pochi passaggi elementari, si ricava la formula
-inversa. Ecco alcuni esempi di semplici funzioni algebriche, dirette e inverse,
-con le rispettive derivate..
+
+ Cosa si intende per funzioni inverse? $y=kx$ e $x=\frac{y}{k}$, per esempio, 
+sono formule inverse l'una dell'altra, ma non sono funzioni inverse rispetto 
+alla stessa variabile $x$. Esse esprimono con due differenti espressioni la 
+stessa iperbole equilatera e hanno lo stesso grafico, quindi le stesse tangenti 
+al grafico e le stesse derivate rispetto a $x$.\\
+ La funzione inversa rispetto a $x$ di $y=kx$ è $y=\frac{x}{k}$, cioè è
+ la formula inversa, ma applicata a $x$. Nella tabella che segue consideriamo 
+ come funzione inversa l'inversione della formula $y=\dots$, come ad esempio $x=\frac{y}{k}$. Per questo la derivata viene calcolata rispetto a $y$: $x'=\pst{\dfrac{dx}{dy}}$.\\
+
+Ecco alcuni esempi di semplici funzioni algebriche, con le loro 
+formule dirette e inverse e con le rispettive derivate.
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 $y=f(x)$ & $x=g(y)$ & $f'(x)$ & $g'(y)$\\\hline
 $y=x+c$ & $x=y-c$ & 1 & 1\\
 $y=kx$ & $x=y/k$ & $k$ & $\frac{1}{k}$\\
-$y=x^2$, $x> 0$ & $x=\sqrt{y}$ & $2x$ & 
+$y=x^2$, $x > 0$ & $x=\sqrt{y}$ & $2x$ & 
 $\frac{1}{2\sqrt{y}}=\frac{1}{2x}$\\
 $y=\frac{1}{x}$ & $x=\frac{1}{y}$ & $-\frac{1}{x^2}$ & 
 $-\frac{1}{y^2}=-x^2$\\
@@ -2354,16 +2366,17 @@ $-\frac{1}{y^2}=-x^2$\\
 
 \begin{osservazione}
 La funzione  $y=x^2$, nella terza riga della tabella, è definita $\forall x$.
-Tuttavia qui si restringe il dominio, in modo da considerare un solo ramo 
-della parabola, perché altrimenti la formula inversa non potrebbe essere una 
-funzione. Occorre sempre porre attenzione al dominio di $f$, quando si vuole 
-definirne l'inversa. Una buona regola pratica per capire se $f^{-1}$ è 
+Tuttavia qui il dominio viene ristretto, in modo da considerare un solo ramo 
+della parabola. In questo modo si può definire come funzione la formula inversa
+$x=g(y)$ ($x\ge 0$) e la sua derivata ($x\ne 0$).\\
+Occorre sempre porre attenzione al dominio di $f$, quando si vuole 
+definire la sua inversa. Una buona regola pratica per capire se $g=f^{-1}$ è 
 definibile, è di tagliare il grafico di $f$ con una retta orizzontale: se la
 retta incrocia il grafico di $f$ in più punti, $f^{-1}$ non esiste.
 \end{osservazione}
 
-Le ultime due colonne riportano le derivate rispettive e insinuano in
-noi qualche sospetto.\\
+
+
 Considera il caso semplice che segue.
 \begin{esempio}
   Derivare $f(x)=\sqrt{x^2}$.\\
@@ -2374,38 +2387,22 @@ Considera il caso semplice che segue.
   $f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
   \dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x=1$.\\
   Conclusione: 
-$\mathit{D}\quadra{x^2}=\dfrac{1}{\mathit{D}\quadra{\sqrt{x}}}$
+$\mathit{D}\quadra{x^2}=\dfrac{1}{\mathit{D}\quadra{\sqrt{x}}}$.
 \end{esempio}
 Si intuisce che: siccome $f'(g)\cdot g'(x)=1$, allora $g'(x)=\dfrac{1}{f'(g)}$.
-Se fosse dimostrato, diventerebbe più facile derivare per esempio le 
-funzioni 
-logaritmiche: basterebbe saper derivare le corrispondenti esponenziali. E 
-così
-via. Ovviamente occorre qualche cautela: la regola sarebbe applicabile
+L'intuizione è corretta ed effettivamente una regola simile esiste. Occorre 
+però precisare che la regola vale
  \begin{enumerate} [noitemsep]
   \item se esiste l'inversa della funzione da derivare;
   \item se entrambe le funzioni sono derivabili;
   \item se  $f'(g)\ne 0$.
  \end{enumerate}
-Infatti, nell'esempio tutto funziona alla perfezione, ma solo se $x\ne0$
+Infatti, nell'esempio tutto funziona alla perfezione, ma solo se $x\ne 0$
 (ricorda anche l'esempio \ref{esempio:diff01_deriradice}). \\
 Se valgono tutte le condizioni favorevoli, allora esistono la funzione
-$f$ e la sua inversa $g=f^{-1}$. $y=f(x)$ e $y=g(x)=f^{-1}(x)$ hanno 
-grafici 
-simmetrici rispetto alla bisettrice $y=x$.
-\begin{osservazione}
- $y=kx$ e $x=\frac{y}{k}$, per esempio, sono formule inverse l'una 
- dell'altra. Ma non sono funzioni inverse, sono due espressioni della 
-stessa 
- iperbole equilatera e hanno lo stesso grafico, quindi le stesse tangenti al
- grafico e le stesse derivate rispetto a $x$.\\ La funzione inversa di cui 
- parliamo, nel caso dell'iperbole è $y=\frac{x}{k}$, cioè è la formula 
-inversa,
- ma applicata a $x$. Se invece consideriamo la formula inversa 
-$x=\frac{y}{k}$
- come funzione $x=f(y)$, allora dovremo derivare rispetto a $y$: 
- $x'=\dfrac{dx}{dy}$.
-\end{osservazione}
+$f$ e la sua inversa $g=f^{-1}$. La funzione e la sua inversa, se esiste,
+hanno grafici rispetto alla bisettrice $y=x$.
+
 
 \begin{inaccessibleblock}
   [differenziale funzione invera]
@@ -2418,8 +2415,8 @@ $x=\frac{y}{k}$
 Ogni punto $\punto{x}{f^{-1}(x)}$ sulla curva della funzione inversa ha un
 corrispondente $\punto{y}{f(y)}$ sulla curva $y=f(x)$, nella simmetria 
 rispetto alla bisettrice. Guardiamo come si corrispondono i differenziali:
-$dx$ e $dy$ sono invertiti in una curva rispetto all'altra. Quindi le 
-derivate corrispondenti sono reciproche l'una con l'altra.
+$dx$ e $dy$ di una curva sono invertiti rispetto ai differenziali dell'altra.
+Quindi le derivate corrispondenti sono reciproche l'una con l'altra.
  \end{minipage}
  \end{center}
 \end{inaccessibleblock}
@@ -2439,8 +2436,15 @@ $g'\ne 0$.
 %   per cui: $f'(x)=\dfrac{1}{g'(y)}$.
 % \end{proof}
 \begin{osservazione}
- Anche questo teorema necessita di un'introduzione simile a quella che precede 
- l'enunciato sulla derivata della funzione composta. Perciò rimandiamo a quelle parole, evitando la dimostrazione.
+ Dire che il rapporto differenziale $\frac{dy}{dx}$ è reciproco di 
+$\frac{dx}{dy}$ 
+ non è banale come dire che la frazione $\frac{3}{4}$ è reciproca di 
+$\frac{4}{3}$.
+ Una frazione è un rapporto fra numeri e genera un numero, il rapporto 
+differenziale è un rapporto fra funzioni e genera una funzione. In più,  
+in una frazione come la frazione $\frac{3}{4}$ i numeri $3$ e $4$ sono 
+indipendenti, invece il differenziale $dy$ dipende da $dx$ nel rapporto
+$\frac{dy}{dx}$,  e $dx$ dipende da $dy$ nel rapporto inverso. Questo comporta questioni delicate, simili a quelle descritte a proposito del teorema \ref{teo:diff01_dericomp}. Per questo bisogna essere precisi nell'enunciato.
 \end{osservazione}
 \begin{esempio}
   Trova la derivata di $f(x)=\dfrac{1}{\sqrt{5-x^2}}$.
@@ -2476,8 +2480,10 @@ Iperreali e abbiamo ormai un bagaglio sufficiente di conoscenza delle derivate.
 \subsection{Derivata di $f(x)=a^x$}
 \label{}
 Il grafico di una generica funzione esponenziale $y=a^x$, confrontato con 
-il grafico dell'andamento delle sue tangenti è una sorpresa rispetto ai confronti
-che abbiamo fatto per altre funzioni. I due grafici praticamente si accompagnano: 
+il grafico dell'andamento delle sue tangenti è una sorpresa rispetto ai 
+confronti
+che abbiamo fatto per altre funzioni. I due grafici praticamente si 
+accompagnano: 
 rivelano uguali pendenze in coppie di punti di uguale ordinata.
 
 \begin{inaccessibleblock}
@@ -2519,7 +2525,7 @@ calcolata in} $x=0$.\\
 
 Volevamo calcolare la derivata di \(f(x)=a^x\) e ci ritroviamo
 un risultato che contiene la derivata stessa \(f'(0)\), insomma non si direbbe 
-che ci siano stati progressi. Ma fingiamo per un attimo che $f'(0)$ non 
+che ci siano stati grandi progressi. Ma fingiamo per un attimo che $f'(0)$ non 
 incida sul risultato, cioè che \(f'(0)=1\). In questo modo la funzione e la
 sua derivata sarebbero proprio identiche e i due grafici sarebbero 
 sovrapponibili.\\
@@ -2527,7 +2533,10 @@ $f'(0)=1\srarrow \pst{\dfrac{a^{dx}-1}{dx}}=1\srarrow a^{dx}\sim dx +1
 \srarrow a\sim(dx+1)^\frac{1}{dx}$.\\
 Abbiamo già incontrato un'espressione analoga in passato:
 l'espressione individua il Numero di Nepero $e=\pst{(dx+1)^\frac{1}{dx}}$.\\
-Conclusione:
+Conclusione: perché una funzione esponenziale generica $a^x$ coincida con la
+sua derivata occorre che la base sia $a=e$. $f(x)=e^x$ si dice funzione 
+esponenziale pura.
+
 
 \begin{teorema}
  La derivata della funzione esponenziale $\mathit{D}\quadra{e^x}$ coincide 
@@ -2540,10 +2549,11 @@ con la funzione stessa.
  per i nostri scopi. Resta comunque stabilito che  \emph{la funzione
  esponenziale pura $f(x)=e^x$ coincide con la propria derivata}.
 \end{proof}
-Attraverso l'uso del numero \(e\) siamo finalmente in grado di derivare la funzione esponenziale generica \(f(x)=a^x\).
+Attraverso l'uso del numero \(e\) siamo finalmente in grado di derivare la 
+funzione esponenziale generica \(f(x)=a^x\).
 
 \begin{teorema}
-  La derivata della generica funzione esponenziale è: 
+  La derivata della funzione esponenziale qualsiasi, con base $a>0$, è: 
 $\mathit{D}\quadra{a^x}=
   a^x\ln{a}$.
 \end{teorema}
@@ -2566,7 +2576,7 @@ $\mathit{D}\quadra{a^x}=
   e^{x^2}\cdot 2x=2xe^{x^2}$.
 \end{esempio}
 
-\begin{comment}
+
 
 \subsection{Derivata di $f(x)=\log_a x$}
 \label{}
@@ -2582,7 +2592,8 @@ $\mathit{D}\quadra{a^x}=
 dell'altra,
     il logaritmo naturale $g(x)=\ln x$ è la funzione inversa della
     funzione esponenziale $f(x)=e^x$;
-    \item $\mathit{D}\quadra{f^{-1}(x)}=\dfrac{1}{f'(f^{-1}(x))}$;
+    \item 
+$\mathit{D}\quadra{f^{-1}(x)}=\dfrac{1}{\mathit{D}\quadra{(f^{-1}(x)}}$;
     \item $\mathit{D}\quadra{\ln x}=\dfrac{1}{\mathit{D}\quadra{e^{g(x)}}}
     =\dfrac{1}{e^{\ln x}}=\dfrac{1}{x}$.
   \end{enumerate}
@@ -2598,9 +2609,10 @@ dell'altra,
  \begin{teorema}
   La derivata della funzione \\
   logaritmo naturale è: $\mathit{D}\quadra{\ln x}=
-  \dfrac{1}{x}$.
+  \dfrac{1}{x},\ x>0$.
 \end{teorema}
-\noindent Ipotesi: $f(x)=\ln x$. \hspace{1cm}b $f'(x)=\dfrac{1}{x}$
+\noindent Ipotesi: $f(x)=\ln x, \mbox{ con } x>0$.\\
+\noindent Tesi: $f'(x)=\dfrac{1}{x}$.
 \begin{proof}
 La dimostrazione è nei ragionamenti dell'esempio precedente, ai quali 
 bisogna 
@@ -2651,14 +2663,14 @@ $f'(x)=e^{\alpha\ln x}\alpha\dfrac{1}{x}=x^\alpha\frac{\alpha}{x}=
 \alpha x^{\alpha-1}$.\\
 Poiché non è stata fatta nessuna particolare ipotesi sull'esponente (intero 
 o 
-razionale positivo o negativo, irrazionale ...), allora vale per qualsiasi
-esponente.
+razionale positivo o negativo, irrazionale ...), allora il teorema vale per qualsiasi esponente.
 \end{proof}
 
 \begin{esempio}
   Derivare $f(x)=x^{\sqrt{2}}$.\\
   $f'(x)=\sqrt{2}x^{\sqrt{2}-1}$.
 \end{esempio}
+
 
 \subsection{Derivata di funzioni circolari}
 \label{}
@@ -2680,11 +2692,10 @@ $df(x)=d(\sen x)= \sen (x+dx) -\sen x$.
  \end{minipage} 
   \hfill
  \begin{minipage}[]{.56\textwidth}
-Nell'ingrandimento al microscopio nonstandard, l'incremento infinitesimo di
+Nell'ingrandimento al microscopio non standard, l'incremento infinitesimo di
 arco $\overset{\frown}{AB}$ (che corrisponde all'incremento di angolo da $x$
 a $x+dx$) è racchiuso fra due raggi indistinguibili da segmenti paralleli 
-nei
-punti $A\equiv \punto{x}{\sen x}$ e $B\equiv \punto{x+dx}{\sen(x+dx)}$. 
+nei punti $A\equiv \punto{x}{\sen x}$ e $B\equiv \punto{x+dx}{\sen(x+dx)}$. 
 L'arco, a sua volta, risulta indistinguibile dal segmento rettilineo $AB$.
 I segmenti che uniscono $A$ e $B$ con le loro proiezioni sull'asse $X$ sono
 verticali e paralleli, perciò $ABC$ è un triangolo rettangolo infinitesimo, 
@@ -2768,7 +2779,7 @@ $f'(x)=2\sen x \cos x$ e $g'(x)=cos 2x\cdot 2= 2 \cos 2x$.
  \subsubsection{Derivata di $f(x)=\cos x$}
 \begin{teorema}
   La derivata della funzione $f(x)=\cos x$ è $\mathit{D}\quadra{\cos x}=
-  -\sin x$.
+  -\sen x$.
 \end{teorema}
 \noindent Ipotesi: $f(x)=\cos x$. \tab $f'(x)=-\sen x$.
 \begin{proof}
@@ -2776,12 +2787,9 @@ $f'(x)=2\sen x \cos x$ e $g'(x)=cos 2x\cdot 2= 2 \cos 2x$.
   \pageref{fig_diff01dseno}. Lo puoi riprodurre, tenendo però l'attenzione
   concentrata sul segmento $AC$.\\
 L'unica osservazione importante è che nel passare da $x$ a $ x+dx$, cioè 
-mentre
-l'angolo cresce, il valore del coseno decresce. Infatti, al contrario di 
-quanto
-avviene per il seno, nel primo quadrante si ha: $ \cos(x+dx)<\cos x$. 
-Questa è 
-la ragione del segno meno nel risultato.
+mentre l'angolo cresce, il valore del coseno decresce. Infatti, al contrario di 
+quanto avviene per il seno, nel primo quadrante si ha: $ \cos(x+dx)<\cos x$. 
+Questa è la ragione del segno meno nel risultato.
 \end{proof}
 
 \begin{inaccessibleblock}
@@ -2797,9 +2805,9 @@ la ragione del segno meno nel risultato.
 \label{}
 
 \begin{esempio}
-Quale pendenza ha il grafico di $y=\cos x$ nell'origine?\\
+Quale pendenza ha il grafico di $y=\cos x$ per $x=0$?\\
 $f(x)= \cos x \srarrow f'(x)=-\sen x\srarrow f'(0)=-\sen 0=0$.\\
-La tangente al grafico nell'origine è orizzontale.
+In $x=0$ la tangente al grafico è orizzontale.
 \end{esempio} 
 
 \begin{esempio}
@@ -2816,8 +2824,7 @@ $f'(x)=-2\sen x\cos x + 2\sen x \cos x = 0$.
 
 \subsubsection{Derivata di $f(x)=\tg x$}
 La funzione $f(x)=\tg x$ è discontinua per $x= \pm\frac{\pi}{2}$. La 
-derivata
-quindi non può esistere nei punti corrispondenti, come dimostra il grafico.
+derivata quindi non può esistere nei punti corrispondenti, come dimostra il grafico.
 
 \begin{inaccessibleblock}
   [differenziale della tangente]
@@ -2839,8 +2846,7 @@ quindi non può esistere nei punti corrispondenti, come dimostra il grafico.
 per $x\ne\pm\frac{\pi}{2}$.
 \begin{proof}
 Per calcolare la derivata nei punti in cui la funzione è continua, 
-ricorriamo
-alla seconda relazione fondamentale: $\tg x=\frac{\sin x}{\cos x}$ e
+ricorriamo alla seconda relazione fondamentale: $\tg x=\frac{\sin x}{\cos x}$ e
 sfruttiamo la regola della derivata di un quoziente (pag. 
 \pageref{sec:diff01_regolederivate}).\\
 $\mathit{D}\quadra{\tg x}=\mathit{D}\quadra{\dfrac{\sin x}{\cos x}}=
@@ -2885,14 +2891,14 @@ $y-y_0=m(x-x_0)$,
  
 \begin{esempio}
   Trova le equazioni delle tangenti alla parabola $f(x)=x^2$ nei suoi punti
-  $V~\equiv~\punto{0}{f(0)}=0$ e $B\equiv\punto{-6}{f(-6)}$.\\
+  $V~\equiv~\punto{0}{f(0)}$ e $B\equiv\punto{-6}{f(-6)}$.\\
   Soluzione. Nel punto $V$: $f'(0)~=~2\cdot 0~=~0=m$. La tangente è 
   orizzontale e coincide con l'asse $X$: $y=~m(x~-~x_0)~+~y_0~=~0$.\\
-  Nel punto $B$: $f'(-6)=2\cdot (-6)=-12$. $m=-12$, la tangente è inclinata
+  Nel punto $B$: $f'(-6)=2 (-6)=-12$. $m=-12$, la tangente è inclinata
   verso il basso:
-  $y=m(x-x_0)+y_0= -12(x-6)+36\srarrow y=-12x+108$.
+  $y=m(x-x_0)+y_0= -12(x+6)+36\srarrow y=-12x-36$.
  \end{esempio}
- 
+
 \begin{esempio}
   Trova i punti di intersezione degli assi con la tangente in 
 $\punto{2}{f(2)}$
@@ -2976,8 +2982,7 @@ $\punto{x_0}{y_0}$
 sarà:\\
 $y=\dfrac{-1}{f'(x_0)}(x-x_0)+y_0$,\\
 dove la pendenza della normale $m_n=\frac{-1}{m_t}$ è appunto 
-l'antireciproco
-della pendenza della tangente.
+l'antireciproco della pendenza della tangente.
 
 \begin{esempio}
 Scrivi l'equazione della tangente e della normale alla curva di equazione
@@ -2987,9 +2992,8 @@ Soluzione. $y'|_{x=1}=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
 1}{(0-1)^2}=-2$.\\
 La pendenza della tangente è $m=-2$. Per $x=1$ la funzione vale:
 $\dfrac{1^2-1}{\ln 1 -1}=0=y_0$. L'equazione della tangente è quindi:
-$y=-2(x-1)=-2x+2x$. Di conseguenza la normale ha equazione 
-$y=\dfrac{1}{2}(x-1)
-=\dfrac{1}{2}x-\dfrac{1}{2}$.
+$y=-2(x-1)=-2x+2$. Di conseguenza la normale ha equazione 
+$y=\dfrac{1}{2}(x-1)=\dfrac{1}{2}x-\dfrac{1}{2}$.
 \end{esempio}
 
 
@@ -3002,6 +3006,7 @@ La tangente è quindi una retta orizzontale. Di conseguenza la normale è
 verticale, come si vede subito se si prova a calcolare l'antireciproco di 
 $0$.
 \end{esempio}
+
 
 \subsection{Derivata della derivata}
 \label{}
@@ -3017,26 +3022,21 @@ se ci sono le condizioni, può essere derivata a sua volta.
  chiamata \emph{derivata seconda di $f(x)$}.
 \end{definizione}
 Le regole di calcolo della derivata seconda sono le stesse regole che 
-abbiamo 
-già visto, quindi la seconda derivazione, se è possibile, non comporta 
-problemi 
-diversi da quelli conosciuti.\\
+abbiamo già visto, quindi la seconda derivazione, se è possibile, non comporta 
+problemi diversi da quelli conosciuti.\\
 Riferendoci a un generico grafico di funzione $y=f(x)$, la derivata prima 
 $f'(x)$ ci consente di trovare le pendenze delle tangenti al grafico. La
 derivata seconda $f''(x)$ descrive con quanta rapidità (o lentezza) variano 
 queste pendenze, perciò ci indica quanto siano aperte o chiuse le concavità 
-che
-$y=f(x)$ disegna nel piano cartesiano.\\
+che $y=f(x)$ disegna nel piano cartesiano.\\
 Se le condizioni sono favorevoli, esistono e sono calcolabili anche le 
-derivate 
-terze, quarte, ecc. di una funzione, anche se non sono essenziali per i 
-nostri 
-scopi. Il loro calcolo segue i metodi già visti.
+derivate terze, quarte, ecc. di una funzione, anche se non sono essenziali 
+per i nostri scopi. Il loro calcolo segue i metodi già visti.
 
 \begin{esempio}
 Calcola $f''(1)$ di $f(x)=2x^5-3x^4+x^3+5x^2-6x+9$.\\
-Derivata prima: $f'(x)=10 x^4-12 x^3+3x^2+10 x-6$\\
-Derivata seconda per $x=1$: $(40x^3-36x^2+6x+10)|_{x=1}=40-36+6+10=20$
+Derivata prima: $f'(x)=10 x^4-12 x^3+3x^2+10 x-6$.\\
+Derivata seconda per $x=1$: $(40x^3-36x^2+6x+10)|_{x=1}=40-36+6+10=20$.
 \end{esempio}
 
 \begin{esempio}
@@ -3046,8 +3046,7 @@ $f'(x)=\dfrac{1}{x}$ e $f''(x)=-\dfrac{1}{x^2}$.\\
  La funzione $\ln x $ esiste per $x>0$. Le derivate prima e seconda esistono
  per $x\ne 0$.
  In generale, l'esistenza di una derivata (prima, seconda, terza. \dots) è
- indipendente dall'esistenza della funzione da derivare (funzione 
-primitiva).
+ indipendente dall'esistenza della funzione da derivare.
 \end{osservazione}
 \end{esempio}
 
@@ -3057,8 +3056,8 @@ primitiva).
  $f'''(x)=-\cos x$ \hspace{1cm} $f^{IV}(x)=\sen x$ \dots
 \end{esempio}
 
-
-\subsection{Derivata, differenza e differenziale}
+ 
+\subsection{Derivata, differenza, differenziale, incremento}
 \label{subsec:diff01_deridiff}
 
 \begin{inaccessibleblock}
@@ -3108,7 +3107,7 @@ $df(x)$.
 Il problema diventa più critico nelle applicazioni pratiche, quando si 
 devono 
 usare le differenze finite al posto dei differenziali. Si usa allora, per
-analogia,:\\
+analogia:\\
 $\Delta f(x)=f'(x_0)\Delta x + \delta(x)\Delta x$.\\
 Dato che l'ultimo termine è il meno rilevante, si ha:\\
 $\Delta f(x)\cong f'(x_0)\Delta x \srarrow
@@ -3128,25 +3127,20 @@ differenza fra due valori $y$, calcolati lungo la tangente.
   \hfill
  \begin{minipage}[]{.55\textwidth}
  Allontanandosi da $x_0$ di una quantità finita $\Delta x$, le differenze 
-della
- funzione $\Delta f(x)$, calcolate a partire da $x_0$, possono 
+della funzione $\Delta f(x)$, calcolate a partire da $x_0$, possono 
  essere anche molto diverse dalle differenze $f'(x_0)\Delta x$, calcolate 
-lungo
- la tangente.
+lungo la tangente.
  \end{minipage}
 \end{inaccessibleblock}
 \label{}
 
 Nei testi in cui si scrive che $\Delta f(x)=f'(x_0)\Delta x+\delta(x)\Delta 
-x$,
-$f'(x_0)\Delta x$ viene chiamato differenziale, anche se si tratta di una 
-differenza,
-una quantità .finita, non infinitesima. In tali testi la differenza $\Delta 
-f(x)$ è detta 
-incremento e l'equazione\\
+x$, $f'(x_0)\Delta x$ viene chiamato differenziale, anche se si tratta di una 
+differenza, una quantità finita, non infinitesima. In tali testi la differenza
+$\Delta f(x)$ è detta incremento e l'equazione\\
 $\Delta f(x)\cong f'(x_0)\Delta x$ \hspace{.5cm}(\emph{Equazione alle 
 differenze})\\ 
-esprime il cosiddetto \emph{teorema dell'incremento}.\\
+esprime il cosiddetto \emph{Teorema dell'incremento}.\\
 Ai fini pratici l'Equazione alle differenze è un'equazione utile, 
 soprattutto 
 quando si studiano i fenomeni naturali, perché le variazioni che si 
@@ -3173,6 +3167,7 @@ Poiché l'approssimazione è tanto migliore quanto più piccolo è $\Delta x$,
 ripeti l'esercizio con $x_0=25,1001$ (la cui radice è $5,01$) e quindi
 $\Delta x=0,06199$.
 \end {esempio}
+
 
 \subsection{Sintesi}
 \label{subsec:diff01_derisintesi}
@@ -3213,10 +3208,11 @@ $\mathit{D}\quadra{f(g(x))=f'(g(x))\cdot g'(x)}$
 \end{center}
 \label{tab:diff01_regolederivazione}
 
+
 \subsection{Applicazioni non solo matematiche}
 Il calcolo della derivata è entrato da protagonista nella descrizione 
 matematica dei fenomeni naturali da almeno $300$ anni e più recentemente
-anche nello studio delle scienze umane e sociali. \\
+anche nello studio delle scienze umane e sociali. 
 Gli esempi che seguono si servono di questo calcolo in due modi:
 \begin{enumerate}[noitemsep]
  \item per trovare il tasso di variazione:
@@ -3229,8 +3225,7 @@ inversa $\Delta x \cong \dfrac{\Delta f(x)}{f'(x_0)}$.
 L' utilità dell'equazione alle differenze viene dal
 fatto che si tratta di un'equazione di primo grado in $\Delta x$, perché i 
 termini infinitesimi di grado superiore sono trascurati. Le soluzioni che 
-così
-si ottengono sono approssimate, ma in genere il grado di imprecisione è 
+così si ottengono sono approssimate, ma in genere il grado di imprecisione è 
 sopportabile.
 
 \begin{esempio}
@@ -3240,12 +3235,11 @@ viene
  $h(t)=20t-5t^2$. Trova a quale altezza $h$ la palla si ferma.\\
  Risposta. Se la palla si ferma, la sua velocità è nulla, quindi:\\
  $v(t)=\dfrac{dh(t)}{dt}= 20-10t=0\srarrow t=2 s \srarrow h(2)=20\cdot 
-2-5\cdot 
- 2^2=20 m$.\\
- Dopo quanto tempo dal lancio la palla si trova a metà altezza?\\
- Risposta. $\Delta t\cong \dfrac{\Delta h(t)}{v(0)}=\dfrac{10}{20}=0,5$ s.
- Considera l'imprecisione dell'ultima risposta, visto che puoi avere il
- il risultato esatto direttamente dall'equazione del moto, con $h(t)=10$.
+2-5\cdot  2^2=20 m$.\\
+%  Dopo quanto tempo dal lancio la palla si trova a metà altezza?\\
+%  Risposta. $\Delta t\cong \dfrac{\Delta h(t)}{v(0)}=\dfrac{10}{20}=0,5$ s.
+%  Considera l'imprecisione dell'ultima risposta, visto che puoi avere il
+%  il risultato esatto direttamente dall'equazione del moto, con $h(t)=10$.
 \end{esempio}
 
 \begin{esempio}
@@ -3262,8 +3256,8 @@ Si tratta di direzioni perpendicolari e possiamo applicare il teorema di
 Pitagora.\\
 $s_{AB}=\sqrt{s_A^2+s_B^2}=\sqrt{(800t)^2+[(800(t-2)]^2}=
 800\sqrt{t^2+t^2-2t+4}=800\sqrt{2t^2-2t+4}$.\\
-$v_{AB}|_{t=4}=\dfrac{ds_{AB}}{dt}=\dfrac{800(2t-4)}{2\sqrt{2t^2-2t+4}}
-\bigg|_{t=4}\cong 358$ km/h.
+$v_{AB}|_{t=4}=\dfrac{ds_{AB}}{dt}=\dfrac{800(4t-2)}{2\sqrt{2t^2-2t+4}}
+\bigg|_{t=4}\cong 907$ km/h.
 \end{esempio}
 
 \begin{esempio}
@@ -3273,7 +3267,8 @@ il conduttore ad un certo istante $t$ è data da $q(t)=t^3-24t$. È possibile
 che in
 qualche istante le cariche siano ferme?\\
 Riposta. Se le cariche sono ferme, la corrente è nulla.\\ 
-$i(t)=\dfrac{dq(t)}{dt}=3t^2-24=0\srarrow t=\pm\sqrt{8}=\pm2\sqrt{2}$ s.\\
+$i(t)=\dfrac{dq(t)}{dt}=3t^2-24=0\srarrow t=\sqrt{8}\cong 2,8$ s.\\
+La corrente è nulla $2,8$s prima e dopo l'istante $t$.
 \end{esempio}
 
 \begin{esempio}
@@ -3358,4 +3353,4 @@ di
   primo grado come questo: avresti potuto risolverlo anche in terza media.
  \end{osservazione}
 \end{esempio}
-\end{comment}
+
