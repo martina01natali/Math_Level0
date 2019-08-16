@@ -1,4 +1,4 @@
-% (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
+﻿% (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 %  Bruno Stecca
 
 \input{\folder differenziazione_grafici.tex}
@@ -14,7 +14,7 @@ differenziale''.
 Chi volesse approfondire l'argomento può acquistare il testo 
 all'indirizzo: 
 \href{https://www.unilibro.it/libri/f/autore/goldoni\_giorgio}
-     {www.unilibro.it/libri/f/autore/goldoni\_giorgio}}
+     {www.unilibro.it/libri/f/autore/goldoni\_giorgio}}.
 Il problema di determinare la velocità istantanea ci ha portati a conoscere 
 i numeri infinitesimi e, attraverso questi, l'insieme dei numeri iperreali.
 Ora siamo in grado di cercare la risposta alla domanda rimasta in sospeso: 
@@ -130,7 +130,6 @@ senza salti.
  Le variazioni dei suoi valori possono essere arbitrariamente piccole.
 \end{definizione}
 
-
 Il più semplice esempio di una variabile continua in matematica è la 
 posizione $x$ sull'asse dei numeri reali. Infatti sappiamo che la retta reale 
 non
@@ -217,7 +216,7 @@ Devo calcolare:
 \end {itemize}
  
 \begin{align*}
- \Delta &= f(3+4) - f(3) = \\
+ \Delta f &= f(3+4) - f(3) = \\
         &= f(7) - f(3) = \\
         &= \dfrac{7^2}{4}  -7 -3 - \dfrac{3^2}{4}  +3 +3 =\\
         &= \dfrac{49}{4} -10 - \dfrac{9}{4} +6 =\\
@@ -1493,19 +1492,15 @@ si vede anche dal prossimo esempio.
  \dfrac{16}{5}-\dfrac{12}{5}+2=\dfrac{14}{5}$.\\
 \end{esempio}
 
-Dato che gli infinitesimi che vogliamo trascurare hanno origine già nel 
-rapporto 
-differenziale, chiediamoci:\\ 
-\emph{Possiamo trascurare, cioè fingere che valgano zero, gli infinitesimi del 
-rapporto differenziale, anche se abbiamo specificato che deve essere 
+Dato che gli infinitesimi che vogliamo trascurare hanno origine nel 
+rapporto differenziale, chiediamoci: 
+\emph{possiamo trascurare gli infinitesimi del rapporto differenziale,
+cioè fingere che valgano zero, anche se abbiamo specificato che deve essere 
 $dx \ne 0$?}\\
-Sappiamo già che esiste il modo corretto: \emph{la funzione parte standard 
-$\pst{}$, 
-applicata a un iperreale finito, isola il numero reale infinitamente vicino
-e permette così di ignorare i suoi infinitesimi}.
+Sappiamo già che esiste la risposta corretta: \emph{la funzione parte standard 
+$\pst{}$ di un iperreale finito isola il numero reale infinitamente vicino
+e consente di ignorare i suoi infinitesimi}.
 
-=======
->>>>>>> merge rev
 \section{Derivata: definizione}
 \label{sec:diff01_deriv}
 \begin{definizione}
@@ -1535,23 +1530,45 @@ $\dfrac{df(x)}{dx}\bigg|_{x=x_0}=f'(x_0)+\epsilon(x_0)\srarrow f'(x_0)
 
 Anche nel prossimo esempio il calcolo è molto semplice, tuttavia la derivata 
 non esiste.
+
 \begin{esempio}
+ %valore assoluto
+\label{esempio:diff01_derimodulo}
  Deriviamo $f(x)=|x|$ per $x=0$.\\
- Funzione: \(f(x)=|x|=
-\begin{cases}
- x\quad &\mbox{per }x\ge 0\\
--x\quad &\mbox{ per }x<0
-\end{cases}\)\\
- Differenziale per $x=0$: $df(0)=f(0+dx)-f(0)=0+dx-0=dx$;\\
- Rapporto differenziale $\dfrac{df(0)}{dx}=\dfrac{dx}{dx}=
- \begin{cases}
- 1\quad &\mbox{per }x\ge 0\\
--1\quad &\mbox{ per }x<0
-\end{cases}\)\\
- Derivata: non esiste per $x=0$, perché il rapporto differenziale dipende dal 
- segno di $x$. Infatti per $x<o$ ci si avvicina a $x=o$ da sinistra, cioè
- si danno a $x=0$ incrementi $dx$ negativi. I valori corrispondenti della 
- funzione $f(x)$ sono invece positivi.
+ La funzione contiene un valore assoluto: riscriviamola come se fosse 
+ divisa in due rami:\\
+ 
+\begin{figure}[h!]
+\begin{inaccessibleblock}
+  [Derivata |x|]
+ \begin{center}
+ \begin{minipage}[]{.40 \textwidth}
+  \derivamodulouno
+  \caption{}
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.58 \textwidth}
+  Funzione: \(f(x)=|x|=\begin{cases}
+   x\quad &\mbox{per }x\ge 0\\
+  -x\quad &\mbox{ per }x<0
+  \end{cases}\)\\
+  Differenziale per $x=0$:\\ $df(0)=f(0+dx)-f(0)=0+dx-0=dx$;\\
+  Rapporto differenziale:\\ $\dfrac{df(0)}{dx}=\dfrac{dx}{dx}=
+  \begin{cases}
+  1\quad &\mbox{per }x\ge 0\\
+ -1\quad &\mbox{ per }x<0
+ \end{cases}\)\\
+\end{minipage}
+\end{center}
+\end{inaccessibleblock}
+\label{}
+\end{figure} 
+
+Si tratta di due semirette che si uniscono nell'origine. Hanno pendenza $m=1$ per $x\ge 0$ e $m=-1$ per $x<0$. Quale è la pendenza giusta della tangente per
+$x=0$, nel punto cioè dove il grafico cambia pendenza all'improvviso?\\
+Nella monade di $x=0$ gli infinitesimi positivi hanno sul grafico punti corrispondenti $dy$ positivi e lo stesso avviene per i valori $dx$ negativi. Perciò per $x=0$ la parte standard del rapporto 
+differenziale non è la stessa per qualsiasi $dx\ne 0$ e la derivata non si può
+calcolare, anche se la funzione è continua per $x=0$.
 \end{esempio}
 
 L'esempio chiarisce perché nella definizione di derivata si debba specificare: 
@@ -1717,32 +1734,6 @@ La frazione ha senso per qualsiasi $\epsilon>0$, che è un numero
 infinitamente vicino a $0$.  Se consideriamo vari $\epsilon$, sempre 
 più piccoli, $m$ diventa sempre più negativo. Possiamo quindi che per $x=0$
 la tangente ipotetica sarebbe una retta verticale.\\
-
-% Come possiamo visualizzare la pendenza della secante per $x\approx 0$?
-% 
-% \begin{inaccessibleblock}
-%   [Derivate radice]
-%  \begin{center}
-%  \begin{minipage}[]{.45 \textwidth}
-%   \derivaradiceinzero
-%  \end{minipage} 
-%  \hfill
-%  \begin{minipage}[]{.50 \textwidth}
-% \vspace{-2em}
-% In realtà non possiamo. Infatti se $dx=\epsilon$ abbiamo 
-% $f(\epsilon)=1-2\sqrt{\epsilon}$.
-% Realizziamo un primo microscopio con ingrandimento infinito, pari a 
-% $\dfrac{1}{\sqrt{\epsilon}}$, così $df(x)$ può essere visualizzata con un 
-% tratto verticale verso il basso, a partire dal punto $\punto{0}{1}$. Ma 
-% l'ingrandimento non è sufficiente per cogliere $dx=\epsilon$,  
-% infinitesimo di ordine superiore, quindi troppo piccolo.
-% Se poi applichiamo un secondo microscopio che visualizza $dx$, allora 
-% $df(x)$ assume lunghezza infinita e non può essere valutato. Nel punto 
-% $\punto{0}{1}$ la tangente (linea tratteggiata) è verticale.
-% \end{minipage}
-% \end{center}
-% \end{inaccessibleblock}
-\label{}
 \end{esempio}
 
 \begin{esempio}
@@ -1800,9 +1791,9 @@ definita, e lo stesso vale anche per la derivata.
 \begin{esempio}
  %valore assoluto
  Per la funzione $f(x)=\dfrac{1}{2}|x-2|+2$ calcola le derivate $f'(0)$, 
-$f'(4)$
- e $f'(2)$.\\
- La funzione contiene un valore assoluto e la si riscrive come  come se fosse 
+$f'(4)$ e $f'(2)$.\\
+ La funzione contiene un valore assoluto: seguendo l’esempio 
+\ref{esempio:diff01_derimodulo} riscriviamola come se fosse 
  divisa in due rami:
 
 \begin{figure}[h!]
@@ -1810,7 +1801,7 @@ $f'(4)$
   [Derivate radice]
  \begin{center}
  \begin{minipage}[]{.40 \textwidth}
-  \derivavalass
+  \derivamodulodue
   \caption{}
  \end{minipage} 
  \hfill
@@ -1834,7 +1825,7 @@ $f(x)= \dfrac{1}{2}|x-2|+2=\\
 Si tratta di due semirette che si uniscono in $\punto{2}{2}$. L'equazione
 di ciascuna di loro è una funzione lineare. Abbiamo già visto che la derivata 
 dell'equazione di una retta coincide con il suo coefficiente angolare, 
-quindi, anche seza derivare, avremo:
+quindi, anche senza derivare, avremo:
 $f'(0)=\dfrac{1}{2}$ e $f'(4)=-\dfrac{1}{2}$.\\
 Il calcolo di $f'(2)$ invece è meno banale:\\
 Abbiamo
@@ -1844,14 +1835,8 @@ $f'(x)= \begin{cases}
 \end{cases}$
 Quale è la pendenza giusta della tangente per
 $x=2$, nel punto cioè dove il grafico cambia pendenza all'improvviso?\\
-Tutto dipende dal differenziale e dal rapporto differenziale.
-La funzione è continua, perciò $df(x)$ è sempre calcolabile.\\
-Immagina $\dfrac{f(2+dx)-f(2)}{dx}$.
-Se $dx$ è un qualsiasi infinitesimo positivo, siamo nel ramo destro del 
-grafico e il rapporto risulta negativo. Al contrario, se $dx<0$ siamo nel ramo
-sinistro e il rapporto è positivo: la parte standard del rapporto 
-differenziale relativa al punto in cui $x=2$ non è unica.
-Di conseguenza la derivata non esiste.
+Per ragioni analoghe a quelle illustrate in \ref{esempio:diff01_derimodulo}
+concludiamo che $f'(2)$  non esiste.
 \end{esempio}
 
 Da tutti questi esempi impariamo che per poter calcolare la derivata:
@@ -2918,9 +2903,8 @@ $\punto{2}{f(2)}$
   Soluzione. Nel punto che cerchiamo, la parabola avrà un'inclinazione 
   indistinguibile da quella della tangente.
   Le rette inclinate di $45^\circ$ hanno pendenza $m=1$, come la bisettrice 
-del
-  primo-terzo quadrante.  Dobbiamo quindi imporre alla derivata il valore 
-$1$.\\
+  del primo-terzo quadrante.  Dobbiamo quindi imporre alla derivata il valore 
+  $1$.\\
   $f(x)=4x^2-3x+6\srarrow f'(x)=8x-3$.\\
   $8x-3=1\srarrow x=\dfrac{1}{2}$. Il punto è 
 $\punto{\dfrac{1}{2}}{\dfrac{11}{2}}$.
@@ -3262,48 +3246,43 @@ $v_{AB}|_{t=4}=\dfrac{ds_{AB}}{dt}=\dfrac{800(4t-2)}{2\sqrt{2t^2-2t+4}}
 
 \begin{esempio}
  Un circuito è percorso da corrente variabile. Infatti la carica che 
-attraversa
-il conduttore ad un certo istante $t$ è data da $q(t)=t^3-24t$. È possibile 
-che in
-qualche istante le cariche siano ferme?\\
-Riposta. Se le cariche sono ferme, la corrente è nulla.\\ 
-$i(t)=\dfrac{dq(t)}{dt}=3t^2-24=0\srarrow t=\sqrt{8}\cong 2,8$ s.\\
-La corrente è nulla $2,8$s prima e dopo l'istante $t$.
+attraversa il conduttore ad un certo istante $t$ è data da $q(t)=t^3-24t$.
+È possibile che in qualche istante le cariche siano ferme?\\
+Risposta. Se le cariche sono ferme, la corrente è nulla.\\ 
+$i(t)=\dfrac{dq(t)}{dt}=3t^2-24=0\srarrow t_1=\sqrt{8}\cong 2,8
+\mbox{  e } t_2=-\sqrt{8} \cong -2,8$ s.\\
+La corrente è nulla $2,8$ s prima e dopo l'istante $t$.
 \end{esempio}
 
 \begin{esempio}
-Il biologo Jacques Monod mostrò che lo sviluppo di una colonia di batteri 
-di 
- Escherichia Coli segue una crescita esponenziale, se sufficientemente 
-nutrita. 
- Ogni microrganismo si scinde in due dopo circa $20$ minuti, per cui la
- popolazione al tempo $t$, misurato in ore, conta $N(t)=N_0e^{\frac{t}{3}}$
+ Il biologo Jacques Monod mostrò che lo sviluppo di una colonia di batteri 
+ di Escherichia Coli segue una crescita esponenziale, se sufficientemente 
+ nutrita. Ogni microrganismo si scinde in due dopo circa $20$ minuti, per cui 
+ la popolazione al tempo $t$, misurato in ore, conta $N(t)=N_0e^{\frac{t}{3}}$
  individui. Dopo quante ore il numero di batteri passa da $10^6$ a $10^9$?\\
- Soluzione: $\Delta N=N'(t)\Delta t=\dfrac{N_0}{3}e^{\frac{t}{3}}\Delta t
- \srarrow \Delta t=\dfrac{3\Delta N}{N_0e^{\frac{t}{3}}}=\dfrac{3\Delta N}
+ Soluzione: $\Delta N\cong N'(t)\Delta t=\dfrac{N_0}{3}e^{\frac{t}{3}}\Delta t
+ \srarrow \Delta t\cong\dfrac{3\Delta N}{N_0e^{\frac{t}{3}}}=\dfrac{3\Delta N}
  {N(t)}$.\\
  Il numero iniziale di batteri è $10^6=N(0)=N_0e^0$. Perciò:
- $\Delta t=\dfrac{3(10^9-10^6)}{10^9}$, che, calcolato in ore, 
- corrisponde a 3 ore meno $11$ secondi circa.
+ $\Delta t\cong\dfrac{3(10^9-10^6)}{10^9}$, che, calcolato in ore,  corrisponde a 
+ 3 ore meno $11$ secondi circa.
+ 
  \begin{osservazione}
- Si tratta di un problema tipico sulla crescita esponenziale, di quelli già 
- risolti quando ancora non conoscevi l'esistenza delle derivate, riguardanti
- per esempio l'interesse composto o il decadimento radiattivo.
-\end{osservazione}
-
-\begin{osservazione}
+  Dunque, la risposta è che in quasi $3$ ore il numero di batteri passa da un 
+  milione a un miliardo, che è $1000$ volte tanto. Possiamo pensare che 
+  occorra lo stesso tempo per passare da $1$ individuo a $1000$, oppure da 
+  $1000$ individui a $1$ milione?
+ \end{osservazione}
+ \begin{osservazione}
  Come mai in un caso del genere l'uso delle derivate non è indispensabile? 
-Perché
- la funzione esponenziale è l'unica funzione che ha per derivata...
+ Perché la funzione esponenziale è l'unica funzione che ha per derivata...
 \end{osservazione}
-
 \begin{osservazione}
-Dunque, la risposta è che in quasi $3$ ore il numero di batteri passa da un 
-milione a un miliardo, che è $1000$ volte tanto. Possiamo pensare che 
-occorra
-lo stesso tempo per passare da $1$ individuo a $1000$, oppure da $1000$ 
-individui a $1$ milione?
-\end{osservazione}
+  Si tratta di un problema tipico sulla crescita esponenziale, di quelli già 
+  risolti quando ancora non conoscevi l'esistenza delle derivate, riguardanti
+  per esempio l'interesse composto o il decadimento radiattivo.
+ \end{osservazione}
+
 \end{esempio}
  
 \begin{esempio}
@@ -3312,13 +3291,12 @@ un'unità in più di un certo bene.\\
 Supponi che per produrre un certo numero $n$ di aghi il costo in euro sia
 $y=\sqrt{n}$. Calcola il costo marginale per produrne più di $10.000$.\\
 Soluzione: $y=\sqrt{n}\srarrow y'=\dfrac{1}{2\sqrt{n}}$.
-Se $n=10000$, $\Delta y=\dfrac{1}{2\sqrt{10000}}\Delta n=\dfrac{\Delta 
+Se $n=10000$, $\Delta y \cong\dfrac{1}{2\sqrt{10000}}\Delta n=\dfrac{\Delta 
 n}{200}$.
 Il costo marginale, cioè per unità in più, è quindi dello $0,5\%$.
 \begin{osservazione}
  Anche in questo caso concreto, non è possibile pensare che $\Delta n$ sia 
-un
- infinitesimo, dato che non ha senso calcolare il costo per frazioni 
+ un infinitesimo, dato che non ha senso calcolare il costo per frazioni 
  infinitesime di un ago.
 \end{osservazione}
 \end{esempio}
@@ -3332,7 +3310,7 @@ cm?\\
  La risposta è la stessa in ogni caso, oppure dipende dal valore iniziale 
 di 
  $T$?\\
- Risposta. $\Delta T\cong \dfrac{\Delta l(T)}{l'(T)}=\dfrac{0,05}
+ Risposta. $\Delta T = \dfrac{\Delta l(T)}{l'(T)}=\dfrac{0,05}
  {10\cdot 0,000024}=208,3 ^\circ C$.\\
  Nella formula risolutiva non compare il simbolo $T$, quindi la risposta 
 non 
