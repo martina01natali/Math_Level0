@@ -13,8 +13,8 @@ Chi volesse approfondire l'argomento può acquistare il testo
 all'indirizzo: 
 \href{https://www.unilibro.it/libri/f/autore/goldoni\_giorgio}
      {www.unilibro.it/libri/f/autore/goldoni\_giorgio}.}
-Le nuove tecniche di calcolo che ti presentiamo si basano sulla conoscenza 
-dell'insieme degli Iperreali e sull'applicazione diffusa del\emph{principio di estensione naturale} agli Iperreali delle proprietà utili, che sono vere nell'insieme dei Reali.\\
+Le nuove tecniche di calcolo che presentiamo si basano sulla conoscenza 
+dell'insieme degli Iperreali e sull'applicazione diffusa del \emph{principio di estensione naturale} agli Iperreali delle proprietà utili, che sono vere nell'insieme dei Reali.\\
 Per esempio, il concetto di funzione che abbiamo già definito nei Reali, sarà 
 applicato silenziosamente anche agli Iperreali e non scriveremo $f^*$ al posto 
 di $f$, per indicare $f$ estesa, oppure $f(x^*)$ o simili. 
@@ -65,12 +65,12 @@ tempo impiegato:
  \sqrt{\frac{2\times 56}{9,81}}=3,36 s.\\
  & v_m= \frac{s_{tot}}{t_{tot}}=\frac{56 m}{3,36 s}=16,67 m/s,
 \end{align*}
-che corrispondono a circa \(60 km/h\) di media.\\
+che corrispondono a circa \(60 km/h\).\\
+\subsubsection{La velocità istantanea}
 Ma gli oggetti partono fermi e arrivano velocissimi: 
-è possibile sapere quale è loro velocità in ogni istante? È il momento
-di usare le quantità infinitesime.\\
-Chiamiamo $dt$ un intervallo di tempo infinitesimo, fra due istanti successivi
-$t$ e $t+dt$.
+è possibile sapere quale è loro velocità in ogni istante?\\
+Un istante è un tempo di durata infinitesima: se consideriamo valori di tempo istantanei siamo portati naturalmente a passare da valori $t_1 \ t_2, \ \dots$, nell'insieme dei reali, a valori $t_1, \ t_1+dt, \ t_1+2dt,\ \dots\ t_2, \ \dots$ nell'insieme degli iperreali. È quindi il momento di usare le quantità infinitesime.\\
+Chiamiamo $dt$ (in questo caso sarà \(dt > 0\)) un intervallo di tempo infinitesimo, fra due istanti successivi $t$ e $t+dt$.
 Lo spazio percorso nella caduta, in quell'intervallo di tempo, applicando 
 la legge del moto, sarà:
 \[
@@ -78,17 +78,17 @@ la legge del moto, sarà:
  \frac{1}{2}g\tonda{t^2+2tdt+(dt)^2}-\frac{1}{2}gt^2=
  gtdt+\frac{1}{2}(dt)^2. 
 \]
-Dividendo il tutto per \(dt\) si ottiene la velocità istantanea, quella che 
-cambia istante per istante:
+Dividendo il tutto per \(dt\) si ottiene la velocità istantanea, quella che cambia istante per istante:
 \[
  v(t)=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt.
 \]
 L'espressione $gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt$ diventa un numero ben
-preciso per ogni valore di $t$, un iperreale finito che è la
-somma di un numero standard e di un numero infinitesimo. 
-Per averne il valore reale, applichiamo la parte standard:
+preciso per ogni valore di $t$ e per ogni valore $dt$, un iperreale finito
+che è la somma di un numero standard e di un numero infinitesimo.\\
+Se fissiamo un certo istante $\overline{t}$, $v(\overline{t})=9,81\overline{t}+\frac{1}{2}dt$ ha un valore variabile, che dipende dalla durata infinitesima $dt$. I vari $dt$ possibili sono infiniti, ma questo non cambia in modo rilevante la velocità, che si attesta sostanzialmente attorno al valore $9,81\overline{t}$.\\
+Per averne il valore reale, trascurando la variabilità residua dovuta agli infinitesimi, applichiamo la parte standard:
 \[
- \pst{9,81t+\frac{1}{2}dt}=9,81t
+ \pst{9,81t+\frac{1}{2}dt}=9,81t.
 \]
 Questa è la velocità istantanea che cerchiamo: dipende dal tempo $t$,
 cioè cresce con il passare dei secondi. 
@@ -106,8 +106,8 @@ $3,6$ & $9,81\times 3,36= ...$\\\bottomrule
 \end{center}
 
 La formula $v=9,81\times t$ ci permette il calcolo della velocità per ogni 
-valore di $t$.
-Per quale valore di \(t\) la velocità sarà uguale a quella media? 
+valore reale di $t$ e questa è la risposta alla domanda iniziale.
+% Per quale valore di \(t\) la velocità sarà uguale a quella media? 
 
 
 \section{Continuità}
@@ -117,13 +117,9 @@ del
 calcolo con gli infinitesimi.  Questo tipo di calcolo fiorì per 150 anni a 
 partire dall'epoca di Newton e Leibniz. Ma suscitava vivaci polemiche fra
 gli specialisti, perché non si era in grado di spiegare come mai i 
-risultati, espressi attraverso numeri infinitesimi, alla fine diventano numeri
-``di uso comune``.
+risultati, espressi attraverso numeri infinitesimi, alla fine diventassero numeri ``di uso comune``.
 Oggi i matematici conoscono meglio la materia e queste difficoltà sono 
-superate.
-Siamo quindi in grado di procedere nello studio di questa nuova branca 
-della 
-matematica, che si chiama \emph{Analisi infinitesimale}.
+superate. Siamo quindi in grado di procedere nello studio di questa nuova branca della matematica, che si chiama \emph{Analisi infinitesimale}.
 
 \subsubsection{Continuità, intervalli, differenze}
 \label{04_diffcontinterv}
@@ -615,7 +611,7 @@ della variabile indipendente:
 \begin{proof}
 \[
  df(x_0)= 
-f(x_0+dx)-f(x_0)=(x_0+dx)^2-x_0^2=x_0^2+2x_0dx+(dx)^2-x_0^2=2x_0dx+(dx)^2
+f(x_0+dx)-f(x_0)=(x_0+dx)^2-x_0^2=x_0^2+2x_0dx+(dx)^2-x_0^2=2x_0dx+(dx)^2.
 \]
 Questa volta nel risultato compare $x_0$. Quindi il valore del 
 differenziale della funzione cambia al cambiare del punto $x_0$ che viene 
@@ -698,7 +694,7 @@ seguente.
 
 \begin{osservazione}
 Il teorema precedente si riferisce alle sole potenze con esponente
-naturale. Per altre vie si può dimostrare un teorema analogo, relativo
+naturale. Per altre vie si dimostrerà un teorema analogo, relativo
 a \emph{qualsiasi esponente reale}.
 Ne hai un esempio nei casi che seguono.
 \end{osservazione}
@@ -739,7 +735,7 @@ risultato con quello ottenuto applicando la regola della funzione potenza:
 \label{subsubsec:diff01_diffrecip}
 \begin{teorema}
  Il differenziale della funzione reciproca $f(x)=\frac{1}{x}$ (con $x \ne 0$)
- è  \[d\tonda{\frac{1}{x}}\sim\frac{dx}{x^2} \quad \text{se} \quad x \ne 0.\]
+ è  \[d\tonda{\frac{1}{x}}\sim\frac{dx}{x^2}.\]
 \end{teorema}
 
 \noindent Ipotesi: $f(x)=\dfrac{1}{x}$\tab 
@@ -761,8 +757,8 @@ Riscriviamo la funzione reciproca come una funzione potenza:
 
 \end{proof}
 
-Per quanto visto sopra, concludiamo che vale il seguente teorema, anche se non
-lo abbiamo dimostrato completamente:
+Da questi esempi traiamo il prossimo enunciato, che ci riserviamo di 
+dimostrare in seguito:
 
 \begin{teorema}
  Il differenziale della funzione potenza, con esponenete reale qualsiasi, è 
@@ -772,7 +768,7 @@ lo abbiamo dimostrato completamente:
 \subsubsection{Differenziali problematici}
 \label{subsubsec:diff01_diffproblemi}
 
-L'ultimo calcolo ci porta un punto importante: dato che
+L'ultimo esempio ci porta un dubbio: dato che
 $x$ risulta al denominatore, abbiamo un problema. Che succede se $x=0$?
 \begin{esempio}
  Calcola $df(x)|_{x=0}$, con $f(x)=\frac{1}{x}$.\\
@@ -1212,10 +1208,8 @@ e si calcola il rapporto $m=\frac{y_B-y_A}{x_B-x_A}$.\\
 È come se si volesse misurare la distanza verticale
 fra i due punti usando la loro distanza orizzontale come unità di misura. 
 Nel caso della retta $r$, $m=\frac{3}{2}$ e si potrebbe dire: ''un punto 
-che 
-si 
-muove sulla retta, se si sposta di due quadretti in orizzontale
-ne guadagna (o perde) tre in verticale.\\
+che si muove sulla retta, se si sposta di due quadretti in orizzontale
+ne guadagna (o perde) tre in verticale``.\\
 Un punto che scorre sulla retta orizzontale, non subisce
 alcuna variazione lungo l'asse $y$ e per questo $m=0$; al contrario per la
 retta verticale le variazioni sono solo verticali e la pendenza è
@@ -1295,9 +1289,8 @@ $$  m_{AB}=-2 \qquad m_{BC}=\frac{1}{2}\qquad m_{CD}=\frac{1}{3}\qquad
 m_{DE}=-\frac{7}{3}$$
 \end{esempio}
 
-I calcoli confermano che se il grafico è una curva, il Rapporto 
-Incrementale, 
-calcolato fra varie coppie di punti, ha valori diversi. 
+I calcoli confermano che se il grafico non è una retta, il Rapporto 
+Incrementale, calcolato fra varie coppie di punti, ha valori diversi. 
 Il R.I. cambia a seconda della coppia di punti fissati sulla curva.\\
 Se si traccia la retta che unisce la coppia di punti, ne risulta una secante
 alla curva.\\
@@ -1904,7 +1897,7 @@ definizione di derivata ...deriva direttamente quanto segue.
 \end{teorema}
 \noindent Ipotesi: $f(x)=k$.\tab Tesi: $f'(x)=0$.
 \begin{proof}
- Infatti $df(x)=0$
+ Infatti $df(x)=0$.
 \end{proof}
 
 \begin{teorema}
@@ -2089,7 +2082,7 @@ Possiamo applicare i teoremi precedenti a casi meno elementari, cioè
 a funzioni algebriche che contengono somme, prodotti e quozienti di
 funzioni elementari. 
 \begin{esempio}
-  Derivare la funzione $f(x)= 3x-\dfrac{3}{x}$ in $x_0=3$\\
+  Derivare la funzione $f(x)= 3x-\dfrac{3}{x}$ in $x_0=3$.\\
   Si tratta di una funzione nuova, ma è facile riconoscere che è formata 
   dalla somma (algebrica) di due funzioni e ciascuna di queste è data dal 
   prodotto fra la costante $3$ e una funzione appena trattata. Perciò:\\
@@ -2406,7 +2399,7 @@ Infatti, nell'esempio tutto funziona alla perfezione, ma solo se $x\ne 0$
 (ricorda anche l'esempio \ref{esempio:diff01_deriradice}). \\
 Se valgono tutte le condizioni favorevoli, allora esistono la funzione
 $f$ e la sua inversa $g=f^{-1}$. La funzione e la sua inversa, se esiste,
-hanno grafici rispetto alla bisettrice $y=x$.
+hanno grafici simmetrici rispetto alla bisettrice $y=x$.
 
 
 \begin{inaccessibleblock}
@@ -2530,7 +2523,7 @@ $f'(x)= f'(0)\cdot f(x)$.
 funzione stessa, attraverso un fattore che corrisponde alla derivata 
 calcolata in} $x=0$.\\
 
-Volevamo calcolare la derivata di \(f(x)=a^x\) e ci ritroviamo
+Volevamo calcolare la derivata di \(f(x)=a^x\) e ci ritroviamo con
 un risultato che contiene la derivata stessa \(f'(0)\), insomma non si direbbe 
 che ci siano stati grandi progressi. Ma fingiamo per un attimo che $f'(0)$ non 
 incida sul risultato, cioè che \(f'(0)=1\). In questo modo la funzione e la
@@ -2560,14 +2553,14 @@ Attraverso l'uso del numero \(e\) siamo finalmente in grado di derivare la
 funzione esponenziale generica \(f(x)=a^x\).
 
 \begin{teorema}
-  La derivata della funzione esponenziale qualsiasi, con base $a>0$, è: 
+  La derivata della funzione esponenziale qualsiasi, con base $a>0$, è:\\ 
 $\mathit{D}\quadra{a^x}=
   a^x\ln{a}$.
 \end{teorema}
 \noindent Ipotesi: $f(x)=a^x$; \tab Tesi: $f'(x)=a^x\ln{a}$.
 \begin{proof}
  Usiamo una trasformazione appresa con lo studio dei logaritmi e applichiamo 
- il teorema \pageref{teo:diff01_dericomp}:
+ il teorema a pag.\pageref{teo:diff01_dericomp}:
  $f(x)~=~a^x~=~e^{\ln a^x}$. Se poniamo $g(x)=\ln a^x=x\ln a$, si ottiene:\\
  $f(g(x))=e^{g(x)}\srarrow f'(g(x))=f'(g)g'(x)= e^{x\ln a}\ln a=
  e^{\ln a^x}\ln a=a^x\ln a$.
