@@ -8,7 +8,7 @@ In questa sezione vedremo, e useremo, un nuovo insieme di numeri, utile a
 modellizzare e risolvere nuove classi di problemi. 
 Rispetto a quanto già sappiamo dell'insieme \(\R\), dovremo adattare alcune 
 regole di calcolo e riscontreremo proprietà nuove, mentre dovremo 
-abbandonarne, per ora, il postulato di Eudosso-Archimede. 
+abbandonarne, per ora, una conosciuta: il postulato di Eudosso-Archimede. 
 
 \subsection{Il problema della velocità}
 \label{subsec:insnum_velocita}
@@ -110,7 +110,7 @@ numeri che, in valore assoluto, sono maggiori di qualunque numero reale.
  \item \textbf{Zero}:
 l'unico numero reale infinitesimo.
  \item \textbf{Infinitesimi non nulli}:
-numeri infinitesimi senza lo zero.
+numeri infinitesimi, escluso lo zero.
  \item \textbf{Finiti}:
 numeri che non sono infiniti.
  \item \textbf{Finiti non infinitesimi}:
@@ -160,13 +160,13 @@ qualsiasi &  & \(x, y, z, \dots\) \\\bottomrule
 Vediamo i vari casi:
 
 \begin{enumerate}
- \item \(\pi+\epsilon\) 
+ \item \(\pi+\epsilon\): 
 è un numero finito perché \(\pi\) è un numero 
 finito (\(3,141592653589793\dots\)) con infinite cifre decimali, ma 
 \(\epsilon\) è più piccolo della più piccola cifra di \(\pi\) che possiamo 
 pensare quindi aggiungere un infinitesimo ad un numero reale non cambia il 
 numero reale che rimane un numero finito, in questo caso non infinitesimo.
- \item  \(4\epsilon+\epsilon \cdot \delta\) 
+ \item  \(4\epsilon+\epsilon \cdot \delta\): 
 qui abbiamo la somma di due quantità, 
 la prima è formata da 4 infinitesimi, ma per come abbiamo definito 
 l'infinitesimo, anche 4 infinitesimi sono ancora un infinitesimo; la 
@@ -174,19 +174,19 @@ seconda è formata dal prodotto di un infinitesimo per un altro infinitesimo
 che indica quindi un infinitesimo di un infinitesimo che è un infinitesimo 
 ancora più infinitesimo di ciascuno dei due. La loro somma quindi è un 
 infinitesimo con lo stesso segno di \(\epsilon\).
- \item \(M-7\)
-Possiamo distinguere due casi: 
+ \item \(M-7\):
+possiamo distinguere due casi: 
  \begin{itemize} [noitemsep]
   \item se \(M\) è un infinito negativo, allora 
 \(M-7\) sarà un numero in valore assoluto ancora più grande, 
  \item se \(M\) è un infinito positivo, \(M-7\) sarà numero più piccolo di 
 \(M\) ma che non può essere un numero finito. 
-Infatti, supponiamo che \(M-7\) sia un numero finito, chiamiamolo \(x\) ma 
+Infatti, supponiamo che \(M-7\) sia un numero finito, chiamiamolo \(x\); ma 
 se \(x\) è finito allora anche \(x+7\) è finito e questo avrebbe come 
 conseguenza che anche \(M\) sia finito contraddicendo le nostre convenzioni.
  \end{itemize}
- \item \(M+\dfrac{1}{\epsilon}\)
- In questo caso dobbiamo fare una distinzione:
+ \item \(M+\dfrac{1}{\epsilon}\):
+ in questo caso dobbiamo fare una distinzione:
  \begin{itemize} [noitemsep]
   \item se \(M\) e \(\epsilon\) hanno lo stesso segno il calcolo precedente 
 equivale a sommare due infiniti entrambi positivi (o negativi) e darà come 
@@ -200,6 +200,8 @@ informazioni per poter stabilire il tipo del risultato.
 
 \subsection{Numeri infinitamente vicini}
 \label{subsec:insnum_infinitamentevicini}
+
+% Bruno: inserire anche osservazioni sugli infiniti infinitamente vicini?
 
 Nei numeri reali, due numeri o sono uguali o sono diversi (ovviamente).
 Nel primo caso, la differenza tra i due numeri è zero, 
@@ -217,7 +219,7 @@ essere un numero finito non infinitesimo o un numero infinitesimo.
    \abs{3 + 6\epsilon}
  \)
  
- La distanza tra \(a\) e \(b\), è uguale a~3 più un infinitesimo.
+ La distanza tra \(a\) e \(b\) è uguale a~3 più un infinitesimo.
 \end{esempio}
 
 \begin{esempio}
@@ -229,7 +231,7 @@ essere un numero finito non infinitesimo o un numero infinitesimo.
    \abs{0 + \delta - \epsilon} = \abs{\gamma}
  \)
  
- In questo caso la distanza tra \(a\) e \(b\), è un infinitesimo.
+ In questo caso la distanza tra \(a\) e \(b\) è un infinitesimo.
 \end{esempio}
 
 \noindent Negli Iperreali possiamo distinguere:
@@ -267,7 +269,7 @@ i numeri infinitamente vicini a questo.
 numeri iperreali infinitamente vicini a \(x\).
 \end{definizione}
 
-Due monadi diverse non hanno elementi in comune
+Due monadi diverse non hanno elementi in comune.
 
 Una monade può contenere al massimo un numero reale, due numeri reali 
 diversi appartengono a monadi diverse.
@@ -354,10 +356,10 @@ Questo numero reale si chiama \emph{parte standard} del numero Iperreale.
 
 \begin{definizione}
  Si dice che \(a\) è la \textbf{parte standard} di \(x\), e si scrive: 
- \(\st(x) = a\), se \(a\) è un numero reale e \(x\) è 
+ \(\st(x) = a\), se \(a\) è un numero reale e \(x\) è un numero iperreale
 infinitamente vicino ad \(a\):
 
-\[\st(x) = a \sLRarrow a \in \R \sand x \approx a\]
+\[\st(x) = a \sLRarrow a \in \R \sand x \approx a\mbox{, con }x\in \IR\]
 \end{definizione}
 
 \begin{osservazione}
@@ -761,10 +763,9 @@ ottenuto.
  \end{esempio}
 
 \begin{osservazione}
-Quando il risultato è la somma di più elementi, li scriviamo, ordinandoli 
+Quando il risultato è la somma di più elementi, li scriviamo ordinandoli 
 dal più grande, in valore assoluto, al più piccolo.
 %  Quando possibile scriviamo un risultato composto da più elementi 
-scrivendoli 
 % dal più grande, in valore assoluto, al più piccolo.
 \end{osservazione}
 
@@ -1023,7 +1024,7 @@ come si comportano, con numeri naturali piccoli, le due funzioni
 \end{tabular}
 \end{center}
 Possiamo vedere che dal quinto elemento in poi la prima successione è sempre
-maggiore della seconda ed essendo l'infinito più grande di cinque 
+minore della seconda ed essendo l'infinito più grande di cinque 
 otteniamo che \(2^M > M^2\) quindi possiamo scrivere:
 \[\frac{M}{2^M} < \frac{M}{M^2} = \frac{1}{M} < 1\]
 Ma \(\frac{1}{M}\) è un infinitesimo quindi \(M\) è un infinito di ordine 
@@ -1096,10 +1097,10 @@ Ipotesi: \(\tonda{x,~y:\ fni \sand y = x+\epsilon} \qquad \sLRarrow \qquad\)
 Tesi: \(x \sim y\).
 \end{center}
 Dimostrazione
-\[\frac{y-x}{x}=\frac{x-\tonda{x+\epsilon}}{x} = 
+\[\frac{y-x}{x}=\frac{\tonda{x+\epsilon}-x}{x} = 
 \frac{\epsilon}{x}= \gamma \quad \wedge \quad 
-\frac{y-x}{x}=\frac{x-\tonda{x+\epsilon}}{y} = 
-\frac{\epsilon}{y}= \delta
+\frac{y-x}{y}=\frac{\tonda{x+\epsilon}-x}{y} = 
+\frac{\epsilon}{y}= \delta.
 \]
 Il teorema inverso dirà:
 \begin{center}
@@ -1108,15 +1109,16 @@ Tesi: \(x \approx y\).
 \end{center}
 Dimostrazione
 \[\frac{y-x}{x} = \epsilon
-\sRarrow y-x=\epsilon x \sRarrow x=y+\epsilon x=y+\beta 
+\sRarrow y-x=\epsilon x \sRarrow x=y+\epsilon x=y+\beta. 
 \]
+(Il caso $\dfrac{y-x}{y}$ a questo punto è banale.)
 \end{proof}
 
 \subsubsection{Infinitesimi}
 \label{subsubsec:insnum_infinitesimi}
 
 Per quanto riguarda gli infinitesimi, non basta che siano infinitamente 
-vicini infatti tutti gli infinitesimi sono infinitamente vicini tra di loro.
+vicini, infatti tutti gli infinitesimi sono infinitamente vicini tra di loro.
 Per essere indistinguibili serve una condizione più ristretta.
 
 \begin{teorema}
@@ -1194,7 +1196,7 @@ Dimostrazione
 \frac{M-\tonda{N +a}}{N} = 
 -\frac{a}{N}= \delta
 \]
-In modo analogo si può procedere con la second parte del teorema.
+In modo analogo si può procedere con la seconda parte del teorema.
 \end{proof}
 
 \subsection{Principio di tranfer}
@@ -1305,7 +1307,7 @@ Per sapere quanto varia il volume per ogni variazione infinitesima di
 raggio, si calcola:\\
 \(\frac{dV}{dr}=\frac{\frac{4}{3}\pi 
 (3r^2\epsilon+3r\epsilon^2+\epsilon^3)}{\epsilon}=
-\frac{4}{3}\pi (3r^2+3r\epsilon+\epsilon^2)\), che è un numero di tipo inn.
+\frac{4}{3}\pi (3r^2+3r\epsilon+\epsilon^2)\), che è un numero di tipo f.
 La sua parte standard è \(\st\tonda{\frac{dV}{dr}}=4\pi r^2\). Nota che questa
 è l'espressione dell'area della superficie sferica. Come era prevedibile, 
 infatti, 
@@ -1318,7 +1320,7 @@ un guscio sferico di spessore infinitesimo approssima la superficie sferica.
 I numeri iperreali semplificano la ricerca della soluzione di molti 
 problemi.
 Il calcolo delle soluzioni ci porta a risultati espressi quasi sempre da 
-numeri standard, che corrispondono ai reali. Infatti ,quasi sempre, il 
+numeri standard, che corrispondono ai reali. Infatti, quasi sempre il 
 calcolo termina ricorrendo alla funzione \(\st()\).\\
 Questo metodo, cioè ricorrere ad un insieme più astratto di \(\R\), 
 svolgervi i calcoli secondo le nuove regole e alla fine esprimere i 
