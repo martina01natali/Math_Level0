@@ -261,6 +261,23 @@
 
 \end{comment}
 
+%--------------------------
+% Intervalli
+
+% \newcommand{\trespolosegni}[4]{% Grafo calcolo del segno con enne assi
+%   % Esempio di chiamata:
+%   %% \trespolosegni{5}{1.2}{3}{3}
+%   \def \dimx{#1}
+%   \def \dimy{#2}
+%   \def \numassi{#3}
+%   \def \numpunti{#4}
+%   \pgfmathparse{\dimx*2 / (\numpunti+1)} \let\largx\pgfmathresult
+%    \foreach \i in {1,...,\numassi}
+%      \assex{-\dimx}{+\dimx}{-\i*\dimy};
+%    \foreach \i in {1,...,\numpunti}
+%      \draw (\i*\largx-\dimx, 0) -- (\i*\largx-\dimx, -\numassi * \dimy);
+% }
+
 \newcommand{\trespolosegni}[4]{% Grafo calcolo del segno con tre assi
   % Esempio di chiamata:
   %% \trespolosegni{5}{1.2}{3}{3}
@@ -302,7 +319,8 @@
   \draw [-] (+\posx, \posv) -- (+\posx, \dimy) node [above] {\secondoval};
 }
 
-\newcommand{\sistematreassitrepunti}[8]{% Grafo per un sistema di disequazioni
+\newcommand{\sistematreassitrepunti}[8]{% Grafo per un sistema di 
+disequazioni
   % Esempio di chiamata:
   %% \sistematreassitrepunti{5}{1.2}
   %%                        {\(D_1\)}{\(D_2\)}{\(D_1 \wedge D_2\)}
@@ -316,7 +334,8 @@
   \def \secondoval{#7}
   \def \terzoval{#8}
   \def \posx{\dimx / 2}
-  \def \posy{0}          % \posy inchioda la compilazione!!!!!!!!!!!??????????
+  \def \posy{0}          % \posy inchioda la 
+compilazione!!!!!!!!!!!??????????
   \def \posv{0}
   \assex{-\dimx}{+\dimx}{\posv}
   \draw (-\dimx, \posv) node [left] {\primaesp};
@@ -329,6 +348,70 @@
   \draw [-] (-\posx, \posv) -- (-\posx, \dimy) node [above] {\primoval};
   \draw [-] (0, \posv) -- (0, \dimy) node [above] {\secondoval};
   \draw [-] (+\posx, \posv) -- (+\posx, \dimy) node [above] {\terzoval};
+}
+
+% Da sistemare!!!
+\newcommand{\trespolosegninuovo}[5]{% Grafo calcolo del segno con enne assi
+  % Esempio di chiamata:
+  %% \trespolosegni{5}{1.2}{3}{3}{{-5, -2, 3, 6, 9}}
+  \def \dimx{#1}
+  \def \dimy{#2}
+  \def \numassi{#3}
+  \def \numpunti{#4}
+  \def \numeri{#5}
+  \pgfmathparse{\dimx*2 / (\numpunti+1)} \let\largx\pgfmathresult
+   \foreach \i in {1,...,\numassi}
+     \assex{-\dimx}{+\dimx}{-\i*\dimy};
+   \foreach \i in {1,...,\numpunti}
+     \draw (\i*\largx-\dimx, 0) -- (\i*\largx-\dimx, -\numassi * \dimy);
+   \foreach \n in {1,...,\numeri}
+     \draw (\i*\largx-\dimx, 0) -- (\i*\largx-\dimx, -\numassi * \dimy);
+}
+
+
+\newcommand{\inti}[7]{% Intervallo interno
+  % \disegno{\inti{0}{-2}{+2}{a}{b}{white}{black}}
+  \def \posy{#1}
+  \def \posa{#2}
+  \def \posb{#3}
+  \def \labela{#4}
+  \def \labelb{#5}
+  \def \inta{#6}
+  \def \intb{#7}
+  \coordinate (a) at (\posa, \posy);
+  \coordinate (b) at (\posb, \posy);
+  \draw [blue, thick, decorate, decoration=snake] (a) -- (b);
+  \draw[fill=\inta] (a) circle (2pt) node [above] {\(\labela\)};
+  \draw[fill=\intb] (b) circle (2pt) node [above] {\(\labelb\)};
+}
+
+\newcommand{\rayl}[5]{% semiretta sinistra
+  % \disegno{\rayl{0}{5}{-2}{p}{white}}
+  \def \posy{#1}
+  \def \lung{#2}
+  \def \posp{#3}
+  \def \labelp{#4}
+  \def \intp{#5}
+    \coordinate (p) at (\posp, \posy);
+    \draw [blue, thick, decorate, decoration=snake] (-\lung, \posy) -- (p);
+    \draw[fill=\intp] (p) circle (2pt) node [above] {\(\labelp\)};
+}
+
+\newcommand{\rayr}[5]{% semiretta destra
+  % \disegno{\rayr{0}{5}{-2}{p}{white}}
+  \def \posy{#1}
+  \def \lung{#2}
+  \def \posp{#3}
+  \def \labelp{#4}
+  \def \intp{#5}
+    \coordinate (p) at (\posp, \posy);
+    \draw [blue, thick, decorate, decoration=snake] (p) -- (+\lung, \posy);
+    \draw[fill=\intp] (p) circle (2pt) node [above] {\(\labelp\)};
+}
+
+\newcommand{\inte}[8]{% Intervallo esterno
+  \rayl{#1}{#2}{#3}{#5}{#7}
+  \rayr{#1}{#2}{#4}{#6}{#8}
 }
 
 %--------------------------
