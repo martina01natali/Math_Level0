@@ -103,59 +103,59 @@
   }
 }
 
-\newcommand{\inti}[7]{% Intervallo interno
-  % \disegno{\inti{0}{-2}{+2}{a}{b}{white}{black}}
-  \def \posy{#1}
-  \def \posa{#2}
-  \def \posb{#3}
-  \def \labela{#4}
-  \def \labelb{#5}
-  \def \inta{#6}
-  \def \intb{#7}
-  \coordinate (a) at (\posa, \posy);
-  \coordinate (b) at (\posb, \posy);
-  \draw [blue, thick, decorate, decoration=snake] (a) -- (b);
-  \draw[fill=\inta] (a) circle (2pt) node [above] {\(\labela\)};
-  \draw[fill=\intb] (b) circle (2pt) node [above] {\(\labelb\)};
-}
-
-\newcommand{\rayl}[5]{% semiretta sinistra
-  % \disegno{\rayl{0}{5}{-2}{p}{white}}
-  \def \posy{#1}
-  \def \lung{#2}
-  \def \posp{#3}
-  \def \labelp{#4}
-  \def \intp{#5}
-    \coordinate (p) at (\posp, \posy);
-    \draw [blue, thick, decorate, decoration=snake] (-\lung, \posy) -- (p);
-    \draw[fill=\intp] (p) circle (2pt) node [above] {\(\labelp\)};
-}
-
-\newcommand{\rayr}[5]{% semiretta destra
-  % \disegno{\rayr{0}{5}{-2}{p}{white}}
-  \def \posy{#1}
-  \def \lung{#2}
-  \def \posp{#3}
-  \def \labelp{#4}
-  \def \intp{#5}
-    \coordinate (p) at (\posp, \posy);
-    \draw [blue, thick, decorate, decoration=snake] (p) -- (+\lung, \posy);
-    \draw[fill=\intp] (p) circle (2pt) node [above] {\(\labelp\)};
-}
-
-\newcommand{\inte}[8]{% Intervallo esterno
-  % \disegno{\inte{0}{5}{-2}{+2}{a}{b}{white}{black}}
+% \newcommand{\inti}[7]{% Intervallo interno
+%   % \disegno{\inti{0}{-2}{+2}{a}{b}{white}{black}}
+%   \def \posy{#1}
+%   \def \posa{#2}
+%   \def \posb{#3}
+%   \def \labela{#4}
+%   \def \labelb{#5}
+%   \def \inta{#6}
+%   \def \intb{#7}
+%   \coordinate (a) at (\posa, \posy);
+%   \coordinate (b) at (\posb, \posy);
+%   \draw [blue, thick, decorate, decoration=snake] (a) -- (b);
+%   \draw[fill=\inta] (a) circle (2pt) node [above] {\(\labela\)};
+%   \draw[fill=\intb] (b) circle (2pt) node [above] {\(\labelb\)};
+% }
+% 
+% \newcommand{\rayl}[5]{% semiretta sinistra
+%   % \disegno{\rayl{0}{5}{-2}{p}{white}}
 %   \def \posy{#1}
 %   \def \lung{#2}
-%   \def \posa{#3}
-%   \def \posb{#4}
-%   \def \labela{#5}
-%   \def \labelb{#6}
-%   \def \inta{#7}
-%   \def \intb{#8}
-  \rayl{#1}{#2}{#3}{#5}{#7}
-  \rayr{#1}{#2}{#4}{#6}{#8}
-}
+%   \def \posp{#3}
+%   \def \labelp{#4}
+%   \def \intp{#5}
+%     \coordinate (p) at (\posp, \posy);
+%     \draw [blue, thick, decorate, decoration=snake] (-\lung, \posy) -- (p);
+%     \draw[fill=\intp] (p) circle (2pt) node [above] {\(\labelp\)};
+% }
+% 
+% \newcommand{\rayr}[5]{% semiretta destra
+%   % \disegno{\rayr{0}{5}{-2}{p}{white}}
+%   \def \posy{#1}
+%   \def \lung{#2}
+%   \def \posp{#3}
+%   \def \labelp{#4}
+%   \def \intp{#5}
+%     \coordinate (p) at (\posp, \posy);
+%     \draw [blue, thick, decorate, decoration=snake] (p) -- (+\lung, \posy);
+%     \draw[fill=\intp] (p) circle (2pt) node [above] {\(\labelp\)};
+% }
+% 
+% \newcommand{\inte}[8]{% Intervallo esterno
+%   % \disegno{\inte{0}{5}{-2}{+2}{a}{b}{white}{black}}
+% %   \def \posy{#1}
+% %   \def \lung{#2}
+% %   \def \posa{#3}
+% %   \def \posb{#4}
+% %   \def \labela{#5}
+% %   \def \labelb{#6}
+% %   \def \inta{#7}
+% %   \def \intb{#8}
+%   \rayl{#1}{#2}{#3}{#5}{#7}
+%   \rayr{#1}{#2}{#4}{#6}{#8}
+% }
 
 \newcommand{\intpunto}[4]{% Punto
   \def \slung{#1}
