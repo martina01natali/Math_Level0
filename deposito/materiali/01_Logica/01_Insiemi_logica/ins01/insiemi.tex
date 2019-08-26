@@ -1,6 +1,8 @@
 % (c) 2012-2014 Dimitrios Vrettos - d.vrettos@gmail.com
 % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
+\input{\folder insiemi_grafici.tex}
+
 \chapter{Insiemi}
 
 \section{Definizioni}
@@ -996,7 +998,7 @@ saper rappresentare un intervallo:
  \item usando parentesi.
 \end{itemize}
 
-Di seguito vengono riassunti i~6 casi possibili.
+Di seguito vengono riassunti gli~8 casi possibili.
 
 \begin{table}[h!]
 \caption{Intervalli}
@@ -1007,38 +1009,128 @@ Di seguito vengono riassunti i~6 casi possibili.
   \hline
   i numeri compresi tra~\(a\) e~\(b\) estremi esclusi & 
   \(a < x < b\) & \((a;~b)\) o \(]a;~b[\) & 
-%   \disegno{\assex{-3}{+3}{0} \inti{0}{-2}{+2}{a}{b}{white}{white}} \\
-  \disegno{\inti{0}{-2}{+2}{a}{b}{white}{white}} \\
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{white}} \\
   \hline
   i numeri compresi tra~\(a\) e~\(b\) estremi inclusi & 
   \(a \le x \le b\) & \([a;~b]\) &  
-  \disegno{\inti{0}{-2}{+2}{a}{b}{white}{white}} \\
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{black}} \\
   \hline
   i numeri compresi tra~\(a\) e~\(b\), a~incluso, b~escluso & 
   \(a \le x < b\) & \([a;~b)\) o \([a;~b[\) &  
-  \disegno{\inti{0}{-2}{+2}{a}{b}{white}{white}} \\
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{white}} \\
   \hline
   i numeri compresi tra~\(a\) e~\(b\), a~escluso, b~incluso & 
   \(a < x \le b\) & \((a;~b]\) o \(]a;~b]\) &  
-  \disegno{\inti{0}{-2}{+2}{a}{b}{white}{white}} \\
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{black}} \\
   \hline
   i numeri fino ad~\(a\), \(a\)~escluso & 
   \(x < a\) & \((-\infty;~a)\) o \(]-\infty;~a[\) & 
-  \disegno{\inti{0}{-2}{+2}{a}{b}{white}{white}} \\
+  \disegno{\raylconasse{0}{5}{2.5}{a}{white}} \\
   \hline
   i numeri fino ad~\(a\), \(a\)~incluso & 
   \(x \le a\) & \((-\infty;~a]\) o \(]-\infty;~a]\) &  
-  \disegno{\inti{0}{-2}{+2}{a}{b}{white}{white}} \\
+  \disegno{\raylconasse{0}{5}{2.5}{a}{black}} \\
   \hline
   i numeri da~\(a\) in poi, \(a\)~escluso & 
-  \(x > a\) o \(a < x\) & \((a;~-\infty)\) o \(]a;~-\infty[\) &  
-  \disegno{\inti{0}{-2}{+2}{a}{b}{white}{white}} \\
+  \(x > a\) o \(a < x\) & \((a;~-\infty)\) o \(]a;~-\infty[\) & 
+  \disegno{\rayrconasse{0}{5}{2.5}{a}{white}} \\
   \hline
   i numeri da~\(a\) in poi, \(a\)~incluso & 
   \(x \ge a\) o \(a \le x\) & \([a;~-\infty)\) o \([a;~-\infty[\) & 
-  \disegno{\inti{0}{-2}{+2}{a}{b}{white}{white}} \\
+  \disegno{\rayrconasse{0}{5}{2.5}{a}{black}} \\
+  \hline
  \end{tabular}
 \end{table}
+
+Vediamo alcuni esempi numerici.
+
+\begin{esempio}
+\(A=\{x|~x \in \insR \sand x<6\}\) intervallo illimitato inferiormente e 
+aperto superiormente.
+
+L'insieme~\(A\) contiene tutti i punti della
+semiretta che precedono il punto immagine del numero~\(6\). 
+Nella figura questi punti sono evidenziati e 
+per mettere in evidenza che l'origine della semiretta non
+appartiene all'insieme abbiamo messo un pallino vuoto sul punto~\(6\).
+\begin{center}
+\center
+ \begin{tabular}{p{4cm}ccc}
+  a parole   & con i predicati & con le parentesi & sulla retta \\
+  \hline
+  i numeri fino a~\(6\)escluso & 
+  \(x < 6\) & \(\intervaa{-\infty}{+6}\) & 
+  \disegno{\raylconasse{0}{5}{2.5}{6}{white}} \\
+ \end{tabular}
+\end{center}
+\end{esempio}
+
+\begin{esempio}
+\(B=\{x|~x \in \insR \sand -1 \le x < 4\}\) intervallo limitato, 
+chiuso inferiormente e aperto superiormente.
+
+L'insieme~\(B\) contiene tutti i punti compresi tra~\(-1\) compreso 
+e~\(4\) escluso. 
+Nella figura questi punti sono evidenziati e il punto~\(-1\) è 
+indicato con un pallino pieno mentre il punto ~\(4\) con un pallino vuoto.
+\begin{center}
+\center
+ \begin{tabular}{p{4cm}ccc}
+  a parole   & con i predicati & con le parentesi & sulla retta \\
+  \hline
+  i numeri tra~\(-1\)~incluso e~\(+4\)~escluso & 
+  \(-1 \le x < +4\) & \(\intervca{-1}{+4}\) &  
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{-1}{+4}{black}{white}} \\
+ \end{tabular}
+\end{center}
+\end{esempio}
+
+\begin{esempio}
+\(C=\{x|~x \in \insR \sand +1 < x \le 9\}\) intervallo limitato, 
+chiuso inferiormente e aperto superiormente.
+
+L'insieme~\(C\) contiene tutti i punti compresi tra~\(+1\) escluso 
+e~\(+9\) compreso. 
+Nella figura questi punti sono evidenziati e il punto~\(+1\) è 
+indicato con un pallino vuoto mentre il punto ~\(+9\) con un pallino pieno.
+\begin{center}
+\center
+ \begin{tabular}{p{4cm}ccc}
+  a parole   & con i predicati & con le parentesi & sulla retta \\
+  \hline
+  i numeri tra~\(+1\)~escluso e~\(+9\)~incluso & 
+  \(+1 < x \le +4\) & \(\intervac{+1}{+9}\) &  
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{+1}{+9}{white}{black}} \\
+ \end{tabular}
+\end{center}
+\end{esempio}
+
+\begin{esempio}\label{ese:insiemi_intervalli}
+Considerando gli insiemi \(A,~B,~C\) degli esempi precedenti calcola e 
+rappresenta il risultato delle seguenti espressioni:
+\begin{multicols}{3}
+\begin{enumerate} [nosep]
+ \item \(A \cup B\)
+ \item \(B \cap C\)
+ \item \(A - B\)
+\end{enumerate}
+\end{multicols}
+Soluzione:
+\begin{enumerate} [nosep]
+ \item \(A \cup B\) è formato dagli elementi appartenenti 
+ ad \(A\) o a \(B\).
+ \item \(B \cap C\) è formato dagli elementi appartenenti 
+ a \(B\) e anche a \(C\).
+ \item \(A - B\) è formato dagli elementi che appartengono 
+ ad \(A\) ma non appartengono a \(B\).
+\end{enumerate}
+\vspace{1em}
+Possiamo calcolare graficamente i risultati delle espressioni usando una 
+tabella e poi rappresentarli con i predicati e le parentesi:
+\begin{center}
+\grafooperazioni
+\end{center}
+\end{esempio}
 
 
 
