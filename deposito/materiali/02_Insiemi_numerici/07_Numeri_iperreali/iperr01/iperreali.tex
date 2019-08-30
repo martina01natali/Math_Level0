@@ -1409,10 +1409,10 @@ Dove le uguaglianze hanno i seguenti motivi:
  \item si può raccogliere \(\epsilon\) al numeratore; 
  \item dato che \(\epsilon\) è diverso da zero, si può semplificare la 
 frazione; 
- \item i prodotti tra un finito e un infinitesimo sono infinitesimi e la 
-somma di infinitesimi è un infinitesimo;
+ \item finiti per infinitesimi sono infinitesimi e la loro
+somma è un infinitesimo;
  \item il quoziente tra un infinitesimo e un non infinitesimo è un 
-infinitesimo che qui chiamiamo \(\alpha\);
+infinitesimo che chiamiamo \(\alpha\);
  \item Un infinitesimo è infinitamente vicino (\(\approx\)) a zero. 
 Ma zero non può mai essere indistinguibile da un infinitesimo non nullo!
 \end{enumerate}
@@ -1420,7 +1420,7 @@ Ma zero non può mai essere indistinguibile da un infinitesimo non nullo!
 
 \begin{esempio}
 La stessa espressione, con un altro metodo:
-\(\dfrac{4 \epsilon^4 -7 \epsilon^3 + \epsilon^2}{5 \epsilon}\)
+% \(\dfrac{4 \epsilon^4 -7 \epsilon^3 + \epsilon^2}{5 \epsilon}\)
 
 Allo stesso risultato si perviene utilizzando nel primo passaggio la 
 relazione: \emph{essere indistinguibili}:
@@ -1431,7 +1431,6 @@ relazione: \emph{essere indistinguibili}:
   \dfrac{\epsilon}{5}
 ~ \stackrel{3}{\approx} ~
   0\]
-
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item tengo solo la parte principale del numeratore e del denominatore, 
@@ -1473,7 +1472,6 @@ Calcola:\quad \(\pst{\dfrac{-6\epsilon^2 +4 \epsilon^3 -8 \epsilon^5}
   \pst{-M} 
 ~ \stackrel{4}{\longrightarrow} ~
   \infty\]
-
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item tengo solo la parte principale dei polinomi ottenendo un'espressione 
@@ -1592,29 +1590,98 @@ indistinguibile da quella originale;
 \end{enumerate}
 \end{esempio}
 
-\subsection{Tangenti ad una parabola}
+\subsection{Pendenza e tangenti}
 \label{subsec:insnum_tangenti_parabola}
 
-Riprendiamo il problema di calcolare la tangente ad una parabola in un suo 
-punto e lo affrontiamo usando i numeri iperreali. Ricordiamo che la 
-tangente ad una curva in un punto \(T\) è una retta che passa per \(T\) e 
-ha la stessa pendenza della curva in quel punto. 
-Possiamo riassumere così i passi da svolgere:
-\begin{enumerate}[noitemsep]
- \item calcolo l'ordinata del punto di tangenza \(T\);
- \item scrivo l'equazione del fascio di rette passanti per \(T\);
- \item calcolo la pendenza della curva in  \(T\);
- \item sostituisco il valore trovato nell'equazione del fascio di rette.
-\end{enumerate}
 
-Il punto più complicato è il terzo ma proprio qui il calcolo con gli 
-infinitesimi ci può aiutare. \\
-La pendenza di una retta è:
-\(m=\frac{\Delta y}{\Delta x}=\frac{y_1-y_0}{x_1-x_0}\)
-la stessa cosa vale per una curva, dove però
-\(x_1 \approx x_0 ~ \text{e} ~ y_1 \approx y_0\).
+Una retta ha, in ogni suo punto la stessa pendenza che calcoliamo come:
+\[m=\dfrac{\Delta y}{\Delta x}=\dfrac{y_1-y_0}{x_1-x_0}=
+\dfrac{f(x_0+\Delta x)-f(x_0)}{\tonda{x_0+\Delta x}-x_0}=
+\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\]
+Questo valore è anche detto coefficiente angolare della retta.
 
-\begin{center}\secRD\end{center}
+Una parabola, o qualunque altra curva in ogni punto ha una pendenza 
+diversa, nonostante questo, è possibile calcolare la pendenza di una 
+parabola in un punto qualsiasi usando la stessa formula usata per la retta 
+a patto di prendere un \(\Delta x\) infinitesimo e di calcolare il 
+corrispondente \(\Delta y\).
+
+Chiamiamo \(d x\) (de ics) un incremento infinitesimo di \(x\) e 
+\(d y\) (de ipsilon) un incremento infinitesimo di \(y\).
+La pendenza nel punto \(x_0\) sarà:
+\[m=\pst{\dfrac{d y}{d x}=\dfrac{y_1-y_0}{x_1-x_0}}=
+    \pst{\dfrac{f(x_0+\epsilon)-f(x_0)}{\tonda{x_0+\epsilon}-x_0}}=
+    \pst{\dfrac{f(x_0+\epsilon)-f(x_0)}{\epsilon}}\]
+
+
+
+Vediamo un esempio:
+
+\begin{esempio}
+{~}
+
+\begin{minipage}{.49\textwidth}
+Considerata la parabola di equazione:
+\[y=\dfrac{1}{2}x^2-4x+10\] 
+calcola la sua pendenza nel punto di ascissa \(x_0=6\).
+
+Chiamiamo \(\epsilon\) l'incremento infinitesimo di \(x\).
+Il corrispondente incremento di \(y\) sarà: 
+\begin{align*}
+m&=\dfrac{d y}{d x}=
+\dfrac{f(6+\epsilon)-f(6)}{\epsilon}=\\
+ &=\dfrac{\dfrac{1}{2}(6+\epsilon)^2-4(6+\epsilon)+10-4}{\epsilon}=
+\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+\begin{center}\pendenza\end{center}
+\end{minipage}
+\begin{align*}
+m&=\pst{\dfrac{\dfrac{1}{2}\tonda{36+12\epsilon+\epsilon^2}-24-4\epsilon+10
+              -4}
+             {\epsilon}}=
+   \pst{\dfrac{18+6\epsilon+\dfrac{1}{2}\epsilon^2-24-4\epsilon+10-4}
+             {\epsilon}}=\\
+ &=\pst{\dfrac{+2\epsilon+\dfrac{1}{2}\epsilon^2}{\epsilon}}=
+   \pst{\dfrac{+2\cancel{\epsilon}}{\cancel{\epsilon}}}=2
+\end{align*}
+E la tangente è quindi:
+\[y=m \tonda{x-x_0}+y_0 \sRarrow y=2 \tonda{x-6}+4 \sRarrow y=2x-8\]
+
+\end{esempio}
+
+% Riprendiamo il problema di calcolare la tangente ad una parabola in un suo 
+% punto e lo affrontiamo usando i numeri iperreali. Ricordiamo che la 
+% tangente ad una curva in un punto \(T\) è una retta che passa per \(T\) e 
+% ha la stessa pendenza della curva in quel punto. 
+% Possiamo riassumere così i passi da svolgere:
+% 
+% \begin{minipage}{.49\textwidth}
+% \begin{enumerate}[noitemsep]
+%  \item calcolo l'ordinata del punto di tangenza \(T\);
+%  \item scrivo l'equazione del fascio di rette passanti per \(T\);
+%  \item calcolo la pendenza della curva in  \(T\);
+%  \item sostituisco il valore trovato nell'equazione del fascio di rette.
+% \end{enumerate}
+% Il punto più complicato è il terzo ma proprio qui il calcolo con gli 
+% infinitesimi ci può aiutare. \\
+% La pendenza di una retta è:
+% \(m=\frac{\Delta y}{\Delta x}=\frac{y_1-y_0}{x_1-x_0}\)
+% la stessa cosa vale per una curva, dove però
+% \(x_1 \approx x_0 ~ \text{e} ~ y_1 \approx y_0\).
+% Quindi la pendenza di una curva in un suo punto \(x_0\) è data da:
+% \end{minipage}
+% \hfill
+% \begin{minipage}{.49\textwidth}
+% \begin{center}\pendenza\end{center}
+% \end{minipage}
+% \[m=\dfrac{df(x_0)}{dx}=
+%     \dfrac{f\tonda{x_0+\epsilon}-f\tonda{x_0}}{\tonda{x_0+\epsilon}-x_0}=
+%     \dfrac{f\tonda{x_0+\epsilon}-f\tonda{x_0}}{\epsilon}\]
+% 
+% 
+% \begin{center}\ipertangente\end{center}
 
 \begin{comment}
 TODO
