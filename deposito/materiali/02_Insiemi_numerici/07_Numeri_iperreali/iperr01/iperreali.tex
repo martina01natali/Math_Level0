@@ -142,8 +142,6 @@ qualsiasi &  & \(x, y, z, \dots\) \\\bottomrule
 \label{tab:insnum_tipi}
 \end{center}
 
-\newpage %--------------------------------------------------
-
 \begin{esempio}
  Individua il tipo delle seguenti espressioni:
 %  (considerando, per semplicità \(\epsilon\) positivo):
@@ -327,6 +325,8 @@ perciò \(8+\dfrac{5}{\epsilon}\) non è un numero finito.
 \end{enumerate}
 \end{esempio}
 
+\newpage %--------------------------------------------------
+
 \noindent Ogni numero finito può essere visto come un numero \emph{reale} 
 più un \emph{infinitesimo}.
 
@@ -372,11 +372,12 @@ numero reale infinitamente vicino a un infinito.
 \end{osservazione}
 \vspace{1em}
 La Parte Standard presenta alcune proprietà che possono essere facilmente 
-dimostrate (nella parte che segue \(x,\ y\) sono iperreali non infiniti):
+dimostrate. Nel seguito \(x,\ y\) rappresentano iperreali finiti 
+(poiché gli infiniti non hanno parte standard):
 \begin{multicols}{2}
 \begin{enumerate} [nosep]
  \item \(\pst{-x} = -\pst{x}\)
- \item \(\pst{x \pm y} = \pst{x} \pm \pst{y}\)
+%  \item \(\pst{x \pm y} = \pst{x} \pm \pst{y}\)
  \item \(\pst{xy} = \pst{x} \cdot \pst{y}\)
  \item \(se ~ \pst{y} \neq 0 ~ allora ~
  \pst{\frac{x}{y}} = \frac{\pst{x}}{\pst{y}}\)
@@ -385,21 +386,34 @@ dimostrate (nella parte che segue \(x,\ y\) sono iperreali non infiniti):
 \end{enumerate}
 \end{multicols}
 
-Dimostriamole, chiamando \(a=\pst{x} ~ e ~ b=\pst{y}\).
-\begin{enumerate}[nosep]
- \item \(\pst{-x}=\pst{-a +\epsilon}=-a=-\pst{x}\)
- \item \(\pst{x \pm y} = \pst{a+\epsilon \pm (b+\delta)}= \pst{a\pm b+\epsilon \pm \delta}=
- a\pm b = \pst{x}\pm\pst{y}\)
- \item\(\pst{xy} = \pst{(a+\epsilon)(b+\delta)}=\pst{ab+a\delta+b\epsilon+\epsilon\delta}=ab=\) \dots
- \item Se vale la tesi, \(\frac{x}{y}\approx \frac{a}{b}\) perciò la loro differenza sarà un infinitesimo:\\
- \(\dfrac{x}{y}- \dfrac{a}{b}=\dfrac{a+\epsilon}{b+\delta}-\dfrac{a}{b}=
- \dfrac{(a+\epsilon)b-a(b+\delta)}{(b+\delta)b}=\dfrac{ab+b\epsilon-ab-a\delta}{b^2+b\delta}=\dfrac{b\epsilon-a\delta}{b^2+b\delta}\), quindi \dots
- \item (continua tu, bastano poche considerazioni anche senza calcoli).
+Dimostriamole, chiamando \(a=\pst{x} ~ \text{e} ~ b=\pst{y}\).
+\begin{enumerate}%[nosep]
+ \item \(\pst{-x}=\pst{-a +\epsilon}=-a=-\tonda{a}=-\tonda{\pst{x}}\)\\
+Infatti, se \(a\) è un numero infinitamente vicino a \(x\), allora \(-a\) 
+sarà infinitamente vicino a \(-x\) e dato che \(a=\pst{x}\) si ottiene la 
+tesi.
+ \item \(\pst{x \pm y} = \pst{a+\epsilon \pm (b+\delta)}= 
+         \pst{a\pm b+\epsilon \pm \delta}= a\pm b = \pst{x}\pm\pst{y}\)\\
+Infatti, 
+se \(a ~ \text{e} ~ b\) sono la parte standard di \(x ~ \text{e} ~ y\),
+al posto di \(x ~ \text{e} ~ y\) posso scrivere 
+\(a+\epsilon ~ \text{e} ~ b+\delta\), ma nella somma algebrica valgono le 
+proprietà commutativa e associativa quindi otteniamo che \(x \pm y\) è 
+uguale al numero reale \(a \pm b\) più un infinitesimo e la sua parte 
+standard è proprio questo numero reale che può anche essere scritto:
+\(\pst{x}\pm\pst{y}\).
+ \item\(\pst{xy} = \pst{(a+\epsilon)(b+\delta)}=
+        \pst{ab+a\delta+b\epsilon+\epsilon\delta}=ab=
+        \pst{x} \cdot \pst{y}\) \\
+Infatti \dots
+ \item Perché valga la tesi, \(\frac{x}{y} \approx \frac{a}{b}\) cioè la 
+differenza tra le due frazioni deve essere un infinitesimo:\\
+\(\dfrac{x}{y}- \dfrac{a}{b}=\dfrac{a+\epsilon}{b+\delta}-\dfrac{a}{b}=
+  \dfrac{(a+\epsilon)b-a(b+\delta)}{(b+\delta)b}=
+  \dfrac{ab+b\epsilon-ab-a\delta}{b^2+b\delta}=
+  \dfrac{b\epsilon-a\delta}{b^2+b\delta}\)\\ quindi \dots
+(continua tu, bastano poche considerazioni senza ulteriori calcoli).
 \end{enumerate}
-
-
-
-
 
 \subsection{Retta Iperreale e strumenti ottici}
 \label{subsec:insnum_retta}
@@ -834,9 +848,7 @@ dal più grande, in valore assoluto, al più piccolo.
 L'insieme dei numeri Reali ha un ordinamento completo, se \(a\) e \(b\) sono 
 due numeri reali qualunque è sempre valida una e una sola delle seguenti 
 affermazioni:
-
 \[a<b \quad a=b \quad b<a\]
-
 Per confrontare due numeri Reali possiamo utilizzare le seguenti regole:
 
 \begin{enumerate} [noitemsep]
@@ -866,22 +878,13 @@ grandezze permette di ottenere informazioni interessanti.
 \vspace{1em}
 
 Anche negli Iperreali valgono le proprietà dei Reali richiamate sopra. 
-% Ma l'insieme degli iperreali non ha un ordinamento completo:
-% se di \(\epsilon\) e \(\delta\) sappiamo solo che sono due infinitesimi,
-% non è possibile dire se \(\epsilon < \delta\) o \(\epsilon > \delta\).
-% E questo si ripercuote anche su tutti gli altri numeri: senza ulteriori 
-% informazioni non possiamo dire se \(a+\epsilon\) è maggiore minore o uguale 
-% a \(a+\delta\). 
-% Problemi analoghi si incontrano nel confronto degli infiniti.
 Vediamo allora come è possibile affrontare il problema del confronto tra 
 iperreali.
 
 Restringendo l'osservazione ai numeri positivi possiamo affermare che gli 
 infinitesimi sono più piccoli dei non infinitesimi e i finiti sono più 
 piccoli degli infiniti:
-
 \[i \quad < \quad fni \quad < \quad I\]
-
 Passiamo ora al confronto all'interno dei diversi tipi di numeri iperreali.
 
 \subsubsection{Confronto tra finiti non infinitesimi}
@@ -1589,7 +1592,29 @@ indistinguibile da quella originale;
 \end{enumerate}
 \end{esempio}
 
+\subsection{Tangenti ad una parabola}
+\label{subsec:insnum_tangenti_parabola}
 
+Riprendiamo il problema di calcolare la tangente ad una parabola in un suo 
+punto e lo affrontiamo usando i numeri iperreali. Ricordiamo che la 
+tangente ad una curva in un punto \(T\) è una retta che passa per \(T\) e 
+ha la stessa pendenza della curva in quel punto. 
+Possiamo riassumere così i passi da svolgere:
+\begin{enumerate}[noitemsep]
+ \item calcolo l'ordinata del punto di tangenza \(T\);
+ \item scrivo l'equazione del fascio di rette passanti per \(T\);
+ \item calcolo la pendenza della curva in  \(T\);
+ \item sostituisco il valore trovato nell'equazione del fascio di rette.
+\end{enumerate}
+
+Il punto più complicato è il terzo ma proprio qui il calcolo con gli 
+infinitesimi ci può aiutare. \\
+La pendenza di una retta è:
+\(m=\frac{\Delta y}{\Delta x}=\frac{y_1-y_0}{x_1-x_0}\)
+la stessa cosa vale per una curva, dove però
+\(x_1 \approx x_0 ~ \text{e} ~ y_1 \approx y_0\).
+
+\begin{center}\secRD\end{center}
 
 \begin{comment}
 TODO
@@ -1601,10 +1626,6 @@ Riprendiamo il problema della velocità istantanea visto nel paragrafo
 
 \subsection{Vertice della parabola}
 \label{subsec:insnum_vertice_parabola}
-
-
-\subsection{Tangenti ad una parabola}
-\label{subsec:insnum_tangenti_parabola}
 
 
 \subsection{Cerchio osculatore}
