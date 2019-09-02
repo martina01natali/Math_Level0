@@ -74,6 +74,45 @@ Infatti...
 \input{\folder iperreali.tex}
 
 \begin{esempio}
+{~}
+
+\begin{minipage}{.44\textwidth}
+Calcola la tangente all'ellisse di equazione:
+\(4x^2+3y^2=48\)
+nel punto di coordinate \(T\punto{3}{2}\).
+
+La funzione che descrive la parte di ellisse 
+contenente \(T\) è:
+\(y=+\sqrt{-\dfrac{4}{3}x^2+16}\)\\
+L'equazione del fascio di rette per \(T\) è:\\
+\(y=m\tonda{x-3}+2\)
+\begin{align*}
+m&=\pst{\dfrac{d y}{d x}}=
+   \pst{\dfrac{f(3+\epsilon)-f(3)}{\epsilon}}=\\
+ &=\pst{\dfrac{\sqrt{-\dfrac{4}{3}(9+\epsilon)^2+16}-2}{\epsilon}}=
+\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}{.54\textwidth}
+\begin{center}\iperellisse\end{center}
+\end{minipage}
+\begin{align*}
+m&=\pst{\dfrac{\sqrt{-\dfrac{4}{3}(3+\epsilon)^2+16}-2}{\epsilon} \cdot
+        \dfrac{\sqrt{-\dfrac{4}{3}(3+\epsilon)^2+16}+2}
+              {\sqrt{-\dfrac{4}{3}(3+\epsilon)^2+16}+2}}=\\
+ &=\pst{\dfrac{-\dfrac{4}{3}(3+\epsilon)^2+16-4}
+              { \epsilon\tonda{\sqrt{-\dfrac{4}{3}(3+\epsilon)^2+16}+2}}}=
+   \pst{\dfrac{-8\epsilon-\frac{4}{3}\epsilon^2}{4 \epsilon}}=
+   \pst{\dfrac{-8 \cancel{\epsilon}}{4 \cancel{\epsilon}}}=-2
+\end{align*}
+E la tangente è quindi:
+\[y=m \tonda{x-x_0}+y_0 \sRarrow y=-2 \tonda{x-3}+2 \sRarrow y=-2x+8\]
+
+\end{esempio}
+
+\begin{comment}
+
+\begin{esempio}
  % limite notevole espon.
 \(\pst{\tonda{1+\dfrac{k}{N}}^N}
 ~ \stackrel{1}{=} ~  
@@ -121,3 +160,5 @@ Dove l'uguaglianza si giustifica per quanto detto a proposito dell'ordine
 degli infinitesimi, ma gli appassionati del calcolo possono provare a 
 moltiplicare il numeratore e il denominatore per ...
 \end{esempio}
+
+\end{comment}
