@@ -132,9 +132,9 @@ Osservando il grafico provate a descrivere a parole cosa succede:
 \begin{osservazione}
 Nel tratto crescente della funzione, che appare come linea continua, in 
 realtà manca un punto: il punto \(\punto{1}{-1}\). 
-Questo punto mancante è invisibile, quindi il grafico della funzione appare 
-continuo. 
-Possiamo indicare un punto mancante in una linea con un cerchietto vuoto 
+Questo punto mancante è invisibile essendo infinitamente piccolo, quindi il 
+grafico della funzione appare continuo. 
+Possiamo indicare un punto mancante in una linea usando un cerchietto vuoto 
 come nell'ingrandimento a fianco.
 \end{osservazione}
 
@@ -162,15 +162,9 @@ allora \(f(x)\) è infinitamente vicino a \(l\). E si scrive:
 \begin{osservazione}
 ~
 
-Seguendo uno schema già incontrato: 
-il valore di partenza \(c\) è un numero reale, 
-poi si usano numeri iperreali \(x\) e \(f(x)\)
-per ottenere la soluzione \(l\) che è, di nuovo, un numero reale.
-
-\textbf{Esiste il limite} solo se per \textbf{qualunque} numero 
-infinitamente 
-vicino a \(c\), \(f(x)\) è infinitamente vicino ad \textbf{un solo} valore 
-reale \(l\).
+\textbf{Esiste il limite} solo se, \(f(x)\) è infinitamente vicino ad 
+\textbf{un solo} valore reale \(l\) \textbf{qualunque} sia il numero 
+infinitamente vicino a \(c\).
 \footnote{Possiamo inserire queste osservazioni nella definizione ottenendo:
 \begin{definizione}
 Il numero reale \(l\) è il \textbf{limite} di una funzione reale \(f(x)\) 
@@ -178,7 +172,7 @@ per \(x\) che tende a un valore reale \(c\), se,
 quando \(x\) è un qualunque numero iperreale infinitamente vicino a \(c\), 
 ma diverso da \(c\), 
 allora il valore della corrispondente funzione iperreale \({}^*f(x)\) è 
-infinitamente vicino a \(l\).
+infinitamente vicino al valorereale \(l\).
 \end{definizione}}
 \end{osservazione}
 
@@ -195,8 +189,29 @@ calcolata per un valore infinito:
 \[l=\lim_{x \rightarrow \infty} f(x) = \pst{f(M)}\]
 \end{procedura}
 
+% Seguendo uno schema già incontrato: 
+% il valore di partenza \(c\) è un numero reale, 
+% poi si usano numeri iperreali \(x\) e \(f(x)\)
+% per ottenere la soluzione \(l\) che è, di nuovo, un numero reale.
+
 I prossimi esempi mostrano come è possibile applicare la procedura per il 
 calcolo del limite a diversi casi che potrai incontrare.
+
+\begin{esempio}
+\textbf{Limite per \(x\) che tende a un numero infinito}:
+sostituiremo \(x\) con un generico infinito~\(M\).
+\begin{align*}
+\lim_{x \rightarrow \infty} \frac{3x^2-3x+7}{5x^2-6} & \stackrel{1}{=} 
+  \pst{\frac{3M^2-3M+7}{5M^2-6}} \stackrel{2}{=}  
+  \pst{\frac{3\cancel{M^2}}{5\cancel{M^2}}} = \frac{3}{5}
+\end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item sostituiamo \(x\) con \(M\), un generico iperreale infinito;
+ \item sostituiamo l'espressione ottenuta con una espressione 
+   indistinguibile, eseguiamo i calcoli e calcoliamo la parte standard.
+\end{enumerate}
+\end{esempio}
 
 \begin{esempio}
 \textbf{Limite per \(x\) che tende ad un valore finito \(c\)}:
@@ -252,22 +267,6 @@ Dove le uguaglianze hanno i seguenti motivi:
 \end{enumerate}
 \end{esempio}
 
-\begin{esempio}
-\textbf{Limite per \(x\) che tende a un numero infinito}:
-sostituiremo \(x\) con un generico infinito~\(M\).
-\begin{align*}
-\lim_{x \rightarrow \infty} \frac{3x^2-3x+7}{5x^2-6} & \stackrel{1}{=} 
-  \pst{\frac{3M^2-3M+7}{5M^2-6}} \stackrel{2}{=}  
-  \pst{\frac{3\cancel{M^2}}{5\cancel{M^2}}} = \frac{3}{5}
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
-\begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(M\), un generico iperreale infinito;
- \item sostituiamo l'espressione ottenuta con una espressione 
-   indistinguibile, eseguiamo i calcoli e calcoliamo la parte standard.
-\end{enumerate}
-\end{esempio}
-
 Ora vediamo alcuni casi un po' più delicati: ricordiamoci che un numero 
 iperreale diverso da zero non può mai essere indistinguibile da zero.
 
@@ -307,9 +306,14 @@ Dove le uguaglianze hanno i seguenti motivi:
    indistinguibile;
  \item un finito fratto un infinitesimo dà come risultato un infinito; 
  \item gli infiniti non hanno parte standard quindi qui non possiamo usare 
-l'``\(=\)''. Ma i matematici per indicare un infinito usano il simbolo 
-``\(\infty\)'', quindi quando dobbiamo calcolare la parte standard di un 
-numero non finito, tracceremo una freccia seguita da ``\(\infty\)''.
+l'``\(=\)''. Ma i matematici per indicare un numero più grande di qualunque 
+altro numero usano il simbolo ``\(\infty\)'', quindi invece dell'uguale 
+tracceremo una freccia.
+%  \item gli infiniti non hanno parte standard quindi qui non possiamo usare 
+% l'``\(=\)''. Ma i matematici per indicare un numero più grande di qualunque 
+% altro numero usano il simbolo ``\(\infty\)'', quindi quando dobbiamo 
+% calcolare la parte standard di un numero non finito, tracceremo una freccia 
+% seguita da ``\(\infty\)''.
 \end{enumerate}
 \end{esempio}
 
@@ -319,7 +323,7 @@ numero non finito, tracceremo una freccia seguita da ``\(\infty\)''.
 \lim_{x \rightarrow \infty} \tonda{2x-\sqrt{4x^2-8x+3}} & \stackrel{1}{=} 
   \pst{2M-\sqrt{4M^2-8M+3}} \stackrel{2}{=} \\
   &=\pst{2M-\sqrt{4M^2}} \stackrel{3}{=} 
-  \pst{2M-2M} = 0
+  \pst{2M-2M} = \pst{0} = 0
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
@@ -373,9 +377,9 @@ Ottenendo un risultato in accordo con l'andamento della funzione.
 \textbf{Funzione razionale}: metodo rapido ma non sempre funzionante.
 \begin{align*}
 \lim_{x \rightarrow 2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
-\tonda{\pst{\frac
+\pst{\frac
   {\tonda{2+\epsilon}^3+3\tonda{2+\epsilon}^2+2\tonda{2+\epsilon}}
-  {\tonda{2+\epsilon}^2-\tonda{2+\epsilon}-6}} \stackrel{2}{=}}\\ 
+  {\tonda{2+\epsilon}^2-\tonda{2+\epsilon}-6}} \stackrel{2}{=}\\ 
   &=\frac{2^3+3\cdot 2^2+2\cdot 2}{2^2-2-6} =
   \pst{\frac{8+12+4}{4-2-6}} \stackrel{3}{=} \pst{\frac{24}{-4}} =-6
 \end{align*}
@@ -407,7 +411,7 @@ sugli infinitesimi \(\alpha\) e \(\beta\), non possiamo calcolare
 Ma qui ci scontriamo con 2 problemi: abbiamo usato la relazione di 
 indistinguibile con lo zero, e abbiamo ottenuto una divisione per zero che 
 non è definita. Potremmo essere un po' più pignoli ma ancora troppo 
-grossolani osservando che quando \(x\) si avvicina a \(2\) il numeratore e 
+grossolani osservando che quando \(x\) si avvicina a \(-2\) il numeratore e 
 il denominatore si avvicinano a zero, sono cioè degli infinitesimi e quindi 
 otteniamo: \(\frac{\alpha}{\beta}\) ma anche questa maggior precisione non 
 è sufficiente.
@@ -450,7 +454,7 @@ complicato.
 \end{osservazione}\\
 
 Prima di affrontare il prossimo metodo ricordiamoci che possiamo 
-raccogliere tutti gli infinitesimi di ordine superiore ad un certo 
+rappresentare tutti gli infinitesimi di ordine superiore ad un certo 
 infinitesimo \(\epsilon\) nel simbolo: \(o\tonda{\epsilon}\).
 
 \begin{esempio}
@@ -475,7 +479,8 @@ Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item sostituiamo \(x\) con \(-2+\epsilon\);
  \item eseguiamo i calcoli riunendo in un unico simbolo tutti gli 
-infinitesimi di ordine superiore e perciò trascurabili;
+infinitesimi di ordine superiore a \(\epsilon\) e perciò trascurabili 
+(si spera);
  \item sostituiamo l'espressione con una indistinguibile poi calcoliamo la 
 parte standard.
 \end{enumerate}
@@ -577,6 +582,9 @@ Quindi il loro rapporto è \(1\).
 \begin{minipage}{.49\textwidth}
 \begin{center} \limiteseno \end{center}
 \end{minipage}
+Questo significa che \(\sen \delta \text{ e } \delta\) sono indistinguibili 
+cioè \(\sen \delta \text{ è diverso da } \delta\) solo per infinitesimi di 
+ordine superiore a \(\delta\).
 
 \paragraph{Funzione tangente}~
 
@@ -591,9 +599,9 @@ per considerazioni analoghe a quelle fatte per la funzione seno.
 \paragraph{Funzione coseno}~
 
 Per la funzione coseno valgono i seguenti limiti:
-\[\lim_{x \rightarrow 0}{\cos x} = \pst{\cos \delta} = 1; \qquad
-\lim_{x \rightarrow 0}\tonda{1-\cos x} = \pst{1-\cos \delta} = 0; \qquad
-\lim_{x \rightarrow \infty}{\cos x} = \pst{\cos M} = \text{ non esiste}\]
+\[\lim_{x \rightarrow 0}{\cos x} = \pst{\cos \delta} = 1; ~
+\lim_{x \rightarrow 0}\tonda{1-\cos x} = \pst{1-\cos \delta} = 0; ~
+\lim_{x \rightarrow \infty}{\cos x} = \pst{\cos M} = \text{ non es.}\]
 
 Sono interessanti i seguenti due limiti che riguardano il coseno:
 
@@ -639,18 +647,26 @@ precedente, è:
  \pst{\frac{1-\cos \delta}{\delta^2}}
 ~ \stackrel{1}{=} ~  
  \pst{\frac{1-\cos \delta}{\delta^2} \cdot 
-      \frac{1+\cos \delta^2}{1+\cos \delta}}
+      \frac{1+\cos \delta}{1+\cos \delta}}
 ~ \stackrel{2}{=} ~ 
  \pst{\frac{1-\cos^2 \delta}{\delta^2 \tonda{1+\cos \delta}}}~ 
 \stackrel{3}{=} \\
 & \stackrel{3}{=} ~
  \pst{\frac{\sen^2 \delta}{\delta^2 \tonda{1+\cos \delta}}}
 ~ \stackrel{4}{=}
- \pst{\frac{\sen \delta}{\delta} \cdot 
-      \frac{\sen \delta}{\delta \tonda{1+\cos \delta}}}
+ \pst{\tonda{\frac{\sen \delta}{\delta}}^2 \cdot 
+      \frac{1}{\tonda{1+\cos \delta}}}
 ~ \stackrel{5}{=}
- \pst{1 \cdot \frac{\cancel{\delta}}{2 \cancel{\delta}}} = \frac{1}{2}
+ \pst{1 \cdot \frac{1}{2}} = \frac{1}{2}
 \end{align*}
+Dove le uguaglianze hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item moltiplico la funzione per una frazione equivalente a 1;
+ \item prodotto notevole;
+ \item ricordando che \(\sen^x + \cos^2 x = 1\);
+ \item riscrivo l'espressione in un modo più comodo;
+ \item ricordando i limiti visti precedentemente.
+\end{enumerate}
 
 \subsubsection{Esponenziali e logaritmi}
 
@@ -663,7 +679,8 @@ Ricordiamo come è definita la costante di Eulero:
 \[e=\sum_{n=0}^{\infty}{\frac{1}{n!}}=
 \frac{1}{1}+\frac{1}{1}+\frac{1}{2}+\frac{1}{2\cdot3}+
 \frac{1}{2\cdot3\cdot4}+\frac{1}{2\cdot3\cdot4\cdot5}+\dots\]
-Mentre la seconda definizione risulta molto efficiente per il calcolo, la 
+Le definizioni sono equivalenti, mentre la seconda definizione risulta 
+molto efficiente per il calcolo, la 
 prima ha delle interessanti applicazioni matematiche.
 
 \begin{esempio}
@@ -733,6 +750,7 @@ Simile all'esempio precedente, ma con una base generica.
 \stackrel{3}{=} ~ 
 \pst{1 \cdot \ln a}=\ln{a}
 \end{align*}
+\newpage   %----------------------------------------------------
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item ancora una sostituzione: poniamo
