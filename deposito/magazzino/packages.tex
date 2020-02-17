@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%        Matematica dolce
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Copyright 2016 Daniele Zambelli
+%% Copyright 2016-2020 Daniele Zambelli
 %------------------------------
 %% intestazioni.tex
 %------------------------------
@@ -25,10 +25,6 @@
 %  -  README
 %  -  the part of code of the files under chap/, img/  and lbr/ directories
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[10pt,a4paper,openright]{\magdir matsweetmem}
-% Per la versione in scala di grigio commentare la precedente e
-% decommentare la riga seguente
-% \documentclass[10pt,a4paper,openright,gray]{\magdir matsweetmem}
 %========================
 %  Lingua & codifica
 %========================
@@ -197,3 +193,34 @@
 % Caratteri sans serif
 %========================
 % \renewcommand{\familydefault}{\sfdefault}
+
+
+% ------------------------------------
+% Peccato che non funzioni:
+\usepackage{fancyhdr}
+%--------------------------------------------
+% Altra soluzione trovata guitex e modificata
+\pagestyle{fancy}
+\fancyhf{}
+% \setlength{\headheight}{15pt}      % altezza dell'head
+% \fancyfoot[C]{\thepage}            % numero in basso centrato
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter. #1}{}} % con numero
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+% \renewcommand{\chaptermark}[1]{\markboth{#1}{}}                % senza numero
+% \renewcommand{\sectionmark}[1]{\markright{#1}}
+% --- Dispari destra, Pari sinistra con numeri di pagina in minuscolo.
+\fancyhead[RO]{{\footnotesize \nouppercase{\rightmark} 
+               \qquad \oldstylenums{\thepage}}}
+\fancyhead[LE]{{\footnotesize \oldstylenums{\thepage}
+               \qquad \nouppercase{\leftmark}}}
+% % --- Dispari sinistra, Pari destra
+% \fancyhead[RO, LE]{\thepage}
+% \fancyhead[LO]{\nouppercase{\slshape\rightmark}} 
+% \fancyhead[RE]{\nouppercase{\slshape\leftmark}}
+% % --- Centrato
+% \fancyhead[RO, LE]{\thepage}
+% \fancyhead[CO]{\nouppercase{\slshape\rightmark}} 
+% \fancyhead[CE]{\nouppercase{\slshape\leftmark}}
+% % --- Lunghezza della linea di separazione
+% \renewcommand{\headrulewidth}{0pt} % senza linea di separazione
+% \fancyheadoffset[RE,LO]{-0.1\textwidth} % lunghezza della testatina
