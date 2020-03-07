@@ -1,38 +1,28 @@
 % (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
 
+\newcommand{\disegnaproiezione}[7]{
+  % disegna il punto A(0, 0), il punto B, e il segmento AB
+  % una retta per AC
+  % l'angolo CAB marcandolo con il nome.
+  
+  \tkzDefPoints{0/0/A, #1/#2/B, #3/#4/C}
+  \tkzDrawSegment[thin](A,B)
+  \tkzDrawLine[add=#5 and 0,thin](A,C)
+  \tkzLabelLine[pos=#6](A,C){$r$}
+  \tkzFillAngle[fill=LimeGreen, draw=black, size=.4](B,A,C)
+  \tkzLabelAngle[pos=.6, font=\scriptsize](B,A,C){$#7$}
+  \begin{scope}[fill=CornflowerBlue, draw=black]
+  \filldraw (A) circle (1.5pt) node[left] {$A$};
+  \filldraw (B) circle (1.5pt) node[right] {$B$};
+  \end{scope}
+}
+
 \begin{tikzpicture}[x=10mm,y=10mm, font=\small]
-\tkzDefPoints{0/0/A,1.5/1/B, 0/1.2/C}
-\tkzDrawLine[add=0 and 0,thin](A,B)
-\tkzDrawLine[end=$r$,thin](A,C)
-\tkzMarkAngle[fill=LimeGreen, draw=black, size=.4](B,A,C)
-\tkzLabelAngle[pos=.6, font=\scriptsize](B,A,C){$\alpha$}
-\begin{scope}[fill=CornflowerBlue, draw=black]
-\filldraw (0,0) circle (1.5pt) node[left] {$A$};
-\filldraw (1.5,1) circle (1.5pt) node[right] {$B$};
-\end{scope}
-
+\disegnaproiezione{1.5}{1}{0}{1.8}{.5}{1.1}{\alpha}
 \begin{scope}[xshift=35mm, yshift=10mm]
-\tkzDefPoints{0/0/A,2/.6/B, -1/1.2/C}
-\tkzDrawLine[add=0 and 0,thin](A,B)
-\tkzDrawLine[add=1 and 0,end=$r$,thin](A,C)
-\tkzMarkAngle[fill=LimeGreen, draw=black, size=.4](B,A,C)
-\tkzLabelAngle[pos=.6, font=\scriptsize](B,A,C){$\beta$}
-\begin{scope}[fill=CornflowerBlue, draw=black]
-\filldraw (0,0) circle (1.5pt) node[left] {$A$};
-\filldraw (2,.6) circle (1.5pt) node[right] {$B$};
+\disegnaproiezione{2}{.6}{-1}{1.2}{1}{1.1}{\beta}
 \end{scope}
-\end{scope}
-
 \begin{scope}[xshift=65mm]
-\tkzDefPoints{0/0/A,1.5/0/B, 0/1.2/C}
-\tkzDrawLine[add=0 and 0,thin](A,B)
-\tkzDrawLine[end=$r$,thin](A,C)
-\tkzMarkAngle[fill=LimeGreen, draw=black, size=.4](B,A,C)
-\tkzLabelAngle[pos=.6, font=\scriptsize](B,A,C){$\gamma$}
-\begin{scope}[fill=CornflowerBlue, draw=black]
-\filldraw (0,0) circle (1.5pt) node[left] {$A$};
-\filldraw (1.5,0) circle (1.5pt) node[right] {$B$};
+\disegnaproiezione{1.5}{0}{0}{1.8}{0.5}{1.1}{\gamma}
 \end{scope}
-\end{scope}
-
 \end{tikzpicture}

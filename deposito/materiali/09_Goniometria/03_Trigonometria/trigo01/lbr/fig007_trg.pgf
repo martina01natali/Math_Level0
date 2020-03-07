@@ -2,30 +2,22 @@
 
 \begin{tikzpicture}[x=9mm,y=9mm, font=\small]
 
-  \coordinate (A) at (0,0);
-  \coordinate (C) at ($(A)+(90:3)$);
-  \coordinate (B) at ($(A)+(0:4)$);
+\coordinate (A) at (0,0);
+\coordinate (B) at ($(A)+(0:4)$);
+\coordinate (C) at ($(A)+(90:3)$);
 
-  \draw (A) node[below left]{$A$}-- (C) node[above left]{$C$} -- (B)node[below right]{$B$} -- (A);
+\draw (A) node[below left]  {$A$} -- 
+      (B) node[below right] {$B$} node[midway,below]{$c$} -- 
+      (C) node[above left]  {$C$} node[midway,above]{$a$} --
+      (A)                         node[midway,left] {$b$};
 
-  \tkzMarkAngle[ fill=LimeGreen ,draw, size=.4](A,C,B)
-  \tkzMarkAngle[ fill=LimeGreen ,draw, size=.4](C,B,A)
-  \tkzMarkRightAngle[ fill=LimeGreen ,draw, size=.3](C,A,B)
-  
-  \begin{scope}[font=\scriptsize]
-    \tkzLabelAngle[pos=.6](A,C,B){$\gamma$}
-    \tkzLabelAngle[pos=.6](C,B,A){$\beta$}
-    \tkzLabelAngle[pos=.6](C,A,B){$\alpha$}
-  \end{scope}
+\tkzFillAngle[fill=LimeGreen, draw, size=.33](A,C,B)
+\tkzLabelAngle[pos=.6](A,C,B){$\gamma$}
 
-  \tkzLabelSegment[midway, left](A,C){$b$}
-  \tkzLabelSegment[midway, below](A,B){$c$}
-  \tkzLabelSegment[midway, above](B,C){$a$}
+\tkzFillAngle[fill=LimeGreen, draw, size=.33](C,B,A)
+\tkzLabelAngle[pos=.6](C,B,A){$\beta$}
 
-  \begin{scope}[fill=CornflowerBlue, draw=black]
-    \filldraw (0,0) circle (1pt);
-    \filldraw (4,0) circle (1pt);
-    \filldraw (0,3) circle (1pt);
-  \end{scope}
+\tkzMarkRightAngle[fill=LimeGreen, draw, size=.2](C,A,B);
+\tkzLabelAngle[pos=.4](B,A,C){$\alpha$}
 
 \end{tikzpicture}

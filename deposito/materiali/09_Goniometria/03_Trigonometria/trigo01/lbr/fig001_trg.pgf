@@ -1,25 +1,29 @@
 % (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
+% (c) 2020 Daniele Zambelli: daniele.zambelli@gmail.com
+
+% \tkzMarkAngles(C,B,M B,M,C M,C,B%
+% D,L,N L,N,D N,D,L)
+% \tkzFillAngles[fill=red!20,opacity=.2](C,B,M%
+% B,M,C M,C,B D,L,N L,N,D N,D,L)
 
 \begin{tikzpicture}[x=10mm,y=10mm, font=\small]
 
 \coordinate (A) at (0,0);
-\coordinate (B) at ($(A)+(0:2.5)$);
-\coordinate (C) at ($(A)+(90:2)$);
-\draw (A) node[below left]{$A$} -- (B) node[below right]{$B$}node[midway,below]{$c$} -- (C)node[above left]{$C$}node[midway,above]{$a$} -- (A)node[midway,left]{$b$};
+\coordinate (B) at ($(A)+(0:4)$);
+\coordinate (C) at ($(A)+(90:2.5)$);
 
-\tkzMarkAngle[ fill=LimeGreen, draw, size=.3](A,C,B)
-\tkzLabelAngle[pos=.5](A,C,B){$\gamma$}
+\draw (A) node[below left]  {$A$} -- 
+      (B) node[below right] {$B$} node[midway,below]{$c$} -- 
+      (C) node[above left]  {$C$} node[midway,above]{$a$} --
+      (A)                         node[midway,left] {$b$};
 
-\tkzMarkAngle[ fill=LimeGreen ,draw, size=.3](C,B,A)
-\tkzLabelAngle[pos=.6](A,B,C){$\beta$}
+\tkzFillAngles[fill=LimeGreen, draw, size=.33](A,C,B C,B,A)
+\tkzLabelAngle[pos=.6](A,C,B){$\gamma$}
 
-\tkzMarkRightAngle[ fill=LimeGreen,draw, size=.2](C,A,B);
-\tkzLabelAngle[pos=.4](C,A,B){$\alpha$}
+% \tkzFillAngle[fill=LimeGreen, draw, size=.33](C,B,A)
+\tkzLabelAngle[pos=.6](C,B,A){$\beta$}
 
-\begin{scope}[fill=CornflowerBlue, draw=black]
-\filldraw (0,0) circle (1pt);
-\filldraw (0,2) circle (1pt);
-\filldraw (2.5,0) circle (1pt);
-\end{scope}
+\tkzMarkRightAngle[fill=LimeGreen, draw, size=.2](C,A,B);
+\tkzLabelAngle[pos=.4](B,A,C){$\alpha$}
 
 \end{tikzpicture}

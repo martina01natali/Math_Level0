@@ -1,12 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %        Matematica dolce
 %
-% Copyright 2019 Daniele Zambelli
+% Copyright 2016-20 Daniele Zambelli
 %
 %------------------------------
 % Matematica dolce per i licei Linguistico e economico sociale, volume 1
 %
-% m_d_licei_19_1.tex
+% Compilation:
+% pdflatex --shell-escape m_d_licei_19_1.tex
 %------------------------------
 %
 % This work may be distributed and/or modified under the
@@ -26,7 +27,7 @@
 %  -  m_d_1_les.tex (this file)
 %  -  createpdf.py
 %  -  readme.md
-%  -  the part of code of the files under \matdir , img/  and lbr/ directories
+%  -  the part of code of the files under chap/, img/  and lbr/ directories
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %========================
@@ -36,6 +37,14 @@
 \newcommand{\depdir}{deposito/}
 \newcommand{\magdir}{\depdir magazzino/}
 \newcommand{\matdir}{\depdir materiali/}
+
+%========================
+% Classe del documento
+%========================
+\documentclass[10pt,a4paper,openright]{\magdir matsweetmem}
+% Per la versione in scala di grigio commentare la precedente e
+% decommentare la riga seguente
+% \documentclass[10pt,a4paper,openright,gray]{\magdir matsweetmem}
 
 %========================
 % Variabili del progetto
@@ -49,7 +58,7 @@
 \newcommand{\serie}{Matematica \(C^3\)}
 \newcommand{\titolo}{Matematica dolce 1 - licei}        
 \newcommand{\pdftitolo}{Matematica dolce 1 - licei}
-\newcommand{\docvers}{\texttt{5.0.1}}
+\newcommand{\docvers}{\texttt{6.0.0}}
 \newcommand{\edizione}{2019}
 \newcommand{\Edizione}{Edizione}
 \newcommand{\tipo}{ (versione completa)}
@@ -65,6 +74,10 @@
 % Lettura preambolo
 %========================
 \input{\magdir packages}
+
+%========================
+% Lettura definizioni
+%========================
 \input{\magdir definizioni}
 \input{\magdir definizioni_tikz}
 

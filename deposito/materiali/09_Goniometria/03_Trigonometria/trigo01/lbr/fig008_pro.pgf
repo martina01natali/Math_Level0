@@ -1,4 +1,24 @@
 % (c) 2012 Dimitrios Vrettos - d.vrettos@gmail.com
+% (c) 2020 Daniele Zambelli: daniele.zambelli@gmail.com
+
+% \tkzLabelLine[⟨local options⟩](⟨pt1,pt2⟩){⟨label⟩}
+% arguments
+%  default
+%  definition
+% label
+%  example \tkzLabelLine(A,B){δ}
+% options
+%  default
+%  definition
+% pos
+%  .5
+%  pos est une option de TikZ mais essentielle dans ce cas
+% As an option, and in addition to the pos, you can use all styles of TikZ , especially the placement with above,
+% right, ...
+
+% \tkzDrawLine(A,B)
+% \tkzLabelLine[pos=1.25,left](A,B){$(d_1)$}
+% \
 
 \begin{tikzpicture}[x=10mm,y=10mm, font=\small]
 
@@ -27,7 +47,9 @@
     \tkzDrawLine[add=0 and 0, dashed, thin](B,H)
     \tkzDrawLine[add=0 and 0,thin](A,B)
     \tkzMarkAngle[fill=LimeGreen ,draw, size=.4](B,A,H) 
-    \tkzDrawLine[add = .4 and .4, end=$r$, thin](A,H)
+%     \tkzDrawLine[add = .4 and .4, end=$r$, thin](A,H)
+    \tkzDrawLine[add = .4 and .4, thin](A,H)
+\tkzLabelLine[left](A,B){$r$}
 
     \tkzLabelPoint[above](H){$H$}
     \tkzLabelPoint[above](A){$A$}
@@ -44,7 +66,8 @@
     \tkzDefPoints{0/0/A, 0/2/H, 2/2/B}
     \tkzDrawLine[add=0 and 0, dashed, thin](B,H)
     \tkzDrawLine[add=0 and 0,thin](A,B)
-    \tkzDrawLine[add = 0 and .2, end=$r$, thin](A,H)
+%     \tkzDrawLine[add = 0 and .2, end=$r$, thin](A,H)
+    \tkzDrawLine[add = 0 and .2, thin](A,H)
 
     \tkzLabelPoint[left](H){$H$}
     \tkzLabelPoint[below](A){$A$}

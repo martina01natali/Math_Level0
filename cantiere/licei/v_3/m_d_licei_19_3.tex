@@ -1,12 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %        Matematica dolce
 %
-% Copyright 2016 Daniele Zambelli
+% Copyright 2016-20 Daniele Zambelli
 %
 %------------------------------
 % Matematica dolce per i licei Linguistico e economico sociale, volume 3
 %
-% m_d_licei_18_3.tex
+% m_d_licei_19_3.tex
 %------------------------------
 %
 % This work may be distributed and/or modified under the
@@ -26,7 +26,7 @@
 %  -  m_d_3_les.tex (this file)
 %  -  createpdf.py
 %  -  readme.md
-%  -  the part of code of the files under \matdir , img/  and lbr/ directories
+%  -  the part of code of the files under chap/, img/  and lbr/ directories
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %========================
@@ -36,6 +36,14 @@
 \newcommand{\depdir}{deposito/}
 \newcommand{\magdir}{\depdir magazzino/}
 \newcommand{\matdir}{\depdir materiali/}
+
+%========================
+% Classe del documento
+%========================
+\documentclass[10pt,a4paper,openright]{\magdir matsweetmem}
+% Per la versione in scala di grigio commentare la precedente e
+% decommentare la riga seguente
+% \documentclass[10pt,a4paper,openright,gray]{\magdir matsweetmem}
 
 %========================
 % Variabili del progetto
@@ -65,6 +73,10 @@
 % Lettura preambolo
 %========================
 \input{\magdir packages}
+
+%========================
+% Lettura definizioni
+%========================
 \input{\magdir definizioni}
 \input{\magdir definizioni_tikz}
 
@@ -89,32 +101,32 @@
 %% Capitoli
 %% --------------------------------
 \mainmatter
-% \parte{\matdir 0_a_parti/}{part_01_d}
-\capitolo{\matdir 03_Polinomi/02_Divisibilita/poldiv01/}
-         {divisibilita_scomposizione}
-\capitolo{\matdir 03_Polinomi/03_Frazioni_algebriche/frazalg01/}
-         {frazioni_algebriche}
-\capitolo{\matdir 04_Equazioni/01_Eq_grado_1/compl01/}
-         {compl_alg_1gra}
-\capitolo{\matdir 04_Equazioni/04_Eq_grado_2/eq201/}
-         {equa2gr}
-\capitolo{\matdir 07_Geometria_analitica/03_Parabola/para01/}
-         {parabola_pc}
-\capitolo{\matdir 04_Equazioni/05_Diseq_grado_2/dis201/}
-         {diseq2gr}
-% Capitolo spostato nel quarto volume:
-% \capitolo{\matdir 04_Equazioni/06_Grado_2+/compl201/}
-%          {grasup2_irraz_valass}
-\capitolo{\matdir 02_Insiemi_numerici/07_Numeri_iperreali/iperr01/}
-         {dai_naturali_agli_iperreali}
-% Sposterei al quarto volume anche il capitolo sulla 
-% circonferenza:
-% \capitolo{\matdir 05_Geometria_euclidea/03_Circonferenza/circ01/}
-%          {circonferenza1}
-% \capitolo{\matdir 05_Geometria_euclidea/04_Equiestensione/prop01/}
-%          {proporzionalita1}
-\capitolo{\matdir 09_Goniometria/01_Funzioni_goniometriche/gonio01/}
-         {goniometria}
+%% \parte{\matdir 0_a_parti/}{part_01_d}
+%\capitolo{\matdir 03_Polinomi/02_Divisibilita/poldiv01/}
+%         {divisibilita_scomposizione}
+%\capitolo{\matdir 03_Polinomi/03_Frazioni_algebriche/frazalg01/}
+%         {frazioni_algebriche}
+%\capitolo{\matdir 04_Equazioni/01_Eq_grado_1/compl01/}
+%         {compl_alg_1gra}
+%\capitolo{\matdir 04_Equazioni/04_Eq_grado_2/eq201/}
+%         {equa2gr}
+%\capitolo{\matdir 07_Geometria_analitica/03_Parabola/para01/}
+%         {parabola_pc}
+%\capitolo{\matdir 04_Equazioni/05_Diseq_grado_2/dis201/}
+%         {diseq2gr}
+%% Capitolo spostato nel quarto volume:
+%% \capitolo{\matdir 04_Equazioni/06_Grado_2+/compl201/}
+%%          {grasup2_irraz_valass}
+%\capitolo{\matdir 02_Insiemi_numerici/07_Numeri_iperreali/iperr01/}
+%         {dai_naturali_agli_iperreali}
+%% Sposterei al quarto volume anche il capitolo sulla 
+%% circonferenza:
+%% \capitolo{\matdir 05_Geometria_euclidea/03_Circonferenza/circ01/}
+%%          {circonferenza1}
+%% \capitolo{\matdir 05_Geometria_euclidea/04_Equiestensione/prop01/}
+%%          {proporzionalita1}
+%\capitolo{\matdir 09_Goniometria/01_Funzioni_goniometriche/gonio01/}
+%         {goniometria}
 \capitolo{\matdir 09_Goniometria/03_Trigonometria/trigo01/}
          {trigonometria}
 \capitolo{\matdir 08_Algebra/01_Vettori_matrici/vett01/}
