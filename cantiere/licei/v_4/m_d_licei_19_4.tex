@@ -1,12 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %        Matematica dolce
 %
-% Copyright 2016 Daniele Zambelli
+% Copyright 2016-2020 Daniele Zambelli
 %
 %------------------------------
 % Matematica dolce per i licei Linguistico e economico sociale, volume 1
 %
-% m_d_licei_18_4.tex
+% m_d_licei_19_4.tex
 %------------------------------
 %
 % This work may be distributed and/or modified under the
@@ -38,6 +38,14 @@
 \newcommand{\matdir}{\depdir materiali/}
 
 %========================
+% Classe del documento
+%========================
+\documentclass[10pt,a4paper,openright]{\magdir matsweetmem}
+% Per la versione in scala di grigio commentare la precedente e
+% decommentare la riga seguente
+% \documentclass[10pt,a4paper,openright,gray]{\magdir matsweetmem}
+
+%========================
 % Variabili del progetto
 %========================
 \input{\magdir variabili}
@@ -49,7 +57,7 @@
 \newcommand{\serie}{Matematica $C^3$}
 \newcommand{\titolo}{Matematica dolce 4 - licei}        
 \newcommand{\pdftitolo}{Matematica dolce 4 - licei}
-\newcommand{\docvers}{\texttt{3.0.9}}
+\newcommand{\docvers}{\texttt{4.0.1}}
 \newcommand{\edizione}{2019}
 \newcommand{\Edizione}{Edizione}
 \newcommand{\tipo}{}% (versione completa a colori)}
@@ -67,26 +75,6 @@
 \input{\magdir packages}
 \input{\magdir definizioni}
 \input{\magdir definizioni_tikz}
-
-% %========================
-% % Numeri di pagina in minuscolo
-% %========================
-% % redefine \pagenumbering so that it affects both \thepage and \Thepage
-% \renewcommand\pagenumbering[1]{% 
-%   \global\c@page\@ne
-%   \expandafter\ifx\csname @#1\endcsname\@arabic % if the desired numbering 
-% % is arabic
-%     \gdef\thepage{\csname @Arabic\endcsname\c@page}% \thepage in standard 
-% % arabic
-%     \gdef\Thepage{\csname @arabic\endcsname\c@page}% \Thepage in 
-% % oldstylenums
-%   \else
-%     \gdef\thepage{\csname @#1\endcsname\c@page}% otherwise do whatever is 
-% % requested
-%     \gdef\Thepage{\csname @#1\endcsname\c@page}% and also define \Thepage to 
-% % be used in header or footer
-%   \fi
-% }
 
 %========================
 % Con o senza linguaggio di programmazione
