@@ -26,21 +26,28 @@
 % -------------------------------------------------
 
 \tikzset{
-main node/.style={inner sep=0,outer sep=0},
-label node/.style={inner sep=0,outer ysep=.2em,outer 
-xsep=.4em,font=\scriptsize,overlay},
-strike out/.style={shorten <=-.2em,shorten >=-.5em,overlay}
+  main node/.style={inner sep=0, outer sep=0},
+  label node/.style={inner sep=0, outer ysep=.2em, outer xsep=.4em,
+                     font=\scriptsize,overlay},
+  strike out/.style={shorten <=-.2em, shorten >=-.5em, overlay}
 }
-\renewcommand{\cancelto}[3][]{\tikz[baseline=(N.base)]{
-  \node[main node](N){$#2$};
-  \node[label node,#1, anchor=south west] at (N.north east){$#3$};
-  \draw[strike out,-latex,#1]  (N.south west) -- (N.north east);
-}}
-\newcommand{\bcancelto}[3][]{\tikz[baseline=(N.base)]{
-  \node[main node](N){$#2$};
-  \node[label node,#1, anchor=north west] at (N.south east){$#3$};
-  \draw[strike out,-latex,#1]  (N.north west) -- (N.south east);
-}}
+
+\renewcommand{\cancelto}[3][]
+  {\tikz[baseline=(N.base)]{
+    \node[main node](N){$#2$};
+    \node[label node,#1, anchor=south west] at (N.north east){$#3$};
+    \draw[strike out,-latex,#1]  (N.south west) -- (N.north east);
+  }
+}
+
+\newcommand{\bcancelto}[3][]
+  {\tikz[baseline=(N.base)]{
+    \node[main node](N){$#2$};
+    \node[label node,#1, anchor=north west] at (N.south east){$#3$};
+    \draw[strike out,-latex,#1]  (N.north west) -- (N.south east);
+  }
+}
+
 % -------------------------------------------------
 
 \chapter{Numeri razionali}
@@ -63,6 +70,7 @@ indicheremo con il simbolo~\(\Q\).
 Presi due numeri dell'insieme \(n\) e \(d\), di cui il secondo diverso da zero, 
 anche il loro quoziente deve appartenere allo stesso insieme:
 \[\forall n, d \neq 0 \in \Q \sLRarrow n \div d \in \Q\]
+In questo insieme la funzione divisione sarà definita per ogni coppia di numeri.
 
 Abbiamo visto che per passare dai Naturali agli Interi è bastato aggiungere 
 un segno ai numeri (e rivedere le varie regole per il confronto e le 
@@ -299,9 +307,9 @@ denominatore per il loro Massimo Comune Divisore.
 % \]
 
  Primo metodo:
- \[\dfrac{\cancelto{42}{420}}{\bcancelto{36}{360}} = 
-   \dfrac{\cancelto{21}{42}}{\bcancelto{18}{36}} =  
-   \dfrac{\cancelto{7}{21}}{\bcancelto{6}{18}} =   
+ \[\dfrac{\cancelto{420}{42}}{\bcancelto{360}{36}} = 
+   \dfrac{\cancelto{42}{21}}{\bcancelto{36}{18}} =  
+   \dfrac{\cancelto{21}{7}}{\bcancelto{18}{6}} =   
    \dfrac{7}{6}
 \]
 %  Di solito abbreviato così: % bello ma dà un errore
@@ -312,7 +320,7 @@ denominatore per il loro Massimo Comune Divisore.
 % \]
 Oppure, scoperto che il \(\text{MCD}\punto{420}{360}=60\) dividendo sia il 
 numeratore sia il denominatore per~60:
- \[\dfrac{\cancel{420}^{7}}{\cancel{360}_{6}} = \dfrac{7}{6}\]
+ \[\dfrac{\cancelto{420}{7}}{\bcancelto{360}{6}} = \dfrac{7}{6}\]
 \end{esempio}
 \end{osservazione}
 
@@ -488,10 +496,10 @@ moltiplicazioni.
 
 \begin{esempio}
 Calcola: \(\dfrac{112}{225} \cdot \dfrac{75}{56}\)
-\[\frac{\cancelto{14}{112}}{\bcancelto{9}{225}} \cdot 
-  \frac{\cancelto{3}{75}}{\bcancelto{7}{56}} = 
-  \frac{\cancelto{2}{14}}{\bcancelto{3}{9}} \cdot 
-  \frac{\cancelto{1}{3}}{\bcancelto{1}{7}} = \frac{2}{3}
+\[\frac{\cancelto{112}{14}}{\bcancelto{225}{9}} \cdot 
+  \frac{\cancelto{75}{3}}{\bcancelto{56}{7}} = 
+  \frac{\cancelto{14}{2}}{\bcancelto{9}{3}} \cdot 
+  \frac{\cancelto{3}{1}}{\bcancelto{7}{1}} = \frac{2}{3}
   \]
  
 \end{esempio}
@@ -531,10 +539,10 @@ divisioni!
 Calcola: \(\dfrac{560}{55} : \dfrac{24}{275}\)
 \[\dfrac{560}{55} \div \dfrac{24}{275} =
   \dfrac{560}{55} \cdot \dfrac{275}{24} =
-  \frac{\cancelto{70}{560}}{\bcancelto{11}{55}} \cdot 
-  \frac{\cancelto{55}{275}}{\bcancelto{3}{24}} = 
-  \frac{70}{\bcancelto{1}{11}} \cdot 
-  \frac{\cancelto{5}{55}}{3} = \frac{350}{3}
+  \frac{\cancelto{560}{70}}{\bcancelto{55}{11}} \cdot 
+  \frac{\cancelto{275}{55}}{\bcancelto{24}{3}} = 
+  \frac{70}{\bcancelto{11}{1}} \cdot \frac{\cancelto{55}{5}}{3} = 
+  \frac{350}{3}
   \]
 \end{esempio}
 
@@ -625,14 +633,13 @@ sottrazione.
 
 Supponiamo di voler trasformare il numero \(n = 14,3\overline{56}\) in 
 frazione, moltiplichiamo n per~1000 e da questo togliamo il numero di 
-partenza:
+partenza moltiplicato per 10:
 
 \begin{center}
  \begin{center}\input{\folder lbr/05_sottrazione.tex}\end{center}
 \end{center}
 
-Abbiamo così eliminato il periodo ottenendo un numero decimale finito, ora 
-se moltiplichiamo ancora per~10 otteniamo un numero intero:
+Abbiamo così eliminato il periodo ottenendo un numero intero:
 \[990n = 14213\]
 Adesso è facile: se~990 enne valgono 14213, un solo enne varrà:
 \(\dfrac{14213}{990}\)
@@ -687,7 +694,7 @@ Questi numeri si chiamano ``irrazionali''.
 
 In realtà, non solo esistono numeri irrazionali, ma il matematico Cantor ha 
 dimostrato che i numeri irrazionali sono infinitamente di più dei numeri 
-razionali.
+razionali (che già sono infiniti).
 \end{osservazione}
 
 \section{Notazione scientifica e ordine di grandezza}
@@ -772,9 +779,9 @@ Si osservi che in questo secondo caso abbiamo preso in considerazione il
 valore~3,4 anziché~34, in quanto, come si è già detto, il numero~\(k\) deve 
 essere minore di~10.
 
-\osservazione A numeri `piccoli', corrisponde una potenza di dieci con 
+\osservazione A numeri `piccoli', corrispondono potenze di dieci con 
 esponente negativo; 
-a numeri `grandi', corrisponde una potenza di dieci con esponente positivo.
+a numeri `grandi', corrispondono potenze di dieci con esponente positivo.
 
 \begin{procedura}
 Scrivere un numero decimale in notazione scientifica:
