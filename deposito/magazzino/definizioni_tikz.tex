@@ -90,16 +90,31 @@
   \asse{#1}{#2}{#3}{\(x\)};
 }
 
-\newcommand{\assecontrattini}[4]{% Asse.
+% \newcommand{\assecontrattini}[4]{% Asse.
+%   % Esempio di chiamata:
+%   %% \disegno{\assecontrattini{-7}{+7}{0}{\(t\)}
+%   \def \xmi{#1}
+%   \def \xma{#2}
+%   \def \posy{#3}
+%   \def \var{#4}
+%   \draw[gray!50, very thin, step=1] 
+%        (\xmi, \posy-0.1) grid (\xma-1, \posy+0.1);
+%   \asse{#1}{#2}{#3}{#4};
+% }
+
+\newcommand{\assecontrattini}[4]{% Segmento con trattini.
   % Esempio di chiamata:
-  %% \disegno{\assecontrattini{-7}{+7}{0}{\(t\)}
+  %% \disegno{\segmentocontrattini{-7}{+7}{0}
   \def \xmi{#1}
   \def \xma{#2}
   \def \posy{#3}
   \def \var{#4}
-  \draw[gray!50, very thin, step=1] 
-       (\xmi, \posy-0.1) grid (\xma-1, \posy+0.1);
-  \asse{#1}{#2}{#3}{#4};
+  \pgfmathsetmacro \endx{int(\xma-\xmi)-1}
+  \foreach \x in {0, 1, ..., \endx}
+    \draw[very thin] (\xmi+\x, \posy-0.05) -- (\xmi+\x, \posy+0.05);
+  \draw [-{Stealth[length=2mm, open, round]}] 
+        (\xmi, \posy) -- (\xma, \posy);
+  \node [below] at (\xma, \posy) {\var};
 }
 
 \newcommand{\segmentocontrattini}[3]{% Segmento con trattini.
