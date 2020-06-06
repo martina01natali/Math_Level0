@@ -20,25 +20,25 @@
 }
 
 \newcommand{\assec}{% Asse vuoto con l'indicazione dell'unità separata
-    \disegnod{10}{
-      \assex{-6.3}{6.3}{0}
+    \disegnod{8}{
+      \assex{-6}{6}{0}
       \draw[|-|] (0, .5) -- (1, .5) node[below, midway] {unità};
       \filldraw (0,0) circle (1.5pt) node [below] {0};
     }
 }
 
 \newcommand{\assed}{% Asse cartesiano con i trattini
-    \disegnod{10}{
-      \assecontrattini{-6.3}{6.3}{0}{}
-      \node [below] at (0, 0) {0};
-      \node [below] at (1, 0) {1};
+    \disegnod{8}{
+      \assecontrattini{-6}{6}{0}{\(x\)}
+      \node [below] at (0, -.05) {0};
+      \node [below] at (1, -.05) {1};
     }
 }
 
 % 
 \newcommand{\assee}{% Asse cartesiano nei quadretti
-    \disegnod{10}{
-      \draw[gray!50, very thin] (-6.3, -1.2) grid (6.3, 1.2);
+    \disegnod{8}{
+      \draw[step=1.0, gray!50, very thin] (-6.3, -1.2) grid (6.3, 1.2);
       \assex{-6.3}{6.3}{0}
       \draw [-] (0, -.05) -- (0, .1);
       \node [below] at (0,0) {0};
@@ -46,10 +46,13 @@
 }
 
 \newcommand{\assef}{% Asse cartesiano con alcuni esempi di numeri
-    \disegnod{10}{
-      \assecontrattini{-6.3}{6.3}{0}{}
-      \foreach \xi/\si in {-5, -4, ..., 1, 1.4142/\(\sqrt{2}\),
-                           2, 3, 3.5/\(\frac{7}{2}\), 4, 5, 
+    \disegnod{8}{
+      \assecontrattini{-6}{6}{0}{\(x\)}
+%       \foreach \xi/\si in {-5, -4, ..., 1, 1.4142/\(\sqrt{2}\),
+%                            2, 3, 3.5/\(\frac{7}{2}\), 4, 5, 
+%                            -2.5/\(-\frac{5}{2}\)}
+      \foreach \xi/\si in {-5, -4, -3, -1.5, 0, 1, 1.4,
+                           2, 3, 3.5/\(\frac{7}{2}\), 6, 
                            -2.5/\(-\frac{5}{2}\)}
       \filldraw (\xi, 0)circle (1.5pt) node [below, yshift=-.1cm] {\si};
     }
