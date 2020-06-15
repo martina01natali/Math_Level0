@@ -5,25 +5,25 @@
 
 \usetikzlibrary{shapes.gates.logic.US,trees,positioning,arrows}
 
-\newcommand{\grafiscatola}{% 
-  % Funzione rappresentata la funzione come scatola nera
-  \disegno[10]{
-     \node [draw, fill=blue!20, minimum size=3em, rounded corners] 
-            at (0, 0) (block 1) {add};
-     \draw [->] (-1, -0.5) node [left] {$o_1$} -- (block 1);
-     \draw [->] (-1, +0.5) node [left] {$o_2$} -- (block 1);
-     \draw[->] (block 1.east) -- (1, 0) node [right] {somma};
-        
-     \node [draw, fill=blue!20, minimum size=3em, rounded corners] 
-            at (0, 2) (block 2) {add};
-     \draw [->] (1, 1.5) node [right] {$o_1$} -- (block 2);
-     \draw [->] (1, +2.5) node [right] {$o_2$} -- (block 2);
-     \draw[->] (block 2.west) -- (-1, 2) node [left] {somma};
-  }
-}
+% \newcommand{\grafiscatola}{% 
+%   % Funzione rappresentata la funzione come scatola nera
+%   \disegno[10]{
+%      \node [draw, fill=blue!20, minimum size=3em, rounded corners] 
+%             at (0, 0) (block 1) {add};
+%      \draw [->] (-1, -0.5) node [left] {$o_1$} -- (block 1);
+%      \draw [->] (-1, +0.5) node [left] {$o_2$} -- (block 1);
+%      \draw[->] (block 1.east) -- (1, 0) node [right] {somma};
+%         
+%      \node [draw, fill=blue!20, minimum size=3em, rounded corners] 
+%             at (0, 2) (block 2) {add};
+%      \draw [->] (1, 1.5) node [right] {$o_1$} -- (block 2);
+%      \draw [->] (1, +2.5) node [right] {$o_2$} -- (block 2);
+%      \draw[->] (block 2.west) -- (-1, 2) node [left] {somma};
+%   }
+% }
 
 \newcommand{\grafoscatolasx}[4]{% 
-  % Funzione rappresentata la funzione come scatola nera a sinistra
+  % Funzione binaria rappresentata come scatola nera a sinistra
   % esempio di chiamata:
   % \grafoscatolasx{add}{\(o_1\)}{\(o_2\)}{somma}
   \def \nomef{#1}
@@ -40,7 +40,7 @@
 }
 
 \newcommand{\grafoscatoladx}[4]{% 
-  % Funzione rappresentata la funzione come scatola nera a destra
+  % Funzione binaria rappresentata come scatola nera a destra
   % esempio di chiamata:
   % \grafoscatoladx{add}{\7\)}{\(5\)}{\(12\)}
   \def \nomef{#1}
@@ -57,7 +57,7 @@
 }
 
 \newcommand{\grafoporta}[4]{% 
-  % Funzione rappresentata come porta logica
+  % Funzione binaria rappresentata come porta logica
   % esempio di chiamata:
   % \grafoporta{add}{\7\)}{\(5\)}{\(12\)}
   \def \nomef{#1}
