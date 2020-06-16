@@ -94,10 +94,10 @@ state/.style={draw=CornflowerBlue}, every loop/.style={draw=Maroon}]
 %   }
 % }
 
-\newcommand{\grafoscatolasx}[3]{% 
-  % Funzione binaria rappresentata come scatola nera a sinistra
+\newcommand{\grafofunzsx}[3]{% 
+  % Funzione rappresentata come scatola nera a sinistra
   % esempio di chiamata:
-  % \grafoscatolasx{add}{\(\graffa{+7,~+5}\)}{\(+12\)}
+  % \grafofunzsx{add}{\(\graffa{+7,~+5}\)}{\(+12\)}
   \def \nomef{#1}
   \def \argomento{#2}
   \def \risultato{#3}
@@ -111,30 +111,30 @@ state/.style={draw=CornflowerBlue}, every loop/.style={draw=Maroon}]
 
 \newcommand{\grafifunzbinarie}{% Grafi di alcune funzioni su coppie di numeri
   \disegno[10]{
-  \grafoscatolasx{add}{\(\graffa{+7,~+5}\)}{\(+12\)}
+  \grafofunzsx{add}{\(\graffa{+7,~+5}\)}{\(+12\)}
   \begin{scope}[xshift=50mm]
-  \grafoscatolasx{sub}{\(\tonda{+7,~+5}\)}{\(+2\)}
+  \grafofunzsx{sub}{\(\tonda{+7,~+5}\)}{\(+2\)}
   \end{scope}
   \begin{scope}[xshift=100mm]
-  \grafoscatolasx{sub}{\(\tonda{+5,~+7}\)}{\(-2\)}
+  \grafofunzsx{sub}{\(\tonda{+5,~+7}\)}{\(-2\)}
   \end{scope}
   }
 }
 
 \newcommand{\grafidivisione}{% Grafi di divisione
   \disegno[10]{
-  \grafoscatolasx{div}{\(\tonda{+7,~+3}\)}{\(+2\)}
+  \grafofunzsx{div}{\(\tonda{+7,~+3}\)}{\(+2\)}
   \begin{scope}[xshift=50mm]
-  \grafoscatolasx{div}{\(\tonda{+7,~+3}\)}{\(+\dfrac{7}{3}\)}
+  \grafofunzsx{div}{\(\tonda{+7,~+3}\)}{\(+\dfrac{7}{3}\)}
   \end{scope}
   }
 }
 
 \newcommand{\grafidivmod}{% due esempi della funzione divmod
   \disegno[10]{
-  \grafoscatolasx{divmod}{\(\tonda{+7,~+3}\)}{\(\tonda{+2,~1}\)}
+  \grafofunzsx{divmod}{\(\tonda{+7,~+3}\)}{\(\tonda{+2,~1}\)}
   \begin{scope}[xshift=50mm]
-  \grafoscatolasx{divmod}{\(\tonda{+7,~0}\)}{Errore}
+  \grafofunzsx{divmod}{\(\tonda{+7,~0}\)}{Errore}
   \end{scope}
   }
 }
