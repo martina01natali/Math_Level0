@@ -1,157 +1,281 @@
 % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
+\input{\folder retta_grafici.tex}
+
 \chapter{Rette nel piano cartesiano}
 
 \section{Equazioni lineari in due variabili}
 \label{sec:retta_equazionilineari}
 
-Abbiamo visto che tutte le equazioni del tipo:~\(ax+b=0\) hanno una soluzione
-se \(a\neq0\). Ma sulle equazioni lineari (di primo grado) con due incognite, 
-cosa possiamo dire? Consideriamo l'equazione:~\(3x + 2y - 6 = 0\) 
-ha una soluzione? Ma prima ancora, cosa significa \emph{una} soluzione per 
-questa equazione? La soluzione per una equazione in due incognite  non è un 
-numero, ma una coppia di numeri il primo da mettere al posto della~\(x\) e il
-secondo da mettere al posto della~\(y\) per rendere vera l'uguaglianza.
-Possiamo quindi precisare la seguente definizione:
+Abbiamo studiato espressioni del tipo \(-\frac{3}{2}x+3\) vedendole come 
+polinomi, più precisamente è un binomio id primo grado nella variabile \(x\).
+Possiamo indicare un generico binomio di primo grado nella variabile \(x\) 
+con la scrittura: \(ax+b\).
+Nel caso precedente \(a\) vale \(-\frac{3}{2}\) e \(b\) vale \(+3\).
+L'espressione precedente può essere vista come una funzione che trasforma un 
+numero in ingresso \(x\) in un risultato:
 
-\begin{definizione}
- La soluzione di un'equazione a due incognite è la coppia ordinata di numeri 
- che sostituiti ordinatamente alle incognite rendono vera l'uguaglianza.
-\end{definizione}
+\begin{minipage}{.49\textwidth}
+\[f(x)=-\frac{3}{2}x+3\]
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+es.: \quad argomento = \(4\) \quad risultato = \(-3\)
+\begin{center}
+\disegno[10]{\grafofunzsx{\(-\frac{3}{2}x+2\)}{\(4\)}{\(-3\)}}
+\end{center}
+\end{minipage}
 
-Si possono trovare molte soluzione di questa equazione, due sono 
-semplici da trovare:~\((0; 3)\) e~\((2; 0)\). Si possono verificare facilmente:
+Le funzioni che sono descritte da un polinomio di primo grado sono anche 
+dette \emph{funzioni lineari}.
 
-\[3 \cdot 0 + 2 \cdot 3 - 6 = 0\]
-\[3 \cdot 2 + 2 \cdot 0 - 6 = 0\]
+Possiamo associare l'argomento all'ascissa \(x\) e il risultato all'ordinata 
+\(y\) di un punto nel piano cartesiano, in questo modo la funzione permette 
+di creare punti che possiamo riportare in un piano con un riferimento 
+cartesiano.
 
-Ne esistono altre?
-
-\begin{inaccessibleblock}[Figura: TODO]
- \begin{figure}[h]
- \centering
- \begin{minipage}[]{.50\textwidth}
-\begin{tabular}{ll}
-\dots & \dots \\
-\dots & \dots \\
-\dots & \dots \\
-\dots & \dots \\
-\((0; ~3)\)   & \(3 \cdot 0 + 2 \cdot 3 - 6 = 0\)     \\
-\((2; ~0)\)   & \(3 \cdot 2 + 2 \cdot 0 - 6 = 0\)     \\
-\((4;~-3)\)   & \(3 \cdot 4 + 2 \cdot (-3) - 6 = 0\)  \\
-\((6;~-6)\)   & \(3 \cdot 6 + 2 \cdot (-6) - 6 = 0\)  \\
-\((8;~-9)\)   & \(3 \cdot 8 + 2 \cdot (-9) - 6 = 0\)  \\
-\((10;~-12)\) & \(3 \cdot 10 + 2 \cdot (-12) - 6 = 0\)
+\begin{inaccessibleblock}[Figura: tabella con valori della funzione e punti 
+riportati in un piano cartesiano]
+\begin{figure}[h]
+\centering
+\begin{minipage}[]{.19\textwidth}
+\[f(x)=-\frac{3}{2}x+3\]
+\[y=f(x)\]
+o direttamente:
+\[y=-\frac{3}{2}x+3\]
+\vspace{2.em}
+ \end{minipage}
+\begin{minipage}[]{.39\textwidth}
+\begin{center}
+\begin{tabular}{l|l}
+arg. & ris. \\
+\(x\) & \(y\) \\
+\hline
+-6 & 12.0 \\
+-4 & 9.0 \\
+-2 & 6.0 \\
+0 & 3.0 \\
+2 & 0.0 \\
+4 & -3.0 \\
+6 & -6.0 \\
+8 & -9.0 \\
+10 & -12.0 
 \end{tabular}
-  \caption{Soluzioni equazione.}\label{fig:soluzioniequazione}
+\end{center}
+% \vspace{1em}
  \end{minipage}
  \begin{minipage}[]{.40\textwidth}
-  \centering\input{\folder lbr/fig001_puntiallineati.pgf}
-  \caption{I corrispondenti punti nel piano.}\label{fig:puntiallineati}
+\puntiallineati
+%   \centering\input{\folder lbr/fig001_puntiallineati.pgf}
  \end{minipage}
+  \caption{Funzione, \quad Coppie: arg/val. \quad 
+  I corrispondenti punti nel piano.}
+  \label{fig:puntiallineati}
 \end{figure}
 \end{inaccessibleblock}
 
 
-Sapresti individuare la regola con la quale ho costruito le soluzioni? 
-Sapresti aggiungere altre soluzioni che precedono quelle trovate da me?
-
-In generale una equazione lineare in due incognite ha infinite soluzioni che 
-sono coppie di numeri. Ma abbiamo già visto che una coppia di numeri 
-rappresenta un punto nel piano cartesiano quindi ogni soluzione rappresenta 
-un punto del piano vedi figura~\ref{fig:puntiallineati}.
+% Abbiamo visto che tutte le equazioni del tipo:~\(ax+b=0\) hanno una 
+% soluzione se \(a\neq0\). 
+% Ma sulle equazioni lineari (di primo grado) con due incognite, cosa 
+% possiamo dire? 
+% Consideriamo l'equazione:~\(3x + 2y - 6 = 0\) ha una soluzione? 
+% Ma prima ancora, cosa significa \emph{una} soluzione per questa equazione? 
+% La soluzione per una equazione in due incognite  non è un 
+% numero, ma una coppia di numeri il primo da mettere al posto della~\(x\) e 
+% il secondo da mettere al posto della~\(y\) per rendere vera l'uguaglianza.
+% Possiamo quindi precisare la seguente definizione:
+% 
+% \begin{definizione}
+%  La soluzione di un'equazione a due incognite è la coppia ordinata di numeri 
+%  che sostituiti ordinatamente alle incognite rendono vera l'uguaglianza.
+% \end{definizione}
+% 
+% Si possono trovare molte soluzione di questa equazione, due sono 
+% semplici da trovare:~\((0; 3)\) e~\((2; 0)\). Si possono verificare facilmente:
+% 
+% \[3 \cdot 0 + 2 \cdot 3 - 6 = 0\]
+% \[3 \cdot 2 + 2 \cdot 0 - 6 = 0\]
+% 
+% Ne esistono altre?
+% 
+% \begin{inaccessibleblock}[Figura: TODO]
+%  \begin{figure}[h]
+%  \centering
+%  \begin{minipage}[]{.50\textwidth}
+% \begin{tabular}{ll}
+% \dots & \dots \\
+% \dots & \dots \\
+% \dots & \dots \\
+% \dots & \dots \\
+% \((0; ~3)\)   & \(3 \cdot 0 + 2 \cdot 3 - 6 = 0\)     \\
+% \((2; ~0)\)   & \(3 \cdot 2 + 2 \cdot 0 - 6 = 0\)     \\
+% \((4;~-3)\)   & \(3 \cdot 4 + 2 \cdot (-3) - 6 = 0\)  \\
+% \((6;~-6)\)   & \(3 \cdot 6 + 2 \cdot (-6) - 6 = 0\)  \\
+% \((8;~-9)\)   & \(3 \cdot 8 + 2 \cdot (-9) - 6 = 0\)  \\
+% \((10;~-12)\) & \(3 \cdot 10 + 2 \cdot (-12) - 6 = 0\)
+% \end{tabular}
+%   \caption{Soluzioni equazione.}\label{fig:soluzioniequazione}
+%  \end{minipage}
+%  \begin{minipage}[]{.40\textwidth}
+%   \centering\input{\folder lbr/fig001_puntiallineati.pgf}
+%   \caption{I corrispondenti punti nel piano.}\label{fig:puntiallineati}
+%  \end{minipage}
+% \end{figure}
+% \end{inaccessibleblock}
+% 
+% 
+% Sapresti individuare la regola con la quale ho costruito le soluzioni? 
+% Sapresti aggiungere altre soluzioni che precedono quelle trovate da me?
+% 
+% In generale una equazione lineare in due incognite ha infinite soluzioni che 
+% sono coppie di numeri. Ma abbiamo già visto che una coppia di numeri 
+% rappresenta un punto nel piano cartesiano quindi ogni soluzione rappresenta 
+% un punto del piano vedi figura~\ref{fig:puntiallineati}.
 
 Possiamo osservare che i punti sono tutti allineati, ma cosa succede 
-\emph{tra} due punti? Per renderci più agevole il calcolo modifichiamo
-l'equazione di partenza ottenendo una equazione equivalente del 
-tipo:~\(y = \dots\):
-
-\[3x + 2y - 6 = 0 \Leftrightarrow 2y = -3x +6 \Leftrightarrow 
- y = -\frac{3}{2}x +3\]
+\emph{tra} due punti? 
+% Per renderci più agevole il calcolo modifichiamo
+% l'equazione di partenza ottenendo una equazione equivalente del 
+% tipo:~\(y = \dots\):
+% 
+% \[3x + 2y - 6 = 0 \Leftrightarrow 2y = -3x +6 \Leftrightarrow 
+%  y = -\frac{3}{2}x +3\]
+% 
+% Possiamo costruire una tabella inserendo nella prima colonna dei valori~\(x\) 
+% scelti da noi e nella seconda i corrispondenti valori di~\(y\) calcolati, 
+% magari con l'uso della calcolatrice. Poi riportiamo questi valori in un 
+% piano cartesiano.
+% 
+% \begin{inaccessibleblock}[Figura: TODO]
+%  \begin{figure}[h]
+%  \centering
+%  \begin{minipage}[]{.50\textwidth}
+%   \begin{center}
+%    \begin{tabular}{l|l}
+%     x   & y \\
+%     \hline
+%     0   & 3    \\
+%     0,5 & 2,25 \\
+%     1   & 1,5  \\
+%     1,5 & 0,75 \\
+%     2   & 0
+%    \end{tabular}
+%   \end{center}
+%   \caption{Altre soluzioni.}\label{fig:altresoluzioni}
+%  \end{minipage}
+%  \begin{minipage}[]{.40\textwidth}
+%   \centering\input{\folder lbr/fig002_ingrandimento.pgf}
+%   \caption{Altri punti.}\label{fig:ingrandimento}
+%  \end{minipage}
+% \end{figure}
+% \end{inaccessibleblock}
 
 Possiamo costruire una tabella inserendo nella prima colonna dei valori~\(x\) 
-scelti da noi e nella seconda i corrispondenti valori di~\(y\) calcolati, 
-magari con l'uso della calcolatrice. Poi riportiamo questi valori in un 
-piano cartesiano.
-
-\begin{inaccessibleblock}[Figura: TODO]
- \begin{figure}[h]
- \centering
- \begin{minipage}[]{.50\textwidth}
-  \begin{center}
-   \begin{tabular}{l|l}
-    x   & y \\
-    \hline
-    0   & 3    \\
-    0,5 & 2,25 \\
-    1   & 1,5  \\
-    1,5 & 0,75 \\
-    2   & 0
-   \end{tabular}
-  \end{center}
-  \caption{Altre soluzioni.}\label{fig:altresoluzioni}
- \end{minipage}
- \begin{minipage}[]{.40\textwidth}
-  \centering\input{\folder lbr/fig002_ingrandimento.pgf}
-  \caption{Altri punti.}\label{fig:ingrandimento}
- \end{minipage}
-\end{figure}
-\end{inaccessibleblock}
+intermedi e riportare le coppie ottenute del piano cartesiano (vedi Figura 
+\ref{fig:altripunti}).
 
 Tra due punti calcolati possiamo inserirne quanti vogliamo, ma saranno sempre 
 allineati con gli altri.
 
-Si può dimostrare che tutte le soluzioni dell'equazione sono punti allineati 
-e che tutti i punti che sono allineati con due qualunque di quella retta hanno
-coordinate che sono soluzioni di quell'equazione. 
-
-\begin{inaccessibleblock}[Figura: TODO]
+\begin{inaccessibleblock}[Retta con punti anche in altre posizioni che stanno 
+comunque sulla retta]
  \begin{figure}[h]
- \centering\input{\folder lbr/fig003_retta01.pgf}
- \caption{Retta di equazione:~\(3x + 2y - 6 = 0\).}\label{fig:retta01}
+ \centering
+ \begin{minipage}[]{.19\textwidth}
+  \begin{center}
+   \begin{tabular}{l|l}
+    \quad x   & \quad y \\
+    \hline
+    \(-0,5\) & \(+3,75\) \\
+    \(+0,5\) & \(+2,25\) \\
+    \(+1\)   & \(+1,5\)  \\
+    \(+1,5\) & \(+0,75\) \\
+    \(+2,5\) & \(-0,75\)
+   \end{tabular}
+  \end{center}
+ \end{minipage}
+ \begin{minipage}[]{.39\textwidth}
+ \altripunti
+ \end{minipage}
+ \begin{minipage}[]{.40\textwidth}
+ \rettaa
+ \end{minipage}
+  \caption{Altri punti allineati\dots una retta.}\label{fig:altripunti}
 \end{figure}
 \end{inaccessibleblock}
 
-I matematici dicono che c'è una \emph{corrispondenza biunivoca} tra le 
-soluzioni di quell'equazione e i punti di quella retta per cui dicono che 
-quella equazione è l'\emph{equazione della retta} e che quella retta è il 
-\emph{grafico dell'equazione}.
+Si può dimostrare che tutti i punti così ottenuti sono allineati 
+e che tutti i punti che sono allineati con due qualunque di quella retta 
+hanno coordinate che sono una l'argomento e l'altra il risultato della 
+funzione. 
+
+% \begin{inaccessibleblock}[Retta con evidenziati i punti calcolati 
+% precedentemente]
+%  \begin{figure}[h]
+%  \centering \rettaa
+%  \caption{Retta di equazione:~\(3x + 2y - 6 = 0\).}\label{fig:retta01}
+% \end{figure}
+% \end{inaccessibleblock}
+% 
+% I matematici dicono che c'è una \emph{corrispondenza biunivoca} tra le 
+% soluzioni di quell'equazione e i punti di quella retta per cui dicono che 
+% quella equazione è l'\emph{equazione della retta} e che quella retta è il 
+% \emph{grafico dell'equazione}.
 
 \section{Equazioni della retta}
 \label{sec:retta_equazioni}
 
-Nel paragrafo precedente abbiamo scritto l'equazione della retta in due modi 
-diversi. A questi due modi di scrivere l'equazione sono stati dati dei nomi:
+Nel paragrafo precedente abbiamo scritto la funzione sotto forma di 
+equazione in due variabili \(x\) e \(y\): \(y=-\frac{3}{2}x+3\).
+Possiamo anche scriverla 
+nella forma di un polinomio uguagliato a zero:
+\[y=-\frac{3}{2}x+3 \quad \srarrow \quad 2y = -3x +6 \quad \srarrow \quad 
+  3x +2y -6 = 0\]
+C'è una \emph{corrispondenza biunivoca} tra le 
+soluzioni di quell'equazione e i punti di quella retta per cui  
+quell'equazione è l'\emph{equazione della retta} e che quella retta è il 
+\emph{grafico dell'equazione}.
 
-\begin{itemize}
+Ai due modi di scrivere l'equazione sono stati dati dei nomi:
+
+\begin{multicols}{2}
+\begin{itemize} [nosep]
  \item \(3x + 2y - 6 = 0\):~ equazione implicita;
- \item \(y = -\frac{3}{2}x +3\):~ equazione esplicita.
+ \item \(y = -\dfrac{3}{2}x +3\):~ equazione esplicita.
 \end{itemize}
+\end{multicols}
 
-In generale un'equazione implicita è un'equazione nella forma:
+In generale un'equazione implicita è un'equazione nella forma: \quad
+\(ax + by + c = 0\)
+e un'equazione esplicita è un'equazione nella forma: \quad
+\(y = mx + q\)
+dove~\(a,~b,~c,~m,~q\) sono dei \emph{parametri} numerici mentre~\(x,~y\) 
+sono le \emph{variabili} che corrispondo all'ascissa e all'ordinata dei punti 
+nel piano cartesiano.
 
-\[ax + by + c = 0\]
-
-e un'equazione esplicita è un'equazione nella forma:
-
-\[y = mx + q\]
-
-dove~\(a,~b,~c,~m,~q\) sono dei \emph{parametri} numerici mentre~\(x,~y\) sono 
-delle variabili.
-
-\begin{itemize}
- \item \(x\)~è la variabile a cui diamo noi dei valori e si chiama 
+\begin{itemize} [noitemsep]
+ \item \(x\)~è la variabile a cui diamo noi dei valori (argomento) si chiama 
   variabile \emph{indipendente};
- \item \(y\)~è la variabile il cui valore viene calcolato e si chiama 
-  variabile \emph{dipendente}.
+ \item \(y\)~è la variabile il cui valore viene calcolato (risultato) si 
+chiama variabile \emph{dipendente}.
 \end{itemize}
 
-Cosa succede se nell'equazione implicita~\(a\)~o~\(b\) valgono zero?
-Otteniamo delle equazioni senza la~\(x\) o senza la~\(y\). 
-Possiamo osservare che anche le equazioni di primo grado con una sola 
-variabile rappresentano delle rette:
+Se nell'equazione implicita~\(a\)~o~\(b\) valgono zero otteniamo delle 
+equazioni con una sola variabile che rappresentano delle funzioni costanti.
+\begin{itemize} [noitemsep]
+\item 
+Se~\(a=0 \srarrow y=f(x)=k\), qualunque sia 
+il valore di \(x\), \(y\) ha sempre lo stesso valore.
+\item 
+Se~\(b=0 \srarrow x=f(y)=k\), qualunque sia 
+il valore di \(y\), \(x\) ha sempre lo stesso valore.
+\end{itemize}
 
-\begin{itemize}
+Possiamo osservare che anche le equazioni di primo grado con 
+\emph{una sola} variabile rappresentano delle rette. Ad esempio:
+
+\begin{itemize} [noitemsep]
  \item la retta \(s\) di equazione \(y=-2\) è l'insieme dei punti del piano 
   che hanno l'ordinata uguale a~\(-2\) e qualunque ascissa;
  \item la retta \(t\) di equazione \(y=3\) è l'insieme dei punti del piano 
@@ -162,17 +286,16 @@ variabile rappresentano delle rette:
   che hanno l'ascissa uguale a~\(1\) e qualunque ordinata.
 \end{itemize}
 
-\begin{inaccessibleblock}[Figura: TODO]
-%  \begin{figure}[h]
+\begin{inaccessibleblock}[Rette parallele all'asse x e parallele all'asse y.]
+ \begin{figure}[h]
  \begin{minipage}[]{.50\textwidth}
-  \begin{center}\input{\folder lbr/fig004_rettey.pgf}\end{center}
-%   \caption{Rette parallele all'asse x.}\label{fig:rettey}
+\rettey
  \end{minipage}
  \begin{minipage}[]{.40\textwidth}
-  \begin{center}\input{\folder lbr/fig005_rettex.pgf}\end{center}
-%   \caption{Rette parallele all'asse y.}\label{fig:rettex}
+\rettex
  \end{minipage}
-% \end{figure}
+  \caption{Rette parallele agli assi}\label{fig:rette_p_assi}
+\end{figure}
 \end{inaccessibleblock}
 
 In conclusione l'equazione~\(ax + by + c = 0\) al variare dei 
@@ -195,53 +318,64 @@ applicare la seguente procedura:
  \end{enumeratea}
 \end{procedura}
 
-Consideriamo un altro esempio. 
-
-\begin{procedura}
- disegna la retta che ha per equazione:~\(x+2y+6=0\):
+\begin{esempio}
+ Disegna la retta che ha per equazione:~\(x+2y+6=0\):
  \begin{enumeratea}
   \item l'equazione esplicita è~\(y=- \frac{1}{2}x - 3\)
   \item Nel calcolo, ogni valore di~\(x\) dovrà essere diviso per due, 
    quindi, per~\(x\) scegli valori pari che sono più comodi, costruisci la 
-   tabella e calcola i corrispondenti valori di~\(y\), 
-   vedi figura~\ref{fig:tabella};
+   tabella e calcola i corrispondenti valori di~\(y\);
   \item disegna nel piano cartesiano i punti che ci stanno;
   \item disegna la retta che passa per quei punti, 
    vedi figura~\ref{fig:retta02}.
  \end{enumeratea}
-\end{procedura}
+\end{esempio}
 
 \begin{inaccessibleblock}[Figura: TODO]
  \begin{figure}[h]
  \centering
- \begin{minipage}[]{.50\textwidth}
+ \begin{minipage}[]{.18\textwidth}
   \begin{center}
    \begin{tabular}{l|l}
-    x   & y \\
+    ~x  & ~y \\
     \hline
-    -6 & -6 \\
-    -4 & -5 \\
-    -2 & -4 \\
-     0 & -3 \\
-     2 & -2 \\
-     4 & -1 \\
-     6 & -0
+    \(-6\) & \(~0\) \\
+    \(-4\) & \(-1\) \\
+    \(-2\) & \(-2\) \\
+    \(\hspace{2.6mm} 0\) & \(-3\) \\
+    \(+2\) & \(-4\) \\
+    \(+4\) & \(-5\) \\
+    \(+6\) & \(-6\) 
+   \end{tabular}
+   
+   \vspace{5mm}
+   \begin{tabular}{l|l}
+    ~x  & ~y \\
+    \hline
+    \(-4\) & \(-1\) \\
+    \(\hspace{2.7mm} 0\) & \(-3\) \\
+    \(+4\) & \(-5\) 
    \end{tabular}
   \end{center}
-  \caption{Tabella.}\label{fig:tabella}
  \end{minipage}
  \begin{minipage}[]{.40\textwidth}
-   \centering\input{\folder lbr/fig006_retta02.pgf}
-  \caption{Disegno di una retta.}\label{fig:retta02}
+  \begin{center} \puntib \end{center}
  \end{minipage}
+ \begin{minipage}[]{.40\textwidth}
+  \begin{center} \rettab \end{center}
+ \end{minipage}
+  \caption{Disegnare una retta: tabella, punti, retta.}\label{fig:retta02}
 \end{figure}
 \end{inaccessibleblock}
 
 Ma ho proprio bisogno di tutti quei punti? Per individuare una retta 
-bastano~2 punti quindi noi ne useremo...~3! In questo modo se 
-i punti non appariranno allineati sapremo che abbiamo commesso un errore o 
-nel calcolo o nel disegno. Un punto ci serve come controllo 
+bastano~\(2\) punti quindi noi ne useremo\dots~\(3\)! In questo modo se 
+i punti non appariranno allineati sapremo che abbiamo commesso un errore 
+nel calcolo o nel disegno; uno dei \(3\) punti ci serve come controllo 
 (come l'ultimo carattere del codice fiscale).
+
+Perché il disegno riesca bene i~\(3\) punti devono essere più distanziati 
+possibile.
 
 \section{Coefficienti dell'equazione esplicita}
 \label{sec:retta_coefficienti}
@@ -278,7 +412,7 @@ Disegna in un altro piano cartesiano queste altre rette:
 Confrontando cosa cambia e cosa resta uguale nei due gruppi di equazioni 
 e di rette possiamo concludere che nell'equazione~\(y=mx+q\):
 
-\begin{itemize}
+\begin{itemize} [noitemsep]
  \item il coefficiente~\(q\) indica il punto in cui la retta interseca 
   l'asse~\(y\) e viene anche detto \emph{intercetta} o \emph{termine noto};
  \item il coefficiente~\(m\) è legato alla \emph{pendenza} della retta
@@ -287,9 +421,14 @@ e di rette possiamo concludere che nell'equazione~\(y=mx+q\):
 
 \subsection{Il coefficiente angolare}
 
-Sul coefficiente angolare possiamo fare alcune osservazioni:
+% Sul coefficiente angolare possiamo fare alcune osservazioni:
 
-\begin{enumerate}
+\begin{inaccessibleblock}[Rette bisettrici dei quadranti e loro coefficiente 
+angolare.]
+\begin{figure}[h]
+{\noindent
+\begin{minipage}{.58\textwidth}
+\begin{enumerate} [nosep]
  \item se è positivo la retta è crescente;
  \item se è negativo la retta è decrescente;
  \item se non è né positivo né negativo la retta non è né crescente né
@@ -300,41 +439,56 @@ Sul coefficiente angolare possiamo fare alcune osservazioni:
  \item non esiste alcun coefficiente angolare che produca 
   una retta verticale.
 \end{enumerate}
-
-\begin{inaccessibleblock}[Figura: TODO]
- \begin{figure}[h]
- \centering\input{\folder lbr/fig007_coeffang.pgf}
- \caption{Coefficienti angolari.}\label{fig:coeffang}
+\end{minipage}
+\hfill
+\begin{minipage}{.38\textwidth}
+\begin{center} \coeffang \end{center}
+\caption{Coefficienti angolari.}\label{fig:coeffang}
+\end{minipage}
+}
 \end{figure}
 \end{inaccessibleblock}
 
-Se consideriamo una retta, ad es.~\(y=\frac{3}{2}x -2\) e alcuni suoi punti
-ad es.~\(A(-3;~-4)\), \(B(-1;~-1)\), \(C(1;~2)\), \(D(-3;~5)\), possiamo osservare che 
-il rapporto tra gli incrementi delle ordinate e delle ascisse, 
-cioè l'aumento dell'ordinata diviso l'aumento dell'ascissa, è sempre lo 
-stesso vedi figura: \ref{fig:rappincr}.
+% \begin{inaccessibleblock}[Rette parallele all'asse x e parallele all'asse y.]
+%  \begin{figure}[h]
+%  \begin{minipage}[]{.50\textwidth}
+% \rettey
+%  \end{minipage}
+%  \begin{minipage}[]{.40\textwidth}
+% \rettex
+%  \end{minipage}
+%   \caption{Rette parallele agli assi}\label{fig:rette_p_assi}
+% \end{figure}
+% \end{inaccessibleblock}
 
-\begin{inaccessibleblock}[Figura: TODO]
+Se consideriamo una retta, ad es.~\(y=\dfrac{3}{2}x +\dfrac{1}{2}\) e alcuni 
+suoi punti ad es.~\(A(-3;~-4)\), \(B(-1;~-1)\), \(C(1;~2)\), \(D(-3;~5)\), 
+possiamo osservare che il rapporto tra gli incrementi delle ordinate e delle 
+ascisse, cioè l'aumento dell'ordinata diviso l'aumento dell'ascissa, è sempre 
+lo stesso vedi figura: \ref{fig:rappincr}.
+
+\begin{inaccessibleblock}[Rette parallele all'asse x e parallele all'asse y.]
  \begin{figure}[h]
  \centering
  \begin{minipage}[]{.50\textwidth}
-\(\dfrac{y_B - y_A}{x_B - x_A} = \frac{3}{2} = m\)
+\(\dfrac{y_B - y_A}{x_B - x_A} = \dfrac{3}{2} = m\)\\
 
-\(\dfrac{y_C - y_A}{x_C - x_A} = \frac{6}{4} = \frac{3}{2} = m\)
+\(\dfrac{y_C - y_A}{x_C - x_A} = \dfrac{6}{4} = \dfrac{3}{2} = m\)\\
 
-\(\dfrac{y_D - y_A}{x_D - x_A} = \frac{9}{6} = \frac{3}{2} = m\)
-  \caption{Tre rapporti incrementali sulla stessa retta.}\label{calc:rappincr}
+\(\dfrac{y_D - y_A}{x_D - x_A} = \dfrac{9}{6} = \dfrac{3}{2} = m\)\\
+
+In generale, dati due punti qualunque di una retta:
+\[m = \frac{\Delta y}{\Delta x}\]
+%   \caption{.}\label{calc:rappincr}
  \end{minipage}
  \begin{minipage}[]{.40\textwidth}
-   \centering\input{\folder lbr/fig008_rappincr.pgf}
-  \caption{\(\frac{\Delta y}{\Delta x}\).}\label{fig:rappincr}
+   \centering \rappincr
  \end{minipage}
+  \caption{Tre rapporti incrementali sulla stessa retta
+  \(\frac{\Delta y}{\Delta x}\).}\label{fig:rappincr}
 \end{figure}
 \end{inaccessibleblock}
 
-In generale, dati due punti qualunque di una retta:
-
-\[m = \frac{\Delta y}{\Delta x}\]
 
 \subsection{Disegno rapido}
 
@@ -365,85 +519,143 @@ adatto a fare calcoli.
  \centering
  \begin{minipage}[]{.30\textwidth}
   \begin{center}
-   \(r:~y = - \frac{2}{3}x + 4\)
-   
-   \(q = 4\)
-   
-   \(\Delta x = 3\)
-   
-   \(\Delta y = -2\)
+   \(r:~y = - \dfrac{2}{3}x + 4\)\\[.5em]
+
+   \(q = 4\)\\[.5em]
+
+   \(\Delta x = 3\)\\[.5em]
+
+   \(\Delta y = -2\)\\[.5em]
    
    (andare verso l'alto di~\(-2\) significa...)
   \end{center}
-  \caption{Elementi da individuare.}\label{fig:elementi}
+%   \caption{Elementi da individuare.}\label{fig:elementi}
  \end{minipage}
  \begin{minipage}[]{.60\textwidth}
-   \centering\input{\folder lbr/fig009_metodorapido.pgf}
-  \caption{Metodo rapido.}\label{fig:metodorapido}
+   \centering \metodorapido % \input{\folder lbr/fig009_metodorapido.pgf}
  \end{minipage}
+  \caption{Metodo rapido: individuare l'intercetta, 
+\(\Delta x\) e \(\Delta y\); disegnare un punto, contare i quadretti.} 
+\label{fig:metodorapido}
 \end{figure}
 \end{inaccessibleblock}
 
-\newpage %-----------------------------------------------
+% \newpage %-----------------------------------------------
 
 \section{Rette parallele e perpendicolari}
 \label{sec:retta_paralleleleperpendicolari}
 
 Se abbiamo capito il significato di coefficiente angolare, non è difficile, 
 guardando l'equazione di due rette dire se sono parallele. Nel seguente 
-elenco evidenzia con colori diversi le rette parallele:
+elenco evidenzia con colori diversi le rette parallele :
 
 \begin{multicols}{4}
  \TabPositions{0.6cm}
  \begin{enumeratea}
- \item \(y=-\frac{1}{2}x + 7\)
- \item \(y=-\frac{2}{3}x + \frac{5}{3}\)
- \item \(y={3}x + 2\)
- \item \(y=\frac{4}{6}x + 3\)
- \item \(y=\frac{1}{3}x + \frac{5}{3}\)
- \item \(y=-\frac{1}{2}x + 3\)
- \item \(y=-\frac{2}{3}x + 7\)
- \item \(y=\frac{6}{9}x + 2\)
- \item \(-3x + 9y = 0\)
- \item \(2x - 4y + 2 = 0\)
- \item \(10x + 15y + 2\)
- \item \(3x -y + 7 = 0\)
+ \item \(y=-\dfrac{1}{2}x + 7\)
+ \item \(y=-\dfrac{2}{3}x + -2\)
+ \item \(y=\dfrac{3}{2}x + 2\)
+ \item \(y=\dfrac{4}{6}x - 3\)
+ \item \(y=\dfrac{1}{3}x + 2\)
+ \item \(y=-\dfrac{1}{2}x + 3\)
+ \item \(y=-\dfrac{2}{3}x - 7\)
+ \item \(y=\dfrac{6}{9}x + 2\)
+ \item \(y=\dfrac{3}{6}x - 2\)
+ \item \(-6x + 9y = 0\) \\[-.8em]
+ \item \(4x - 2y + 2 = 0\) \\[-.8em]
+ \item \(10x + 15y + 30\) \\[-.8em]
+ \item \(3x -2y + 7 = 0\)
  \end{enumeratea}
 \end{multicols}
+
+Poi disegna le rette con il metodo rapido, segnandole con la loro etichetta, 
+e verifica quanto avevi ipotizzato. 
 
 \begin{definizione}
 Due rette sono parallele se e solo se hanno lo stesso coefficiente angolare.
 \end{definizione}
 
-Per le rette perpendicolari il problema è più complicato. Partiamo da 
-disegnare la retta~\(r\) di equazione~\(y = \frac{4}{5} x\) poi ci procuriamo 
-un oggetto dotato di un angolo retto e disegniamo la retta~\(s\) perpendicolare 
-a~\(r\) nel punto~\((0;~0)\). Dobbiamo disegnare con la massima precisione. 
+Nel disegno precedente individua quelle perpendicolari.
+
+Individuare la regola per le rette perpendicolari il problema è più 
+complicato. 
+Disegna un nuovo piano cartesiano.
+Partiamo da disegnare la retta~\(r\) di equazione~\(y = \dfrac{4}{5} x\) poi 
+ci procuriamo un oggetto dotato di un angolo retto e disegniamo la 
+retta~\(s\) perpendicolare a~\(r\) nel punto~\((0;~0)\). 
+Dobbiamo disegnare con la massima precisione. 
 
 Possiamo osservare innanzitutto che se la retta precedente era crescente, la 
 perpendicolare sarà decrescente e viceversa. In questo caso il coefficiente 
-angolare di~\(s\) sarà negativo. Se abbiamo fatto un buon lavoro con il disegno 
-dovremmo trovare che, partendo dal punto in cui~\(r\) interseca l'asse~\(y\), il 
+angolare di~\(s\) sarà negativo. 
+Se abbiamo fatto un buon lavoro con il disegno dovremmo trovare che, partendo 
+dal punto in cui~\(r\) interseca l'asse~\(y\), il 
 prossimo punto in cui la perpendicolare passa per l'incrocio dei quadretti 
-è~\((4;~-5)\). Il coefficiente angolare di~\(s\) è quindi:~\(m_s = - \frac{1}{m_r}\).
+è~\((4;~-5)\). Il coefficiente angolare di~\(s\) è 
+quindi:~\(m_s = - \dfrac{1}{m_r}\).
 
 \begin{definizione}
 Due rette sono perpendicolari se e solo se il coefficiente angolare di 
 una è l'\emph{antireciproco} del coefficiente angolare dell'altra.
 \end{definizione}
 
-\begin{exrig}
+% \begin{exrig}
  \begin{esempio}
-  Dopo aver riportato su un piano cartesiano i dati dell'esercizio,
-  data la retta~\(r:~y = \frac{4}{5} x\), calcola l'equazione della retta~\(s\)  
-  parallela a~\(r\) passante per~\(P(-4;~3)\).
+Dopo aver riportato su un piano cartesiano i dati dell'esercizio,
+data la retta~\(r:~y = \dfrac{1}{3} x-2\), calcola l'equazione della 
+retta~\(s\) parallela a~\(r\) passante per l'origine.
+
+\begin{inaccessibleblock}[Calcolo dell'equazione e disegno di una retta 
+parallela a una data.]
+ \begin{figure}[h]
+ \centering
+ \begin{minipage}[]{.30\textwidth}
+  \begin{itemize}
+  \item Disegno la retta \(r\)
+  \item \(m_r = \dfrac{1}{3}\)
+  \item \(m_s = m_r = \dfrac{1}{3}\)
+  \item \(q_s = 0\)
+  \item \(s:~ y=~\dfrac{1}{3}\)
+  \item Disegno la retta \(s\)
+  \end{itemize}
+ \end{minipage}
+ \begin{minipage}[]{.60\textwidth}
+   \centering \esempioparall
+ \end{minipage}
+%   \caption{Calcolo dell'equazione di una retta parallela a una data.} 
+\label{fig:metodorapido}
+\end{figure}
+\end{inaccessibleblock}
  \end{esempio}
+ 
  \begin{esempio}
-  Dopo aver riportato su un piano cartesiano i dati dell'esercizio,
-  data la retta~\(r:~y = \frac{4}{5} x\), calcola l'equazione della retta~\(n\)  
-  perpendicolare a~\(r\) passante per~\(P(-4;~3)\).
+Dopo aver riportato su un piano cartesiano i dati dell'esercizio,
+data la retta~\(r:~y = \dfrac{3}{5} x +2\), calcola l'equazione della 
+retta~\(n\) perpendicolare a~\(r\) passante per l'origine.
+
+\begin{inaccessibleblock}[Calcolo dell'equazione e disegno di una retta 
+perpendicolare a una data.]
+ \begin{figure}[h]
+ \centering
+ \begin{minipage}[]{.30\textwidth}
+  \begin{itemize}
+  \item Disegno la retta \(r\)
+  \item \(m_r = \dfrac{3}{5}\)
+  \item \(m_s = - \dfrac{1}{m_r} = -\dfrac{5}{3}\)
+  \item \(q_s = 0\)
+  \item \(s:~ y= -\dfrac{5}{3}\)
+  \item Disegno la retta \(s\)
+  \end{itemize}
+ \end{minipage}
+ \begin{minipage}[]{.60\textwidth}
+   \centering \esempioperp
+ \end{minipage}
+\label{fig:metodorapido}
+\end{figure}
+\end{inaccessibleblock}
  \end{esempio}
-\end{exrig}
+
+% \end{exrig}
 
 \section{Retta per due punti}
 \label{sec:retta_rettaperduepunti}
@@ -456,95 +668,152 @@ punti assegnati?
  Calcola l'equazione della retta passante per i punti~A~e~B:
  \begin{enumeratea}
   \item Conoscendo i due punti non è difficile calcolare il coefficiente 
-   angolare:~\(m = \frac{y_B - y_A}{x_B - x_A}\)
+   angolare:~\(m = \dfrac{y_B - y_A}{x_B - x_A}\)
   \item poi resta da calcolare l'intercetta e per questo possiamo applicare 
    la condizione di passaggio per un 
-   punto:~\(y_A = m x_A + q \Leftarrow q = y_A - m x_A\).
+   punto:~\(y_A = m x_A + q \sRarrow q = y_A - m x_A\).
  \end{enumeratea}
 \end{procedura}
 
 
-\begin{exrig}
+% \begin{exrig}
  \begin{esempio}
+~
 
-  \begin{inaccessibleblock}[Figura: TODO]
+\begin{inaccessibleblock}[Calcolo dell'equazione e disegno di una retta 
+perpendicolare a una data.]
  \begin{figure}[h]
-    \centering\input{\folder lbr/fig010_retta03.pgf}
-    \caption{Equazione di una retta.}\label{fig:equazione}
-  \end{figure}
-\end{inaccessibleblock}
+ \centering
+ \begin{minipage}[]{.30\textwidth}
+Calcola l'equazione della retta passante per~\(A(-3;~4)\) e~\(B(6;~-2)\).
 
-Calcola l'equazione della retta passante per~\(A(-3;~4)\) e~\(B(6;~-2)\) 
-(figura:~\ref{fig:equazione}).
-
+\vspace{1em}
 Per prima cosa disegna i punti e la retta. È facile prevedere che il 
 coefficiente angolare dovrà essere negativo e che l'intercetta dovrà valere
-all'incirca due. 
+all'incirca due.
 
+\vspace{1em}
 Calcoliamo il coefficiente angolare:
-
+ \end{minipage}
+ \begin{minipage}[]{.60\textwidth}
+   \centering \rettac
+ \end{minipage}
+\label{fig:metodorapido}
+\end{figure}
+\end{inaccessibleblock}
 \[m = \frac{\Delta y}{\Delta x} = \frac{y_B - y_A}{x_B - x_A} =
       \frac{-2 - 4}{6 -(-3)} = \frac{-2 - 4}{6 + 3} = \frac{-6}{9} = 
       - \frac{2}{3}
 \]
+Per trovare~\(q\) e imponiamo che la retta passi per~\(A\) 
+(si ottiene lo stesso risultato imponendo il passaggio per~\(B\)): \quad
+\(y_A = - \dfrac{2}{3} x_A + q \sRarrow 
+    q = y_A +\dfrac{2}{3} x_A = 4 +\dfrac{2}{3} (-3) = 4 - 2 = 2\)
 
-Per trovare~\(q\) e imponiamo che la retta di cui conosciamo~\(m\) passi per~\(A\) 
-(si ottiene lo stesso risultato imponendo il passaggio per~\(B\)):
-
-\[y_A = - \frac{2}{3} x_A + q \Leftarrow 
-    q = y_A +\frac{2}{3} x_A  
-    q = 4 +\frac{2}{3} (-3) 
-    q = 4 - 2 = 2 
-\]
-
-L'equazione della retta è quindi:
-
-\[y = - \frac{2}{3} x + 2\]
-
+\noindent L'equazione della retta è quindi: \quad
+\(y = - \dfrac{2}{3} x + 2\) \quad
 (Come sospettavamo).
  \end{esempio}
 
 % Esiste anche una formula molto comoda che fornisce direttamente l'equazione 
-% di una retta passante per due punti senza dover calcolare prima~\(m\) e poi~\(q\). 
+% di una retta passante per due punti senza dover calcolare prima~\(m\) e 
+% poi~\(q\). 
 % La formula è:
 % 
 % \[\frac{y - y_A}{y_B - y_A} = \frac{x - x_A}{x_B - x_A}\]
 
- \begin{esempio}
-  Calcola, usando la formuletta, l'equazione della retta passante per gli 
-  stessi due punti.
- \end{esempio}
-\end{exrig}
+%  \begin{esempio}
+%   Calcola, usando la formuletta, l'equazione della retta passante per gli 
+%   stessi due punti.
+%  \end{esempio}
+% \end{exrig}
 
 \section{Fasci di rette}
 \label{sec:retta_fasci}
 
-L'equazione parametrica:~\(y - y_P = m (x - x_P)\) al variare del parametro~\(m\) 
+L'equazione parametrica:~\(y - y_P = m (x - x_P)\) al variare del 
+parametro~\(m\) 
 rappresenta senz'altro una retta perché è un'equazione di primo grado nelle 
 due incognite~\(x\) e~\(y\). Senz'altro questa retta passa per il punto~\(P\), 
 infatti se al posto di~\(x\) e di~\(y\) sostituisco 
 rispettivamente:~\(x_P\) e~\(y_P\) l'uguaglianza è verificata:
 
-\[y_P - y_P = m (x_P - x_P) \Leftarrow 0 = m \cdot 0\]
+\[y_P - y_P = m (x_P - x_P) \sRarrow 0 = m \cdot 0\]
 
 Dunque~\(y - y_P = m (x - x_P)\) è l'equazione di una generica retta passante 
-per~\(P\). Al variare di~\(m\) ottengo quasi tutte le rette passanti per~\(P\)\dots 
+per~\(P\). Al variare di~\(m\) ottengo quasi tutte le rette passanti 
+per~\(P\)\dots 
 Perché \emph{quasi} tutte?
 
-\begin{exrig}
+% \begin{exrig}
  \begin{esempio}
   Dopo aver riportato su un piano cartesiano i dati dell'esercizio,
-  scrivi l'equazione del fascio di rete passanti per il punto~\(P(3;~2)\).
-  Tra tutte queste calcola l'equazione della retta parallela alla retta 
-  passante per i punti~\(A(-4;~1)\) e~\(B(3;~-1)\).
+  scrivi l'equazione del fascio di rete passanti per il punto~\(P(1;~-2)\).
+  Tra tutte queste calcola l'equazione della retta \(s\) parallela alla retta 
+  \(r\) di equazione \(y=-\dfrac{3}{4}x+3\).
+
+\begin{inaccessibleblock}[Calcolo dell'equazione e disegno di una retta 
+parallela a una data.]
+ \begin{figure}[h]
+ \centering
+\noindent{
+ \begin{minipage}[]{.30\textwidth}
+  \begin{itemize}
+  \item Disegno il punto \(P\) 
+  \item Disegno la retta:\\
+  \(r:~y=-\dfrac{3}{4}x+3\) 
+  \item Fascio: \\
+  \(y + 2 = m \tonda{x - 1}\)
+  \item retta parallela: \\
+  \(y = -\dfrac{3}{4} \tonda{x - 1} -2\)\\
+  \(s:~y = -\dfrac{3}{4} x -\dfrac{5}{4}\)
+  \item Disegno la retta \(s\)
+  \end{itemize}
+ \end{minipage}
+ \begin{minipage}[]{.60\textwidth}
+   \centering \fascioparall
+ \end{minipage}
+}
+\label{fig:metodorapido}
+\end{figure}
+\end{inaccessibleblock}
  \end{esempio}
+ 
  \begin{esempio}
   Dopo aver riportato su un piano cartesiano i dati dell'esercizio,
-  scrivi l'equazione del fascio di rete passanti per il punto~\(P(-23;~1)\).
+  scrivi l'equazione del fascio di rete passanti per il punto~\(P(-3;~1)\).
   Tra tutte queste calcola l'equazione della retta perpendicolare alla retta 
-  passante per i punti~\(A(3;~4)\) e~\(B(5;~-2)\).
+  di equazione~\(y=-\dfrac{3}{4}x+4\).
+
+\begin{inaccessibleblock}[Calcolo dell'equazione e disegno di una retta 
+perpendicolare a una data.]
+ \begin{figure}[h]
+ \centering
+\noindent{
+ \begin{minipage}[]{.30\textwidth}
+  \begin{itemize}
+%   \item Disegno il punto \(P\) 
+%   \item Disegno la retta:\\
+%   \(r:~y=-\dfrac{3}{4}x+4\) 
+  \item Fascio: \\
+  \(y -1 = m \tonda{x +3}\)
+  \item \(m_r = -\dfrac{3}{4}\)
+  \item \(m_s = - \dfrac{1}{m_r} = \dfrac{4}{3}\)
+  \item retta parallela: \\
+  \(y = \dfrac{4}{3} \tonda{x +3} +1\)\\
+  \(s:~y = \dfrac{4}{3} x +5\)
+%   \item Disegno la retta \(s\)
+  \end{itemize}
+ \end{minipage}
+ \begin{minipage}[]{.60\textwidth}
+   \centering \fascioperp
+ \end{minipage}
+}
+\label{fig:metodorapido}
+\end{figure}
+\end{inaccessibleblock}
  \end{esempio}
-\end{exrig}
+% \end{exrig}
 
 \subsection{Formula della retta per due punti}
 
@@ -553,14 +822,85 @@ solo passo un problema già affrontato e risolto in due passaggi.
 Possiamo combinare la formula del fascio di rette per un 
 punto~\(y - y_P = m (x - x_P)\)
 e la formula per calcolare il 
-coefficiente angolare~\(m = \frac{y_B - y_A}{x_B - x_A}\) 
+coefficiente angolare~\(m = \dfrac{y_B - y_A}{x_B - x_A}\) 
 Sostituendo~\(m\) nella prima otteniamo:
-
-\[y - y_A = \frac{y_B - y_A}{x_B - x_A} (x - x_A)\]
-
-La formula per del fascio di rette passsanti per un punto permette di 
+\[y - y_A = \dfrac{y_B - y_A}{x_B - x_A} (x - x_A)\]
+La formula per del fascio di rette passanti per un punto permette di 
 scriverne una analoga che dà immediatamente l'equazione di una retta passante 
 per due punti.
+
+% \begin{exrig}
+ \begin{esempio}
+  Dopo aver riportato su un piano cartesiano i dati dell'esercizio,
+  scrivi l'equazione del fascio di rete passanti per il punto~\(P(3;~2)\).
+  Tra tutte queste calcola l'equazione della retta parallela alla retta 
+  passante per i punti~\(A(-4;~1)\) e~\(B(3;~-1)\).
+  
+\begin{inaccessibleblock}[Esercizio su retta passante per due punti e su 
+fascio di rette.]
+ \begin{figure}[h]
+ \centering
+\noindent{
+ \begin{minipage}[]{.30\textwidth}
+  \begin{itemize}
+%   \item Disegno i 3 punti 
+%   \item Disegno la retta \(AB\)
+  \item Equazione \(AB\):\\
+\(y - 1 = \dfrac{-1 - 1}{3 +4} (x +4)\)\\
+  \(y = -\dfrac{2}{7} x -\dfrac{1}{7}\)
+  \item Fascio: \\
+  \(y - 2 = m \tonda{x - 3}\)
+  \item retta parallela: \\
+  \(y = -\dfrac{2}{7} \tonda{x - 3} +2\)\\
+  \(s:~y = -\dfrac{2}{7} x +\dfrac{20}{7}\)
+%   \item Disegno la retta \(s\)
+  \end{itemize}
+ \end{minipage}
+ \begin{minipage}[]{.60\textwidth}
+   \centering \duepuntiparall
+ \end{minipage}
+}
+\label{fig:metodorapido}
+\end{figure}
+\end{inaccessibleblock}
+ \end{esempio}
+
+ \begin{esempio}
+  Dopo aver riportato su un piano cartesiano i dati dell'esercizio,
+  scrivi l'equazione del fascio di rete passanti per il punto~\(P(-2;~+3)\).
+  Tra tutte queste calcola l'equazione della retta perpendicolare alla retta 
+  passante per i punti~\(A(-3;~-1)\) e~\(B(+1;~+2)\).
+
+\begin{inaccessibleblock}[Esercizio su retta passante per due punti e su 
+fascio di rette.]
+ \begin{figure}[h]
+ \centering
+\noindent{
+ \begin{minipage}[]{.30\textwidth}
+  \begin{itemize}
+%   \item Disegno i 3 punti 
+%   \item Disegno la retta \(AB\)
+  \item Equazione \(AB\):\\
+  \(y +1 = \dfrac{+2 +1}{+1 +3} (x +3)\)\\
+  \(y = \dfrac{3}{4} x +\dfrac{5}{4}\)
+  \item Fascio: \\
+  \(y -3 = m \tonda{x +2}\)
+  \item \(m_s = - \dfrac{1}{m_r} = -\dfrac{4}{3}\)
+  \item retta parallela: \\
+  \(y = -\dfrac{4}{3} \tonda{x +2} +3\)\\
+  \(s:~y = -\dfrac{4}{3} x +\dfrac{1}{3}\)
+%   \item Disegno la retta \(s\)
+  \end{itemize}
+ \end{minipage}
+ \begin{minipage}[]{.60\textwidth}
+   \centering \duepuntiperp
+ \end{minipage}
+}
+\label{fig:metodorapido}
+\end{figure}
+\end{inaccessibleblock}
+ \end{esempio}
+% \end{exrig}
 
 \section{Distanza punto retta}
 \label{sec:retta_distanzapuntoretta}
@@ -586,21 +926,94 @@ una retta~\(r: ax+by+c=0\),
 la distanza~\(d(P, r)\) tra il punto e la retta si ottiene
 dalla seguente formula:
 
-\[d(P, r) = \frac{\lvert ax_P +by_P + c\rvert}{\sqrt{a^2 + b^2}}\]
+\[d(P,~r) = \dfrac{\abs{ax_P +by_P + c}}{\sqrt{a^2 + b^2}}\]
 
 Il numeratore è ottenuto partendo dall'equazione implicita della retta 
 sostituendo le variabili con le coordinate del punto~\(P\).
 
-\begin{exrig}
+\begin{comment}
+% Non centra niente, ma è interessante!!!!!!!!!!!!!
+Per evitare l'indentazione con le minipage:
+
+\documentclass{article}
+\begin{document}
+\fboxsep=0pt
+\noindent\fbox{%
+\begin{minipage}[t]{0.48\linewidth}
+left part
+\end{minipage}}%
+\hfill%
+\fbox{%
+\begin{minipage}[t]{0.48\linewidth}
+right part
+\end{minipage}
+}
+
+\end{document} 
+\end{comment}
+
+% \begin{exrig}
  \begin{esempio}
   Dopo aver riportato su un piano cartesiano i dati dell'esercizio,
-  calcola la distanza tra~\(P(-1;~5)\) e~\(r:~y = \frac{1}{3} x -2\). 
+  calcola la distanza tra il punto \(P(-1;~5)\) e
+  la retta \(r:~y = \dfrac{1}{3} x -2\). 
+
+\begin{inaccessibleblock}[Esercizio su distanza punto retta.]
+ \begin{figure}[h]
+ \centering
+\hspace{-5mm}
+\begin{minipage}[]{.62\textwidth}
+\begin{itemize}
+%   \item Disegno i 3 punti 
+%   \item Disegno la retta \(AB\)
+  \item Eq. implicita:\\
+  \(x -3y -6 = 0\)\\
+  \item Distanza: \\
+  \(d(P,~r) = \dfrac{\abs{1(-1) -3(+5) -6}}{\sqrt{(+1)^2 + (-3)^2}}=
+  \dfrac{\abs{-1 -15 -6}}{\sqrt{1 + 9}}=\)\\[.5em]
+  \(= \dfrac{\abs{-22}}{\sqrt{10}}=\dfrac{22}{\sqrt{10}}\)
+  \end{itemize}
+ \end{minipage}
+ \begin{minipage}[]{.40\textwidth}
+   \begin{center} \distpuntorettaa \end{center}
+ \end{minipage}
+\label{fig:metodorapido}
+\end{figure}
+\end{inaccessibleblock}
  \end{esempio}
- \begin{esempio}
-  Dopo aver riportato su un piano cartesiano i dati dell'esercizio,
-  calcola la distanza tra~\(P(4;~-3)\) e~\(r:~y = \frac{-1}{5} x +5\),
- \end{esempio}
-\end{exrig}
+ 
+%  \begin{esempio}
+%   Dopo aver riportato su un piano cartesiano i dati dell'esercizio,
+%   calcola la distanza tra~\(P(4;~-3)\) e~\(r:~y = -\dfrac{1}{5} x +5\),
+% 
+% \begin{inaccessibleblock}[Esercizio su distanza punto retta.]
+%  \begin{figure}[h]
+%  \centering
+% \hspace{-5mm}
+% \begin{minipage}[]{.40\textwidth}
+% \begin{itemize}
+% %   \item Disegno i 3 punti 
+% %   \item Disegno la retta \(AB\)
+%   \item Equazione \(AB\):\\
+%   \(y +1 = \dfrac{+2 +1}{+1 +3} (x +3)\)\\
+%   \(y = \dfrac{3}{4} x +\dfrac{5}{4}\)
+%   \item Fascio: \\
+%   \(y -3 = m \tonda{x +2}\)
+%   \item \(m_s = - \dfrac{1}{m_r} = -\dfrac{4}{3}\)
+%   \item retta parallela: \\
+%   \(y = -\dfrac{4}{3} \tonda{x +2} +3\)\\
+%   \(s:~y = -\dfrac{4}{3} x +\dfrac{1}{3}\)
+% %   \item Disegno la retta \(s\)
+%   \end{itemize}
+%  \end{minipage}
+%  \begin{minipage}[]{.62\textwidth}
+%    \begin{center} \duepuntiperp \end{center}
+%  \end{minipage}
+% \label{fig:metodorapido}
+% \end{figure}
+% \end{inaccessibleblock}
+%  \end{esempio}
+% \end{exrig}
 
 \section{Intersezione di rette}
 \label{sec:retta_intersezionedirette}
@@ -611,46 +1024,45 @@ punto in comune questo significa che le coordinate di quel punto sono
 soluzione di entrambe le equazioni. Trovare le coordinate del punto che due 
 rette hanno in comune significa trovare le soluzioni comuni alle due equazioni.
 
-\begin{exrig}
+% \begin{exrig}
  \begin{esempio}
-  Disegna le due rette~\(r:~y = -\frac{1}{3} x +3\) e~\(s:~y = \frac{4}{3} x -2\) 
+  Disegna le due rette \(r:~y = -\dfrac{1}{3} x +3\) e 
+  \(s:~y = \dfrac{4}{3} x -2\) 
   individua graficamente l'intersezione e verifica che 
   le sue coordinate sono soluzioni di entrambe le equazioni.
-\begin{inaccessibleblock}[Figura: TODO]
+\begin{inaccessibleblock}[Intersezione di due rette nel punto I]
  \begin{figure}[h]
  \centering
- \begin{minipage}[]{.60\textwidth}
-   \centering\input{\folder lbr/fig011_intersezione01.pgf}
-  \caption{Intersezione di due rette.}\label{fig:intersezione01}
+ \begin{minipage}[]{.49\textwidth}
+ \intersezionea
+%    \centering\input{\folder lbr/fig011_intersezione01.pgf}
+%   \caption{Intersezione di due rette.}\label{fig:intersezione01}
  \end{minipage}
- \begin{minipage}[]{.30\textwidth}
-  \begin{center}
-
-   \(y = -\dfrac{1}{3} x +3 \newline
-    2 = -\dfrac{1}{3} 3 +3 = -1 + 3\)
-   
-   \(y = \dfrac{4}{3} x -2 \newline
-    2 = \dfrac{4}{3} 3 -2 = 4 -2\)
-
-  \end{center}
-  \caption{Verifica dell'intersezione.}\label{fig:elementi}
+ \hfill
+ \begin{minipage}[]{.49\textwidth}
+Dopo aver disegnato le due rette si vede immediatamente che si intersecano 
+nel punto~\(I(3;~2)\). 
+Sostituendo~3 alla~\(x_I\) e~2 alla~\(y_I\) nelle due equazioni otteniamo:
+\begin{multicols}{2}
+\vspace*{-2.1em}
+\begin{align*}
+y_I &= -\dfrac{1}{3} x_I +3 \\
+2 &= -\dfrac{1}{3} 3 +3 \\
+2 &= -1 + 3
+\end{align*} %\\[-.5em]
+\begin{align*}
+y_I &= \dfrac{4}{3} x_I -2 \\
+2 &= \dfrac{4}{3} 3 -2 \\
+2 &= 4 -2
+\end{align*}
+\end{multicols}
  \end{minipage}
+\caption{Intersezione di due rette e sua verifica.}
+\label{fig:elementi}
 \end{figure}
 \end{inaccessibleblock}
  \end{esempio}
- 
-\vspace{-12pt}
 
-Dopo aver disegnato le due rette si vede immediatamente che si intersecano 
-nel punto~\(I(3;~2)\). Sostituendo~3 alla~\(x\) e~2 
-alla~\(y\) nelle due equazioni otteniamo:
-
-\(y = -\frac{1}{3} x +3 \sRarrow
-2 = -\frac{1}{3} 3 +3 = -1 + 3 = 2\)
-\qquad
-\(y = \frac{4}{3} x -2 \sRarrow
-2 = \frac{4}{3} 3 -2 = 4 -2 = 2\)
-   
 Ovviamente il metodo appena utilizzato non è generale: come facciamo a trovare 
 le coordinate esatte se l'intersezione non cade esattamente sul vertice di  
 un quadretto? Rovesciamo il problema: per individuare il punto 
@@ -660,8 +1072,8 @@ sono le coordinate dell'intersezione delle rette.
 In matematica per indicare che due frasi devono essere contemporaneamente 
 vere si usa il simbolo di una grande parentesi graffa aperta che le racchiuda 
 e l'insieme di più equazioni che devono essere vere contemporaneamente viene
-chiamato sistema. Risolvere un sistema significa trovare quei numeri che 
-messi al posto delle incognite rendono vere tutte le uguaglianza.
+chiamato \emph{sistema}. Risolvere un sistema significa trovare quei numeri 
+che messi al posto delle incognite rendono vere tutte le uguaglianza.
 
 Alla soluzione dei sistemi è dedicato tutto il prossimo capitolo, ma possiamo 
 intanto anticipare uno dei trucchi che useremo: se nella prima equazione c'è 
@@ -670,66 +1082,63 @@ di~y possiamo scrivere quella espressione. Vediamo questo procedimento con un
 esempio.
 
  \begin{esempio}
-  Disegna le due rette~\(r:~y = \dfrac{3}{2} x +2\) e~\(s:~y = \dfrac{2}{3} x -1\) 
+  Disegna le due rette~\(r:~y = \dfrac{3}{2} x +2\) e~\(s:~y = \dfrac{2}{3} x 
+-1\) 
   calcola le coordinate dell'intersezione e verifica di aver
   ottenuto una soluzione credibile.
 \begin{inaccessibleblock}[Figura: TODO]
  \begin{figure}[h]
  \centering
- \begin{minipage}[]{.60\textwidth}
-   \(\bigg \{
-     \begin{array}{l}
-      y = \dfrac{3}{2} x +2 \\
-      y = \dfrac{2}{3} x -1
-     \end{array}
-   \)
-  
-   \(\dfrac{3}{2} x +2 = \dfrac{2}{3} x -1 \newline
-    \dfrac{3}{2} x - \dfrac{2}{3} x = -1 -2 \newline
-    \dfrac{5}{6} x = -3 \newline
-    x = -\dfrac{18}{5} = -3,6\)
-   
-   \(y = \dfrac{2}{3} (-\dfrac{18}{5}) -1 \newline
-    y = - \dfrac{12}{5} -1 = - \dfrac{17}{5} = -3,4\)
-  \caption{Calcolo dell'intersezione.}\label{fig:elementi}
+ \begin{minipage}[]{.49\textwidth}
+\(\sistema{y = \dfrac{3}{2} x +2 \\[1em] y = \dfrac{2}{3} x -1} \sRarrow
+\dfrac{3}{2} x +2 = \dfrac{2}{3} x -1 \newline\)\\[.5em]
+\(\dfrac{9x +12}{6} = \dfrac{4x -6}{6} \sRarrow
+9x -4x = -12 -6  \sRarrow \newline
+ \sRarrow 5x = -18 \sRarrow x=-\dfrac{18}{5} = -3,6\)\\[.5em]
+
+\(y = \dfrac{2}{3} \tonda{-\dfrac{18}{5}} -1 =
+      -\dfrac{12}{5} -1 = -\dfrac{17}{5} = -3,4\)
  \end{minipage}
- \begin{minipage}[]{.30\textwidth}
-   \centering\input{\folder lbr/fig012_intersezione02.pgf}
-  \caption{Intersezione di due rette.}\label{fig:intersezione02}
+ \hfill
+ \begin{minipage}[]{.49\textwidth}
+ \intersezioneb
+%    \centering\input{\folder lbr/fig012_intersezione02.pgf}
+%   \caption{Intersezione di due rette.}\label{fig:intersezione02}
  \end{minipage}
+  \caption{Calcolo dell'intersezione di due rette.}\label{fig:elementi}
 \end{figure}
 \end{inaccessibleblock}
  \end{esempio}
- 
-\vspace{-12pt}
-
-   Dopo aver disegnato le due rette si vede immediatamente che si intersecano 
-   circa nel punto~\(I(3;~2)\). Risolviamo il sistema:
-   
-   \(\bigg \{
-     \begin{array}{l}
-      y = \frac{3}{2} x +2 \\
-      y = \frac{2}{3} x -1
-     \end{array}
-   \)
-  
-   La prima equazione ci dice che~\(y\) è equivalente a~\(\frac{3}{2} x + 3\) 
-   quindi, nella seconda equazione al posto di~\(y\) 
-   scriviamo:~\(\frac{3}{2} x + 3\) otteniamo così un'equazione che contiene 
-   una sola incognita, l'ascissa dell'intersezione:
-   
-   \(\frac{3}{2} x +2 = \frac{2}{3} x -1 \newline
-    \frac{3}{2} x - \frac{2}{3} x = -1 -2 \newline
-    \frac{5}{6} x = -3 \newline
-    x = -\frac{18}{5} = 3,6\)
-   
-   E sostituendo questo valore in una delle due equazioni troviamo anche il 
-   valore dell'ordinata dell'intersezione:
-   
-   \(y = \frac{2}{3} (-\frac{18}{5}) -1 
-      = - \frac{12}{5} -1 = - \frac{17}{5} = 3,4\)
-\vspace{6pt}
-\end{exrig}
+%  
+% \vspace{-12pt}
+% 
+%    Dopo aver disegnato le due rette si vede immediatamente che si intersecano 
+%    circa nel punto~\(I(3;~2)\). Risolviamo il sistema:
+%    
+%    \(\bigg \{
+%      \begin{array}{l}
+%       y = \frac{3}{2} x +2 \\
+%       y = \frac{2}{3} x -1
+%      \end{array}
+%    \)
+%   
+%    La prima equazione ci dice che~\(y\) è equivalente a~\(\frac{3}{2} x + 3\) 
+%    quindi, nella seconda equazione al posto di~\(y\) 
+%    scriviamo:~\(\frac{3}{2} x + 3\) otteniamo così un'equazione che contiene 
+%    una sola incognita, l'ascissa dell'intersezione:
+%    
+%    \(\frac{3}{2} x +2 = \frac{2}{3} x -1 \newline
+%     \frac{3}{2} x - \frac{2}{3} x = -1 -2 \newline
+%     \frac{5}{6} x = -3 \newline
+%     x = -\frac{18}{5} = 3,6\)
+%    
+%    E sostituendo questo valore in una delle due equazioni troviamo anche il 
+%    valore dell'ordinata dell'intersezione:
+%    
+%    \(y = \frac{2}{3} (-\frac{18}{5}) -1 
+%       = - \frac{12}{5} -1 = - \frac{17}{5} = 3,4\)
+% \vspace{6pt}
+% \end{exrig}
 
 % \section{Segno di una retta}
 % \label{sec:08_segno}

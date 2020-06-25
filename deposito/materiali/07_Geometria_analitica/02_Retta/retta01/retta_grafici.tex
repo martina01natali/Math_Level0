@@ -1,0 +1,420 @@
+% (c) 2017 Daniele Zambelli - daniele.zambelli@gmail.com
+% 
+% Tutti i grafici per il capitolo relativo alle rette
+% 
+
+\newcommand{\puntiallineati}{% Alcuni punti evidenziati
+  \disegno[3]{
+    \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
+    \foreach \pi in {(-4, 9), (-2, 6), (0, 3), (2, 0), (4, -3), (6, -6), 
+                     (8, -9)}
+    \filldraw [red!50!black] \pi circle (1.5pt);
+  }
+}
+
+\newcommand{\altripunti}{% Retta con alcuni punti evidenziati
+  \disegno[5]{
+    \rcom{-3}{+5}{-3}{+6}{gray!50, very thin, step=1}
+    \foreach \pi in {(-2, 6), (0, 3), (2, 0), (4, -3), (2, 0),
+                     (-0.5, 3.75), (0.5, 2.25), (1, 1.5), (1.5, 0.75),
+                     (2.5, -0.75)}
+    \filldraw [red!50!black] \pi circle (1.5pt);
+  }
+}
+
+\newcommand{\rettaa}{% Retta con alcuni punti evidenziati
+  \disegno[3]{
+    \rcom{-9}{+9}{-9}{+9}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-9.3,xmax=+9.3,ymin=-9.3,ymax=+9.3]
+    \tkzFct[domain=-9.3:+9.3, ultra thick, color=green!50!black]{-3./2*x+3}
+%     \draw [-] [ultra thick,green!50!black] (-4.867, 10.3) -- (8.867, -10.3);
+    \foreach \pi in {(-4, 9), (-2, 6), (0, 3), (2, 0), (4, -3), (6, -6), 
+                     (8, -9), 
+                     (-0.5, 3.75), (0.5, 2.25), (1, 1.5), (1.5, 0.75),
+                     (2.5, -0.75)}
+    \filldraw [red!50!black] \pi circle (1.5pt);
+  }
+}
+
+\newcommand{\rettey}{% Rette y=-2 e y=+3
+  \disegno[5]{
+    \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+ \draw [-] [ultra thick,red!50!black] (-5.3, -2) -- (5.3, -2) 
+       node [below left] {s};
+ \draw [-] [ultra thick,green!50!black] (-5.3, 3) -- (5.3, 3) 
+       node [below left] {t};
+  }
+}
+
+\newcommand{\rettex}{% Rette y=-2 e y=+3
+  \disegno[5]{
+    \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+ \draw [-] [ultra thick,red!50!black] (-4, -5.3) -- (-4, 5.3) 
+       node [below left] {q};
+ \draw [-] [ultra thick,green!50!black] (1, -5.3) -- (1, 5.3) 
+       node [below left] {r};
+  }
+}
+
+\newcommand{\dpuntib}{% Alcuni punti di y=-1./2*x-3
+  \foreach \px in {-2, +2}
+    \filldraw [red!50!black] (\px, -1./2*\px-3) circle (1.5pt);
+  \foreach \px in {-4, 0, 4}
+    \filldraw [brown!50!black] (\px, -1./2*\px-3) circle (2pt);
+}
+
+\newcommand{\puntib}{% Alcuni punti di y=-1./2*x-3
+  \disegno[5]{
+    \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+    \dpuntib
+  }
+}
+
+\newcommand{\rettab}{% Retta con alcuni punti evidenziati
+  \disegno[5]{
+    \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-5.3,ymax=+5.3]
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=green!50!black]{-1./2*x-3}
+    \dpuntib
+  }
+}
+
+\newcommand{\coeffang}{% Rette con diversi coefficiwenti angolari
+  \disegno[5]{
+    \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+    \begin{scope}[ultra thick,green!50!black]
+      \draw [-] (-5.3, -5.3) -- (0, 0);
+      \draw [-] (0, 0) to node [sloped,above] {$m=1$} (5.3, 5.3);
+      \draw [-] (0, 0) -- (5.3, -5.3);
+      \draw [-] (-5.3, 5.3) to node [sloped,above] {$m=-1$} (0, 0);
+      \draw [-] (-5.3, 0) -- (0, 0);
+      \draw [-] (0, 0) to node [sloped,above] {$m=0$} (5.3, 0);
+      \node at (4, 1.5) {$0 < m < 1$};
+      \node at (2, 4.5) {$1 < m$};
+      \node at (-2, 4.5) {$m < -1$};
+      \node at (-4, 1.5) {$0 < m < -1$};
+
+\end{scope}
+  }
+}
+
+\newcommand{\rappincr}{% Rapporto incrementale tra vari punti di una retta
+  \disegno[5]{
+    \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+    \coordinate (a) at (-3, -4);
+    \coordinate (b) at (-1, -1);
+    \coordinate (c) at (1, 2);
+    \coordinate (d) at (3, 5);
+    \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-5.3,ymax=+5.3]
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=green!50!black]{3./2*x+.5}
+
+    \draw[very thick, red!90!black] (d) -- 
+      node[fill=white, rounded corners=.5mm, scale=.5] 
+        {$y_{D} - y_P$} (d |- a);
+    \draw [red!90!black] (d |- a) -- +(0, -1.2);
+    \draw[very thick,blue!90!black] (d |- a) -- 
+      node[below=12pt, fill=white, rounded corners=.5mm, , scale=.5] 
+        {$x_{D} - x_P$} (a);
+    \draw[very thick,red!70!black] (c) -- 
+      node[fill=white, rounded corners=.5mm, scale=.5] 
+        {$y_{C} - y_P$} (c |- a);
+    \draw [red!70!black] (c |- a) -- +(0, -.8);
+    \draw[very thick,blue!70!black] (c |- a) -- 
+      node[below=6pt, fill=white, rounded corners=.5mm, scale=.5] 
+        {$x_{C} - x_P$} (a);
+    \draw[very thick,red!50!black] (b) -- 
+      node[fill=white, rounded corners=.5mm, scale=.5] 
+        {$y_{B} - y_A$} (b |- a);
+    \draw [red!50!black] (b |- a) -- +(0, -.4);
+    \draw[very thick,blue!50!black] (b |- a) -- 
+      node[below=0pt, fill=white, rounded corners=.5mm, scale=.5] 
+        {$x_{B} - x_A$} (a);
+% Con etichetta
+    \foreach \p/\lab in {a/\(A\), b/\(B\), c/\(C\), d/\(D\)}
+      \filldraw [red!50!black] (\p) circle (1.5pt) 
+        node[above left=-1.5mm] {\lab};
+  }
+}
+
+\newcommand{\metodorapido}{% Metodo rapido per disegnare una retta
+  \disegno[4]{
+    \rcom{-8}{+10}{-3}{+10}{gray!50, very thin, step=1}
+    \coordinate (inizio) at (-9, 10);
+    \coordinate (fine) at (12, -4);
+    \coordinate (a0) at (0, 4); \coordinate (a0p) at (3, 4); 
+    \coordinate (a1) at (3, 2); \coordinate (a1p) at (6, 2);
+    \coordinate (a2) at (6, 0); \coordinate (a2p) at (9, 0);
+    \coordinate (a3) at (9, -2);
+    \coordinate (i1) at (-3, 6); \coordinate (a0m) at (-3, 4);
+    \coordinate (i2) at (-6, 8); \coordinate (i1m) at (-6, 6);
+
+    \tkzInit[xmin=-8.3,xmax=+10.3,ymin=-3.3,ymax=+10.3]
+    \tkzFct[domain=-8.3:+10.3, ultra thick, color=green!50!black]{-2./3*x+4}
+    \begin{scope}[red!50!black]
+% Senza etichetta
+      \foreach \p in {a0, a1, a2, a3, i1, i2}
+      \filldraw (\p) circle (1.5pt);
+ 
+% Tentativi falliti!!!!
+% \foreach \x/\y in {-6/8,-3/6,...,9/-2}
+% \draw [red!50!black] (\x, \y) -- (\x, \y-0.5) node [below] {\x};
+
+% \foreach \p in {(-6, 8),(-3, 6),...,(9,-2)}
+%  \draw [red!50!black] (\p) .. controls +(-.5, -.5) .. ++(0, -1);
+
+\draw (i2) 
+ .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+ .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+ .. controls +(0, -.5) and +(0, -.5) .. ++(1, 0)
+ .. controls +(0, -.5) and +(0, -.5) .. ++(1, 0)
+ .. controls +(0, -.5) and +(0, -.5) .. ++(1, 0)
+ .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+ .. controls +(-.5, 0) and +(-.5, 0) .. ++(0, -1)
+ .. controls +(0, -.5) and +(0, -.5) .. ++(1, 0)
+ .. controls +(0, -.5) and +(0, -.5) .. ++(1, 0)
+ .. controls +(0, -.5) and +(0, -.5) .. ++(1, 0)
+ .. controls +(0, .5) and +(0, .5) .. ++(1, 0)
+ .. controls +(0, .5) and +(0, .5) .. ++(1, 0)
+ .. controls +(0, .5) and +(0, .5) .. ++(1, 0)
+ .. controls +(.5, 0) and +(.5, 0) .. ++(0, -1)
+ .. controls +(.5, 0) and +(.5, 0) .. ++(0, -1)
+ .. controls +(0, .5) and +(0, .5) .. ++(1, 0)
+ .. controls +(0, .5) and +(0, .5) .. ++(1, 0)
+ .. controls +(0, .5) and +(0, .5) .. ++(1, 0)
+ .. controls +(.5, 0) and +(.5, 0) .. ++(0, -1)
+ .. controls +(.5, 0) and +(.5, 0) .. ++(0, -1)
+ .. controls +(0, .5) and +(0, .5) .. ++(1, 0)
+ .. controls +(0, .5) and +(0, .5) .. ++(1, 0)
+ .. controls +(0, .5) and +(0, .5) .. ++(1, 0)
+ .. controls +(.5, 0) and +(.5, 0) .. ++(0, -1)
+ .. controls +(.5, 0) and +(.5, 0) .. ++(0, -1);
+
+% \draw [red!50!black] (i2)!.5!+(3,0) node [above] {$-3$};
+\draw node [left, scale=.7, xshift=-3] at ($ (i2)!.5!(i1m) $) {$+2$};
+\draw node [below, scale=.7, yshift=-3] at ($ (i1m)!.5!(i1) $) {$-3$};
+\draw node [left, scale=.7, xshift=-3] at ($ (i1)!.5!(a0m) $) {$+2$};
+\draw node [below, scale=.7, yshift=-3] at ($ (a0m)!.5!(a0) $) {$-3$};
+% \draw node [above, scale=.7] at ($ (i1)!.5!(a0m) $) {$-3$};
+% \draw node [left, scale=.7, yshift=2] at ($ (a0)!.5!(a0m) $) {$+2$};
+\draw node [below, scale=.7] at ($ (a0)!.5!(a0p) $) {$+3$};
+\draw node [left, scale=.7, yshift=2] at ($ (a1)!.5!(a0p) $) {$-2$};
+\draw node [below, scale=.7] at ($ (a1)!.5!(a1p) $) {$+3$};
+\draw node [left, scale=.7, yshift=2] at ($ (a2)!.5!(a1p) $) {$-2$};
+\draw node [below, scale=.7] at ($ (a2)!.5!(a2p) $) {$+3$};
+\draw node [left, scale=.7, yshift=2] at ($ (a3)!.5!(a2p) $) {$-2$};
+
+% Non disegna nulla!
+% \draw [red!50!black] ++(i2);
+%  
+% \foreach \i in {0,...,5}{
+%  \foreach \i in {0,...,2}
+%   \draw [red!50!black] .. controls +(0, .5) and +(0, .5) .. ++(1, 0)
+%         .. controls +(0, .5) and +(0, .5) .. ++(1, 0)
+%         .. controls +(0, .5) and +(0, .5) .. ++(1, 0);
+%  \foreach \i in {0,1}
+%   \draw [red!50!black] .. controls +(.5, 0) and +(.5, 0) .. ++(0, -1)
+%         .. controls +(.5, 0) and +(.5, 0) .. ++(0, -1);}
+    \end{scope}
+  }
+}
+
+\newcommand{\esparall}{% 
+  \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+  \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-5.3,ymax=+5.3]
+  \tkzFct[domain=-5.3:+5.3, ultra thick, color=green!50!black]{1./3*x-2}
+}
+
+\newcommand{\esempioparall}{% soluzione esempio retta parallela
+  \disegno[4]{
+    \esparall
+    \foreach \px in {-3, 0, +3}
+      \filldraw [red!50!black] (\px, 1./3*\px-2) circle (1.5pt);
+    \node at (0, -6) [black] {dati};
+    \begin{scope}[xshift=45mm]
+    \esparall
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=orange!50!black]{1./3*x}
+    \foreach \px in {-3, 0, +3}
+      \filldraw [red!50!black] (\px, 1./3*\px) circle (1.5pt);
+    \node at (0, -6) [black] {risultato};
+    \end{scope}
+
+  }
+}
+
+\newcommand{\esperp}{% 
+  \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
+  \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-5.3,ymax=+5.3]
+  \tkzFct[domain=-5.3:+5.3, ultra thick, color=green!50!black]{3./5*x+2}
+}
+
+\newcommand{\esempioperp}{% soluzione esempio retta perpendicolare
+  \disegno[4]{
+    \esperp
+    \foreach \px in {-5, 0, +5}
+      \filldraw [red!50!black] (\px, 3./5*\px+2) circle (1.5pt);
+    \node at (0, -6) [black] {dati};
+    \begin{scope}[xshift=45mm]
+    \esperp
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=orange!50!black]{-5./3*x}
+    \foreach \px in {-3, 0, +3}
+      \filldraw [red!50!black] (\px, -5./3*\px) circle (1.5pt);
+    \node at (0, -6) [black] {risultato};
+    \end{scope}
+
+  }
+}
+
+\newcommand{\rettac}{% Retta con alcuni punti evidenziati
+  \disegno[5]{
+    \rcom{-5}{+8}{-3}{+7}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-5.3,xmax=+8.3,ymin=-3.3,ymax=+7.3]
+    \tkzFct[domain=-5.3:+8.3, ultra thick, color=green!50!black]{-2./3*x+2}
+    \foreach \px/\plab in {-3/A, +6/B}
+      \filldraw [red!50!black] (\px, -2./3*\px+2) circle (1.5pt)
+        node [above right] {\(\plab\)};
+  }
+}
+
+\newcommand{\fascparall}{% 
+  \rcom{-5}{+5}{-6}{+6}{gray!50, very thin, step=1}
+  \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-6.3,ymax=+6.3]
+  \tkzFct[domain=-5.3:+5.3, ultra thick, color=green!50!black]{-3./4*x+3}
+  \filldraw [red!50!black] (1, -2) circle (1.5pt) node [above] {\(P\)};
+}
+
+\newcommand{\fascioparall}{% soluzione esempio fascio con retta parallela
+  \disegno[4]{
+    \fascparall
+    \foreach \px in {-4, 0, +4}
+      \filldraw [red!50!black] (\px, -3./4*\px+3) circle (1.5pt);
+    \node at (0, -7) [black] {dati};
+    \begin{scope}[xshift=45mm]
+    \fascparall
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=orange!50!black]
+           {-3./4*x-5./4}
+    \foreach \px in {-3, 1, +5}
+      \filldraw [red!50!black] (\px, -3./4*\px-5./4) circle (1.5pt);
+    \node at (0, -7) [black] {risultato};
+    \end{scope}
+  }
+}
+
+\newcommand{\fascperp}{% 
+  \rcom{-5}{+5}{-2}{+10}{gray!50, very thin, step=1}
+  \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-2.3,ymax=+10.3]
+  \tkzFct[domain=-5.3:+5.3, ultra thick, color=green!50!black]{-3./4*x+4}
+  \filldraw [red!50!black] (-3, 1) circle (1.5pt) node [above] {\(P\)};
+}
+
+\newcommand{\fascioperp}{% soluzione esempio fascio con retta perpendicolare
+  \disegno[4]{
+    \fascperp
+    \foreach \px in {-4, 0, +4}
+      \filldraw [red!50!black] (\px, -3./4*\px+4) circle (1.5pt);
+    \node at (0, -3) [black] {dati};
+    \begin{scope}[xshift=45mm]
+    \fascperp
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=orange!50!black]
+           {4./3*x+5}
+    \foreach \px in {-3, 0, +3}
+      \filldraw [red!50!black] (\px, 4./3*\px+5) circle (1.5pt);
+    \node at (0, -3) [black] {risultato};
+    \end{scope}
+  }
+}
+
+\newcommand{\duepparall}{% 
+  \rcom{-5}{+5}{-3}{+9}{gray!50, very thin, step=1}
+  \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-3.3,ymax=+9.3]
+  \tkzFct[domain=-5.3:+5.3, ultra thick, color=green!50!black]{-2./7*x-1./7}
+    \foreach \pc/\pl in {(3, 2)/P, (-4,1)/A, (3,-1)/B}
+      \filldraw [red!50!black] \pc circle (1.5pt)
+        node [below] {\(\pl\)};
+}
+
+\newcommand{\duepuntiparall}{% soluzione esempio fascio con retta parallela
+  \disegno[4]{
+    \duepparall
+    \node at (0, -4) [black] {dati};
+    \begin{scope}[xshift=45mm]
+    \duepparall
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=orange!50!black]
+           {-2./7*x+20./7}
+    \foreach \px in {-4}
+      \filldraw [red!50!black] (\px, -2./7*\px+20./7) circle (1.5pt);
+    \node at (0, -4) [black] {risultato};
+    \end{scope}
+  }
+}
+
+\newcommand{\duepperp}{% 
+  \rcom{-5}{+5}{-3}{+9}{gray!50, very thin, step=1}
+  \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-3.3,ymax=+9.3]
+  \tkzFct[domain=-5.3:+5.3, ultra thick, color=green!50!black]{3./4*x+5./4}
+    \foreach \pc/\pl in {(-2, 3)/P, (-3, -1)/A, (1, 2)/B}
+      \filldraw [red!50!black] \pc circle (1.5pt)
+        node [below] {\(\pl\)};
+}
+
+\newcommand{\duepuntiperp}{% soluzione esempio fascio con retta parallela
+  \disegno[4]{
+    \duepperp
+    \node at (0, -4) [black] {dati};
+    \begin{scope}[xshift=45mm]
+    \duepperp
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=orange!50!black]
+           {-4./3*x+1./3}
+    \foreach \px in {-5, +1}
+      \filldraw [red!50!black] (\px, -4./3*\px+1./3) circle (1.5pt);
+    \node at (0, -4) [black] {risultato};
+    \end{scope}
+  }
+}
+
+\newcommand{\distpuntorettaa}{% Distanza punto - retta
+  \disegno[4]{
+    \rcom{-5}{+5}{-3}{+7}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-3.3,ymax=+9.3]
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=green!50!black]
+           {1./3*x-2}
+    \foreach \px in {-3, 0, +3}
+      \filldraw [red!50!black] (\px, 1./3*\px-2) circle (1.5pt);
+    \filldraw [red!50!black] (-1, 5) circle (1.5pt) node [above] {\(P\)};
+    \draw [dashed, thick, blue!50!black] (-1, 5) -- (1.2, -1.6);
+  }
+}
+
+% \input{\folder lbr/lib04_pc10.pgf}
+% 
+% \coordinate (inizio) at (-9, 8);
+% \coordinate (fine) at (12, -6);
+% \coordinate (a) at (-3, 4); \coordinate (a0p) at (3, 4); 
+% \coordinate (b) at (6, -2); \coordinate (a1p) at (6, 2);
+% 
+% \draw [-] [ultra thick,green!50!black] (inizio) -- (fine);
+% 
+% \begin{scope}[red!50!black]
+% % Senza etichetta
+% \foreach \p/\lab in {a/A, b/B}
+%  \filldraw (\p) circle (1.5pt) node [above right] {\lab};
+% \end{scope}
+
+\newcommand{\intersezionea}{% Intersezioni tra due rette
+  \disegno[5]{
+    \rcom{-5}{+5}{-3}{+5}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-3.3,ymax=+5.3]
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=green!50!black]{-1./3*x+3}
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=blue!50!black]{4./3*x-2}
+    \filldraw [red!50!black] (3, 2) circle (1.5pt) node [above] {I};
+  }
+}
+
+\newcommand{\intersezioneb}{% Intersezioni tra due rette
+  \disegno[5]{
+    \rcom{-5}{+5}{-5}{+4}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-5.3,ymax=+4.3]
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=green!50!black]{3./2*x+2}
+    \tkzFct[domain=-5.3:+5.3, ultra thick, color=blue!50!black]{2./3*x-1}
+    \filldraw [red!50!black] (-3.6, -3.4) circle (1.5pt) node [above] {I};
+  }
+}

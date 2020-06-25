@@ -94,21 +94,6 @@ state/.style={draw=CornflowerBlue}, every loop/.style={draw=Maroon}]
 %   }
 % }
 
-\newcommand{\grafofunzsx}[3]{% 
-  % Funzione rappresentata come scatola nera a sinistra
-  % esempio di chiamata:
-  % \grafofunzsx{add}{\(\graffa{+7,~+5}\)}{\(+12\)}
-  \def \nomef{#1}
-  \def \argomento{#2}
-  \def \risultato{#3}
-%   \disegno[10]{
-     \node [draw, fill=blue!20, minimum size=3em, rounded corners] 
-            at (0, 0) (block 1) {\nomef};
-     \draw [-angle 45] (-1, 0) node [left] {\argomento} -- (block 1.west);
-     \draw[-angle 45] (block 1.east) -- (1, 0) node [right] {\risultato};
-%   }
-}
-
 \newcommand{\grafifunzbinarie}{% Grafi di alcune funzioni su coppie di numeri
   \disegno[10]{
   \grafofunzsx{add}{\(\graffa{+7,~+5}\)}{\(+12\)}
