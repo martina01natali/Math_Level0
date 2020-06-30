@@ -23,7 +23,7 @@ s_va = pyig.Segment(p_v, p_a, visible=False)# segmento VA
 c_v1_va = pyig.Circle(p_v1, s_va, width=1)  # circ di centro V' di raggio VA
 p_a1 = pyig.Intersection(r_0, c_v1_va, +1, name="A'")   # intersezione A'
 s_ae = pyig.Segment(p_a, p_e, visible=False)# segmento AE
-c_a1_ae = pyig.Circle(p_a1, s_ae, width=1) # circ di centro V' e raggio AE
+c_a1_ae = pyig.Circle(p_a1, s_ae, width=1) # circ di centro A' e raggio AE
 p_e1 = pyig.Intersection(c_v1_va, c_a1_ae, +1, name="E'") # intersezione E'
 pyig.Angle(p_a1, p_v1, p_e1, [0, 1], color="chocolate")   # ang. richiesto
 ## attivazione della finestra grafica
