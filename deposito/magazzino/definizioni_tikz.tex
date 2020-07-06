@@ -384,8 +384,7 @@ disequazioni
   \def \secondoval{#7}
   \def \terzoval{#8}
   \def \posx{\dimx / 2}
-  \def \posy{0}          % \posy inchioda la 
-compilazione!!!!!!!!!!!??????????
+  \def \posy{0}          % \posy inchioda la compilazione!!!!!!!!!!!???????
   \def \posv{0}
   \assex{-\dimx}{+\dimx}{\posv}
   \draw (-\dimx, \posv) node [left] {\primaesp};
@@ -418,7 +417,6 @@ compilazione!!!!!!!!!!!??????????
      \draw (\i*\largx-\dimx, 0) -- (\i*\largx-\dimx, -\numassi * \dimy);
 }
 
-
 \newcommand{\inti}[7]{% Intervallo interno
   % \disegno{\inti{0}{-2}{+2}{a}{b}{white}{black}}
   \def \posy{#1}
@@ -431,8 +429,8 @@ compilazione!!!!!!!!!!!??????????
   \coordinate (a) at (\posa, \posy);
   \coordinate (b) at (\posb, \posy);
   \draw [blue, thick, decorate, decoration=snake] (a) -- (b);
-  \draw[fill=\inta] (a) circle (2pt) node [above] {\(\labela\)};
-  \draw[fill=\intb] (b) circle (2pt) node [above] {\(\labelb\)};
+  \draw[fill=\inta] (a) circle (3pt) node [above] {\(\labela\)};
+  \draw[fill=\intb] (b) circle (3pt) node [above] {\(\labelb\)};
 }
 
 \newcommand{\rayl}[5]{% semiretta sinistra
@@ -444,7 +442,7 @@ compilazione!!!!!!!!!!!??????????
   \def \intp{#5}
     \coordinate (p) at (\posp, \posy);
     \draw [blue, thick, decorate, decoration=snake] (-\lung, \posy) -- (p);
-    \draw[fill=\intp] (p) circle (2pt) node [above] {\(\labelp\)};
+    \draw[fill=\intp] (p) circle (3pt) node [above] {\(\labelp\)};
 }
 
 \newcommand{\rayr}[5]{% semiretta destra
@@ -456,7 +454,7 @@ compilazione!!!!!!!!!!!??????????
   \def \intp{#5}
     \coordinate (p) at (\posp, \posy);
     \draw [blue, thick, decorate, decoration=snake] (p) -- (+\lung, \posy);
-    \draw[fill=\intp] (p) circle (2pt) node [above] {\(\labelp\)};
+    \draw[fill=\intp] (p) circle (3pt) node [above] {\(\labelp\)};
 }
 
 \newcommand{\inte}[8]{% Intervallo esterno
@@ -464,23 +462,54 @@ compilazione!!!!!!!!!!!??????????
   \rayr{#1}{#2}{#4}{#6}{#8}
 }
 
-\newcommand{\inticonasse}[7]{% Intervallo interno con asse
-  % \disegno{\inti{0}{-2}{+2}{a}{b}{white}{black}}
+\newcommand{\inticonasse}[8]{% Intervallo interno con asse
+  % \disegno{\inti{0}{-2}{+2}{a}{b}{white}{black}{x}}
   \inti{#1}{#2}{#3}{#4}{#5}{#6}{#7}
-  \assev{#2-1}{#1}{#3+1}{#1}
+  \asse{#2-1}{#3+1}{#1}{\(#8\)}
 }
 
-\newcommand{\raylconasse}[5]{% semiretta sinistra con asse
-  % \disegno{\raylconasse{0}{5}{-2}{p}{white}}
-  \rayl{#1}{0}{#3}{#4}{#5}
-  \assev{0}{#1}{#2}{#1}
+\newcommand{\raylconasse}[6]{% semiretta sinistra con asse
+  % \disegno{\raylconasse{0}{5}{-2}{p}{white}{t}}
+  \rayl{#1}{0-.3}{#3}{#4}{#5}
+  \asse{0}{#2}{#1}{\(#6\)}
 }
 
-\newcommand{\rayrconasse}[5]{% semiretta sinistra con asse
-  % \disegno{\raylconasse{0}{5}{-2}{p}{white}}
-  \rayr{#1}{#2}{#3}{#4}{#5}
-  \assev{0}{#1}{#2}{#1}
+\newcommand{\rayrconasse}[6]{% semiretta sinistra con asse
+  % \disegno{\raylconasse{0}{5}{-2}{p}{white}{}}
+  \rayr{#1}{#2+.3}{#3}{#4}{#5}
+  \asse{0}{#2}{#1}{\(#6\)}
 }
+
+\newcommand{\allx}[3]{% per ogni x
+  % \disegno{\raylconasse{0}{5}{-2}{}}
+  \draw [blue, thick, decorate, decoration=snake] (-0.3, #1) -- (#2+0.3, #1);
+  \asse{0}{#2}{#1}{\(#3\)}
+  \draw [opacity=0] (0, 0) -- (0, .6);
+}
+
+\newcommand{\emptyx}[3]{% non esiste x
+  % \disegno{\raylconasse{0}{5}{-2}{}}
+  \asse{0}{#2}{#1}{\(#3\)}
+  \draw [opacity=0] (0, 0) -- (0, .6);
+}
+
+% \newcommand{\inticonasse}[7]{% Intervallo interno con asse
+%   % \disegno{\inti{0}{-2}{+2}{a}{b}{white}{black}}
+%   \inti{#1}{#2}{#3}{#4}{#5}{#6}{#7}
+%   \assev{#2-1}{#1}{#3+1}{#1}
+% }
+% 
+% \newcommand{\raylconasse}[5]{% semiretta sinistra con asse
+%   % \disegno{\raylconasse{0}{5}{-2}{p}{white}}
+%   \rayl{#1}{0}{#3}{#4}{#5}
+%   \assev{0}{#1}{#2}{#1}
+% }
+% 
+% \newcommand{\rayrconasse}[5]{% semiretta sinistra con asse
+%   % \disegno{\raylconasse{0}{5}{-2}{p}{white}}
+%   \rayr{#1}{#2}{#3}{#4}{#5}
+%   \assev{0}{#1}{#2}{#1}
+% }
 
 %--------------------------
 % Funzioni per gli strumenti grafici

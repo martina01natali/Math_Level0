@@ -1012,43 +1012,90 @@ Di seguito vengono riassunti gli~8 casi possibili.
 \caption{Intervalli}
 \center
 \label{tab:intervalli}
- \begin{tabular}{p{4cm}|c|c|c}
+  \centering\begin{tabular}{>{\centering\arraybackslash}m{35mm}|
+                            >{\centering\arraybackslash}m{25mm}|
+                            >{\centering\arraybackslash}m{30mm}|
+                            >{\centering\arraybackslash}m{35mm}} 
+%  \begin{tabular}{p{4cm}|c|c|c}
   a parole   & con i predicati & con le parentesi & sulla retta \\
   \hline
-  i numeri compresi tra~\(a\) e~\(b\) estremi esclusi & 
+  i numeri compresi tra \(a\) e~\(b\) estremi esclusi & 
   \(a < x < b\) & \((a;~b)\) o \(]a;~b[\) & 
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{white}} \\
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{white}
+  x}\\
   \hline
-  i numeri compresi tra~\(a\) e~\(b\) estremi inclusi & 
+  i numeri compresi tra \(a\) e~\(b\) estremi inclusi & 
   \(a \le x \le b\) & \([a;~b]\) &  
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{black}} \\
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{black}{x}} \\
   \hline
-  i numeri compresi tra~\(a\) e~\(b\), a~incluso, b~escluso & 
+  i numeri compresi tra \(a\) e~\(b\), a~incluso, b~escluso & 
   \(a \le x < b\) & \([a;~b)\) o \([a;~b[\) &  
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{white}} \\
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{white}{x}} \\
   \hline
-  i numeri compresi tra~\(a\) e~\(b\), a~escluso, b~incluso & 
+  i numeri compresi tra \(a\) e~\(b\), a~escluso, b~incluso & 
   \(a < x \le b\) & \((a;~b]\) o \(]a;~b]\) &  
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{black}} \\
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{black}{x}} \\
   \hline
-  i numeri fino ad~\(a\), \(a\)~escluso & 
+  i numeri fino ad \(a\), \(a\)~escluso & 
   \(x < a\) & \((-\infty;~a)\) o \(]-\infty;~a[\) & 
-  \disegno{\raylconasse{0}{5}{2.5}{a}{white}} \\
+  \disegno{\raylconasse{0}{5}{2.5}{a}{white}{x}} \\
   \hline
-  i numeri fino ad~\(a\), \(a\)~incluso & 
+  i numeri fino ad \(a\), \(a\)~incluso & 
   \(x \le a\) & \((-\infty;~a]\) o \(]-\infty;~a]\) &  
-  \disegno{\raylconasse{0}{5}{2.5}{a}{black}} \\
+  \disegno{\raylconasse{0}{5}{2.5}{a}{black}{x}} \\
   \hline
-  i numeri da~\(a\) in poi, \(a\)~escluso & 
+  i numeri da \(a\) in poi, \(a\)~escluso & 
   \(x > a\) o \(a < x\) & \((a;~-\infty)\) o \(]a;~-\infty[\) & 
-  \disegno{\rayrconasse{0}{5}{2.5}{a}{white}} \\
+  \disegno{\rayrconasse{0}{5}{2.5}{a}{white}{x}} \\
   \hline
-  i numeri da~\(a\) in poi, \(a\)~incluso & 
+  i numeri da \(a\) in poi, \(a\)~incluso & 
   \(x \ge a\) o \(a \le x\) & \([a;~-\infty)\) o \([a;~-\infty[\) & 
-  \disegno{\rayrconasse{0}{5}{2.5}{a}{black}} \\
+  \disegno{\rayrconasse{0}{5}{2.5}{a}{black}{x}} \\
   \hline
  \end{tabular}
 \end{table}
+% 
+% \begin{table}[h!]
+% \caption{Intervalli}
+% \center
+% \label{tab:intervalli}
+%  \begin{tabular}{p{4cm}|c|c|c}
+%   a parole   & con i predicati & con le parentesi & sulla retta \\
+%   \hline
+%   i numeri compresi tra~\(a\) e~\(b\) estremi esclusi & 
+%   \(a < x < b\) & \((a;~b)\) o \(]a;~b[\) & 
+%   \mbox{\disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{white}{x}}}\\
+%   \hline
+%   i numeri compresi tra~\(a\) e~\(b\) estremi inclusi & 
+%   \(a \le x \le b\) & \([a;~b]\) &  
+%   \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{black}{x}} \\
+%   \hline
+%   i numeri compresi tra~\(a\) e~\(b\), a~incluso, b~escluso & 
+%   \(a \le x < b\) & \([a;~b)\) o \([a;~b[\) &  
+%   \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{white}{x}} \\
+%   \hline
+%   i numeri compresi tra~\(a\) e~\(b\), a~escluso, b~incluso & 
+%   \(a < x \le b\) & \((a;~b]\) o \(]a;~b]\) &  
+%   \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{black}{x}} \\
+%   \hline
+%   i numeri fino ad~\(a\), \(a\)~escluso & 
+%   \(x < a\) & \((-\infty;~a)\) o \(]-\infty;~a[\) & 
+%   \disegno{\raylconasse{0}{5}{2.5}{a}{white}{x}} \\
+%   \hline
+%   i numeri fino ad~\(a\), \(a\)~incluso & 
+%   \(x \le a\) & \((-\infty;~a]\) o \(]-\infty;~a]\) &  
+%   \disegno{\raylconasse{0}{5}{2.5}{a}{black}{x}} \\
+%   \hline
+%   i numeri da~\(a\) in poi, \(a\)~escluso & 
+%   \(x > a\) o \(a < x\) & \((a;~-\infty)\) o \(]a;~-\infty[\) & 
+%   \disegno{\rayrconasse{0}{5}{2.5}{a}{white}{x}} \\
+%   \hline
+%   i numeri da~\(a\) in poi, \(a\)~incluso & 
+%   \(x \ge a\) o \(a \le x\) & \([a;~-\infty)\) o \([a;~-\infty[\) & 
+%   \disegno{\rayrconasse{0}{5}{2.5}{a}{black}{x}} \\
+%   \hline
+%  \end{tabular}
+% \end{table}
 
 Vediamo alcuni esempi numerici.
 
