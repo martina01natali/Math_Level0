@@ -91,7 +91,7 @@
 \newshadetheorem{postulato}[teorema]{Postulato}
 \newshadetheorem{principio}[teorema]{Principio}
 \newshadetheorem{procedura}[teorema]{Procedura}
-\newshadetheorem{proposizione}[teorema]{Proposzione}
+\newshadetheorem{proposizione}[teorema]{Proposizione}
 \newshadetheorem{proprieta}[teorema]{Propriet\`a}
 \newenvironment{soluzione}[1][Soluzione]%
  {\begin{trivlist}%
