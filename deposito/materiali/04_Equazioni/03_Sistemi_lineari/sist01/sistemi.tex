@@ -1,92 +1,98 @@
 % (c) 2012 - 2014 - Dimitrios Vrettos d.vrettos@gmail.com
 % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
+\input{\folder sistemi_grafici}
+
 \chapter{Sistemi di equazioni}
 
 \section{Equazione lineare in due incognite}
 \label{sec:sist_eqdue}
 
 \begin{definizione}
-Una equazione di primo grado in due incognite si chiama \emph{equazione 
-lineare}.
+Una equazione di primo grado si chiama \emph{equazione lineare}.
 \end{definizione}
+
+In questo capitolo affronteremo equazioni lineari in più incognite. Partiamo 
+da un semplice problema la cui soluzione si può modellizzare con un'equazione 
+lineare in due incognite.
 
 \begin{problema}
 Determinare due numeri naturali la cui somma sia~16.
 \end{problema}
 
 \begin{soluzione}
-L'ambiente del problema è l'insieme~\(\insN\) dei numeri naturali. Indicati 
-con~\(x\) e~\(y\) i due numeri
-richiesti dal quesito, il problema si formalizza con l'equazione~\(x+y=16\), 
-equazione in due incognite, di
-primo grado.
+Il problema si può formalizzare con l'equazione~\(x+y=16\) che è un'equazione 
+in due incognite, di primo grado (lineare), 
+indicando con~\(x\) e~\(y\) i due numeri richiesti.
 
-Determiniamo l'Insieme Soluzione del problema proposto.
-L'obiettivo è trovare~\(x\in\insN\) e~\(y\in\insN\) tali che~\(x+y=16\) 
-oppure~\((x;y)\in\insN\times\insN\) tali che~\(x+y=16\).
+Iniziamo restringendo l'ambiente del problema all'insieme~\(\N\) dei numeri 
+naturali.
+
+% Determiniamo l'Insieme Soluzione del problema proposto.
+L'obiettivo è trovare~\(x\in\N\) e~\(y\in\N\) tali che~\(x+y=16\) 
+oppure~\(\punto{x}{y}\in\N\times\N\) tali che~\(x+y=16\).
 Le coppie di numeri naturali che sono soluzioni
 dell'equazione sono facilmente determinabili e sono
 tutte quelle riportate nella tabella seguente.
 
 \begin{tabular}{cccccccccccccccccccc}
 \toprule
-\(x\) & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
-\(y\) & 16 & 15 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0\\
+\(x\) & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 
+16\\
+\(y\) & 16 & 15 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1& 
+0\\
 \bottomrule
 \end{tabular}
 
 L'Insieme Soluzione del problema posto è dunque
 formato dalle~17 coppie di numeri naturali sopra elencate.
+
 Riformuliamo il problema cercando coppie di numeri razionali la cui
 somma sia~16.
-In simboli scriviamo~\(x\in\insQ\) e~\(y\in\insQ\) tali che~\(x+y=16\) 
-oppure~\((x;y)\in\insQ\times\insQ\) tali che~\(x+y=16\).
+In simboli scriviamo~\(x\in\Q\) e~\(y\in\Q\) tali che~\(x+y=16\) 
+oppure~\(\punto{x}{y}\in\Q\times\Q\) tali che~\(x+y=16\).
 
 Possiamo subito dire che tutte le coppie precedenti sono soluzione del
-problema, ma ce ne sono infinite altre, ad esempio la coppia~\((-7;+23)\) è 
+problema, ma ce ne sono infinite altre, ad esempio la 
+coppia~\(\punto{-7}{+23}\) è 
 soluzione del problema perché sostituendo a~\(x\) il
 valore~\(-7\) e a~\(y\) il valore~\(+23\) si ha~\((-7)+(+23)=16\).
-Dal procedimento si capisce che anche la coppia~\((+23;-7)\) è
-soluzione del problema perché~\((+23)+(-7)=16\).
+% Dal procedimento si capisce che anche la coppia~\(\punto{+23}{-7}\) è
+% soluzione del problema perché~\((+23)+(-7)=16\).
 
-Se attribuiamo un valore arbitrario a~\(x\), l'altro
+Se attribuiamo un valore arbitrario \(x_0\) alla variabile \(x\), l'altro
 elemento della coppia soluzione si può ottenere sottraendo da~16 il
-valore di~\(x\):~\(y=16-x\).
+valore~\(x_0\):~\(y_0=16-x_0\).
 
 Completa tu:
 
-\begin{itemize}
-\item se~\(x=-3\) allora~\(y=16-(-3)=\ldots\ldots\) e la coppia (\ldots; \ldots) è 
-soluzione dell'equazione;
-\item se~\(x=\frac{3}{2}\) allora~\(y =\dotfill\), la coppia (\ldots\ldots; 
-\ldots\ldots) è soluzione dell'equazione;
-\item se~\(x =\dotfill\) allora~\(y=\) \dotfill, la coppia (\ldots\ldots; 
-\ldots\ldots) è soluzione dell'equazione;
-\item se~\(x=\dotfill\)allora~\(y =\) \dotfill, la coppia (\ldots\ldots; 
-\ldots\ldots) è soluzione dell'equazione.
+\begin{itemize} [nosep]
+\item se~\(x=-3\) allora~\(y=16-(-3)=\ldots\ldots\) e la coppia 
+\(\punto{\ldots}{\ldots}\) è soluzione dell'equazione;
+\item se~\(x=\dfrac{3}{2}\) allora~\(y =\dotfill\), la coppia 
+\(\punto{\ldots\ldots}{\ldots\ldots}\) è soluzione dell'equazione;
+\item se~\(x =\dotfill\) allora~\(y=\) \dotfill, la coppia 
+\(\punto{\ldots\ldots}{\ldots\ldots}\) è soluzione dell'equazione.
 \end{itemize}
 
 Quindi, se l'ambiente del problema è
-l'insieme~\(\insQ\), troviamo infinite coppie di
+l'insieme~\(\Q\), troviamo infinite coppie di
 numeri razionali che soddisfano il problema.
-E ancora, se formuliamo il problema nell'insieme dei
-numeri reali~\(\insR\), troveremo tutte le infinite coppie
-soluzione del problema: basta assegnare all'incognita~\(x\)
-valori reali arbitrari e determinare di conseguenza il corrispondente
-valore di~\(y=16-x\).
+
+Lo stesso vale se formuliamo il problema nell'insieme dei
+numeri reali~\(\R\).
 
 Se~\(x=\sqrt{2}\Rightarrow y=16-\sqrt{2}\), la 
-coppia~\(\left(\sqrt{2};16-\sqrt{2}\right)\) è soluzione
+coppia~\(\punto{\sqrt{2}}{16-\sqrt{2}}\) è soluzione
 dell'equazione. 
 
 % \newpage %------------------------------------------------------
 
 Completa:
 
-\begin{itemize}
+\begin{itemize} [nosep]
 \item se~\(x=-2\sqrt{3}+1\) allora~\(y=\dotfill\)
-\item se~\(x=16+\frac{3\sqrt{5}}{2}\) allora~\(y=\dotfill\)
+\item se~\(x=16+\dfrac{3\sqrt{5}}{2}\) allora~\(y=\dotfill\)
 \end{itemize}
 \end{soluzione}
 
@@ -103,14 +109,14 @@ a~\(y\) rendono vera l'uguaglianza.
 
 % \begin{exrig}\vspace{1.10ex}
  \begin{esempio}
-Determinare l'insieme soluzione dell'equazione~\(3y-x+1=0\) con~\(x\in\insR\) 
-e~\(y\in\insR\).
- \end{esempio}
+Determinare l'insieme soluzione dell'equazione~\(3y-x+1=0\) con~\(x\in\R\) 
+e~\(y\in\R\).
 Osserviamo che l'equazione assegnata ha due incognite ed
 è di primo grado; l'insieme soluzione sarà formato
-dalle infinite coppie ordinate~\((x;y)\) di numeri tali che~\(3y-x+1=0\).
+dalle infinite coppie ordinate~\(\punto{x}{y}\) di numeri tali 
+che~\(3y-x+1=0\).
 
-Possiamo verificare che la coppia~\((1;0)\) è soluzione
+Possiamo verificare che la coppia~\(\punto{1}{0}\) è soluzione
 dell'equazione, ma come facciamo a determinare tutte le
 coppie che soddisfano quella equazione?
 
@@ -122,29 +128,39 @@ equazioni:
 
 \begin{equation*}
 3y-x+1=0\Rightarrow~3y=x-1\Rightarrow\frac{3y}{3}=\frac{x-1}{3}\Rightarrow 
-y=\frac{1}{3}x-\frac{1}{3}.
+y=\frac{1}{3}x-\frac{1}{3}
 \end{equation*}
-Al variare di~\(x\) in~\(\insR\), si ottengono tutte le infinite
+Al variare di~\(x\) in~\(\R\), si ottengono tutte le infinite
 soluzioni dell'equazione assegnata.
-Prova a determinarne alcune:
+Prova a determinarne alcune e a riportarle nel piano cartesiano:
+
+\begin{minipage}{.48\textwidth}
 \begin{center}
  \begin{tabular}{ccc}
 \toprule
 x & y & coppia\\
 \midrule
-\(0\) &\ldots\ldots & (\(0\)\ldots\ldots)\\
-1& \ldots\ldots &(\(1\)\ldots\ldots)\\
-\(-1\) & \ldots\ldots & (\(-1\)\ldots\ldots)\\
+\(-3\) & \ldots\ldots & \(\punto{-3}{\ldots\ldots}\)\\
+\(-2\) & \ldots\ldots & \(\punto{-2}{\ldots\ldots}\)\\
+\(-1\) & \ldots\ldots & \(\punto{-1}{\ldots\ldots}\)\\
+\(0\) & \ldots\ldots & \(\punto{0}{\ldots\ldots}\)\\
+\(+1\) & \ldots\ldots & \(\punto{+1}{\ldots\ldots}\)\\
+\(+2\) & \ldots\ldots & \(\punto{+2}{\ldots\ldots}\)\\
+\(+3\) & \ldots\ldots & \(\punto{+3}{\ldots\ldots}\)\\
 \bottomrule
 \end{tabular}
 \end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{.48\textwidth}
+% \begin{wrapfigure}{o}{0pt}
+%  \input{\folder lbr/fig001_car.pgf}
+\disegno{\rcom{-6}{+6}{-4}{+4}{gray!50, very thin, step=1}}
+% \end{wrapfigure}
+\end{minipage}
 
 In verità non possiamo trovare tutte le infinite coppie che risolvono
 quella equazione, ma possiamo darne una rappresentazione grafica.
-
-\begin{wrapfigure}{o}{0pt}
- \input{\folder lbr/fig001_car.pgf}
-\end{wrapfigure}
 
 La formula \[y=\frac{1}{3}x-\frac{1}{3}\] rappresenta una funzione
 lineare; riportiamo le coppie trovate in un riferimento cartesiano
@@ -153,17 +169,23 @@ ortogonale e tracciamo la retta che rappresenta la funzione.
 Una qualunque equazione lineare~\(ax+by+c=0\) ammette infinite
 soluzioni, costituite da coppie ordinate di numeri reali; esse sono le
 coordinate cartesiane dei punti della retta grafico della 
-funzione~\(y=-{\frac{a}{b}}x-\frac{c}{b}\).
-La formula~\(y=-{\frac{a}{b}}x-\frac{c}{b}\) si chiama \emph{equazione esplicita 
+funzione~\(y=-{\dfrac{a}{b}}x-\dfrac{c}{b}\).
+La formula~\(y=-{\dfrac{a}{b}}x-\dfrac{c}{b}\) si chiama \emph{equazione 
+esplicita 
 della retta}.
+\end{esempio}
+
+\newpage %-------------------------------------------
 
 \begin{esempio}
- Risolvi graficamente l'equazione~\(y+\frac{2}{3}x-2=0\text{, con 
-}x\in\insR\text{ e }y\in\insR\).
+ Risolvi graficamente l'equazione~\(y+\dfrac{2}{3}x-2=0\text{, con } 
+x\in\R\text{ e }y\in\R\).
 \end{esempio}
 
 \begin{wrapfloat}{figure}{r}{0pt}
-\input{\folder lbr/fig002_car.pgf}
+\rettaconpunti{-2./3*x+2}{-2./3*\x+2}
+                    {-3, -2.5, ..., 5}
+% \input{\folder lbr/fig002_car.pgf}
 \end{wrapfloat}
 
 L'equazione assegnata è in due incognite, di primo
@@ -173,16 +195,19 @@ ortogonale essa rappresenta una retta.
 Troviamo l'equazione esplicita della retta:
 \[y+\frac{2}{3}x-2=0\Rightarrow y=-{\frac{2}{3}}x+2.\]
 
-Individuiamo l'ordinata del punto di intersezione della
-retta con l'asse~\(y\):~\(q=2\), quindi~\(P(0;2)\) è un
-punto della retta.
+% Individuiamo l'ordinata del punto di intersezione della
+% retta con l'asse~\(y\):~\(q=2\), quindi~\(P\punto{0}{2}\) è un
+% punto della retta.
+% 
+% Troviamo un altro punto appartenente alla retta: \\
+% se~\(x=3\) allora~\(y=0\),
+% quindi~\(A\punto{3}{0}\) è un punto della retta.
 
-Troviamo un altro punto appartenente alla retta: se~\(x=3\) allora~\(y=0\),
-quindi~\(A(3;0)\) è un punto della retta.
-
-Disegniamo la retta nel piano cartesiano: le coppie~\((x;y)\), coordinate
-dei punti della retta tracciata, sono le infinite soluzioni
-dell'equazione assegnata.\vspace{1.10ex}
+Disegniamo la retta nel piano cartesiano: le infinite coppie
+\(\punto{x}{y}\), 
+coordinate dei punti della retta tracciata, sono soluzioni
+dell'equazione assegnata.
+% \vspace{1.10ex}
 % \end{exrig}
 
 % \ovalbox{\risolvii \ref{ese:22.4}, \ref{ese:22.5}, \ref{ese:22.6}}
@@ -193,7 +218,8 @@ dell'equazione assegnata.\vspace{1.10ex}
 \begin{problema}
 \label{pr:22.1}
 Nel rettangolo~\(ABCD\), la somma del doppio dell'altezza con la metà della base
-è di~\(98\unit{m}\) aumentando l'altezza di~\(3\unit{m}\) e la base di~\(2\unit{m}\) 
+è di~\(98\unit{m}\) aumentando l'altezza di~\(3\unit{m}\) e la base 
+di~\(2\unit{m}\) 
 il perimetro del rettangolo diventa di~\(180\unit{m}\). 
 Determinare l'area in~\(\unit{m}^{2}\) del rettangolo.
 \end{problema}
@@ -208,7 +234,8 @@ Determinare l'area in~\(\unit{m}^{2}\) del rettangolo.
 
 \begin{center}
 \begin{inaccessibleblock}[Rettangolo ABCD]
- \input{\folder lbr/fig003_ret.pgf}
+\rettangolo{5}{3}
+%  \input{\folder lbr/fig003_ret.pgf}
  \end{inaccessibleblock}
 \end{center}
 \end{multicols}
@@ -240,16 +267,15 @@ si ottiene raggruppando le equazioni mediante una parentesi graffa.
 \end{definizione}
 
 Il problema \ref{pr:22.1} si formalizza dunque con il sistema:
-\[\longarray\left\{\begin{array}{l}
+\[\sistema{
  2x+\dfrac{1}{2}y=98 \\
  2(x+3+y+2)=180
-\end{array}\right.\]
+}\]
 
 \begin{definizione}
 L'Insieme Soluzione (\(\IS\)) di un sistema di equazioni in
-due incognite è formato da tutte le coppie di numeri reali
-che rendono vere tutte le equazioni
-contemporaneamente.
+due incognite è formato dalle coppie di numeri reali
+che rendono vere tutte le equazioni contemporaneamente.
 \end{definizione}
 
 \begin{definizione}
@@ -262,11 +288,12 @@ compongono sono di primo grado, il sistema si chiama \emph{sistema lineare}.
 Un sistema si dice scritto in \emph{forma normale} o \emph{canonica} 
 quando in ogni equazione tutti i monomi che contengono le incognite sono 
 scritti nel primo membro e in ordine:
-\[\left\{\begin{array}{l}
+\[\sistema{
  a_{0}x+b_{0}y=c_{0} \\
  a_{1}x+b_{1}y=c_{1} 
-\end{array}\right.
-\text{ con }a_{0}, b_{0}, c_{0}, a_{1}, b_{1}, c_{1}\text{ numeri reali.}\]
+}
+\text{ con }x \text{, e } y \text{ variabili} \text{, e } 
+a_{0},~b_{0},~c_{0},~a_{1},~b_{1},~c_{1}\text{ numeri}\]
 \end{definizione}
 
 Il sistema a cui si giunge risolvendo il problema posto all'inizio è
@@ -274,13 +301,12 @@ composto da due equazioni in due incognite, è di primo grado
 e quindi è un sistema lineare. 
 La sua forma canonica si ottiene sviluppando i calcoli:
 
-\[\left\{\begin{array}{l}
+\[\sistema{
 4x+y=196\\
 x+y=85
-\end{array}\right.\]
+}\]
 
-Nel seguito vedremo in particolare come risolvere sistemi lineari 
-di due equazioni in due incognite.
+Nel seguito vedremo come risolvere sistemi lineari.
 
 \section{Metodi di soluzione di sistemi di equazioni}
 \label{sec:sist_soluzione}
@@ -299,28 +325,32 @@ Per ottenere la \emph{forma canonica} di un sistema lineare dobbiamo:
 % \begin{exrig}
  \begin{esempio}
  Scrivere in forma canonica il sistema:
-\[\longarray\left\{\begin{array}{l}4x^{2}-(y+2x)^{2}=x+1-y(4x+y-1)\\
+\[\sistema{4x^{2}-(y+2x)^{2}=x+1-y(4x+y-1)\\
 \dfrac{x-2}{2}+\dfrac{y+3}{3}=0
-\end{array}\right.\]
+}\]
 
 Eseguiamo i calcoli nella prima equazione e riduciamo allo stesso
 denominatore la seconda equazione:
 
-\[\left\{\begin{array}{l}
+\[\sistema{
  4x^{2}-y^{2}-4x^{2}-4xy=x+1-4xy-y^{2}+y\\
- 3x-6+2y+6=0
- \end{array}\right.\]
+ \dfrac{3x-6+2y+6}{6}=\dfrac{0}{6}
+ }\]
 
-Per mezzo del primo principio di equivalenza delle equazioni portiamo le
-incognite al primo membro e sommiamo i termini simili:
- \[\left\{\begin{array}{l}
+Usando il secondo principio di equivalenza delle equazioni eliminiamo i 
+denominatori.
+
+Usando il primo principio di equivalenza delle equazioni portiamo le
+incognite al primo membro e i termini senza incognita a secondo membro.
+
+Otteniamo così un sistema equivalente a quello di parteza, scritto in forma 
+normale:
+ \[\sistema{
    x+y=-1\\
    3x+2y=0
-\end{array}\right.\]
-che è la forma canonica cercata.
+}\]
  \end{esempio}
 % \end{exrig}
-
 
 \subsection{Sistemi indeterminati o impossibili}
 
@@ -354,7 +384,7 @@ l'Insieme Soluzione, cominciamo dal \emph{metodo di sostituzione}.
 
 % \begin{exrig}
 \begin{esempio}
-\(\left\{\begin{array}{l}-3x+y=2\\5x-2y=7\end{array}\right.\).
+\(\sistema{-3x+y=2\\5x-2y=7}\).
 \end{esempio}
 
 Il sistema si presenta già in forma canonica. Il metodo di
@@ -364,104 +394,104 @@ sostituzione si svolge nei seguenti passi:
  \item Scegliamo con intelligenza una delle due equazioni e una
 delle due incognite da cui partire. 
 La furbizia consiste nello scegliere una incognita con il coefficiente uguale 
-a~\(1\) o~\(-1\).
+a~\(+1\) o a~\(-1\).
 Applicando i principi d'equivalenza delle equazioni, ricaviamo questa
 incognita.
 Nel nostro esempio, partiamo dalla prima equazione e ricaviamo
 l'incognita~\(y\):
-\[\left\{\begin{array}{l}
+\[\sistema{
      -3x+y=2\\
      5x-2y=7
-    \end{array}
-\right.
+  }
 \Rightarrow
-\left\{\begin{array}{l}y=2+3x \\
-         5x-2y=7
-\end{array}\right.\]
+  \sistema{y=2+3x \\
+           5x-2y=7
+  }
+\]
 
  \item Sostituiamo nell'altra equazione, al posto
 dell'incognita trovata, l'espressione a cui è uguale. 
 Nel nostro esempio abbiamo:
-\[\left\{\begin{array}{l}
+\[\sistema{
      y=2+3x\\
      5x-2y=7
-    \end{array}
-\right.
+  }
 \Rightarrow
-\left\{\begin{array}{l}y=2+3x \\
+\sistema{y=2+3x \\
          5x-2(2+3x)=7
-\end{array}\right.\]
+}\]
 
  \item Otteniamo così una equazione che contiene una sola 
 incognita, la risolviamo.
 Nel nostro esempio abbiamo:
-\[\left\{\begin{array}{l}y=2+3x\\
-5x-4-6x=7\end{array}\right.\Rightarrow
-\left\{\begin{array}{l}
+\[\sistema{y=2+3x\\
+5x-4-6x=7}\Rightarrow
+\sistema{
          y=2+3x\\
          5x-4-6x=7
-        \end{array}\right.\Rightarrow
- \left\{\begin{array}{l}y=2+3x\\
+        }\Rightarrow
+ \sistema{y=2+3x\\
          -x=7+4
-        \end{array}\right.\Rightarrow
- \left\{\begin{array}{l}y=2+3x\\
+        }\Rightarrow
+ \sistema{y=2+3x\\
          x=-11
-  \end{array}\right.\]
+  }\]
 
  \item Sostituiamo nella prima equazione il valore dell'incognita trovata e 
 calcoliamo il valore dell'altra incognita:
-\[ \left\{\begin{array}{l}y=2+3x\\
+\[ \sistema{y=2+3\tonda{-11}\\
          x=-11
-  \end{array}\right.\Rightarrow
-  \left\{\begin{array}{l}
+  }\Rightarrow
+  \sistema{
          y=-31\\
          x=-11
-  \end{array}\right.\]
+  }\]
 
  \item Scriviamo l'insieme soluzione che è formato da una coppia ordinata 
- di numeri~\(\IS=\{(-11;~-31)\}\). Questi due numeri sostituiti alle incognite 
- rendono vere entrambe le uguaglianze.
+ di numeri~\(\IS=\{(-11;~-31)\}\). Questi due numeri sostituiti alle 
+ incognite rendono vere entrambe le uguaglianze.
 \end{enumerate}
 
 \begin{esempio}
-\(\longarray\left\{\begin{array}{l}
+\(\sistema{
   \dfrac{1}{2}(x-1)+3\left(y+\dfrac{1}{3}\right)=\dfrac{1}{6}\\
   y\left(1+\dfrac{2}{5}\right)-2=\dfrac{4}{5}-\dfrac{x-1}{5}
-  \end{array}\right.\)
+  }\)
 
 \begin{enumerate}
  \item Il sistema non si presenta nella forma canonica. Svolgiamo i calcoli e 
 portiamo il sistema in forma canonica:
-\[\left\{\begin{array}{l}3x+18y=-2\\x+7y=15\end{array}\right.\]
+\[\sistema{3x+18y=-2\\x+7y=15}\]
 
 \item Ricaviamo~\(x\) dalla seconda equazione:
-\[\left\{\begin{array}{l}3x+18y=-2\\x=15-7y\end{array}\right.\]
+\[\sistema{3x+18y=-2\\x=15-7y}\]
 
 \item Abbiamo fatto questa scelta perché possiamo ottenere il valore di~\(x\)
-con facilità e senza frazioni. Sostituiamo nella prima equazione al posto di~\(x\)
+con facilità e senza frazioni. Sostituiamo nella prima equazione al posto 
+di~\(x\)
 l'espressione trovata:
-\[\left\{\begin{array}{l}
+\[\sistema{
           3\cdot(15-7y)+18y=-2\\
           x=15-7y
-          \end{array}\right.
+          }
 \]
 \item Risolviamo la prima equazione che è di primo grado nella sola
-incognita~\(y\):
-\[\left\{\begin{array}{l}
-          -3y=-47\\
-          x=15-7y
-          \end{array}\right.
-\Rightarrow\longarray\left\{\begin{array}{l}
-          y=\dfrac{47}{3}\\
-          x=15-7y
-         \end{array}\right.\]
-\item Sostituiamo il valore di~\(y\) nella seconda equazione:
-\[\longarray\left\{\begin{array}{l}
+incognita~\(y\) e sostituiamo questo valore nella seconda equazione:
+% \[\sistema{
+%           -3y=-47\\
+%           x=15-7y
+%           }
+% \Rightarrow \sistema{
+%           y=\dfrac{47}{3}\\
+%           x=15-7y
+%          }\]
+% \item Sostituiamo il valore di~\(y\) nella seconda equazione:
+\[\sistema{
           y=\dfrac{47}{3}\\
           x=15-7\left(\dfrac{47}{3}\right)
-          \end{array}\right.
-\Rightarrow \longarray\left\{\begin{array}{l}x=-\dfrac{284}{3}\\
- y=\dfrac{47}{3}\end{array}\right.\]
+          }
+\Rightarrow \sistema{x=-\dfrac{284}{3}\\
+ y=\dfrac{47}{3}}\]
 \item Scriviamo l'insieme delle soluzioni:
 \[\IS=\left\{\left(-\frac{284}{3};~\frac{47}{3}\right)\right\}\]
 \end{enumerate}
@@ -469,43 +499,43 @@ incognita~\(y\):
  \end{esempio}
 % 
 %  \begin{esempio}
-%  \(\longarray\left\{\begin{array}{l}
+%  \(\sistema{
 %  \dfrac{1}{y}=2\left(\dfrac{x}{y}-\dfrac{1}{2}\right)\\
-%  \dfrac{5x+4y+19}{x}=-2\end{array}\right.\)
+%  \dfrac{5x+4y+19}{x}=-2}\)
 % 
 %  Il sistema è fratto poiché in ciascuna equazione compare
 % l'incognita al denominatore; per poter applicare il
 % secondo principio di equivalenza delle equazioni eliminando i
-% denominatori, dobbiamo porre le~\(\CE\) e individuare il Dominio del sistema
-% assegnato, cioè l'insieme in cui si troverà~\(\CE: y\neq~0\text{ e }x\neq~0\) 
-% per
-% cui~\(D=\insR_{0}\times \insR_{0}\).
+% denominatori, dobbiamo porre le~\(\CE\) e individuare il Dominio del 
+% sistema assegnato, cioè l'insieme in cui si 
+% troverà~\(\CE: y\neq~0\text{ e }x\neq~0\) per
+% cui~\(D=\R_{0}\times \R_{0}\).
 % 
 % Portiamo a forma canonica applicando i principi di equivalenza delle
 % equazioni:
 % 
 % \begin{equation*}
-% {\longarray\left\{\begin{array}{l}
+% {\sistema{
 % 	  \dfrac{1}{y}=2\left(\dfrac{x}{y}-\dfrac{1}{2}\right)\\
-% 	  \dfrac{5x+4y+19}{x}=-2\end{array}\right.\Rightarrow
-%  \left\{\begin{array}{l}
+% 	  \dfrac{5x+4y+19}{x}=-2}\Rightarrow
+%  \sistema{
 % 	  \dfrac{1}{y}=\dfrac{2x}{y}-1\\
-% 	  5x+4y+19=-2x\end{array}\right.}\Rightarrow
-%  \left\{\begin{array}{l}
+% 	  5x+4y+19=-2x}}\Rightarrow
+%  \sistema{
 % 	  2x-y=1\\
-% 	  7x+4y=-19\end{array}\right.
+% 	  7x+4y=-19}
 % \end{equation*}
 % 
 % Applichiamo il metodo di sostituzione:
 % 
 % \begin{multline*}
-% \left\{\begin{array}{l}2x-y=1\\7x+4y=-19\end{array}\right.\Rightarrow
-% \left\{\begin{array}{l}y=2x-1\\7x+4y=-19\end{array}\right.\Rightarrow
-% \left\{\begin{array}{l}y=2x-1\\7x+4(2x-1)=-19\end{array}\right.
+% \sistema{2x-y=1\\7x+4y=-19}\Rightarrow
+% \sistema{y=2x-1\\7x+4y=-19}\Rightarrow
+% \sistema{y=2x-1\\7x+4(2x-1)=-19}
 % \\\Rightarrow
-% \left\{\begin{array}{l}y=2x-1\\15x=-15\end{array}\right.\Rightarrow
-% \left\{\begin{array}{l}y=2(-1)-1\\x=-1\end{array}\right.\Rightarrow
-% \left\{\begin{array}{l}y=-3\\x=-1\end{array}\right.
+% \sistema{y=2x-1\\15x=-15}\Rightarrow
+% \sistema{y=2(-1)-1\\x=-1}\Rightarrow
+% \sistema{y=-3\\x=-1}
 % \end{multline*}
 % La soluzione è compatibile con le condizioni di esistenza.
 % \end{esempio}
@@ -519,38 +549,38 @@ incognita~\(y\):
 % 
 % % \begin{exrig}
 % \begin{esempio}
-% \(\left\{\begin{array}{l}-3x+y=2\\5x-2y=7\end{array}\right.\)
+% \(\sistema{-3x+y=2\\5x-2y=7}\)
 % 
 % \paragraph{Passo I} ricaviamo da entrambe le equazioni la stessa
-% incognita. Nel nostro esempio ricaviamo la~\(y\) contemporaneamente da entrambe 
-% le
-% equazioni:
-% \[\left\{\begin{array}{l}y=2+3x\\y=\dfrac{5x-7}{2}\end{array}\right.\]
+% incognita. Nel nostro esempio ricaviamo la~\(y\) contemporaneamente da 
+% entrambe le equazioni:
+% \[\sistema{y=2+3x\\y=\dfrac{5x-7}{2}}\]
 % 
 % \paragraph{Passo II} poiché il primo membro delle
 % equazioni è lo stesso, possiamo uguagliare anche i secondi membri,
-% ottenendo un'equazione in una incognita. Nell'esempio~\(2+3x=\frac{5x-7}{2}.\)
+% ottenendo un'equazione in una incognita. 
+% Nell'esempio~\(2+3x=\frac{5x-7}{2}.\) 
 % 
-% \paragraph{Passo III} risolviamo l'equazione trovata e determiniamo il valore 
-% di 
-% una delle due incognite.
+% \paragraph{Passo III} risolviamo l'equazione trovata e determiniamo il 
+% valore di una delle due incognite.
 % Nel nostro esempio~\(4+6x=5x-7\Rightarrow x=-11\).
 % 
 % \paragraph{Passo IV} si sostituisce il valore trovato
 % dell'incognita in una delle due equazioni e ricaviamo
 % l'altra incognita. Nel nostro esempio:
-% \[\left\{\begin{array}{l}
+% \[\sistema{
 %      x=-11\\
 %      y=2+3x
-%      \end{array}\right.
-% \Rightarrow\left\{\begin{array}{l}
+%      }
+% \Rightarrow\sistema{
 %           x=-11\\
 %           y=-31
-%          \end{array}\right.\]
+%          }\]
 % \paragraph{Passo V} possiamo ora scrivere l'insieme soluzione.
 % Nel nostro esempio:~\(\IS=\{(-11;-31)\}\).
 % 
-% In conclusione, il sistema è determinato, la coppia ordinata~\((-11;-31)\)
+% In conclusione, il sistema è determinato, la 
+% coppia ordinata~\(\punto{-11}{-31}\)
 % verifica contemporaneamente le due equazioni del sistema.
 %  \end{esempio}
 % % \end{exrig}
@@ -563,10 +593,10 @@ Il metodo di riduzione si basa sulla seguente osservazione: se un
 sistema è formato dalle equazioni~\(A=B\) e~\(C=D\) possiamo dedurre
 da queste la nuova equazione~\(A+C=B+D\).
 \begin{equation*}
-\left\{\begin{array}{l}
+\sistema{
 A=B \\
 C=D
-\end{array}\right.\Rightarrow A+C=B+D.
+}\Rightarrow A+C=B+D.
 \end{equation*}
 L'equazione ottenuta potrebbe presentarsi in una sola
 incognita e quindi potrebbe essere facile trovare il valore di quella
@@ -574,79 +604,59 @@ incognita.
 
 % \begin{exrig}
  \begin{esempio}
-\(\left\{\begin{array}{l}3x-5y=1 \\2x+5y=-4\end{array}\right.\)
+\(\sistema{3x-5y=+1 \\2x+5y=-4}\)
 
-Sommando membro a membro le due equazioni otteniamo~\((3x-5y)+(2x+5y)=1-4\).
-I termini in~\(y\) si eliminano perché opposti, sommando i monomi simili
-si ha~\(5x=-3\Rightarrow x=-{\frac{3}{5}}\).
+Sommando membro a membro le due equazioni otteniamo:
+\[\stackrel{\underline{\sistema{3x-5y=+1 \\2x+5y=-4}}}
+  {\qquad \qquad \qquad ~~~~5x ~~~ // ~~ =-3 \quad \sRarrow x=-\frac{3}{5}}\]
+Se vogliamo utilizzare lo stesso metodo per calcolare il valore dell'ìaltra 
+incognita dobbiamo utilizzare un trucco: moltiplicare ogni equazione per un 
+opportuno valore (facile da trovare):
+\[\stackrel{\sistema{3x-5y=+1\\2x+5y=-4}\Rightarrow
+  \begin{array}{l}\cdot \tonda{+2}\\ \cdot \tonda{-3}\end{array}
+  \underline{\sistema{+6x-10y=+2\\-6x-15y=+12}}}
+  {\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad 
+   //  -25y  =+14 \quad \sRarrow y=-\frac{14}{25}}\]
  \end{esempio}
-% \end{exrig}
 
-Questo metodo, applicato semplicemente sommando membro a membro le
-equazioni, funziona solo se i coefficienti di una delle due incognite
-sono opposti. Solo in questo caso sommando le equazioni una delle due
-incognite 'sparisce'. Tuttavia con
-qualche accorgimento è possibile applicarlo in ogni caso.
-
-Sfruttiamo il secondo principio di equivalenza delle equazioni che ci
-permette di moltiplicare ambo i membri di un'equazione
-per uno stesso numero diverso da zero. In questo modo possiamo sempre
-trasformare le due equazioni affinché l'incognita~\(x\)
-appaia con coefficienti opposti nella prima e nella seconda equazione.
-
-
-% \begin{exrig}
  \begin{esempio}
-\(\left\{\begin{array}{l}3x-5y=1\\5x-4y=-4\end{array}\right.\)
+\(\sistema{3x-5y=+1\\5x-4y=-4}\)
 
-Nel nostro esempio possiamo moltiplicare la prima equazione per~5 e la
-seconda per~\(-3\), otteniamo:
- \[\begin{array}{l}+5\\-3\end{array}
- \left\{\begin{array}{l}3x-5y=1\\5x-4y=-4\end{array}\right.\Rightarrow
- \left\{\begin{array}{l}15x-25y=5\\-15x+12y=12\end{array}\right.\]
-sommando membro a membro abbiamo
-\begin{equation*}
-(15-15)x+(-25+12)y=5+12\Rightarrow -13y=17\Rightarrow
-y=-{\frac{17}{13}}.
-\end{equation*}
+In questo caso sommando le equazioni membro a membro non riusciamo a 
+eliminare un'incognita, dobbiamo usare il trucco visto sopra.
+Osservando i coefficienti delle \(x\) vediamo che è possibile farli diventare 
+opposti moltiplicando la prima equazione per~\(+5\) e la seconda per~\(-3\):
+\[\stackrel{\sistema{3x-5y=+1\\5x-4y=-4}\Rightarrow
+  \begin{array}{l}\cdot \tonda{+5}\\ \cdot \tonda{-3}\end{array}
+  \underline{\sistema{+15x-25y=+5\\-15x+12y=+12}}}
+  {\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad 
+   // ~~ -13y  =+17 \quad \sRarrow y=-\frac{17}{13}}\]
+Analogamente, dopo aver osservato il valore dei coefficienti della \(y\):
+\[\stackrel{\sistema{3x-5y=+1\\5x-4y=-4}\Rightarrow
+  \begin{array}{l}\cdot \tonda{+4}\\ \cdot \tonda{-5}\end{array}
+  \underline{\sistema{+12x-20y=+4\\-25x+20y=+20}}}
+  {\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad 
+   ~~~~~ -13x ~~~~~ // ~~ =+24 \quad \sRarrow x=-\frac{24}{13}}\]
+Abbiamo così determinato la coppia soluzione del 
+sistema~\(\punto{-\dfrac{24}{13}}{-\dfrac{17}{13}}\).
 
-Dopo aver determinato il valore di una incognita, con lo stesso metodo
-possiamo ripetere il procedimento per l'altra incognita moltiplicando 
-come segue:
-
-\[\begin{array}{l}
-+4\\
--5
-\end{array}
-\left\{\begin{array}{l}
-3x-5y=1\\
-5x-4y=-4
-\end{array}\right.
-\Rightarrow\left\{\begin{array}{l}
-12x-20y=4\\
--25x+20y=20
-\end{array}\right.\]
-
-Sommando le due equazioni otteniamo~\(-13x=24\Rightarrow~x=-{\frac{24}{13}}\)
-abbiamo così determinato la coppia soluzione del 
-sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
  \end{esempio}
 % \end{exrig}
 
 % \subsubsection{Generalizzazione del metodo di riduzione}
 % 
-% Assegnato il sistema lineare~\(\left\{\begin{array}{l}
+% Assegnato il sistema lineare~\(\sistema{
 %  a_{0}x+b_{0}y=c_{0}\\
 %  a_{1}x+b_{1}y=c_{1} 
-% \end{array}\right.\)
+% }\)
 % con~\(a_{0}, b_{0}, c_{0}, a_{1}, b_{1}, c_{1}\) numeri reali.
 % 
-% \paragraph{Passo I} per eliminare~\(y\) moltiplichiamo la prima per~\(b_{1}\) e 
-% la seconda per~\(-b_{0}\):
-% \[\left\{\begin{array}{l}
+% \paragraph{Passo I} per eliminare~\(y\) moltiplichiamo la prima 
+% per~\(b_{1}\) e la seconda per~\(-b_{0}\):
+% \[\sistema{
 %  a_{0}b_{1}x+b_{0}b_{1}y=c_{0}b_{1}\\
 %  -a_{1}b_{0}x-b_{1}b_{0}y=c_{1}-b_{0}
-% \end{array}\right.\]
+% }\]
 % 
 % \paragraph{Passo II} sommiamo le due equazioni:
 % \[a_{0}b_{1}x-a_{1}b_{0}x=c_{0}b_{1}-c_{1}b_{0}\Rightarrow 
@@ -656,12 +666,13 @@ sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
 %  \[x=\frac{c_{0}b_{1}-c_{1}b_{0}}{a_{0}b_{1}-a_{1}b_{0}}\text{, con }
 %  a_{0}b_{1}-a_{1}b_{0}\neq~0\]
 % 
-% \paragraph{Passo IV} per eliminare~\(x\) moltiplichiamo la prima per~\(-a_{1}\) e 
+% \paragraph{Passo IV} per eliminare~\(x\) moltiplichiamo la prima 
+% per~\(-a_{1}\) e 
 % la seconda per~\(a_{0}\):
-% \[\left\{\begin{array}{l}
+% \[\sistema{
 %  -a_{0}a_{1}x+b_{0}a_{1}y=-c_{0}a_{1}\\
 %  a_{1}a_{0}x+b_{1}a_{0}y=c_{1}a_{0}
-% \end{array}\right.\]
+% }\]
 % 
 % \paragraph{Passo V} sommiamo le due equazioni
 % \[-b_{0}a_{1}y+a_{0}b_{1}y=-a_{1}c_{0}+a_{0}c_{1}\Rightarrow
@@ -730,7 +741,8 @@ sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
 %   a_{1} & b_{1}
 %  \end{array}\right|=a_{0}\cdot b_{1}-a_{1}\cdot b_{0}\]
 %   
-% \item \(D_{x}\) il determinante della matrice ottenuta sostituendo in~\(D\) agli
+% \item \(D_{x}\) il determinante della matrice ottenuta sostituendo in~\(D\) 
+% agli
 % elementi della prima colonna i termini noti.
 % 
 %  \[D_{x}=\left|\begin{array}{cc}
@@ -738,8 +750,8 @@ sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
 %   c_{1} & b_{1}
 %  \end{array}\right| = c_{0} \cdot b_{1}-c_{1} \cdot b_{0}\]
 %  
-% \item \(D_{y}\) il determinante della matrice ottenuta sostituendo in D agli
-% elementi della seconda colonna i termini noti. 
+% \item \(D_{y}\) il determinante della matrice ottenuta sostituendo in D 
+% agli elementi della seconda colonna i termini noti. 
 %  \[D=\left|\begin{array}{cc}
 %   a_{0} & c_{0}\\ 
 %   a_{1} & c_{1}
@@ -755,10 +767,10 @@ sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
 % 
 % % \begin{exrig}
 %  \begin{esempio}
-% \(\left\{\begin{array}{l}
+% \(\sistema{
 %  2x+3y=3 \\
 %  4x-3y=5
-% \end{array}\right.\)
+% }\)
 % 
 % Calcoliamo i determinanti.
 % 
@@ -795,10 +807,10 @@ sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
 
 % \subsection{Classificazione dei sistemi rispetto alle soluzioni}
 % Dato un sistema in forma canonica
-% \(\left\{\begin{array}{l}
+% \(\sistema{
 %  a_{0}x+b_{0}y=c_{0}\\
 %  a_{1}x+b_{1}y=c_{1} 
-% \end{array}\right. \) ricordando
+% } \) ricordando
 % che:
 % 
 %  \[D=\left|\begin{array}{cc}
@@ -817,13 +829,13 @@ sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
 %  \end{array}\right| = a_{0} \cdot c_{1}-a_{1} \cdot c_{0}\]
 % 
 % \begin{itemize*}
-% \item se D\({\neq}\)0 il sistema è \emph{determinato}, esiste una sola coppia 
-%  soluzione~\(x=\frac{D_{x}}{D} \quad y=\frac{D_{y}}{D}\)
+% \item se D\({\neq}\)0 il sistema è \emph{determinato}, esiste una sola 
+% coppia soluzione~\(x=\frac{D_{x}}{D} \quad y=\frac{D_{y}}{D}\)
 % \item se~\(D=0\) si possono verificare due casi:
 %  \begin{itemize*}
 % \item 1\(\grado\) caso: se~\(D_{x}=0\) e~\(D_{y}=0\) il sistema è 
-%  \emph{indeterminato}, ogni coppia di numeri reali che verifica un'equazione, 
-%  verifica anche l'altra;
+%  \emph{indeterminato}, ogni coppia di numeri reali che verifica 
+% un'equazione, verifica anche l'altra;
 % \item 2\(\grado\) caso: se~\(D_{x}\neq~0\) e~\(D_{y} \neq~0\) il sistema è 
 %  \emph{impossibile}, non esiste alcuna coppia che soddisfa entrambi le 
 %  equazioni e~\(\IS=\emptyset \).
@@ -832,7 +844,7 @@ sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
 % 
 % % \begin{exrig}
 %  \begin{esempio}
-% \(\left\{\begin{array}{l}2x-3y=1 \\4x-3y=2 \end{array}\right.\)
+% \(\sistema{2x-3y=1 \\4x-3y=2 }\)
 % 
 % \[D=\left|\begin{array}{cc}2&-3\\4&-3\end{array}\right|=2\cdot (-3)+3\cdot 
 % (4)=-6+12=6\neq~0\]
@@ -840,7 +852,7 @@ sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
 %  \end{esempio}
 % 
 %  \begin{esempio}
-% \(\left\{\begin{array}{l}8x-6y=2 \\4x-3y=1 \end{array}\right.\)
+% \(\sistema{8x-6y=2 \\4x-3y=1 }\)
 % 
 % \[D=\left|\begin{array}{cc}{8}&{-6}\\{4}&{-3}\end{array}\right|=8\cdot 
 % (-3)+6\cdot (4)=-24+24=0\]
@@ -860,7 +872,7 @@ sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
 %  \end{esempio}
 % 
 %  \begin{esempio}
-% \(\left\{\begin{array}{l}8x-6y=1 \\4x-3y=2\end{array}\right.\)
+% \(\sistema{8x-6y=1 \\4x-3y=2}\)
 % 
 % 
 % \[D=\left|\begin{array}{cc}{8}&{-6}\\{4}&{-3}\end{array}
@@ -873,7 +885,9 @@ sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
 % \right|=1\cdot(-3)-(-6)\cdot 2=-3+12=+9\\
 % & 
 % 
-% D_{y}=\left|\begin{array}{cc}{8}&{1}\\{4}&{2}\end{array}\right|=8\cdot2-1\cdot 
+% 
+% D_{y}=\left|\begin{array}{cc}{8}&{1}\\{4}&{2}\end{array}\right|
+% =8\cdot2-1\cdot 
 % 4=16-4=12.
 % \end{align*}
 % Il sistema è impossibile.
@@ -907,7 +921,7 @@ sistema~\(\left(-{\frac{24}{13}};-\frac{17}{13}\right)\).
 % % \ref{ese:22.34}, \ref{ese:22.35}, \ref{ese:22.36}, \ref{ese:22.37}, 
 % % \ref{ese:22.38}}
 
-\subsection{Il metodo grafico}
+\section{Interpretazione grafica}
 Il problema della ricerca dell'Insieme Soluzione di
 un'equazione lineare in due incognite (vedi sezione: \ref{sec:sist_eqdue}) 
 ci ha condotto ad un proficuo collegamento tra concetti algebrici e 
@@ -927,135 +941,277 @@ Coppia soluzione dell'equazione& Punto della retta di equazione \\
  \end{tabularx}
 
 \end{center}
-Vedremo ora come sia possibile sfruttare questi collegamenti per
-risolvere un sistema lineare di due equazioni in due incognite.
+Vedremo ora un'importante interpretazione geometrica dei sistemi lineari:
 
-\begin{problema}
-Determina due numeri reali di cui si sa che la loro somma è~6 e il
-doppio del primo aumentato della metà del secondo è ancora~6.
-\end{problema}
+\begin{definizione}
+Se interpretiamo le due equazioni lineari come rette, la soluzione è data 
+dalle coordinate della loro intersezione.
+\end{definizione}
 
- \begin{soluzione}
-Indichiamo con~\(x\) e~\(y\) i due numeri incogniti; il problema si formalizza
-con due equazioni:~\(x+y=6\) \quad e \quad \(2x+\frac{1}{2}y=6\).\\
-Dobbiamo individuare una coppia di numeri reali che sia soluzione
-dell'una e dell'altra equazione.
+\begin{esempio}
+Trova la soluzione del sistema:
+\(\sistema{+x+y=5\\-x+3y=3}\)
 
-\paragraph{Il punto di vista algebrico}
-La coppia di numeri reali~\(x\) e~\(y\) che risolve il problema è quella che
-risolve il sistema
-\[\longarray\left\{\begin{array}{l}x+y=6\\2x+\dfrac{1}{2}y=6 
-\end{array}\right.\]
-Applicando uno qualunque dei metodi algebrici esposti si ottiene~\(x=2\) e~\(y=4\).
+\vspace{1em}
+\begin{minipage}{.48\textwidth}
+Riscriviamo le due equazioni esplicitando la variabile \(y\):
+\(\sistema{y=-x+5\\y=\dfrac{1}{3}x +1}\)
 
-\paragraph{Il punto di vista geometrico}
+Ora (usando il metodo rapido) disegniamo le due rette e individuiamo la loro 
+intersezione.
 
-Il problema si può spostare in ambiente geometrico: la coppia
-soluzione rappresenta un punto che appartiene sia alla retta
-rappresentata dalla prima equazione sia alla retta rappresentata dalla
-seconda equazione, quindi rappresenta il punto di intersezione delle due rette.
+La soluzione del sistema è la coppia ordinata \(\punto{3}{2}\) formata dalle 
+coordinate dell'intersezione.
 
-Si rappresenta nel riferimento cartesiano ortogonale il sistema.
-La retta~\(a\) è quella di equazione~\(x+y=6\), che passa per i
-punti~\((6;~0)\) e~\((0;~6)\).
+Si può verificarlo facilmente:\\ 
+\(\sistema{+3+2=5\\-3+3 \cdot 2=3}\)
+\end{minipage}
+\hfill
+\begin{minipage}{.48\textwidth}
+\begin{center} \intersezionediduerette \end{center}
+\end{minipage}
 
-La retta~\(b\) è quella di equazione~\(2x+\frac{1}{2}y=6\), che
-passa per i punti~\((3;~0)\) e~\((0;~12)\).
+\end{esempio}
 
-Il punto~\(A(2,4)\) è il punto di intersezione delle due rette, le sue
-coordinate formano la coppia soluzione del sistema e di conseguenza
-sono i due numeri che stiamo cercando nel problema.
+% \begin{problema}
+% Determina due numeri reali di cui si sa che la loro somma è~6 e il
+% doppio del primo aumentato della metà del secondo è ancora~6.
+% \end{problema}
+% 
+%  \begin{soluzione}
+% Indichiamo con~\(x\) e~\(y\) i due numeri incogniti; il problema si 
+% formalizza con due 
+% equazioni:~\(x+y=6\) \quad e \quad \(2x+\frac{1}{2}y=6\).\\
+% Dobbiamo individuare una coppia di numeri reali che sia soluzione
+% dell'una e dell'altra equazione.
+% 
+% \paragraph{Il punto di vista algebrico}
+% La coppia di numeri reali~\(x\) e~\(y\) che risolve il problema è quella 
+% che risolve il sistema
+% \[\sistema{x+y=6\\2x+\dfrac{1}{2}y=6 
+% }\]
+% Applicando uno qualunque dei metodi algebrici esposti si ottiene~\(x=2\) 
+% e~\(y=4\).
+% 
+% \paragraph{Il punto di vista geometrico}
+% 
+% Il problema si può spostare in ambiente geometrico: la coppia
+% soluzione rappresenta un punto che appartiene sia alla retta rappresentata 
+% dalla prima equazione sia alla retta rappresentata dalla seconda equazione, 
+% quindi rappresenta il punto di intersezione delle due rette.
+% 
+% Si rappresenta nel riferimento cartesiano ortogonale il sistema.
+% La retta~\(a\) è quella di equazione~\(x+y=6\), che passa per i
+% punti~\(\punto{6}{0}\) e~\(\punto{0}{6}\).
+% 
+% La retta~\(b\) è quella di equazione~\(2x+\frac{1}{2}y=6\), che
+% passa per i punti~\(\punto{3}{0}\) e~\(\punto{0}{12}\).
+% 
+% Il punto~\(A\punto{2}{4})\) è il punto di intersezione delle due rette, 
+% le sue coordinate formano la coppia soluzione del sistema e di conseguenza
+% sono i due numeri che stiamo cercando nel problema.
+% 
+% \begin{center}
+% \begin{inaccessibleblock}[Due rette che si incontrano nel punto~(2; 4)]
+%  \input{\folder lbr/fig005_car.pgf}
+% \end{inaccessibleblock}
+% \end{center}
+%  \end{soluzione}
 
-\begin{center}
-\begin{inaccessibleblock}[Due rette che si incontrano nel punto~(2; 4)]
- \input{\folder lbr/fig005_car.pgf}
-\end{inaccessibleblock}
-\end{center}
- \end{soluzione}
+\subsection{Interpretazione geometrica e sistemi non determinati}
+L'interpretazione geometrica ci permette di capire meglio quando un sistema è 
+determinato, indeterminato o impossibile.
+
+\paragraph{Sistema impossibile}
+
+Partiamo da un esempio e disegniamo le rette associate al sistema.
 
  % \begin{exrig}
  \begin{esempio}
-\(\left\{\begin{array}{l}2x-3y=7 \\x+y+6=5(x-y)\end{array}\right.\)
+\(\sistema{2x-3y=-6 \\x+y+6=5(x-y)}\)
+\vspace{1em}
 
-\paragraph{Il punto di vista algebrico}
-Portiamo in forma canonica il sistema, otteniamo:
+Per prima cosa scriviamo il sistema in forma canonica:
+\[
+\sistema{2x-3y=-6 \\x+y+6=5(x-y)}\Rightarrow
+\sistema{2x-3y=-6 \\x+y+6=5x-5y}\Rightarrow
+\sistema{+2x-3y=-6 \\-4x+6y=-6}
+\]
+Ora esplicitiamo le \(y\) in modo da semplificarci il disegno delle rette e 
+disegniamole:
 
-\begin{equation*}
-\left\{\begin{array}{l}2x-3y=7 \\x+y+6=5(x-y)\end{array}\right.\Rightarrow
-\left\{\begin{array}{l}2x-3y=7 \\x+y+6=5x-5y\end{array}\right.\Rightarrow
-\left\{\begin{array}{l}2x-3y=7 \\-4x+6y=-6\end{array}\right.
-\end{equation*}
+\begin{minipage}{.48\textwidth}
+\[\sistema{y=\dfrac{2}{3}x+2 \\[.5em] y=\dfrac{2}{3}x-1}\]
 
-Si può notare che il sistema ha i coefficienti delle incognite in
-proporzione:
-\[\frac{a}{a_{1}}=\frac{2}{-4}=-{\frac{1}{2}}; \quad 
-  \frac{b}{b_{1}}=\frac{-{3}}{+6}=-{\frac{1}{2}}\]
-mentre i termini noti non sono nella stessa 
-proporzione~\(\frac{c}{c_{1}}=\frac{7}{-1}\)
-quindi il sistema è impossibile:~\(\IS=\emptyset \).
+Le due rette sono parallele, poiché hanno lo stesso coefficiente angolare. 
 
-\paragraph{Il punto di vista geometrico}
+Non esiste quindi l'intersezione delle rette e il sistema non ha soluzione.
+\end{minipage}
+\hfill
+\begin{minipage}{.48\textwidth}
+\begin{center}
+\disegno{
+  \funzionicolorate{-4}{+4}{-4}{+4}
+                   {{2./3*x+2}/red!50!black, {2./3*x-1}/green!50!black}
+  }
+\end{center}
+\end{minipage}
 
-Determiniamo le equazioni esplicite delle rette rappresentate dalle due
-equazioni lineari del sistema assegnato. Si ha:
-\[\longarray\left\{\begin{array}{l}
- y=\dfrac{2}{3}x-\dfrac{7}{3}\\
- y=\dfrac{2}{3}x-1
-\end{array}\right.\]
+\end{esempio}
 
-Le due rette (figura~\ref{fig:23.1}) hanno lo stesso coefficiente angolare, il 
-coefficiente
-della~\(x\) e quindi hanno la stessa inclinazione, pertanto sono parallele.
-Non hanno quindi nessun punto di intersezione~\(r_{1}\cap r_{2}=\emptyset \), il 
-sistema è impossibile:~\(\IS=\emptyset \).
- \end{esempio}
+\paragraph{Sistema indeterminato}
 
-% \newpage
+Anche qui iniziamo da un esempio e disegniamo le rette associate al sistema.
 
  \begin{esempio}
-\(\longarray\left\{\begin{array}{l}
-     2x+3y+1=0\\
-     y+\dfrac{1}{3}=-{\dfrac{2}{3}}x
-\end{array}\right.\)
+\(\sistema{3x+4y=-6 \\9x+12y=-18}\)
+\vspace{1em}
 
- \paragraph{Il punto di vista algebrico}
- Scriviamo in forma canonica il 
-sistema~\(\left\{\begin{array}{l}2x+3y=-1\\2x+3y=-1\end{array}\right.\).
+Ora esplicitiamo le \(y\) in modo da semplificarci il disegno delle rette e 
+disegniamole:
 
- Osserviamo che sono due equazioni identiche, pertanto il rapporto tra i
-coefficienti delle incognite e il rapporto tra i termini noti è
-sempre~1. Il sistema è indeterminato. D'altra parte,
-se le due equazioni sono identiche significa che tutte le infinite
-coppie~\((x, y)\) che rendono vera la prima equazione, verificano anche la
-seconda.
+\begin{minipage}{.48\textwidth}
+\[\sistema{y=-\dfrac{3}{4}x-\dfrac{3}{2} \\[.5em] 
+           y=-\dfrac{3}{4}x-\dfrac{3}{2}}\]
 
-\paragraph{Il punto di vista geometrico}
-Rappresentiamo nel riferimento cartesiano ortogonale (figura~\ref{fig:23.2}) le 
-due rette aventi
-come equazioni le equazioni del sistema. È semplice
-rendersi conto che le due rette coincidono; tutti i punti di una
-coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
+Le due rette non sono solo parallele, poiché hanno lo stesso coefficiente 
+angolare, ma sono anche coincidenti. 
 
-\begin{figure}[htbp]
-\begin{minipage}{0.5\textwidth}
-\centering
-\begin{inaccessibleblock}[Esempio~23.17: due rette parallele]
-\input{\folder lbr/fig006_car.pgf}
-\caption{Esempio~23.17}\label{fig:23.1}
-\end{inaccessibleblock}
-\end{minipage}\hfill
-\begin{minipage}{0.5\textwidth}
-\centering
-\begin{inaccessibleblock}[Esempio~23.18: due rette coincidenti]
-\input{\folder lbr/fig007_car.pgf}
-\caption{Esempio~23.18}\label{fig:23.2}
-\end{inaccessibleblock}
+Ogni punto di una è anche punto dell'altra e il sistema ha quindi infinite 
+soluzioni.
 \end{minipage}
-\end{figure}
- \end{esempio}
- % \end{exrig}
+\hfill
+\begin{minipage}{.48\textwidth}
+\begin{center}
+\disegno{
+  \funzionicolorate{-4}{+4}{-4}{+4}{{3./4*x-3./2}/red!50!blue}
+}
+\end{center}
+\end{minipage}
 
- \vspace{-24pt}
+\end{esempio}
+
+\subsection{Coefficienti e sistemi non determinati}
+
+Consideriamo un generico sistema:
+\[\sistema{
+ a_{0}x+b_{0}y=c_{0} \\
+ a_{1}x+b_{1}y=c_{1} 
+}\]
+Se i coefficienti delle incognite sono in proporzione:
+\[\frac{a_{0}}{a_{1}} = \frac{b_{0}}{b_{1}} \sLRarrow
+{a_{0}} \cdot {b_{1}} = \frac{b_{0}} \cdot {a_{1}}\]
+Allora le rette corrispondenti sono parallele: il sistema non è determinato.
+
+Se anche i termini noti sono nella stessa proporzione:
+\[\frac{a_{0}}{a_{1}} = \frac{b_{0}}{b_{1}} = \frac{c_{0}}{c_{1}}\]
+Allora il sistema è indeterminato, altrimenti è impossibile.
+% 
+% \[\frac{a_{0}}{a_{1}} = \frac{b_{0}}{b_{1}},~,~c_{0},~,~,~c_{1}\text{ 
+% numeri}\]
+% \paragraph{Sistema indeterminato}
+% 
+% Anche qui iniziamo da un esempio e disegniamo le rette associate al 
+% sistema.
+% 
+%  \begin{esempio}
+% \(\sistema{3x+4y=-6 \\9x+12y=-18}\)
+% \vspace{1em}
+% 
+% Ora esplicitiamo le \(y\) in modo da semplificarci il disegno delle rette e 
+% disegniamole:
+% 
+% \begin{minipage}{.48\textwidth}
+% \[\sistema{y=-\dfrac{3}{4}x-\dfrac{3}{2} \\[.5em] 
+%            y=-\dfrac{3}{4}x-\dfrac{3}{2}}\]
+% 
+% Le due rette non sono solo parallele, poiché hanno lo stesso coefficiente 
+% angolare, ma sono anche coincidenti. 
+% 
+% Ogni punto di una è anche punto dell'altra e il sistema ha quindi infinite 
+% soluzioni.
+% \end{minipage}
+% \hfill
+% \begin{minipage}{.48\textwidth}
+% \begin{center}
+% \disegno{
+%   \funzionicolorate{-4}{+4}{-4}{+4}{{3./4*x-3./2}/red!50!blue}
+% }
+% \end{center}
+% \end{minipage}
+% 
+% \end{esempio}
+% 
+% 
+% Si può notare che il sistema ha i coefficienti delle incognite in
+% proporzione:
+% \[\frac{a}{a_{1}}=\frac{2}{-4}=-{\frac{1}{2}}; \quad 
+%   \frac{b}{b_{1}}=\frac{-{3}}{+6}=-{\frac{1}{2}}\]
+% mentre i termini noti non sono nella stessa 
+% proporzione~\(\frac{c}{c_{1}}=\frac{7}{-1}\)
+% quindi il sistema è impossibile:~\(\IS=\emptyset \).
+% 
+% \paragraph{Il punto di vista geometrico}
+% 
+% Determiniamo le equazioni esplicite delle rette rappresentate dalle due
+% equazioni lineari del sistema assegnato. Si ha:
+% \[\sistema{
+%  y=\dfrac{2}{3}x-\dfrac{7}{3}\\
+%  y=\dfrac{2}{3}x-1
+% }\]
+% 
+% Le due rette (figura~\ref{fig:23.1}) hanno lo stesso coefficiente angolare, 
+% il coefficiente della~\(x\) e quindi hanno la stessa inclinazione, pertanto 
+% sono parallele.
+% Non hanno quindi nessun punto di 
+% intersezione~\(r_{1}\cap r_{2}=\emptyset \), 
+% il sistema è impossibile:~\(\IS=\emptyset \).
+% 
+% % \newpage
+% 
+%  \begin{esempio}
+% \(\sistema{
+%      2x+3y+1=0\\
+%      y+\dfrac{1}{3}=-{\dfrac{2}{3}}x
+% }\)
+% 
+%  \paragraph{Il punto di vista algebrico}
+%  Scriviamo in forma canonica il 
+% sistema~\(\sistema{2x+3y=-1\\2x+3y=-1}\).
+% 
+%  Osserviamo che sono due equazioni identiche, pertanto il rapporto tra i
+% coefficienti delle incognite e il rapporto tra i termini noti è
+% sempre~1. Il sistema è indeterminato. D'altra parte,
+% se le due equazioni sono identiche significa che tutte le infinite
+% coppie~\((x, y)\) che rendono vera la prima equazione, verificano anche la
+% seconda.
+% 
+% \paragraph{Il punto di vista geometrico}
+% Rappresentiamo nel riferimento cartesiano ortogonale (figura~\ref{fig:
+% 23.2}) le due rette aventi come equazioni le equazioni del sistema. 
+% È semplice rendersi conto che le due rette coincidono; tutti i punti di una
+% coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
+% 
+% \begin{figure}[htbp]
+% \begin{minipage}{0.5\textwidth}
+% \centering
+% \begin{inaccessibleblock}[Esempio~23.17: due rette parallele]
+% \input{\folder lbr/fig006_car.pgf}
+% \caption{Esempio~23.17}\label{fig:23.1}
+% \end{inaccessibleblock}
+% \end{minipage}\hfill
+% \begin{minipage}{0.5\textwidth}
+% \centering
+% \begin{inaccessibleblock}[Esempio~23.18: due rette coincidenti]
+% \input{\folder lbr/fig007_car.pgf}
+% \caption{Esempio~23.18}\label{fig:23.2}
+% \end{inaccessibleblock}
+% \end{minipage}
+% \end{figure}
+%  \end{esempio}
+%  % \end{exrig}
+% 
+%  \vspace{-24pt}
 
 % \ovalbox{\risolvii \ref{ese:22.39}, \ref{ese:22.40}, \ref{ese:22.41}, 
 % \ref{ese:22.42}, \ref{ese:22.43}}
@@ -1065,14 +1221,14 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % 
 % Nel seguente sistema
 % 
-% \(\left\{\begin{array}{l}\frac{2}{x+1}-\frac{3}{y-2}=\frac{2x-5y+4}{xy+y-2-2x}
-% \\3y+2(x-y-1)=5x-8(-x-2y+1)\end{array}\right.\)
+% \(\sistema{\frac{2}{x+1}-\frac{3}{y-2}=\frac{2x-5y+4}
+% {xy+y-2-2x} \\3y+2(x-y-1)=5x-8(-x-2y+1)}\)
 % di due equazioni in due incognite, la prima equazione presenta le
 % incognite anche al denominatore.
 % 
 % \begin{definizione}
-% Si chiama \emph{sistema fratto o frazionario} il sistema in cui almeno in una 
-% delle equazioni che lo
+% Si chiama \emph{sistema fratto o frazionario} il sistema in cui almeno in 
+% una delle equazioni che lo
 % compongono compare l'incognita al denominatore.
 % \end{definizione}
 % 
@@ -1082,69 +1238,76 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % quale individuare le coppie soluzioni.
 % 
 % \begin{definizione}
-% Si chiama \emph{Dominio}~(\(D\)) o \emph{Insieme di Definizione}~(\(ID\)) del 
-% sistema fratto,
-% l'insieme delle coppie ordinate che rendono diverso da zero i denominatori che
-% compaiono nelle equazioni.
+% Si chiama \emph{Dominio}~(\(D\)) o \emph{Insieme di Definizione}~(\(ID\)) 
+% del sistema fratto,
+% l'insieme delle coppie ordinate che rendono diverso da zero i denominatori 
+% che compaiono nelle equazioni.
 % \end{definizione}
 % 
 % % \begin{exrig}
 %  \begin{esempio}
 % 
 % 
-% \(\longarray\left\{\begin{array}{l}\dfrac{2}{x+1}-\dfrac{3}{y-2}=\dfrac{2x-5y+4}{
-% xy+y-2-2x}\\3y+2(x-y-1)=5x-8(-x-2y+1)\end{array}\right.\)
+% 
+% \(\sistema{\dfrac{2}{x+1}-\dfrac{3}{y-2} 
+% =\dfrac{2x-5y+4} {
+% xy+y-2-2x}\\3y+2(x-y-1)=5x-8(-x-2y+1)}\)
 % 
 % \paragraph{Passo I} Scomponiamo i denominatori nella prima equazione
 % per determinare il~\(\mcm\).
 % 
 % 
-% \[\longarray\left\{\begin{array}{l}{\dfrac{2}{x+1}-\dfrac{3}{y-2}=\dfrac{2x-5y+4
-% }{(x+1)(y-2)}}\\{3y+2(x-y-1)=5x-8(-x-2y+1)}\end{array}
-% \right.\Rightarrow\mcm=(x+1)(y-2).\]
 % 
-% \paragraph{Passo II} Poniamo le Condizioni di Esistenza da cui determineremo 
-% il Dominio del
+% \[\sistema{{\dfrac{2}{x+1}-\dfrac{3}{y-2}
+% =\dfrac{2x-5y+4
+% }{(x+1)(y-2)}}\\{3y+2(x-y-1)=5x-8(-x-2y+1)}}\Rightarrow\mcm=(x+1)(y-2)\]
+% 
+% \paragraph{Passo II} Poniamo le Condizioni di Esistenza da cui 
+% determineremo il Dominio del
 % sistema:
-% \[\CE:\left\{\begin{array}{l}
+% \[\CE:\sistema{
 %    x\neq -1\\y\neq~2
-%    \end{array}\right.\Rightarrow D=\IS=\left\{(x;y)\in 
-% \insR\times\insR\left|x\right.\neq -1\text{ e }y\neq~2\right\}.\]
+%    }\Rightarrow D=\IS=\left\{\punto{x}{y}\in 
+% \R\times\R\left|x\right.\neq -1\text{ e }y\neq~2\right\}.\]
 % 
 % \paragraph{Passo III} Riduciamo allo stesso denominatore la prima
 % equazione, svolgiamo i calcoli nella seconda per ottenere la forma
-% canonica:~\(\left\{\begin{array}{l}{-5x+7y=11}\\{11x+15y=6}\end{array}\right.\)
+% 
+% canonica:~\(\sistema{{-5x+7y=11}\\{11x+15y=6}}\)
 % 
 % \paragraph{Passo IV} Risolviamo il sistema e otteniamo la coppia
-% soluzione~\(\left(-{\frac{123}{152};\frac{151}{152}}\right)\) che è
+% soluzione~\(\punto{-\frac{123}{152}}{\frac{151}{152}}\) che è
 % accettabile.
 %  \end{esempio}
 % 
 %   \begin{esempio}
 % 
 % 
-% \(\longarray\left\{\begin{array}{l}{\dfrac{3x+y-1}{x}=3}\\{\dfrac{2x+3y}{y-1}=7}
-% \end{array}\right.\)
+% 
+% \(\sistema{{\dfrac{3x+y-1}{x}=3}\\{\dfrac{2x+3y}
+% {y-1} =7}
+% }\)
 % 
 % \paragraph{Passo I} Per la prima equazione si ha~\(\mcm=x\) per la 
 % seconda~\(\mcm=y-1\).
 % 
-% \paragraph{Passo II} Poniamo le Condizioni di Esistenza da cui determineremo 
+% \paragraph{Passo II} Poniamo le Condizioni di Esistenza da cui 
+% determineremo 
 % il Dominio:
-% \[\CE:\left\{\begin{array}{l}
+% \[\CE:\sistema{
 %    x\neq~0\\y\neq~1
-%    \end{array}\right.\rightarrow D=\IS=\left\{(x;y)\in \insR\times\insR 
+%    }\rightarrow D=\IS=\left\{\punto{x}{y}\in \R\times\R 
 % |x\neq~0\text{ e }y\neq~1\right\}.\]
 % 
-% \paragraph{Passo III} Riduciamo allo stesso denominatore sia la prima che la 
-% seconda equazione:
-% \(\left\{\begin{array}{l}{3x+y-1=3x}\\{2x+3y=7y-7}\end{array}\right.\)
+% \paragraph{Passo III} Riduciamo allo stesso denominatore sia la prima che 
+% la seconda equazione:
+% \(\sistema{{3x+y-1=3x}\\{2x+3y=7y-7}}\)
 % 
 % \paragraph{Passo IV} Determiniamo la forma canonica:
-% \(\left\{\begin{array}{l}{y-1=0}\\{2x-4y=-7}\end{array}\right.\)
+% \(\sistema{{y-1=0}\\{2x-4y=-7}}\)
 % 
 % \paragraph{Passo V} Determiniamo con un qualunque metodo la coppia
-% soluzione:~\(\left(-{\frac{3}{2};1}\right)\) che non accettabile
+% soluzione:~\(\punto{-\frac{3}{2}}{1}\) che non accettabile
 % poiché contraddice la~\(\CE\) e quindi non appartiene al dominio. Il
 % sistema assegnato è quindi impossibile~\(\IS=\emptyset \).
 %  \end{esempio}
@@ -1158,8 +1321,8 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % 
 %  \begin{definizione}
 %  Si chiama \emph{sistema letterale} il sistema in cui
-% oltre alle incognite, solitamente indicate con~\(x\) e~\(y\), compaiono altre
-% lettere dette parametri.
+% oltre alle incognite, solitamente indicate con~\(x\) e~\(y\), compaiono 
+% altre lettere dette parametri.
 %  \end{definizione}
 % 
 % 
@@ -1170,7 +1333,7 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % 
 % % \begin{exrig}\vspace{1.10ex}
 %  \begin{esempio}
-%  \(\left\{\begin{array}{l}{2ax-(a-1)y=0}\\{-2x+3y=a}\end{array}\right.\)
+%  \(\sistema{{2ax-(a-1)y=0}\\{-2x+3y=a}}\)
 % 
 % 
 % È un sistema letterale in quanto, reso in forma
@@ -1186,7 +1349,7 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % Per discutere il sistema usiamo il metodo di Cramer.
 % 
 % \paragraph{Passo I} Calcoliamo il determinante del sistema:
-% \[D=\left|\begin{array}{cc}{2a}&{-(a-1)}\\{-2}&{3}\end{array}\right|=4a+2.\]
+% \[D=\left|\begin{array}{cc}{2a}&{-(a-1)}\\{-2}&{3}\end{array}\right|=4a+2\]
 % 
 % \paragraph{Passo II} Determiniamo il valore del parametro che
 % rende~\(D\) diverso da zero:~\(4a+2\neq~0\Rightarrow a\neq~0-\frac{1}{2}\). 
@@ -1195,13 +1358,13 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % 
 % \paragraph{Passo III} Calcoliamo i determinanti~\(D_{x}\)
 % e~\(D_{y}\) per trovare la coppia soluzione.
-% \[D_{x}=\left|\begin{array}{cc}{0}&{-(a-1)}\\{a}&{3}\end{array}\right|=a\cdot 
-% (a-1);\quad
+% \[D_{x}=\left|\begin{array}{cc}{0}&{-(a-1)}\\{a}&{3}\end{array}\right|
+% =a\cdot (a-1);\quad
 % D_{y}=\left|\begin{array}{cc}{2a}&{0}\\{-2}&{a}\end{array}\right|=2a^{2}.\]
 % Quindi~\(x=\frac{a\cdot (a-1)}{4a+2}\) e~\(y=\frac{2a^{2}}{4a+2}\).
 % 
-% \paragraph{Passo IV} Il determinante è nullo se~\(a=-{\frac{1}{2}}\) poiché per 
-% questo valore di~\(a\) i
+% \paragraph{Passo IV} Il determinante è nullo se~\(a=-{\frac{1}{2}}\) 
+% poiché per % questo valore di~\(a\) i
 % determinanti~\(D_{x}\) e~\(D_{y}\) sono diversi da zero si ha che 
 % per~\(a=-{\frac{1}{2}}\) il sistema
 % è impossibile.
@@ -1221,17 +1384,17 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 %  \end{esempio}
 % % \end{exrig}
 % 
-% \subsection*{Il parametro compare al denominatore in almeno una equazione del 
-% sistema}
+% \subsection*{Il parametro compare al denominatore in almeno una equazione 
+% del sistema}
 % 
 % % \begin{exrig}\vspace{1.10ex}
 % \begin{esempio}
-%  \(\longarray\left\{\begin{array}{l}{\dfrac{y+a}{3}-\dfrac{a-x}{a-1}=a}\\
-%  {\dfrac{x+2a}{a}-3=\dfrac{y}{2}-a}\end{array}\right.\)
+%  \(\sistema{{\dfrac{y+a}{3}-\dfrac{a-x}{a-1}=a}\\
+%  {\dfrac{x+2a}{a}-3=\dfrac{y}{2}-a}}\)
 % 
 % Il sistema non è fratto pur presentando termini frazionari nelle sue
 % equazioni; la presenza del parametro al denominatore ci obbliga ad
-% escludere dall'insieme~\(\insR\) quei valori che annullano il
+% escludere dall'insieme~\(\R\) quei valori che annullano il
 % denominatore.
 % Se~\(a=1\) oppure~\(a=0\) ciascuna equazione del sistema è priva di
 % significato, pertanto lo è anche il sistema.
@@ -1239,8 +1402,9 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % possiamo ridurre allo stesso denominatore ciascuna equazione e condurre
 % il sistema alla forma
 % 
-% canonica:~\(\left\{\begin{array}{l}{3x+(a-1)y=2a^{2}+a}\\{2x-ay=2a-2a^{2}}\end{
-% array}\right.\)
+% 
+% canonica:~\(\sistema{{3x+(a-1)y=2a^{2}+a}\\{2x-ay=2a-2a^{2}}
+%                    }\)
 % 
 % 
 % \paragraph{Passo I} Calcoliamo il determinante del sistema:
@@ -1254,18 +1418,17 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % e~\(D_{y}\) per trovare la coppia soluzione
 % 
 % 
-% \[D_{x}=\left|\begin{array}{cc}{2a^{2}+a}&{a-1}\\{2a-2a^{2}}&{-a}\end{array}
-% \right|=a\cdot (2a-5);\quad
+% \[D_{x}=\left|\begin{array}{cc}{2a^{2}+a}&{a-1}\\{2a-2a^{2}}&{-a}
+% \end{array} \right|=a\cdot (2a-5);\quad
 % 
 % D_{y}=\left|\begin{array}{cc}{3}&{2a^{2}+a}\\{2}&{2a-2a^{2}}\end{array}
 % \right|=2a\cdot (2-5a).\]
-% Quindi~\(x=\frac{a\cdot (2-5a)}{2-5a}\) e~\(y=\frac{2a\cdot (2-5a)}{2-5a}\) e 
-% semplificando~\((a;2a)\).
+% Quindi~\(x=\frac{a\cdot (2-5a)}{2-5a}\) e~\(y=\frac{2a\cdot (2-5a)}{2-5a}\) 
+% e semplificando~\((a;2a)\).
 % 
 % \paragraph{Passo IV} Il determinante è nullo se
-% \(a=\frac{2}{5}\) poiché anche i determinanti~\(D_{x}\) e~\(D_{y}\) si annullano si 
-% ha
-% per~\(a=\frac{2}{5}\) sistema indeterminato.
+% \(a=\frac{2}{5}\) poiché anche i determinanti~\(D_{x}\) e~\(D_{y}\) si 
+% annullano si ha per~\(a=\frac{2}{5}\) sistema indeterminato.
 % 
 % Riassumendo si ha:
 % 
@@ -1275,10 +1438,12 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % Condizioni sul parametro & Insieme Soluzione & Sistema\\
 % \midrule
 % \(a=0\vee a=1\) & \(\emptyset \) & privo di significato\\
-% \(a\neq \frac{2}{5}\) e~\(a\neq~1\) e~\(a\neq~0\) & \(\left\{(a;2a)\right\}\) & 
+% \(a\neq \frac{2}{5}\) e~\(a\neq~1\) e~\(a\neq~0\) & 
+% \(\left\{(a;2a)\right\}\) & 
 % determinato\\
-% \(a=\frac{2}{5}\) & \(\{\forall(x;y)\in\insR^2/3x-\frac{3}{5}y=\frac{18}{25}\}\) 
-% & 
+% \(a=\frac{2}{5}\) & 
+% \(\{\forall\punto{x}{y}\in\R^2/3x-\frac{3}{5}y=\frac{18}{25}\}
+% \) % & 
 % indeterminato\\
 % \bottomrule
 % \end{tabular}
@@ -1290,10 +1455,12 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % % \begin{exrig}
 %  \vspace{1.10ex}
 %  \begin{esempio}
-% \(\left\{\begin{array}{l}\frac{y-a}{x}=\frac{2}{a}\\{x+y=1}\end{array}\right.\)
+% 
+% \(\sistema{\frac{y-a}{x}=\frac{2}{a}\\{x+y=1}}\)
 % 
 % Il sistema letterale è fratto e nel denominatore oltre al parametro
-% compare l'incognita~\(x\). Se~\(a=0\) la prima equazione, e di conseguenza tutto 
+% compare l'incognita~\(x\). Se~\(a=0\) la prima equazione, e di conseguenza 
+% tutto 
 % il sistema, è
 % privo di significato. Per poter procedere alla ricerca
 % dell'Insieme Soluzione poniamo sul
@@ -1306,16 +1473,16 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % Essendo fratto dobbiamo anche stabilire il Dominio del sistema:
 % \begin{equation}
 %  \label{eq:23.2}
-% D=\{(x;y)\in \insR\times \insR | x\neq~0\}.
+% D=\{\punto{x}{y}\in \R\times \R | x\neq~0\}.
 %  \end{equation}
 % 
 % 
 % \paragraph{Passo I} Portiamo nella forma canonica:
-% \(\left\{\begin{array}{l}-2x+ay=a^{2}\\x+y=1\end{array}\right.\text{ con 
+% \(\sistema{-2x+ay=a^{2}\\x+y=1}\text{ con 
 % }a\neq~0\text{ e }x\neq~0\).
 % \paragraph{Passo II} Calcoliamo il determinante del sistema:
-% \(D=\left|\begin{array}{cc}{-2}&{a}\\{1}&{1}\end{array}\right|=-2-a=-(2+a)\).
-% 
+% \(D=\left|\begin{array}{cc}{-2}&{a}\\{1}&{1}\end{array}\right|=-2-a=-(2+a)
+% \). 
 % \paragraph{Passo III} Determiniamo il valore del parametro che
 % rende~\(D\) diverso da zero:~\(-2-a\neq~0\Rightarrow a\neq -2\).
 % Se~\(a\neq -2\) il sistema è determinato.
@@ -1326,8 +1493,8 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 % (a-1);\quad
 % D_{y}=\left|\begin{array}{cc}-2&a^{2}\\1& 
 % 1\end{array}\right|=-2-a^{2}=-(2+a^{2}).\]
-% Quindi~\(x=-{\frac{a\cdot (a-1)}{2+a}}\) e~\(y=\frac{a^{2}+2}{2+a}\) è la coppia 
-% soluzione accettabile
+% Quindi~\(x=-{\frac{a\cdot (a-1)}{2+a}}\) e~\(y=\frac{a^{2}+2}{2+a}\) è la 
+% coppia soluzione accettabile
 % se~\(x=-{\frac{a\cdot (a-1)}{2+a}}\neq~0\) per quanto stabilito 
 % in~\ref{eq:23.2}; essendo~\(a\neq~0\)
 % per la~\ref{eq:23.1} la coppia soluzione è accettabile se~\(a\neq~1\).
@@ -1361,18 +1528,21 @@ coincidono con tutti i punti dell'altra:~\(r_{1}\cap r_{2}=r_{1}=r_{2}\).
 \section{Sistemi lineari di tre equazioni in tre incognite}
 \label{sec:compl1_sistemitreeq}
 
-% \begin{problema}
-% Determinare tre numeri reali~\(x, y, z\) (nell'ordine) tali
-% che il doppio del primo uguagli l'opposto del secondo,
-% la differenza tra il primo e il triplo del terzo sia nulla e la somma
-% del secondo con il terzo superi il primo di~4 unità.
-% \end{problema}
+Abbiamo risolto i sistemi di due equazioni in due incognite combinando le 
+equazioni in modo da ottenerne una con una sola incognita.
+Lo stesso meccanismo può essere usato per risolvere sistemi lineari con un 
+qualunque numero di equazioni.
+Anche per i sistemi di più di due equazioni possiamo utilizzare i metodi 
+presentati precedentemente.
+
+\subsection{Sostituzione in un sistema di tre equazioni}
 
 \begin{problema}
 Determinare tre numeri reali~\(x, y, z\) (nell'ordine) tali
 che il doppio del primo uguagli l'opposto del secondo,
 il triplo del terzo sia uguale al primo aumentato~\(4\)
-e che la somma del secondo con il terzo sia inferiore al primo di~\(12\) unità.
+e che la somma del secondo con il terzo sia inferiore al primo di~\(12\) 
+unità.
 \end{problema}
 
 \begin{soluzione}
@@ -1389,93 +1559,115 @@ unità:~\(y+z=x-12\).
 Le tre condizioni devono essere vere contemporaneamente, quindi i tre
 numeri sono la terna soluzione del sistema di primo grado di tre equazioni in 
 tre incognite:
-\[\left\{\begin{array}{l}
+\[\sistema{
   2x=-y\\
   3z=x+4\\
   y+z=x-12
-\end{array}\right.\]
+}\]
 
 Per prima cosa scriviamo il sistema in forma normale:
-\[\left\{\begin{array}{l}
+\[\sistema{
   2x+y=0\\
   -x+3z=4\\
   -x+y+z=-12
-\end{array}\right.\]
+}\]
 
-Possiamo ora ricavare la~\(y\) dalla prima equazione e sostituirla nelle altre 
+Possiamo ora ricavare la~\(y\) dalla prima equazione e sostituirla nelle 
+altre 
 due:
-\[\left\{\begin{array}{l}
+\[\sistema{
   y=-2x\\
   -x+3z=4\\
   -x -2x+z=-12
-\end{array}\right.
+}
 \Rightarrow
-\left\{\begin{array}{l}
+\sistema{
   y=-2x\\
   -x+3z=+4\\
   -3x+z=-12
-\end{array}\right.\]
+}\]
 
 In questo modo abbiamo ottenuto un sottosistema formato da due equazioni in 
 due incognite:
-\[\left\{\begin{array}{l}
+\[\sistema{
   -x+3z=+4\\
   -3x+z=-12
-\end{array}\right.\]
+}\]
 
 Possiamo risolverlo facilmente con il metodo di riduzione:
 
-\[\left\{\begin{array}{l}
-  3x-9z=-12\\
-  -3x+z=-12
-\end{array}\right.
-\Rightarrow -8z=-24 \Rightarrow z=3
-\qquad
-\left\{\begin{array}{l}
-  -x+3z=+4\\
-  9x-3z=+36
-\end{array}\right.
-\Rightarrow 8x=40 \Rightarrow x=5
-\]
+\hspace{-20mm}
+\begin{minipage}{.48\textwidth}
+\[\stackrel{
+  \begin{array}{l}\cdot \tonda{-3}\\ \cdot \tonda{+1}\end{array}
+  \underline{\sistema{+3x-9z=-12\\-3x+~~z=-12}}}
+  {\qquad \qquad \qquad \qquad \qquad 
+   //  -8z  =-24 \quad \sRarrow z=3}\]
+\end{minipage}
+\begin{minipage}{.48\textwidth}
+\[\stackrel{
+  \begin{array}{l}\cdot \tonda{+1}\\ \cdot \tonda{-3}\end{array}
+  \underline{\sistema{-x+3z=+4\\+9x-3z=+36}}}
+  {\qquad \qquad \qquad \qquad 
+   ~~~~~ +8x ~~ // ~~ =+40 \quad \sRarrow x=5}\]
+\end{minipage}
+\vspace{.5em}
 
-Risolto così il sottosistema possiamo risolvere il sistema di partenza:
-\[\left\{\begin{array}{l}
+Risolto così il sottosistema di due equazioni, possiamo risolvere il sistema 
+di partenza:
+\[\sistema{
   x=5\\
   y=-2x=-10\\
   z=3
-\end{array}\right.\]
+}\]
 
 \end{soluzione}
 
+\subsection{Riduzione in un sistema di tre equazioni}
+
+Possiamo utilizzare il metodo di riduzione anche per  passare dal sistema 
+completo ad un suo sottosistema. Lo vediamo con un esempio.
+
 % \begin{exrig}
  \begin{esempio}
-\(\left\{\begin{array}{l}3x+y-z=7\\x+3y+z=5\\x+y-3z=3\end{array}\right.\)
+\(\sistema{3x+y-z=7\\x+3y+z=5\\x+y-3z=3}\)
+\vspace{.5em}
 
-Procediamo con il metodo di riduzione. Sommiamo le prime due 
-equazioni:~\(4x+4y=12\)
-Moltiplichiamo la seconda equazione per~3 e sommiamo con la 
-terza:~\(3(x+3y+z)+x+y=3\cdot 5+3=4x+10y=18\).
+\noindent Sommando le prime due equazioni ne otteniamo una senza l'incognita 
+\(z\):
+\[4x+4y=12\]
+Moltiplicando la seconda equazione per~\(3\) e sommandola con la 
+terza otteniamo:
+\[3(x+3y+z)+x+y=3\cdot 5+3 \sRarrow 4x+10y=18\]
 Costruiamo il sistema di queste due equazioni
 nelle sole due incognite~\(x\) e~\(y\):
-\(\left\{\begin{array}{l}4x+4y=12\\4x+10y=18\end{array}\right..\)
+\[\sistema{x+y=3\\2x+5y=9}\]
 
-Moltiplichiamo la seconda equazione per~\(-1\) e sommiamo le due equazioni:
-\begin{align*}
-\left\{\begin{array}{l}4x+4y=12 \\-4x-10y=-18
-\end{array}\right.&\Rightarrow
-\left\{\begin{array}{l}4x+4y=12
-\\-4x-10y+4x+4y=-18+12 \end{array}\right.\\
-&\Rightarrow
-\left\{\begin{array}{l}4x+4y=12 \\-6y=-6\Rightarrow
-y=1 \end{array}\right.\Rightarrow
-\left\{\begin{array}{l}x=2 \\y=1
-\end{array}\right..
-\end{align*}
+\hspace{-20mm}
+\begin{minipage}{.48\textwidth}
+\[\stackrel{
+  \begin{array}{l} \cdot \tonda{-2}\\ ~ \end{array}
+  \underline{\sistema{-2x-2y=-6\\+2x+5y=+9}}}
+  {\qquad \qquad \qquad \qquad 
+   ~~~~~~~ // ~~ +3y  =+3 \quad \sRarrow y=1}\]
+\end{minipage}
+\begin{minipage}{.48\textwidth}
+\[\stackrel{
+  \begin{array}{l} \cdot \tonda{-5}\\ ~ \end{array}
+  \underline{\sistema{-5x-5y=-15\\+2x+5y=+9}}}
+  {\qquad \qquad \qquad \qquad 
+   ~~~~ -3x ~~~ // ~~ =-6 \quad \sRarrow x=2}\]
+\end{minipage}
+\vspace{.5em}
 
-Sostituendo nella prima equazione del sistema ricaviamo la terza
-incognita:~\(\left\{\begin{array}{l}x=2\\y=1\\z=0\end{array}\right.\).
-
-La terna soluzione del sistema assegnato è~\((2;1;0)\).
+Individuati così i valori di \(x\) e \(y\), possiamo sostituirli in una delle 
+equazioni del sistema iniziale e trovare anche il valore di \(z\):
+% \[\sistema{x=2\\y=1\\x+y-3z=3} \sRarrow 
+% \sistema{x=2\\y=1\\2+1-3z=3} \sRarrow 
+% \sistema{x=2\\y=1\\-3z=0} \sRarrow 
+% \sistema{x=2\\y=1\\z=0} \]
+\[x+y-3z=3 \sRarrow 2+1-3z=3 \sRarrow -3z=0 \sRarrow z=0\]
+La terna soluzione del sistema assegnato è~\((2;~1;~0)\).
  \end{esempio}
 % \end{exrig}
 
@@ -1490,38 +1682,39 @@ La terna soluzione del sistema assegnato è~\((2;1;0)\).
 % 
 % % \begin{exrig}
 %  \begin{esempio}
-% \(\longarray\left\{\begin{array}{l}\dfrac{1}{x}+\dfrac{2}{y}=3\\\dfrac{2}{x}
-% -\dfrac{4}{y}=-1 \end{array}\right.\)
+% \(\sistema{\dfrac{1}{x}+\dfrac{2}{y}=3\\\dfrac{2}
+% {x} -\dfrac{4}{y}=-1 }\)
 % 
 % Con la seguente sostituzione di variabili
 % \begin{align}
 %  \label{eq:23.3}
-% \longarray\left\{\begin{array}{l}
+% \sistema{
 %     u=\dfrac{1}{x}\\
 %     v=\dfrac{1}{y}
-% \end{array}\right.
+% }
 % \end{align}
 % 
 % il sistema diventa
-%  \[\left\{\begin{array}{l}u+2v=3 \\2u-4v=-1 \end{array}\right.\]
+%  \[\sistema{u+2v=3 \\2u-4v=-1 }\]
 % 
 % Per risolverlo possiamo moltiplicare per~2 la prima equazione:
-% \[\left\{\begin{array}{l}2u+4v=6 \\2u-4v=-1
-% \end{array}\right.\]
+% \[\sistema{2u+4v=6 \\2u-4v=-1
+% }\]
 % Sommando membro a membro abbiamo~\(4u=5\) dalla
 % quale possiamo determinare~\(u=\frac{5}{4}\)
 % 
-% Per ricavare l'incognita~\(v\) moltiplichiamo la prima equazione per \(-2\), 
-% otteniamo
-% \[\left\{\begin{array}{l}-2u-4v=-6 \\2u-4v=-1 \end{array}\right.\]
+% Per ricavare l'incognita~\(v\) moltiplichiamo la prima equazione per \
+% (-2\), otteniamo
+% \[\sistema{-2u-4v=-6 \\2u-4v=-1 }\]
 % Sommando membro a membro abbiamo
 % \[-8v=-7\Rightarrow v=\frac{7}{8}.\]
 % 
-% Avendo trovato i valori delle incognite~\(u\) e~\(v\) possiamo ricavare~\(x\) e~\(y\) 
+% Avendo trovato i valori delle incognite~\(u\) e~\(v\) possiamo ricavare~\
+% (x\) e~\(y\) 
 % sostituendo con i valori trovati nella~\ref{eq:23.3}:
-% \[\longarray\left\{\begin{array}{l}\dfrac{5}{4}=\dfrac{1}{x}\\\dfrac{7}{8}
-% =\dfrac{1}{y}\end{array}\right.\Rightarrow
-% \left\{\begin{array}{l}x=\dfrac{4}{5}\\y=\dfrac{8}{7}\end{array}\right.\]
+% \[\sistema{\dfrac{5}{4}=\dfrac{1}{x}\\\dfrac{7}{8}
+% =\dfrac{1}{y}}\Rightarrow
+% \sistema{x=\dfrac{4}{5}\\y=\dfrac{8}{7}}\]
 %  \end{esempio}
 % % \end{exrig}
 
