@@ -2,6 +2,8 @@
 % (c) 2012-2013 Dimitrios Vrettos - d.vrettos@gmail.com
 % (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 
+\input{\folder divisibilita_scomposizione_grafici}
+
 \chapter{Divisibilità e scomposizione di polinomi}
 
 \section{Divisione tra polinomi}
@@ -13,7 +15,8 @@ Ricordiamo la divisione tra due numeri, per esempio~\(147:4\). Si tratta di
 trovare un quoziente~\(q\) e un resto~\(r<4\), in modo che~\(147=q\times~4+r\). 
 Un algoritmo per trovare questi due numeri è il seguente:
 \begin{center}
- \input{\folder lbr/fig001_div.pgf}
+% \input{\folder lbr/fig001_div.pgf}\\
+\divisionenumerica
 \end{center}
 Verifichiamo che~\(147=36\times~4+3\), dunque~\(q=36\) e~\(r=3\) soddisfano la 
 nostra richiesta.
@@ -47,11 +50,10 @@ Prima di eseguire l'algoritmo dobbiamo sempre controllare che:
  con tutti i gradi; nel nostro esempio, i due polinomi non sono in
     forma completa, quindi inseriamo i termini mancanti ponendo~0 come 
     coefficiente delle potenze mancanti:
-    
-    \[A(x)=3x^{4}-4x^{3}+0x^{2}+5x-1; B(x)=3x^{2}+0x-1.\]
+    \[A(x)=3x^{4}-4x^{3}+0x^{2}+5x-1; \quad B(x)=3x^{2}+0x-1\]
 \end{itemize*}
 
-\newpage %-----------------------------------------
+% \newpage %-----------------------------------------
 
 I passi da eseguire sono i seguenti:
 
@@ -60,14 +62,16 @@ I passi da eseguire sono i seguenti:
  Disponiamo i polinomi secondo il seguente schema, del tutto simile a quello 
  usato per la divisione tra numeri.
 \begin{center}
- \input{\folder lbr/fig002_div.pgf}
+%  \input{\folder lbr/fig002_div.pgf}
+\divpola
 \end{center}
  \item 
  Dividiamo il primo termine del dividendo per il primo termine del divisore, 
  otteniamo~\(x^{2}\) che è il primo termine del quoziente;
  esso va riportato nello spazio dedicato al quoziente.
 \begin{center}
- \input{\folder lbr/fig003_div.pgf}
+%  \input{\folder lbr/fig003_div.pgf}
+\divpolb
 \end{center}
  \item 
  Moltiplichiamo il primo termine ottenuto per tutti i termini del divisore e 
@@ -80,7 +84,8 @@ del prodotto in ordine da sinistra verso destra;
 eseguire la somma algebrica dei polinomi invece della sottrazione.
 \end{itemize*}
 \begin{center}
- \input{\folder lbr/fig004_div.pgf}
+%  \input{\folder lbr/fig004_div.pgf}
+\divpolc
 \end{center}
  \item 
  Sommiamo il dividendo con il polinomio sottostante e riportiamo il risultato 
@@ -89,7 +94,8 @@ eseguire la somma algebrica dei polinomi invece della sottrazione.
  divisione va continuata.
 
 \begin{center}
- \input{\folder lbr/fig005_div.pgf}
+%  \input{\folder lbr/fig005_div.pgf}
+\divpold
 \end{center}
  \item 
  Ripetiamo il procedimento tra il resto parziale ottenuto, 
@@ -99,14 +105,16 @@ eseguire la somma algebrica dei polinomi invece della sottrazione.
  Otteniamo~\(-{\frac{4}{3}}x\) che è il secondo termine del quoziente.
 
 \begin{center}
- \input{\folder lbr/fig006_div.pgf}
+%  \input{\folder lbr/fig006_div.pgf}
+ \divpole
 \end{center}
  \item 
  Proseguiamo moltiplicando~\(-{\frac{4}{3}}x\) per~\(B(x)\), riportiamo il 
  risultato del prodotto, con segno opposto, sotto i
  termini del primo resto parziale e addizioniamo i due polinomi.
 \begin{center}
- \input{\folder lbr/fig007_div.pgf}
+% \input{\folder lbr/fig007_div.pgf}
+\divpolf
 \end{center}
  \item 
  Possiamo ripetere per l'ultima volta il procedimento precedente tra il 
@@ -116,72 +124,10 @@ eseguire la somma algebrica dei polinomi invece della sottrazione.
  per il termine di grado maggiore di~\(B(x)\) che è~\(3x^{2}\) si 
  ottiene~\(\frac{1}{3}\) che è il terzo termine del polinomio quoziente.
 \begin{center}
- \input{\folder lbr/fig008_div.pgf}
+% \input{\folder lbr/fig008_div.pgf}
+\divpolg
 \end{center}
 \end{enumerate*}
-
-% \paragraph{Passo I}
-%  Disponiamo i polinomi secondo il seguente schema, del tutto simile a quello 
-%  usato per la divisione tra numeri.
-% \begin{center}
-%  \input{\folder lbr/fig002_div.pgf}
-% \end{center}
-% \paragraph{Passo II}
-%  Dividiamo il primo termine del dividendo per il primo termine del divisore, 
-%  otteniamo~\(x^{2}\) che è il primo termine del quoziente;
-%  esso va riportato nello spazio dedicato al quoziente.
-% \begin{center}
-%  \input{\folder lbr/fig003_div.pgf}
-% \end{center}
-% \paragraph{Passo III}
-%  Moltiplichiamo il primo termine ottenuto per tutti i termini del divisore e 
-%  trascriviamo il risultato del prodotto sotto il dividendo,
-%  avendo cura, per essere facilitati nel calcolo, di:
-% \begin{itemize*}
-% \item incolonnare i termini con lo stesso grado, ossia scrivere i risultati 
-% del prodotto in ordine da sinistra verso destra;
-% \item cambiare tutti i segni ottenuti, in questo modo risulta più pratico 
-% eseguire la somma algebrica dei polinomi invece della sottrazione.
-% \end{itemize*}
-% \begin{center}
-%  \input{\folder lbr/fig004_div.pgf}
-% \end{center}
-% \paragraph{Passo IV}
-%  Sommiamo il dividendo con il polinomio sottostante e riportiamo il risultato 
-%  in un'altra riga. Questo polinomio si chiama primo resto parziale.
-%  Notiamo che ha grado~\(3\), maggiore del grado~\(2\) del divisore, pertanto la 
-%  divisione va continuata.
-% 
-% \begin{center}
-%  \input{\folder lbr/fig005_div.pgf}
-% \end{center}
-% \paragraph{Passo V}
-%  Ripetiamo il procedimento tra il resto parziale ottenuto, 
-%  \(-4x^{3}+x^{2}+5x-1\) e il divisore~\(3x^{2}+0x-1\). Dividiamo il primo termine 
-%  del resto che
-%  è~\(-4x^{3}\) per il primo termine del divisore che è~\(3x^{2}\). 
-%  Otteniamo~\(-{\frac{4}{3}}x\) che è il secondo termine del quoziente.
-% 
-% \begin{center}
-%  \input{\folder lbr/fig006_div.pgf}
-% \end{center}
-% \paragraph{Passo VI}
-%  Proseguiamo moltiplicando~\(-{\frac{4}{3}}x\) per~\(B(x)\), riportiamo il 
-%  risultato del prodotto, con segno opposto, sotto i
-%  termini del primo resto parziale e addizioniamo i due polinomi.
-% \begin{center}
-%  \input{\folder lbr/fig007_div.pgf}
-% \end{center}
-% \paragraph{Passo VII}
-%  Possiamo ripetere per l'ultima volta il procedimento precedente tra il 
-%  resto parziale~\(R_{p}(x)=x^{2}+\frac{11}{3}x-1\) e
-%  il divisore~\(B(x)\) in quanto hanno lo stesso grado. Dividendo il termine di 
-%  grado maggiore di~\(R_{p}(x)\), che è~\(x^{2}\),
-%  per il termine di grado maggiore di~\(B(x)\) che è~\(3x^{2}\) si 
-%  ottiene~\(\frac{1}{3}\) che è il terzo termine del polinomio quoziente.
-% \begin{center}
-%  \input{\folder lbr/fig008_div.pgf}
-% \end{center}
 
 Non possiamo più ripetere l'algoritmo poiché il resto ottenuto ha grado minore 
 del grado del divisore.
@@ -236,7 +182,8 @@ Risulta:
 il resto~\(R(x)\) è il polinomio nullo e~\(A(x)\) è divisibile per~\(B(x)\).
 Infatti~\(\left(x^{2}+1\right)\cdot (x-2)=\left(x^{3}-2x^{2}+x-2\right)\).
 \begin{center}
- \input{\folder lbr/fig009_div.pgf}\vspace*{-1.10ex}
+% \input{\folder lbr/fig009_div.pgf}\vspace*{-1.10ex}
+\divdue
 \end{center}
  \end{esempio}
 % \end{exrig}
@@ -280,6 +227,7 @@ algebrica~\(\frac{A}{B}\).
 % Costruiamo lo schema per eseguire l'algoritmo e procediamo:
 % \begin{center}
 %  \input{\folder lbr/fig011_eser.pgf}
+% \esedivisioneb
 % \end{center}
 % Il quoziente è~\(Q =\ldots \ldots \ldots\) il resto~\(R = 118b^{3}\)
 % 
@@ -331,7 +279,8 @@ Utilizzando l'algoritmo di Euclide otteniamo:
 \begin{inaccessibleblock}[Algoritmo euclideo della divisione per i polinomi]
 % \vspace{-2ex}
 \begin{center}
- \input{\folder lbr/fig040_ruff.pgf}
+% \input{\folder lbr/fig040_ruff.pgf}
+\ruffinia
 \end{center}
 % \vspace*{-1.10ex}
 % \vspace{-2ex}
@@ -345,7 +294,8 @@ coefficienti essenziali riquadrati:
 \begin{inaccessibleblock}[Solo i coefficienti della divisione tra polinomi.]
 % \vspace{-2ex}
 \begin{center}
- \input{\folder lbr/fig041_ruff.pgf}
+%  \input{\folder lbr/fig041_ruff.pgf}
+\ruffinib
 \end{center}
 % \vspace*{-1.10ex}
 % \vspace{-2ex}
@@ -359,7 +309,8 @@ di scrivere solo i dati necessari:
 \begin{inaccessibleblock}[Divisione con il metodo di Ruffini.]
 % \vspace{-2ex}
 \begin{center}
- \input{\folder lbr/fig042_ruff.pgf}
+% \input{\folder lbr/fig042_ruff.pgf}
+\ruffinic
 \end{center}
 % \vspace*{-1.10ex}
 % \vspace{-2ex}
@@ -402,7 +353,8 @@ rosse punteggiate indicano \emph{moltiplicazione}.
 \begin{inaccessibleblock}[Divisione con il metodo di Ruffini.]
 % \vspace{-2ex}
 \begin{center}
- \input{\folder lbr/fig043_ruff.pgf}
+% \input{\folder lbr/fig043_ruff.pgf}
+\ruffinid
 \end{center}
 % \vspace*{-1.10ex}
 % \vspace{-2ex}
@@ -454,7 +406,8 @@ divisore
 \begin{inaccessibleblock}[Divisione con il metodo di Ruffini.]
 % \vspace{-2ex}
 \begin{center}
- \input{\folder lbr/fig044_ruff.pgf}
+% \input{\folder lbr/fig044_ruff.pgf}
+\ruffinie
 \end{center}
 % \vspace*{-1.10ex}
 % \vspace{-2ex}
@@ -465,162 +418,6 @@ Infine scriviamo il risultato: quoziente e resto:
 Q=\(a^2+3a+6\); \quad R=\(19\)
 \end{esempio}
 % \end{exrig}
-
-% \paragraph{Passo I} \emph{Calcolo del polinomio resto.}
-% 
-% Si considera il termine numerico del polinomio divisore cambiato di
-% segno (nell'esempio è~1) e si sostituisce alla
-% lettera del polinomio dividendo~\(A(a)\):~\((1)^{2 }-3(1) + 1 = 1 - 3 + 1 = -1\).
-% 
-% Il resto della divisione è~\(-1\).
-% 
-% \paragraph{Passo II} \emph{Applicazione del procedimento di divisione.}
-% 
-% Disegnare il seguente schema di Ruffini: scrivere i coefficienti
-% numerici del polinomio dividendo, secondo le potenze decrescenti della
-% variabile. Se manca un termine occorre mettere~0.
-% L'ultimo termine numerico è messo esternamente alla
-% griglia. Nell'angolo a sinistra dello schema si pone il
-% termine numerico del polinomio divisore cambiato di segno,
-% nell'esempio è~1.
-% 
-% \begin{center}
-% \input{\folder lbr/fig012_ruf.pgf}
-% \end{center}
-% 
-% \begin{multicols}{2}
-%  Il primo termine si riporta inalterato nella parte sottostante:
-% \begin{center}
-% \input{\folder lbr/fig013_ruf.pgf}
-% \end{center}
-% \end{multicols}
-% 
-% \begin{multicols}{2}
-%  Moltiplicare il termine noto del divisore (cambiato di segno) per il
-% primo coefficiente appena trascritto e riportare il risultato sotto il
-% secondo coefficiente
-% \begin{center}
-% \input{\folder lbr/fig014_ruf.pgf}
-% \end{center}
-% \end{multicols}
-% 
-% \begin{multicols}{2}
-%  Sommare i due termini appena incolonnati~\(-3+1=-2\).
-% \begin{center}
-% \input{\folder lbr/fig015_ruf.pgf}
-% \end{center}
-% \end{multicols}
-% 
-% \begin{multicols}{2}
-%  Moltiplicare il termine noto del divisore (cambiato di segno) per la
-% somma appena ottenuta~\(1\cdot (-2)=-2\).
-% \begin{center}
-% \input{\folder lbr/fig016_ruf.pgf}
-% \end{center}
-% \end{multicols}
-% \newpage
-% \begin{multicols}{2}
-%  Addizionare gli ultimi due numeri incolonnati~\(1-2=-1\).
-% \begin{center}
-% \input{\folder lbr/fig017_ruf.pgf}
-% \end{center}
-% \end{multicols}
-% 
-% Infine si ricostruisce il polinomio quoziente, tenendo presente che i
-% coefficienti numerici sono quelli trovati da questa divisione, cioè~1
-% e~\(-2\). Quoziente e resto sono allora~\(Q(x)=a-2\) e~\(R=-1\).
-% 
-% \paragraph{Passo III}\emph{Verifica}
-% 
-% Come nella divisione con i numeri si moltiplica il polinomio risultato
-% per il polinomio divisore e si somma il polinomio resto. Il risultato
-% deve essere il polinomio dividendo.
-% \[(a - 2)(a - 1) + (-1) = a^{2} - a - 2a + 2 - 1 =a^{2}-3a + 1.\]
-%  \end{esempio}
-% 
-% \begin{esempio}
-% \((4x^{3} - 5x + 6): (x + 1).\)
-% 
-% Applicazione del procedimento di divisione
-% \begin{center}
-% \input{\folder lbr/fig018_esm.pgf}
-% \end{center}
-% \[Q(x)=4x^{2}-4x-1 \qquad R=7.\]
-% \end{esempio}
-% 
-% \textit{Verifica.}
-% 
-% \[Q(x)\cdot B(x)+R=A(x)\]
-% 
-% \[\left(4x^{2}-4x-1\right)\cdot (x+1)+7=4x^{3}+4x^{2}-4x-x-1+7=4x^{3}-5x+6\]
-% 
-% Vediamo il caso in cui il binomio che fa da divisore ha coefficiente
-% numerico della variabile diverso da~1.
-% 
-% 
-% \begin{esempio}
-%  Dividere con la regola di 
-% Ruffini~\(\left(2x^{4}-x^{3}-4x^{2}+2x+7\right):(2x-1)\).
-% 
-% In questo tipo di esercizi si deve rendere il divisore del tipo~\(x+n\),
-% quindi nel nostro caso si deve dividere sia il dividendo sia il
-% divisore per~2; sappiamo, infatti, dalla proprietà invariantiva della
-% divisione che dividendo per uno stesso numero dividendo e divisore il
-% quoziente della divisione non cambia. Il resto invece risulterà
-% diviso per~2. Quindi applichiamo l'algoritmo precedente
-% e \emph{ricordiamoci al termine della divisione di moltiplicare il
-% resto per}~2.
-% 
-% La divisione allora diventa
-% 
-% \(\left(x^{4}-\frac{1}{2}x^{3}-2x^{2}+x+\frac{7}{2}\right):\left(x-\frac{1}{2}
-% \right)\).
-% \end{esempio}
-% % \end{exrig}
-% 
-% \ovalbox{\risolvii \ref{ese:12.8}, \ref{ese:12.9}, \ref{ese:12.10}, 
-% \ref{ese:12.11}, \ref{ese:12.12}}
-
-% \subsection{Calcolo del resto}
-% 
-% Si considera il termine numerico del polinomio divisore cambiato di
-% segno (nell'esempio è~\(+{\frac{1}{2}}\)) e si
-% sostituisce alla lettera del polinomio dividendo. Il risultato che si
-% ottiene è il resto della nuova 
-% 
-% divisione~\(\left(\frac{1}{2}\right)^{4}-\frac{1}{2}\left(\frac{1}{2}\right)^{3}
-% -2\left(\frac{1}{2}\right)^{2}+\frac{1}{2}+\frac{7}{2}=-\frac{1}{16}-\frac{1}{2}
-% +\frac{1}{2}+\frac{7}{2}=\frac{7}{2}\)
-% resto della divisione.
-% 
-% Applicazione del procedimento di divisione.
-% \begin{center}
-%  \input{\folder lbr/fig020_esm.pgf}
-% \end{center}
-% 
-% Adesso si pone la lettera per ogni termine del polinomio risultato
-% partendo dal grado del polinomio dividendo diminuito di~1. Il risultato
-% è quindi il polinomio~\(x^{3}-2x\), il resto è~\(\frac{7}{2}\cdot2=7\).
-% 
-% \paragraph{Verifica}
-% Per la proprietà della divisione si moltiplica il quoziente per il
-% polinomio divisore e si somma il resto ottenuto. Il risultato deve
-% essere il polinomio dividendo.
-% 
-% \[\left(x^{3}-2x\right)(2x-1)+7=2x^{4}-x^{3}-4x^{2}+2x+7.\]
-% 
-% In generale, se si vuole dividere il polinomio~\(A(x)\) per il 
-% binomio~\((nx-\alpha)\), utilizzando la proprietà invariantiva della
-% divisione, basta dividere dividendo e divisore per~\(n\). Si
-% ottengono~\(Q(x)\) e resto. Per ottenere il resto della divisione di
-% partenza occorre moltiplicare per il coefficiente~\(n\).
-% Infatti si ha:~\(A(x)=(nx-\alpha)Q(x)+R \)
-% e, dividendo ambo i membri per~\(n\), si ha:
-% \[\frac{A(x)}{n}=\left(x-\frac{\alpha }{n}\right)Q(x)+\frac{R}{n}.\]
-% \ovalbox{\risolvii \ref{ese:12.13}, \ref{ese:12.14}, \ref{ese:12.15}, 
-% \ref{ese:12.16}, \ref{ese:12.17}, \ref{ese:12.18}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% sopstare sotto.
 
 \subsection{Teorema di Ruffini}
 \label{subsec:divpol_teorema_ruffini}
@@ -707,7 +504,8 @@ di un polinomio alla scomposizione in fattori dei numeri naturali.
 \begin{minipage}{.4\textwidth}
 \begin{inaccessibleblock}[Grafo ad albero della scomposizione del numero 42]
  \begin{center}
- \input{\folder lbr/fig050_scmp.pgf}
+% \input{\folder lbr/fig050_scmp.pgf}
+\scompfattnum
  \end{center}
 \end{inaccessibleblock}
 \end{minipage}
@@ -715,7 +513,8 @@ di un polinomio alla scomposizione in fattori dei numeri naturali.
 \begin{inaccessibleblock}[Grafo ad albero della scomposizione del 
 polinomio:~\(3a^{3}b^{2}-3ab^{4}\)]
  \begin{center}
- \input{\folder lbr/fig051_scmp.pgf}
+% \input{\folder lbr/fig051_scmp.pgf}
+\scompfattpol
  \end{center}
 \end{inaccessibleblock}
 \end{minipage}
@@ -1401,7 +1200,7 @@ come:
 \[x^{2}-8x+15=\left(x-5\right)\cdot \left(x-3\right).\]
  \end{esempio}
 
-\newpage %----------------------------------------
+% \newpage %----------------------------------------
 
 \begin{esempio}
  \(x^{2}+\overset{S}{4}x-\overset{P}{5}.\)
@@ -1537,7 +1336,8 @@ pertanto il polinomio è divisibile per~\(x-1\).
 Utilizziamo la regola di Ruffini per dividere~\(P(x)\) per~\(x-1\).
 
 \begin{wrapfloat}{figure}{l}{0pt}
- \input{\folder lbr/fig031_rufi.pgf}
+% \input{\folder lbr/fig031_rufi.pgf}
+\scompruffinia
 \end{wrapfloat}
 
 Predisponiamo una griglia come quella a fianco, al primo rigo mettiamo i
@@ -1587,7 +1387,8 @@ Invece:
 Una radice del polinomio è quindi~\(-1\) e, utilizzando la regola di Ruffini,
 abbiamo:
 \begin{center}
- \input{\folder lbr/fig032_rufi.pgf}
+% \input{\folder lbr/fig032_rufi.pgf}
+\scompruffinib
 \end{center}
 
 \end{multicols}
@@ -1612,7 +1413,8 @@ radice trovata, cioè da~\(-1\).
  
 Quindi~\(-2\) è una radice del polinomio. Dividiamo il polinomio per~\((x+2)\).
 \begin{center}
- \input{\folder lbr/fig033_rufi.pgf}
+% \input{\folder lbr/fig033_rufi.pgf}
+\scompruffinic
 \end{center}
 
 \end{multicols}
@@ -1653,7 +1455,8 @@ Si ha~\(A(1)=-3; A(-1)=5; A\left(\dfrac{1}{2}\right)=
        -1; A\left(-{\dfrac{1}{2}}\right)=0\).
 
 \begin{wrapfloat}{figure}{l}{0pt}
- \input{\folder lbr/fig034_rufi.pgf}
+% \input{\folder lbr/fig034_rufi.pgf}
+\scompruffinid
 \end{wrapfloat}
 Sappiamo dal teorema di Ruffini che il polinomio~\(A(x)=6x^{2}-x-2\) è
 divisibile per~\(\left(x+\frac{1}{2}\right)\) dobbiamo quindi trovare il
@@ -1703,7 +1506,8 @@ Vediamo come scomporlo a seconda del valore di \(n\).
    \begin{inaccessibleblock}
     [Divisione \((x^3+a^3):(x+a)\) con la regola di Ruffini]
     \begin{center}
-    \input{\folder lbr/fig052_binomo.pgf}
+%     \input{\folder lbr/fig052_binomo.pgf}
+    \binomogeneiruffinia
     \end{center}
     \end{inaccessibleblock}
  \end{multicols}
@@ -1714,7 +1518,8 @@ Vediamo come scomporlo a seconda del valore di \(n\).
    \begin{inaccessibleblock}
     [Divisione \((x^3-a^3):(x-a)\) con la regola di Ruffini]
     \begin{center}
-    \input{\folder lbr/fig053_binomo.pgf}
+%     \input{\folder lbr/fig053_binomo.pgf}
+    \binomogeneiruffinib
     \end{center}
     \end{inaccessibleblock}
  \end{multicols}
@@ -1762,6 +1567,7 @@ Vediamo come scomporlo a seconda del valore di \(n\).
 % Calcoliamo il quoziente.
 % \begin{wrapfloat}{figure}{l}{0pt}
 %  \input{\folder lbr/fig035_rufi.pgf}
+% \diffcubia
 % \end{wrapfloat}
 % Il polinomio quoziente è~\(Q(x)=x^{2}+2x+4\) e la scomposizione risulta
 % \[x^{3}-8\ =\ (x-2)(x^{2}+2x+4).\]
@@ -1777,6 +1583,7 @@ Vediamo come scomporlo a seconda del valore di \(n\).
 %  \end{esempio}
 %  \begin{wrapfloat}{figure}{l}{0pt}
 %  \input{\folder lbr/fig036_rufi.pgf}
+% \diffcubib
 % \end{wrapfloat}
 % Il polinomio si annulla per~\(x=-3\), cioè~\(P(-3)=(-3)^{3}+27=-27+27=0\).
 % Il polinomio quindi è divisibile per~\(x+3\). Calcoliamo il quoziente
@@ -1986,7 +1793,8 @@ il quoziente con la regola di Ruffini:
 % \end{inaccessibleblock}
 \begin{inaccessibleblock}
  [Divisione con la regola di Ruffini tra \(x^{{3}}-7x-6\) e \(x+1\)]
-\input{\folder lbr/fig037_rufi.pgf}
+% \input{\folder lbr/fig037_rufi.pgf}
+\scompruffinie
 \end{inaccessibleblock}
 
 \end{multicols}
