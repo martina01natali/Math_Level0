@@ -51,6 +51,20 @@
 % Per contrassegnare e sostituire i blocchi inacessibili ai ciechi.
 \newenvironment{inaccessibleblock}[1][]{}{}
 
+\newcommand{\affiancati}[4]{% 2 minipage affiancate
+% \affiancati{.48}{.48}{testo1}{testo2}
+  \def \larga{#1}
+  \def \largb{#2}
+  \def \contenutoa{#3}
+  \def \contenutob{#4}
+  \noindent\begin{minipage}{\larga\textwidth}
+    \contenutoa
+  \end{minipage}
+  \hfill
+  \begin{minipage}{\larga\textwidth}
+    \contenutob
+  \end{minipage}
+}
 % % \usepackage{enumerate}
 % \usepackage{fancyhdr} % per intestazioni e pie di pagina
 % \setlength{\columnseprule}{1pt}
