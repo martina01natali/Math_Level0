@@ -40,7 +40,7 @@
 \newcommand{\puntia}{% 
   % Alcuni punti di una parabola.
   \disegno{
-    \rcom{-5}{+5}{-4}{13}{gray!50, very thin, step=1}
+    \rcom{-4}{+6}{-4}{13}{gray!50, very thin, step=1}
     \foreach \pi in {
     % (-4, 22), 
     (-3, 13), (-2, 6), (-1, 1), 
@@ -52,7 +52,7 @@
 \newcommand{\puntib}{% 
     % Altri punti di una parabola.
     \disegno{
-    \rcom{-5}{+5}{-4}{13}{gray!50, very thin, step=1}
+    \rcom{-4}{+6}{-4}{13}{gray!50, very thin, step=1}
     \foreach \pi in {
     (-3, 13), (-2, 6), (-1, 1), (0, -2), (1, -3), (2, -2), (3, 1), 
     (4, 6), (5, 13),
@@ -66,9 +66,9 @@
 \newcommand{\graficotrinomio}{% 
     % Grafico di un trinomio di secondo grado.
     \disegno{
-    \rcom{-5}{+5}{-4}{13}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-5.3,xmax=+5.3,ymin=-4.3,ymax=+13.3]
-    \tkzFct[domain=-5:+6, ultra thick, color=Maroon!50!black]{x*x-2*x-2}
+    \rcom{-4}{+6}{-4}{13}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-4.3,xmax=+6.3,ymin=-4.3,ymax=+13.3]
+    \tkzFct[domain=-4:+6, ultra thick, color=Maroon!50!black]{x*x-2*x-2}
     }
 }
 
@@ -76,17 +76,17 @@
     % Parabole con diversi coefficienti del termine di 2° grado.
     \disegno{
     \rcom{-10}{+10}{-10}{10}{gray!50, very thin, step=1}
-    \begin{scope}[domain=-10:+10, ultra thick, color=Maroon!50!black]
+    \begin{scope}[ultra thick, color=Maroon!50!black]
     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
-    \tkzFct{2*x*x+x+2}
-    \tkzFct{0.5*x*x+x+2}
-    \tkzFct{0.1*x*x+x+2}
-    \tkzFct{0.01*x*x+x+2}
+    \tkzFct[domain=-10:+10]{2*x*x+x+2}
+    \tkzFct[domain=-10:+10]{0.5*x*x+x+2}
+    \tkzFct[domain=-10:+10]{0.1*x*x+x+2}
+    \tkzFct[domain=-10:+10]{0.01*x*x+x+2}
     \begin{scope}[color=Green!50!black]
-    \tkzFct{-0.01*x*x+x+2}
-    \tkzFct{-0.1*x*x+x+2}
-    \tkzFct{-0.5*x*x+x+2}
-    \tkzFct{-2*x*x+x+2}
+    \tkzFct[domain=-10:+10]{-0.01*x*x+x+2}
+    \tkzFct[domain=-10:+10]{-0.1*x*x+x+2}
+    \tkzFct[domain=-10:+10]{-0.5*x*x+x+2}
+    \tkzFct[domain=-10:+10]{-2*x*x+x+2}
     \end{scope}
     \end{scope}
     \begin{scope}[color=black]
