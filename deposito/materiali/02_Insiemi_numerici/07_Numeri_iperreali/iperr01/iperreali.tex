@@ -1,47 +1,50 @@
 % (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 
+\input{\folder iperreali_grafici.tex}
+
 \section{I numeri iperreali $\IR$}
 % \section{I numeri iperreali}
 \label{sec:insnum_iperreali}
 
-In questa sezione vedremo, e useremo, un nuovo insieme di numeri, utile a 
-modellizzare e risolvere nuove classi di problemi. 
+In questa sezione verranno presentate le caratteristiche e useremo, un 
+nuovo insieme di numeri, utile a modellizzare e risolvere nuove classi di 
+problemi. 
 La conoscenza di questi nuovi numeri non è molto diffusa neanche fra i 
-matematici, perché sono abituati da più di un secolo e mezzo a procedimenti più 
-impegnativi e sofisticati.
-La ragione per la quale noi invece ne faremo uso è che questi nuovi numeri ci 
-rendono il calcolo più semplice e immediato, senza per questo nuocere al rigore 
-e alla precisione dei ragionamenti.
+matematici, perché sono abituati da più di un secolo e mezzo a procedimenti 
+più impegnativi e sofisticati.
+La ragione per la quale noi invece ne faremo uso è che questi nuovi numeri 
+rendono certi calcoli più semplici e immediati, senza per questo nuocere al 
+rigore e alla precisione dei ragionamenti.
 
-Rispetto a quanto già sappiamo dell'insieme \(\R\), dovremo adattare alcune 
-regole di calcolo e riscontreremo proprietà nuove, mentre dovremo 
-abbandonarne, per ora, una conosciuta: il postulato di Eudosso-Archimede e con 
-lui la proprietà di completezza. 
-
-{\noindent
-\begin{minipage}{.28\textwidth}
-La scelta di completare gli \emph{intervalli infinitamente piccoli} 
-riempiendoli con \emph{un solo numero} è molto comoda, ma non è l'unica 
-possibile. 
-Vedremo che in quello spazio infinitamente piccolo si 
-possono far stare infiniti numeri conservando quasi tutte le proprietà dei 
-numeri reali. 
-\end{minipage}
-\hfill
-\begin{minipage}{.70\textwidth}
-\begin{inaccessibleblock} 
-[Intervallo infinitesimo che contiene molti numeri.] 
-\begin{center}
-\molticonnome 
-{\footnotesize Nell'intervallo infinitesimo ci sono molti numeri.} 
-\end{center}
-\label{fig:mandelbrot} 
-\end{inaccessibleblock} 
-\end{minipage}
-}
-
-Inventeremo così un nuovo insieme numerico e un nuova retta: 
-perderemo la proprietà di completezza, ma potremo usare dei numeri fantastici. 
+% Rispetto a quanto già sappiamo dell'insieme \(\R\), dovremo adattare alcune 
+% regole di calcolo e riscontreremo proprietà nuove, mentre dovremo 
+% abbandonarne, per ora, una conosciuta: il postulato di Eudosso-Archimede e con 
+% lui la proprietà di completezza. 
+% 
+% {\noindent
+% \begin{minipage}{.28\textwidth}
+% La scelta di completare gli \emph{intervalli infinitamente piccoli} 
+% riempiendoli con \emph{un solo numero} è molto comoda, ma non è l'unica 
+% possibile. 
+% Vedremo che in quello spazio infinitamente piccolo si 
+% possono far stare infiniti numeri conservando quasi tutte le proprietà dei 
+% numeri reali. 
+% \end{minipage}
+% \hfill
+% \begin{minipage}{.70\textwidth}
+% \begin{inaccessibleblock} 
+% [Intervallo infinitesimo che contiene molti numeri.] 
+% \begin{center}
+% \molticonnome 
+% {\footnotesize Nell'intervallo infinitesimo ci sono molti numeri.} 
+% \end{center}
+% \label{fig:mandelbrot} 
+% \end{inaccessibleblock} 
+% \end{minipage}
+% }
+% 
+% Inventeremo così un nuovo insieme numerico e un nuova retta: 
+% perderemo la proprietà di completezza, ma potremo usare dei numeri fantastici. 
 
 \subsection{Il problema della velocità}
 \label{subsec:insnum_velocita}
@@ -61,9 +64,7 @@ dell'oggetto, ma in ogni istante del percorso l'oggetto ha una propria
 velocità. 
 Come faccio a calcolarla? Potrei misurare lo spazio percorso in un tempo 
 molto piccolo, in questo modo avrò una velocità media tenuta in un percorso 
-molto breve. 
-Più restringo l'intervallo di tempo, più la velocità media si avvicina alla 
-velocità istantanea\dots ma resta sempre una velocità media. 
+molto breve\dots ma resta sempre una velocità media. 
 
 Per trovare la velocità istantanea dovrei dividere lo spazio percorso per 
 un tempo (positivo) più piccolo di qualunque numero. L'unico numero reale
@@ -73,55 +74,80 @@ zero non è definita: i numeri reali non ci permettono di calcolare una
 grandezza così semplice e evidente come la velocità di un oggetto in un 
 dato istante.
 
-Servirebbe un insieme numerico con numeri positivi più piccoli di un 
-qualsiasi altro numero positivo, ma diversi da zero! Ma è possibile 
-trovare tali numeri nell'insieme dei reali che, come abbiamo visto, 
-è un insieme (già) completo?
+% Servirebbe un insieme numerico con numeri positivi più piccoli di un 
+% qualsiasi altro numero positivo, ma diversi da zero! Ma è possibile 
+% trovare tali numeri nell'insieme dei reali che, come abbiamo visto, 
+% è un insieme (già) completo?
 
 \subsection{Infinitesimi... e infiniti}
 \label{subsec:insnum_nonarchimedei}
 
-Se accettiamo che possa \textbf{non} valere il postulato di 
-Eudosso-Archimede, possiamo costruire un insieme numerico non archimedeo. 
-Per farlo, possiamo aggiungere all'insieme dei numeri reali un nuovo numero 
-(non reale) maggiore di zero ma più piccolo di qualunque numero reale 
-positivo:
-\[\epsilon > 0 \quad \text{ tale che } \quad 
-\epsilon < \frac{1}{n} \quad \text{ per qualunque } n \in \N\]
-tradotto in simboli:
-\[\exists \epsilon > 0 \quad | \quad \epsilon < \frac{1}{n} \quad \forall n 
-\in \N\]
-Un numero siffatto lo chiameremo un \emph{infinitesimo} e lo indicheremo 
-con una lettera minuscola dell'alfabeto greco, per esempio \(\epsilon\).
-Per quanto è già stato detto, un tale numero non può essere un numero
-reale. 
+Abbiamo visto che se una sezione di razionali individua un solo nuovo numero, 
+otteniamo l'insieme dei numeri reali: \(\R\), se invece ogni sezione di 
+razionali individua più numeri otteniamo i numeri iperreali: \(\IR\).
+Abbiamo anche visto che se ce ne sono almeno due, allora ce ne saranno 
+infiniti, anche tutti quelli compresi tra questi due.
+
+Abbiamo anche visto che la distanza tra due di questi numeri è un numero 
+inferiore a \(\frac{1}{n}\) per ogni \(n\) naturale diverso da zero.
+Quindi la differenza tra due di questi numeri è un  numero, in valore 
+assoluto, più piccolo di 
+\[\frac{1}{n} \quad \forall~ n \in \Nz\]
+I numeri di questo tipo sono dei numeri nuovi, nessuno dei numeri che 
+abbiamo conosciuto finora ha questa caratteristica.
+
+\begin{definizione}
+Chiamiamo \emph{infinitesimo} un numero che, in valore assoluto, è minore 
+\(\frac{1}{n}\) per ogni \(n\) naturale diverso da zero:
+\[\epsilon \stext{è un infinitesimo se } 
+\abs{\epsilon} < \frac{1}{n} \quad \forall~ n \in \Nz\]
+\end{definizione}
+% Se accettiamo che possa \textbf{non} valere il postulato di 
+% Eudosso-Archimede, possiamo costruire un insieme numerico non archimedeo. 
+% Per farlo, possiamo aggiungere all'insieme dei numeri reali un nuovo numero 
+% (non reale) maggiore di zero ma più piccolo di qualunque numero reale 
+% positivo:
+% \[\epsilon > 0 \quad \text{ tale che } \quad 
+% \epsilon < \frac{1}{n} \quad \text{ per qualunque } n \in \N\]
+% tradotto in simboli:
+% \[\exists \epsilon > 0 \quad | \quad \epsilon < \frac{1}{n} \quad \forall n 
+% \in \N\]
+% Un numero siffatto lo chiameremo un \emph{infinitesimo} e lo indicheremo 
+% con una lettera minuscola dell'alfabeto greco, per esempio \(\epsilon\).
+% Per quanto è già stato detto, un tale numero non può essere un numero
+% reale.
 \begin{osservazione}
  In un insieme che contenga numeri infinitesimi non vale il postulato di 
 Eudosso-Archimede infatti se
-\(\epsilon < \dfrac{1}{n} \quad \forall n \in \N\) 
+\(\epsilon < \dfrac{1}{n} \quad \forall n \in \Nz\) 
 moltiplicando entrambi i membri per \(n\) 
 si ottiene: \(n \epsilon < 1\).
+
+Quindi non si può ottenere un multiplo di un infinitesimo che sia maggiore di 
+un numero grande quanto si vuole.
 \end{osservazione}
 
-\vspace{1em}
-
+\vspace{.5em}
 La prima conseguenza dell'introduzione di un infinitesimo è che allora ce 
 ne sono infiniti! 
 Infatti anche la metà di un infinitesimo è un infinitesimo e 
 sono infinitesimi anche il suo doppio o un suo sottomultiplo o un suo 
 multiplo.
 
-Altra conseguenza dell'aggiunta di un elemento infinitesimo all'insieme dei 
-reali è che, se si possono fare le normali operazioni con questi nuovi 
-numeri, allora esiste anche un numero maggiore di qualunque numero reale:
+Altra conseguenza dell'aggiunta di numeri infinitesimi è che, se si possono 
+fare le normali operazioni con questi nuovi numeri, allora esiste anche un 
+numero maggiore di qualunque numero reale:
 \[\text{se} \quad \epsilon < \frac{1}{n} \quad \forall n \in \N 
 \quad \text{allora} \quad \frac{1}{\epsilon} > n \quad \forall n 
 \in \N\]
-Quindi se aggiungiamo all'insieme dei reali un numero infinitesimo e 
-possiamo usarlo nelle usuali 4 operazioni, allora in quell'insieme avremo 
-un numero infinito di infinitesimi e un numero infinito di infiniti.
+Quindi se abbiamo dei numeri infinitesimi, e 
+possiamo usarli nelle usuali 4 operazioni, allora avremo anche: 
+\begin{itemize} [nosep]
+\item un numero infinito di infinitesimi,
+\item un numero infinito di infiniti.
+\end{itemize}
 
-Chiamiamo \emph{iperreali} questi numeri e indichiamo l'insieme degli 
+Chiamiamo \emph{iperreali} questi nuovi numeri e indichiamo l'insieme degli 
 iperreali con il simbolo:~\(\IR\) (``erre star'').
 
 \subsection{Tipi di iperreali}
@@ -159,16 +185,16 @@ tipo & sigla & simboli \\\midrule
 
 zero &  & 0 \\
 
-infinitesimi & \emph{i} & \\
-
-infinitesimo non nullo & \emph{inn} & 
+infinitesimi & \emph{i} & 
 \(\alpha, \beta, \gamma, \delta, \dots\) \\
 
-finito non infinitesimo & \emph{fni} & \(a, b, c, d, \dots\)\\
+infinitesimi non nulli & \emph{inn} & \\
 
-finito & \emph{f} & \(a, b, c, d, \dots\) \\
+finiti non infinitesimi & \emph{fni} & \(a, b, c, d, \dots\)\\
 
-infinito & \emph{I} & \(A, B, C, \dots\)\\
+finiti & \emph{f} & \(a, b, c, d, \dots\) \\
+
+infiniti & \emph{I} & \(A, B, C, \dots\)\\
 
 qualsiasi &  & \(x, y, z, \dots\) \\\bottomrule
 \end{tabular}
@@ -253,7 +279,8 @@ infinitesimo.
    \abs{3 + 6\epsilon}
  \)
  
- La distanza tra \(a\) e \(b\) è uguale a~3 più un infinitesimo.
+La distanza tra \(a\) e \(b\) è uguale a~3 più un infinitesimo 
+(\emph{fni}).
 \end{esempio}
 
 \begin{esempio}
@@ -265,7 +292,8 @@ infinitesimo.
    \abs{0 + \delta - \epsilon} = \abs{\gamma}
  \)
  
- In questo caso la distanza tra \(a\) e \(b\) è un infinitesimo.
+ In questo caso la distanza tra \(a\) e \(b\) è un infinitesimo 
+(\emph{i}).
 \end{esempio}
 
 \noindent Negli iperreali possiamo distinguere:
@@ -340,8 +368,7 @@ Vediamo i tre casi:
 
 \begin{enumerate}
  \item \(\tonda{8+5\epsilon}\) è un numero finito perché:
- \[\tonda{8-\dfrac{1}{10^6}} < \tonda{8+5\epsilon} < 
-   \tonda{8+\dfrac{1}{10^6}}\]
+ \[\tonda{8-1} < \tonda{8+5\epsilon} < \tonda{8+1}\]
  \item Eseguiamo il quadrato:
  \(\tonda{8+5\epsilon}^2 = 64 +80 \epsilon +25 \epsilon^2\)
  ma: \(80 \epsilon\) è sicuramente un infinitesimo e anche \(25 \epsilon^2\)
@@ -349,7 +376,7 @@ Vediamo i tre casi:
 questa somma quindi: 
 \(\tonda{8+5\epsilon}^2 = 64 + \delta\)
 e: 
-\[63 < \tonda{64 + \delta} < 65\]
+\[\tonda{64 -1} < \tonda{64 + \delta} < \tonda{64 +1}\]
  \item Nell'ultimo caso possiamo osservare che, essendo \(\epsilon\) in 
 valore assoluto minore di qualunque numero reale, 
  \(\dfrac{5}{\epsilon}\) è un numero maggiore di qualunque numero reale e 
@@ -410,25 +437,24 @@ dimostrate. Nel seguito \(x,\ y\) rappresentano iperreali finiti
 \begin{multicols}{2}
 \begin{enumerate} [nosep]
  \item \(\pst{-x} = -\pst{x}\)
-%  \item \(\pst{x \pm y} = \pst{x} \pm \pst{y}\)
+ \item \(\pst{x \pm y} = \pst{x} \pm \pst{y}\)
  \item \(\pst{xy} = \pst{x} \cdot \pst{y}\)
  \item \(se ~ \pst{y} \neq 0 ~ allora ~
- \pst{\frac{x}{y}} = \frac{\pst{x}}{\pst{y}}\)
- \item \(se ~  x \leqslant y ~ allora ~ 
+ \pst{\frac{x}{y}} = \dfrac{\pst{x}}{\pst{y}}\)
+ \item \(\pst{\sqrt[n]{x}} = \sqrt[n]{\pst{x}}\)
+ \item \(se ~  x < y ~ allora ~ 
  \pst{x} \leqslant \pst{y}\).
 \end{enumerate}
 \end{multicols}
 
-Dimostriamole, chiamando \(a=\pst{x} ~ \text{e} ~ b=\pst{y}\).
+Ne dimostriamo alcune, chiamando \quad  \(a=\pst{x} \stext{ e } b=\pst{y}\).
 \begin{enumerate}%[nosep]
- \item \(\pst{-x}=\pst{-a +\epsilon}=-a=-\tonda{a}=-\tonda{\pst{x}}\)\\
-Infatti, se \(a\) è un numero infinitamente vicino a \(x\), allora \(-a\) 
-sarà infinitamente vicino a \(-x\) e dato che \(a=\pst{x}\) si ottiene la 
-tesi.
+ \item \(\pst{-x}=\pst{-a -\epsilon}=-a=-\tonda{a}=-\tonda{\pst{x}}\)\\
+Se \(a\) è un numero infinitamente vicino a \(x\), allora \(-a\) sarà 
+infinitamente vicino a \(-x\) e dato che \(a=\pst{x}\) si ottiene la tesi.
  \item \(\pst{x \pm y} = \pst{a+\epsilon \pm (b+\delta)}= 
          \pst{a\pm b+\epsilon \pm \delta}= a\pm b = \pst{x}\pm\pst{y}\)\\
-Infatti, 
-se \(a ~ \text{e} ~ b\) sono la parte standard di \(x ~ \text{e} ~ y\),
+Se \(a ~ \text{e} ~ b\) sono la parte standard di \(x ~ \text{e} ~ y\),
 al posto di \(x ~ \text{e} ~ y\) posso scrivere 
 \(a+\epsilon ~ \text{e} ~ b+\delta\), ma nella somma algebrica valgono le 
 proprietà commutativa e associativa quindi otteniamo che \(x \pm y\) è 
@@ -687,8 +713,6 @@ organizza le precedenti osservazioni.
 % \vspace{2mm}
 \end{multicols}
 
-% \newpage %--------------------------------------------------
-
 \subsubsection{Moltiplicazione}
 \label{subsec:insnum_moltiplicazione}
 
@@ -763,6 +787,8 @@ E la tabella corrispondente:
 % \vspace{11mm}
 \end{multicols}
 
+\newpage %--------------------------------------------------
+
 \subsubsection{Divisione}
 \label{subsec:insnum_divisione}
 
@@ -817,7 +843,7 @@ trovarci nelle seguenti situazioni:
 \begin{itemize} [nosep]
  \item \(\dfrac{\epsilon^2}{\epsilon} = \epsilon\) \quad (i)
  \item \(\dfrac{2\epsilon}{\epsilon} = 2\) \quad (fni)
- \item \(\dfrac{\epsilon}{\epsilon^2} = \frac{1}{\epsilon}\) \quad (I)
+ \item \(\dfrac{\epsilon}{\epsilon^2} = \dfrac{1}{\epsilon}\) \quad (I)
 \end{itemize}
 \end{multicols}
 \end{osservazione}
@@ -1333,47 +1359,45 @@ Chiamiamo \(\Delta S\) la corrispondente area reale:
 \(\Delta S=\st\tonda{dS}=\st\tonda{2l\epsilon+\epsilon^2}=
 \st(2l\epsilon)+\st(\epsilon^2)=0+0=0\).\\
 Poiché la differenza di area \(dS\) è la somma di due infinitesimi, uno del 
-primo e 
-l'altro del secondo ordine, la parte standard di entrambi è nulla e la 
-somma 
-risulta nulla. In conclusione, se l'incremento del lato è infinitesimo,
-cioè infinitamente vicino a zero, a maggior ragione sarà infinitamente 
-vicino
-a zero l'incremento dell'area.
+primo e l'altro del secondo ordine, la parte standard di entrambi è nulla e 
+la somma risulta nulla. 
+In conclusione, se l'incremento del lato è infinitesimo,
+cioè infinitamente vicino a zero, sarà infinitamente vicino a zero 
+l'incremento dell'area.
 \end{esempio}
 
 \begin{esempio}
  % contrazione circonferenza.
-Calcola di quanto diminuisce rispetto al raggio una circonferenza di raggio 
-\(r\),
+Calcola di quanto diminuisce una circonferenza di raggio \(r\),
 quando il raggio subisce una contrazione infinitesima \(dr=-\epsilon\).\\
 Chiamiamo \(dC\) (differenza di C) la contrazione della circonferenza:
 \(dC=2\pi r-2\pi (r-\epsilon)=2\pi r-2\pi r+2\pi \epsilon= 2\pi \epsilon\).
 Dunque la circonferenza si riduce di un infinitesimo, cioè \(0\) in numeri 
 standard.
 Ma se misuriamo la riduzione della circonferenza in termini
-di riduzione del raggio, si ha:
-\(\frac{dC}{dr}=\frac{2\pi \epsilon}{-\epsilon}=-2\pi\): ogni unità di 
-variazione 
-del raggio, comporta una variazione della circonferenza pari a \(2\pi\).
+di riduzione del raggio, cioè se calcoliamo il rapporto tra la riduzione 
+della circonferenza e la riduzione del raggio, abbiamo:
+\(\dfrac{dC}{dr}=\dfrac{2\pi \epsilon}{-\epsilon}=-2\pi\): ogni unità di 
+variazione del raggio, comporta una variazione della circonferenza pari a 
+\(2\pi\).
 \end{esempio}
 
 \begin{esempio}
  % guscio sferico.
 Quanto volume acquisisce un guscio sferico di raggio \(r\) nel gonfiarsi
 progressivamente?\\
-Volume iniziale: \(V(r)=\frac{4}{3}\pi r^3\). Se il raggio aumenta e diventa 
+Volume iniziale: \(V(r)=\dfrac{4}{3}\pi r^3\). Se il raggio aumenta e diventa 
 \(r+\epsilon\), 
 la variazione di volume sarà:\\
-\(V(r+\epsilon)-V(r)=\frac{4}{3}\pi (r+\epsilon)^3-\frac{4}{3}\pi r^3=
-\frac{4}{3}\pi (r^3+3r^2\epsilon+3r\epsilon^2+\epsilon^3-r^3)=
-\frac{4}{3}\pi (3r^2\epsilon+3r\epsilon^2+\epsilon^3)\).\\
+\(V(r+\epsilon)-V(r)=\dfrac{4}{3}\pi (r+\epsilon)^3-\dfrac{4}{3}\pi r^3=
+\dfrac{4}{3}\pi (r^3+3r^2\epsilon+3r\epsilon^2+\epsilon^3-r^3)=
+\dfrac{4}{3}\pi (3r^2\epsilon+3r\epsilon^2+\epsilon^3)\).\\
 Per sapere quanto varia il volume per ogni variazione infinitesima di 
 raggio, si calcola:\\
-\(\frac{dV}{dr}=\frac{\frac{4}{3}\pi 
+\(\dfrac{dV}{dr}=\dfrac{\dfrac{4}{3}\pi 
 (3r^2\epsilon+3r\epsilon^2+\epsilon^3)}{\epsilon}=
-\frac{4}{3}\pi (3r^2+3r\epsilon+\epsilon^2)\), che è un numero di tipo f.
-La sua parte standard è \(\st\tonda{\frac{dV}{dr}}=4\pi r^2\). Nota che questa
+\dfrac{4}{3}\pi (3r^2+3r\epsilon+\epsilon^2)\), che è un numero di tipo f.
+La sua parte standard è \(\st\tonda{\dfrac{dV}{dr}}=4\pi r^2\). Nota che questa
 è l'espressione dell'area della superficie sferica. Come era prevedibile, 
 infatti, 
 un guscio sferico di spessore infinitesimo approssima la superficie sferica.
@@ -1409,7 +1433,7 @@ infinitesimi;
 \end{itemize}
 
 \begin{esempio}
-Calcola un valore indistinguibile da:
+Calcola un valore reale indistinguibile da: \quad
 \(\dfrac{7 -3 \epsilon}{9 +2 \delta}\)
 \[\dfrac{7 -2 \epsilon}{9 +3 \delta} 
 ~ \stackrel{1}{=} ~
@@ -1425,7 +1449,7 @@ infinitesimo è indistinguibile dal numero non infinitesimo.
 \end{esempio}
 
 \begin{esempio}
-Calcola un valore indistinguibile da:
+Calcola un valore reale indistinguibile da: \quad
 \(\dfrac{4 \epsilon^4 -7 \epsilon^3 + \epsilon^2}{5 \epsilon}\)
 \[\dfrac{4 \epsilon^4 -7 \epsilon^3 + \epsilon^2}{5 \epsilon} 
 ~ \stackrel{1}{=} ~
@@ -1477,7 +1501,7 @@ infinitesimo che è infinitamente vicino a (non indistinguibile da) zero.
 \end{esempio}
 
 \begin{esempio}
-Calcola un valore indistinguibile da:
+Calcola un valore reale indistinguibile da: \quad
 \(\dfrac{5\epsilon -3 \epsilon^2 + 6 \epsilon^3}
          {2\epsilon + 4 \epsilon^2}\)
 \[\dfrac{5\epsilon -3 \epsilon^2 + 6 \epsilon^3}
@@ -1514,8 +1538,8 @@ indistinguibile che, quindi ha la stessa parte standard;
  \item semplifico i fattori uguali;
  \item il quoziente tra un finito e un infinitesimo non nullo è un 
 infinito (\(M\));
- \item l'infinito non ha parte standard ma viene indicato in analisi con 
-il simbolo: \(\infty\) (che, comunque, non è un numero reale).
+ \item l'infinito non ha parte standard ma viene indicato in analisi 
+(standard) con il simbolo: \(\infty\) (che, comunque, non è un numero reale).
 \end{enumerate}
 \begin{osservazione}
  Attenzione, non possiamo dire se \(\infty\) sarà positivo o negativo 
@@ -1571,7 +1595,7 @@ Dove le uguaglianze hanno i seguenti motivi:
 \end{esempio}
 
 \begin{esempio}
-Calcola un valore indistinguibile da:
+Calcola un valore reale indistinguibile da: \quad
 \(\sqrt{4H^2 -3H} - \sqrt{4H^2 +1}\)
 
 \begin{osservazione}
@@ -1584,8 +1608,7 @@ applicare tra un numero e lo zero quindi non possiamo dire che
 \(\sqrt{4H^2 -3H} - \sqrt{4H^2 +1} \approx 0\).
 \end{osservazione}\\
 
-In questo caso usiamo un trucco una specie di inverso della 
-razionalizzazione:
+In questo caso usiamo un trucco, la razionalizzazione del numeratore:
 
 \(\sqrt{4H^2 -3H} - \sqrt{4H^2 +1}
 ~ \stackrel{1}{=} ~
@@ -1644,13 +1667,16 @@ corrispondente \(\Delta y\).
 Chiamiamo \(d x\) (de ics) un incremento infinitesimo di \(x\) e 
 \(d y\) (de ipsilon) un incremento infinitesimo di \(y\).
 La pendenza nel punto \(x_0\) sarà:
-\[m=\pst{\dfrac{d y}{d x}=\dfrac{y_1-y_0}{x_1-x_0}}=
+\[m=\pst{\dfrac{d y}{d x}}=\pst{\dfrac{y_1-y_0}{x_1-x_0}}=
     \pst{\dfrac{f(x_0+\epsilon)-f(x_0)}{\tonda{x_0+\epsilon}-x_0}}=
     \pst{\dfrac{f(x_0+\epsilon)-f(x_0)}{\epsilon}}\]
 
-Vediamo un esempio:
+Se esiste la parte standard e è sempre la stessa qualunque sia l'infinitesimo 
+usato nel calcolo.
 
 \newpage %--------------------------------------------------
+
+Vediamo un esempio:
 
 \begin{esempio}
 {~}

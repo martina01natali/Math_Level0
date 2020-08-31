@@ -10,7 +10,7 @@
 % \vspace{-2ex}
 % \end{inaccessibleblock}
 
-\input{\folder iperreali_grafici.tex}
+\input{\folder naturali_iperreali_grafici.tex}
 
 \chapter{Dai Naturali agli Iperreali}
 
@@ -63,8 +63,8 @@ dopo lo chiamo uno e così via. Ma se ci trovassimo a lavorare principalmente
 con gli elementi compresi tra il 273° elemento e il 310° elemento, questo 
 modo di fare sarebbe piuttosto scomodo. 
 Molto più semplice è mettersi d'accordo di chiamare zero il 273° elemento e 
-partire da lì a contarli. Ora i numeri che dovremo usare saranno quelli 
-compresi tra~0 e~37. 
+partire da lì a contarli. In questo caso, i numeri che dovremo usare saranno 
+quelli compresi tra~0 e~37. 
 Ci sono inoltre delle situazioni in cui è difficile, o impossibile, 
 determinare un \emph{primo} elemento della sequenza e anche in questo caso 
 ci si può mettere d'accordo di assegnare ad un preciso elemento della 
@@ -79,7 +79,14 @@ dopo lo zero e~``\(-\)'' per i numeri prima dello zero.
 Questi nuovi numeri sono chiamati numeri \emph{interi} 
 e l'insieme di questi numeri viene indicato con~\(\Z\).
 
-In questa situazione l'addizione può essere vista come muoversi nel verso 
+Per le esigenze pratiche, i numeri interi non sono strettamente necessari, è 
+sempre possibile dare un numero naturale e indicare se intendiamo ``prima o 
+dopo'', ``sopra o sotto''. Lo facciamo spesso, ad esempio: 300 anni prima 
+dell'era volgare, o: 1200m sotto il livello del mare, oppure: 4° sotto zero. 
+Ma usare questi nuovi numeri ci semplifica la vita in mote situazioni, 
+soprattutto quando dobbiamo operare con calcoli.
+
+Nei numeri interi, l'addizione può essere vista come muoversi nel verso 
 di crescita dei numeri e la sottrazione come muoversi nel verso della 
 decrescita dei numeri. Dato che lo zero è un elemento convenzionale non c'è 
 nessun problema a togliere~5 da~3 semplicemente si arriverà nella 
@@ -99,7 +106,7 @@ senza dover precisare che \(+7\) è un elemento di \(\Z\)
 mentre \(7\) è un elemento di \(\N\).
 
 Anche questi numeri però non riescono a realizzare un modello in certe 
-situazioni che invece nella pratica si possono risolvere facilmente con un 
+situazioni che invece, nella pratica, si possono risolvere facilmente con un 
 po' di creatività. Ad esempio come possiamo dividere~3 uova, in parti 
 uguali, tra~4 persone?
 
@@ -109,7 +116,7 @@ uguali, tra~4 persone?
 Con le tre uova faccio una frittata che divido facilmente in~4 parti 
 uguali. 
 Possiamo costruire dei numeri che permettano di calcolare sempre il 
-quoziente esatto di due numeri naturali anche quando la divisione tra i due 
+quoziente esatto di due numeri interi anche quando la divisione tra i due 
 dà un resto diverso da zero. 
 Questi nuovi numeri sono chiamati numeri \emph{razionali} 
 e l'insieme di questi numeri viene indicato con~\(\Q\).
@@ -122,7 +129,7 @@ uguali può essere indicato in in uno di questi modi:
 \[\frac{1}{2}=\frac{3}{6}=\dots=\frac{45}{90}=\frac{132}{264}=\dots=0,5\]
 
 Ogni numero razionale può essere rappresentato con un numero con la virgola 
-o con una qualunque delle infinite frazioni equivalenti.
+limitato o periodico, o con una qualunque delle infinite frazioni equivalenti.
 
 Con i numeri razionali si può sempre calcolare il risultato della divisione 
 tra due numeri (naturali, interi o razionali) tranne il caso particolare in 
@@ -145,27 +152,101 @@ Questo fatto ci permette di poter scrivere:~\(-\dfrac{7}{1} = -7\)
 senza dover precisare che il primo numero appartiene a \(\Q\) e il secondo 
 a \(Z\).
 
+Anche i numeri razionali non sono strettamente necessari per descrivere e 
+modellizzare la realtà, basta usare in ogni occasione una appropriata unità 
+di misura: invece di \(1,273\,km\) possiamo scrivere: \(1273\,m\); 
+invece che \(\frac{5}{6}\) di torta possiamo dividere la torta in \(6\) fette
+e considerarne \(5\).
+
+Anche in questo caso, l'uso dei numeri razionali ci permette comunque di 
+semplificarci notevolmente la vita.
+
+I numeri razionali ci permettono di risolvere tutti i problemi pratici che 
+possiamo incontrare, dal calcolare il resto della spesa al far atterrare una 
+sonda su Marte. 
+Anzi i nostri computer usano un sottoinsieme di numeri razionali estremamente 
+limitato.
+
 Ma ci sono ancora situazioni in cui i numeri razionali non permettono di 
-risolvere problemi relativamente semplici da risolvere praticamente. 
+risolvere, in modo esatto, problemi relativamente semplici da risolvere 
+praticamente. 
 Ad esempio è stato dimostrato (già qualche millennio fa) che se il lato di 
-un quadrato è un numero razionale allora la sua diagonale non lo è. 
+un quadrato è un numero razionale allora la sua diagonale non lo è:
+non esiste nessuna frazione che elevata alla seconda dia la radice di due.
 
-\subsection{I numeri reali \(\R\)}
-\label{subsec:insnum_reali}
+\subsection{Il problema della misura}
 
-Se prendiamo un quadrato di lato~1, la sua diagonale, per il teorema di 
-Pitagora, risulta lunga~\(\sqrt{2}\). 
-La radice di~2 è quel numero che elevato alla seconda dà come risultato~2.
-Ebbene, è stato dimostrato che nessun numero razionale moltiplicato per se 
-stesso dà come risultato~2. 
-Quindi, o dà un numero più piccolo o un numero più grande.
+Misurare significa ottenere il rapporto tra la grandezza da misurare e 
+un'unità di misura.
+Per misurare contiamo quante volte l'unità di misura è contenuta nella 
+grandezza da misurare.
+Se l'unità di misura non è contenuta un numero esatto di volte, si può 
+cercare un opportuno sottomultiplo dell'unità di misura in modo che questo 
+sia contenuto un numero esatto di volte. 
 
-Possiamo quindi costruire due sottoinsiemi dell'insieme \(\Q\) in modo da 
-mettere in uno tutti i numeri minori di un certo valore e nell'altro tutti 
-i 
-numeri maggiori o uguali a quel valore. Nel caso della radice di~2:
+In pratica, quando si misura una grandezza, \(l\), si divide l'unità di 
+misura in un certo numero naturale \(n\) di parti equivalenti, il massimo che 
+la risoluzione dello strumento permette,
+e poi si contano quante di queste parti (diciamo \(m\)) servono per ottenere 
+una grandezza minore o uguale a quella da misurare mentre \(m+1\) di queste 
+parti daranno una grandezza maggiore di quella che si deve misurare.
 
+\affiancati{.49}{.49}{
+Se si riesce a trovare un numero \(s\) tale che \(\frac{s}{n}\) 
+dell'unità di misura siano equivalenti alla grandezza, allora prendiamo 
+\(\frac{s}{n}\) come misura della grandezza \(l\).
+}{
+\begin{center} \scalebox{.6}{\misura{6.7}} \end{center}
+}
+
+\affiancati{.49}{.49}{
+\begin{center} \scalebox{.6}{\misura{7.5}} \end{center}
+}{
+Se non lo troviamo, consideriamo il più grande valore \(s\) che moltiplicato 
+per il sottomultiplo dell'unità di misura dia una grandezza minore a \(l\) e 
+prendiamo \(\frac{s}{n}\) come misura della grandezza \(l\).
+}
+In tal modo si otterrà un numero razionale (\(m/n\)) che sarà, in pratica, 
+la migliore misura razionale approssimata per difetto della grandezza che si 
+vuole misurare, e l'eventuale errore che si commette, minore di un 
+\(n\)-esimo dell'unità di misura, sarà qualcosa di non apprezzabile dallo 
+strumento usato.
+
+\vspace{.4em}
+\affiancati{.49}{.49}{
+Ma, fissata un'unità di misura, molte grandezze non possono essere misurate 
+\emph{esattamente} con i numeri razionali. 
+Ad esempio in questi poligoni regolari, l'altezza e le diagonali sono 
+grandezze incommensurabili con il lato.
+}{
+\begin{center} \scalebox{.7}{\poligoniregolari} \end{center}
+}
+
+\paragraph{Approssimazioni di grandezze non commensurabili}
+
+Le grandezze incommensurabili con l'unità di misura non si possono misurare 
+esattamente contando i sottomultipli dell'unità di misura, ma di esse 
+possiamo considerare tutte le approssimazioni razionali per difetto e 
+per eccesso (e ognuna di queste si ottiene contando). 
+
+Inoltre, comunque scelto un numero naturale  \(n \neq 0\), 
+si potranno avere approssimazioni razionali una per eccesso e una per difetto 
+che differiscono tra loro meno di un \(n\)-esimo dell'unità di misura.
+
+Si potrebbe pensare che le due totalità delle approssimazioni razionali 
+della misura quelle per difetto e quelle per eccesso costituiscano una 
+indicazione della misura della grandezza data.
+
+Ad esempio, possiamo approssimare la misura della diagonale \(d\) di un 
+quadrato di lato 1, dividendo l’unità di misura in un sempre maggior 
+numero di parti sempre più piccole.
+
+\affiancati{.29}{.69}{
 \begin{center}
+\scalebox{.8}{\approssimazioni}
+\end{center}
+}{
+% \begin{center}
  \begin{tabular}{ll}
 \toprule
 Valore per difetto di \(\sqrt{2}\) &Valore per eccesso di \(\sqrt{2}\) \\
@@ -178,29 +259,98 @@ Valore per difetto di \(\sqrt{2}\) &Valore per eccesso di \(\sqrt{2}\) \\
 \ldots& \ldots\\
 \bottomrule
 \end{tabular}
-\end{center}
+% \end{center}
+}
 
-Due sottoinsiemi costruiti in questo modo si chiamano classi contigue di 
-numeri razionali, cioè due sottoinsiemi di \(Q\) tali che ogni elemento 
-dellprimo è minore di qualunque elemento del secondo e che nel primo 
-sottoinsieme ci sono numeri che si avvicinano quanto si vuole a certi 
-numeri del secondo sottoinsieme.
-Due classi contigue di numeri razionali definiscono un 
-numero \emph{reale} \(\R\). Dato un \emph{numero qualsiasi} possiamo sempre 
-realizzare due classi contigue di numeri razionali. 
-Se questo \emph{numero qualsiasi} appartiene al secondo sottoinsieme è, 
-evidentemente un numero razionale, se non appartiene ai due sottoinsiemi è 
-un numero irrazionale. 
-Ognuna di queste partizioni, dette anche sezioni di Dedekind, può essere 
-considerata come un numero, cioè è possibile costruire un ordine tra le 
-sezioni, sommarle, moltiplicarle, \dots
+\begin{osservazione}
+% Alcune caratteristiche delle classi di approssimazione di una grandezza 
+% \(A\):
+Per evitare di distinguere casi differenti, conveniamo che il razionale che 
+è misura esatta di una grandezza \(A\) non sia un'approssimazione della 
+stessa, ma che pure tale A sia approssimabile mediante razionali.
+\begin{enumerate}
+\item 
+Ogni grandezza ha insiemi non vuoti di approssimazioni razionali per 
+difetto \(D_A\) e per eccesso \(E_A\). 
+\item 
+Le approssimazioni per difetto sono minori delle approssimazione per eccesso.
+\item 
+Un numero minore di un'approssimazione per difetto appartiene a \(D_A\) e un 
+numero maggiore di un'approssimazione per eccesso appartiene a \(E_A\).
+\item 
+Le approssimazioni per difetto non hanno massimo e quelle per eccesso non 
+hanno minimo.
+\item 
+Ogni razionale, con l'eventuale esclusione della misura esatta della 
+grandezza \(A\), o è un'approssimazione per eccesso o è un'approssimazione 
+per difetto.
+\end{enumerate}
+Da queste caratteristiche segue che per ogni numero naturale, diverso da 
+zero, \(n\) ci sono un razionale \(q_1\) di \(D_A\) e un razionale \(q_2\) di 
+\(E_A\) tali che \(q_2-q_1 < 1/n\).
+\end{osservazione}
+
+\subsection{Sezioni sui razionali}
+
+Chiamiamo \emph{sezione dei razionali} una coppia di insiemi 
+di razionali che abbia le caratteristiche delle coppie di insiemi costituiti 
+dalle approssimazioni razionali per eccesso e da quelle per difetto di una 
+grandezza.
+
+Mentre le classi di approssimazioni di grandezze costituiscono un insieme 
+numerabile, le sezioni dei razionali sono una quantità più che numerabile 
+(tante quanti i sottoinsiemi dei numeri naturali). 
+
+Per \emph{elementi separatori di una sezione dei razionali} 
+si intendono gli enti maggiori di ogni numero razionale della classe 
+inferiore e minori di ogni elemento della classe superiore della sezione.
+
+Partendo dalle classi di approssimazione siamo arrivati al concetto simile, 
+ma più generale di sezioni sui razionali. Ma cosa c'è tra le due classi della 
+sezione? Cosa è l'elemento separatore delle classi?
+
+In certi casi è un numero razionale. Ad esempio se in una classe ci sono 
+tutti i razionali minori di \(\frac{3}{4}\) e nell'altra tutti quelli 
+maggiori di \(\frac{3}{4}\), questo numero razionale sarà un elemento 
+separatore per tale sezione. Ma è l'unico?
+
+Ma se l'elemento separatore non può essere un numero razionale come nel caso 
+visto sopra dove abbiamo messo in una classe tutti i numeri minori di 
+\(\sqrt{2}\) e nell'altra tutti i numeri maggiori di \(\sqrt{2}\) cosa viene 
+individuato dalla sezione?
+
+Dobbiamo inventarci qualcosa di nuovo e possiamo scegliere:
+\begin{enumerate}
+\item un solo elemento separatore per sezione.
+\item più elementi separatori per ogni sezione.
+\end{enumerate}
+
+\subsection{Numeri reali \(\R\)}
+
+\affiancati{.49}{.49}{
+Se decidiamo che ci sia uno solo nuovo numero per ciascuna sezione, otteniamo 
+una grandissima quantità di numeri che sono infinitamente di più rispetto a 
+tutti i problemi che che possiamo pensare di esprimere.
+}{
+\begin{center} \scalebox{.6}{\unoconnome} \end{center}
+}
+
+Questi nuovi numeri sono stati chiamati numeri \emph{reali} e l'insieme dei 
+numeri reali viene indicato con il simbolo \(\R\).
+
+Sono numeri molto interessanti che permettono di risolvere in modo semplice 
+una grande quantità di problemi.
+
+Ma non riescono a cogliere bene situazioni dinamiche riuscendo a 
+rappresentare solo la posizione di un punto ma non la pendenza nel punto o la 
+velocità istantanea nel passare per un punto.
 
 I numeri reali formano un insieme \emph{ordinato}, \emph{denso} ma anche 
-\emph{completo} cioè il numero individuato da una qualunque sezione di 
-Dedekind è un numero reale.
-Questo permette di far corrispondere ad ogni punto della \emph{retta reale} 
-un numero \emph{reale} e viceversa ad ogni numero \emph{reale} un punto 
-della \emph{retta reale}. 
+\emph{completo} cioè il numero individuato da una qualunque sezione sui 
+razionali è un numero reale.
+Questo permette di far corrispondere ad ogni lunghezza di un segmento 
+un numero \emph{reale} e, viceversa, ad ogni numero \emph{reale} una 
+lunghezza di un segmento. 
 
 Anche l'insieme dei Reali contiene un sottoinsieme isomorfo ai numeri 
 razionali.
@@ -214,8 +364,7 @@ Ci sono tipi di problemi che non possono essere risolti con i numeri reali.
 Ad esempio calcolare la radice quadrata di numeri negativi. 
 Anche questo all'apparenza è un problema del tutto assurdo: calcolare la 
 radice quadrata di un numero equivale a trovare la lunghezza del lato di un 
-quadrato di cui si conosce l'area. 
-
+quadrato di cui si conosce l'area. \\
 Ora, trovare un quadrato con area piccola si può fare, magari anche con 
 area nulla, impegnandosi un po', ma trovare un quadrato con area negativa 
 è proprio impossibile. 
@@ -223,7 +372,7 @@ Ma come abbiamo visto per i naturali ci possono essere fenomeni nei quali
 hanno senso operazioni che in altri sistemi sono insensate.
 
 Prima di procedere con i prossimi insiemi numerici, però, riflettiamo su 
-una particolare proprietà degli insiemi visti fin'ora.
+una particolare proprietà degli insiemi numerici visti fin'ora.
 
 \subsubsection{Il postulato di Eudosso-Archimede}
 
@@ -264,9 +413,8 @@ Terra-Sole:~\(149.600.000.000m\).
 Si fa risalire ai matematici Eudosso e Archimede l'osservazione che per 
 quanto piccolo si prenda un numero (ad esempio lo spessore di un foglio di 
 carta), basta moltiplicarlo per un numero sufficientemente 
-grande~(\(2^{64}\)) 
-per farlo diventare maggiore di qualsiasi numero (ad esempio la distanza 
-Terra-Sole).
+grande~(\(2^{64}\)) per farlo diventare maggiore di qualsiasi numero (ad 
+esempio la distanza Terra-Sole).
 
 \begin{postulato}[Eudosso-Archimede]
 Dati due numeri positivi \(a, b\) si può sempre trovare un 
@@ -279,11 +427,53 @@ per un numero abbastanza grande da farlo diventare più piccolo di un
 qualunque numero.
 
 Ma questa osservazione di Eudosso-Archimede non è un teorema, non è 
-un'osservazione dimostrata, è un postulato, un accordo fatto tra matematici 
-che può essere utile in moltissimi casi e che vale per tutti gli insiemi 
-numerici visti fin'ora. 
+un'osservazione dimostrata, è un \emph{postulato}, un accordo fatto tra 
+matematici, che può essere utile in moltissimi casi e che vale per tutti gli 
+insiemi numerici visti fin'ora. 
 Ma cosa succede se ci accordiamo che \emph{non} valga il postulato di 
 Eudosso-Archimede?
+
+\subsection{Numeri iperreali \(\IR\)}
+
+\affiancati{.49}{.49}{
+Possiamo pensare che tra le classi di una sezione ci siano più elementi 
+separatori.
+
+In questo caso, la distanza tra questi dovrà essere minore di 
+\(\frac{1}{n}\) per ogni numero naturale positivo \(n\). 
+}{
+\begin{center} \scalebox{.6}{\molticonnome} \end{center}
+}
+
+Anche in questo caso gli elementi separatori che si inventano devono indicare 
+delle quantità come fanno i numeri, sicché dovranno essere integrati, 
+dall'invenzione di operazioni come l'addizione e la moltiplicazione con le 
+solite proprietà e di una relazione d'ordine. Sono utili se formano un campo 
+numerico ordinato.
+
+Se ce ne sono almeno due, allora ce ne sono infiniti, perché anche la media 
+di questi è ancora un numero interno alle classi che formano la sezione di 
+razionali.
+
+Inoltre la differenza tra due di questi numeri deve essere un numero diverso 
+da zero, ma, in valore assoluto, minore di \(\frac{1}{n}\) per ogni \(n\) 
+dove \(n\) è un numero naturale diverso da zero, cioè 
+\(n \in \Nz = \N - \graffa{0}\). 
+
+Questi numeri sono alla base dell'Analisi Non Standard.
+
+Tutti i numeri che sono elementi separatori di una stessa sezione dei 
+razionali, avranno distanza tra loro inferiore a 
+\[\dfrac{1}{n} \quad \forall n \in \Nz\]
+
+Sicché la differenza \(\delta\) tra due di loro sarà tale che: 
+\[\abs{\delta} < \dfrac{1}{n} \quad \forall n \in \Nz\]
+
+Chiamiamo \emph{infinitesimo} un numero che in valore assoluto è minore di 
+ogni numero razionale positivo.
+
+Chiamiamo \emph{monade} ogni insieme di numeri che hanno tra di loro una 
+distanza infinitesima.
 
 \subsection{I numeri complessi \(\C\)}
 \label{subsec:insnum_complessi}
@@ -326,8 +516,7 @@ completo, non è possibile aggiungere elementi ai reali senza perdere
 qualche proprietà dell'insieme numerico. 
 Nel caso dei complessi l'insieme ottenuto non è totalmente ordinato.
 
-È possibile prendere un sottoinsieme dei Complessi che sia 
-isomorfo ai Reali.
+È possibile prendere un sottoinsieme dei Complessi che sia isomorfo ai Reali.
 
 % \begin{wrapfloat}{figure}{r}{0pt}
 % \begin{inaccessibleblock}
@@ -350,3 +539,5 @@ isomorfo ai Reali.
 \newpage %--------------------------------------------------
 
 \input{\folder iperreali.tex}
+
+% \input{\folder naturali_iperreali_ese.tex}
