@@ -2,14 +2,14 @@
 
 % \begin{tikzpicture}[x=17mm,y=17mm, font=\small, cap=round, >=latex]
 
-\colorlet{anglecolor}{green!50!black}
+\colorlet{anglecolor}{green!30!black}
 \colorlet{sincolor}{blue!50!black}
 % \colorlet{coscolor}{red!50!black}
 % \colorlet{tancolor}{orange!70!black}
 
 \def \_deg2rad{0.01745329252}
 
-\newcommand{\diseqsin}[8]{%
+\newcommand{\diseqsin}[6]{%
 % Soluzione della disequazione $\sin x \in [a;~b]$ 
 % nella circonferenza goniometrica e nella sinusoide.
 % Chiamata tipica: \diseqsin{-.5}{1.73205080757 / 2}{0}{60}{120}{210}{330}{360}
@@ -55,6 +55,8 @@
 %Sinusoide
   \tkzInit[xmin=0,xmax=+6.5,ymin=-1.1,ymax=+1.1]
   \tkzFct[domain=0:+6.5, thick]{sin(x)}
+% Tratto di sinusoide evidenziata PECCATO CHE NON FUNZIONI!!!
+%   \tkzFct[domain=\parad:\pbrad, thick, decoration=snake]{sin(x)}
 % Segmenti
   \begin{scope}[sincolor, thick]
   \foreach \x in {-1, 0} 
