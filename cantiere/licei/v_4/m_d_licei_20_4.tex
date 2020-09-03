@@ -1,0 +1,146 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        Matematica dolce
+%
+% Copyright 2016-2020 Daniele Zambelli
+%
+%------------------------------
+% Matematica dolce per i licei Linguistico e economico sociale, volume 1
+%
+% m_d_licei_19_4.tex
+%------------------------------
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is 
+% Daniele Zambelli - daniele.zambelli@gmail.com
+%
+% This work consists of the files:
+%  -  m_d_1_les.tex (this file)
+%  -  createpdf.py
+%  -  readme.md
+%  -  the part of code of the files under \matdir , img/  and lbr/ directories
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%========================
+% Definizione delle directory
+%========================
+% \newcommand{\basedir}{matematicadolce/}
+\newcommand{\depdir}{deposito/}
+\newcommand{\magdir}{\depdir magazzino/}
+\newcommand{\matdir}{\depdir materiali/}
+
+%========================
+% Classe del documento
+%========================
+\documentclass[10pt,a4paper,openright]{\magdir matsweetmem}
+% Per la versione in scala di grigio commentare la precedente e
+% decommentare la riga seguente
+% \documentclass[10pt,a4paper,openright,gray]{\magdir matsweetmem}
+
+%========================
+% Variabili del progetto
+%========================
+\input{\magdir variabili}
+
+%========================
+% Variabili per questo volume
+%========================
+\newcommand{\editore}{Matematicamente.it}
+\newcommand{\serie}{Matematica $C^3$}
+\newcommand{\titolo}{Matematica dolce 4 - licei}
+\newcommand{\pdftitolo}{Matematica dolce 4 - licei}
+\newcommand{\docvers}{\texttt{5.0.1}}
+\newcommand{\edizione}{2020}
+\newcommand{\Edizione}{Edizione}
+\newcommand{\tipo}{}% (versione completa a colori)}
+\newcommand{\descr}{Testo per il secondo biennio \protect\\ 
+                    della Scuola Secondaria di $II$ grado \\ \null 
+                    licei}
+\newcommand{\oggi}{27 agosto 2020}
+\newcommand{\mese}{giugno}
+\newcommand{\anno}{2020}
+\newcommand{\mcisbn}{9788899988036}
+
+%========================
+% Lettura preambolo
+%========================
+\input{\magdir packages}
+\input{\magdir definizioni}
+\input{\magdir definizioni_tikz}
+
+%========================
+% Con o senza linguaggio di programmazione
+%========================
+\newif\ifcoding
+\codingtrue     % commentare questa linea se NON si vuole il coding
+% \codingfalse    % commentare questa linea se si vogliono le parti di coding
+
+%========================
+% Documento
+%========================
+\begin{document}
+% \frontmatter
+% \intestazione{\matdir 00_intestazioni/les/}{frontespizio}
+% \intestazione{\matdir 00_intestazioni/les/}{colophon}
+% \intestazione{\matdir 00_intestazioni/les/}{indice}
+% \intestazione{\matdir 00_intestazioni/les/}{prefazione}
+
+%..................................................
+%% --------------------------------
+%% Capitoli
+%% --------------------------------
+%....... Proposta di Luciana ......................
+% Complementi di algebra (irrazionali, valori assoluti)
+% Ellisse
+% Iperbole
+% Funzioni esponenziale e logaritmica
+% Calcolo approssimato
+% Calcolo combinatorio
+% Probabilità
+% Modelli
+% Geometria euclidea nello spazio
+%..................................................
+\mainmatter
+% \parte{\matdir 0_a_parti/}{part_01_d}
+% \capitolo{\matdir 04_Equazioni/06_Grado_2+/compl201/}
+%          {grasup2_irraz_valass}
+% \capitolo{\matdir 05_Geometria_euclidea/03_Circonferenza/circ01/}
+%          {circonferenza1}
+% \capitolo{\matdir 05_Geometria_euclidea/04_Equiestensione/prop01/}
+%          {proporzionalita1}
+% \capitolo{\matdir 07_Geometria_analitica/04_Circonferenza/circ01/}
+%         {circonferenza_pc}
+% \capitolo{\matdir 07_Geometria_analitica/05_Ellisse_iperbole/ell01/}
+%          {ellisse}
+% \capitolo{\matdir 07_Geometria_analitica/05_Ellisse_iperbole/iper01/}
+%          {iperbole}
+%  \capitolo{\matdir 07_Geometria_analitica/06_Luoghi_geometrici/luo01/}
+%           {luoghigeometrici}
+%  \capitolo{\matdir 10_Esp_log/01_Funz_eq_diseq/esplog01/}
+%          {esp_log}
+% % TODO \capitolo{\matdir 01_aritmeticaealgebra/11_calc_approssimato/}
+% %               {calc_approssimato }
+% \capitolo{\matdir 15_Probabilita/01_Calcolo_combinatorio/comb01/}
+%          {calc_combinatorio}
+% \capitolo{\matdir 15_Probabilita/02_Calcolo_probabilita/prob02/}
+%           {probabilita}
+\capitolo{\matdir 16_Economia/01_Funzioni_economiche/funzec01/}
+         {funzionieconomiche}
+\capitolo{\matdir 07_Geometria_analitica/08_Geometria_3d/g3d01/}
+         {geometria3d}
+%..................................................
+%
+%% Azzeramento numerazione capitoli
+%%
+\renewcommand{\thechapter}{\Alph{chapter}}
+\setcounter{chapter}{0}
+
+\end{document}
