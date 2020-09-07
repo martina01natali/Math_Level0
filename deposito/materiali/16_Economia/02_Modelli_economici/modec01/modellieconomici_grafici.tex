@@ -1,0 +1,292 @@
+% (c) 2016 Daniele Zambelli - daniele.zambelli@gmail.com
+% Luciana Formenti
+
+\newcommand{\dommodlin}{% 
+  \def \funzione{-2*x+20}
+  \disegno[2]{
+    \rcomvar{0}{+25}{0}{+25}{gray!0, very thin, step=1}{p}{d}
+    \tkzInit[xmin=0,xmax=+25,ymin=0,ymax=+25]
+    \tkzFct[domain=0:30, ultra thick, color=red!50!black]
+         {\funzione}
+    \begin{scope} [latex-, color=green!50!black]
+      \foreach \p in {(0, 20), (10, 0)}
+      \filldraw \p [ultra thick, fill=white]  
+                   circle(2pt);
+      \draw 
+        (0, 20) .. controls (3, 22) and (6, 18) .. (9, 18) 
+        node [right] {mercato potenziale};
+      \draw 
+        (10, 0) .. controls (10, 3) and (15, 6) .. (15, 9) 
+        node [above] {prezzo massimo};
+    \end{scope}
+  }
+}
+
+\newcommand{\dommodquad}{% 
+  \def \funzione{-.10*x**2+22}
+  \disegno[2]{
+    \rcomvar{0}{+25}{0}{+25}{gray!0, very thin, step=1}{p}{d}
+    \tkzInit[xmin=0,xmax=+25,ymin=0,ymax=+25]
+    \tkzFct[domain=0:30, ultra thick, color=red!50!black]
+         {\funzione}
+    \begin{scope} [latex-, color=green!50!black]
+      \foreach \p in {(0, 22), (14.83, 0)}
+        \filldraw \p [ultra thick, fill=white] circle(2pt);
+      \draw
+        (0, 22) .. controls (3, 26) and (6, 20) .. (9, 20) 
+        node [right] {mercato potenziale};
+      \draw
+        (14.83, 0) .. controls (16, 3) and (18, 6) .. (18, 9) 
+        node [above] {prezzo massimo};
+    \end{scope}
+  }
+}
+
+\newcommand{\dommodesp}{% 
+  \def \funzione{16*2.7183**(-.1*x)}
+  \disegno[2]{
+    \rcomvar{0}{+25}{0}{+25}{gray!0, very thin, step=1}{p}{d}
+    \tkzInit[xmin=0,xmax=+25,ymin=0,ymax=+25]
+    \tkzFct[domain=0:30, ultra thick, color=red!50!black]
+         {\funzione}
+    \begin{scope} [latex-, color=green!50!black]
+      \foreach \p in {(0, 16)}
+        \filldraw \p [ultra thick, fill=white] circle(2pt);
+      \draw
+        (0, 16) .. controls (3, 18) and (6, 20) .. (9, 20) 
+        node [right] {mercato potenziale};
+      \draw
+        (24, .6) .. controls (20, 1) and (15, 6) .. (15, 9) 
+        node [above] {non ha prezzo massimo};
+    \end{scope}
+  }
+}
+
+\newcommand{\dommodiper}{% 
+  \def \funzione{80/(x+3)-4}
+  \disegno[2]{
+    \rcomvar{0}{+25}{0}{+25}{gray!0, very thin, step=1}{p}{d}
+    \tkzInit[xmin=0,xmax=+25,ymin=0,ymax=+25]
+    \tkzFct[domain=0:30, ultra thick, color=red!50!black]
+         {\funzione}
+    \begin{scope} [latex-, color=green!50!black]
+      \foreach \p in {(0, 22.67), (17, 0)}
+        \filldraw \p [ultra thick, fill=white] circle(2pt);
+      \draw
+        (0, 22.67) .. controls (3, 23) and (6, 20) .. (9, 20) 
+        node [right] {mercato potenziale};
+      \draw
+        (17, 0) .. controls (17, 3) and (15, 6) .. (15, 9) 
+        node [above] {prezzo massimo};
+    \end{scope}
+  }
+}
+
+\newcommand{\prodmodlin}{% 
+  \def \funzione{2*x-10}
+  \def \lp{20}
+  \def \cp{5}
+  \def \ps{15}
+  \disegno[2]{
+    \rcomvar{0}{+25}{0}{+25}{gray!0, very thin, step=1}{p}{h}
+    \tkzInit[xmin=0,xmax=+25,ymin=0,ymax=+25]
+    \begin{scope} [ultra thick, color=blue!50!black]
+    \tkzFct[domain=0:\ps]
+         {\funzione}
+    \draw (\ps, \lp) -- (25, \lp);
+    \end{scope}
+      \draw [color=green!50!black](-.3, \lp) node [left] {\(LP\)} -- 
+            (25, \lp);
+    \begin{scope} [latex-, color=green!50!black]
+      \foreach \p in {(\cp, 0), (\ps, \lp)}
+        \filldraw \p [ultra thick, fill=white] circle(2pt);
+      \draw 
+        (\ps, \lp) .. controls (\ps+3, \lp-3) and (18, 14) .. (18, 11) 
+        node [below] {prezzo saturazione};
+      \draw 
+        (\cp, 0) .. controls (\cp+3, 3) and (18, 0) .. (18, 3) 
+        node [above] {costo produzione};
+    \end{scope}
+  }
+}
+
+\newcommand{\prodmodrad}{% 
+  \def \funzione{5*(x-3)**.5}
+  \def \lp{18}
+  \def \cp{3}
+  \def \ps{16}
+  \disegno[2]{
+    \rcomvar{0}{+25}{0}{+25}{gray!0, very thin, step=1}{p}{h}
+    \tkzInit[xmin=0,xmax=+25,ymin=0,ymax=+25]
+    \begin{scope} [ultra thick, color=blue!50!black]
+    \tkzFct[domain=0:\ps]
+         {\funzione}
+    \draw (\cp, 0) -- (\cp+.09, 1.5); % per connettere il grafico
+    \draw (\ps, \lp) -- (25, \lp);
+    \end{scope}
+      \draw [color=green!50!black](-.3, \lp) node [left] {\(LP\)} -- 
+            (25, \lp);
+    \begin{scope} [latex-, color=green!50!black]
+      \foreach \p in {(\cp, 0), (\ps, \lp)}
+        \filldraw \p [ultra thick, fill=white] circle(2pt);
+      \draw 
+        (\ps, \lp) .. controls (\ps+3, \lp-3) and (18, 14) .. (18, 11) 
+        node [below] {prezzo saturazione};
+      \draw 
+        (\cp, 0) .. controls (\cp+3, 3) and (18, 0) .. (18, 3) 
+        node [above] {costo produzione};
+    \end{scope}
+  }
+}
+
+\newcommand{\prodmodpot}{% 
+  \def \funzione{.1*x**2-1.5}
+  \def \lp{22}
+  \def \cp{3.87}
+  \def \ps{15.33}
+  \disegno[2]{
+    \rcomvar{0}{+25}{0}{+25}{gray!0, very thin, step=1}{p}{h}
+    \tkzInit[xmin=0,xmax=+25,ymin=0,ymax=+25]
+    \begin{scope} [ultra thick, color=blue!50!black]
+    \tkzFct[domain=0:\ps]{\funzione}
+    \draw (\ps, \lp) -- (25, \lp);
+    \end{scope}
+      \draw [color=green!50!black](-.3, \lp) node [left] {\(LP\)} -- 
+            (25, \lp);
+    \begin{scope} [latex-, color=green!50!black]
+      \foreach \p in {(\cp, 0), (\ps, \lp)}
+        \filldraw \p [ultra thick, fill=white] circle(2pt);
+      \draw 
+        (\ps, \lp) .. controls (\ps+3, \lp-3) and (19, 14) .. (19, 11) 
+        node [below] {prezzo saturazione};
+      \draw 
+        (\cp, 0) .. controls (\cp+3, 3) and (18, 0) .. (18, 3) 
+        node [above] {costo produzione};
+    \end{scope}
+  }
+}
+
+\newcommand{\equilibrioa}{% 
+  \def \funzionea{.1*x**2-1.5}
+  \def \funzioneb{16*2.7183**(-.1*x)}
+  \def \lp{22}
+  \def \cp{3.87}
+  \def \ps{15.33}
+  \def \intx{9}
+  \def \inty{6.6}
+  \disegno[2]{
+    \rcomvar{0}{+25}{0}{+25}{gray!0, very thin, step=1}{p}{h}
+    \tkzInit[xmin=0,xmax=+25,ymin=0,ymax=+25]
+    \begin{scope} [ultra thick, color=blue!50!black]
+    \tkzFct[domain=0:\ps]{\funzionea}
+    \draw (\ps, \lp) -- (25, \lp);
+    \tkzFct[domain=0:25, color=red!50!black]{\funzioneb}
+    \end{scope}
+      \draw [color=green!50!black](-.3, \lp) node [left] {\(LP\)} -- 
+            (25, \lp);
+    \begin{scope} [color=green!50!black]
+      \draw 
+        (\intx, \inty) -- (\intx, -.3) 
+        node [below] {PE};
+      \foreach \p in {(\intx, \inty)}
+        \filldraw \p [ultra thick, fill=white] circle(2pt);
+    \end{scope}
+  }
+}
+
+\newcommand{\equilibriob}{% 
+  \def \funzionea{+2*x-5}
+  \def \funzioneb{-1.5*x+20}
+  \def \lp{22}
+  \def \cp{3.87}
+  \def \ps{13.5}
+  \def \intx{7.143}
+  \def \inty{9.286}
+  \disegno[2]{
+    \rcomvar{0}{+25}{0}{+25}{gray!0, very thin, step=1}{p}{h}
+    \tkzInit[xmin=0,xmax=+25,ymin=0,ymax=+25]
+    \begin{scope} [ultra thick, color=blue!50!black]
+    \tkzFct[domain=0:\ps]{\funzionea}
+    \draw (\ps, \lp) -- (25, \lp);
+    \tkzFct[domain=0:25, color=red!50!black]{\funzioneb}
+    \end{scope}
+      \draw [color=green!50!black](-.3, \lp) node [left] {\(LP\)} -- 
+            (25, \lp);
+    \begin{scope} [color=green!50!black]
+      \draw 
+        (\intx, \inty) -- (\intx, -.3) 
+        node [below] {PE};
+      \foreach \p in {(\intx, \inty)}
+        \filldraw \p [ultra thick, fill=white] circle(2pt);
+    \end{scope}
+  }
+}
+
+\newcommand{\equilibrioc}{% 
+  \def \funzionea{.15*x**2-1.5}
+  \def \funzioneaa{.05*x**2-4}
+  \def \funzioneb{16*2.7183**(-.1*x)}
+  \def \lp{22}
+  \def \cp{3.87}
+  \def \psa{12.54}
+  \def \psaa{22.8}
+  \def \intersezioni{7.7/7.4/{p_{e1}}, 13.0/4.4/{p_{e2}}}
+%   \def \intxa{7.7}
+%   \def \intya{7.4}
+%   \def \intxaa{12.7}
+%   \def \intyaa{4.4}
+  \disegno[2]{
+    \rcomvar{0}{+25}{0}{+25}{gray!0, very thin, step=1}{p}{h}
+    \tkzInit[xmin=0,xmax=+25,ymin=0,ymax=+25]
+    \begin{scope} [ultra thick, color=blue!50!black]
+    \tkzFct[domain=0:\psa]{\funzionea}
+    \node at (\psa+2, \lp-3) {\(h_1(p)\)};
+    \tkzFct[domain=0:\psaa]{\funzioneaa}
+    \node at (\psaa+0.5, \lp-5.5) {\(h_2(p)\)};
+    \draw (\psa, \lp) -- (25, \lp);
+    \tkzFct[domain=0:25, color=red!50!black]{\funzioneb}
+    \node at (23, 3) {\(d(p)\)};
+    \end{scope}
+      \draw [color=green!50!black](-.3, \lp) node [left] {\(LP\)} -- 
+            (25, \lp);
+    \begin{scope} [color=green!50!black]
+      \foreach \px/\py/\pl in \intersezioni{
+        \draw (\px, \py) -- (\px, -.3) node [below] {\(\pl\)};
+        \filldraw (\px, \py) [ultra thick, fill=white] circle(2pt);}
+    \end{scope}
+  }
+}
+
+\newcommand{\equilibriod}{% 
+  \def \funzionea{.035*x**2-.4}
+  \def \funzioneb{10*2.7183**(-.1*x)}
+  \def \funzionebb{30*2.7183**(-.1*x)}
+  \def \lp{22}
+  \def \cp{3.87}
+  \def \psa{25}
+  \def \intersezioni{10.6/3.5/{p_{e1}}, 14.6/7.0/{p_{e2}}}
+%   \def \intxa{7.7}
+%   \def \intya{7.4}
+%   \def \intxaa{12.7}
+%   \def \intyaa{4.4}
+  \disegno[2]{
+    \rcomvar{0}{+25}{0}{+25}{gray!0, very thin, step=1}{p}{h}
+    \tkzInit[xmin=0,xmax=+25,ymin=0,ymax=+25]
+    \begin{scope} [ultra thick, color=blue!50!black]
+    \tkzFct[domain=0:\psa]{\funzionea}
+    \node at (\psa-4, \lp-3) {\(h(p)\)};
+    \draw (\psa, \lp) -- (25, \lp);
+    \tkzFct[domain=0:25, color=red!50!black]{\funzioneb}
+    \node at (3, 10) {\(d_1(p)\)};
+    \tkzFct[domain=0:25, color=red!50!black]{\funzionebb}
+    \node at (3, 17) {\(d_2(p)\)};
+    \end{scope}
+      \draw [color=green!50!black](-.3, \lp) node [left] {\(LP\)} -- 
+            (25, \lp);
+    \begin{scope} [color=green!50!black]
+      \foreach \px/\py/\pl in \intersezioni{
+        \draw (\px, \py) -- (\px, -.3) node [below] {\(\pl\)};
+        \filldraw (\px, \py) [ultra thick, fill=white] circle(2pt);}
+    \end{scope}
+  }
+}
