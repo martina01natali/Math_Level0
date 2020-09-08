@@ -295,8 +295,8 @@ quando \(x\) parte da~\(7\) e aumenta di~\(\epsilon\).
            \dfrac{7^2}{4}  +7 +3 =\\
         &= \dfrac{49 +14 \epsilon +\epsilon^2}{4} -10 -\epsilon - 
            \dfrac{49}{4} +10 =\\
-        &= \dfrac{14 \epsilon +\epsilon^2}{4} -\epsilon =\\
-        &= \dfrac{10 \epsilon +\epsilon^2}{4} =\\
+        &= \dfrac{14 \epsilon +\epsilon^2}{4} -\epsilon =
+        = \dfrac{10 \epsilon +\epsilon^2}{4} =\\
         &= 2,5 \epsilon + \dfrac{\epsilon^2}{4}. %\sim 2,5 \epsilon
 \end{align*}
 \end{minipage}
@@ -1050,29 +1050,42 @@ Dunque:
 
 \subsubsection{Sintesi della sezione}
 \label{subsubsec:diff01_diffsint}
-Ci siamo limitati a calcolare solo alcuni differenziali elementari, 
-attraverso esempi e dimostrazioni. 
-Avremo modo di vedere i differenziali delle funzioni trascendenti nella 
-prossima sezione.
-
-I risultati che abbiamo visto valgono sotto le ovvie ipotesi
-che si parli di funzioni continue e che i differenziali siano calcolabili
-per tutti i possibili $x$ del dominio di tali funzioni. Unificando i simboli 
-e restando all'essenziale, abbiamo:
+Abbiamo calcolato alcuni differenziali elementari: 
 \begin{enumerate} [noitemsep]
- \item $f=k \srarrow df=0$;
- \item $f=x \srarrow df=dx$;
- \item $f=x^\alpha \srarrow df\sim\alpha x^{\alpha-1}dx$;
- \item $d(a\cdot f)=adf$ \tab differenziale del prodotto per una costante;
- \item $d\tonda{f\pm g}=df\pm dg$ \tab differenziale di una somma o 
-differenza;
- \item $d(f\cdot g)\sim f\cdot g+f\cdot dg$\tab differenziale del prodotto;
- \item $d\tonda{\frac{f}{g}}\sim\frac{df\cdot g-f\cdot dg}{g^2}$\tab  
-differenziale 
- del rapporto (\(g \ne 0\)).
+ \item $d(k) = 0$ \tab 
+ differenziale di una costante;
+ \item $d(x) = dx$ \tab 
+ differenziale della funzione identica;
+ \item $d(x^\alpha) \sim \alpha x^{\alpha-1}dx$ \tab 
+ differenziale di una potenza.
 \end{enumerate}
-dove  $k$, $a$, $\alpha$ rappresentano delle costanti, mentre f e g sono 
-funzioni continue. 
+ 
+% Avremo modo di vedere i differenziali delle funzioni trascendenti nella 
+% prossima sezione.
+
+% I risultati che abbiamo visto valgono sotto le ovvie ipotesi
+% che si parli di funzioni continue e che i differenziali siano calcolabili
+% per tutti i possibili $x$ del dominio di tali funzioni. Unificando i 
+% simboli e restando all'essenziale, abbiamo:
+
+E il differenziale di alcune operazioni tra funzioni:
+\begin{enumerate} [noitemsep]
+ \item $d(a\cdot f)=adf$ \tab 
+ differenziale del prodotto per una costante;
+ \item $d\tonda{f\pm g}=df\pm dg$ \tab 
+ differenziale di una somma o differenza;
+ \item $d(f\cdot g)\sim df\cdot g+f\cdot dg$ \tab 
+ differenziale del prodotto;
+ \item $d\tonda{\frac{f}{g}}\sim\frac{df\cdot g-f\cdot dg}{g^2}$\tab 
+differenziale  del rapporto (\(g \ne 0\)).
+\end{enumerate}
+
+Alcune delle uguaglianze precedenti sono ridondanti: il prodotto tra una 
+costante e una funzione è un caso particolare del prodotto tra funzioni, il 
+differenziale di una potenza si può ottenere applicando, più volte, il 
+differenziale del prodotto di funzioni.
+% dove  $k$, $a$, $\alpha$ rappresentano delle costanti, mentre f e g sono 
+% funzioni continue. 
 
 Esaminiamo ora alcuni problemi facilmente risolvibili con l'aiuto dei 
 differenziali.
@@ -1689,8 +1702,8 @@ Calcolare $f'(\epsilon)$, sempre per  $f(x)=1-2\sqrt{x}$.\\
 \end{enumerate} 
 \begin{osservazione}
  $-M$ è un infinito negativo perché $\epsilon$ si suppone positivo. Non 
-avrebbe  senso, comunque, fare un tentativo con $\epsilon$ negativo, perché la 
-radice quadrata di numeri negativi (reali e iperreali) non è definita.\\
+avrebbe  senso, comunque, fare un tentativo con $\epsilon$ negativo, perché 
+la radice quadrata di numeri negativi (reali e iperreali) non è definita.\\
 \end{osservazione} 
 
 La parte standard di un numero infinito non esiste. La derivata non esiste, 
@@ -1977,6 +1990,10 @@ $\mathit{D}\quadra{\sqrt{x}}=
 \end{corollario}
 \noindent Ipotesi: $f(x)=\sqrt{x}$, con $x\ne 0$ .\tab Tesi: 
     $f'(x)=\dfrac{1}{2\sqrt{x}}$.
+
+\pagebreak %-------------------------------------------
+
+% \emph{Dimostrazione}
 \begin{proof}
   Infatti il differenziale è $df(x)=\dfrac{dx}{\sqrt{x+dx}+\sqrt{x}}$ e,
   applicando la definizione di derivata, si ha:\\
@@ -1992,13 +2009,13 @@ $\mathit{D}\quadra{\sqrt{x}}=
   [m tangenti a radquad]
  \begin{minipage}[]{.48\textwidth}
  \begin{center}
- \radquad
+\scalebox{.9}{ \radquad}
  \end{center}
  \end{minipage} 
  \hfill
  \begin{minipage}[]{.48\textwidth}
  \begin{center}
-  \tangentiradquad
+\scalebox{.9}{  \tangentiradquad}
  \end{center}
  \end{minipage}
 \end{inaccessibleblock}
@@ -2030,13 +2047,13 @@ orizzontalmente.
   [Grafico della funzione 1/x e della sua derivata: 1/(x^2)]
  \begin{minipage}[]{.48\textwidth}
  \begin{center}
- \recip
+\scalebox{.9}{ \recip}
  \end{center}
  \end{minipage} 
  \hfill
  \begin{minipage}[]{.48\textwidth}
  \begin{center}
-  \tangentirecip
+\scalebox{.9}{  \tangentirecip}
  \end{center}
  \end{minipage}
 \end{inaccessibleblock}
@@ -2066,17 +2083,15 @@ funzioni elementari.
   =3\cdot \dfrac{-1}{x^2}=\dfrac{-3}{x^2}$;\\
   $f'(x)=\mathit{D}\quadra{3x-\dfrac{3}{x}}=\mathit{D}\quadra{3x}-
   \mathit{D}\quadra{\dfrac{3}{x}}= 3-\dfrac{-3}{x^2}= 3+\dfrac{3}{x^2}$;\\
-  $f'(3)=3+\dfrac{3}{9}= 10$.\\
+  $f'(3)=3+\dfrac{3}{9}= 10$.
 \end{esempio}
 Senza troppi problemi, abbiamo dato per scontato che 
 \begin{enumerate}[noitemsep]
  \item La derivata del prodotto tra una costante e  una funzione è il 
-prodotto
- fra la costante e la derivata della funzione:\\ 
+prodotto  fra la costante e la derivata della funzione: \quad 
  $\mathit{D}\quadra{kf(x)}=k\mathit{D}\quadra{f(x)}$.
  \item La derivata della somma algebrica fra due funzioni è la somma 
-algebrica
- delle due derivate:\\
+algebrica  delle due derivate: \quad
 $\mathit{D}\quadra{f(x)+g(x)}=\mathit{D}\quadra{f(x)}+\mathit{D}\quadra{g(x)
 }$.
 \end{enumerate}
@@ -2097,13 +2112,13 @@ anche le regole 3 e 4 risultano giustificate:
 \setcounter{enumi}{2}
 \item La derivata del prodotto fra due funzioni è la somma fra due prodotti:
 la derivata della prima funzione per la seconda (non derivata) più la prima 
-funzione (non derivata) per la derivata della seconda:\\
+funzione (non derivata) per la derivata della seconda: \quad 
 $\mathit{D}\quadra{f(x)\cdot g(x)}=f'(x)\cdot g(x)+f(x)\cdot g'(x)$.
 \item La derivata del quoziente fra due funzioni è la frazione che ha per 
 denominatore il quadrato del divisore e per numeratore la differenza fra due
 prodotti: la derivata della prima funzione per la seconda (non derivata) 
 meno
-la prima funzione (non derivata) per la derivata della seconda:\\
+la prima funzione (non derivata) per la derivata della seconda: \quad 
 $\mathit{D}\quadra{\dfrac{f(x)}{g(x)}}=\dfrac{f'(x)\cdot g(x)-f(x)\cdot 
 g'(x)}
   {\quadra{g(x)}^2}$.
@@ -2302,11 +2317,11 @@ Tesi: $f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)$.
  in gioco sono tre, o più:
  $\mathit{D}\quadra{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)$.
 \end{osservazione}
-\begin{osservazione}
- Lo studente smart si era già accorto che la derivata di un prodotto non 
- è il prodotto delle derivate. Ora arriva la conferma:
- il prodotto delle derivate non è la derivata di un prodotto.
-\end{osservazione}
+% \begin{osservazione}
+%  Lo studente smart si era già accorto che la derivata di un prodotto non 
+%  è il prodotto delle derivate. Ora arriva la conferma:
+%  il prodotto delle derivate non è la derivata di un prodotto.
+% \end{osservazione}
 
 \subsection{Funzioni inverse}
 \label{subsec:diff01_derifuninverse}
@@ -2316,16 +2331,20 @@ sono formule inverse l'una dell'altra, ma non sono funzioni inverse rispetto
 alla stessa variabile $x$. Esse esprimono con due differenti espressioni la 
 stessa iperbole equilatera e hanno lo stesso grafico, quindi le stesse tangenti 
 al grafico e le stesse derivate rispetto a $x$.\\
- La funzione inversa rispetto a $x$ di $y=kx$ è $y=\frac{x}{k}$, cioè è
- la formula inversa, ma applicata a $x$. Nella tabella che segue consideriamo 
- come funzione inversa l'inversione della formula $y=\dots$, come ad esempio 
+La funzione inversa rispetto a $x$ di $y=kx$ è $y=\frac{x}{k}$, cioè è
+la formula inversa, ma applicata a $x$. 
+
+Nella tabella che segue consideriamo 
+come funzione inversa l'inversione della formula $y=\dots$, come ad esempio 
 $x=\frac{y}{k}$. Per questo la derivata viene calcolata rispetto a $y$: 
 $x'=\pst{\dfrac{dx}{dy}}$.\\
 
+\affiancati{.39}{.59}{
 Ecco alcuni esempi di semplici funzioni algebriche, con le loro 
 formule dirette e inverse e con le rispettive derivate.
+}{
 \begin{center}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{cccc}
 $y=f(x)$ & $x=g(y)$ & $f'(x)$ & $g'(y)$\\\hline
 $y=x+c$ & $x=y-c$ & 1 & 1\\
 $y=kx$ & $x=y/k$ & $k$ & $\frac{1}{k}$\\
@@ -2333,9 +2352,10 @@ $y=x^2$, $x > 0$ & $x=\sqrt{y}$ & $2x$ &
 $\frac{1}{2\sqrt{y}}=\frac{1}{2x}$\\
 $y=\frac{1}{x}$ & $x=\frac{1}{y}$ & $-\frac{1}{x^2}$ & 
 $-\frac{1}{y^2}=-x^2$\\
-\hline
+% \hline
 \end{tabular}
 \end{center}
+}
 
 \begin{osservazione}
 La funzione  $y=x^2$, nella terza riga della tabella, è definita $\forall x$.
@@ -2348,11 +2368,9 @@ definibile, è di tagliare il grafico di $f$ con una retta orizzontale: se la
 retta incrocia il grafico di $f$ in più punti, $f^{-1}$ non esiste.
 \end{osservazione}
 
-
-
 Considera il caso semplice che segue.
 \begin{esempio}
-  Derivare $f(x)=\sqrt{x^2}$.\\
+  Derivare $f(x)=\sqrt{x^2}$ restringendo il dominio a \(x > 0\).\\
   Si dirà: non c'è problema, $f(x)$ corrisponde algebricamente a 
   $f(x)=\sqrt{x^2}=x$, perciò  $f'(x)=1$.\\
   Vero. Ma poniamo $g(x)=x^2$ e $f(x)=f(g(x))=\sqrt{g(x)}$.\\
@@ -2370,11 +2388,8 @@ però precisare che la regola vale
   \item se entrambe le funzioni sono derivabili;
   \item se  $f'(g)\ne 0$.
  \end{enumerate}
-Infatti, nell'esempio tutto funziona alla perfezione, ma solo se $x\ne 0$
-(ricorda anche l'esempio \ref{esempio:diff01_deriradice}). \\
-Se valgono tutte le condizioni favorevoli, allora esistono la funzione
-$f$ e la sua inversa $g=f^{-1}$. La funzione e la sua inversa, se esiste,
-hanno grafici simmetrici rispetto alla bisettrice $y=x$.
+Infatti, nell'esempio tutto funziona , ma solo se $x\ne 0$
+(ricorda anche l'esempio \ref{esempio:diff01_deriradice}). 
 
 
 \begin{inaccessibleblock}
@@ -2385,6 +2400,10 @@ hanno grafici simmetrici rispetto alla bisettrice $y=x$.
  \end{minipage} 
   \hfill
  \begin{minipage}[]{.42\textwidth}
+Se valgono tutte le condizioni favorevoli, allora esistono la funzione
+$f$ e la sua inversa $g=f^{-1}$. La funzione e la sua inversa, se esiste,
+hanno grafici simmetrici rispetto alla bisettrice $y=x$.
+
 Ogni punto $\punto{x}{f^{-1}(x)}$ sulla curva della funzione inversa ha un
 corrispondente $\punto{y}{f(y)}$ sulla curva $y=f(x)$, nella simmetria 
 rispetto alla bisettrice. Guardiamo come si corrispondono i differenziali:
@@ -2417,9 +2436,10 @@ $\frac{4}{3}$.
 differenziale è un rapporto fra funzioni e genera una funzione. In più,  
 in una frazione come la frazione $\frac{3}{4}$ i numeri $3$ e $4$ sono 
 indipendenti, invece il differenziale $dy$ dipende da $dx$ nel rapporto
-$\frac{dy}{dx}$,  e $dx$ dipende da $dy$ nel rapporto inverso. Questo comporta 
-questioni delicate, simili a quelle descritte a proposito del teorema 
-\ref{teo:diff01_dericomp}. Per questo bisogna essere precisi nell'enunciato.
+$\frac{dy}{dx}$,  e $dx$ dipende da $dy$ nel rapporto inverso. 
+Questo comporta questioni delicate, simili a quelle descritte a proposito del 
+teorema \ref{teo:diff01_dericomp}. 
+Per questo bisogna essere precisi nell'enunciato.
 \end{osservazione}
 \begin{esempio}
   Trova la derivata di $f(x)=\dfrac{1}{\sqrt{5-x^2}}$.
@@ -2440,8 +2460,8 @@ $x=f(y)$.\\
    $\srarrow y'=\pst{\dfrac{dy}{dx}}=\dfrac{y^3}{2}=
    \dfrac{1}{2(\sqrt{5-x})^3}$.
   \end{enumerate}
-In genere la funzione inversa si costruisce in pochi passaggi semplici, poi 
-la derivazione risulta elementare.
+% In genere la funzione inversa si costruisce in pochi passaggi semplici, poi 
+% la derivazione risulta elementare.
 \end{esempio}
 
 
@@ -2452,23 +2472,23 @@ differenziare solo funzioni algebriche. In questa sezione, quindi, prima di
 derivare le funzioni trascendenti, dovremo imparare a differenziarle.
 Abbiamo già discusso il comportamento di queste funzioni nell'insieme degli
 Iperreali e abbiamo ormai un bagaglio sufficiente di conoscenza delle derivate.
+
 \subsection{Derivata di $f(x)=a^x$}
 \label{}
 Il grafico di una generica funzione esponenziale $y=a^x$, confrontato con 
 il grafico dell'andamento delle sue tangenti è una sorpresa rispetto ai 
-confronti
-che abbiamo fatto per altre funzioni. I due grafici praticamente si 
-accompagnano: 
-rivelano uguali pendenze in coppie di punti di uguale ordinata.
+confronti che abbiamo fatto per altre funzioni. 
+% I due grafici praticamente si accompagnano: 
+% rivelano uguali pendenze in coppie di punti di uguale ordinata.
 
 \begin{inaccessibleblock}
   [esponenziale e derivate]
   \begin{minipage}[]{.45\textwidth}
-   \begin{center} \esp \end{center}
+\begin{center} \scalebox{.8}{   \esp} \end{center}
  \end{minipage} 
   \hfill
  \begin{minipage}[]{.42\textwidth}
-   \begin{center} \tangentiesp \end{center}
+\begin{center} \scalebox{.8}{   \tangentiesp} \end{center}
  \end{minipage}
 \end{inaccessibleblock}
 \label{}
@@ -2577,14 +2597,14 @@ $\mathit{D}\quadra{f^{-1}(x)}=\dfrac{1}{\mathit{D}\quadra{(f^{-1}(x)}}$;
 \begin{inaccessibleblock}
   [esponenziale e logaritmo]
   \begin{minipage}[]{.55\textwidth}
-   \begin{center} \esplog \end{center}
+\begin{center} \scalebox{.8}{\esplog} \end{center}
  \end{minipage} 
   \hfill
  \begin{minipage}[]{.42\textwidth}
  \begin{teorema}
   La derivata della funzione \\
   logaritmo naturale è: $\mathit{D}\quadra{\ln x}=
-  \dfrac{1}{x},\ x>0$.
+  \dfrac{1}{x}, \stext{con} x>0$.
 \end{teorema}
 \noindent Ipotesi: $f(x)=\ln x, \mbox{ con } x>0$.\\
 \noindent Tesi: $f'(x)=\dfrac{1}{x}$.
@@ -2799,22 +2819,24 @@ $f'(x)=-2\sen x\cos x + 2\sen x \cos x = 0$.
 
 
 \subsubsection{Derivata di $f(x)=\tg x$}
-La funzione $f(x)=\tg x$ è discontinua per $x= \pm\frac{\pi}{2}$. La 
-derivata quindi non può esistere nei punti corrispondenti, come dimostra il 
-grafico.
 
+\affiancati{.39}{.59}{
+La funzione $f(x)=\tg x$ è discontinua per $x= \pm\frac{\pi}{2}$. La 
+derivata quindi non può esistere nei punti corrispondenti, come mostra il 
+grafico.
+}{
 \begin{inaccessibleblock}
   [differenziale della tangente]
-  \begin{minipage}[]{.47\textwidth}
+  \begin{minipage}[]{.49\textwidth}
     \begin{center} \tangente \end{center}
  \end{minipage} 
   \hfill
- \begin{minipage}[]{.47\textwidth}
+ \begin{minipage}[]{.49\textwidth}
  \begin{center} \tangentitangente \end{center}
  \end{minipage}
 \end{inaccessibleblock}
 \label{}
-
+}
 \begin{teorema}
    La derivata della funzione $f(x)=\tg x$ è $\mathit{D}\quadra{\tg x}=
    \dfrac{1}{\cos^2 x}=1+tg^2 x$ per $x\ne \pm\frac{\pi}{2}$.
@@ -2875,6 +2897,8 @@ $y-y_0=m(x-x_0)$,
   verso il basso:
   $y=m(x-x_0)+y_0= -12(x+6)+36\srarrow y=-12x-36$.
  \end{esempio}
+
+ \pagebreak %--------------------------------------------------
 
 \begin{esempio}
   Trova i punti di intersezione degli assi con la tangente in 
@@ -2983,7 +3007,6 @@ verticale, come si vede subito se si prova a calcolare l'antireciproco di
 $0$.
 \end{esempio}
 
-
 \subsection{Derivata della derivata}
 \label{}
 Abbiamo già notato che la derivata  di una funzione dipende dal punto in 
@@ -3032,7 +3055,6 @@ $f'(x)=\dfrac{1}{x}$ e $f''(x)=-\dfrac{1}{x^2}$.\\
  $f'''(x)=-\cos x$ \hspace{1cm} $f^{IV}(x)=\sen x$ \dots
 \end{esempio}
 
- 
 \subsection{Derivata, differenza, differenziale, incremento}
 \label{subsec:diff01_deridiff}
 
@@ -3098,7 +3120,7 @@ differenza fra due valori $y$, calcolati lungo la tangente.
 \begin{inaccessibleblock}
   [differenziale della tangente]
   \begin{minipage}[]{.4\textwidth}
-    \begin{center} \falsodifferenziale \end{center}
+    \begin{center} \scalebox{1}{\falsodifferenziale} \end{center}
  \end{minipage} 
   \hfill
  \begin{minipage}[]{.55\textwidth}
@@ -3144,6 +3166,7 @@ ripeti l'esercizio con $x_0=25,1001$ (la cui radice è $5,01$) e quindi
 $\Delta x=0,06199$.
 \end {esempio}
 
+\pagebreak %----------------------------------------------------
 
 \subsection{Sintesi}
 \label{subsec:diff01_derisintesi}
