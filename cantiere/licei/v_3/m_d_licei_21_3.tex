@@ -1,0 +1,144 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        Matematica dolce
+%
+% Copyright 2016-22 Daniele Zambelli
+%
+%------------------------------
+% Matematica dolce per i licei, volume 3
+%
+% Compilation:
+% pdflatex --shell-escape m_d_licei_21_3.tex
+%------------------------------
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is 
+% Daniele Zambelli - daniele.zambelli@gmail.com
+%
+% This work consists of the files:
+%  -  m_d_licei_21_3.tex (this file)
+%  -  createpdf.py
+%  -  readme.md
+%  -  the part of code of the files under chap/, img/  and lbr/ directories
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%========================
+% Definizione delle directory
+%========================
+% \newcommand{\basedir}{matematicadolce/}
+\newcommand{\depdir}{deposito/}
+\newcommand{\magdir}{\depdir magazzino/}
+\newcommand{\matdir}{\depdir materiali/}
+
+%========================
+% Classe del documento
+%========================
+\documentclass[10pt,a4paper,openright]{\magdir matsweetmem}
+% Per la versione in scala di grigio commentare la precedente e
+% decommentare la riga seguente
+% \documentclass[10pt,a4paper,openright,gray]{\magdir matsweetmem}
+
+%========================
+% Variabili del progetto
+%========================
+\input{\magdir variabili}
+
+%========================
+% Variabili per questo volume
+%========================
+\newcommand{\editore}{Matematicamente.it}
+\newcommand{\serie}{Matematica Dolce}
+\newcommand{\titolo}{Matematica dolce 3 - licei}        
+\newcommand{\pdftitolo}{Matematica dolce 3 - licei}
+\newcommand{\docvers}{\texttt{8.0.0}}
+\newcommand{\edizione}{2021}
+\newcommand{\Edizione}{Edizione}
+\newcommand{\tipo}{ (versione completa)}
+\newcommand{\descr}{Testo per il secondo biennio \protect\\ 
+                    della Scuola Secondaria di II grado \\ \null 
+                    licei}
+\newcommand{\oggi}{27 agosto 2021}
+\newcommand{\mese}{agosto}
+\newcommand{\anno}{2021}
+\newcommand{\mcisbn}{9788899988029}
+
+%========================
+% Lettura preambolo
+%========================
+\input{\magdir packages}
+
+%========================
+% Lettura definizioni
+%========================
+\input{\magdir definizioni}
+\input{\magdir definizioni_tikz}
+
+%========================
+% Con o senza linguaggio di programmazione
+%========================
+\newif\ifcoding
+\codingtrue     % commentare questa linea se NON si vuole il coding
+% \codingfalse    % commentare questa linea se si vogliono le parti di coding
+
+%========================
+% Documento
+%========================
+\begin{document}
+\frontmatter
+\intestazione{\matdir 00_intestazioni/les/}{frontespizio}
+\intestazione{\matdir 00_intestazioni/les/}{colophon}
+\intestazione{\matdir 00_intestazioni/les/}{indice}
+\intestazione{\matdir 00_intestazioni/les/}{prefazione}
+
+%% --------------------------------
+%% Capitoli
+%% --------------------------------
+\mainmatter
+% \parte{\matdir 0_a_parti/}{part_01_d}
+\capitolo{\matdir 03_Polinomi/02_Divisibilita/poldiv01/}
+         {divisibilita_scomposizione}
+\capitolo{\matdir 03_Polinomi/03_Frazioni_algebriche/frazalg01/}
+         {frazioni_algebriche}
+\capitolo{\matdir 04_Equazioni/01_Eq_grado_1/compl01/}
+         {compl_alg_1gra}
+\capitolo{\matdir 04_Equazioni/04_Eq_grado_2/eq201/}
+         {equa2gr}
+\capitolo{\matdir 07_Geometria_analitica/03_Parabola/para01/}
+         {parabola_pc}
+\capitolo{\matdir 04_Equazioni/05_Diseq_grado_2/dis201/}
+         {diseq2gr}
+% Capitolo spostato nel quarto volume:
+% \capitolo{\matdir 04_Equazioni/06_Grado_2+/compl201/}
+%          {grasup2_irraz_valass}
+\capitolo{\matdir 02_Insiemi_numerici/07_Numeri_iperreali/iperr01/}
+         {naturali_iperreali}
+% Sposterei al quarto volume anche il capitolo sulla 
+% circonferenza:
+% \capitolo{\matdir 05_Geometria_euclidea/03_Circonferenza/circ01/}
+%          {circonferenza1}
+% \capitolo{\matdir 05_Geometria_euclidea/04_Equiestensione/prop01/}
+%          {proporzionalita1}
+\capitolo{\matdir 09_Goniometria/01_Funzioni_goniometriche/gonio01/}
+         {goniometria}
+\capitolo{\matdir 09_Goniometria/03_Trigonometria/trigo01/}
+         {trigonometria}
+\capitolo{\matdir 08_Algebra/01_Vettori_matrici/vett01/}
+         {vettori}
+\capitolo{\matdir 14_Statistica/01_Statistica_descrittiva/stat02/}
+         {statistica}
+%% ..................................................
+%%
+%% Azzeramento numerazione capitoli
+%%
+\renewcommand{\thechapter}{\Alph{chapter}}
+\setcounter{chapter}{0}
+
+\end{document}
