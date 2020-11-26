@@ -1,5 +1,85 @@
 % (c) 2016 Daniele Zambelli - daniele.zambelli@gmail.com
 
+% \newcommand{\gnomino}[7]{
+%   % example:
+%   % \disegno{\gnomino{0.7}{1.5}{f(a)}{a}{gray!50}{blue!50!black}{.69}}
+%   \def \x{#1}
+%   \def \y{#2}
+%   \def \lx{#3}
+%   \def \ly{#4}
+%   \def \colorline{#5}
+%   \def \colorpoint{#6}
+%   \def \lbelow{#7}
+%   \draw [thin, dashed, \colorline] 
+%         (0, \y) node [left] {\(\ly\)} -- (\x, \y) --
+%         (\x, 0) node [below=\lbelow] {\(\lx\)};
+%   \filldraw (\x, \y) [\colorpoint] circle(1.5pt);
+% }
+
+\newcommand{\xbar}[7]{
+  % example:
+  % \disegno{\xbar{0.7}{1.5}{a_1}{gray!50}{blue!50!black}{red}{0}}
+  \def \x{#1}
+  \def \y{#2}
+  \def \lx{#3}
+  \def \colorline{#4}
+  \def \colorpoint{#5}
+  \def \colorlabel{#6}
+  \def \lbelow{#7}
+  \draw [dotted, \colorline]
+        (\x, 0) node [\colorlabel, below=\lbelow] {\(\lx\)} -- (\x, \y);
+  \filldraw (\x, \y) [\colorpoint] circle(1.5pt);
+}
+
+% \newcommand{\ybar}[4]{
+%   % example:
+%   % \disegno{\ybar{0.7}{1.5}{a_1}{gray!50}}
+%   \def \x{#1}
+%   \def \y{#2}
+%   \def \ly{#3}
+%   \def \colorline{#4}
+%   \draw [dotted, \colorline]
+%         (0, \y) node [left] {\(\ly\)} -- (\x, \y);
+% }
+
+\def \graficobasea{
+    \def \xi{-0.3};
+    \def \yi{4.7};
+    \def \xf{10.3};
+    \def \yf{-1.5};
+    \def \xa{0.4};
+    \def \ya{2.9};
+    \coordinate (i) at (\xi, \yi);
+    \coordinate (f) at (\xf, \yf);
+    \coordinate (a) at (\xa, \ya);
+    \coordinate (b) at (\xb, \yb);
+    \coordinate (ctrli) at (3, -6);
+    \coordinate (ctrlf) at (7, 15);
+    \def \linea{(i) .. controls (ctrli) and (ctrlf) .. (f)}
+    \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+    \begin{scope}
+      \clip (\xi, -0.3) rectangle (\xf, 8);
+      \draw [ultra thick, green!50!black] \linea;
+    \end{scope}
+    \xbar{\xa}{\ya}{a}{white!30!black}{blue!50!black}{black}{0.79}
+    \xbar{\xb}{\yb}{b}{white!30!black}{blue!50!black}{black}{0.6}
+}
+
+\newcommand{\partizionen}{% Valutazione di f in alcuni punti con n fissato
+  \disegno{
+    \def \xb{8.4};
+    \def \yb{4.25};
+    \graficobasea
+    \foreach \xp/\yp/\lab in {0.4/2.9/a_0, 1.4/1.67/a_1, 2.4/1.57/a_2, 
+                              3.4/2.17/~, 4.4/3.15/~, 5.4/4.17/a_i, 
+                              6.4/4.9/~, 7.4/5.06/~, 8.4/4.25/a_n}{
+      \xbar{\xp}{\yp}{\lab}
+            {white!30!black}{blue!50!black}{blue!50!black}{0}}
+    \foreach \xp in {3.9, 6.9}{
+      \node at (\xp, 0) [white!30!black, below, yshift=-6pt] {\(\dots\)};}
+  }
+}
+
 \newcommand{\limitigraficoa}{% 
   \def \funzione{(x**2-6*x+5)/(x**2+2*x-3)}
   \disegno{
