@@ -1,20 +1,20 @@
 % (c) 2016 Daniele Zambelli - daniele.zambelli@gmail.com
 
-% \newcommand{\gnomino}[7]{
-%   % example:
-%   % \disegno{\gnomino{0.7}{1.5}{f(a)}{a}{gray!50}{blue!50!black}{.69}}
-%   \def \x{#1}
-%   \def \y{#2}
-%   \def \lx{#3}
-%   \def \ly{#4}
-%   \def \colorline{#5}
-%   \def \colorpoint{#6}
-%   \def \lbelow{#7}
-%   \draw [thin, dashed, \colorline] 
-%         (0, \y) node [left] {\(\ly\)} -- (\x, \y) --
-%         (\x, 0) node [below=\lbelow] {\(\lx\)};
-%   \filldraw (\x, \y) [\colorpoint] circle(1.5pt);
-% }
+\newcommand{\gnomino}[7]{
+  % example:
+  % \disegno{\gnomino{0.7}{1.5}{f(a)}{a}{gray!50}{blue!50!black}{.69}}
+  \def \x{#1}
+  \def \y{#2}
+  \def \lx{#3}
+  \def \ly{#4}
+  \def \colorline{#5}
+  \def \colorpoint{#6}
+  \def \lbelow{#7}
+  \draw [thin, dashed, \colorline] 
+        (0, \y) node [left] {\(\ly\)} -- (\x, \y) --
+        (\x, 0) node [below=\lbelow] {\(\lx\)};
+  \filldraw (\x, \y) [\colorpoint] circle(1.5pt);
+}
 
 \newcommand{\xbar}[7]{
   % example:
@@ -45,24 +45,19 @@
 \def \graficobasea{
     \def \xi{-0.3};
     \def \yi{4.7};
-    \def \xf{10.3};
-    \def \yf{-1.5};
-    \def \xa{0.4};
-    \def \ya{2.9};
+    \def \xf{10.};
+    \def \yf{-0.3};
     \coordinate (i) at (\xi, \yi);
     \coordinate (f) at (\xf, \yf);
-    \coordinate (a) at (\xa, \ya);
-    \coordinate (b) at (\xb, \yb);
     \coordinate (ctrli) at (3, -6);
     \coordinate (ctrlf) at (7, 15);
     \def \linea{(i) .. controls (ctrli) and (ctrlf) .. (f)}
     \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
+%       \draw [dashed, ultra thick, white!70!black] \linea;
     \begin{scope}
       \clip (\xi, -0.3) rectangle (\xf, 8);
-      \draw [ultra thick, green!50!black] \linea;
+      \draw [dashed, ultra thick, white!70!black] \linea;
     \end{scope}
-    \xbar{\xa}{\ya}{a}{white!30!black}{blue!50!black}{black}{0.79}
-    \xbar{\xb}{\yb}{b}{white!30!black}{blue!50!black}{black}{0.6}
 }
 
 \newcommand{\partizionen}{% Valutazione di f in alcuni punti con n fissato
@@ -70,24 +65,246 @@
     \def \xb{8.4};
     \def \yb{4.25};
     \graficobasea
-    \foreach \xp/\yp/\lab in {0.4/2.9/a_0, 1.4/1.67/a_1, 2.4/1.57/a_2, 
-                              3.4/2.17/~, 4.4/3.15/~, 5.4/4.17/a_i, 
-                              6.4/4.9/~, 7.4/5.06/~, 8.4/4.25/a_n}{
+    \foreach \xp/\yp/\lab in {0.4/2.9/x_0, 1.4/1.67/x_1, 2.4/1.59/x_2, 
+                              3.4/2.25/x_3, 4.4/3.27/x_4, 5.4/4.4/x_5, 
+                              6.4/5.25/x_6, 7.4/5.5/x_7, 8.4/4.67/x_8,
+                              9.4/2.25/x_9}{
       \xbar{\xp}{\yp}{\lab}
             {white!30!black}{blue!50!black}{blue!50!black}{0}}
-    \foreach \xp in {3.9, 6.9}{
-      \node at (\xp, 0) [white!30!black, below, yshift=-6pt] {\(\dots\)};}
+    \node at (5, -1.3) {\footnotesize{Funzione valutata in alcuni punti}};
   }
 }
+
+\newcommand{\xbarx}[6]{
+  % example:
+  % \disegno{\xbarx{0.7}{1.5}{a}{gray!50}{blue!50!black}{red}}
+  \def \x{#1}
+  \def \funct{#2}
+  \def \lx{#3}
+  \def \colorline{#4}
+  \def \colore{#5}
+  \def \colorfill{#6}
+  \draw [dotted, \colorline]
+        (\x, 0) node [\colore, below] {\(\lx\)} -- (\x, \funct);
+  \filldraw (\x, \funct) [\colore, fill=\colorfill] circle(1.5pt);
+}
+
+\newcommand{\puntia}{%
+  \def \fa{.5*\x+1.5}
+  \def \fb{-.5*\x*\x+4*\x-2}
+  \def \fc{1./(\x-\xc)}
+  \def \mi{0}
+  \def \ma{10}
+  \def \xa{0.3}
+  \def \xb{2.8}
+  \def \xc{5.4}
+  \def \xd{9.8}
+  \rcom{\mi}{\ma}{0}{+8}{gray!50, very thin, step=1}
+  \foreach \yp [count = \xp] in {2, 2.5, 
+                                  5.5, 6, 5.5, 
+                                  1.667, 0.625, .385, .278}{
+    \xbarx{\xp}{\yp}{x_\xp}{gray!90}{brown!50!black}{brown!50!black}}
+}
+
+\newcommand{\puntigraficodiscontinuo}{%
+  \disegno{
+    \puntia
+    \foreach \xp/\lab in {\xa/a, \xd/b}{
+      \draw [dotted, gray!50]
+        (\xp, 0) node [black, below] {\(\lab\)} -- (\xp, 8.3);}
+    \node at (5, -1.3) 
+      {\footnotesize \emph{Funzione poco regolare valutata in alcuni punti}};
+  }
+}
+
+\newcommand{\graficodiscontinuo}{%
+  \disegno{
+    \puntia
+    \tkzInit[xmin=\mi-0.3,xmax=\ma+0.3,ymin=-0.3,ymax=+8.3]
+    \begin{scope} [thick, brown!50!black]
+      \tkzFct[domain=\mi-0.3:\xb] {\fa}
+      \tkzFct[domain=\xb:\xc] {\fb}
+      \tkzFct[domain=\xc+.1:\ma+0.3] {\fc}
+    \filldraw (\xb, 2.9) [fill=white] circle(1.5pt);
+    \filldraw (\xb, 5.28) circle(1.5pt);
+    \filldraw (\xc, 5.02) circle(1.5pt);
+    \end{scope}
+    \xbarx{\xa}{\fa}{a}{gray!90}{brown!50!black}{brown!50!black}
+    \xbarx{\xd}{.227}{b}{gray!90}{brown!50!black}{brown!50!black}
+    \node at (5, -1.3) 
+      {\footnotesize \emph{Grafico della funzione poco regolare}};
+  }
+}
+
+\newcommand{\contprimo}{%
+  \def \fa{-\x*\x+0*x+5}
+  \def \fm{-2*\x+13}
+  \def \mi{-2}
+  \def \ma{6}
+  \def \xc{1}
+  \def \yc{4}
+  \def \xdma{1.65}
+  \def \ydma{3.7}
+  \def \xdmb{2.9}
+  \def \ydmb{1.22}
+  \disegno{
+    \rcom{\mi}{\ma}{0}{+8}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mi-0.3,xmax=\ma+0.3,ymin=-0.3,ymax=+8.3]
+    \tkzFct[domain=\mi-0.3:\ma+0.3, ultra thick, green!50!black] {\fa}
+    \draw [thin, dashed, black] 
+          (0, \yc) node [left] {\footnotesize \(\approx \quad ~\)} 
+          node [above left] {\footnotesize \(f(\xc) \quad\)} 
+          node [below left] {\footnotesize \(f(\xc + \epsilon)\)} -- 
+          (\xc, \yc) -- (\xc, 0) 
+          node [below] {\footnotesize \(\xc \approx \xc + \epsilon\)};
+    \filldraw (\xc, \yc) [green!50!black] circle(1.5pt);
+    \microscopio{(\xc, \yc)}{1}{40}{230}{2}{(\xc+4, \yc+3.8)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=\xc+1.46:\xc+3.22, ultra thick, green!50!black] {\fm}
+    \draw [thin, dashed, black] (\xc + 0.8, \yc + \ydma) 
+          node [left] {\footnotesize \(f(\xc)\)} -- 
+          (\xc + \xdma, \yc + \ydma) -- (\xc + \xdma, \yc + 0.3) 
+          node [below ] {\footnotesize \(\xc\)};
+    \filldraw (\xc + \xdma, \yc + \ydma) [green!50!black] circle(1.5pt);
+    \draw [thin, dashed, black] (\xc + 0.3, \yc + \ydmb) 
+          node [left] {\footnotesize \(f(\xc + \epsilon)\)} -- 
+          (\xc + \xdmb, \yc + \ydmb) -- (\xc + \xdmb, \yc + 0.3) 
+          node [below] {\footnotesize \(\xc + \epsilon\)};
+    \filldraw (\xc + \xdmb, \yc + \ydmb) [green!50!black] circle(1.5pt);
+  }
+}
+
+\newcommand{\contsecondo}{%
+  \def \fa{abs(x)/x}
+  \def \mix{-2}
+  \def \max{+2}
+  \def \miy{-1.}
+  \def \may{+1.}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:0, ultra thick, green!50!black] {\fa}
+    \tkzFct[domain=0:\max+0.3, ultra thick, green!50!black] {\fa}
+    \filldraw (0, -1) [green!50!black, fill= white] circle(1.5pt);
+    \filldraw (0, +1) [green!50!black, fill= white] circle(1.5pt);
+  }
+}
+
+\newcommand{\fsegno}{%
+  \def \fa{abs(x)/x}
+  \def \mix{-2}
+  \def \max{+2}
+  \def \miy{-1.}
+  \def \may{+1.}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:0, ultra thick, green!50!black] {\fa}
+    \tkzFct[domain=0:\max+0.3, ultra thick, green!50!black] {\fa}
+    \filldraw (0, -1) [green!50!black, fill= white] circle(1.5pt);
+    \filldraw (0, +1) [green!50!black, fill= white] circle(1.5pt);
+    \filldraw (0, 0) [green!50!black] circle(1.5pt);
+    \microscopio{(0, 0)}{.5}{20}{210}{1}{(+2, +1.7)}
+                {\footnotesize \(\times \infty\)}
+    \filldraw (1.4, 0.7) [green!50!black] circle(1.5pt)
+      node [below, black] {\(0\)} node [left, black] {\(f(0)\)};
+    \microscopio{(0, +1)}{.5}{+180}{20}{1}{(-2, +1.7)}
+                {\footnotesize \(\times \infty\)}
+    \draw [ultra thick, green!50!black] (-1.5, +0.7) 
+      node [below, black] {\(0\)} -- (-0.44, +0.7); 
+    \filldraw (-1.5, +0.7) [green!50!black, fill= white] circle(1.5pt);
+    \microscopio{(0, -1)}{.5}{-30}{160}{1}{(+2.2, -2.5)}
+                {\footnotesize \(\times \infty\)}
+    \draw [ultra thick, green!50!black] (1.4, -1.7) 
+      node [below, black] {\(0\)} -- (0.38, -1.7); 
+    \filldraw (1.4, -1.7) [green!50!black, fill= white] circle(1.5pt);
+  }
+}
+
+\newcommand{\contterzo}{%
+  \def \fa{abs(x)/4}
+  \def \fb{abs(x-1.2)/4+2.4}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-1}
+  \def \may{+4}
+  \def \xc{0}
+  \def \yc{0}
+  \def \xdma{1.65}
+  \def \ydma{3.7}
+  \def \xdmb{2.9}
+  \def \ydmb{1.22}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+    \microscopio{(\xc, \yc)}{1}{60}{250}{2}{(\xc+3, \yc+4.4)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=-0.8:+3.18, ultra thick, green!50!black] {\fb}
+    \draw [thin, dashed, black] (1.2, 2.4) 
+          node [below] {\(0\)} -- (-0.8, 2.4) 
+          node [left] {\(f(0)\)};
+  }
+}
+
+\newcommand{\continuitagraficoa}{%
+  \def \xc{2}
+  \def \yc{-1}
+  \disegno{
+    \rcom{-3}{+7}{-4}{+5}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-3.3,xmax=+7.3,ymin=-4.3,ymax=+5.3]
+    \tkzFct[domain=-3.3:2, ultra thick, color=green!50!black]
+         {.5*x - 2}
+    \tkzFct[domain=2:+7.3, ultra thick, color=green!50!black]
+         {x**2-6*x+7}
+    \filldraw (\xc, \yc) [green!50!black] circle(1.5pt);
+    \microscopio{(\xc, \yc)}{1}{100}{290}{2}{(+2.4, +3.8)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=-0.73:+1.04, ultra thick, color=green!50!black]
+         {.5*x + 1.5}
+    \tkzFct[domain=+1.:+1.97, ultra thick, color=green!50!black]
+         {-2*x + 4}
+    \draw [thin, dashed, black] (-0.8, 2) 
+          node [left] {\(f(\xc)\)} -- 
+          (1, 2) -- (1, - 0.1) 
+          node [below ] {\(\xc\)};
+    \filldraw (\xc - 1, \yc + 3) [green!50!black] circle(1.5pt);
+  }
+}
+
+% \newcommand{\continuitagraficoa}{%
+%   \def \xc{2}
+%   \def \yc{-1}
+%   \disegno{
+%     \rcom{-5}{+7}{-7}{+7}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-5.3,xmax=+7.3,ymin=-7.3,ymax=+7.3]
+%     \tkzFct[domain=-5.3:2, ultra thick, color=green!50!black]
+%          {.5*x - 2}
+%     \tkzFct[domain=2:+7.3, ultra thick, color=green!50!black]
+%          {x**2-6*x+7}
+%     \filldraw (\xc, \yc) [green!50!black] circle(1.5pt);
+%     \microscopio{(\xc, \yc)}{1}{100}{290}{2}{(+2.2, +3.8)}
+%                 {\footnotesize \(\times \infty\)}
+%     \tkzFct[domain=-0.73:+1.04, ultra thick, color=green!50!black]
+%          {.5*x + 1.5}
+%     \tkzFct[domain=+1.:+1.97, ultra thick, color=green!50!black]
+%          {-2*x + 4}
+%     \draw [thin, dashed, black] (-0.8, 2) 
+%           node [left] {\footnotesize \(f(2)\)} -- 
+%           (1, 2) -- (1, - 0.1) 
+%           node [below ] {\footnotesize \(\xc\)};
+%     \filldraw (\xc - 1, \yc + 3) [green!50!black] circle(1.5pt);
+%   }
+% }
 
 \newcommand{\limitigraficoa}{% 
   \def \funzione{(x**2-6*x+5)/(x**2+2*x-3)}
   \disegno{
     \rcom{-18}{+15}{-10}{+10}{gray!50, very thin, step=1}
     \tkzInit[xmin=-18.3,xmax=+15.3,ymin=-10.3,ymax=+10.3]
-    \tkzFct[domain=-18.3:-3.1, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=-18.3:-3.1, ultra thick, color=brown!50!black]
          {\funzione}
-    \tkzFct[domain=-2.9:+15.3, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=-2.9:+15.3, ultra thick, color=brown!50!black]
          {\funzione}
   }
 }
@@ -100,7 +317,7 @@
   \draw (\xa, \ya) -- (\xd, \ya);
   \draw (\xa, \ya) -- (\xd, \ya);
   \draw [Green!50!black, ultra thick] (\xc, \yb) -- (\xb, \yb);
-  \draw [Maroon!50!black, ultra thick] (\xb, \ya) node [below] {\lab} -- 
+  \draw [brown!50!black, ultra thick] (\xb, \ya) node [below] {\lab} -- 
                                        (\xb, \yb);
   \draw (\xb, \yb) -- (\xb, \yc);
 }
@@ -108,7 +325,7 @@
 \newcommand{\limiteseno}{% 
 \disegno[20]{
   \rcom{-1.0}{+1.0}{-1.0}{+1.0}{gray!50, very thin, step=1}
-  \draw [Maroon!50!black, ultra thick] (0, 0) circle (1);
+  \draw [brown!50!black, ultra thick] (0, 0) circle (1);
   \draw [Green!50!black, ultra thick] (0, 0) -- (1.45, 0);
   \microscopio{(1, 0)}{.3}{40}{230}{.5}{(1.8, 1.2)}{\(\times \infty\)}
   \limmicx{1.14}{1.6}{1.07}{1.97}{.3}{.7}{1.08}{1}
@@ -172,22 +389,11 @@
   \disegno{
     \rcom{-3}{+3}{-3}{+3}{gray!50, very thin, step=1}
     \tkzInit[xmin=-3.3,xmax=+3.3,ymin=-3.3,ymax=+3.3]
-    \tkzFct[domain=-2.9:+0.91, thick, color=Maroon!50!black]
+    \tkzFct[domain=-2.9:+0.91, thick, color=brown!50!black]
          {\funzione}
-    \tkzFct[domain=+1.1:+3.3, thick, color=Maroon!50!black]
+    \tkzFct[domain=+1.1:+3.3, thick, color=brown!50!black]
          {\funzione}
-    \draw [Maroon!50!black] (1, -1) circle (2pt);
-  }
-}
-
-\newcommand{\continuitagraficoa}{%7
-  \disegno{
-    \rcom{-5}{+7}{-7}{+7}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-5.3,xmax=+7.3,ymin=-7.3,ymax=+7.3]
-    \tkzFct[domain=-5.3:2, ultra thick, color=Maroon!50!black]
-         {.5*x - 2}
-    \tkzFct[domain=2:+7.3, ultra thick, color=Maroon!50!black]
-         {x**2-6*x+7}
+    \draw [brown!50!black] (1, -1) circle (2pt);
   }
 }
 
@@ -195,18 +401,18 @@
   \disegno{
     \rcom{-12}{+12}{-7}{+7}{gray!50, very thin, step=1}
     \tkzInit[xmin=-12.3,xmax=+12.3,ymin=-7.3,ymax=+7.3]
-    \tkzFct[domain=-12.3:-2.1, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=-12.3:-2.1, ultra thick, color=brown!50!black]
          {x/(x + 2)-2}
-    \tkzFct[domain=-1.9:+0.9, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=-1.9:+0.9, ultra thick, color=brown!50!black]
          {x/(x + 2)-2}
-    \tkzFct[domain=1:+3.95, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=1:+3.95, ultra thick, color=brown!50!black]
          {x**2-6*x+7}
-    \tkzFct[domain=+4.05:5, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=+4.05:5, ultra thick, color=brown!50!black]
          {x**2-6*x+7}
-    \tkzFct[domain=+5:12.3, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=+5:12.3, ultra thick, color=brown!50!black]
          {1/(x-4)+1}
-    \filldraw [Maroon!50!black] (1, 2) circle (2pt);
-    \draw [Maroon!50!black] (1, -1.7) circle (2pt);
-    \draw [Maroon!50!black] (4, -1) circle (2pt);
+    \filldraw [brown!50!black] (1, 2) circle (2pt);
+    \draw [brown!50!black] (1, -1.7) circle (2pt);
+    \draw [brown!50!black] (4, -1) circle (2pt);
   }
 }

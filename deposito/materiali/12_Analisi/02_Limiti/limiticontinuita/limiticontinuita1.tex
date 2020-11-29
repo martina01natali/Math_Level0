@@ -22,19 +22,30 @@ Tanto è maggiore il numero dei punti considerati, tanto più ricca è
 l'informazione che si ricava. 
 
 Non solo, ma si possono fare delle considerazioni, più o meno attendibili, 
-sull'andamento globale del fenomeno confrontando a due a due tutti i valori 
-rilevati, cosa possibile proprio perché questi dati sono in numero finito.
+sull'andamento globale del fenomeno confrontando a due a due i valori 
+rilevati.
 }
-{
-\scalebox{1}{\partizionen}
-}
+{\scalebox{1}{\partizionen}}
 
-\vspace{.5em}
-Abbiamo detto che la curva deve essere \emph{sufficientemente regolare},
-ma cosa significa?
+Se la funzione è poco regolare, tracciare solo i punti corrispondenti ad 
+alcuni valori può servirci poco.
+Consideriamo la seguente funzione definita nell'intervallo 
+\(\intervcc{a}{b}\).
+
+\affiancati{.49}{.49}
+{\scalebox{1}{\puntigraficodiscontinuo}}
+{\scalebox{1}{\graficodiscontinuo}}
+
+Se nel grafico ci sono dei salti, come 
+tra \(x_2\) e \(x_3\) e tra \(x_5\) e \(x_6\), risulta difficile tracciarla 
+basandosi solo sui punti individuati, anche aumentando il loro numero.
+
+Abbiamo detto che la curva deve essere ``sufficientemente regolare'',
+ma cosa significa essere \emph{sufficientemente regolare}?
 
 Nella prossima sezione parleremo di un certo tipo di regolarità molto 
 importante che è la continuità di una funzione in un intervallo.
+% \vspace{.5em}
 
 \subsection{Definizione di continuità in un punto}
 \label{subsec:cont_definizione}
@@ -43,15 +54,11 @@ Intuitivamente possiamo dire che una funzione è
 \emph{continua in un intervallo} 
 se è rappresentata da una linea senza interruzioni e salti
 
-\affiancati{.59}{.39}
-{\scalebox{1}{\partizionen}} % TODO funzione discontinua
-{\scalebox{1}{\partizionen}} % TODO funzione continua
-
 Per precisare questo concetto, partiamo da definire cos'è una funzione 
 \emph{continua in un punto} interno al suo insieme di definizione.
 
 \begin{definizione}
-Diremo che una funzione è \textbf{continua} in un punto \(c\) non isolato, 
+Diremo che una funzione è \textbf{continua in un punto \(c\)} non isolato, 
 se è definita in \(c\) e, 
 quando \(x\) è infinitamente vicino a \(c\), 
 allora \(f(x)\) è infinitamente vicino a \(f(c)\). 
@@ -60,34 +67,40 @@ allora \(f(x)\) è infinitamente vicino a \(f(c)\).
 E si scrive \(f\) è continua nel punto \(c\) se: \hspace{12mm}
 \(\forall x \approx c \quad f(x) \approx f(c)\)
 
-\vspace{1em}
+\vspace{.5em}
 oppure: \hspace{58mm}
 \(\forall \epsilon \approx 0 \quad f(c + \epsilon) \approx f(c)\)
 
-\vspace{1em}
-o ancora: \hspace{56mm}
+\vspace{.5em}
+oppure: \hspace{58mm}
 \(\forall \epsilon \approx 0 \quad f(c + \epsilon) - f(c) \approx 0\)
+
+\vspace{.5em}
+o ancora: \hspace{56mm}
+\(\forall x \approx c \quad \pst{f(x)} = f(c)\)
 \end{definizione}
 
 \begin{esempio}
 Data la funzione \(f(x)=x^2-3x\) dimostrare che \(f(x)\) è continua in~4.
- 
-La funzione è continua in~4 se per ogni \(x\) infinitamente vicino a~4 
-\(f(x)\) è infinitamente vicino a \(f(4)\), cioè se 
-\(f(4 + \epsilon) - f(4) = \delta\), dove \(\epsilon\) e \(\delta\) sono due 
-infinitesimi.
 
-% TODO un disegno per ogni esempio!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+\affiancati{.59}{.39}
+{
+La funzione è continua in~4 se per ogni \(x\) infinitamente vicino a~4 
+\(f(x)\) è infinitamente vicino a \(f(4)\), cioè se \(\forall \epsilon\)
+\(f(4 + \epsilon) - f(4) \approx 0\)
 
 \emph{Dimostrazione}
 \begin{align*}
 f(4+\epsilon) - f(4) &= 
 \tonda{4+\epsilon}^2-3\tonda{4+\epsilon}-\tonda{4^2-3\cdot 4}=\\
 &=\cancel{16}+8\epsilon+\epsilon^2\cancel{-12} 
-  -3\epsilon\cancel{-16}\cancel{+12} = 
-  +8\epsilon+\epsilon^2 -3\epsilon = 
+  -3\epsilon\cancel{-16}\cancel{+12} = \\
+&=+8\epsilon+\epsilon^2 -3\epsilon = 
 \epsilon \tonda{5 + \epsilon}
 \end{align*}
+}{
+\scalebox{1}{\contprimo}
+}
 Ora, il prodotto tra un infinitesimo e un finito è un infinitesimo, quindi, 
 se la distanza tra \(x\) e \(4\) è infinitesima, anche la distanza tra 
 \(f(x)\) e \(f(4)\) è infinitesima. \hfill \(\qed\) 
@@ -95,53 +108,94 @@ se la distanza tra \(x\) e \(4\) è infinitesima, anche la distanza tra
 \end{esempio}
 
 \begin{esempio}
- Dimostrare che \(f(x)=\frac{\abs{x}}{x}\) non è continua in~0.
- 
+Dimostrare che \(f(x)=\frac{\abs{x}}{x}\) non è continua in~0.
+
+\affiancati{.59}{.39}
+{
 \emph{Dimostrazione}\\
 Perché una funzione sia continua per un certo valore di \(x\) 
 lì deve essere definita. 
-Quindi non è continua dato che \(0\) non appartiene all'insieme di 
-definizione.
+
+Quindi \(f(x)\) non è continua dato che \(0\) non appartiene al suo insieme 
+di definizione.
+
+Per essere pignoli, non ha neppure molto senso chiedersi se una funzione sia 
+continua in un punto dove non è neppure definita!
+}{
+\scalebox{1}{\contsecondo}
+}
 \end{esempio}
 
+% \newpage
+
 \begin{esempio}
- Dimostrare che \(f(x)=\frac{\abs{x}}{4}\) è continua in~0.
- 
+Continuità in zero della funzione \emph{segno}:
+\(f(x)=\begin{cases} 
+    -1 & \text{se } x < 0 \\ 
+     0 & \text{se } x = 0 \\ 
+    +1 & \text{se } x > 0
+  \end{cases}
+\)
+
+\affiancati{.59}{.39}
+{
+\emph{Dimostrazione}\\
+La funzione non è continua in \(0\) dato che ci sono dei valori 
+\(x\) infinitamente vicini a \(0\) ma tali che \(f(x)\) non è infinitamente 
+vicino a \(f(0)\). 
+
+Anzi, c'è un solo valore \(x\) infinitamente vicino a \(0\) che è anche 
+infinitamente vicino a \(f(0)\), ed è \(0\) stesso, tutti gli altri 
+\(x \approx 0\) hanno una distanza da \(f(0)\)  non infinitesima.
+}{
+\scalebox{1}{\fsegno}
+}
+\end{esempio}
+
+\affiancati{.59}{.39}
+{
+\begin{esempio}
+ Dimostrare che \(f(x)=\frac{\abs{x}}{4}\) è continua in \(0\).
+
 \emph{dimostrazione}:
 \[f(\epsilon) - f(0) = \frac{\abs{\epsilon}}{4} - \frac{\abs{0}}{4} = 
  \frac{\abs{\epsilon}}{4} \approx 0\]
 \end{esempio}
+}{
+\scalebox{1}{\contterzo}
+}
 
 \begin{esempio}
-Studia la continuità della funzione 
+Studia la continuità in \(x_0=2\) della funzione: 
 \(y=\begin{cases} 
-    \dfrac{1}{2}x-2 & \text{se }x \leqslant 2 \\ 
-    x^2-6x+7 & \\text{se }x > 2
+    \dfrac{1}{2}x-2 & \text{se } x \leqslant 2 \\ 
+    x^2-6x+7 & \text{se } x > 2
   \end{cases}\)
-\quad in \(x_0=2\)
 
-La funzione è definita per \(x=2\) e vale:\\
+Per prima cosa dobbiamo verificare che la funzione sia definita per 
+per \(x=2\) e trovare il suo valore:\\
 \(f(2) = \dfrac{1}{2} \cdot 2-2 = -1\)\\
-Dobbiamo  verificare che, se \(x\) è infinitamente vicino a~\(2\) allora 
-\(f(x)\) sia infinitamente vicino a~\(-1\).
+Dobbiamo quindi verificare che, se \(x\) è infinitamente vicino a~\(2\) 
+allora \(f(x)\) sia infinitamente vicino a~\(f(2) = -1\).
+
+Dobbiamo distinguere i casi in cui ci avviciniamo a~2 da sinistra o da 
+destra. In entrambi i casi consideriamo \(\epsilon\) positivo e esplicitiamo 
+il segno:
 
 \begin{minipage}{.49\textwidth}
-Dobbiamo distinguere i casi in cui ci avviciniamo a~2 da sinistra o da 
-destra. In entrambi i casi consideriamo \(epsilon\) positivo e esplicitiamo 
-il segno:
 \begin{description}
  \item [da sinistra:]
  ~\\
 \(f(2-\epsilon) - f(2) =
   \dfrac{1}{2} \cdot \tonda{2-\epsilon}-2-\tonda{-1} =\)\\
-\(= 1 - \dfrac{\epsilon}{2} -2 +1 = -\dfrac{\epsilon}{2}\)\\
+\(= 1 - \dfrac{\epsilon}{2} -2 +1 = -\dfrac{\epsilon}{2}\)\\ 
 Che è un infinitesimo.
  \item [da destra:]
  ~\\
 \(f(2+\epsilon) - f(2) =\)\\
 \(\tonda{2+\epsilon}^2-6 \cdot \tonda{2+\epsilon}+7-\tonda{-1} =\)\\
 \(4+4\epsilon+\epsilon^2-12-6 \epsilon+7+1 =\)\\
-\(\epsilon^2-2 \epsilon =\)\\
+\(\epsilon^2-2 \epsilon\) \quad
 Che è un infinitesimo.
 \end{description}
 \end{minipage}
@@ -158,11 +212,11 @@ affermazioni sono equivalenti:
  \item \(f\) è continua in \(c\);
  \item se \(x \approx c\) allora \(f(x) \approx f(c)\);
  \item se \(\st(x) = c\) allora \(\st(f(x)) = f(c)\);
- \item \(\lim_{x \to c} f(x) = f(c)\);
+%  \item \(\lim_{x \to c} f(x) = f(c)\);
  \item se \(x\) si allontana da \(c\) di un infinitesimo allora 
    \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
- \item se \(\Delta x\) è infinitesimo allora il corrispondente \(\Delta y\) 
-   è infinitesimo.
+%  \item se \(\delta x\) è infinitesimo allora il corrispondente \(\delta y\) 
+%    è infinitesimo.
 \end{enumerate}
 
 \begin{comment}
@@ -204,6 +258,8 @@ teoremi.
 
 \subsubsection{Funzioni elementari}
 \label{subsubsec:cont_funzionielementari}
+
+% TODO un disegno per ogni esempio!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Dimostriamo la continuità di alcune funzioni elementari.
 
