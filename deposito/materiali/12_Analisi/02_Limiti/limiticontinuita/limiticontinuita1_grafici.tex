@@ -272,30 +272,93 @@
   }
 }
 
-% \newcommand{\continuitagraficoa}{%
-%   \def \xc{2}
-%   \def \yc{-1}
-%   \disegno{
-%     \rcom{-5}{+7}{-7}{+7}{gray!50, very thin, step=1}
-%     \tkzInit[xmin=-5.3,xmax=+7.3,ymin=-7.3,ymax=+7.3]
-%     \tkzFct[domain=-5.3:2, ultra thick, color=green!50!black]
-%          {.5*x - 2}
-%     \tkzFct[domain=2:+7.3, ultra thick, color=green!50!black]
-%          {x**2-6*x+7}
-%     \filldraw (\xc, \yc) [green!50!black] circle(1.5pt);
-%     \microscopio{(\xc, \yc)}{1}{100}{290}{2}{(+2.2, +3.8)}
-%                 {\footnotesize \(\times \infty\)}
-%     \tkzFct[domain=-0.73:+1.04, ultra thick, color=green!50!black]
-%          {.5*x + 1.5}
-%     \tkzFct[domain=+1.:+1.97, ultra thick, color=green!50!black]
-%          {-2*x + 4}
-%     \draw [thin, dashed, black] (-0.8, 2) 
-%           node [left] {\footnotesize \(f(2)\)} -- 
-%           (1, 2) -- (1, - 0.1) 
-%           node [below ] {\footnotesize \(\xc\)};
-%     \filldraw (\xc - 1, \yc + 3) [green!50!black] circle(1.5pt);
-%   }
-% }
+\newcommand{\continuitaintervalli}{%
+  \def \fa{.5*\x+1.5}
+  \def \fb{-.5*\x*\x+4*\x-2}
+  \def \fc{1./(\x-\xc)}
+  \def \mix{0}
+  \def \max{10}
+  \def \miy{0}
+  \def \may{7}
+  \def \xa{0.3}
+  \def \xb{2.8}
+  \def \xc{5.4}
+  \def \xd{8.8}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \begin{scope} [ultra thick, green!50!black]
+      \tkzFct[domain=\mix-0.3:\xb] {\fa}
+      \tkzFct[domain=\xb:\xc] {\fb}
+      \tkzFct[domain=\xc+.1:\max+0.3] {\fc}
+    \filldraw (\xb, 2.9) [fill=white] circle(1.5pt);
+    \foreach \xp/\yp/\lab in {\xa/1.65/a, \xb/5.28/b, 
+                              \xc/5.02/c, \xd/.294/d}{
+      \draw [thick, dotted, black] (\xp, 0) -- (\xp, \may+0.3);
+      \node [above, black] at (\xp, -1) {\(\lab\)};
+      \filldraw [thick] (\xp, \yp) circle(1.5pt);
+    }
+    \end{scope}
+  }
+}
+
+\newcommand{\continuitafcostante}{%
+  \def \fa{+2.5}
+  \def \fam{+5.3}
+  \def \mix{0}
+  \def \max{8}
+  \def \miy{0}
+  \def \may{7}
+  \def \xp{3.5}
+  \def \yp{2.5}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+    \node at (-.5, 3.5) [black] {\(k\)};
+    \microscopio{(\xp, \yp)}{1}{60}{250}{2}{(\xp+3, \yp+4.4)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=\xp-0.8:\xp+3.15, ultra thick, green!50!black] {\fam}
+  }
+}
+
+\newcommand{\continuitafidentica}{%
+  \def \fa{x}
+  \def \fam{x-4}
+  \def \mix{0}
+  \def \max{8}
+  \def \miy{0}
+  \def \may{7}
+  \def \xp{3.5}
+  \def \yp{3.5}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+    \microscopio{(\xp, \yp)}{1}{-60}{-200}{2}{(\xp+4.4, \yp-3.1)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=\xp+1.0:\xp+3.85, ultra thick, green!50!black] {\fam}
+  }
+}
+
+\newcommand{\continuitafseno}{%
+  \def \fa{sin(x)}
+  \def \fam{-4./5*x+0.8}
+  \def \mix{-4}
+  \def \max{+7}
+  \def \miy{-1}
+  \def \may{+1}
+  \def \xp{2.6}
+  \def \yp{0.5}
+  \disegno[8]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+    \microscopio{(\xp, \yp)}{.5}{-135}{40}{1}{(\xp-0.2, \yp-1.9)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=\xp-1.85:\xp-0.3, ultra thick, green!50!black] {\fam}
+  }
+}
 
 \newcommand{\limitigraficoa}{% 
   \def \funzione{(x**2-6*x+5)/(x**2+2*x-3)}

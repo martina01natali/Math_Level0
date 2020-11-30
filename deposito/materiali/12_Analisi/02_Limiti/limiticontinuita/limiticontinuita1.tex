@@ -229,29 +229,64 @@ Se una funzione è derivabile in un punto allora è continua in quel punto.
 \tab Tesi: 
 \(f(x) \text{ è continua in } c\).
 
-\begin{proof}
+\emph{Dimostrazione}
 TODO
-\end{proof}
+
 \end{comment}
 
-\subsection{Definizione di continuità in un intervallo}
+\subsection{Continuità in un intervallo}
+\label{subsec:cont_definizione}
+
+Nello sviluppo dell'analisi hanno grande importanza le funzioni 
+\(f\) puntualmente continue in \emph{ciascun} punto di un intervallo chiuso 
+\(\intervcc{a}{b}\).
+
+Diremo che una funzione \(f\) è puntualmente continua nell'intervallo 
+\(\intervcc{a}{b}\) se è \emph{continua in ogni punto \(c\)} dell'intervallo:
+\[f(x) \approx f(c) \stext{per ogni} x \stext{tale che} 
+x \in \intervcc{a}{b} \stext{e} x \approx c.\] 
+In questo caso diremo semplicemente che 
+\begin{center}
+la funzione \(f\) è continua nell'intervallo \(\intervcc{a}{b}\). 
+\end{center}
+Per i punti \(c\) interni all’intervallo \(\intervcc{a}{b}\)
+questa affermazione equivale a dire che per ogni infinitesimo \(\epsilon\) 
+si ha che \(f(c+\epsilon) \approx f(c)\), 
+mentre per gli estremi dell’intervallo ci si accontenterà di dire che per 
+ogni infinitesimo \emph{positivo} \(\epsilon\) si ha che 
+\(f(a+\epsilon) \approx f(a)\) e \(f(b-\epsilon) \approx f(b)\) 
+(cioè \(\epsilon > 0 \stext{ e } \pst{f(a+\epsilon)} = f(a)
+\stext{ e } \pst{f(b-\epsilon)} = f(b)\)).
+
+\affiancati{.49}{.49}{
+Ad esempio la funzione rappresentata qui a fianco, è continua nell'intervallo 
+chiuso \(\intervcc{b}{c}\) ma non lo è negli intervalli chiusi 
+\(\intervcc{a}{b}\) e \(\intervcc{c}{d}\). 
+
+Si può dire comunque che è continua negli intervalli aperti:
+\(\intervaa{a}{b}\) e \(\intervaa{c}{d}\). 
+
+}{
+\begin{center}\continuitaintervalli\end{center}
+}
+
+\subsection{Funzioni continue}
 \label{subsec:cont_definizione}
 
 Dimostrare che una funzione è continua in un punto è piuttosto laborioso, 
 pur non essendo complicato, ma quando sono interessato a studiare la 
 continuità di una funzione in un intervallo sorge un ulteriore problema. 
 Infatti in un intervallo, anche piccolo, i punti sono infiniti e dimostrare 
-la continuità per ognuno di essi risulta piuttosto lungo\dots.
+la continuità per ognuno di essi risulta piuttosto lungo\dots
 
 Per superare questo scoglio, i matematici hanno pensato un approccio 
 diverso:
-
-\begin{itemize}
- \item dimostrare che alcune funzioni elementari sono continue;
- \item dimostrare che la combinazione di funzioni continue è ancora una 
+\begin{itemize} [noitemsep]
+\item dimostrare che alcune funzioni elementari sono continue nel loro 
+insieme di definizione;
+\item dimostrare che la combinazione di funzioni continue è ancora una 
 funzione continua.
 \end{itemize}
-
 In questo modo si può riconoscere la continuità di un gran numero di 
 funzioni senza fare noiosi calcoli. Di seguito vediamo qualcuno di questi 
 teoremi.
@@ -259,73 +294,89 @@ teoremi.
 \subsubsection{Funzioni elementari}
 \label{subsubsec:cont_funzionielementari}
 
-% TODO un disegno per ogni esempio!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 Dimostriamo la continuità di alcune funzioni elementari.
 
 \begin{teorema}[Continuità delle costanti]
-Le funzioni costanti sono continue.
+Le funzioni costanti (\(f(x) = k\)) sono continue.
 \end{teorema}
 
-\noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f(x)\) è continua.
+Ipotesi: \(f(x)=k\).\tab Tesi: \(f(x)\) è continua.
 
-\begin{proof}
+\newpage %----------------------------------------------------
+
+\noindent \emph{Dimostrazione}
 Per la definizione di continuità vogliamo dimostrare che 
+
+\affiancati{.49}{.49}{
 \[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
 Poniamo \(x_0=x+\epsilon\), essendo la funzione costante, anche 
 \[f(x+\epsilon)=k\] 
-che, ovviamente, è infinitamente vicino a \(k\). In simboli:
-\[f(x+\epsilon) = k \approx k = f(x)\] 
-\end{proof}
+che, ovviamente, è infinitamente vicino a \(f(x) = k\). 
+In simboli:
+\[f(x+\epsilon) = k \approx k = f(x) \quad \qed\] 
+}{
+\begin{center} \continuitafcostante \end{center}
+}
 
 \begin{teorema}[Continuità della funzione identica]
-La funzione identica (\(y=x\)) è continua.
+La funzione identica (\(f(x) = x\)) è continua.
 \end{teorema}
 
 \noindent Ipotesi: \(f(x)=x\).\tab Tesi: \(f(x)\) è continua.
 
-\begin{proof}
+\emph{Dimostrazione}
 Per la definizione di continuità vogliamo dimostrare che 
+
+\affiancati{.49}{.49}{
 \[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
 Poniamo \(x_0=x+\epsilon\), \(f(x_0) = f(x+\epsilon)=x+\epsilon\). 
 Dato che la differenza:
 \[f(x+\epsilon)-f(x) = x+\epsilon-x= \epsilon\]
 è un infinitesimo, allora i due valori sono infinitamente vicini. 
 In simboli:
-\[f(x+\epsilon) = x+\epsilon \approx x = f(x)\] 
-\end{proof}
+\[f(x+\epsilon) = x+\epsilon \approx x = f(x) \quad \qed\] 
+}{
+\begin{center} \continuitafidentica \end{center}
+}
+
+\begin{comment}
+% TODO un disegno per ogni esempio!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+\affiancati{.49}{.49}{
+}{
+\begin{center}  \end{center}
+}
+\end{comment}
 
 \begin{teorema}[Continuità della funzione seno]
-La funzione seno (\(y=\sen x\)) è continua.
+La funzione seno (\(f(x) = \sen x\)) è continua.
 \end{teorema}
 
 \noindent Ipotesi: \(f(x)=\sen x\).\tab Tesi: \(f(x)\) è continua.
 
-\begin{proof}
-Usando la formula del seno della somma di due angoli:
+\begin{center} \continuitafseno \end{center}
+
+\noindent \emph{Dimostrazione}
+Usando la formula del seno della somma di due angoli e ricordando che 
+\(\sen \epsilon \approx 0 \stext{e} \cos \epsilon \approx 1\),
+abbiamo:
 \[f(x+\epsilon) =
-\sen{(x+\epsilon)} = \sen x \cos \epsilon + \cos x \sen \epsilon\]
-Se un angolo è infinitamente vicino a zero avrà il coseno infinitamente 
-vicino a uno e il seno infinitamente vicino a zero. Quindi:
-\[\sen{(x+\epsilon)} = \sen x + \delta\]
-Perciò:
-\[f(x+\epsilon) =
-\sen{(x+\epsilon)} = \sen{(x+\epsilon)} = 
-\sen x + \delta \approx \sen x = f(x)\]
-\end{proof}
-% 
+\sen{(x+\epsilon)} = \sen x \cos \epsilon + \cos x \sen \epsilon = 
+\sen x \cdot (1 + \delta) + \cos x \cdot \gamma \approx
+\sen x = f(x)\]
+% TODO
 % \begin{teorema}[Continuità della funzione esponenziale]
 % La funzione esponenziale (\(y=a^x\)) è continua.
 % \end{teorema}
 % 
 % \noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
 % 
-% \begin{proof}
+% \emph{Dimostrazione}
 % Usando la prima proprietà delle potenze:
 % \[f(x+\epsilon) =
 % a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = a^{x} \cdot \tonda{1 + \delta} 
 % \approx a^{x} = f(x)\]
-% \end{proof}
+% 
 
 %---------- tentativi inutili
 % \nopagebreak
@@ -386,16 +437,17 @@ Se \(f\) e \(g\) sono funzioni continue, anche \(f+g\) è continua.
 \end{teorema}
 
 \noindent Ipotesi: 
-\(f(x) \text{ e} g(x)\) sono continue
+\(f(x) \stext{e} g(x)\) sono continue
 \tab Tesi: 
 \(f(x)+g(x)\) è continua.
 
-\begin{proof}
-Dato che sono continue: 
-\[f(x+\epsilon) + g(x+\epsilon) = f(x)+\alpha + g(x)+\beta\]
-Ma la somma di due infinitesimi è ancora un infinitesimo quindi:
-\[f(x)+g(x)+\tonda{\alpha + \beta} \approx f(x)+g(x)\]
-\end{proof}
+\emph{Dimostrazione}
+Dato che sono continue, 
+\(f(x+\epsilon) = f(x)+\alpha \stext{ e } g(x+\epsilon) = g(x)+\beta\) \\
+e dato che la somma di infinitesimi è un infinitesimo:
+\[f(x+\epsilon) + g(x+\epsilon) = 
+\tonda{f(x)+\alpha} + \tonda{g(x)+\beta} = 
+f(x)+g(x)+\tonda{\alpha + \beta} \approx f(x)+g(x) \qed\]
 
 \begin{teorema}[Prodotto di funzioni continue]
 Se \(f\) e \(g\) sono funzioni continue, anche \(f \cdot g\) è continua.
@@ -406,50 +458,46 @@ Se \(f\) e \(g\) sono funzioni continue, anche \(f \cdot g\) è continua.
 \tab Tesi: 
 \(f(x) \cdot g(x)\) è continua.
 
-\begin{proof}
-Dato che sono continue: 
+\emph{Dimostrazione}
+Dato che sono continue e dato che il prodotto tra un numero finito e un 
+infinitesimo è un infinitesimo: 
 \[f(x+\epsilon) \cdot g(x+\epsilon) = 
 \tonda{f(x)+\alpha} \cdot \tonda{g(x)+\beta} = 
 f(x) \cdot g(x) + f(x) \cdot \beta + g(x) \cdot \alpha + \alpha \cdot \beta
 \approx f(x) \cdot g(x)\]
-
-Dato che sia il prodotto tra un numero finito e un infinitesimo, sia il 
-prodotto tra due infinitesimi sono infinitesimi e lo è anche la loro somma. 
-\end{proof}
+\qed
 
 \begin{corollario}
  Ogni funzione polinomiale è continua.
 \end{corollario}
 
-\begin{proof}
+\emph{Dimostrazione}
 Dato che una funzione polinomiale si può ottenere partendo da funzioni 
 costanti e da funzioni identiche attraverso moltiplicazioni e addizioni, 
-la tesi consegue dai teoremi precedenti. 
-\end{proof}
+la tesi consegue dai teoremi precedenti. \qed
 
 \begin{esempio}
  Dimostrare che \(f(x)=2x^2 + 3\) è una funzione continua.
 
-\begin{proof}
-
+\emph{Dimostrazione}
 \(f(x)=2x^2 + 3\) è continua perché è somma di due funzioni continue: 
 % \begin{itemize}[noitemsep]
 %  \item \(f(x)=2x^2 + 3\) è continua perché è somma di due funzioni 
 % continue: 
  \begin{itemize}[nosep]
-  \item \(y=2x^2\) è continua perché è prodotto di due funzioni continue:
+  \item \(2x^2\) è continua perché è prodotto di due funzioni continue:
   \begin{itemize}[nosep]
-   \item \(y=2\) è continua perché è una costante;
-   \item \(y=x^2\) è continua perché è prodotto di due funzioni continue:
+   \item \(2\) è continua perché è una costante;
+   \item \(x^2\) è continua perché è prodotto di due funzioni continue:
    \begin{itemize}[nosep]
-    \item \(y=x\) è continua perché è una funzione identica;
-    \item \(y=x\) è continua perché è una funzione identica;
+    \item \(x\) è continua perché è una funzione identica;
+    \item \(x\) è continua perché è una funzione identica;
    \end{itemize}
   \end{itemize}
-  \item \(y=3\) è continua perché è una costante;
+  \item \(3\) è continua perché è una costante. \qed
  \end{itemize}
 % \end{itemize}
-\end{proof}
+
 
 \end{esempio}
 
@@ -460,16 +508,16 @@ Se \(f(x)\) e \(g(x)\) sono funzioni continue, anche \(f(g(x))\) è continua.
 \noindent Ipotesi: 
 \(f(x) \text{ e} g(x)\) sono continue
 \tab Tesi: 
-\(f(x) \star g(x) = f(g(x))\) è continua.
+\(f(g(x))\) è continua.
 
-\begin{proof}
+\emph{Dimostrazione}
 Dato che \(g\) è continua: 
 \[f(g(x+\epsilon)) = f(g(x)+\alpha)\]
 e dato che \(f\) è continua: 
 \[f(g(x)+\alpha)=f(g(x))+\beta\]
 quindi: 
-\[f(g(x+\epsilon)) = f(g(x)+\alpha) = f(g(x))+\beta \approx f(g(x))\]
-\end{proof}
+\[f(g(x+\epsilon)) = f(g(x)+\alpha) = f(g(x))+\beta \approx f(g(x)) \qed\]
+
 
 \section{Limiti}
 \label{sec:cont_limiti}
