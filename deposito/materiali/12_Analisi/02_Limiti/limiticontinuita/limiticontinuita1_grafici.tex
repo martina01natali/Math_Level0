@@ -487,10 +487,81 @@
   \disegno{
     \rcom{-18}{+15}{-10}{+10}{gray!50, very thin, step=1}
     \tkzInit[xmin=-18.3,xmax=+15.3,ymin=-10.3,ymax=+10.3]
-    \tkzFct[domain=-18.3:-3.1, ultra thick, color=brown!50!black]
+    \tkzFct[domain=-18.3:-3.1, ultra thick, color=orange!50!black]
          {\funzione}
-    \tkzFct[domain=-2.9:+15.3, ultra thick, color=brown!50!black]
+    \tkzFct[domain=-2.9:+15.3, ultra thick, color=orange!50!black]
          {\funzione}
+  }
+}
+
+\newcommand{\limitigraficob}{% 
+  \def \funzione{(x**2-6*x+5)/(x**2+2*x-3)}
+  \disegno{
+    \rcom{-3}{+3}{-3}{+3}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-3.3,xmax=+3.3,ymin=-3.3,ymax=+3.3]
+    \tkzFct[domain=-2.9:+0.91, ultra thick, color=orange!50!black]
+         {\funzione}
+    \tkzFct[domain=+1.1:+3.3, ultra thick, color=orange!50!black]
+         {\funzione}
+    \draw [orange!50!black] (1, -1) circle (2pt);
+  }
+}
+
+\newcommand{\limitefinitodef}{%
+  \def \fa{+.25*\x*\x-0.25*\x+0}
+  \def \fb{+.25*\x*\x-2*\x+6}
+  \def \fma{+0.75*x-3}
+  \def \fmba{+2.*x-2.5}
+  \def \fmbb{+0.25*x-1.5}
+  \def \mix{-1}
+  \def \max{9}
+  \def \miy{-2}
+  \def \may{7}
+  \def \xa{2.}
+  \def \ya{0.5}
+  \def \xb{4.5}
+  \def \yba{3.938}
+  \def \ybb{2.062}
+%   \def \xb{6.5}
+%   \def \yba{1.562}
+%   \def \ybb{2.438}
+%   \def \xp {5}
+%   \def \yp {3.75}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-1.8,ymax=\may+1.3]
+    \begin{scope} [ultra thick, orange!50!black]
+      \tkzFct[domain=\mix-0.3:\xb] {\fa}
+      \tkzFct[domain=\xb:\max+0.3] {\fb}
+      \foreach \xp/\yp in {\xa/\ya, \xb/\yba, \xb/\ybb}{
+        \filldraw [thick, fill=white] (\xp, \yp) circle(1.5pt);}
+      \foreach \xp/\yp/\labx/\laby in {\xa/\ya/a/L, 
+                                       \xb/\yba/b/N}{
+        \draw [thick, dotted, black] (0, \yp) 
+          node [left] {\(\laby\)} -- (\xp, \yp) -- (\xp, 0)
+          node [below] {\(\labx\)};}
+      \draw [thick, dotted, black] (0, \ybb) 
+        node [left] {\(M\)} -- (\xb, \ybb);
+%       \foreach \xp/\yp/\lab in {\xa/\yab/a, \xb/\ybb/b}{
+%         \draw [thick, dotted, black] (\xp, 0) -- (\xp, \may+0.3);
+%         \node [above, black] at (\xp, -1) {\(\lab\)};
+%         \filldraw [thick] (\xp, \yp) circle(1.5pt);
+%       }
+    \end{scope}
+    \microscopio{(\xa, \ya)}{1}{-130}{75}{2}{(\xa-3.0, \ya-4.3)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=\xa-2.67:\xa+0.53, ultra thick, orange!50!black] {\fma}
+    \microscopio{(\xb, \yba)}{.7}{80}{-85}{2}{(\xb+2.0, \yba+4.2)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=\xb-0.85:\xb, ultra thick, orange!50!black] {\fmba}
+    \microscopio{(\xb, \ybb)}{1}{-50}{145}{2}{(\xb+4., \ybb-3.8)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=\xb+2:\xb+4.2, ultra thick, orange!50!black] {\fmbb}
+      \foreach \xp/\yp/\lab in {.8/-2.4/{\tonda{a;~L}}, 
+                                \xb/6.5/{\tonda{b;~N}}, 
+                                \xb+2/+.125/{\tonda{b;~M}}}{
+        \filldraw [thick, orange!50!black, fill=white] 
+          (\xp, \yp) circle(1.5pt) node [above] {\(\lab\)};}
   }
 }
 
@@ -566,19 +637,6 @@
     \tkzFct[domain=+1.6:+3.8, ultra thick, color=Green!50!black]
          {tan(x)}
     \node at (0, -4.8) {$y=\tan x$};
-  }
-}
-
-\newcommand{\limitigraficob}{% 
-  \def \funzione{(x**2-6*x+5)/(x**2+2*x-3)}
-  \disegno{
-    \rcom{-3}{+3}{-3}{+3}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-3.3,xmax=+3.3,ymin=-3.3,ymax=+3.3]
-    \tkzFct[domain=-2.9:+0.91, thick, color=brown!50!black]
-         {\funzione}
-    \tkzFct[domain=+1.1:+3.3, thick, color=brown!50!black]
-         {\funzione}
-    \draw [brown!50!black] (1, -1) circle (2pt);
   }
 }
 

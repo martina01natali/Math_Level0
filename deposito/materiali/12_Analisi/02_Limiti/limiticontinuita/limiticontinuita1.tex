@@ -639,10 +639,11 @@ Chi volesse approfondire l'argomento può scaricare il testo all'indirizzo:
 In alcuni problemi non siamo interessati a sapere come si comporta una 
 funzione per un valore ben preciso (dove magari non è neppure definita), ci 
 interessa di più sapere come si comporta quando la variabile \(x\) è 
-\emph{infinitamente vicina} a quel valore.
-Per un certo valore di \(x\) la funzione potrebbe anche \emph{non} essere 
-definita, ma cosa succede quando \(x\) si avvicina infinitamente a quel 
-valore?
+\emph{sufficientemente vicina} a quel valore.
+
+Detto altrimenti, cerchiamo di rispondere alla domanda: \\
+\emph{Per un certo valore di \(x\) la funzione potrebbe anche \emph{non} 
+essere definita, ma cosa succede quando \(x\) si avvicina a quel valore?}
 
 Vediamo un esempio:
 
@@ -659,7 +660,7 @@ L'insieme di definizione è formato quindi dai seguenti intervalli:
 \[\intervaa{-\infty}{-3} \quad \cup \quad 
 \intervaa{-3}{+1}\quad \cup \quad 
 \intervaa{+1}{-\infty} \qquad \text{oppure} \qquad
-\R - \{-3; +1\}\]
+\R \setminus \graffa{-3;~+1}\]
 Calcoliamo alcuni valori della funzione ``vicini'' ai 4 estremi 
 dell'Insieme di Definizione.
 
@@ -668,9 +669,9 @@ dell'Insieme di Definizione.
 \(-\infty\)\\
 \begin{tabular}{r|r}
 \(x\) & \(f(x)\quad\)\\\hline
--100 & 1.0824 \\
--1000 & 1.0080 \\
--10000 & 1.0008 \\
+\(-100\) & \(+1.0824\) \\
+\(-1000\) & \(+1.0080\) \\
+\(-10000\) & \(+1.0008\) \\
 \dots \\
 &\\
 &\\
@@ -683,13 +684,13 @@ dell'Insieme di Definizione.
 \(-3\)\\
 \begin{tabular}{r|r}
 \(x\) & \(f(x)\quad\)\\\hline
--2.9 & -79.0 \\
--2.99 & -799.0 \\
--2.999 & -7999.0 \\
+\(-2.9\) & \(-79.0\) \\
+\(-2.99\) & \(-799.0\) \\
+\(-2.999\) & \(-7999.0\) \\
 \dots \\
--3.001 & 8001.0 \\
--3.01 & 801.0 \\
--3.1 & 80.9 \\
+\(-3.001\) & \(+8001.0\) \\
+\(-3.01\) & \(+801.0\) \\
+\(-3.1\) & \(+80.9\) \\
 \end{tabular}
 \end{center}
 \end{minipage}
@@ -698,13 +699,13 @@ dell'Insieme di Definizione.
 \(+1\)\\
 \begin{tabular}{r|r}
 \(x\) & \(f(x)\quad\)\\\hline
-0.9 & -1.0512\\
-0.99 & -1.0050 \\
-0.999 & -1.0005 \\
+\(+0.9\) & \(-1.0512\)\\
+\(+0.99\) & \(-1.0050\) \\
+\(+0.999\) & \(-1.0005\) \\
 \dots \\
-1.001 & -0.9995 \\
-1.01 & -0.9950 \\
-1.1 & -0.9512 \\
+\(+1.001\) & \(-0.9995\) \\
+\(+1.01\) & \(-0.9950\) \\
+\(+1.1\) & \(-0.9512\) \\
 \end{tabular}
 \end{center}
 \end{minipage}
@@ -713,9 +714,9 @@ dell'Insieme di Definizione.
 \(+\infty\)\\
 \begin{tabular}{r|r}
 \(x\) & \(f(x)\quad\)\\\hline
-100 & 0.9223 \\
-1000 & 0.9920 \\
-10000 & 0.9992 \\
+\(+100\) & \(+0.9223\) \\
+\(+1000\) & \(+0.9920\) \\
+\(+10000\) & \(+0.9992\) \\
 \dots \\
 &\\
 &\\
@@ -725,17 +726,19 @@ dell'Insieme di Definizione.
 \end{minipage}
 Possiamo osservare che:
 \begin{itemize} [nosep]
- \item Quando \(x\) si avvicina a meno infinito, 
+ \item Quando \(x\) diventa sempre più piccolo 
+ (si avvicina a meno infinito), 
 \(f(x)\) si avvicina a~\(1\) dall'alto.
  \item Quando \(x\) si avvicina a~\(-3\) da sinistra, 
 \(f(x)\) diventa sempre più piccolo.
  \item Quando \(x\) si avvicina a~\(-3\) da destra, 
 \(f(x)\) diventa sempre più grande.
  \item Quando \(x\) si avvicina a~\(+1\) da sinistra, 
-\(f(x)\)  si avvicina a~\(-1\) dal basso.
- \item Quando \(x\) si avvicina a~\(+1\) da destra, 
 \(f(x)\)  si avvicina a~\(-1\) dall'alto.
- \item Quando \(x\) si avvicina a più infinito, 
+ \item Quando \(x\) si avvicina a~\(+1\) da destra, 
+\(f(x)\)  si avvicina a~\(-1\) dal basso.
+ \item Quando \(x\) diventa sempre più grande 
+ (si avvicina a più infinito), 
 \(f(x)\) si avvicina a~\(1\) dal basso.
 \end{itemize}
 \begin{center}\scalebox{.6}{\limitigraficoa}\end{center}
@@ -767,36 +770,75 @@ come nell'ingrandimento a fianco.
 \end{minipage}
 
 \vspace{1em}
-Prima della nascita dell'analisi non standard, per trattare queste 
-situazioni i matematici si sono inventati il concetto di 
+Un tempo si trattavano queste situazioni usando infinitesimi e infiniti in 
+modo non del tutto rigoroso.
+Alcuni matematici del 1800, rifiutandosi di usare infinitesimi e infiniti, 
+hanno ricostruito la matematica creata nei secoli precedenti usando il 
+concetto di
+% Per sopperire a questa mancanza di precisione, i matematici hanno inventato 
+% il concetto di limite.
+% Prima della nascita dell'analisi non standard, per trattare queste 
+% situazioni i matematici si sono inventati il concetto di 
 \emph{limite}.
 
-\begin{definizione}
-Il \textbf{limite} di una funzione \(f(x)\) per \(x\) 
-che tende a un valore \(c\) è \(l\),
-se, quando \(x\) è infinitamente vicino a \(c\), 
-ma diverso da \(c\), 
-allora \(f(x)\) è infinitamente vicino a \(l\). E si scrive:
-\[\lim_{x \rightarrow c} f(x) = l \Leftrightarrow 
-\forall x \tonda{\tonda{x \approx c \wedge x \neq c} \Rightarrow 
-\tonda{f(x) \approx l}}\]
-\end{definizione}
-\begin{osservazione}
-~
+Il concetto di limite perfezionato da Weierstrass è piuttosto complesso e lo 
+riprenderemo più avanti.
+Noi che usiamo numeri infinitesimi e infiniti diremo che
 
-\textbf{Esiste il limite} solo se, \(f(x)\) è infinitamente vicino ad 
-\textbf{un solo} valore reale \(l\) \textbf{qualunque} sia il numero 
-infinitamente vicino a \(c\).
-\footnote{Possiamo inserire queste osservazioni nella definizione ottenendo:
 \begin{definizione}
-Il numero reale \(l\) è il \textbf{limite} di una funzione reale \(f(x)\) 
-per \(x\) che tende a un valore reale \(c\), se, 
-quando \(x\) è un qualunque numero iperreale infinitamente vicino a \(c\), 
-ma diverso da \(c\), 
-allora il valore della corrispondente funzione iperreale \({}^*f(x)\) è 
-infinitamente vicino al valorereale \(l\).
-\end{definizione}}
-\end{osservazione}
+Il numero reale \(L\) è il \textbf{limite} della funzione \(f(x)\) 
+per \(x\) che tende a un valore \(c\) se \(f(x)\) è infinitamente vicino a 
+\(L\) per tutti gli \(x\) infinitamente vicini a \(c\) e diversi da \(c\).
+
+E si scrive:
+\[L = \lim_{x \rightarrow c} f(x) \sstext{se e solo se} 
+L \approx {f(x)} \quad 
+\forall x \approx c \stext{ e } x \neq c\]
+
+In modo equivalente, usando la parte standard: 
+\[\lim_{x \to c} f(x) = \pst{f(c+\epsilon)}\]
+se questa parte standard esiste e è sempre la stessa 
+per ogni \(\epsilon \approx 0 \stext{ e } \epsilon \neq 0\).
+\end{definizione}
+
+\begin{esempio}
+Consideriamo la funzione \(f\) il cui grafico è riportato a fianco.
+
+\affiancati{.49}{.49}{
+Possiamo osservare che la funzione è continua (perché?) e che non è 
+definita per \\
+\(x = a \stext{ e } x = b\), quindi:
+\[\ID = \R \setminus \graffa{a;~b}\]
+Possiamo quindi studiare il limite per \(x \to a\) e \(x \to b\). 
+
+\[\lim_{x \to a}f(x) = L\]
+dato che per ogni \(x\) infinitamente vicino a \(a\) \(f(x)\) è infinitamente 
+vicino a \(L\). 
+\[\lim_{x \to b}f(x) = \text{ non esiste}\]
+
+}{
+\begin{center} \limitefinitodef \end{center}
+}
+perché per alcuni \(x\) infinitamente vicini a \(b\) \(f(x)\) è 
+infinitamente vicino a \(M\) e per alcuni \(x\) infinitamente vicini a \(b\) 
+\(f(x)\) è infinitamente vicino a \(N\).
+\end{esempio}
+
+% \footnote{Possiamo inserire queste osservazioni nella definizione 
+% ottenendo:
+% \begin{definizione}
+% Il numero reale \(l\) è il \textbf{limite} di una funzione reale \(f(x)\) 
+% per \(x\) che tende a un valore reale \(c\), se, 
+% quando \(x\) è un qualunque numero iperreale infinitamente vicino a \(c\), 
+% ma diverso da \(c\), 
+% allora il valore della corrispondente funzione iperreale \({}^*f(x)\) è 
+% infinitamente vicino al valorereale \(l\).
+% \end{definizione}}
+
+\subsection{Se il limite non esiste}
+\label{subsec:cont_limiti_nonesiste}
+
+
 
 \subsection{Calcolare limiti}
 \label{subsec:cont_limiti_calcolo}
