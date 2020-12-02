@@ -81,29 +81,29 @@ o ancora: \hspace{56mm}
 \end{definizione}
 
 \begin{esempio}
-Data la funzione \(f(x)=x^2-3x\) dimostrare che \(f(x)\) è continua in~4.
+Data la funzione \(f(x)=-x^2+5\) dimostrare che \(f(x)\) è continua in~1.
 
 \affiancati{.59}{.39}
 {
-La funzione è continua in~4 se per ogni \(x\) infinitamente vicino a~4 
-\(f(x)\) è infinitamente vicino a \(f(4)\), cioè se \(\forall \epsilon\)
-\(f(4 + \epsilon) - f(4) \approx 0\)
+La funzione è continua in~1 se per ogni \(x\) infinitamente vicino a~1 
+\(f(x)\) è infinitamente vicino a \(f(1)\), \\
+cioè se \(\forall \epsilon \quad f(1 + \epsilon) - f(1) \approx 0\)
 
 \emph{Dimostrazione}
 \begin{align*}
-f(4+\epsilon) - f(4) &= 
-\tonda{4+\epsilon}^2-3\tonda{4+\epsilon}-\tonda{4^2-3\cdot 4}=\\
-&=\cancel{16}+8\epsilon+\epsilon^2\cancel{-12} 
-  -3\epsilon\cancel{-16}\cancel{+12} = \\
-&=+8\epsilon+\epsilon^2 -3\epsilon = 
-\epsilon \tonda{5 + \epsilon}
+f(1+\epsilon) - f(1) &= 
+-\tonda{1+\epsilon}^2+5-\tonda{-1^2+5}=\\
+&=\cancel{-1}-2\epsilon-\epsilon^2 \cancel{+5}~
+  \cancel{+1}~\cancel{-5} = \\
+&=-2\epsilon-\epsilon^2 = 
+\epsilon \tonda{-2 - \epsilon}
 \end{align*}
 }{
 \scalebox{1}{\contprimo}
 }
 Ora, il prodotto tra un infinitesimo e un finito è un infinitesimo, quindi, 
-se la distanza tra \(x\) e \(4\) è infinitesima, anche la distanza tra 
-\(f(x)\) e \(f(4)\) è infinitesima. \hfill \(\qed\) 
+se la distanza tra \(x\) e \(1\) è infinitesima, anche la distanza tra 
+\(f(x)\) e \(f(1)\) è infinitesima. \hfill \(\qed\) 
  
 \end{esempio}
 
@@ -234,42 +234,6 @@ TODO
 
 \end{comment}
 
-\subsection{Continuità in un intervallo}
-\label{subsec:cont_definizione}
-
-Nello sviluppo dell'analisi hanno grande importanza le funzioni 
-\(f\) puntualmente continue in \emph{ciascun} punto di un intervallo chiuso 
-\(\intervcc{a}{b}\).
-
-Diremo che una funzione \(f\) è puntualmente continua nell'intervallo 
-\(\intervcc{a}{b}\) se è \emph{continua in ogni punto \(c\)} dell'intervallo:
-\[f(x) \approx f(c) \stext{per ogni} x \stext{tale che} 
-x \in \intervcc{a}{b} \stext{e} x \approx c.\] 
-In questo caso diremo semplicemente che 
-\begin{center}
-la funzione \(f\) è continua nell'intervallo \(\intervcc{a}{b}\). 
-\end{center}
-Per i punti \(c\) interni all’intervallo \(\intervcc{a}{b}\)
-questa affermazione equivale a dire che per ogni infinitesimo \(\epsilon\) 
-si ha che \(f(c+\epsilon) \approx f(c)\), 
-mentre per gli estremi dell’intervallo ci si accontenterà di dire che per 
-ogni infinitesimo \emph{positivo} \(\epsilon\) si ha che 
-\(f(a+\epsilon) \approx f(a)\) e \(f(b-\epsilon) \approx f(b)\) 
-(cioè \(\epsilon > 0 \stext{ e } \pst{f(a+\epsilon)} = f(a)
-\stext{ e } \pst{f(b-\epsilon)} = f(b)\)).
-
-\affiancati{.49}{.49}{
-Ad esempio la funzione rappresentata qui a fianco, è continua nell'intervallo 
-chiuso \(\intervcc{b}{c}\) ma non lo è negli intervalli chiusi 
-\(\intervcc{a}{b}\) e \(\intervcc{c}{d}\). 
-
-Si può dire comunque che è continua negli intervalli aperti:
-\(\intervaa{a}{b}\) e \(\intervaa{c}{d}\). 
-
-}{
-\begin{center}\continuitaintervalli\end{center}
-}
-
 \subsection{Funzioni continue}
 \label{subsec:cont_definizione}
 
@@ -281,15 +245,48 @@ la continuità per ognuno di essi risulta piuttosto lungo\dots
 
 Per superare questo scoglio, i matematici hanno pensato un approccio 
 diverso:
+generalizzare il problema studiando la continuità di intere funzioni.
+
+A prima vista, questo può sembrare un modo per complicare il problema, 
+invece permette di riconoscere la continuità di un gran numero di 
+funzioni senza dover fare noiosi calcoli. La strada seguita consiste nei 
+seguenti due passi:
 \begin{itemize} [noitemsep]
 \item dimostrare che alcune funzioni elementari sono continue nel loro 
 insieme di definizione;
 \item dimostrare che la combinazione di funzioni continue è ancora una 
 funzione continua.
 \end{itemize}
-In questo modo si può riconoscere la continuità di un gran numero di 
-funzioni senza fare noiosi calcoli. Di seguito vediamo qualcuno di questi 
-teoremi.
+Di seguito vediamo qualche teorema che permette di stabilire la continuità di 
+un gran numero di funzioni.
+
+\subsubsection{Funzione continua}
+\label{subsubsec:cont_funzionecontinua}
+
+\begin{definizione}
+Una \emph{funzione è continua} se è continua in ogni punto del suo 
+insieme di definizione.
+\end{definizione}
+
+Quando voglio studiare se una funzione nel suo complesso è continua o no, lo 
+dovrò fare tenendo conto del suo insieme di definizione: non ha senso 
+domandarsi ad esempio se \(f(x) = \sqrt{x}\) è continua in \(-5\) dato che lì 
+non è definita.
+
+Alcuni grafici di funzioni continue:
+
+\hspace{-12mm}\begin{minipage}{.32\textwidth}
+\begin{center} \scalebox{.9}{\contsecondo} \end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{.32\textwidth}
+\begin{center} \contrad \end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{.32\textwidth}
+\begin{center} \contip \end{center}
+\end{minipage}
+
 
 \subsubsection{Funzioni elementari}
 \label{subsubsec:cont_funzionielementari}
@@ -302,7 +299,7 @@ Le funzioni costanti (\(f(x) = k\)) sono continue.
 
 Ipotesi: \(f(x)=k\).\tab Tesi: \(f(x)\) è continua.
 
-\newpage %----------------------------------------------------
+% \newpage %----------------------------------------------------
 
 \noindent \emph{Dimostrazione}
 Per la definizione di continuità vogliamo dimostrare che 
@@ -364,19 +361,31 @@ abbiamo:
 \sen{(x+\epsilon)} = \sen x \cos \epsilon + \cos x \sen \epsilon = 
 \sen x \cdot (1 + \delta) + \cos x \cdot \gamma \approx
 \sen x = f(x)\]
-% TODO
-% \begin{teorema}[Continuità della funzione esponenziale]
-% La funzione esponenziale (\(y=a^x\)) è continua.
-% \end{teorema}
-% 
-% \noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
-% 
-% \emph{Dimostrazione}
-% Usando la prima proprietà delle potenze:
-% \[f(x+\epsilon) =
-% a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = a^{x} \cdot \tonda{1 + \delta} 
-% \approx a^{x} = f(x)\]
-% 
+
+\begin{comment}
+% TODO Dimostrazione circolare
+
+\begin{teorema}[Continuità della funzione esponenziale]
+La funzione esponenziale (\(y=a^x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
+
+\affiancati{.49}{.49}{
+\emph{Dimostrazione}
+Usando la prima proprietà delle potenze:
+
+\begin{align*}
+f(x+\epsilon) &= 
+a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
+a^{x} \cdot \tonda{1 + \delta} = \\
+&=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
+a^{x} = f(x) \qed
+\end{align*}
+}{
+\begin{center} \continuitafesp \end{center}
+}
+\end{comment}
 
 %---------- tentativi inutili
 % \nopagebreak
@@ -517,6 +526,105 @@ e dato che \(f\) è continua:
 \[f(g(x)+\alpha)=f(g(x))+\beta\]
 quindi: 
 \[f(g(x+\epsilon)) = f(g(x)+\alpha) = f(g(x))+\beta \approx f(g(x)) \qed\]
+
+\subsection{Continuità in un intervallo}
+\label{subsec:cont_definizione}
+
+Nello sviluppo dell'analisi hanno grande importanza le funzioni 
+\(f\) puntualmente continue in \emph{ciascun} punto di un intervallo chiuso 
+\(\intervcc{a}{b}\).
+
+Diremo che una funzione \(f\) è puntualmente continua nell'intervallo 
+\(\intervcc{a}{b}\) se è \emph{continua in ogni punto \(c\)} dell'intervallo:
+\[f(x) \approx f(c) \stext{per ogni} x \stext{tale che} 
+x \in \intervcc{a}{b} \stext{e} x \approx c.\] 
+In questo caso diremo semplicemente che 
+\begin{center}
+la funzione \(f\) è continua nell'intervallo \(\intervcc{a}{b}\). 
+\end{center}
+Questa affermazione equivale a dire che:
+
+\affiancati{.39}{.59}{
+\begin{center} \continuitaintervallo \end{center}
+}{
+\begin{itemize}
+\item 
+per i punti \(c\) interni all’intervallo \(\intervcc{a}{b}\) 
+(i punti che appartengono all'intervallo aperto \(\intervaa{a}{b}\))
+per ogni infinitesimo \(\epsilon\) si ha che 
+\(f(c+\epsilon) \approx f(c)\);
+\item 
+per gli estremi dell’intervallo ci si accontenterà di dire che è continua a 
+destra in \(a\) e a sinistra in \(b\), cioè, per 
+ogni infinitesimo \emph{positivo} \(\epsilon\), si ha che 
+\(f(a+\epsilon) \approx f(a)\) e \(f(b-\epsilon) \approx f(b)\) 
+(cioè con \(\epsilon > 0 \stext{ e } \pst{f(a+\epsilon)} = f(a)
+\stext{ e } \pst{f(b-\epsilon)} = f(b)\)).
+\end{itemize}
+}
+ 
+\begin{esempio}
+~
+
+\affiancati{.49}{.49}{
+La funzione rappresentata qui a fianco, è continua nell'intervallo 
+chiuso \(\intervcc{b}{c}\) ma non lo è negli intervalli chiusi 
+\(\intervcc{a}{b}\) e \(\intervcc{c}{d}\). 
+
+Si può dire comunque che è continua negli intervalli aperti:
+\(\intervca{a}{b}\) e \(\intervac{c}{d}\).
+}{
+\begin{center}\continuitaintervalli\end{center}
+}
+\end{esempio}
+
+La definizione di continuità in un intervallo non ci è di grande aiuto per 
+verificare se una funzione è continua in un intervallo, dato che dovremmo 
+controllare la continuità in ogni suo punto e, per quanto piccolo, 
+l'intervallo, di punti, ne ha infiniti.
+
+Si può seguire un'altra via: 
+
+\begin{definizione}
+Una funzione è continua in un intervallo se:
+\begin{itemize} [noitemsep]
+\item 
+la funzione è continua i quell'intervallo;
+\item 
+l'intervallo è un sottoinsieme dell'insieme di definizione della funzione.
+\end{itemize}
+O, detto in altro modo: 
+\begin{itemize} [noitemsep]
+\item 
+la funzione è continua i quell'intervallo;
+\item 
+è definita in tutti i punti dell'intervallo.
+\end{itemize}
+\end{definizione}
+
+\begin{esempio}
+Data la funzione \(f(x) = \dfrac{x-1}{x-5}\) stabilisci se la funzione è 
+continua negli intervalli chiusi \(A=\intervcc{-1,5}{+2,5}\) e 
+\(B=\intervcc{+3,5}{+7,5}\).
+
+La funzione è continua (nel suo insieme di definizione) essendo una 
+composizione di funzioni continue.
+
+\affiancati{.49}{.49}{
+Perché sia continua negli intervalli richiesti basta che questi intervalli 
+siano sottoinsiemi del suo insieme di definizione.
+\[\ID =~ \intervaa{-\infty}{+5} ~\cup~ \intervaa{+5}{+\infty} ~=~ 
+\R \setminus \graffa{+5}\]
+L'intervallo \(A=\intervcc{-1,5}{+2,5}\) è del tutto contenuto in \(\ID\) \\
+L'intervallo \(B=\intervcc{+3,5}{+7,5}\) ha un elemento, \(+5\), 
+che non appartiene a \(\ID\)
+
+Perciò \(f(x)\) è continua nell'intervallo \(A\) e non è continua 
+nell'intervallo \(B\).
+}{
+\begin{center} \continuitaintervalloese \end{center}
+}
+\end{esempio}
 
 
 \section{Limiti}
@@ -1258,7 +1366,8 @@ Simile all'esempio precedente, ma con una base generica.
 \stackrel{3}{=} ~ 
 \pst{1 \cdot \ln a}=\ln{a}
 \end{align*}
-\newpage   %----------------------------------------------------
+
+% \newpage   %----------------------------------------------------
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item ancora una sostituzione: poniamo

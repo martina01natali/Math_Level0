@@ -166,7 +166,7 @@
           (\xc + \xdma, \yc + \ydma) -- (\xc + \xdma, \yc + 0.3) 
           node [below ] {\footnotesize \(\xc\)};
     \filldraw (\xc + \xdma, \yc + \ydma) [green!50!black] circle(1.5pt);
-    \draw [thin, dashed, black] (\xc + 0.3, \yc + \ydmb) 
+    \draw [thin, dashed, black] (\xc + 0.4, \yc + \ydmb) 
           node [left] {\footnotesize \(f(\xc + \epsilon)\)} -- 
           (\xc + \xdmb, \yc + \ydmb) -- (\xc + \xdmb, \yc + 0.3) 
           node [below] {\footnotesize \(\xc + \epsilon\)};
@@ -272,33 +272,32 @@
   }
 }
 
-\newcommand{\continuitaintervalli}{%
-  \def \fa{.5*\x+1.5}
-  \def \fb{-.5*\x*\x+4*\x-2}
-  \def \fc{1./(\x-\xc)}
-  \def \mix{0}
-  \def \max{10}
-  \def \miy{0}
-  \def \may{7}
-  \def \xa{0.3}
-  \def \xb{2.8}
-  \def \xc{5.4}
-  \def \xd{8.8}
+\newcommand{\contrad}{%
+  \def \fa{sqrt(x)}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-4}
+  \def \may{+4}
   \disegno{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \begin{scope} [ultra thick, green!50!black]
-      \tkzFct[domain=\mix-0.3:\xb] {\fa}
-      \tkzFct[domain=\xb:\xc] {\fb}
-      \tkzFct[domain=\xc+.1:\max+0.3] {\fc}
-    \filldraw (\xb, 2.9) [fill=white] circle(1.5pt);
-    \foreach \xp/\yp/\lab in {\xa/1.65/a, \xb/5.28/b, 
-                              \xc/5.02/c, \xd/.294/d}{
-      \draw [thick, dotted, black] (\xp, 0) -- (\xp, \may+0.3);
-      \node [above, black] at (\xp, -1) {\(\lab\)};
-      \filldraw [thick] (\xp, \yp) circle(1.5pt);
-    }
-    \end{scope}
+    \tkzFct[domain=0:\max+0.3, ultra thick, green!50!black] {\fa}
+  }
+}
+
+\newcommand{\contip}{%
+  \def \fa{1./x}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-4}
+  \def \may{+4}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:0, ultra thick, green!50!black] {\fa}
+    \tkzFct[domain=0:\max+0.3, ultra thick, green!50!black] {\fa}
+%     \filldraw (0, -1) [green!50!black, fill= white] circle(1.5pt);
+%     \filldraw (0, +1) [green!50!black, fill= white] circle(1.5pt);
   }
 }
 
@@ -357,6 +356,129 @@
     \microscopio{(\xp, \yp)}{.5}{-135}{40}{1}{(\xp-0.2, \yp-1.9)}
                 {\footnotesize \(\times \infty\)}
     \tkzFct[domain=\xp-1.85:\xp-0.3, ultra thick, green!50!black] {\fam}
+  }
+}
+
+\newcommand{\continuitafesp}{%
+  \def \fa{1.6**x}
+  \def \fam{.47*x+4.1}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{0}
+  \def \may{7}
+  \def \xp{0}
+  \def \yp{1}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+    \microscopio{(\xp, \yp)}{1}{120}{-50}{2}{(\xp-3.8, \yp+4.1)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=\xp-3.55:\xp+0.08, ultra thick, green!50!black] {\fam}
+  }
+}
+
+\newcommand{\continuitaintervallo}{%
+  \def \fa{+.25*\x*\x-2*\x+4}
+  \def \fb{-.25*\x*\x+2*\x}
+  \def \fma{+0.75*x+5}
+  \def \fmp{-0.50*x+9}
+  \def \fmb{-1.25*x+15}
+  \def \mix{0}
+  \def \max{10}
+  \def \miy{0}
+  \def \may{7}
+  \def \xa{2.5}
+  \def \yaa{0.562}
+  \def \yab{3.438}
+  \def \xb{6.5}
+  \def \yba{1.562}
+  \def \ybb{2.438}
+  \def \xp {5}
+  \def \yp {3.75}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.8]
+    \begin{scope} [ultra thick, green!50!black]
+      \tkzFct[domain=\mix-0.3:\xa] {\fa}
+      \tkzFct[domain=\xa:\xb] {\fb}
+      \tkzFct[domain=\xb:\max+0.3] {\fa}
+      \foreach \xp/\yp in {\xa/\yaa, \xb/\yba}{
+        \filldraw [thick, fill=white] (\xp, \yp) circle(1.5pt);}
+      \foreach \xp/\yp/\lab in {\xa/\yab/a, \xb/\ybb/b}{
+        \draw [thick, dotted, black] (\xp, 0) -- (\xp, \may+0.3);
+        \node [above, black] at (\xp, -1) {\(\lab\)};
+        \filldraw [thick] (\xp, \yp) circle(1.5pt);
+      }
+    \end{scope}
+    \microscopio{(\xa, \yab)}{1}{120}{-50}{2}{(\xa-2.4, \yab+4.6)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=\xa-1.7:\xa-0.1, ultra thick, green!50!black] {\fma}
+    \microscopio{(\xp, \yp)}{1}{60}{-80}{2}{(\xp+2.4, \yp+4.1)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=\xp-1.75:\xp+1.83, ultra thick, green!50!black] {\fmp}
+    \microscopio{(\xb, \ybb)}{1}{30}{-130}{2}{(\xb+3.3, \ybb+4.1)}
+                {\footnotesize \(\times \infty\)}
+    \tkzFct[domain=\xb+0.73:\xb+2.0, ultra thick, green!50!black] {\fmb}
+      \foreach \xp/\yp in {.8/5.6, 8.5/4.375}{
+        \filldraw [thick, green!50!black] (\xp, \yp) circle(1.5pt);}
+  }
+}
+
+\newcommand{\continuitaintervalli}{%
+  \def \fa{.5*\x+1.5}
+  \def \fb{-.5*\x*\x+4*\x-2}
+  \def \fc{1./(\x-\xc)}
+  \def \mix{0}
+  \def \max{10}
+  \def \miy{0}
+  \def \may{7}
+  \def \xa{0.3}
+  \def \xb{2.8}
+  \def \xc{5.4}
+  \def \xd{8.8}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \begin{scope} [ultra thick, green!50!black]
+      \tkzFct[domain=\mix-0.3:\xb] {\fa}
+      \tkzFct[domain=\xb:\xc] {\fb}
+      \tkzFct[domain=\xc+.1:\max+0.3] {\fc}
+    \filldraw [thick, fill=white] (\xb, 2.9) circle(1.5pt);
+    \foreach \xp/\yp/\lab in {\xa/1.65/a, \xb/5.28/b, 
+                              \xc/5.02/c, \xd/.294/d}{
+      \draw [thick, dotted, black] (\xp, 0) -- (\xp, \may+0.3);
+      \node [above, black] at (\xp, -1) {\(\lab\)};
+      \filldraw [thick] (\xp, \yp) circle(1.5pt);
+    }
+    \end{scope}
+  }
+}
+
+\newcommand{\continuitaintervalloese}{%
+  \def \fa{(x-1)/(x-5)}
+  \def \mix{-2}
+  \def \max{+10}
+  \def \miy{-3}
+  \def \may{+7}
+  \def \xa{-1.5}
+  \def \xb{+2.5}
+  \def \xc{+3.5}
+  \def \xd{+7.5}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \begin{scope} [ultra thick, green!50!black]
+      \tkzFct[domain=\mix-0.3:5] {\fa}
+      \tkzFct[domain=5:\max+0.3] {\fa}
+    \end{scope}
+%     \filldraw [thick, fill=white] (\xb, 2.9) circle(1.5pt);
+    \foreach \xp/\yp/\lab in {\xa/1.65/a, \xb/5.28/b, 
+                              \xc/5.02/c, \xd/.294/d}{
+      \draw [thick, dotted, black] (\xp, \miy-0.3) -- (\xp, \may+0.3);
+      \node [above, black] at (\xp, -1) {\(\lab\)};
+%       \filldraw [thick] (\xp, \yp) circle(1.5pt);
+    }
   }
 }
 
