@@ -835,10 +835,133 @@ infinitamente vicino a \(M\) e per alcuni \(x\) infinitamente vicini a \(b\)
 % infinitamente vicino al valorereale \(l\).
 % \end{definizione}}
 
-\subsection{Se il limite non esiste}
-\label{subsec:cont_limiti_nonesiste}
+\subsubsection{Se il limite finito non esiste}
+\label{subsubsec:cont_limiti_nonesiste}
+
+Il calcolo del limite presentato sopra permette di calcolare il limite 
+finito solo se ci sono alcune condizioni, ma in vari casi può fallire, 
+i motivi per cui può fallire sono:
+\begin{enumerate}
+\item la funzione \(f(c+\epsilon)\) non è definita per alcuni valori di 
+\(\epsilon = 0\); 
+\item al variare dell'infinitesimo \(\epsilon\) la parte standard 
+\(\pst{f(c+\epsilon)}\) non è sempre la stessa;
+\item la funzione \(f(c+\epsilon)\) dà come risultato un valore infinito e 
+quindi non ha parte standard. 
+\end{enumerate}
+
+Nelle prossime sezioni vedremo quando è possibile, comunque, ricavare delle 
+informazioni interessanti in alcune delle situazioni elencate sopra.
+
+\subsection{Se non esiste \(f(c+\epsilon)\) per ogni \(\epsilon\)}
+\label{subsec:cont_limiti_nonsempreesiste}
+
+\affiancati{.49}{.49}{
+\begin{center} \limitenea \end{center}
+}{
+Potremmo trovarci nella situazione nella quale, a distanza infinitesima 
+da un certo valore \(c\), la funzione non sia sempre definita.
+
+In questo caso il limite non esiste.
+}
+
+Ma potremmo trovarci in una situazione fortunata se la funzione è sempre 
+definita a sinistra o a destra del punto \(c\).
+
+In questo caso potremmo parlare di limite sinistro o di limite destro della 
+funzione.
+
+\affiancati{.49}{.49}{
+Ad esempio nella situazione rappresentata a fianco, la funzione è sempre 
+definita a sinistra del punto \(c_1\) e a destra del punto \(c_2\).
+Pur non esistendo i limiti in \(c_1\) e \(c_2\),
+potremo dire che esiste il limite sinistro per \(x \to c_1\) e
+il limite destro per \(x \to c_2\):
+\[\lim_{x \to c_1^-} f(x) = 0 \sstext{e} \lim_{x \to c_1^+} f(x) = 0\]
+}{
+\begin{center} \limiteneb \end{center}
+}
+
+\begin{definizione}
+Il numero reale \(L\) è il \textbf{limite sinistro} della funzione \(f(x)\) 
+per \(x\) che tende a un valore \(c\) se \(f(x)\) è infinitamente vicino a 
+\(L\) per tutti gli \(x\) infinitamente vicini a \(c\) e minori di \(c\).
+
+E si scrive:
+\[L = \lim_{x \rightarrow c^-} f(x) \sstext{se e solo se} 
+L \approx {f(x)} \quad 
+\forall x \approx c \stext{ e } x < c\]
+
+In modo equivalente, usando la parte standard: 
+\[\lim_{x \to c^-} f(x) = \pst{f(c+\epsilon)}\]
+se questa parte standard esiste e è sempre la stessa 
+per ogni \(\epsilon \approx 0 \stext{ e } \epsilon < 0\).
+\end{definizione}
+
+In modo simmetrico si definisce il limite destro.
+
+\begin{esempio}
+Studia il comportamento della funzione \(f(x)=\sqrt{3x-12}\) 
+vicino al punto di ascissa \(4\).
+
+\affiancati{.49}{.49}{
+Per prima cosa studiamo l'\(\ID\) della funzione. 
+L'argomento della radice quadrata deve essere maggiore di zero: 
+\[3x-12>0 \sRarrow 3x>12 \sRarrow x>4\]
+Quindi: \(\ID = \intervca{4}{\infty}\)
+
+}{
+\begin{center} \limitesqrt \end{center}
+}
+
+% Possiamo calcolare il valore della funzione in \(4\):
+% \(f(4) = \sqrt{3 \cdot 4 - 12} = \sqrt{12 - 12} = \sqrt{0} = 0\). 
+% La funzione è quindi definita solo a destra del punto \(\punto{4}{0}\).
+% Quindi possiamo studiare solo il limite destro per \(x \to 2\):
+Studiamo il limite per \(x\) che tende a \(4\)
+\[\lim_{x \to 4}\sqrt{3x-12} = \pst{3\tonda{4+\epsilon}-12} = 
+\pst{\sqrt{\cancel{+12}+3 \epsilon~\cancel{-12}}} = 
+\pst{\sqrt{3 \epsilon}} = \dots\]
+A questo punto vediamo che non possiamo procedete con i calcoli per ogni 
+valore di \(\epsilon\) ma solo se solo se \(\epsilon > 0\).
+Quindi non possiamo calcolare \emph{il limite} ma solo 
+\emph{il limite destro}. Quindi sospendiamo il calcolo del limite, 
+aggiustiamo l'intestazione e procediamo senza ripetere i calcoli già fatti:
+\[\lim_{x \to 4^+}\sqrt{3x-12} = \dots =
+\sqrt{\pst{3 \epsilon}} = \sqrt{0} = 0\]
+\end{esempio}
+
+\subsection{Se non esiste \(\pst{f(c+\epsilon)}\)}
+\label{subsec:cont_limiti_nonsempreesiste}
+
+\subsection{Se \(\pst{f(c+\epsilon)}\) varia al variare di \(\epsilon\)}
+\label{subsec:cont_limiti_nonsempreesiste}
+
+\begin{comment}
+% Da usare più avanti... forse qui.
+
+Una funzione importante per esplorare situazioni strane attorno allo zero è:
+\[f(x) = \sen \frac{1}{x}\]
+Più diventa grande \(\abs{x}\) più \(\frac{1}{x}\) si avvicina a \(0\) e 
+quindi anche \(\sen \frac{1}{x}\) si avvicina all'asse \(x\).
+\begin{center} \limitesinunosux \end{center}
+Più diventa grande \(\abs{x}\) più \(\frac{1}{x}\) si avvicina a \(0\) e 
+quindi anche \(\sen \frac{1}{x}\) si avvicina all'asse \(x\).
+
+Ma la parte interessante della funzione è quella vicino allo \(0\):
+man mano che \(x\) si avvicina a \(0\), \(\frac{1}{x}\) diventa sempre più 
+grande e quindi \(\sen \frac{1}{x}\) oscilla in modo sempre più fitto 
+tra \(-1 \stext{e} +1\).
+
+Anche quando ci avviciniamo infinitamente a \(0\) il comportamento continua 
+allo stesso modo, per transfer.
 
 
+\begin{center} \limitesqrtsinunosux \end{center}
+
+% \begin{center} \limitequadsqrtsinunosux \end{center} % non funziona!!!
+
+\end{comment}
 
 \subsection{Calcolare limiti}
 \label{subsec:cont_limiti_calcolo}

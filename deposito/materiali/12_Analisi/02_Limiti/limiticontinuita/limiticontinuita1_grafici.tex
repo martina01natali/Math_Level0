@@ -522,11 +522,6 @@
   \def \xb{4.5}
   \def \yba{3.938}
   \def \ybb{2.062}
-%   \def \xb{6.5}
-%   \def \yba{1.562}
-%   \def \ybb{2.438}
-%   \def \xp {5}
-%   \def \yp {3.75}
   \disegno{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-1.8,ymax=\may+1.3]
@@ -542,11 +537,6 @@
           node [below] {\(\labx\)};}
       \draw [thick, dotted, black] (0, \ybb) 
         node [left] {\(M\)} -- (\xb, \ybb);
-%       \foreach \xp/\yp/\lab in {\xa/\yab/a, \xb/\ybb/b}{
-%         \draw [thick, dotted, black] (\xp, 0) -- (\xp, \may+0.3);
-%         \node [above, black] at (\xp, -1) {\(\lab\)};
-%         \filldraw [thick] (\xp, \yp) circle(1.5pt);
-%       }
     \end{scope}
     \microscopio{(\xa, \ya)}{1}{-130}{75}{2}{(\xa-3.0, \ya-4.3)}
                 {\footnotesize \(\times \infty\)}
@@ -564,6 +554,172 @@
           (\xp, \yp) circle(1.5pt) node [above] {\(\lab\)};}
   }
 }
+
+\newcommand{\limitenea}{% 
+  \def \fa{0.5*x - 0.5}
+  \def \fam{0.5*x + 2.5}
+  \def \mix{-2}
+  \def \max{+8}
+  \def \miy{-2}
+  \def \may{+5}
+  \def \xp{4}
+  \def \yp{1.5}
+  \def \xpm{2}
+  \def \ypm{3.5}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \begin{scope}[ultra thick, orange!50!black] 
+      \tkzFct[domain=\mix-0.3:\max+0.3] {\fa}
+      \filldraw [opacity=.3] (\xp, \yp) circle (1.5pt);
+    \end{scope}
+    \microscopio{(\xp, \yp)}{1}{110}{-40}{2}{(\xp-0.2, \yp+4.0)}
+                {\footnotesize \(\times \infty\)}
+    \begin{scope}[ultra thick, orange!50!black] 
+      \tkzFct[domain=\xp-3.55:\xp-3] {\fam}
+      \tkzFct[domain=\xp-2.5:\xp-2.3] {\fam}
+      \tkzFct[domain=\xp-1.5:\xp-0.05] {\fam}
+    \end{scope}
+      \filldraw [orange!50!black](\xpm, \ypm) circle (1.5pt);
+  }
+}
+
+\newcommand{\limiteneb}{% 
+  \def \fa{sqrt(-10./x**2 + 1)}
+  \def \fama{-3*x - 11}
+  \def \famb{+3*x - 11}
+  \def \mix{-5}
+  \def \max{+5}
+  \def \miy{-5}
+  \def \may{+2}
+  \def \xca{-3.15}
+  \def \xcb{+3.15}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \begin{scope} [orange!50!black]
+      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, samples=1000] {\fa}
+      \filldraw (\xca, 0) circle (1.5pt) node [above right=-.3] {\(c_1\)};
+      \filldraw (\xcb, 0) circle (1.5pt) node [above left=-.3] {\(c_2\)};
+    \end{scope}
+    \microscopio{(\xca, 0)}{1}{-100}{+110}{2}{(\xca-1.2, 0-4.7)}
+                {\footnotesize \(\times \infty\)}
+    \microscopio{(\xcb, 0)}{.9}{-100}{+80}{2}{(\xcb+1.2, 0-4.7)}
+                {\footnotesize \(\times \infty\)}
+    \begin{scope}[orange!50!black] 
+      \tkzFct[domain=\xca-.18:\xca+.45, ultra thick] {\fama}
+      \filldraw (\xca+.47, -3) circle (1.5pt);
+      \tkzFct[domain=\xcb-.45:\xcb+.18, ultra thick] {\famb}
+      \filldraw (\xcb-.47, -3) circle (1.5pt);
+    \end{scope}
+  }
+}
+
+\newcommand{\limitesqrt}{% 
+  \def \fa{sqrt(3*x - 12)}
+  \def \fama{-3*x - 11}
+  \def \famb{+3*x - 11}
+  \def \mix{-0}
+  \def \max{+10}
+  \def \miy{0}
+  \def \may{+5}
+  \def \xp{4}
+  \def \yp{0}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \begin{scope} [ultra thick, orange!50!black]
+      \tkzFct[domain=\mix-0.3:\max+0.3, samples=1000] {\fa}
+      \draw (\xp, \yp) -- (\xp+.015, \yp+.2);
+%       \filldraw (\xcb, 0) circle (1.5pt) node [above left=-.3] {\(c_2\)};
+    \end{scope}
+%     \microscopio{(\xca, 0)}{1}{-100}{+110}{2}{(\xca-1.2, 0-4.7)}
+%                 {\footnotesize \(\times \infty\)}
+%     \microscopio{(\xcb, 0)}{.9}{-100}{+80}{2}{(\xcb+1.2, 0-4.7)}
+%                 {\footnotesize \(\times \infty\)}
+%     \begin{scope}[orange!50!black] 
+%       \tkzFct[domain=\xca-.18:\xca+.45, ultra thick] {\fama}
+%       \filldraw (\xca+.47, -3) circle (1.5pt);
+%       \tkzFct[domain=\xcb-.45:\xcb+.18, ultra thick] {\famb}
+%       \filldraw (\xcb-.47, -3) circle (1.5pt);
+%     \end{scope}
+  }
+}
+
+\begin{comment}
+\newcommand{\limitesinunosux}{% 
+  \def \fa{sin(1./x)}
+%   \def \fa{sqrt(sin(5./x))}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-1}
+  \def \may{+1}
+  \def \da{0.4}
+  \def \db{0.03}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \begin{scope} [thin, orange!50!black]
+      \tkzFct[domain=\mix-0.3:-\da, samples=100, smooth] {\fa}
+      \tkzFct[domain=-\da:-\db, samples=1000, smooth] {\fa}
+      \tkzFct[domain=+\db:+\da, samples=1000, smooth] {\fa}
+      \tkzFct[domain=+\da:\max+0.3, samples=100, smooth] {\fa}
+      \filldraw [ultra thick] (-\db, -0.99) rectangle (+\db, +0.99);
+    \end{scope}
+  }
+}
+
+\newcommand{\limitesqrtsinunosux}{% 
+  \def \fa{sqrt(sin(1./x))}
+%   \def \fa{sqrt(sin(5./x))}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-1}
+  \def \may{+1}
+  \def \da{0.4}
+  \def \db{0.03}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \begin{scope} [thin, orange!50!black]
+      \tkzFct[domain=-1.7:-\da, samples=100, smooth] {\fa}
+      \tkzFct[domain=-\da:-\db, samples=1000, smooth] {\fa}
+      \tkzFct[domain=+\db:+\da, samples=1000, smooth] {\fa}
+      \tkzFct[domain=+\da:\max+0.3, samples=100, smooth] {\fa}
+      \filldraw [ultra thick] (-\db, +0.01) rectangle (+\db, +0.99);
+%       \draw [ultra thick] (-0.018, 1) -- (-0.018, -1)
+%                           (+0.018, 1) -- (+0.018, -1);
+    \end{scope}
+  }
+}
+
+\newcommand{\limitequadsqrtsinunosux}{% 
+  \def \fa{(sqrt(sin(1./x)))**2} 
+  % Qualche ottimizzazione del compilatore fa sì che non venga calcolata
+  % correttamente: non viene calcolata prima la radice e poi il quadrato
+  % ma (sqrt(sin(5./x)))**2 viene calcolata come: sin(5./x)
+  \def \mix{-7}
+  \def \max{+7}
+  \def \miy{-1}
+  \def \may{+1}
+  \def \da{0.4}
+  \def \db{0.03}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \begin{scope} [thin, orange!50!black]
+      \tkzFct[domain=-1.7:-\da, samples=100, smooth] {\fa}
+      \tkzFct[domain=-\da:-\db, samples=1000, smooth] {\fa}
+      \tkzFct[domain=+\db:+\da, samples=1000, smooth] {\fa}
+      \tkzFct[domain=+\da:\max+0.3, samples=100, smooth] {\fa}
+      \filldraw [ultra thick] (-\db, +0.01) rectangle (+\db, +0.99);
+%       \draw [ultra thick] (-0.018, 1) -- (-0.018, -1)
+%                           (+0.018, 1) -- (+0.018, -1);
+    \end{scope}
+  }
+}
+
+\end{comment}
 
 \newcommand{\limmicx}[8]{% 
   % interno del microscopio posto sull'asse x.
