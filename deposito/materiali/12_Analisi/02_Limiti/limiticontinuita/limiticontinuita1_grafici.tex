@@ -646,12 +646,42 @@
   }
 }
 
-\begin{comment}
+\newcommand{\limiteiesea}{% 
+  \def \fa{(x+2)/((x**2 +8*x +16))}
+%   \def \fama{-3*x - 11}
+%   \def \famb{+3*x - 11}
+  \def \mix{-8}
+  \def \max{+2}
+  \def \miy{-12}
+  \def \may{+2}
+  \def \xp{-4}
+  \def \yp{0}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \begin{scope} [ultra thick, orange!50!black]
+      \tkzFct[domain=\mix-0.3:\xp-0.1] {\fa}
+      \tkzFct[domain=\xp+0.1:\max+0.3] {\fa}
+%       \draw (\xp, \yp) -- (\xp+.015, \yp+.2);
+%       \filldraw (\xcb, 0) circle (1.5pt) node [above left=-.3] {\(c_2\)};
+    \end{scope}
+%     \microscopio{(\xca, 0)}{1}{-100}{+110}{2}{(\xca-1.2, 0-4.7)}
+%                 {\footnotesize \(\times \infty\)}
+%     \microscopio{(\xcb, 0)}{.9}{-100}{+80}{2}{(\xcb+1.2, 0-4.7)}
+%                 {\footnotesize \(\times \infty\)}
+%     \begin{scope}[orange!50!black] 
+%       \tkzFct[domain=\xca-.18:\xca+.45, ultra thick] {\fama}
+%       \filldraw (\xca+.47, -3) circle (1.5pt);
+%       \tkzFct[domain=\xcb-.45:\xcb+.18, ultra thick] {\famb}
+%       \filldraw (\xcb-.47, -3) circle (1.5pt);
+%     \end{scope}
+  }
+}
 \newcommand{\limitesinunosux}{% 
-  \def \fa{sin(1./x)}
+  \def \fa{sin(5./x)}
 %   \def \fa{sqrt(sin(5./x))}
-  \def \mix{-4}
-  \def \max{+4}
+  \def \mix{-6}
+  \def \max{+6}
   \def \miy{-1}
   \def \may{+1}
   \def \da{0.4}
@@ -666,8 +696,11 @@
       \tkzFct[domain=+\da:\max+0.3, samples=100, smooth] {\fa}
       \filldraw [ultra thick] (-\db, -0.99) rectangle (+\db, +0.99);
     \end{scope}
+    \node at (-3.5, +0.5) {\(y = \sen \dfrac{5}{x}\)};
   }
 }
+
+\begin{comment}
 
 \newcommand{\limitesqrtsinunosux}{% 
   \def \fa{sqrt(sin(1./x))}
