@@ -677,6 +677,7 @@
 %     \end{scope}
   }
 }
+
 \newcommand{\limitesinunosux}{% 
   \def \fa{sin(5./x)}
 %   \def \fa{sqrt(sin(5./x))}
@@ -700,7 +701,70 @@
   }
 }
 
+\newcommand{\limiteallinfinito}{% 
+  \def \fa{(3*x**2-4*x+5)/(x**2-2*x+3)}
+%   \def \fa{sqrt(sin(5./x))}
+  \def \mix{-10}
+  \def \max{+10}
+  \def \miy{-3}
+  \def \may{+5}
+  \def \xta{-3}
+  \def \yta{3}
+  \def \xtb{3}
+  \def \ytb{2}
+  \def \xmica{-3}
+  \def \ymica{.3}
+  \def \xmicb{+3}
+  \def \ymicb{-.5}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, orange!50!black] {\fa}
+    \draw (\xta, \yta) pic [rotate=180, xscale=.5, yscale=.5] 
+      {telescopio=\(M\)};
+    \microscopio{(\xta, \yta)}{1}{-90}{90}{2}{(0, 0)}{}
+    \draw [ultra thick, orange!50!black] (\xta-1.97, \ymica) 
+      node [black, left] {\(3\)} -- (\xta+1.97, \ymica);
+    \microscopio{(\xmica, \ymica)}{1}{-120}{60}{2}{(\xmica+0.1, \ymica-4.5)}
+      {\footnotesize \(\times \infty\)}
+    \draw [dashed, black] (\xmica-3.47, \ymica-2.4) 
+      node [black, left] {\(3\)} -- (\xmica+0.48, \ymica-2.4);
+    \draw [ultra thick, orange!50!black] 
+      (\xmica-3.47, \ymica-2.8) -- (\xmica+0.48, \ymica-2.8);
+    \draw (\xtb, \ytb) pic [rotate=0, , xscale=.5, yscale=-.5] 
+      {telescopio=\(M\)};
+    \microscopio{(\xtb, \ytb)}{0.5}{-90}{90}{2}{(0, 0)}{}
+    \draw [ultra thick, orange!50!black] (+1, \ymicb) -- (+5, \ymicb) 
+      node [black, right] {\(3\)};
+    \microscopio{(\xmicb, \ymicb)}{1}{-60}{120}{2}{(\xmicb+0.0, \ymicb-4.5)}
+      {\footnotesize \(\times \infty\)}
+    \draw [ultra thick, orange!50!black] 
+      (\xmicb-0.48, \ymicb-2.4) -- (\xmicb+3.48, \ymicb-2.4);
+    \draw [dashed, black] (\xmicb-0.48, \ymicb-2.8) 
+      node [black, left] {\(3\)} -- (\xmicb+3.48, \ymicb-2.8);
+  }
+}
+
 \begin{comment}
+
+\newcommand{\telenonstandard}{% Telescopio per visualizzare A.
+    \disegno[4]{
+    \assecontrattini{-1}{+6}{0}{\(x\)}
+    \draw (0, 0) [below] node{0} (1, 0) [below] node{1};
+    \draw (-1, 1) pic [rotate=0, scale=.5] {telescopio=\(A\)};
+    \microscopio{(-1, 1)}{2.5}{40}{-130}{3.5}{(7.5, 9.5)}{}
+    \segmentocontrattini{0}{+6.2}{6}{1}
+    \foreach \p/\l in {0/\dots, 1/A - 2, 2/A - 1, 
+                       3/A, 4/A + 1, 5/A + 2, 6/\dots}{
+      \draw (\p, 6) [left] node [rotate=90] {\footnotesize \(\l\)};}
+%     \draw (0, 6) [left] node [rotate=90] {\dots} 
+%           (1, 6) [left] node [rotate=90] {\(A - 1\)} 
+%           (2, 6) [left] node [rotate=90] {\(A ~~\quad\)}
+%           (3, 6) [left] node [rotate=90] {\(A + 1\)}
+%           (5, 6) [left] node [rotate=90] {\(A + 3\)}
+%           (6, 6) [left] node [rotate=90] {\dots};
+    }
+}
 
 \newcommand{\limitesqrtsinunosux}{% 
   \def \fa{sqrt(sin(1./x))}

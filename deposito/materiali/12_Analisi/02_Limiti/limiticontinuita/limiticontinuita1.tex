@@ -219,21 +219,6 @@ affermazioni sono equivalenti:
 %    è infinitesimo.
 \end{enumerate}
 
-\begin{comment}
-\begin{teorema}[Derivabilità e continuità]
-Se una funzione è derivabile in un punto allora è continua in quel punto.
-\end{teorema}
-
-\noindent Ipotesi: 
-\(f(x) \text{ è derivabile in } c\)
-\tab Tesi: 
-\(f(x) \text{ è continua in } c\).
-
-\emph{Dimostrazione}
-TODO
-
-\end{comment}
-
 \subsection{Funzioni continue}
 \label{subsec:cont_definizione}
 
@@ -336,15 +321,6 @@ In simboli:
 \begin{center} \continuitafidentica \end{center}
 }
 
-\begin{comment}
-% TODO un disegno per ogni esempio!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-\affiancati{.49}{.49}{
-}{
-\begin{center}  \end{center}
-}
-\end{comment}
-
 \begin{teorema}[Continuità della funzione seno]
 La funzione seno (\(f(x) = \sen x\)) è continua.
 \end{teorema}
@@ -362,30 +338,30 @@ abbiamo:
 \sen x \cdot (1 + \delta) + \cos x \cdot \gamma \approx
 \sen x = f(x)\]
 
-\begin{comment}
-% TODO Dimostrazione circolare
-
-\begin{teorema}[Continuità della funzione esponenziale]
-La funzione esponenziale (\(y=a^x\)) è continua.
-\end{teorema}
-
-\noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
-
-\affiancati{.49}{.49}{
-\emph{Dimostrazione}
-Usando la prima proprietà delle potenze:
-
-\begin{align*}
-f(x+\epsilon) &= 
-a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
-a^{x} \cdot \tonda{1 + \delta} = \\
-&=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
-a^{x} = f(x) \qed
-\end{align*}
-}{
-\begin{center} \continuitafesp \end{center}
-}
-\end{comment}
+% \begin{comment}
+% % TODO Dimostrazione circolare
+% 
+% \begin{teorema}[Continuità della funzione esponenziale]
+% La funzione esponenziale (\(y=a^x\)) è continua.
+% \end{teorema}
+% 
+% \noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
+% 
+% \affiancati{.49}{.49}{
+% \emph{Dimostrazione}
+% Usando la prima proprietà delle potenze:
+% 
+% \begin{align*}
+% f(x+\epsilon) &= 
+% a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
+% a^{x} \cdot \tonda{1 + \delta} = \\
+% &=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
+% a^{x} = f(x) \qed
+% \end{align*}
+% }{
+% \begin{center} \continuitafesp \end{center}
+% }
+% \end{commen}
 
 %---------- tentativi inutili
 % \nopagebreak
@@ -1176,6 +1152,7 @@ otteniamo è negativo. Quindi:
 \end{enumerate}
 \end{esempio}
 
+
 \subsection{Limiti all'infinito}
 \label{subsec:cont_limiti_allinfinito}
 
@@ -1230,17 +1207,28 @@ per ogni \(M\) infinito positivo.
 \end{definizione}
 
 \begin{esempio}
-Calcola i limiti 
+Calcola i limiti: 
 \(\displaystyle \lim_{x \to -\infty}\frac{3x^2-4x+5}{x^2-2x+3}\)
-e 
+\quad e \quad
 \(\displaystyle \lim_{x \to +\infty}\frac{3x^2-4x+5}{x^2-2x+3}\)
 
 Iniziamo dal primo auspicandoci di ottenere un limite finito:
-\[\lim_{x \to -\infty}\frac{3x^2-4x+5}{x^2-2x+3} = 
-\pst{\frac{3M^2-4M+5}{M^2-2M+3}} \stackrel{*}{=} 
+\[\lim_{x \to -\infty}\frac{3x^2-4x+5}{x^2-2x+3} \stackrel{1}{=} 
+\pst{\frac{3M^2-4M+5}{M^2-2M+3}} \stackrel{2}{=} 
 \pst{\frac{3\cancel{M^2}}{\cancel{M^2}}} = \pst{3} = 3\]
-\(*\) questa uguaglianza è giustificata dalla relazione di 
-indistinguibilità (vedi il confronto tra infinitesimi).
+Dove le uguaglianze segnate hanno le seguenti giustificazioni:
+\begin{enumerate} [nosep]
+\item applichiamo la definizione e chiamiamo \(M\) un generico numero 
+infinito negativo.
+\item sostituiamo numeratore e denominatore con espressioni indistinguibili 
+(vedi la sezione sul confronto tra numeri iperreali).
+\end{enumerate}
+Possiamo osservare che il risultato non dipende dal segno di \(M\) quindi 
+anche: 
+\[\displaystyle \lim_{x \to +\infty}\frac{3x^2-4x+5}{x^2-2x+3} = 3\]
+\begin{comment}
+% Esempio da mettere nel paragrafo sull'indistinguibilità e 
+% magari riportare qui un riferimento.
 Per il numeratore: 
 \(3M^2-4M+5 \sim 3M^2\) infatti: \\ [.5em]
 \(\dfrac{3M^2-4M+5 - 3M^2}{3M^2} = \dfrac{-4M+5}{3M^2} = 
@@ -1255,41 +1243,51 @@ e: \\ [.5em]
 \(*\) Dato che il numeratore è un finito e il denominatore un infinito.
 \\ [.5em]
 In modo analogo si dimostra che \(M^2-2M+3 \approx M^2\)
+\end{comment}
+\begin{center} \limiteallinfinito \end{center}
 \end{esempio}
-
 
 \subsection{Calcolare limiti}
 \label{subsec:cont_limiti_calcolo}
 
+In questa sezione vengono presentati alcuni limiti, risolti e commentati.
+
 \begin{procedura}
 Per calcolare il limite di una funzione per \(x\) che tende a un certo 
-valore, \(c\) finito, basta calcolare la parte standard del valore della 
-funzione per un numero infinitamente vicino a \(c\):
-\[l=\lim_{x \rightarrow c} f(x) = \pst{f(c+\epsilon)}\]
-Se \(c\) è infinito basta calcolare la parte standard della funzione 
-calcolata per un valore infinito:
-\[l=\lim_{x \rightarrow \infty} f(x) = \pst{f(M)}\]
+valore, \(c\) iniziamo cercando di calcolare:
+\[l=\lim_{x \rightarrow c} f(x) = \pst{f(c+\epsilon)} 
+\stext{se} c \stext{è finito \quad oppure:} 
+l=\lim_{x \rightarrow \infty} f(x) = \pst{f(M)} 
+\stext{se} c \stext{è infinito}\]
+\begin{itemize}
+\item 
+se la parte standard è sempre la stessa per ogni \(\epsilon\) o 
+ogni \(M\): abbiamo trovato il limite;
+\item 
+se non possiamo calcolare la parte standard perché il suo argomento 
+è un numero infinito, se è un infinito sempre negativo o sempre positivo 
+per ogni \(\epsilon\) o ogni \(M\): il limite è \(-\infty\) o \(+\infty\);
+\item 
+se il risultato varia al variare di \(\epsilon\) o \(M\), o se per 
+alcuni di questi valori l'argomento della parte standard non è definito: 
+possiamo cercare se almeno esistono i limiti sinistro o destro.
+\end{itemize}
 \end{procedura}
-
-% Seguendo uno schema già incontrato: 
-% il valore di partenza \(c\) è un numero reale, 
-% poi si usano numeri iperreali \(x\) e \(f(x)\)
-% per ottenere la soluzione \(l\) che è, di nuovo, un numero reale.
 
 I prossimi esempi mostrano come è possibile applicare la procedura per il 
 calcolo del limite a diversi casi che potrai incontrare.
 
 \begin{esempio}
-\textbf{Limite per \(x\) che tende a un numero infinito}:
-sostituiremo \(x\) con un generico infinito~\(M\).
+\textbf{Limite per \(x\) che tende a un infinito positivo}:
+sostituiremo \(x\) con un generico infinito positivo~\(M\).
 \begin{align*}
-\lim_{x \rightarrow \infty} \frac{3x^2-3x+7}{5x^2-6} & \stackrel{1}{=} 
+\lim_{x \rightarrow +\infty} \frac{3x^2-3x+7}{5x^2-6} & \stackrel{1}{=} 
   \pst{\frac{3M^2-3M+7}{5M^2-6}} \stackrel{2}{=}  
   \pst{\frac{3\cancel{M^2}}{5\cancel{M^2}}} = \frac{3}{5}
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(M\), un generico iperreale infinito;
+ \item sostituiamo \(x\) con \(M\), un generico iperreale infinito positivo;
  \item sostituiamo l'espressione ottenuta con una espressione 
    indistinguibile, eseguiamo i calcoli e calcoliamo la parte standard.
 \end{enumerate}
@@ -1300,34 +1298,36 @@ Dove le uguaglianze hanno i seguenti motivi:
 in questo caso basta sostituire, nella funzione, la variabile \(x\) con 
 \(c+\epsilon\) e poi calcolare la parte standard.
 \begin{align*}
-\lim_{x \rightarrow 3} \tonda{x^2-4x+2} & \stackrel{1}{=} 
-  \pst{\tonda{3+\epsilon}^2-4\tonda{3+\epsilon}+2} \stackrel{2}{=}\\  
-  & \stackrel{2}{=} \pst{9 + 6 \epsilon + \epsilon^2 - 12 - 4\epsilon + 2} 
-  \stackrel{3}{=} \pst{9 - 12 + 2} \stackrel{4}{=} -1
+\lim_{x \rightarrow 5} \tonda{x^2-4x+2} & \stackrel{1}{=} 
+  \pst{\tonda{5+\epsilon}^2-4\tonda{5+\epsilon}+2} \stackrel{2}{=}\\  
+  & \stackrel{2}{=} \pst{25 + 10 \epsilon + \epsilon^2 - 15 - 4\epsilon + 2} 
+  \stackrel{3}{=} \pst{25 - 15 + 2} \stackrel{4}{=} 12
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(\tonda{3+\epsilon}\);
+ \item sostituiamo \(x\) con \(\tonda{5+\epsilon}\);
  \item eseguiamo i calcoli algebrici;
  \item sostituiamo l'espressione con una espressione indistinguibile;
- \item eseguiamo i calcoli e calcoliamo la parte standard.
+ \item sommiamo e calcoliamo la parte standard.
 \end{enumerate}
 \end{esempio}
 
 \begin{esempio}
-\textbf{Metodo rapido}, ma che non sempre funziona:
+\textbf{Metodo rapido}, utilizzabile nelle funzioni polinomiali. \\
+Riprendiamo l'esercizio precedente ma applichiamo la relazione di 
+indistinguibilità prima di effettuare calcoli:
 \begin{align*}
-\lim_{x \rightarrow 3} \tonda{x^2-4x+2} & \stackrel{1}{=} 
-  \pst{\tonda{3+\epsilon}^2-4\tonda{3+\epsilon}+2} \stackrel{2}{=}\\ 
-  & \stackrel{2}{=}\pst{\tonda{3}^2-4\tonda{3}+2} \stackrel{3}{=}
-  \pst{9 - 12 + 2} \stackrel{4}{=} -1
+\lim_{x \rightarrow 5} \tonda{x^2-4x+2} & \stackrel{1}{=} 
+  \pst{\tonda{5+\epsilon}^2-4\tonda{5+\epsilon}+2} \stackrel{2}{=}\\ 
+  & \stackrel{2}{=}\pst{\tonda{5}^2-4\tonda{5}+2} \stackrel{3}{=}
+  \pst{25 - 15 + 2} \stackrel{4}{=} 12
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(\tonda{3+\epsilon}\);
+ \item sostituiamo \(x\) con \(\tonda{5+\epsilon}\);
  \item sostituiamo l'espressione con una espressione indistinguibile;
  \item eseguiamo i calcoli algebrici;
- \item eseguiamo i calcoli e calcoliamo la parte standard.
+ \item sommiamo e calcoliamo la parte standard.
 \end{enumerate}
 \end{esempio}
 
@@ -1335,7 +1335,7 @@ Dove le uguaglianze hanno i seguenti motivi:
 \textbf{Limite per \(x\) che tende a 
 \mathversion{bold}\(0\)\mathversion{normal}}:
 in questo caso i calcoli risultano più semplici dato che
-\(0 + \epsilon = \epsilon\).: 
+\(0 + \epsilon = \epsilon\): 
 \begin{align*}
 \lim_{x \rightarrow 0} \frac{x^2-4x+2}{x^2-4} & \stackrel{1}{=} 
   \pst{\frac{\epsilon^2-4\epsilon+2}{\epsilon^2-4}} \stackrel{2}{=}  
@@ -1344,7 +1344,7 @@ in questo caso i calcoli risultano più semplici dato che
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item sostituiamo \(x\) con \(\tonda{0+\epsilon}=\epsilon\);
- \item sostituiamo l'espressione ottenuta con una espressione 
+ \item sostituiamo l'espressione ottenuta con un'espressione 
    indistinguibile, eseguiamo i calcoli e calcoliamo la parte standard.
 \end{enumerate}
 \end{esempio}
@@ -1353,11 +1353,13 @@ Ora vediamo alcuni casi un po' più delicati: ricordiamoci che un numero
 iperreale diverso da zero non può mai essere indistinguibile da zero.
 
 \begin{esempio}
-\textbf{Infinitesimo fratto finito non infinitesimo (\emph{i/fni}).}
+\textbf{Infinitesimo fratto finito non infinitesimo 
+\(\tonda{\frac{i}{fni}}\).}
+% (\emph{i~/~fni}).}
 \begin{align*}
 \lim_{x \rightarrow -5} \frac{x+5}{x-3} & \stackrel{1}{=} 
   \pst{\frac{-5+\epsilon+5}{-5+\epsilon-3}} \stackrel{2}{=}  
-  \pst{\frac{\epsilon}{\epsilon-8}} \stackrel{3}{=} 
+  \pst{\frac{\epsilon}{-8+\epsilon}} \stackrel{3}{=} 
   \pst{\frac{\epsilon}{-8}} \stackrel{4}{=} \pst{\delta} = 0
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
@@ -1372,13 +1374,15 @@ un infinitesimo e la sua parte standard è zero.
 \end{esempio}
 
 \begin{esempio}
-\textbf{Finito non infinitesimo fratto infinitesimo (\emph{fni/i}).}
+\textbf{Finito non infinitesimo fratto infinitesimo 
+\(\tonda{\frac{fni}{i}}\).}
+% (\emph{fni~/~i}).}
 \begin{align*}
-\lim_{x \rightarrow 4} \frac{2x+6}{x-4} & \stackrel{1}{=} 
-  \pst{\frac{2\tonda{4+\epsilon}+6}{4+\epsilon-4}} \stackrel{2}{=}  
-  \pst{\frac{14 + 2 \epsilon}{\epsilon}} \stackrel{3}{=} 
-  \pst{\frac{14}{\epsilon}} \stackrel{4}{=} 
-  \pst{M} \stackrel{5}{~\longrightarrow~} \infty
+\lim_{x \rightarrow 4} \frac{-2x+4}{x-4} & \stackrel{1}{=} 
+  \pst{\frac{-2\tonda{4+\epsilon}+4}{4+\epsilon-4}} \stackrel{2}{=}  
+  \pst{\frac{-4 - 2 \epsilon}{\epsilon}} \stackrel{3}{=} 
+  \pst{\frac{-4}{\epsilon}} \stackrel{4}{=} 
+  \pst{M} % \stackrel{5}{~\longrightarrow~} \infty
 \end{align*}
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
@@ -1386,12 +1390,20 @@ Dove le uguaglianze hanno i seguenti motivi:
  \item eseguiamo i calcoli;
  \item sostituiamo l'espressione ottenuta con una espressione 
    indistinguibile;
- \item un finito fratto un infinitesimo dà come risultato un infinito; 
- \item gli infiniti non hanno parte standard quindi qui non possiamo usare 
-l'``\(=\)''. Ma i matematici per indicare un numero più grande di qualunque 
-altro numero usano il simbolo ``\(\infty\)'', quindi invece dell'uguale 
-tracceremo una freccia.
+ \item un finito fratto un infinitesimo dà come risultato un infinito: 
+ non possiamo calcolare la parte standard!
 \end{enumerate}
+Il nostro calcolo non è andato a buon fine: non esiste la parte standard di 
+un infinito.
+
+Di più: il segno di \(M\) dipende dal particolare valore dell'infinitesimo 
+\(\epsilon\). Quindi non esiste limite limite né finito né infinito.
+
+Possiamo però osservare che per ogni \(\epsilon < 0\) otteniamo un infinito 
+positivo e per ogni \(\epsilon > 0\) otteniamo un infinito 
+negativo. Per cui:
+\[\lim_{x \rightarrow 4^-} \frac{2x+6}{x-4}= -\infty \sstext{e}
+\lim_{x \rightarrow 4^+} \frac{2x+6}{x-4}= +\infty\]
 \end{esempio}
 
 \begin{esempio}
@@ -1447,7 +1459,8 @@ un'espressione indistinguibile, senza ottenere zero:
 e svolgendo i calcoli otteniamo:
 \[=\pst{\frac{8M}{2M+2M}}=
    \pst{\frac{8\cancel{M}}{4\cancel{M}}} = 2\]
-Ottenendo un risultato in accordo con l'andamento della funzione.
+Ottenendo un risultato in accordo con l'andamento della funzione calcolata 
+in alcuni opportuni valori.
 \end{esempio}
 
 \begin{esempio}
@@ -1488,10 +1501,10 @@ sugli infinitesimi \(\alpha\) e \(\beta\), non possiamo calcolare
 Ma qui ci scontriamo con 2 problemi: abbiamo usato la relazione di 
 indistinguibile con lo zero, e abbiamo ottenuto una divisione per zero che 
 non è definita. Potremmo essere un po' più pignoli ma ancora troppo 
-grossolani osservando che quando \(x\) si avvicina a \(-2\) il numeratore e 
-il denominatore si avvicinano a zero, sono cioè degli infinitesimi e quindi 
-otteniamo: \(\frac{\alpha}{\beta}\) ma anche questa maggior precisione non 
-è sufficiente.
+grossolani osservando che quando \(x\) è infinitamente vicino a \(-2\) il 
+numeratore e il denominatore sono infinitamente vicini a zero, sono cioè 
+degli infinitesimi e quindi otteniamo: \(\frac{\alpha}{\beta}\), ma anche 
+questa maggior precisione non è sufficiente.
 
 Metodo lungo ma sicuro:
 dobbiamo rimboccarci le maniche e affrontare il calcolo algebrico 
@@ -1527,12 +1540,12 @@ Dove le uguaglianze hanno i seguenti motivi:
 Pensate alla complicazione dei calcoli se ci fosse un qualche \(x^4\) o
 \(x^5\)\dots
 Vedremo ora un altro modo di calcolare il limite che risulta meno 
-complicato.
+complicato del precedente, ma ugualmente sicuro.
 \end{osservazione}\\
 
 Prima di affrontare il prossimo metodo ricordiamoci che possiamo 
 rappresentare tutti gli infinitesimi di ordine superiore ad un certo 
-infinitesimo \(\epsilon\) nel simbolo: \(o\tonda{\epsilon}\).
+infinitesimo \(\epsilon\) con il simbolo: \(o\tonda{\epsilon}\).
 
 \begin{esempio}
 \textbf{Funzione razionale}: altro metodo.
@@ -1555,7 +1568,7 @@ infinitesimo \(\epsilon\) nel simbolo: \(o\tonda{\epsilon}\).
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item sostituiamo \(x\) con \(-2+\epsilon\);
- \item eseguiamo i calcoli riunendo in un unico simbolo tutti gli 
+ \item eseguiamo i calcoli riunendo in un unico simbolo la somma di tutti gli 
 infinitesimi di ordine superiore a \(\epsilon\) e perciò trascurabili 
 (si spera);
  \item sostituiamo l'espressione con una indistinguibile poi calcoliamo la 
@@ -1630,10 +1643,10 @@ dimostrati.
 \paragraph{Funzione seno}~
 
 Osservando il grafico della funzione seno, risulta abbastanza evidente che:
-\[\lim_{x \rightarrow 0}{\sen x} = \pst{\sen \epsilon} = 0
+\[\lim_{x \rightarrow 0}{\sen x} = \pst{\sen \delta} = 0
 \quad \text{e che} \quad 
 \lim_{x \rightarrow \infty}{\sen x} = \pst{\sen M} = \text{ non esiste}\]
-Infatti man mano che \(x\) aumenta, \(\sen \)
+Infatti man mano che \(x\) aumenta, \(\sen x\)
 continua a variare tra \(-1\) e \(+1\) e quindi 
 \(\sen M\) non può essere infinitamente vicino ad un solo numero reale.
 
@@ -1648,8 +1661,9 @@ sottesa per infinitesimi di ordine superiore alle loro lunghezze. Perciò il
 loro rapporto è \(1\).
 Se rappresentiamo in una circonferenza goniometrica un arco di ampiezza 
 infinitesima e il corrispondente seno, appaiono non distinguibili ad ogni 
-ingrandimento finito. Se li ingrandiamo con un microscopio non standard con 
-infiniti ingrandimenti, possiamo vedere che sono ancora indistinguibili 
+ingrandimento finito. 
+Se li ingrandiamo con un microscopio non standard che permetta di 
+osservare \(\delta\), possiamo vedere che sono ancora indistinguibili 
 cioè differiscono per infinitesimi di ordine superiore. 
 
 Quindi il loro rapporto è \(1\).
@@ -1665,7 +1679,7 @@ ordine superiore a \(\delta\).
 \paragraph{Funzione tangente}~
 
 Anche nella funzione tangente valgono i seguenti limiti:
-\[\lim_{x \rightarrow 0}{\tan x} = \pst{} = 0; \quad
+\[\lim_{x \rightarrow 0}{\tan x} = \pst{\tan \delta} = 0; \quad
 \lim_{x \rightarrow \infty}{\tan x} = \pst{\tan M} = 
                                       \text{ non esiste}; \quad
 \lim_{x \rightarrow 0}\frac{\tan x}{x} = \pst{\frac{\tan \delta}{\delta}} 
@@ -1702,7 +1716,9 @@ Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item moltiplico la funzione per una frazione equivalente a 1;
  \item prodotto notevole;
- \item ricordando che \(\sen^x + \cos^2 x = 1\);
+ \item ricordando che \(\sen^2 x + \cos^2 x = 1\) e quindi: 
+ \(\sen^2 x = 1 - \cos^2 x\);
+ \item per quanto visto sopra: \(\frac{\sen \delta}{\delta} = 1\).
  \item un infinitesimo fratto un non infinitesimo è un infinitesimo 
 e la sua parte standard è 0.
 \end{enumerate}
@@ -1783,7 +1799,7 @@ Come nell'esempio precedente ma con una base generica:
 \begin{align*}
  \lim_{x \rightarrow 0} \dfrac{\log_a\tonda{1+x}}{x} &=
  \pst{\dfrac{\log_a\tonda{1+\delta}}{\delta}}~\stackrel{1}{=} ~  
- \pst{\dfrac{\frac{\ln\tonda{1+\delta}}{\ln a}}{\delta}}~\stackrel{1}{=} ~
+ \pst{\dfrac{\frac{\ln\tonda{1+\delta}}{\ln a}}{\delta}}~= ~
  \pst{\dfrac{\ln\tonda{1+\delta}}{\delta}\cdot \dfrac{1}{\ln a}}
  ~ \stackrel{2}{=} ~
  \dfrac{1}{\ln a}
@@ -1851,12 +1867,10 @@ Limite di una particolare funzione esponenziale:
 Dove le uguaglianze hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item se al posto di \(\dfrac{k}{N}\) scrivo \(\dfrac{1}{M}\) 
-allora al posto di \(N\) dovrò scrivere \(N=kM\), 
-% infatti:
-% \(\dfrac{k}{N}=\dfrac{1}{M} \sLRarrow N=kM\);
+allora al posto di \(N\) dovrò scrivere \(N=kM\)\\ 
+(infatti: \(\dfrac{k}{N}=\dfrac{1}{M} \sLRarrow kM=1N\));
  \item la potenza di potenza è una potenza che ha per base la stessa base 
 e per \dots
  \item l'espressione tra parentesi quadre è proprio la definizione di \(e\).
 \end{enumerate}
 \end{esempio}
-
