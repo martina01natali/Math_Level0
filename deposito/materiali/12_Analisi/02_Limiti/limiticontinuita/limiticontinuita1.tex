@@ -1,5 +1,20 @@
 % (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 
+\begin{comment}
+Ti lascio alcuni dubbi che mi vengono leggendo la parte sulla continuità
+
+P.1 non mi è molto chiaro sotto i grafici.
+P.3 ultima riga: qualsiasi sia l'infinitesimo. Vedi anche pag.5 etc
+P.4 vedo un grafico bianco
+P.5 dai per scontato che sin x sia continuo in 0, idem cos x.
+Sulla composizione di continue, non è più rapido usare le proprietà della parte 
+standard?
+P.5 perché non dire che se una f è continua in un intervallo allora è definita 
+in ogni punto dell'intervallo.
+
+I grafici sono tutti completi?
+\end{comment}
+
 \input{\folder limiticontinuita1_grafici.tex}
 
 \chapter{Funzioni: continuità e limiti}
@@ -179,8 +194,8 @@ Dobbiamo quindi verificare che, se \(x\) è infinitamente vicino a~\(2\)
 allora \(f(x)\) sia infinitamente vicino a~\(f(2) = -1\).
 
 Dobbiamo distinguere i casi in cui ci avviciniamo a~2 da sinistra o da 
-destra. In entrambi i casi consideriamo \(\epsilon\) positivo e esplicitiamo 
-il segno:
+destra. In entrambi i casi consideriamo un qualunque infinitesimo positivo 
+\(\epsilon\) e esplicitiamo il segno:
 
 \begin{minipage}{.49\textwidth}
 \begin{description}
@@ -213,6 +228,8 @@ affermazioni sono equivalenti:
  \item se \(x \approx c\) allora \(f(x) \approx f(c)\);
  \item se \(\st(x) = c\) allora \(\st(f(x)) = f(c)\);
 %  \item \(\lim_{x \to c} f(x) = f(c)\);
+ \item se la differenza tra \(x\) e \(c\) è di un infinitesimo 
+allora la differenza tra \(f(x)\) e \(f(c)\) è di un infinitesimo;
  \item se \(x\) si allontana da \(c\) di un infinitesimo allora 
    \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
 %  \item se \(\delta x\) è infinitesimo allora il corrispondente \(\delta y\) 
@@ -261,7 +278,7 @@ non è definita.
 Alcuni grafici di funzioni continue:
 
 \hspace{-12mm}\begin{minipage}{.32\textwidth}
-\begin{center} \scalebox{.9}{\contsecondo} \end{center}
+\begin{center} \scalebox{.9}{\contsecondoa} \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}{.32\textwidth}
@@ -321,6 +338,62 @@ In simboli:
 \begin{center} \continuitafidentica \end{center}
 }
 
+% Da mettere nelle definizioni???
+\newcommand{\overbow}[1]{
+   \tikz [baseline = (N.base), every node/.style={}] {
+      \node [inner sep = 0pt] (N) {$#1$};
+      \draw [line width = 0.4pt] plot [smooth, tension=1.3] coordinates {
+         ($(N.north west) + (0.1ex,0)$)
+         ($(N.north)      + (0,0.5ex)$)
+         ($(N.north east) + (0,0)$)
+      };
+   }
+}
+
+% % Altra soluzione:
+% \newcommand{\tarc}{\mbox{\large$\frown$}}
+% \newcommand{\arc}[1]{\stackrel{\tarc}{#1}}
+
+\begin{teorema}[Continuità delle funzioni seno e coseno]
+Le funzioni seno (\(f(x) = \sen x\)) e coseno (\(f(x) = \cos x\)) 
+sono continue.
+\end{teorema}
+
+% \noindent Ipotesi: \(f(x)=\sen x\).\tab Tesi: \(f(x)\) è continua.
+Il disegno riporta solo il primo quadrante, ma la dimostrazione è generale.
+
+\noindent \emph{Dimostrazione}
+Consideriamo un angolo \(\theta\) e un incremento \(\Delta\) 
+di questo angolo. 
+
+\affiancati{.59}{.39}{
+Indichiamo con \(\Delta(x)\) l'incremento del coseno e con \(\Delta(y)\) 
+l'incremento del seno corrispondenti all'incremento indicato 
+con \(\Delta\): \quad
+\(\Delta(x) = \Delta(\cos x) \stext{ e } \Delta(y) = \Delta(\sen x)\).
+
+Il segmento \(PQ\) è la corda corrispondente all'arco \(\Delta\) e come tutte 
+le corde è minore dell'arco su cui insiste:
+% \[\text{Posto} \quad PQ = \sqrt{\tonda{\Delta x}^2 + \tonda{\Delta y}^2}\]
+\[0 < \overline{PQ} < \overbow{PQ} = \Delta\]
+}{
+\begin{center} \continuitasincosa \end{center}
+}
+
+\affiancati{.39}{.59}{
+\begin{center} \continuitasincosb \end{center}
+}{
+Ora, se passiamo ad un incremento infinitesimo \(\delta\) otteniamo la stessa 
+situazione:
+\[0 < \overline{PQ} < \overbow{PQ} = \delta\]
+E dato che \(\Delta(x)\) e \(\Delta(y)\) sono minori di \(PQ\) che è 
+un infinitesimo, anche 
+\(\Delta(\cos x) \stext{ e } \Delta(\sen x)\) sono infinitesimi. \qed
+}
+
+\begin{comment}
+% TODO Dimostrazioni circolari
+
 \begin{teorema}[Continuità della funzione seno]
 La funzione seno (\(f(x) = \sen x\)) è continua.
 \end{teorema}
@@ -338,30 +411,28 @@ abbiamo:
 \sen x \cdot (1 + \delta) + \cos x \cdot \gamma \approx
 \sen x = f(x)\]
 
-% \begin{comment}
-% % TODO Dimostrazione circolare
-% 
-% \begin{teorema}[Continuità della funzione esponenziale]
-% La funzione esponenziale (\(y=a^x\)) è continua.
-% \end{teorema}
-% 
-% \noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
-% 
-% \affiancati{.49}{.49}{
-% \emph{Dimostrazione}
-% Usando la prima proprietà delle potenze:
-% 
-% \begin{align*}
-% f(x+\epsilon) &= 
-% a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
-% a^{x} \cdot \tonda{1 + \delta} = \\
-% &=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
-% a^{x} = f(x) \qed
-% \end{align*}
-% }{
-% \begin{center} \continuitafesp \end{center}
-% }
-% \end{commen}
+\begin{teorema}[Continuità della funzione esponenziale]
+La funzione esponenziale (\(y=a^x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
+
+\affiancati{.49}{.49}{
+\emph{Dimostrazione}
+Usando la prima proprietà delle potenze:
+
+\begin{align*}
+f(x+\epsilon) &= 
+a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
+a^{x} \cdot \tonda{1 + \delta} = \\
+&=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
+a^{x} = f(x) \qed
+\end{align*}
+}{
+\begin{center} \continuitafesp \end{center}
+}
+
+\end{commen}
 
 %---------- tentativi inutili
 % \nopagebreak
@@ -565,14 +636,14 @@ Si può seguire un'altra via:
 Una funzione è continua in un intervallo se:
 \begin{itemize} [noitemsep]
 \item 
-la funzione è continua i quell'intervallo;
+la funzione è continua; % in quell'intervallo;
 \item 
 l'intervallo è un sottoinsieme dell'insieme di definizione della funzione.
 \end{itemize}
 O, detto in altro modo: 
 \begin{itemize} [noitemsep]
 \item 
-la funzione è continua i quell'intervallo;
+la funzione è continua; % in quell'intervallo;
 \item 
 è definita in tutti i punti dell'intervallo.
 \end{itemize}
@@ -1226,24 +1297,26 @@ infinito negativo.
 Possiamo osservare che il risultato non dipende dal segno di \(M\) quindi 
 anche: 
 \[\displaystyle \lim_{x \to +\infty}\frac{3x^2-4x+5}{x^2-2x+3} = 3\]
-\begin{comment}
-% Esempio da mettere nel paragrafo sull'indistinguibilità e 
-% magari riportare qui un riferimento.
-Per il numeratore: 
-\(3M^2-4M+5 \sim 3M^2\) infatti: \\ [.5em]
-\(\dfrac{3M^2-4M+5 - 3M^2}{3M^2} = \dfrac{-4M+5}{3M^2} = 
-\dfrac{-4M}{3M^2} + \dfrac{+5}{3M^2} = 
-\dfrac{-4}{3M} + \dfrac{+5}{3M^2} = \alpha + \beta \approx 0\) \\ [.5em]
-e: \\ [.5em]
-\(\dfrac{3M^2-4M+5 - 3M^2}{3M^2-4M+5} = 
-\dfrac{\dfrac{-4M+5}{M}}{\dfrac{3M^2-4M+5}{M}} = 
-\dfrac{\dfrac{-4M}{M}+\dfrac{+5}{M}}
-      {\dfrac{3M^2}{M}+\dfrac{-4M}{M}+\dfrac{+5}{M}} = 
-\dfrac{-4+\alpha}{3M-4+\beta} \stackrel{*}{\approx} 0\)\\ [.5em]
-\(*\) Dato che il numeratore è un finito e il denominatore un infinito.
-\\ [.5em]
-In modo analogo si dimostra che \(M^2-2M+3 \approx M^2\)
-\end{comment}
+
+% \begin{commen}
+% % Esempio da mettere nel paragrafo sull'indistinguibilità e 
+% % magari riportare qui un riferimento.
+% Per il numeratore: 
+% \(3M^2-4M+5 \sim 3M^2\) infatti: \\ [.5em]
+% \(\dfrac{3M^2-4M+5 - 3M^2}{3M^2} = \dfrac{-4M+5}{3M^2} = 
+% \dfrac{-4M}{3M^2} + \dfrac{+5}{3M^2} = 
+% \dfrac{-4}{3M} + \dfrac{+5}{3M^2} = \alpha + \beta \approx 0\) \\ [.5em]
+% e: \\ [.5em]
+% \(\dfrac{3M^2-4M+5 - 3M^2}{3M^2-4M+5} = 
+% \dfrac{\dfrac{-4M+5}{M}}{\dfrac{3M^2-4M+5}{M}} = 
+% \dfrac{\dfrac{-4M}{M}+\dfrac{+5}{M}}
+%       {\dfrac{3M^2}{M}+\dfrac{-4M}{M}+\dfrac{+5}{M}} = 
+% \dfrac{-4+\alpha}{3M-4+\beta} \stackrel{*}{\approx} 0\)\\ [.5em]
+% \(*\) Dato che il numeratore è un finito e il denominatore un infinito.
+% \\ [.5em]
+% In modo analogo si dimostra che \(M^2-2M+3 \approx M^2\)
+% \end{commen}
+
 \begin{center} \limiteallinfinito \end{center}
 \end{esempio}
 
@@ -1874,3 +1947,5 @@ e per \dots
  \item l'espressione tra parentesi quadre è proprio la definizione di \(e\).
 \end{enumerate}
 \end{esempio}
+
+\end{comment}

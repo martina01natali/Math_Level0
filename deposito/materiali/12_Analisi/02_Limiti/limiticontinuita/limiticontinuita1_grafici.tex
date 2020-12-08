@@ -185,8 +185,8 @@
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \tkzFct[domain=\mix-0.3:0, ultra thick, green!50!black] {\fa}
     \tkzFct[domain=0:\max+0.3, ultra thick, green!50!black] {\fa}
-    \filldraw (0, -1) [green!50!black, fill= white] circle(1.5pt);
-    \filldraw (0, +1) [green!50!black, fill= white] circle(1.5pt);
+    \filldraw [green!50!black, fill= white] 
+      (0, -1) circle(1.5pt) (0, +1) circle(1.5pt);
   }
 }
 
@@ -251,8 +251,8 @@
   \def \xc{2}
   \def \yc{-1}
   \disegno{
-    \rcom{-3}{+7}{-4}{+5}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-3.3,xmax=+7.3,ymin=-4.3,ymax=+5.3]
+    \rcom{-3}{+7}{-3}{+5}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-3.3,xmax=+7.3,ymin=-3.3,ymax=+5.3]
     \tkzFct[domain=-3.3:2, ultra thick, color=green!50!black]
          {.5*x - 2}
     \tkzFct[domain=2:+7.3, ultra thick, color=green!50!black]
@@ -272,6 +272,23 @@
   }
 }
 
+\newcommand{\contsecondoa}{%
+  \def \fa{abs(x)/x}
+  \def \mix{-2}
+  \def \max{+2}
+  \def \miy{-1.}
+  \def \may{+1.}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:0, ultra thick, green!50!black] {\fa}
+    \tkzFct[domain=0:\max+0.3, ultra thick, green!50!black] {\fa}
+    \filldraw [green!50!black, fill= white] 
+      (0, -1) circle(1.5pt) (0, +1) circle(1.5pt);
+    \node at (1, -0.5) {\(y = \dfrac{\abs{x}}{x}\)};
+  }
+}
+
 \newcommand{\contrad}{%
   \def \fa{sqrt(x)}
   \def \mix{-4}
@@ -282,6 +299,7 @@
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \tkzFct[domain=0:\max+0.3, ultra thick, green!50!black] {\fa}
+    \node at (1.5, -1.5) {\(y = \sqrt{x}\)};
   }
 }
 
@@ -296,8 +314,7 @@
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \tkzFct[domain=\mix-0.3:0, ultra thick, green!50!black] {\fa}
     \tkzFct[domain=0:\max+0.3, ultra thick, green!50!black] {\fa}
-%     \filldraw (0, -1) [green!50!black, fill= white] circle(1.5pt);
-%     \filldraw (0, +1) [green!50!black, fill= white] circle(1.5pt);
+    \node at (1.5, -1.5) {\(y = \dfrac{1}{x}\)};
   }
 }
 
@@ -340,22 +357,90 @@
   }
 }
 
-\newcommand{\continuitafseno}{%
-  \def \fa{sin(x)}
-  \def \fam{-4./5*x+0.8}
-  \def \mix{-4}
-  \def \max{+7}
-  \def \miy{-1}
-  \def \may{+1}
-  \def \xp{2.6}
-  \def \yp{0.5}
-  \disegno[8]{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
-    \microscopio{(\xp, \yp)}{.5}{-135}{40}{1}{(\xp-0.2, \yp-1.9)}
+\begin{comment}
+\begin{tikzpicture}
+  \draw
+    (3,-1) coordinate (a) node[right] {a}
+    -- (0,0) coordinate (b) node[left] {b}
+    -- (2,2) coordinate (c) node[above right] {c}
+    pic["$\alpha$", draw=orange, <->, angle eccentricity=1.2, angle radius=1cm]
+    {angle=a--b--c};
+\end{tikzpicture}
+\end{comment}
+
+\newcommand{\continuitasincosa}{%
+  \def \fa{sqrt(36-x**2)}
+%   \def \fa{-sqrt(1-x**2}
+  \def \fam{x-4}
+  \def \mix{0}
+  \def \max{5}
+  \def \miy{0}
+  \def \may{5}
+  \def \pp{(25:\max)}
+  \def \pq{(45:\max)}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{white}
+    \begin{scope}
+      \clip (\mix-0.3, \miy-0.3) rectangle (\max+0.3, \may+0.3);
+      \draw [thick, blue!50!black] (0, 0) circle (\max);
+    \end{scope}
+    \draw (0, 0) -- \pp coordinate (p) node [right] 
+      {\footnotesize\(P\)} 
+                        node [right, yshift=12] {\footnotesize\(\Delta y\)}
+          (0, 0) -- \pq coordinate (q) node [above, xshift=-3] 
+      {\footnotesize\(Q\)} 
+                        node [above, xshift=12] {\footnotesize\(\Delta x\)};
+    \draw (p) -- (q) (p) |- (q);
+    \draw (1, 0) coordinate (a) (0,0) coordinate (o)
+      pic["\footnotesize$\theta$", draw=orange, ->, 
+          angle eccentricity=1.2, angle radius=10mm]
+      {angle=a--o--p}
+      pic["\footnotesize$\Delta$", draw=orange, ->, 
+          angle eccentricity=1.2, angle radius=12mm]
+      {angle=p--o--q};
+  }
+}
+
+\newcommand{\continuitasincosb}{%
+  \def \fa{sqrt(36-x**2)}
+  \def \fam{-2.1*x+17}
+  \def \mix{0}
+  \def \max{5}
+  \def \miy{0}
+  \def \may{5}
+  \def \pp{(25:\max)}
+  \def \pm{(6.44, 3.5)}
+  \def \qm{(5.48, 5.5)}
+  \def \ppm{(6.44-0.6*2.1, 3.5-0.6)}
+  \def \qqm{(5.48-0.65*2.1, 5.5-0.65)}
+%   \def \xpm{6.44}
+%   \def \ypm{3.5}
+%   \def \xqm{5.48}
+%   \def \yqm{5.5}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{white}
+    \begin{scope}
+      \clip (\mix-0.3, \miy-0.3) rectangle (\max+3.2, \may+1.7);
+      \draw [thick, blue!50!black] (0, 0) circle (\max);
+    \draw (0, 0) -- \pp coordinate (p) node [right] 
+      {\footnotesize\(P \approx Q\)}; 
+    \draw (1, 0) coordinate (a) (0,0) coordinate (o)
+      pic["\footnotesize$\theta$", draw=orange, ->, 
+          angle eccentricity=1.2, angle radius=10mm]
+      {angle=a--o--p};
+    \microscopio{(p)}{1}{55}{-120}{2}{(+4.1, +6.1)}
                 {\footnotesize \(\times \infty\)}
-    \tkzFct[domain=\xp-1.85:\xp-0.3, ultra thick, green!50!black] {\fam}
+    \tkzFct[domain=5.07:6.78, ultra thick, blue!50!black] {\fam}
+    \filldraw [blue!50!black]
+      \pm circle (1.5pt) 
+          node [right, black] {\footnotesize\(P\)}
+          node [right, black, yshift=15] {\footnotesize\(d y\)}
+      \qm circle (1.5pt) 
+          node [above, black] {\footnotesize\(Q\)}
+          node [above, black, xshift=12] {\footnotesize\(d x\)}
+      (5.4, 4.4) node [black] {\footnotesize\(\delta\)};
+    \draw \pm |- \qm \pm -- \ppm \qm -- \qqm;
+    \end{scope}
   }
 }
 
