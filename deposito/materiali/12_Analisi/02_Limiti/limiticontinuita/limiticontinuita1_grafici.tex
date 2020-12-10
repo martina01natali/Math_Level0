@@ -60,20 +60,39 @@
     \end{scope}
 }
 
+\def \puntipartizionen{4.17, 5.66, 5.89, 5.28, 4.25, 3.22, 2.61, 2.84, 4.33}
+\def \puntipartizionevuoti{(4, 4.88), (7, 2.19)}
+
 \newcommand{\partizionen}{% Valutazione di f in alcuni punti con n fissato
+  \def \fa{.07*x*x*x-1.05*x*x+4.15*x+1}
+  \def \mix{0}
+  \def \max{10}
+  \def \miy{0}
+  \def \may{8}
   \disegno{
-    \def \xb{8.4};
-    \def \yb{4.25};
-    \graficobasea
-    \foreach \xp/\yp/\lab in {0.4/2.9/x_0, 1.4/1.67/x_1, 2.4/1.59/x_2, 
-                              3.4/2.25/x_3, 4.4/3.27/x_4, 5.4/4.4/x_5, 
-                              6.4/5.25/x_6, 7.4/5.5/x_7, 8.4/4.67/x_8,
-                              9.4/2.25/x_9}{
-      \xbar{\xp}{\yp}{\lab}
-            {white!30!black}{blue!50!black}{blue!50!black}{0}}
-    \node at (5, -1.3) {\footnotesize{Funzione valutata in alcuni punti}};
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+.3, ultra thick, brown!50!black] {\fa}
+    \foreach \yp [count = \xp] in \puntipartizionen{
+      \xbar{\xp}{\yp}{x_\xp}
+            {white!30!black}{blue!50!black}{blue!50!black}{0}};
   }
 }
+
+% \newcommand{\partizionen}{% Valutazione di f in alcuni punti con n fissato
+%   \disegno{
+%     \def \xb{8.4};
+%     \def \yb{4.25};
+%     \graficobasea
+%     \foreach \xp/\yp/\lab in {0.4/2.9/x_0, 1.4/1.67/x_1, 2.4/1.59/x_2, 
+%                               3.4/2.25/x_3, 4.4/3.27/x_4, 5.4/4.4/x_5, 
+%                               6.4/5.25/x_6, 7.4/5.5/x_7, 8.4/4.67/x_8,
+%                               9.4/2.25/x_9}{
+%       \xbar{\xp}{\yp}{\lab}
+%             {white!30!black}{blue!50!black}{blue!50!black}{0}}
+%     \node at (5, -1.3) {\footnotesize{Funzione valutata in alcuni punti}};
+%   }
+% }
 
 \newcommand{\xbarx}[6]{
   % example:
@@ -89,52 +108,96 @@
   \filldraw (\x, \funct) [\colore, fill=\colorfill] circle(1.5pt);
 }
 
-\newcommand{\puntia}{%
-  \def \fa{.5*\x+1.5}
-  \def \fb{-.5*\x*\x+4*\x-2}
-  \def \fc{1./(\x-\xc)}
-  \def \mi{0}
-  \def \ma{10}
-  \def \xa{0.3}
-  \def \xb{2.8}
-  \def \xc{5.4}
-  \def \xd{9.8}
-  \rcom{\mi}{\ma}{0}{+8}{gray!50, very thin, step=1}
-  \foreach \yp [count = \xp] in {2, 2.5, 
-                                  5.5, 6, 5.5, 
-                                  1.667, 0.625, .385, .278}{
-    \xbarx{\xp}{\yp}{x_\xp}{gray!90}{brown!50!black}{brown!50!black}}
-}
-
-\newcommand{\puntigraficodiscontinuo}{%
+\newcommand{\puntigrafico}{% Solo i punti evidenziati nel grafico precedente
+  \def \fa{.07*x*x*x-1.05*x*x+4.15*x+1}
+  \def \mix{0}
+  \def \max{10}
+  \def \miy{0}
+  \def \may{8}
   \disegno{
-    \puntia
-    \foreach \xp/\lab in {\xa/a, \xd/b}{
-      \draw [dotted, gray!50]
-        (\xp, 0) node [black, below] {\(\lab\)} -- (\xp, 8.3);}
-    \node at (5, -1.3) 
-      {\footnotesize \emph{Funzione poco regolare valutata in alcuni punti}};
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+.3, ultra thick, brown!50!black] {\fa}
+    \foreach \yp [count = \xp] in \puntipartizionen{
+      \xbar{\xp}{\yp}{x_\xp}
+            {white!30!black}{blue!50!black}{blue!50!black}{0}};
   }
 }
 
-\newcommand{\graficodiscontinuo}{%
+\newcommand{\graficodiscontinuo}{% 
+  \def \fa{-0.62*x*x+3.34*x+1.46}
+  \def \fb{-1.03*x+9.4}
+  \def \fc{1/(-(1.65*(x-3.65)+0.66)+10)+2.35}
+  \def \mix{0}
+  \def \max{10}
+  \def \miy{0}
+  \def \may{8}
+  \def \xdisca{4}
+  \def \xdiscb{7}
+  \def \asint{9.25}
   \disegno{
-    \puntia
-    \tkzInit[xmin=\mi-0.3,xmax=\ma+0.3,ymin=-0.3,ymax=+8.3]
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \begin{scope} [thick, brown!50!black]
-      \tkzFct[domain=\mi-0.3:\xb] {\fa}
-      \tkzFct[domain=\xb:\xc] {\fb}
-      \tkzFct[domain=\xc+.1:\ma+0.3] {\fc}
-    \filldraw (\xb, 2.9) [fill=white] circle(1.5pt);
-    \filldraw (\xb, 5.28) circle(1.5pt);
-    \filldraw (\xc, 5.02) circle(1.5pt);
+      \tkzFct[domain=\mix-0.3:\xdisca] {\fa}
+      \tkzFct[domain=\xdisca:\xdiscb] {\fb}
+      \tkzFct[domain=\xdiscb:\asint] {\fc}
+      \tkzFct[domain=\asint+0.1:\max+0.3] {\fc}
     \end{scope}
-    \xbarx{\xa}{\fa}{a}{gray!90}{brown!50!black}{brown!50!black}
-    \xbarx{\xd}{.227}{b}{gray!90}{brown!50!black}{brown!50!black}
-    \node at (5, -1.3) 
-      {\footnotesize \emph{Grafico della funzione poco regolare}};
+    \foreach \yp [count = \xp] in \puntipartizionen{
+      \xbar{\xp}{\yp}{x_\xp}
+            {white!30!black}{blue!50!black}{blue!50!black}{0}};
+    \foreach \punto in \puntipartizionevuoti{
+      \filldraw \punto [fill=white] circle(1.5pt);}
   }
 }
+
+% \newcommand{\puntia}{%
+%   \def \fa{.5*\x+1.5}
+%   \def \fb{-.5*\x*\x+4*\x-2}
+%   \def \fc{1./(\x-\xc)}
+%   \def \mi{0}
+%   \def \ma{10}
+%   \def \xa{0.3}
+%   \def \xb{2.8}
+%   \def \xc{5.4}
+%   \def \xd{9.8}
+%   \rcom{\mi}{\ma}{0}{+8}{gray!50, very thin, step=1}
+%   \foreach \yp [count = \xp] in {2, 2.5, 
+%                                   5.5, 6, 5.5, 
+%                                   1.667, 0.625, .385, .278}{
+%     \xbarx{\xp}{\yp}{x_\xp}{gray!90}{brown!50!black}{brown!50!black}}
+% }
+
+% \newcommand{\puntigraficodiscontinuo}{%
+%   \disegno{
+%     \puntia
+%     \foreach \xp/\lab in {\xa/a, \xd/b}{
+%       \draw [dotted, gray!50]
+%         (\xp, 0) node [black, below] {\(\lab\)} -- (\xp, 8.3);}
+%     \node at (5, -1.3) 
+%       {\footnotesize \emph{Funzione poco regolare valutata in alcuni punti}};
+%   }
+% }
+
+% \newcommand{\graficodiscontinuo}{%
+%   \disegno{
+%     \puntia
+%     \tkzInit[xmin=\mi-0.3,xmax=\ma+0.3,ymin=-0.3,ymax=+8.3]
+%     \begin{scope} [thick, brown!50!black]
+%       \tkzFct[domain=\mi-0.3:\xb] {\fa}
+%       \tkzFct[domain=\xb:\xc] {\fb}
+%       \tkzFct[domain=\xc+.1:\ma+0.3] {\fc}
+%     \filldraw (\xb, 2.9) [fill=white] circle(1.5pt);
+%     \filldraw (\xb, 5.28) circle(1.5pt);
+%     \filldraw (\xc, 5.02) circle(1.5pt);
+%     \end{scope}
+%     \xbarx{\xa}{\fa}{a}{gray!90}{brown!50!black}{brown!50!black}
+%     \xbarx{\xd}{.227}{b}{gray!90}{brown!50!black}{brown!50!black}
+%     \node at (5, -1.3) 
+%       {\footnotesize \emph{Grafico della funzione poco regolare}};
+%   }
+% }
 
 \newcommand{\contprimo}{%
   \def \fa{-\x*\x+0*x+5}
@@ -382,7 +445,7 @@
     \rcom{\mix}{\max}{\miy}{\may}{white}
     \begin{scope}
       \clip (\mix-0.3, \miy-0.3) rectangle (\max+0.3, \may+0.3);
-      \draw [thick, blue!50!black] (0, 0) circle (\max);
+      \draw [thick, green!50!black] (0, 0) circle (\max);
     \end{scope}
     \draw (0, 0) -- \pp coordinate (p) node [right] 
       {\footnotesize\(P\)} 
@@ -421,7 +484,7 @@
     \rcom{\mix}{\max}{\miy}{\may}{white}
     \begin{scope}
       \clip (\mix-0.3, \miy-0.3) rectangle (\max+3.2, \may+1.7);
-      \draw [thick, blue!50!black] (0, 0) circle (\max);
+      \draw [thick, green!50!black] (0, 0) circle (\max);
     \draw (0, 0) -- \pp coordinate (p) node [right] 
       {\footnotesize\(P \approx Q\)}; 
     \draw (1, 0) coordinate (a) (0,0) coordinate (o)
@@ -430,8 +493,8 @@
       {angle=a--o--p};
     \microscopio{(p)}{1}{55}{-120}{2}{(+4.1, +6.1)}
                 {\footnotesize \(\times \infty\)}
-    \tkzFct[domain=5.07:6.78, ultra thick, blue!50!black] {\fam}
-    \filldraw [blue!50!black]
+    \tkzFct[domain=5.07:6.78, ultra thick, green!50!black] {\fam}
+    \filldraw [green!50!black]
       \pm circle (1.5pt) 
           node [right, black] {\footnotesize\(P\)}
           node [right, black, yshift=15] {\footnotesize\(d y\)}
