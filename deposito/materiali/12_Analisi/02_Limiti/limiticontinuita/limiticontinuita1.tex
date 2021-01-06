@@ -13,6 +13,48 @@ P.5 perché non dire che se una f è continua in un intervallo allora è definit
 in ogni punto dell'intervallo.
 
 I grafici sono tutti completi?
+
+
+esempio 1.1, grafico. f(1+epsilon) si potrebbe spostare a destra del 
+microscopio? Lì sembra il vertice della parabola
+
+% TODO
+p.5 r.1 non so decidere se va bene così se deve essere per ogni x infinitamente 
+vicino a x_0. In effetti anche se lo hai scritto a parole nella pag. prima, 
+andrebbe messo che vale per ogni x_0 del dominio.
+
+p.5 r.-3 non andrebbero delta minuscole?
+
+p.13 def 1.7
+metterei uno spazio prima di f(c+epsilon)
+in effetti M cambia comunque al variare di epsilon, quindi se vale per ogni 
+epsilon non può essere vera per lo stesso M. Meglio scrivere M_epsilon?
+
+pp15,16 esempi 1.14 e 1.15 Non ho trovato esempi di uso riflessivo di auspicare. 
+credo che sia perché già significa augurarsi.
+
+esempio1.27 e segg. ci sono riferimenti non andati a buon fine. È per la 
+compilazione in un'unica passata?
+
+Sto rileggendo, avrei ancora qualche pignoleria:
+
+[3,1] Dimostrazione: in realtà si tratta di uno svolgimento perché l'es. 1.3 non 
+chiede di dimostrare.
+[3,5] non è molto chiaro, sembra che provare la continuità sia provare che sia x 
+sia f(x) siano infinitamente vicini allo stesso valore (in questo caso sarebbe 
+0). Direi una cosa del tipo: se x coincide con 0, allora f(x)= f(0), ma per 
+valori di x pur infinitamente vicini a 0 ma diversi da 0,  etc.
+es.1.5: "Che è un infinitesimo", metterei una virgola alla fine della formula 
+precedente e inizierei con c minuscola.
+Um'idea per la versione del 22: dare un carattere diverso agli esempi e agli 
+esercizi svolti e ai loro commenti, in modo che si distinguano dallo svolgersi 
+della teoria. Per esempio  [3,-7] sembra proseguire nell'esercizio.
+Le ultime 6 righe di p.3 ripetono all'incirca la definizione di p.2: sono 
+indispensabili?
+Cosa non ti convince della dimostrazione della continuità di a^x? Non basta 
+dimostrare che è continua in 0 perché minore della radice ennesima di a?
+Ho scritto le osservazioni sui limiti direttamente sul pdf, te lo allego.
+
 \end{comment}
 
 \input{\folder limiticontinuita1_grafici.tex}
@@ -77,10 +119,10 @@ Per precisare questo concetto, partiamo da definire cos'è una funzione
 Diremo che una funzione è \textbf{continua in un punto \(c\)} non isolato, 
 se è definita in \(c\) e, 
 quando \(x\) è infinitamente vicino a \(c\), 
-allora \(f(x)\) è infinitamente vicino a \(f(c)\). 
+allora \(f(x)\) è infinitamente vicino a \(f(c)\), 
 
 \vspace{1em}
-E si scrive \(f\) è continua nel punto \(c\) se: \hspace{12mm}
+e si scrive \(f\) è continua nel punto \(c\) se: \hspace{12mm}
 \(\forall x \approx c \quad f(x) \approx f(c)\)
 
 \vspace{.5em}
@@ -92,8 +134,8 @@ oppure: \hspace{58mm}
 \(\forall \epsilon \approx 0 \quad f(c + \epsilon) - f(c) \approx 0\)
 
 \vspace{.5em}
-o ancora: \hspace{56mm}
-\(\forall x \approx c \quad \pst{f(x)} = f(c)\)
+o ancora: \hspace{54mm}
+\(\stext{se } \pst{x} = c \sstext{allora} \pst{f(x)} = f(c)\)
 \end{definizione}
 
 \begin{esempio}
@@ -136,16 +178,16 @@ Quindi \(f(x)\) non è continua dato che \(0\) non appartiene al suo insieme
 di definizione.
 
 Per essere pignoli, non ha neppure molto senso chiedersi se una funzione sia 
-continua in un punto dove non è neppure definita!
+continua in un punto dove non è neppure definita!\hfill \(\qed\)
 }{
 \scalebox{1}{\contsecondo}
 }
 \end{esempio}
 
-% \newpage
+\newpage %-------------------------------------------------
 
 \begin{esempio}
-Continuità in zero della funzione \emph{segno}:
+Studia la continuità in zero della funzione \emph{segno}:
 \(f(x)=\begin{cases} 
     -1 & \text{se } x < 0 \\ 
      0 & \text{se } x = 0 \\ 
@@ -155,14 +197,14 @@ Continuità in zero della funzione \emph{segno}:
 
 \affiancati{.59}{.39}
 {
-\emph{Dimostrazione}\\
+\emph{Svolgimento}\\
 La funzione non è continua in \(0\) dato che ci sono dei valori 
 \(x\) infinitamente vicini a \(0\) ma tali che \(f(x)\) non è infinitamente 
 vicino a \(f(0)\). 
 
-Anzi, c'è un solo valore \(x\) infinitamente vicino a \(0\) che è anche 
-infinitamente vicino a \(f(0)\), ed è \(0\) stesso, tutti gli altri 
-\(x \approx 0\) hanno una distanza da \(f(0)\)  non infinitesima.
+In questa funzione siamo addirittura nel caso in cui per \emph{nessun} 
+valore di \(x\) infinitamente vicino a zero ma diverso da zero, 
+\(f(x) \approx f(0)\).\hfill \(\qed\)
 }{
 \scalebox{1}{\fsegno}
 }
@@ -173,13 +215,16 @@ infinitamente vicino a \(f(0)\), ed è \(0\) stesso, tutti gli altri
 \begin{esempio}
  Dimostrare che \(f(x)=\frac{\abs{x}}{4}\) è continua in \(0\).
 
-\emph{dimostrazione}:
+\emph{Dimostrazione}:
 \[f(\epsilon) - f(0) = \frac{\abs{\epsilon}}{4} - \frac{\abs{0}}{4} = 
  \frac{\abs{\epsilon}}{4} \approx 0\]
+~ \hfill \(\qed\)
 \end{esempio}
 }{
 \scalebox{1}{\contterzo}
 }
+
+\vspace{1em}
 
 \begin{esempio}
 Studia la continuità in \(x_0=2\) della funzione: 
@@ -189,53 +234,53 @@ Studia la continuità in \(x_0=2\) della funzione:
   \end{cases}\)
 
 Per prima cosa dobbiamo verificare che la funzione sia definita per 
-per \(x=2\) e trovare il suo valore:\\
-\(f(2) = \dfrac{1}{2} \cdot 2-2 = -1\)\\
-Dobbiamo quindi verificare che, se \(x\) è infinitamente vicino a~\(2\) 
-allora \(f(x)\) sia infinitamente vicino a~\(f(2) = -1\).
+per \(x=2\) e trovare il suo valore: 
+\(f(2) = \dfrac{1}{2} \cdot 2-2 = -1\)
+
+Dobbiamo quindi verificare che \(f(x)\) sia infinitamente vicino 
+a~\(f(2) = -1\), quando \(x\) è infinitamente vicino a~\(2\).
 
 Dobbiamo distinguere i casi in cui ci avviciniamo a~2 da sinistra o da 
 destra. In entrambi i casi consideriamo un qualunque infinitesimo positivo 
 \(\epsilon\) e esplicitiamo il segno:
 
-\begin{minipage}{.49\textwidth}
+\affiancati{.58}{.40}{
 \begin{description}
  \item [da sinistra:]
  ~\\
 \(f(2-\epsilon) - f(2) =
   \dfrac{1}{2} \cdot \tonda{2-\epsilon}-2-\tonda{-1} =\)\\
-\(= 1 - \dfrac{\epsilon}{2} -2 +1 = -\dfrac{\epsilon}{2}\)\\ 
-Che è un infinitesimo.
+\(= 1 - \dfrac{\epsilon}{2} -2 +1 = -\dfrac{\epsilon}{2}\), \quad 
+che è un infinitesimo.
  \item [da destra:]
  ~\\
 \(f(2+\epsilon) - f(2) =\)\\
 \(\tonda{2+\epsilon}^2-6 \cdot \tonda{2+\epsilon}+7-\tonda{-1} =\)\\
 \(4+4\epsilon+\epsilon^2-12-6 \epsilon+7+1 =\)\\
-\(\epsilon^2-2 \epsilon\) \quad
-Che è un infinitesimo.
+\(\epsilon^2-2 \epsilon\),  \quad
+che è un infinitesimo.\hfill \(\qed\)
 \end{description}
-\end{minipage}
-\begin{minipage}{.49\textwidth}
+}{
 \begin{center}\continuitagraficoa\end{center}
-\end{minipage}
-
+}
 \end{esempio}
 
-Data una funzione \(y=f(x)\) definita in \(c\), le seguenti 
-affermazioni sono equivalenti:
-
-\begin{enumerate}[noitemsep]
- \item \(f\) è continua in \(c\);
- \item se \(x \approx c\) allora \(f(x) \approx f(c)\);
- \item se \(\st(x) = c\) allora \(\st(f(x)) = f(c)\);
-%  \item \(\lim_{x \to c} f(x) = f(c)\);
- \item se la differenza tra \(x\) e \(c\) è di un infinitesimo 
-allora la differenza tra \(f(x)\) e \(f(c)\) è di un infinitesimo;
- \item se \(x\) si allontana da \(c\) di un infinitesimo allora 
-   \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
-%  \item se \(\delta x\) è infinitesimo allora il corrispondente \(\delta y\) 
-%    è infinitesimo.
-\end{enumerate}
+% \vspace{1em}
+% \noindent Data una funzione \(y=f(x)\) definita in \(c\), le seguenti 
+% affermazioni sono equivalenti:
+% 
+% \begin{enumerate}[noitemsep]
+%  \item \(f\) è continua in \(c\);
+%  \item se \(x \approx c\) allora \(f(x) \approx f(c)\);
+%  \item se \(\st(x) = c\) allora \(\st(f(x)) = f(c)\);
+% %  \item \(\lim_{x \to c} f(x) = f(c)\);
+%  \item se la differenza tra \(x\) e \(c\) è di un infinitesimo 
+% allora la differenza tra \(f(x)\) e \(f(c)\) è di un infinitesimo;
+%  \item se \(x\) si allontana da \(c\) di un infinitesimo allora 
+%    \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
+% %  \item se \(\delta x\) è infinitesimo allora il corrispondente 
+% % \(\delta y\) è infinitesimo.
+% \end{enumerate}
 
 \subsection{Funzioni continue}
 \label{subsec:cont_definizione}
@@ -308,8 +353,9 @@ Ipotesi: \(f(x)=k\).\tab Tesi: \(f(x)\) è continua.
 Per la definizione di continuità vogliamo dimostrare che 
 
 \affiancati{.49}{.49}{
-\[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
-Poniamo \(x_0=x+\epsilon\), essendo la funzione costante, anche 
+\[\forall x \quad f(x + \epsilon) \approx f(x) \quad
+  \forall \epsilon \approx 0\]
+Essendo la funzione costante, 
 \[f(x+\epsilon)=k\] 
 che, ovviamente, è infinitamente vicino a \(f(x) = k\). 
 In simboli:
@@ -328,11 +374,10 @@ La funzione identica (\(f(x) = x\)) è continua.
 Per la definizione di continuità vogliamo dimostrare che 
 
 \affiancati{.49}{.49}{
-\[\forall x \text{ se } x_0 \approx x \text{ allora } f(x_0) \approx f(x)\]
-Poniamo \(x_0=x+\epsilon\), \(f(x_0) = f(x+\epsilon)=x+\epsilon\). 
-Dato che la differenza:
-\[f(x+\epsilon)-f(x) = x+\epsilon-x= \epsilon\]
-è un infinitesimo, allora i due valori sono infinitamente vicini. 
+\[\forall x \quad f(x + \epsilon) \approx f(x) \quad
+  \forall \epsilon \approx 0\]
+Essendo la funzione identica: \(f(x+\epsilon)=x+\epsilon\). \\
+Che è infinitamente vicino a \(f(x) = x\). 
 In simboli:
 \[f(x+\epsilon) = x+\epsilon \approx x = f(x) \quad \qed\] 
 }{
@@ -387,30 +432,55 @@ le corde è minore dell'arco su cui insiste:
 Ora, se passiamo ad un incremento infinitesimo \(\delta\) otteniamo la stessa 
 situazione:
 \[0 < \overline{PQ} < \overbow{PQ} = \delta\]
-E dato che \(\Delta(x)\) e \(\Delta(y)\) sono minori di \(PQ\) che è 
+E dato che \(dx\) e \(dy\) sono minori di \(PQ\) che è 
 un infinitesimo, anche 
 \(\Delta(\cos x) \stext{ e } \Delta(\sen x)\) sono infinitesimi. \qed
 }
 
-\begin{comment}
-% TODO Dimostrazioni circolari
-
-\begin{teorema}[Continuità della funzione seno]
-La funzione seno (\(f(x) = \sen x\)) è continua.
+\begin{teorema}[Continuità della funzione esponenziale in zero]
+La funzione esponenziale (\(y=a^x\)) è continua per \(x=0\).
 \end{teorema}
 
-\noindent Ipotesi: \(f(x)=\sen x\).\tab Tesi: \(f(x)\) è continua.
+\noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(a^\epsilon)=1\).
 
-\begin{center} \continuitafseno \end{center}
+\affiancati{.49}{.49}{
+\emph{Dimostrazione}
+Usando la prima proprietà delle potenze:
 
-\noindent \emph{Dimostrazione}
-Usando la formula del seno della somma di due angoli e ricordando che 
-\(\sen \epsilon \approx 0 \stext{e} \cos \epsilon \approx 1\),
-abbiamo:
-\[f(x+\epsilon) =
-\sen{(x+\epsilon)} = \sen x \cos \epsilon + \cos x \sen \epsilon = 
-\sen x \cdot (1 + \delta) + \cos x \cdot \gamma \approx
-\sen x = f(x)\]
+\begin{align*}
+f(x+\epsilon) &= 
+a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
+a^{x} \cdot \tonda{1 + \delta} = \\
+&=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
+a^{x} = f(x) \qed
+\end{align*}
+}{
+\begin{center} \continuitafesp \end{center}
+}
+
+\begin{teorema}[Continuità della funzione esponenziale]
+La funzione esponenziale (\(y=a^x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
+
+\affiancati{.49}{.49}{
+\emph{Dimostrazione}
+Usando la prima proprietà delle potenze:
+
+\begin{align*}
+f(x+\epsilon) &= 
+a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
+a^{x} \cdot \tonda{1 + \delta} = \\
+&=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
+a^{x} = f(x) \qed
+\end{align*}
+}{
+\begin{center} \continuitafesp \end{center}
+}
+
+\begin{comment}
+% TODO Dimostrazioni circolari
 
 \begin{teorema}[Continuità della funzione esponenziale]
 La funzione esponenziale (\(y=a^x\)) è continua.
@@ -511,7 +581,7 @@ Se \(f\) e \(g\) sono funzioni continue, anche \(f \cdot g\) è continua.
 \end{teorema}
 
 \noindent Ipotesi: 
-\(f(x) \text{ e} g(x)\) sono continue
+\(f(x) \stext{e} g(x)\) sono continue
 \tab Tesi: 
 \(f(x) \cdot g(x)\) è continua.
 
@@ -541,7 +611,7 @@ la tesi consegue dai teoremi precedenti. \qed
 % \begin{itemize}[noitemsep]
 %  \item \(f(x)=2x^2 + 3\) è continua perché è somma di due funzioni 
 % continue: 
- \begin{itemize}[nosep]
+ \begin{itemize}[noitemsep]
   \item \(2x^2\) è continua perché è prodotto di due funzioni continue:
   \begin{itemize}[nosep]
    \item \(2\) è continua perché è una costante;
@@ -554,9 +624,9 @@ la tesi consegue dai teoremi precedenti. \qed
   \item \(3\) è continua perché è una costante. \qed
  \end{itemize}
 % \end{itemize}
-
-
 \end{esempio}
+
+% \newpage %------------------------------------------------------
 
 \begin{teorema}[Funzioni di funzioni]
 Se \(f(x)\) e \(g(x)\) sono funzioni continue, anche \(f(g(x))\) è continua.
@@ -693,13 +763,13 @@ Detto altrimenti, cerchiamo di rispondere alla domanda: \\
 \emph{Per un certo valore di \(x\) la funzione potrebbe anche \emph{non} 
 essere definita, ma cosa succede quando \(x\) si avvicina a quel valore?}
 
-Vediamo un esempio:
+Vediamo un esempio.
 
 \begin{esempio}
  Studia l'Insieme di Definizione della funzione: 
  \(f(x)=\dfrac{x^2-6x+5}{x^2+2x-3}\),\quad
 poi studia come si comporta la funzione per valori infinitamente vicini 
-agli estremi dell'Insieme di Definizione.
+agli estremi dell'\(\ID\)
 
 La funzione è fratta e quindi non è definita quando il denominatore vale 
 zero:
@@ -774,19 +844,19 @@ dell'Insieme di Definizione.
 \end{minipage}
 Possiamo osservare che:
 \begin{itemize} [nosep]
- \item Quando \(x\) diventa sempre più piccolo 
- (si avvicina a meno infinito), 
+ \item Quando \(x\) diventa sempre più negativo, 
+%  (si avvicina a meno infinito), 
 \(f(x)\) si avvicina a~\(1\) dall'alto.
  \item Quando \(x\) si avvicina a~\(-3\) da sinistra, 
-\(f(x)\) diventa sempre più piccolo.
- \item Quando \(x\) si avvicina a~\(-3\) da destra, 
 \(f(x)\) diventa sempre più grande.
+ \item Quando \(x\) si avvicina a~\(-3\) da destra, 
+\(f(x)\) diventa sempre più negativo.
  \item Quando \(x\) si avvicina a~\(+1\) da sinistra, 
 \(f(x)\)  si avvicina a~\(-1\) dall'alto.
  \item Quando \(x\) si avvicina a~\(+1\) da destra, 
 \(f(x)\)  si avvicina a~\(-1\) dal basso.
- \item Quando \(x\) diventa sempre più grande 
- (si avvicina a più infinito), 
+ \item Quando \(x\) diventa sempre più grande, 
+%  (si avvicina a più infinito), 
 \(f(x)\) si avvicina a~\(1\) dal basso.
 \end{itemize}
 \begin{center}\scalebox{.6}{\limitigraficoa}\end{center}
@@ -794,7 +864,6 @@ Possiamo osservare che:
 
 Osservando il grafico provate a descrivere a parole cosa succede:
 
-\begin{minipage}{.64\textwidth}
 \begin{itemize} [nosep]
  \item quando \(x\) si avvicina a \(-\infty\); 
  \item quando si avvicina a \(-3\) e quando vale proprio \(-3\);
@@ -802,6 +871,7 @@ Osservando il grafico provate a descrivere a parole cosa succede:
  \item e, infine, quando si avvicina a \(+\infty\).
 \end{itemize}
 
+\affiancati{.64}{.34}{
 \begin{osservazione}
 Nel tratto crescente della funzione, che appare come linea continua, in 
 realtà manca un punto: il punto \(\punto{1}{-1}\). 
@@ -810,12 +880,34 @@ grafico della funzione appare continuo.
 Possiamo indicare un punto mancante in una linea usando un cerchietto vuoto 
 come nell'ingrandimento a fianco.
 \end{osservazione}
-
-\end{minipage}
-\hfill
-\begin{minipage}{.34\textwidth}
+}{
 \begin{center}\scalebox{1.2}{\limitigraficob}\end{center}
-\end{minipage}
+}
+
+% Osservando il grafico provate a descrivere a parole cosa succede:
+% 
+% \begin{minipage}{.64\textwidth}
+% \begin{itemize} [nosep]
+%  \item quando \(x\) si avvicina a \(-\infty\); 
+%  \item quando si avvicina a \(-3\) e quando vale proprio \(-3\);
+%  \item quando si avvicina a \(+1\) e quando vale proprio \(+1\); 
+%  \item e, infine, quando si avvicina a \(+\infty\).
+% \end{itemize}
+% 
+% \begin{osservazione}
+% Nel tratto crescente della funzione, che appare come linea continua, in 
+% realtà manca un punto: il punto \(\punto{1}{-1}\). 
+% Questo punto mancante è invisibile essendo infinitamente piccolo, quindi il 
+% grafico della funzione appare continuo. 
+% Possiamo indicare un punto mancante in una linea usando un cerchietto vuoto 
+% come nell'ingrandimento a fianco.
+% \end{osservazione}
+% 
+% \end{minipage}
+% \hfill
+% \begin{minipage}{.34\textwidth}
+% \begin{center}\scalebox{1.2}{\limitigraficob}\end{center}
+% \end{minipage}
 
 \vspace{1em}
 Un tempo si trattavano queste situazioni usando infinitesimi e infiniti in 
@@ -910,11 +1002,11 @@ limite: \(\displaystyle \lim_{x \to 1}\dfrac{x^2-6x+5}{x^2+2x-3}\).
 \label{subsubsec:cont_limiti_nonesiste}
 
 Il calcolo del limite presentato sopra permette di calcolare il limite 
-finito solo se ci sono alcune condizioni, ma in vari casi può fallire, 
-i motivi per cui può fallire sono:
+finito solo se ci sono alcune condizioni, ma in vari casi può fallire. 
+I motivi per cui può fallire sono:
 \begin{enumerate} [nosep]
 \item la funzione \(f(c+\epsilon)\) non è definita per alcuni valori di 
-\(\epsilon = 0\); 
+\(\epsilon \approx 0 \stext{e} \epsilon \neq 0\); 
 \item al variare dell'infinitesimo \(\epsilon\) la parte standard 
 \(\pst{f(c+\epsilon)}\) non è sempre la stessa;
 \item la funzione \(f(c+\epsilon)\) dà come risultato un valore infinito e 
@@ -924,14 +1016,15 @@ quindi non ha parte standard.
 Nelle prossime sezioni vedremo quando è possibile, comunque, ricavare delle 
 informazioni interessanti in alcune delle situazioni elencate sopra.
 
-\subsection{Se non esiste \(f(c+\epsilon)\) per ogni \(\epsilon\)}
+\subsection{Se non esiste \(f(c+\epsilon)\) per alcuni valori di 
+\(\epsilon\)}
 \label{subsec:cont_limiti_nonsempreesiste}
 
 \affiancati{.49}{.49}{
 \begin{center} \limitenea \end{center}
 }{
 Potremmo trovarci nella situazione nella quale, a distanza infinitesima 
-da un certo valore \(c\), la funzione non sia sempre definita.
+non nulla da un certo valore \(c\), la funzione non sia definita.
 
 In questo caso il limite non esiste.
 }
@@ -946,9 +1039,9 @@ funzione.
 Ad esempio nella situazione rappresentata a fianco, la funzione è sempre 
 definita a sinistra del punto \(c_1\) e a destra del punto \(c_2\).
 Pur non esistendo i limiti in \(c_1\) e \(c_2\),
-potremo dire che esiste il limite sinistro per \(x \to c_1\) e
-il limite destro per \(x \to c_2\):
-\[\lim_{x \to c_1^-} f(x) = 0 \sstext{e} \lim_{x \to c_1^+} f(x) = 0\]
+potremo dire che esiste il limite sinistro per \(x\) che tende a \(c_1\) e
+il limite destro per \(x\) che tende a \(c_2\), e diremo:
+\[\lim_{x \to c_1^-} f(x) = 0 \sstext{e} \lim_{x \to c_2^+} f(x) = 0\]
 }{
 \begin{center} \limiteneb \end{center}
 }
@@ -968,7 +1061,23 @@ In modo equivalente, usando la parte standard:
 se questa parte standard esiste e è sempre la stessa 
 per ogni \(\epsilon \approx 0 \stext{ e } \epsilon < 0\).
 \end{definizione}
-In modo simmetrico si definisce il \textbf{limite destro}.
+
+\begin{definizione}
+In modo simmetrico si definisce il \textbf{limite destro}
+% Il numero reale \(L\) è il \textbf{limite destro} della funzione \(f(x)\) 
+% per \(x\) che tende a un valore \(c\) se \(f(x)\) è infinitamente vicino 
+% a \(L\) per tutti gli \(x\) infinitamente vicini a \(c\) e maggiori di 
+% \(c\). \quad 
+% E si scrive:
+\[L = \lim_{x \rightarrow c^+} f(x) \sstext{se e solo se} 
+L \approx {f(x)} \quad 
+\forall x \approx c \stext{ e } x > c\]
+
+% In modo equivalente, usando la parte standard: 
+% \[\lim_{x \to c^+} f(x) = \pst{f(c+\epsilon)}\]
+% se questa parte standard esiste e è sempre la stessa 
+% per ogni \(\epsilon \approx 0 \stext{ e } \epsilon > 0\).
+\end{definizione}
 
 \begin{esempio}
 Studia il comportamento della funzione \(f(x)=\sqrt{3x-12}\) 
@@ -976,8 +1085,8 @@ vicino al punto di ascissa \(4\).
 
 \affiancati{.49}{.49}{
 Per prima cosa studiamo l'\(\ID\) della funzione. 
-L'argomento della radice quadrata deve essere maggiore di zero: 
-\[3x-12>0 \sRarrow 3x>12 \sRarrow x>4\]
+L'argomento della radice quadrata deve essere maggiore o uguale a zero: 
+\[3x-12 \geqslant 0 \sRarrow 3x \geqslant 12 \sRarrow x \geqslant 4\]
 Quindi: \(\ID = \intervca{4}{\infty}\)
 
 }{
@@ -990,10 +1099,10 @@ Quindi: \(\ID = \intervca{4}{\infty}\)
 % Quindi possiamo studiare solo il limite destro per \(x \to 2\):
 Partiamo applicando la definizione del limite finito per \(x\) che tende a 
 \(4\):
-\[\lim_{x \to 4}\sqrt{3x-12} = \pst{3\tonda{4+\epsilon}-12} = 
+\[\lim_{x \to 4}\sqrt{3x-12} = \pst{\sqrt{3\tonda{4+\epsilon}-12}} = 
 \pst{\sqrt{\cancel{+12}+3 \epsilon~\cancel{-12}}} = 
 \pst{\sqrt{3 \epsilon}} = \dots\]
-A questo punto vediamo che non possiamo procedete con i calcoli per ogni 
+A questo punto vediamo che non possiamo procedere con i calcoli per ogni 
 valore di \(\epsilon\) quindi \emph{non esiste il limite}.
 
 Però, dato che posso eseguire i calcoli \emph{per ogni} \(\epsilon > 0\) 
@@ -1045,19 +1154,21 @@ Possiamo ora ampliare la definizione di limite:
 \begin{definizione}
 Diremo che il \textbf{limite} della funzione \(f(x)\) 
 per \(x\) che tende a un valore \(c\) è \(+\infty\) 
-se per ogni \(\epsilon \approx 0 \stext{ e } \epsilon \neq 0\) 
+se per ogni \(\epsilon \approx 0 \stext{ e } \epsilon \neq 0\) \quad 
 \(f(c + \epsilon)\) è numero infinito positivo. \quad 
 E si scrive:
 \[\lim_{x \rightarrow c} f(x) = +\infty \sstext{se e solo se} 
-{f(c + \epsilon) = M > 0} \quad 
+% {f(c + \epsilon) = M > 0} \quad 
+{f(c + \epsilon) \stext{è un infinito positivo}} \quad 
 \forall \epsilon \approx 0 \stext{ e } \epsilon \neq 0\]
 Simmetricamente diremo che il \textbf{limite} della funzione \(f(x)\) 
 per \(x\) che tende a un valore \(c\) è \(-\infty\) 
-se per ogni \(\epsilon \approx 0 \stext{ e } \epsilon \neq 0\) 
+se per ogni \(\epsilon \approx 0 \stext{ e } \epsilon \neq 0\) \quad 
 \(f(c + \epsilon)\) è numero infinito negativo. \quad 
 E si scrive:
 \[\lim_{x \rightarrow c} f(x) = -\infty \sstext{se e solo se} 
-{f(c + \epsilon) = M < 0} \quad 
+% {f(c + \epsilon) = M < 0} \quad 
+{f(c + \epsilon) \stext{è un infinito negativo}} \quad 
 \forall \epsilon \approx 0 \stext{ e } \epsilon \neq 0\]
 \end{definizione}
 
@@ -1146,9 +1257,10 @@ In questi casi possiamo dire che, pur non esistendo il limite, esiste un
 \emph{limite sinistro} o un \emph{limite destro}.
 
 Indicheremo il limite sinistro con un \emph{meno} (\(c^-\)) posto a esponente 
-e il limite destro con un più posto a esponente (\(c^+\)).
+e il limite destro con un \emph{più} posto a esponente (\(c^+\)).
 
-Possiamo quindi dare la definizione di limite sinistro:
+Possiamo quindi ampliare le definizioni di limiti sinistro e destro tenendo 
+conto anche dei limiti infiniti:
 
 \begin{definizione}
 Diremo che il \emph{limite sinistro} per \(x\) che tende a \(c\) 
@@ -1202,7 +1314,7 @@ diremo che questo è il limite della funzione.
 Calcola il limite \(\displaystyle \lim_{x \to 0}\frac{-1}{x}\)
 \begin{enumerate} %[nosep]
 \item 
-Possiamo partire auspicandoci di ottenere un limite finito:
+Possiamo partire augurandoci di ottenere un limite finito:
 \[\lim_{x \to 0}\frac{-1}{x} = \pst{\frac{-1}{\epsilon}} = \pst{M}\]
 Niente da fare: non posso calcolare la parte standard di un numero infinito.
 \item 
@@ -1232,7 +1344,7 @@ otteniamo è negativo. Quindi:
 
 Abbiamo studiato il comportamento di una funzione che 
 % cresce sempre più all'a
-che assume valori infiniti quando il suo argomento si avvicina ad un certo 
+assume valori infiniti quando il suo argomento si avvicina ad un certo 
 valore finito. 
 Ora vogliamo studiare come si comporta una funzione quando il suo argomento 
 è un infinito e scriveremo: 
@@ -1284,7 +1396,7 @@ Calcola i limiti:
 \quad e \quad
 \(\displaystyle \lim_{x \to +\infty}\frac{3x^2-4x+5}{x^2-2x+3}\)
 
-Iniziamo dal primo auspicandoci di ottenere un limite finito:
+Iniziamo dal primo augurandoci di ottenere un limite finito:
 \[\lim_{x \to -\infty}\frac{3x^2-4x+5}{x^2-2x+3} \stackrel{1}{=} 
 \pst{\frac{3M^2-4M+5}{M^2-2M+3}} \stackrel{2}{=} 
 \pst{\frac{3\cancel{M^2}}{\cancel{M^2}}} = \pst{3} = 3\]
@@ -1424,7 +1536,8 @@ Dove le uguaglianze hanno i seguenti motivi:
 \end{esempio}
 
 Ora vediamo alcuni casi un po' più delicati: ricordiamoci che un numero 
-iperreale diverso da zero non può mai essere indistinguibile da zero.
+iperreale diverso da zero non può mai essere dichiarato indistinguibile 
+da zero.
 
 \begin{esempio}
 \textbf{Infinitesimo fratto finito non infinitesimo 
@@ -1949,3 +2062,43 @@ e per \dots
 \end{enumerate}
 \end{esempio}
 
+\newpage %------------------------------------------------
+\subsection{Limite \(\epsilon \stext{-} \delta\)}
+
+Nella seconda metà del 1800 è stato messo a punto il concetto di limite
+con la seguente definizione:
+
+\begin{definizione}
+Il numero reale \(L\) è il \textbf{limite (finito)} della funzione \(f(x)\) 
+per \(x\) che tende a un valore \(\mathbf{c}\) \textbf{(finito)} se per ogni 
+numero reale \(\epsilon\) esiste un numero reale \(\delta\) tale che per ogni 
+\(x\) 
+che dista da \(c\) meno di \(\delta\), \(f(x)\) dista da \(L\) 
+meno di \(\epsilon\).
+
+E si scrive:
+\[L = \lim_{x \rightarrow c}f(x) \stext{se}
+\forall \epsilon > 0 ~~ \exists \delta > 0 
+\sstext{tale che} \forall x \sstext{con} \abs{x - c} < \delta
+\stext{allora} 
+\abs{f(x) - L} < \epsilon\]
+Symbolically:
+\[\lim_{x \to c} f(x) = L  \sLRarrow  
+\tonda{\forall \epsilon > 0,\,
+\exists ~ \delta > 0:\,\forall x \stext{con} \abs{x - c} < \delta
+\sRarrow \abs{f(x) - L} < \epsilon}\]
+
+\end{definizione}
+
+In modo simile vengono definiti anche:
+\begin{itemize}
+\item il limite infinito per \(x\) che tende a un finito;
+\item il limite finito per \(x\) che tende a un infinito;
+\item il limite infinito per \(x\) che tende a un infinito;
+\item il limite sinistro;
+\item il limite destro.
+\end{itemize}
+
+La cosa interessante, per noi, è che i matematici hanno dimostrato che se un 
+valore è il limite secondo la definizione dei Cauchy-Bolzano-Weierstrass 
+lo è anche secondo la definizione non standard, e viceversa.
