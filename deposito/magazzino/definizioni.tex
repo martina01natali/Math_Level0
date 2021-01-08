@@ -177,6 +177,17 @@
 }
 
 %--------------------------
+% Immagine realizzata con Tikz o presa da file 
+\newcommand{\image}[2]{% se è definita \tikzout esegue #1 altrimenti #2
+  % esempio: \image{\puntigrafico}{img/puntigrafico.png}
+  \ifx\tikzout\undefined
+    #1
+  \else
+    \includegraphics[scale=1]{#2}
+  \fi
+}
+
+%--------------------------
 % Centra un elemento utile nelle tabelle centra anche verticalmente: 
 \newcommand{\centra}[1]{\begin{center}#1\end{center}}
 
