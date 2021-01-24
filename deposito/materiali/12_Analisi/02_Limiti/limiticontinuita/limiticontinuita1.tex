@@ -982,7 +982,7 @@ limite: \(\displaystyle \lim_{x \to 1}\dfrac{x^2-6x+5}{x^2+2x-3}\).
 Studia il comportamento della funzione 
 \(f(x) = \dfrac{x^2-6x+5}{x^2+2x-3}\)
 vicino a \(2\). 
-\begin{align*}
+\[
 f(1 + \epsilon) \stackrel{1}{=}
   \dfrac{\tonda{1+\epsilon}^2-6\tonda{1+\epsilon}+5}
         {\tonda{1+\epsilon}^2+2\tonda{1+\epsilon}-3} =
@@ -996,16 +996,16 @@ f(1 + \epsilon) \stackrel{1}{=}
 \stackrel{3}{=}
   \dfrac{\cancel{\epsilon}\tonda{-4+\epsilon}}
         {\cancel{\epsilon}\tonda{+4+\epsilon}}
-\end{align*}
+\]
 Dato che il valore ottenuto è finito 
 (il quoziente di due finiti non infinitesimi) 
 possiamo calcolare la parte standard:
-\begin{align*}
+\[
 \lim_{x \to 2} \frac{x^2-6x+5}{x^2+2x-3} \stackrel{4}{=} 
 \pst{\frac{-4+\epsilon} {+4+\epsilon}} \stackrel{5}{=}
 \frac{\pst{-4+\epsilon}}{\pst{+4+\epsilon}} \stackrel{6}{=} 
 \frac{-4}{+4} = -1
-\end{align*}
+\]
 Dato che il valore ottenuto è indipendente dall'infinitesimo \(\epsilon\), 
 \(-1\) è il limite cercato.
 
@@ -1423,7 +1423,7 @@ Diamo per il limite all'infinito una definizione analoga a quella
 data per i limiti al finito.
 
 \begin{definizione}
-\emph{Limite} per \(x\) che tende a \(-\infty\) della funzione \(f(x)\).
+\emph{Limite} della funzione \(f(x)\) per \(x\) che tende a \(-\infty\).
 \begin{itemize}
 \item 
 \(\displaystyle \lim_{x \to -\infty}f(x) = \pst{f(M)}\)
@@ -1432,17 +1432,17 @@ per ogni \(M\) infinito negativo
 la parte standard di \(f(M)\) è sempre la stessa.
 \item 
 \(\displaystyle \lim_{x \to -\infty}f(x) = -\infty\)
-se \(f(M)\) è un numero infinito negativo 
-per ogni \(M\) infinito negativo.
+se \(f(M)\) è un infinito negativo 
+per ogni infinito \(M < 0\).
 \item 
 \(\displaystyle \lim_{x \to -\infty}f(x) = +\infty\)
-se \(f(M)\) è un numero infinito positivo 
-per ogni \(M\) infinito negativo.
+se \(f(M)\) è un infinito positivo 
+per ogni infinito \(M < 0\).
 \end{itemize}
 \end{definizione}
 
 \begin{definizione}
-\emph{Limite} per \(x\) che tende a \(+\infty\) della funzione \(f(x)\).
+\emph{Limite} della funzione \(f(x)\) per \(x\) che tende a \(+\infty\).
 \begin{itemize}
 \item 
 \(\displaystyle \lim_{x \to +\infty}f(x) = \pst{f(M)}\)
@@ -1451,12 +1451,12 @@ per ogni \(M\) infinito positivo
 la parte standard di \(f(M)\) è sempre la stessa.
 \item 
 \(\displaystyle \lim_{x \to +\infty}f(x) = -\infty\)
-se \(f(M)\) è un numero infinito negativo 
-per ogni \(M\) infinito positivo.
+se \(f(M)\) è un infinito negativo 
+per ogni infinito \(M > 0\).
 \item 
 \(\displaystyle \lim_{x \to +\infty}f(x) = +\infty\)
-se \(f(M)\) è un numero infinito positivo 
-per ogni \(M\) infinito positivo.
+se \(f(M)\) è un infinito positivo 
+per ogni infinito \(M > 0\).
 \end{itemize}
 \end{definizione}
 
@@ -1466,40 +1466,24 @@ Calcola i limiti:
 \quad e \quad
 \(\displaystyle \lim_{x \to +\infty}\frac{3x^2-4x+5}{x^2-2x+3}\)
 
-Iniziamo dal primo augurandoci di ottenere un limite finito:
-\[\lim_{x \to -\infty}\frac{3x^2-4x+5}{x^2-2x+3} \stackrel{1}{=} 
-\pst{\frac{3M^2-4M+5}{M^2-2M+3}} \stackrel{2}{=} 
-\pst{\frac{3\cancel{M^2}}{\cancel{M^2}}} = \pst{3} = 3\]
+Iniziamo calcolando \(f(M)\) con \(M\) infinito negativo:
+\[f(M) = \dfrac{3M^2-4M+5}{M^2-2M+3} \stackrel{1}{\sim} 
+\dfrac{3\cancel{M^2}}{\cancel{M^2}} = 3\]
+Dato che il risultato ottenuto è un finito:
+\[\lim_{x \to +\infty}\frac{3x^2-4x+5}{x^2-2x+3} = 
+  \pst{f(M)} = \pst{3} \stackrel{2}{=} 3\]
+% \[\lim_{x \to -\infty}\frac{3x^2-4x+5}{x^2-2x+3} \stackrel{1}{=} 
+% \pst{\frac{3M^2-4M+5}{M^2-2M+3}} \stackrel{2}{=} 
+% \pst{\frac{3\cancel{M^2}}{\cancel{M^2}}} = \pst{3} = 3\]
 Dove le uguaglianze segnate hanno le seguenti giustificazioni:
 \begin{enumerate} [nosep]
-\item applichiamo la definizione e chiamiamo \(M\) un generico numero 
-infinito negativo.
 \item sostituiamo numeratore e denominatore con espressioni indistinguibili 
 (vedi la sezione sul confronto tra numeri iperreali).
+\item La parte standard di un numero reale è il numero reale stesso.
 \end{enumerate}
-Possiamo osservare che il risultato non dipende dal segno di \(M\) quindi 
-anche: 
+Possiamo osservare che il risultato ottenuto sopra non dipende dal segno di 
+\(M\) quindi anche: 
 \[\displaystyle \lim_{x \to +\infty}\frac{3x^2-4x+5}{x^2-2x+3} = 3\]
-
-% \begin{commen}
-% % Esempio da mettere nel paragrafo sull'indistinguibilità e 
-% % magari riportare qui un riferimento.
-% Per il numeratore: 
-% \(3M^2-4M+5 \sim 3M^2\) infatti: \\ [.5em]
-% \(\dfrac{3M^2-4M+5 - 3M^2}{3M^2} = \dfrac{-4M+5}{3M^2} = 
-% \dfrac{-4M}{3M^2} + \dfrac{+5}{3M^2} = 
-% \dfrac{-4}{3M} + \dfrac{+5}{3M^2} = \alpha + \beta \approx 0\) \\ [.5em]
-% e: \\ [.5em]
-% \(\dfrac{3M^2-4M+5 - 3M^2}{3M^2-4M+5} = 
-% \dfrac{\dfrac{-4M+5}{M}}{\dfrac{3M^2-4M+5}{M}} = 
-% \dfrac{\dfrac{-4M}{M}+\dfrac{+5}{M}}
-%       {\dfrac{3M^2}{M}+\dfrac{-4M}{M}+\dfrac{+5}{M}} = 
-% \dfrac{-4+\alpha}{3M-4+\beta} \stackrel{*}{\approx} 0\)\\ [.5em]
-% \(*\) Dato che il numeratore è un finito e il denominatore un infinito.
-% \\ [.5em]
-% In modo analogo si dimostra che \(M^2-2M+3 \approx M^2\)
-% \end{commen}
-
 \begin{center} \limiteallinfinito \end{center}
 \end{esempio}
 
@@ -1507,64 +1491,116 @@ anche:
 \label{subsec:cont_limiti_calcolo}
 
 In questa sezione vengono presentati alcuni limiti, risolti e commentati.
-
+Rivediamo i procedimenti di calcolo.
 \begin{procedura}
-Per calcolare il limite di una funzione per \(x\) che tende a un certo 
-valore, \(c\) iniziamo cercando di calcolare:
-\[l=\lim_{x \rightarrow c} f(x) = \pst{f(c+\epsilon)} 
-\stext{se} c \stext{è finito \quad oppure:} 
-l=\lim_{x \rightarrow \infty} f(x) = \pst{f(M)} 
-\stext{se} c \stext{è infinito}\]
+Per calcolare il limite di una funzione per \(x\) che tende a un 
+valore \(c\) finito iniziamo calcolando:
+\(f(c + \epsilon)\)
 \begin{itemize}
 \item 
-se la parte standard è sempre la stessa per ogni \(\epsilon\) o 
-ogni \(M\): abbiamo trovato il limite;
+se \(\pst{f(c + \epsilon)}\) esiste e è sempre la stessa 
+per ogni \(\epsilon \neq 0\): \quad 
+\(\displaystyle \lim_{x \to c}f(x) = \pst{f(c + \epsilon)}\)
 \item 
-se non possiamo calcolare la parte standard perché il suo argomento 
-è un numero infinito, se è un infinito sempre negativo o sempre positivo 
-per ogni \(\epsilon\) o ogni \(M\): il limite è \(-\infty\) o \(+\infty\);
+se \(f(c + \epsilon)\) è un infinito negativo per ogni \(\epsilon \neq 0\): 
+\quad \(\displaystyle \lim_{x \to c}f(x) = -\infty\)
 \item 
-se il risultato varia al variare di \(\epsilon\) o \(M\), o se per 
-alcuni di questi valori l'argomento della parte standard non è definito: 
-possiamo cercare se almeno esistono i limiti sinistro o destro.
+se \(f(c + \epsilon)\) è un infinito positivo per ogni \(\epsilon \neq 0\): 
+\quad \(\displaystyle \lim_{x \to c}f(x) = +\infty\)
+\item 
+se \(f(c + \epsilon)\) ha un comportamento diverso a seconda del 
+segno di \(\epsilon\), possiamo cercare i limiti sinistro o destro
+restringendo i calcoli precedenti rispettivamente ai valori di 
+\(\epsilon < 0\) e \(\epsilon > 0\). 
 \end{itemize}
 \end{procedura}
 
-I prossimi esempi mostrano come è possibile applicare la procedura per il 
-calcolo del limite a diversi casi che potrai incontrare.
+\begin{procedura}
+Per calcolare il limite di una funzione per 
+\(x \to -\infty\)
+iniziamo calcolando:
+\(f(M)\) con l'infinito \(M < 0\)
+\begin{itemize}
+\item 
+se \(\pst{f(M)}\) esiste e è sempre la stessa per ogni \(M\): \quad 
+\(\displaystyle \lim_{x \to -\infty}f(x) = \pst{f(M)}\)
+\item 
+se \(f(M)\) è un infinito negativo per ogni \(M\): 
+\quad \(\displaystyle \lim_{x \to -\infty}f(x) = -\infty\)
+\item 
+se \(f(M)\) è un infinito positivo per ogni \(M\): 
+\quad \(\displaystyle \lim_{x \to -\infty}f(x) = +\infty\)
+\end{itemize}
+\end{procedura}
+
+\begin{procedura}
+Per calcolare il limite di una funzione per 
+\(x \to +\infty\)
+iniziamo calcolando:
+\(f(M)\) con l'infinito \(M > 0\)
+\begin{itemize}
+\item 
+se \(\pst{f(M)}\) esiste e è sempre la stessa per ogni \(M\): \quad 
+\(\displaystyle \lim_{x \to +\infty}f(x) = \pst{f(M)}\)
+\item 
+se \(f(M)\) è un infinito negativo per ogni \(M\): 
+\quad \(\displaystyle \lim_{x \to +\infty}f(x) = -\infty\)
+\item 
+se \(f(M)\) è un infinito positivo per ogni \(M\): 
+\quad \(\displaystyle \lim_{x \to +\infty}f(x) = +\infty\)
+\end{itemize}
+\end{procedura}
+
+Nei prossimi esempi applichiamo le procedure per il calcolo del limite 
+ai diversi casi che potrai incontrare.
 
 \begin{esempio}
-\textbf{Limite per \(x\) che tende a un infinito positivo}:
-sostituiremo \(x\) con un generico infinito positivo~\(M\).
-\begin{align*}
-\lim_{x \rightarrow +\infty} \frac{3x^2-3x+7}{5x^2-6} & \stackrel{1}{=} 
-  \pst{\frac{3M^2-3M+7}{5M^2-6}} \stackrel{2}{=}  
-  \pst{\frac{3\cancel{M^2}}{5\cancel{M^2}}} = \frac{3}{5}
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+\textbf{Limite per \(x \to + \infty\)}
+
+Studia il comportamento di 
+\(\dfrac{3x^2-3x+7}{5x^2-6}\) per \(x \to +\infty\).\\
+Calcoliamo \(f(x)\) in un generico infinito positivo~\(M\).
+\[
+f(M)= 
+  \frac{3M^2-3M+7}{5M^2-6} \stackrel{1}{\sim} 
+  \frac{3\cancel{M^2}}{5\cancel{M^2}} = \frac{3}{5}
+\]
+Dato che abbiamo ottenuto un valore finito:
+\[\lim_{x \to +\infty}\frac{3x^2-3x+7}{5x^2-6} = 
+  \pst{f(M)} = \pst{\frac{3}{5}} \stackrel{2}{=} \frac{3}{5}\]
+Poiché la parte standard esiste e è sempre la stessa per ogni 
+infinito \(M > 0\). 
+
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(M\), un generico iperreale infinito positivo;
- \item sostituiamo l'espressione ottenuta con una espressione 
-   indistinguibile, eseguiamo i calcoli e calcoliamo la parte standard.
+\item Sostituiamo l'espressione ottenuta con una espressione 
+  indistinguibile;
+\item La parte standard di un valore reale è il reale stesso.
 \end{enumerate}
 \end{esempio}
 
 \begin{esempio}
-\textbf{Limite per \(x\) che tende ad un valore finito \(c\)}:
-in questo caso basta sostituire, nella funzione, la variabile \(x\) con 
-\(c+\epsilon\) e poi calcolare la parte standard.
-\begin{align*}
-\lim_{x \rightarrow 5} \tonda{x^2-4x+2} & \stackrel{1}{=} 
-  \pst{\tonda{5+\epsilon}^2-4\tonda{5+\epsilon}+2} \stackrel{2}{=}\\  
-  & \stackrel{2}{=} \pst{25 + 10 \epsilon + \epsilon^2 - 15 - 4\epsilon + 2} 
-  \stackrel{3}{=} \pst{25 - 15 + 2} \stackrel{4}{=} 12
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+\textbf{Limite per \(x \to c\)}
+
+Studia il comportamento di \(f(x) = x^2-4x+2\) vicino a \(+5\).\\
+Calcoliamo \(f(x)\) in \(5+\epsilon\).
+\[
+f(5+\epsilon)=\tonda{5+\epsilon}^2-4\tonda{5+\epsilon}+2 = 
+  25 + 10 \epsilon + \epsilon^2 - 15 - 4\epsilon + 2 =
+  12 + 6 \epsilon +\epsilon^2
+\]
+Dato che abbiamo ottenuto un valore finito:
+\[\lim_{x \to +5}f(x) = 
+  \pst{f(5+\epsilon)} = \pst{12 + 6 \epsilon +\epsilon^2} \stackrel{1}{=} 
+  \pst{12} + \pst{6 \epsilon} + \pst{\epsilon^2} \stackrel{2}{=} 12\]
+Poiché la parte standard esiste e è sempre la stessa per ogni 
+infinitesimo \(\epsilon \neq 0\). 
+
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(\tonda{5+\epsilon}\);
- \item eseguiamo i calcoli algebrici;
- \item sostituiamo l'espressione con una espressione indistinguibile;
- \item sommiamo e calcoliamo la parte standard.
+\item La parte standard di una somma è uguale alla somma delle parti 
+standard;
+\item La parte standard di un infinitesimo è zero.
 \end{enumerate}
 \end{esempio}
 
@@ -1572,36 +1608,80 @@ Dove le uguaglianze hanno i seguenti motivi:
 \textbf{Metodo rapido}, utilizzabile nelle funzioni polinomiali. \\
 Riprendiamo l'esercizio precedente ma applichiamo la relazione di 
 indistinguibilità prima di effettuare calcoli:
-\begin{align*}
-\lim_{x \rightarrow 5} \tonda{x^2-4x+2} & \stackrel{1}{=} 
-  \pst{\tonda{5+\epsilon}^2-4\tonda{5+\epsilon}+2} \stackrel{2}{=}\\ 
-  & \stackrel{2}{=}\pst{\tonda{5}^2-4\tonda{5}+2} \stackrel{3}{=}
-  \pst{25 - 15 + 2} \stackrel{4}{=} 12
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+\[
+f(5+\epsilon)=
+\tonda{5+\epsilon}^2-4\tonda{5+\epsilon}+2 \stackrel{1}{\sim} 
+  \tonda{5}^2-4\tonda{5}+2 = 25 - 15 + 2 = 12
+\]
+Dato che abbiamo ottenuto un valore finito:
+\[\lim_{x \to +5}f(x) = 
+  \pst{f(5+\epsilon)} = \pst{12} \stackrel{2}{=} 12\]
+Poiché la parte standard esiste e è sempre la stessa per ogni 
+infinitesimo \(\epsilon \neq 0\). 
+
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(\tonda{5+\epsilon}\);
- \item sostituiamo l'espressione con una espressione indistinguibile;
- \item eseguiamo i calcoli algebrici;
- \item sommiamo e calcoliamo la parte standard.
+ \item Sostituiamo l'espressione con una espressione indistinguibile;
+ \item La parte standard di un valore reale è il reale stesso.
 \end{enumerate}
 \end{esempio}
 
 \begin{esempio}
-\textbf{Limite per \(x\) che tende a 
-\mathversion{bold}\(0\)\mathversion{normal}}:
-in questo caso i calcoli risultano più semplici dato che
-\(0 + \epsilon = \epsilon\): 
-\begin{align*}
-\lim_{x \rightarrow 0} \frac{x^2-4x+2}{x^2-4} & \stackrel{1}{=} 
-  \pst{\frac{\epsilon^2-4\epsilon+2}{\epsilon^2-4}} \stackrel{2}{=}  
-  \pst{\frac{2}{-4}} = -\frac{1}{2}
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+\textbf{Limite per \(x \to 0\)}
+
+Studia il comportamento di \(\dfrac{x^2-4x+2}{x^2-4} \) vicino allo zero.\\
+Calcoliamo il valore della funzione in un generico punto infinitamente 
+vicino allo zero:
+\[
+f(0 + \epsilon) = f(\epsilon) = 
+  \frac{\epsilon^2-4\epsilon+2}{\epsilon^2-4}
+\]
+Dato che abbiamo ottenuto un valore finito (il rapporto tra due finiti non 
+infinitesimi:
+\[\lim_{x \to 0}f(x) = 
+  \pst{f(\epsilon)} = \pst{\frac{\epsilon^2-4\epsilon+2}{\epsilon^2-4}} 
+\stackrel{1}{=} \frac{\pst{\epsilon^2-4\epsilon+2}}{\pst{\epsilon^2-4}} 
+\stackrel{2}{=} 
+  \frac{\pst{\epsilon^2}-\pst{4\epsilon}+\pst{2}}
+  {\pst{\epsilon^2}-\pst{4}} =
+\frac{+2}{-4} = -\frac{1}{2}\]
+Poiché la parte standard esiste e è sempre la stessa per ogni 
+infinitesimo \(\epsilon \neq 0\). 
+
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(\tonda{0+\epsilon}=\epsilon\);
- \item sostituiamo l'espressione ottenuta con un'espressione 
-   indistinguibile, eseguiamo i calcoli e calcoliamo la parte standard.
+ \item La parte standard di un quoziente è uguale al quoziente delle parti 
+standard se il denominatore non è un infinitesimo;
+ \item La parte standard di una somma è uguale alla somma delle parti standard.
+\end{enumerate}
+\end{esempio}
+
+Dato che il valore della funzione che calcoliamo ci serve per ottenere, 
+eventualmente, la parte standard, possiamo utilizzare la relazione di 
+indistinguibilità consumando un po' meno inchiostro:
+
+\begin{esempio}
+\textbf{Limite per \(x \to 0\)}
+
+Studia il comportamento di \(\dfrac{x^2-4x+2}{x^2-4} \) vicino allo zero.\\
+Calcoliamo il valore della funzione in un generico punto infinitamente 
+vicino allo zero:
+\[
+f(0 + \epsilon) = f(\epsilon) = 
+  \frac{\epsilon^2-4\epsilon+2}{\epsilon^2-4} \stackrel{1}{\sim} 
+  \frac{+2}{-4}
+\]
+Dato che abbiamo ottenuto un valore finito (il rapporto tra due finiti non 
+infinitesimi:
+\[\lim_{x \to 0}f(x) = 
+  \pst{f(\epsilon)} = \pst{\frac{+2}{-4}} \stackrel{2}{=} 
+  -\frac{1}{2}\]
+Poiché la parte standard esiste e è sempre la stessa per ogni 
+infinitesimo \(\epsilon \neq 0\). 
+
+Dove i passaggi segnati hanno i seguenti motivi:
+\begin{enumerate} [nosep]
+ \item Applico la relazione di indistinguibilità;
+ \item La parte standard di un reale è il reale stesso.
 \end{enumerate}
 \end{esempio}
 
@@ -1612,74 +1692,63 @@ da zero.
 \begin{esempio}
 \textbf{Infinitesimo fratto finito non infinitesimo 
 \(\tonda{\frac{i}{fni}}\).}
-% (\emph{i~/~fni}).}
-\begin{align*}
-\lim_{x \rightarrow -5} \frac{x+5}{x-3} & \stackrel{1}{=} 
-  \pst{\frac{-5+\epsilon+5}{-5+\epsilon-3}} \stackrel{2}{=}  
-  \pst{\frac{\epsilon}{-8+\epsilon}} \stackrel{3}{=} 
-  \pst{\frac{\epsilon}{-8}} \stackrel{4}{=} \pst{\delta} = 0
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+
+Studia il comportamento di \(\dfrac{x+5}{x-3}\) vicino a \(-5\).
+\[
+f(-5 + \epsilon) = \frac{-5+\epsilon+5}{-5+\epsilon-3} = 
+  \frac{\epsilon}{-8+\epsilon} \stackrel{1}{\sim} 
+  \frac{\epsilon}{-8} 
+\]
+Abbiamo ottenuto un valore finito quindi:
+\[
+\lim_{x \to -5} f(x) =
+  \pst{\frac{\epsilon}{-8}} \stackrel{2}{=} 
+  \pst{\delta} \stackrel{3}{=} 0
+\]
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(-5+\epsilon\);
- \item eseguiamo i calcoli;
- \item sostituiamo l'espressione ottenuta con una espressione 
-   indistinguibile;
- \item un infinitesimo diviso un finito non infinitesimo dà come risultato 
-un infinitesimo e la sua parte standard è zero.
+ \item Sostituiamo l'espressione ottenuta con una espressione 
+   indistinguibile.
+ \item Un infinitesimo diviso un finito non infinitesimo dà come risultato 
+un infinitesimo.
+ \item La parte standard di un infinitesimo è zero.
 \end{enumerate}
 \end{esempio}
 
 \begin{esempio}
 \textbf{Finito non infinitesimo fratto infinitesimo 
 \(\tonda{\frac{fni}{i}}\).}
-% (\emph{fni~/~i}).}
-\begin{align*}
-\lim_{x \rightarrow 4} \frac{-2x+4}{x-4} & \stackrel{1}{=} 
-  \pst{\frac{-2\tonda{4+\epsilon}+4}{4+\epsilon-4}} \stackrel{2}{=}  
-  \pst{\frac{-4 - 2 \epsilon}{\epsilon}} \stackrel{3}{=} 
-  \pst{\frac{-4}{\epsilon}} \stackrel{4}{=} 
-  \pst{M} % \stackrel{5}{~\longrightarrow~} \infty
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
-\begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(4+\epsilon\);
- \item eseguiamo i calcoli;
- \item sostituiamo l'espressione ottenuta con una espressione 
-   indistinguibile;
- \item un finito fratto un infinitesimo dà come risultato un infinito: 
- non possiamo calcolare la parte standard!
-\end{enumerate}
-Il nostro calcolo non è andato a buon fine: non esiste la parte standard di 
-un infinito.
 
-Di più: il segno di \(M\) dipende dal particolare valore dell'infinitesimo 
-\(\epsilon\). Quindi non esiste limite limite né finito né infinito.
+Studia il comportamento di \(\dfrac{-2x+4}{x-4}\) vicino a \(+4\).
+\[
+f(4 +\epsilon) = \frac{-2\tonda{4+\epsilon}+4}{4+\epsilon-4} =
+  \frac{-4 - 2 \epsilon}{\epsilon} \sim \frac{-4}{\epsilon} 
+\]
+Il risultato ottenuto non è un finito quindi non possiamo applicare la 
+funzione parte standard.
 
-Possiamo però osservare che per ogni \(\epsilon < 0\) otteniamo un infinito 
-positivo e per ogni \(\epsilon > 0\) otteniamo un infinito 
-negativo. Per cui:
-\[\lim_{x \rightarrow 4^-} \frac{2x+6}{x-4}= -\infty \sstext{e}
-\lim_{x \rightarrow 4^+} \frac{2x+6}{x-4}= +\infty\]
+Il segno dell'infinito ottenuto dipende dal segno di \(\epsilon\) quindi non 
+esiste il limite, possiamo però calcolare i limiti sinistro e destro.
+Dato che il rapporto \(\frac{-4}{\epsilon}\) ha segno opposto a quello di
+\(\epsilon\):
+\[
+\lim_{x \to +4^-} f(x) = +\infty \sstext{e} 
+\lim_{x \to +4^+} f(x) = -\infty
+\]
 \end{esempio}
 
 \begin{esempio}
 \textbf{Funzione irrazionale, con radici quadrate}.
-\begin{align*}
-\lim_{x \rightarrow \infty} \tonda{2x-\sqrt{4x^2-8x+3}} & \stackrel{1}{=} 
-  \pst{2M-\sqrt{4M^2-8M+3}} \stackrel{2}{=} \\
-  &=\pst{2M-\sqrt{4M^2}} \stackrel{3}{=} 
-  \pst{2M-2M} = \pst{0} = 0
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
-\begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(M\);
- \item sostituiamo l'espressione ottenuta con una espressione 
-   indistinguibile;
- \item eseguiamo i calcoli \dots
-\end{enumerate}
-\vspace{1em}
-\begin{minipage}{.69\textwidth}
+
+Studia il comportamento di \(2x-\sqrt{4x^2-8x+3}\) per \(x \to +\infty\).
+\[
+f(M) = 2M-\sqrt{4M^2-8M+3} \stackrel{1}{\sim} 
+  2M-\sqrt{4M^2} =
+  2M-2M = 0
+\]
+Si dovrebbe concludere che:
+\[\lim_{x \to +\infty} f(x) = 0\]
+\begin{minipage}{.59\textwidth}
 Ma questa volta nei ragionamenti fatti c'è un errore. Proviamo a calcolare 
 la funzione per alcuni valori abbastanza grandi di \(x\).\\
 I risultati dovrebbero avvicinarsi a zero, ma non è così, sembra si 
@@ -1696,7 +1765,8 @@ x & y\\\hline
 \end{center}
 \end{minipage}\\
 
-Abbiamo usato in modo improprio la relazione \emph{indistinguibile}: 
+Nel passaggio (1) abbiamo usato in modo improprio la relazione 
+\emph{indistinguibile}: 
 abbiamo ottenuto un'espressione indistinguibile da zero, ma ciò non è 
 possibile (vedi la definizione di indistinguibile) \dots \\
 Dobbiamo seguire un'altra strada.
@@ -1704,39 +1774,39 @@ Dobbiamo seguire un'altra strada.
 Consideriamo l'espressione data come una frazione e razionalizziamo il 
 numeratore:
 \begin{align*}
-\lim_{x \rightarrow \infty} 2x-\sqrt{4x^2-8x+3}=
-&\pst{\frac{\tonda{2M}-\sqrt{4M^2-8M+3}}{1} \cdot 
-\frac{\tonda{2M}+\sqrt{4M^2-8M+3}}{\tonda{2M}+\sqrt{4M^2-8M+3}}}=\\
-&=\pst{\frac{\cancel{4M^2}-\cancel{4M^2}+8M-3}{2M+\sqrt{4M^2-8M+3}}}=
+f(M) &= \frac{\tonda{2M}-\sqrt{4M^2-8M+3}}{1} \cdot 
+\frac{\tonda{2M}+\sqrt{4M^2-8M+3}}{\tonda{2M}+\sqrt{4M^2-8M+3}}=\\
+&=\frac{\cancel{4M^2}-\cancel{4M^2}+8M-3}{2M+\sqrt{4M^2-8M+3}} \sim
+\frac{8M}{2M+\sqrt{4M^2}} = \frac{8M}{2M+2M}=
+   \frac{8\cancel{M}}{4\cancel{M}} = 2
 \end{align*}
-Questa volta possiamo sostituire l'espressione sotto radice con 
-un'espressione indistinguibile, senza ottenere zero:
-\[=\pst{\frac{8M-3}{2M+\sqrt{4M^2-8M+3}}} =
-   \pst{\frac{8M}{2M+\sqrt{4M^2}}}=\]
-e svolgendo i calcoli otteniamo:
-\[=\pst{\frac{8M}{2M+2M}}=
-   \pst{\frac{8\cancel{M}}{4\cancel{M}}} = 2\]
-Ottenendo un risultato in accordo con l'andamento della funzione calcolata 
-in alcuni opportuni valori.
+Dato che il valore ottenuto è finito e non dipende dal particolare infinito 
+\(M > 0\):
+\[\lim_{x \to +\infty} f(x) = \pst{2} = 2\]
+In accordo con l'andamento della funzione calcolata in alcuni opportuni 
+valori.
 \end{esempio}
 
 \begin{esempio}
 \textbf{Funzione razionale}: metodo rapido ma non sempre funzionante.
-\begin{align*}
-\lim_{x \rightarrow 2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
-\pst{\frac
+
+Studia il comportamento di \(\dfrac{x^3+3x^2+2x}{x^2-x-6}\) per 
+\(x \to +2\).
+\[
+f(2 + \epsilon) = \frac
   {\tonda{2+\epsilon}^3+3\tonda{2+\epsilon}^2+2\tonda{2+\epsilon}}
-  {\tonda{2+\epsilon}^2-\tonda{2+\epsilon}-6}} \stackrel{2}{=}\\ 
-  &=\frac{2^3+3\cdot 2^2+2\cdot 2}{2^2-2-6} =
-  \pst{\frac{8+12+4}{4-2-6}} \stackrel{3}{=} \pst{\frac{24}{-4}} =-6
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+  {\tonda{2+\epsilon}^2-\tonda{2+\epsilon}-6} \stackrel{1}{\sim} 
+  \frac{2^3+3\cdot 2^2+2\cdot 2}{2^2-2-6} =
+  \frac{8+12+4}{4-2-6} = \frac{24}{-4} = -6
+\]
+Dato che il valore ottenuto è finito e non dipende dal particolare 
+infinitesimo \(\epsilon\):
+\[\lim_{x \to +2} f(x) = \pst{-6} \stackrel{2}{=} -6\]
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con un numero infinitamente vicino a \(+2\);
  \item sostituiamo le espressioni tra parentesi con espressioni 
-indistinguibili;
- \item poiché i risultati ottenuti sono diversi da zero, il risultato è 
-effettivamente indistinguibile. Quindi il risultato ottenuto è valido.
+indistinguibili.
+ \item La parte standard di un reale è il reale stesso.
 \end{enumerate}
 \end{esempio}
 
@@ -1747,14 +1817,18 @@ sugli infinitesimi \(\alpha\) e \(\beta\), non possiamo calcolare
 
 \begin{esempio}
 \textbf{Funzione razionale}: metodo rapido ma inconcludente.
-\begin{align*}
-\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} & = 
-\pst{\frac
+
+Studia il comportamento di \(\dfrac{x^3+3x^2+2x}{x^2-x-6}\) per 
+\(x \to -2\).
+\[
+f(-2 + \epsilon) =\frac
+  {\tonda{2+\epsilon}^3+3\tonda{2+\epsilon}^2+2\tonda{2+\epsilon}}
+  {\tonda{2+\epsilon}^2-\tonda{2+\epsilon}-6} \stackrel{1}{\sim} 
+  \frac
   {\tonda{-2}^3+3\tonda{-2}^2+2\tonda{-2}}
-  {\tonda{-2}^2-\tonda{-2}-6}} =\\ 
-  &=\pst{\frac{-8+12-4}
-              {4+2-6}} = \pst{\frac{0}{0}} = \dots
-\end{align*}
+  {\tonda{-2}^2-\tonda{-2}-6} = 
+  \frac{-8+12-4}{4+2-6} = \frac{0}{0}
+\]
 Ma qui ci scontriamo con 2 problemi: abbiamo usato la relazione di 
 indistinguibile con lo zero, e abbiamo ottenuto una divisione per zero che 
 non è definita. Potremmo essere un po' più pignoli ma ancora troppo 
@@ -1763,33 +1837,43 @@ numeratore e il denominatore sono infinitamente vicini a zero, sono cioè
 degli infinitesimi e quindi otteniamo: \(\frac{\alpha}{\beta}\), ma anche 
 questa maggior precisione non è sufficiente.
 
-Metodo lungo ma sicuro:
-dobbiamo rimboccarci le maniche e affrontare il calcolo algebrico 
-ricordandoci che: \\
-\(\tonda{x+a}^3= x^3+3x^2a+3xa^2+a^3\)
+\end{esempio}
+
+\begin{esempio}
+\textbf{Funzione razionale}: Metodo lungo ma sicuro.
+
+Studia il comportamento di \(\dfrac{x^3+3x^2+2x}{x^2-x-6}\) per 
+\(x \to -2\).
+
+Dobbiamo rimboccarci le maniche e affrontare il calcolo algebrico 
+(ricordandoci che: \(\tonda{x+a}^3= x^3+3x^2a+3xa^2+a^3\))
 
 \begin{align*}
-\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
-\pst{\frac
+f(-2+\epsilon)& = \frac
   {\tonda{-2+\epsilon}^3+3\tonda{-2+\epsilon}^2+2\tonda{-2+\epsilon}}
-  {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6}} \stackrel{2}{=}\\ 
-  &\stackrel{2}{=}\pst{\frac{-8+12\epsilon-6\epsilon^2+\epsilon^3+
+  {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6} =\\
+  &=\frac{-8+12\epsilon-6\epsilon^2+\epsilon^3+
              3\tonda{4-4\epsilon+\epsilon^2}-4+2\epsilon}
-             {4-4\epsilon+\epsilon^2-\tonda{-2+\epsilon}-6}} =\\ 
-  &=\pst{\frac{\cancel{-8}+\cancel{12\epsilon}-6\epsilon^2+\epsilon^3+
+             {4-4\epsilon+\epsilon^2-\tonda{-2+\epsilon}-6} =\\ 
+  &=\frac{\cancel{-8}+\cancel{12\epsilon}-6\epsilon^2+\epsilon^3+
           \cancel{12}\cancel{-12\epsilon}+3\epsilon^2\cancel{-4}+2\epsilon}
              {\cancel{4}-4\epsilon+
-              \epsilon^2\cancel{+2}-\epsilon\cancel{-6}}}=\\ 
-  &=\pst{\frac{\epsilon^3+2\epsilon}{\epsilon^2-5\epsilon}} = 
-    \pst{\frac{\cancel{\epsilon} \tonda{\epsilon^2+2}}
-             {\cancel{\epsilon} \tonda{\epsilon-5}}}  \stackrel{3}{=} 
-    \pst{\frac{2}{-5}} = -\frac{2}{5}
+              \epsilon^2\cancel{+2}-\epsilon\cancel{-6}}=\\ 
+  &=\frac{\epsilon^3+2\epsilon}{\epsilon^2-5\epsilon} = 
+    \frac{\cancel{\epsilon} \tonda{\epsilon^2+2}}
+             {\cancel{\epsilon} \tonda{\epsilon-5}} \stackrel{1}{\sim} 
+    \frac{+2}{-5}
 \end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+Dato che il valore ottenuto è finito e non dipende dal particolare 
+infinitesimo \(\epsilon\):
+\[
+\lim_{x \rightarrow -2} f(x) = \pst{\frac{+2}{-5}} \stackrel{2}{=} 
+  -\frac{2}{5}
+\]
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(-2+\epsilon\);
- \item eseguiamo tutti i calcoli e semplifichiamo;
- \item sostituiamo l'espressione con una indistinguibile.
+ \item Sostituiamo l'espressione con una indistinguibile.
+ \item La parte standard di un reale è il reale stesso.
 \end{enumerate}
 \end{esempio}
 
@@ -1806,74 +1890,45 @@ infinitesimo \(\epsilon\) con il simbolo: \(o\tonda{\epsilon}\).
 
 \begin{esempio}
 \textbf{Funzione razionale}: altro metodo.
+
+Studia il comportamento di \(\dfrac{x^3+3x^2+2x}{x^2-x-6}\) per 
+\(x \to -2\).
+
 \begin{align*}
-\lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
-\pst{\frac
+f(-2+\epsilon)& = \frac
   {\tonda{-2+\epsilon}^3+3\tonda{-2+\epsilon}^2+2\tonda{-2+\epsilon}}
-  {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6}} \stackrel{2}{=}\\ 
-  &\stackrel{2}{=}\pst{\frac{-8+12\epsilon+12-12\epsilon-4+2\epsilon+
-                             o\tonda{\epsilon}}
-                           {4-4\epsilon+2-\epsilon-6+o\tonda{\epsilon}
-                           }}=\\ 
-  &=\pst{\frac{\cancel{-8}+\cancel{12\epsilon}+
-               \cancel{12}\cancel{-12\epsilon}\cancel{-4}+2\epsilon+
+  {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6} \stackrel{1}{=}\\ 
+  &\stackrel{2}{=}
+  \frac{-8+12\epsilon+12-12\epsilon-4+2\epsilon+o\tonda{\epsilon}}
+       {4-4\epsilon+2-\epsilon-6+o\tonda{\epsilon}}=\\ 
+  &=\frac{\cancel{-8}\,\cancel{+12\epsilon}\,
+               \cancel{+12}\,\cancel{-12\epsilon}\,\cancel{-4}+2\epsilon+
                o\tonda{\epsilon}}
-              {\cancel{4}-4\epsilon\cancel{+2}-\epsilon\cancel{-6}+
-               o\tonda{\epsilon}}}\stackrel{3}{=}
-    \pst{\frac{2\cancel{\epsilon}}{-5\cancel{\epsilon}}} = -\frac{2}{5}
+              {\cancel{4}-4\epsilon\,\cancel{+2}-\epsilon\,\cancel{-6}+
+               o\tonda{\epsilon}}\stackrel{2}{\sim}
+    \frac{+2\cancel{\epsilon}}{-5\cancel{\epsilon}} = -\frac{2}{5}
 \end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+Dato che il valore ottenuto è finito e non dipende dal particolare 
+infinitesimo \(\epsilon\):
+\[
+\lim_{x \rightarrow -2} f(x) = \pst{\frac{+2}{-5}} \stackrel{3}{=} 
+  -\frac{2}{5}
+\]
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item sostituiamo \(x\) con \(-2+\epsilon\);
- \item eseguiamo i calcoli riunendo in un unico simbolo la somma di tutti gli 
-infinitesimi di ordine superiore a \(\epsilon\) e perciò trascurabili 
+ \item Eseguiamo i calcoli riunendo in un unico simbolo la somma di tutti 
+ gli infinitesimi di ordine superiore a \(\epsilon\) e perciò trascurabili 
 (si spera);
- \item sostituiamo l'espressione con una indistinguibile poi calcoliamo la 
-parte standard.
+ \item Sostituiamo l'espressione con una indistinguibile.
+ \item La parte standard di un reale è il reale stesso.
 \end{enumerate}
 \end{esempio}
 
-% \begin{esempio}
-% \textbf{Funzione razionale}: altro metodo.
-% \begin{align*}
-% \lim_{x \rightarrow 2} \frac{x^3+3x^2+2x}{x^2-x-6} & \stackrel{1}{=} 
-% \tonda{\pst{\frac
-%   {\tonda{-2+\epsilon}^3+3\tonda{-2+\epsilon}^2+2\tonda{-2+\epsilon}}
-%   {\tonda{-2+\epsilon}^2-\tonda{-2+\epsilon}-6}} \stackrel{2}{=}}\\ 
-%   &=\pst{\frac{-8+12-4}{4+2-6}} = \pst{\frac{0}{0}} 
-%   \text{ Indistinguibile non è applicabile.}
-% \end{align*}
-% 
-% È evidente che \(-2\) è uno zero sia del numeratore sia del denominatore 
-% quindi, per il teorema di Ruffini, entrambi questi polinomi sono 
-% divisibili per \(x+2\).
-% Possiamo scomporre i due polinomi, semplificarli procedendo nel seguente 
-% modo:
-% 
-% \begin{align*}
-% \lim_{x \rightarrow -2} \frac{x^3+3x^2+2x}{x^2-x-6} &=
-% \lim_{x \rightarrow -2} \frac{x \tonda{x+1} \cancel{\tonda{x+2}}}
-%           {\tonda{x-3} \cancel{\tonda{x+2}}} \stackrel{1}{=}
-% \lim_{x \rightarrow -2} \frac{x^2+x}{x-3}=\\
-% &=\tonda{\pst{\frac{\tonda{-2+\epsilon}^2-\tonda{2+\epsilon}}
-%                    {\tonda{-2+\epsilon}-3}}}\stackrel{2}{=}
-% \pst{\frac{\tonda{-2}^2-2}{-2-3}}=
-% \pst{\frac{2}{-5}} = -\frac{2}{5}
-% \end{align*}
-% Dove le uguaglianze hanno i seguenti motivi:
-% \begin{enumerate} [nosep]
-%  \item possiamo semplificare perché \(x\) è infinitamente vicino a \(-2\) 
-% ma è diverso da \(-2\);
-%  \item sostituiamo l'espressione con una indistinguibile operazione, 
-% questa volta, applicabile perché le due espressioni sono diverse da zero.
-% \end{enumerate}
-% \end{esempio}
-
 \begin{osservazione}
-Abbiamo ottenuto lo stesso valore ricavato più sopra facendo tutti i 
-calcoli algebrici, ma i passaggi sono più semplici.
+Se si annullassero anche tutti i termini contenenti \(\epsilon\), dovremmo 
+esplicitare anche \(\epsilon^2\) raccogliendo in \(o\tonda{\epsilon^2}\) 
+gli infinitesimi di ordine superiore a \(\epsilon^2\). 
 \end{osservazione}
-
 
 \subsection{Limiti notevoli}
 \label{subsec:cont_limiti_notevoli}
@@ -1969,7 +2024,7 @@ Sono interessanti i seguenti due limiti che riguardano il coseno:
 ~ \stackrel{5}{=}
  \pst{1 \cdot \frac{\delta}{2}} = 0
 \end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item moltiplico la funzione per una frazione equivalente a 1;
  \item prodotto notevole;
@@ -2008,7 +2063,7 @@ precedente, è:
 ~ \stackrel{5}{=}
  \pst{1 \cdot \frac{1}{2}} = \frac{1}{2}
 \end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item moltiplico la funzione per una frazione equivalente a 1;
  \item prodotto notevole;
@@ -2035,15 +2090,15 @@ prima ha delle interessanti applicazioni matematiche.
 \begin{esempio}
 \label{esempio:log}
 Limite di una particolare funzione logaritmica:
-\begin{align*}
- \lim_{x \rightarrow 0} \dfrac{\ln\tonda{1+x}}{x} &=
+\[
+ \lim_{x \rightarrow 0} \dfrac{\ln\tonda{1+x}}{x} =
  \pst{\dfrac{\ln\tonda{1+\delta}}{\delta}}~ = ~  
  \pst{\frac{1}{\delta}\ln\tonda{1+\delta}} ~\stackrel{1}{=} ~
  \pst{\ln\tonda{1+\delta}^\frac{1}{\delta}}
 ~ \stackrel{2}{=} ~
 \pst{\ln\tonda{e}} \stackrel{3}{=} ~ 1
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+\]
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item per una proprietà dei logaritmi;
  \item l'argomento del logaritmo è proprio la definizione di \(e\);
@@ -2053,15 +2108,15 @@ Dove le uguaglianze hanno i seguenti motivi:
 
 \begin{esempio}
 Come nell'esempio precedente ma con una base generica:
-\begin{align*}
- \lim_{x \rightarrow 0} \dfrac{\log_a\tonda{1+x}}{x} &=
+\[
+ \lim_{x \rightarrow 0} \dfrac{\log_a\tonda{1+x}}{x} =
  \pst{\dfrac{\log_a\tonda{1+\delta}}{\delta}}~\stackrel{1}{=} ~  
  \pst{\dfrac{\frac{\ln\tonda{1+\delta}}{\ln a}}{\delta}}~= ~
  \pst{\dfrac{\ln\tonda{1+\delta}}{\delta}\cdot \dfrac{1}{\ln a}}
  ~ \stackrel{2}{=} ~
  \dfrac{1}{\ln a}
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+\]
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item cambio di base del logaritmo;
  \item per quanto visto nell'esempio \ref{esempio:log}.
@@ -2070,13 +2125,13 @@ Dove le uguaglianze hanno i seguenti motivi:
 
 \begin{esempio}
 Limite di una particolare funzione esponenziale:
-\begin{align*}
-\lim_{x \rightarrow 0} \dfrac{e^x-1}{x} &=
+\[
+\lim_{x \rightarrow 0} \dfrac{e^x-1}{x} =
 \pst{\dfrac{e^\epsilon-1}{\epsilon}}
 ~ \stackrel{1}{=} ~  
 \pst{\dfrac{\delta}{\ln{(\delta+1)}}}~ \stackrel{2}{=} ~ 1
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+\]
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item ancora una sostituzione: poniamo \(e^\epsilon-1=\delta\). 
 Allora \(e^\epsilon = 1+\delta\) quindi \(\epsilon\) è l'esponente da dare 
@@ -2101,7 +2156,7 @@ Simile all'esempio precedente, ma con una base generica.
 \end{align*}
 
 % \newpage   %----------------------------------------------------
-Dove le uguaglianze hanno i seguenti motivi:
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item ancora una sostituzione: poniamo
 \(a^\epsilon-1=\delta\), allora \(\epsilon=\log_a(\delta+1)\);
@@ -2112,7 +2167,7 @@ Dove le uguaglianze hanno i seguenti motivi:
 
 \begin{esempio}
 Limite di una particolare funzione esponenziale:
-\begin{align*}
+\[
  \lim_{x \rightarrow \infty} \tonda{1+\dfrac{k}{x}}^x =
  \pst{\tonda{1+\dfrac{k}{N}}^N}
 ~ \stackrel{1}{=} ~  
@@ -2120,8 +2175,8 @@ Limite di una particolare funzione esponenziale:
 ~ \stackrel{2}{=} ~
 \pst{\quadra{\tonda{1+\dfrac{1}{M}}^M}^k}
 ~ \stackrel{3}{=} ~ e^k
-\end{align*}
-Dove le uguaglianze hanno i seguenti motivi:
+\]
+Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item se al posto di \(\dfrac{k}{N}\) scrivo \(\dfrac{1}{M}\) 
 allora al posto di \(N\) dovrò scrivere \(N=kM\)\\ 
