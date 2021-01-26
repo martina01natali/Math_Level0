@@ -1,62 +1,5 @@
 % (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 
-\begin{comment}
-Ti lascio alcuni dubbi che mi vengono leggendo la parte sulla continuità
-
-P.1 non mi è molto chiaro sotto i grafici.
-P.3 ultima riga: qualsiasi sia l'infinitesimo. Vedi anche pag.5 etc
-P.4 vedo un grafico bianco
-P.5 dai per scontato che sin x sia continuo in 0, idem cos x.
-Sulla composizione di continue, non è più rapido usare le proprietà della parte 
-standard?
-P.5 perché non dire che se una f è continua in un intervallo allora è definita 
-in ogni punto dell'intervallo.
-
-I grafici sono tutti completi?
-
-
-esempio 1.1, grafico. f(1+epsilon) si potrebbe spostare a destra del 
-microscopio? Lì sembra il vertice della parabola
-
-% TODO
-p.5 r.1 non so decidere se va bene così se deve essere per ogni x infinitamente 
-vicino a x_0. In effetti anche se lo hai scritto a parole nella pag. prima, 
-andrebbe messo che vale per ogni x_0 del dominio.
-
-p.5 r.-3 non andrebbero delta minuscole?
-
-p.13 def 1.7
-metterei uno spazio prima di f(c+epsilon)
-in effetti M cambia comunque al variare di epsilon, quindi se vale per ogni 
-epsilon non può essere vera per lo stesso M. Meglio scrivere M_epsilon?
-
-pp15,16 esempi 1.14 e 1.15 Non ho trovato esempi di uso riflessivo di auspicare. 
-credo che sia perché già significa augurarsi.
-
-esempio1.27 e segg. ci sono riferimenti non andati a buon fine. È per la 
-compilazione in un'unica passata?
-
-Sto rileggendo, avrei ancora qualche pignoleria:
-
-[3,1] Dimostrazione: in realtà si tratta di uno svolgimento perché l'es. 1.3 non 
-chiede di dimostrare.
-[3,5] non è molto chiaro, sembra che provare la continuità sia provare che sia x 
-sia f(x) siano infinitamente vicini allo stesso valore (in questo caso sarebbe 
-0). Direi una cosa del tipo: se x coincide con 0, allora f(x)= f(0), ma per 
-valori di x pur infinitamente vicini a 0 ma diversi da 0,  etc.
-es.1.5: "Che è un infinitesimo", metterei una virgola alla fine della formula 
-precedente e inizierei con c minuscola.
-Um'idea per la versione del 22: dare un carattere diverso agli esempi e agli 
-esercizi svolti e ai loro commenti, in modo che si distinguano dallo svolgersi 
-della teoria. Per esempio  [3,-7] sembra proseguire nell'esercizio.
-Le ultime 6 righe di p.3 ripetono all'incirca la definizione di p.2: sono 
-indispensabili?
-Cosa non ti convince della dimostrazione della continuità di a^x? Non basta 
-dimostrare che è continua in 0 perché minore della radice ennesima di a?
-Ho scritto le osservazioni sui limiti direttamente sul pdf, te lo allego.
-
-\end{comment}
-
 \input{\folder limiticontinuita1_grafici.tex}
 
 \chapter{Funzioni: continuità e limiti}
@@ -486,31 +429,28 @@ a^{x} = f(x) \qed
 \begin{center} \continuitafesp \end{center}
 }
 
-\begin{comment}
-% TODO Dimostrazioni circolari
-
-\begin{teorema}[Continuità della funzione esponenziale]
-La funzione esponenziale (\(y=a^x\)) è continua.
-\end{teorema}
-
-\noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
-
-\affiancati{.49}{.49}{
-\emph{Dimostrazione}
-Usando la prima proprietà delle potenze:
-
-\begin{align*}
-f(x+\epsilon) &= 
-a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
-a^{x} \cdot \tonda{1 + \delta} = \\
-&=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
-a^{x} = f(x) \qed
-\end{align*}
-}{
-\begin{center} \continuitafesp \end{center}
-}
-
-\end{comment}
+% % TODO Dimostrazioni circolari
+% 
+% \begin{teorema}[Continuità della funzione esponenziale]
+% La funzione esponenziale (\(y=a^x\)) è continua.
+% \end{teorema}
+% 
+% \noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
+% 
+% \affiancati{.49}{.49}{
+% \emph{Dimostrazione}
+% Usando la prima proprietà delle potenze:
+% 
+% \begin{align*}
+% f(x+\epsilon) &= 
+% a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
+% a^{x} \cdot \tonda{1 + \delta} = \\
+% &=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
+% a^{x} = f(x) \qed
+% \end{align*}
+% }{
+% \begin{center} \continuitafesp \end{center}
+% }
 
 %---------- tentativi inutili
 % \nopagebreak
@@ -2100,9 +2040,11 @@ Limite di una particolare funzione logaritmica:
 \]
 Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item per una proprietà dei logaritmi;
+ \item per la proprietà dei logaritmi: prodotto di una funzione per 
+ un logaritmo;
  \item l'argomento del logaritmo è proprio la definizione di \(e\);
- \item l'esponente da dare a \(e\) per ottenere \(e\) è \(1\).
+ \item per la definizione di logaritmo: l'esponente da dare a \(e\) per 
+ottenere \(e\) è \(1\).
 \end{enumerate}
 \end{esempio}
 
@@ -2129,11 +2071,11 @@ Limite di una particolare funzione esponenziale:
 \lim_{x \rightarrow 0} \dfrac{e^x-1}{x} =
 \pst{\dfrac{e^\epsilon-1}{\epsilon}}
 ~ \stackrel{1}{=} ~  
-\pst{\dfrac{\delta}{\ln{(\delta+1)}}}~ \stackrel{2}{=} ~ 1
+\pst{\dfrac{\delta}{\ln{(1 + \delta)}}}~ \stackrel{2}{=} ~ 1
 \]
 Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
- \item ancora una sostituzione: poniamo \(e^\epsilon-1=\delta\). 
+ \item operiamo una sostituzione: poniamo \(e^\epsilon-1=\delta\). 
 Allora \(e^\epsilon = 1+\delta\) quindi \(\epsilon\) è l'esponente da dare 
 a \(e\) per ottenere \(1+\delta\) cioè: 
 \(\epsilon = \ln{\tonda{1+\delta}}\);
@@ -2147,10 +2089,10 @@ Simile all'esempio precedente, ma con una base generica.
 \lim_{x \rightarrow 0} \dfrac{a^x-1}{x} &=
 \pst{\dfrac{a^\epsilon-1}{\epsilon}}
 ~ \stackrel{1}{=} ~  
-\pst{\dfrac{\delta}{\log_a{(\delta+1)}}}~ \stackrel{2}{=}\\
+\pst{\dfrac{\delta}{\log_a{(1 + \delta)}}}~ \stackrel{2}{=}\\
 &\stackrel{2}{=} 
-\pst{\frac{\delta}{\dfrac{\ln{(\delta+1)}}{\ln a}}} ~=~
-\pst{\frac{\delta \cdot \ln a}{\ln{(\delta+1)}}} %\stackrel{3}{=}\\
+\pst{\frac{\delta}{\dfrac{\ln{(1 + \delta)}}{\ln a}}} ~=~
+\pst{\frac{\delta \cdot \ln a}{\ln{(1 + \delta)}}} %\stackrel{3}{=}\\
 \stackrel{3}{=} ~ 
 \pst{1 \cdot \ln a}=\ln{a}
 \end{align*}
@@ -2159,7 +2101,8 @@ Simile all'esempio precedente, ma con una base generica.
 Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
  \item ancora una sostituzione: poniamo
-\(a^\epsilon-1=\delta\), allora \(\epsilon=\log_a(\delta+1)\);
+\(a^\epsilon-1=\delta\), allora \(a^\epsilon= 1 + \delta\) e 
+\(\epsilon=\log_a(1 + \delta)\);
  \item applichiamo la formula del cambiamento di base di un logaritmo; 
  \item per quanto visto nell'esempio \ref{esempio:log}.
 \end{enumerate}
@@ -2187,41 +2130,60 @@ e per \dots
 \end{enumerate}
 \end{esempio}
 
-\newpage %------------------------------------------------
+% \newpage %------------------------------------------------
 \subsection{Limite \(\epsilon \stext{-} \delta\)}
 
-Nella seconda metà del 1800 è stato messo a punto il concetto di limite
-con la seguente definizione:
+Nella seconda metà del 1800 i matematici Cauchy, Bolzano e Weierstrass  
+hanno messo a punto il concetto di limite con la seguente definizione:
 
 \begin{definizione}
-Il numero reale \(L\) è il \textbf{limite (finito)} della funzione \(f(x)\) 
-per \(x\) che tende a un valore \(\mathbf{c}\) \textbf{(finito)} se per ogni 
-numero reale \(\epsilon\) esiste un numero reale \(\delta\) tale che per ogni 
-\(x\) 
-che dista da \(c\) meno di \(\delta\), \(f(x)\) dista da \(L\) 
-meno di \(\epsilon\).
+Il numero reale \(L\) è il \textbf{limite finito} della funzione \(f(x)\) 
+per \(x\) che tende a un valore \(\mathbf{c}\) \textbf{finito} 
+se per ogni numero reale \(\epsilon\) 
+esiste un numero reale \(\delta\) tale che 
+per ogni \(x\) che dista da \(c\) meno di \(\delta\) e 
+è diverso da \(c\),
+\(f(x)\) dista da \(L\) meno di \(\epsilon\).
 
 E si scrive:
-\[L = \lim_{x \rightarrow c}f(x) \stext{se}
+\[\lim_{x \rightarrow c}f(x) = L \stext{se}
 \forall \epsilon > 0 ~~ \exists \delta > 0 
-\sstext{tale che} \forall x \sstext{con} \abs{x - c} < \delta
+\sstext{tale che} \forall x \sstext{con} 0 < \abs{x - c} < \delta
 \stext{allora} 
 \abs{f(x) - L} < \epsilon\]
-Symbolically:
-\[\lim_{x \to c} f(x) = L  \sLRarrow  
-\tonda{\forall \epsilon > 0,\,
-\exists ~ \delta > 0:\,\forall x \stext{con} \abs{x - c} < \delta
-\sRarrow \abs{f(x) - L} < \epsilon}\]
-
 \end{definizione}
 
+\begin{definizione}
+Il \textbf{limite} della funzione \(f(x)\) 
+per \(x\) che tende a un valore \(\mathbf{c}\) \textbf{finito} 
+è \(+\infty\)
+se per ogni numero reale \(M\) 
+esiste un numero reale \(\delta\) tale che 
+per ogni \(x\) che dista da \(c\) meno di \(\delta\) e 
+è diverso da \(c\),
+\(f(x)\) è maggiore di \(M\).
+
+E si scrive:
+\[\lim_{x \rightarrow c}f(x) = +\infty \stext{se}
+\forall M \in \R ~~ \exists \delta > 0 
+\sstext{tale che} \forall x \sstext{con} 0 < \abs{x - c} < \delta
+\stext{allora} f(x) > M\]
+\end{definizione}
+
+\affiancati{.49}{.49}{
+\image{\limiteedfin}{[scale=.4]{img/limiteedfin}}
+}{
+\image{\limiteedinf}{[scale=.4]{img/limiteedinf}}
+}
+
 In modo simile vengono definiti anche:
-\begin{itemize}
-\item il limite infinito per \(x\) che tende a un finito;
-\item il limite finito per \(x\) che tende a un infinito;
-\item il limite infinito per \(x\) che tende a un infinito;
-\item il limite sinistro;
-\item il limite destro.
+\begin{itemize} [noitemsep]
+\item il limite infinito negativo per \(x\) che tende a un finito;
+\item il limite finito per \(x\) che tende a un infinito positivo o 
+a un infinito negativo;
+\item il limite infinito per \(x\) che tende a un infinito positivo o 
+a un infinito negativo;
+\item i limiti sinistro e destro per \(x\) che tende a un finito.
 \end{itemize}
 
 La cosa interessante, per noi, è che i matematici hanno dimostrato che se un 
