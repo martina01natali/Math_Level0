@@ -388,69 +388,93 @@ un infinitesimo, anche
 }
 
 \begin{teorema}[Continuità della funzione esponenziale in zero]
-La funzione esponenziale (\(y=a^x\)) è continua per \(x=0\).
+La funzione esponenziale (\(f(x) = e^x\)) è continua in \(0\).
 \end{teorema}
 
-\noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(a^\epsilon)=1\).
+\noindent Ipotesi: \(f(x)=e^x\).\\ 
+Tesi: 
+\(f(\epsilon) \approx f(0) \stext{ cioè }
+e^\epsilon \approx 1 \quad (\forall \epsilon \approx 0)\).
+
+\emph{Dimostrazione}
+
+Dimostriamo che, intorno allo zero, diciamo nell'intervallo 
+\(\intervaa{-1}{+1}\), 
+la funzione \(y = e^x\) è compresa tra due funzioni continue che 
+in zero valgono \(1\) e poi dimostriamo la tesi.
+
+Scegliamo \\
+come funzione minorante: \(g(x) = 1 + x\) \\
+come funzione maggiorante: \(h(x) = \dfrac{1}{1 - x}\)
+
+\newpage % ------------------------------------
+
+\begin{enumerate}
+\item Nel primo passo dimostriamo che \(e^x \geqslant 1 +x\).
 
 \affiancati{.49}{.49}{
-\emph{Dimostrazione}
-Usando la prima proprietà delle potenze:
-
-\begin{align*}
-f(x+\epsilon) &= 
-a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
-a^{x} \cdot \tonda{1 + \delta} = \\
-&=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
-a^{x} = f(x) \qed
-\end{align*}
+\(\tonda{1+\dfrac{x}{1}}^1 = 1 +x\)\\
+\(\tonda{1+\dfrac{x}{2}}^2 = 
+   1 +\cancel{2}\dfrac{x}{\cancel{2}} + \dfrac{x^2}{2^2} > 1 +x\)\\
+\(\tonda{1+\dfrac{x}{3}}^3 = 
+   1 +\cancel{3}\dfrac{x}{\cancel{3}} + 
+     3\dfrac{x^2}{3^2} + \dfrac{x^3}{3^3} > 1 +x\)\\
+\(\tonda{1+\dfrac{x}{4}}^4 = 
+   1 +\cancel{4}\dfrac{x}{\cancel{4}} + 
+     6\dfrac{x^2}{4^2} + \dots > 1 +x\)\\
+\dots \\[.5em]
+\(\tonda{1+\dfrac{x}{n}}^n = 
+   1 +\cancel{n}\dfrac{x}{\cancel{n}} + \dots > 1 +x\)
 }{
-\begin{center} \continuitafesp \end{center}
+\begin{center} \continuitafespa \end{center}
 }
+Per la proprietà di transfer, passando dal numero finito \(n\) al numero 
+infinito \(N\) avremo ancora:
+\[\tonda{1+\dfrac{x}{N}}^N = 
+   1 +\cancel{N}\dfrac{x}{\cancel{N}} + \dots \geqslant 1 +x\]
+Ma \(\tonda{1+\dfrac{x}{N}}^N \approx e^x\) quindi:
+\[e^x \geqslant 1 +x\]
 
-\begin{teorema}[Continuità della funzione esponenziale]
-La funzione esponenziale (\(y=a^x\)) è continua.
-\end{teorema}
+% \[e^x \stackrel{1}{\approx} \tonda{1+\frac{x}{N}}^N \stackrel{2}{=}
+% 1^N + \cancel{N} \cdot 1^{N-1} \cdot \frac{x}{\cancel{N}} + \dots 
+% \leqslant 1 + x\]
 
-\noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
+\item Nel secondo passo dimostriamo che 
+\(e^x \leqslant \dfrac{1}{1 - x}\)
 
 \affiancati{.49}{.49}{
-\emph{Dimostrazione}
-Usando la prima proprietà delle potenze:
-
-\begin{align*}
-f(x+\epsilon) &= 
-a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
-a^{x} \cdot \tonda{1 + \delta} = \\
-&=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
-a^{x} = f(x) \qed
-\end{align*}
+Abbiamo appena dimostrato che \(e\) elevato ad un qualunque esponente 
+è maggiore di \(1\) più quell'esponente perciò \\ [.5em]
+anche: \quad \(e^{-x} \geqslant 1 + \tonda{-x}\) \\[.5em]
+cioè: \quad \(e^{-x} \geqslant 1 -x\) \\ 
+e passando ai reciproci: \quad 
+\(\dfrac{1}{e^{-x}} \leqslant \dfrac{1}{1 - x}\)\\
+ma: \quad \(\dfrac{1}{e^{-x}} = e^x\) \\ 
+Quindi: \quad \(e^x \leqslant \dfrac{1}{1 - x}\)
 }{
-\begin{center} \continuitafesp \end{center}
+\begin{center} \continuitafespb \end{center}
 }
+\item Ora dimostriamo la tesi:
 
-% % TODO Dimostrazioni circolari
-% 
-% \begin{teorema}[Continuità della funzione esponenziale]
-% La funzione esponenziale (\(y=a^x\)) è continua.
-% \end{teorema}
-% 
-% \noindent Ipotesi: \(f(x)=a^x\).\tab Tesi: \(f(x)\) è continua.
-% 
-% \affiancati{.49}{.49}{
-% \emph{Dimostrazione}
-% Usando la prima proprietà delle potenze:
-% 
-% \begin{align*}
-% f(x+\epsilon) &= 
-% a^{x+\epsilon} = a^{x} \cdot a^{\epsilon} = 
-% a^{x} \cdot \tonda{1 + \delta} = \\
-% &=a^{x} \cdot \tonda{1 + \delta} + a^x \cdot \delta \approx 
-% a^{x} = f(x) \qed
-% \end{align*}
-% }{
-% \begin{center} \continuitafesp \end{center}
-% }
+Per il transfer quello che vale per \(x\) \emph{reale}, 
+vale anche per \(x\) \emph{iperreale} 
+e, in particolare, infinitesimo:
+
+\affiancati{.49}{.49}{
+\[1 + x \leqslant e^x \leqslant \dfrac{1}{1 - x}\]
+per transfer: 
+\[1 + \epsilon \leqslant e^\epsilon \leqslant \dfrac{1}{1 - \epsilon}\]
+Ma questo ci dice che \(e^\epsilon\) è compreso tra due numeri infinitamente 
+vicini a \(1\) quindi anche lui sarà infinitamente vicino a \(1\):
+\[1 \approx 1 + \epsilon \leqslant e^\epsilon \leqslant 
+  \dfrac{1}{1 - \epsilon} \approx 1
+  \sRarrow e^\epsilon \approx 1\]
+
+\vspace*{-2.6em} \qed
+}{
+\begin{center} \continuitafespc \end{center}
+}
+\end{enumerate}
 
 %---------- tentativi inutili
 % \nopagebreak

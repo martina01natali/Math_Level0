@@ -386,22 +386,68 @@
   }
 }
 
-\newcommand{\continuitafesp}{%
-  \def \fa{1.6**x}
-  \def \fam{.47*x+4.1}
-  \def \mix{-4}
-  \def \max{+4}
+\newcommand{\continuitafespa}{%
+  \def \fa{exp(x)}
+  \def \fb{1+x}
+  \def \fam{x+4.1}
+  \def \mix{-3}
+  \def \max{+2}
   \def \miy{0}
-  \def \may{7}
+  \def \may{3.8}
   \def \xp{0}
   \def \yp{1}
-  \disegno{
+  \disegno[10]{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, red!50!black] {\fb}
     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
-    \microscopio{(\xp, \yp)}{1}{120}{-50}{2}{(\xp-3.8, \yp+4.1)}
+    \node at (-2, .5) [green!50!black] {\(y=e^x\)};
+    \node at (1.7, 1.7) [red!50!black] {\(y=1+x\)};
+  }
+}
+
+\newcommand{\continuitafespb}{%
+  \def \fa{exp(x)}
+  \def \fb{1./(1-x)}
+  \def \fam{x+4.1}
+  \def \mix{-3}
+  \def \max{+2}
+  \def \miy{0}
+  \def \may{3.8}
+  \def \xp{0}
+  \def \yp{1}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:0.8, ultra thick, blue!50!black] {\fb}
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+    \node at (-2.2, .8) [blue!50!black] {\(y=\dfrac{1}{1-x}\)};
+    \node at (1.7, 2.5) [green!50!black] {\(y=e^x\)};
+  }
+}
+
+\newcommand{\continuitafespc}{%
+  \def \fa{exp(x)}
+  \def \fb{1+x}
+  \def \fc{1./(1-x)}
+  \def \fam{x+3.0}
+  \def \mix{-3}
+  \def \max{+2}
+  \def \miy{0}
+  \def \may{3.8}
+  \def \xp{0}
+  \def \yp{1}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, red!50!black] {\fb}
+    \tkzFct[domain=\mix-0.3:0.8, ultra thick, blue!50!black] {\fc}
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+    \microscopio{(\xp, \yp)}{.5}{120}{-50}{1}{(\xp-1.9, \yp+2)}
                 {\footnotesize \(\times \infty\)}
-    \tkzFct[domain=\xp-3.55:\xp+0.08, ultra thick, green!50!black] {\fam}
+    \tkzFct[domain=\xp-1.55:\xp-0.15, ultra thick, brown!50!black] {\fam}
+    \draw [dashed, thin, black] (-1.9, 2.2) node [left] {\(1\)} -- 
+                         (-.8, 2.2) -- (-.8, 1.2) node [below] {\(0\)};
   }
 }
 
