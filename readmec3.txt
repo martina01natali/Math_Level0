@@ -1,5 +1,5 @@
 %========================================================% 
-% README per Algebra 1                                   % 
+% readmeC3.txt per Algebra 1                             % 
 % (c) 2013-2014 Dimitrios Vrettos - d.vrettos@gmail.com  %
 % v1.0.1 2014/04/15                                      %
 % Questo file non si può modificare da terzi             %
