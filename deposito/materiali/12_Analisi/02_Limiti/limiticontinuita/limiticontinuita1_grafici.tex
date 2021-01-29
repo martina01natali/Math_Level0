@@ -556,16 +556,30 @@
 }
 
 \newcommand{\limitigraficoa}{% 
-  \def \funzione{(x**2-6*x+5)/(x**2+2*x-3)}
-  \disegno{
-    \rcom{-18}{+15}{-10}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-18.3,xmax=+15.3,ymin=-10.3,ymax=+10.3]
-    \tkzFct[domain=-18.3:-3.1, ultra thick, color=orange!50!black]
-         {\funzione}
-    \tkzFct[domain=-2.9:+15.3, ultra thick, color=orange!50!black]
-         {\funzione}
+  \def \fa{(x**2-6*x+5)/(x**2+2*x-3)}
+  \def \mix{-12}
+  \def \max{+10}
+  \def \miy{-10}
+  \def \may{+10}
+  \disegno[2.8]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:-3.1, ultra thick, color=orange!50!black] {\fa}
+    \tkzFct[domain=-2.9:\max+0.3, ultra thick, color=orange!50!black] {\fa}
   }
 }
+
+% \newcommand{\limitigraficoa}{% 
+%   \def \funzione{(x**2-6*x+5)/(x**2+2*x-3)}
+%   \disegno{
+%     \rcom{-18}{+15}{-10}{+10}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-18.3,xmax=+15.3,ymin=-10.3,ymax=+10.3]
+%     \tkzFct[domain=-18.3:-3.1, ultra thick, color=orange!50!black]
+%          {\funzione}
+%     \tkzFct[domain=-2.9:+15.3, ultra thick, color=orange!50!black]
+%          {\funzione}
+%   }
+% }
 
 \newcommand{\limitigraficob}{% 
   \def \funzione{(x**2-6*x+5)/(x**2+2*x-3)}

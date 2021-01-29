@@ -65,20 +65,20 @@ quando \(x\) è infinitamente vicino a \(c\),
 allora \(f(x)\) è infinitamente vicino a \(f(c)\), 
 
 \vspace{1em}
-e si scrive \(f\) è continua nel punto \(c\) se: \hspace{12mm}
+e si scrive \(f\) è continua nel punto \(c\) se: \hspace{5mm}
 \(\forall x \approx c \quad f(x) \approx f(c)\)
 
 \vspace{.5em}
-oppure: \hspace{58mm}
+oppure: \hspace{51mm}
 \(\forall \epsilon \approx 0 \quad f(c + \epsilon) \approx f(c)\)
 
 \vspace{.5em}
-oppure: \hspace{58mm}
+oppure: \hspace{51mm}
 \(\forall \epsilon \approx 0 \quad f(c + \epsilon) - f(c) \approx 0\)
 
 \vspace{.5em}
-o ancora: \hspace{54mm}
-\(\stext{se } \pst{x} = c \sstext{allora} \pst{f(x)} = f(c)\)
+o ancora: \hspace{49mm}
+\(\forall x \stext{se } \pst{x} = c \sstext{allora} \pst{f(x)} = f(c)\)
 \end{definizione}
 
 \begin{esempio}
@@ -176,9 +176,9 @@ valore di \(x\) infinitamente vicino a zero ma diverso da zero,
 
 \vspace{1em}
 
-\begin{esempio}
+\begin{esempio} \label{limcont:ese_fparti}
 Studia la continuità in \(x_0=2\) della funzione: 
-\(y=\begin{cases} 
+\(f(x)=\begin{cases} 
     \dfrac{1}{2}x-2 & \text{se } x \leqslant 2 \\ 
     x^2-6x+7 & \text{se } x > 2
   \end{cases}\)
@@ -214,23 +214,6 @@ che è un infinitesimo \(\forall \epsilon \approx 0\).\hfill \(\qed\)
 \begin{center}\continuitagraficoa\end{center}
 }
 \end{esempio}
-
-% \vspace{1em}
-% \noindent Data una funzione \(y=f(x)\) definita in \(c\), le seguenti 
-% affermazioni sono equivalenti:
-% 
-% \begin{enumerate}[noitemsep]
-%  \item \(f\) è continua in \(c\);
-%  \item se \(x \approx c\) allora \(f(x) \approx f(c)\);
-%  \item se \(\st(x) = c\) allora \(\st(f(x)) = f(c)\);
-% %  \item \(\lim_{x \to c} f(x) = f(c)\);
-%  \item se la differenza tra \(x\) e \(c\) è di un infinitesimo 
-% allora la differenza tra \(f(x)\) e \(f(c)\) è di un infinitesimo;
-%  \item se \(x\) si allontana da \(c\) di un infinitesimo allora 
-%    \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
-% %  \item se \(\delta x\) è infinitesimo allora il corrispondente 
-% % \(\delta y\) è infinitesimo.
-% \end{enumerate}
 
 \subsection{Funzioni continue}
 \label{subsec:cont_definizione}
@@ -295,7 +278,8 @@ Dimostriamo la continuità di alcune funzioni elementari.
 Le funzioni costanti (\(f(x) = k\)) sono continue.
 \end{teorema}
 
-Ipotesi: \(f(x)=k\).\tab Tesi: \(f(x)\) è continua.
+Ipotesi: \(f(x)=k\).\tab 
+Tesi: \(f(x+\epsilon) \approx f(x) \quad \forall x\).
 
 % \newpage %----------------------------------------------------
 
@@ -318,7 +302,8 @@ In simboli:
 La funzione identica (\(f(x) = x\)) è continua.
 \end{teorema}
 
-\noindent Ipotesi: \(f(x)=x\).\tab Tesi: \(f(x)\) è continua.
+\noindent Ipotesi: \(f(x)=x\).\tab 
+Tesi: \(f(x+\epsilon) \approx f(x) \quad \forall x\).
 
 \emph{Dimostrazione}
 Per la definizione di continuità vogliamo dimostrare che 
@@ -475,6 +460,25 @@ vicini a \(1\) quindi anche lui sarà infinitamente vicino a \(1\):
 \begin{center} \continuitafespc \end{center}
 }
 \end{enumerate}
+
+A questo punto e semplice dimostrare che la funzione esponenziale è 
+continua.
+\begin{teorema}[Continuità della funzione esponenziale]
+La funzione esponenziale (\(y=e^x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=e^x\).\tab 
+Tesi: \(f(x+\epsilon) \approx f(x) \quad \forall x\).
+
+\emph{Dimostrazione}
+Usiamo la prima proprietà delle potenze:
+\begin{align*}
+f(x+\epsilon) &= 
+e^{x+\epsilon} = e^{x} \cdot e^{\epsilon} = 
+e^{x} \cdot \tonda{1 + \delta} = 
+e^{x} + e^x \cdot \delta \approx 
+e^{x} = f(x) \qed
+\end{align*}
 
 %---------- tentativi inutili
 % \nopagebreak
@@ -651,40 +655,32 @@ Cioè con \(\epsilon > 0\):\\
 \end{itemize}
 }
  
+\affiancati{.49}{.49}{
 \begin{esempio}
 ~
 
-\affiancati{.49}{.49}{
 La funzione rappresentata qui a fianco, è continua nell'intervallo 
 chiuso \(\intervcc{b}{c}\) ma non lo è negli intervalli chiusi 
 \(\intervcc{a}{b}\) e \(\intervcc{c}{d}\). 
 
 Si può dire comunque che è continua negli intervalli aperti:
 \(\intervca{a}{b}\) e \(\intervac{c}{d}\).
+\end{esempio}
 }{
 \begin{center}\continuitaintervalli\end{center}
 }
-\end{esempio}
 
-La definizione di continuità in un intervallo non ci è di grande aiuto per 
+La definizione di continuità in un punto non ci è di grande aiuto per 
 verificare se una funzione è continua in un intervallo, dato che dovremmo 
-controllare la continuità in ogni suo punto e, per quanto piccolo, 
-l'intervallo, di punti, ne ha infiniti.
+controllare la continuità in infiniti punti.
 
 Si può seguire un'altra via: 
 
 \begin{definizione}
 Una funzione è continua in un intervallo se:
-% \begin{itemize} [noitemsep]
-% \item 
-% la funzione è continua; % in quell'intervallo;
-% \item 
-% l'intervallo è un sottoinsieme dell'insieme di definizione della funzione.
-% \end{itemize}
-% O, detto in altro modo: 
 \begin{itemize} [noitemsep]
 \item 
-la funzione è continua e % in quell'intervallo;
+la funzione, ristretta a quell'intervallo, è continua e
 \item 
 è definita in tutti i punti dell'intervallo.
 \end{itemize}
@@ -714,8 +710,23 @@ nell'intervallo \(B\).
 }
 \end{esempio}
 
+\begin{esempio}
+Riprendendo la funzione dell'esempio \ref{limcont:ese_fparti}
+possiamo dire che tutta la funzione è continua in \(\R\) dato che:
+\begin{itemize}
+\item è continua in \(\intervaa{-\infty}{2}\) 
+poiché \(x \mapsto \dfrac{1}{2}x -2\) è una funzione polinomiale;
+\item è continua in \(2\) avendolo dimostrato nell'esempio;
+\item è continua in \(\intervaa{2}{+\infty}\)
+poiché \(x \mapsto x^2 -6x +7\) è una funzione polinomiale.
+\end{itemize}
+\end{esempio}
+
+
 % TODO: aggiungere un po' di esempi per fare andare a pagina nuova 
 % i limiti.
+
+\newpage %-----------------------------------------------
 
 \section{Limiti}
 \label{sec:cont_limiti}
@@ -734,8 +745,7 @@ interessa di più sapere come si comporta quando la variabile \(x\) è
 Detto altrimenti, cerchiamo di rispondere alla domanda: \\
 \emph{Per un certo valore di \(x\) la funzione potrebbe anche \emph{non} 
 essere definita, ma cosa succede quando \(x\) si avvicina abbastanza a quel 
-valore?}
-
+valore?} \\
 Vediamo un esempio.
 
 \begin{esempio}
@@ -744,15 +754,25 @@ Vediamo un esempio.
 poi studia come si comporta la funzione per valori infinitamente vicini 
 agli estremi dell'\(\ID\)
 
+\affiancati{.44}{.54}{
 La funzione è fratta e quindi non è definita quando il denominatore vale 
 zero:
-\[x^2+2x-3=0 \sRarrow \tonda{x+3}\tonda{x-1}=0 \sRarrow x_1=-3;~x_2=+1\]
+\begin{align*}
+&x^2+2x-3=0 \sRarrow \tonda{x+3}\tonda{x-1}=0 \\ 
+&\sRarrow x_1=-3;~x_2=+1
+\end{align*}
 L'insieme di definizione è formato quindi dall'unione dei seguenti 
 intervalli:
-\[\intervaa{-\infty}{-3} \quad \cup \quad 
+\begin{align*}
+&\intervaa{-\infty}{-3} \quad \cup \quad 
 \intervaa{-3}{+1}\quad \cup \quad 
-\intervaa{+1}{-\infty} \qquad \text{oppure} \qquad
-\R \setminus \graffa{-3;~+1}\]
+\intervaa{+1}{-\infty} \\ 
+&\text{oppure} \qquad \R \setminus \graffa{-3;~+1}
+\end{align*}
+}{
+\begin{center}\scalebox{1}{\limitigraficoa}\end{center}
+}
+
 Calcoliamo alcuni valori della funzione ``vicini'' ai 4 estremi 
 dell'Insieme di Definizione:
 
@@ -836,25 +856,23 @@ Possiamo osservare che:
 %  (si avvicina a più infinito), 
 \(f(x)\) si avvicina a~\(1\) dal basso.
 \end{itemize}
-\begin{center}\scalebox{.6}{\limitigraficoa}\end{center}
 \end{esempio}
 
-Osservando il grafico provate a descrivere a parole cosa succede:
+Osservando il grafico possiamo dire che:
 
 \begin{itemize} [nosep]
-%  \item quando \(x\) si avvicina a \(-\infty\); 
- \item quando si avvicina a \(-3\) e quando vale proprio \(-3\);
- \item quando si avvicina a \(+1\) e quando vale proprio \(+1\); 
-%  \item e, infine, quando si avvicina a \(+\infty\).
-\end{itemize}
-
-Quando \(x\) si avvicina a \(-3\), la funzione da un lato diventa sempre più 
-grande, dall'altro sempre più piccola(sempre più negativa);
+ \item 
+Quando \(x\) si avvicina a \(-3\), la funzione 
+da un lato diventa sempre più grande, 
+dall'altro sempre più piccola (sempre più negativa);
+ \item 
 quando \(x\) vale proprio \(-3\), la funzione non è definita.
-
-Quando \(x\) si avvicina a \(+1\), la funzione, da entrambi i lati si 
-avvicina a \(-1\);
+ \item 
+Quando \(x\) si avvicina a \(+1\), la funzione, 
+da entrambi i lati si avvicina a \(-1\);
+ \item 
 quando \(x\) vale proprio \(+1\), la funzione non è definita.
+\end{itemize}
 
 \affiancati{.64}{.34}{
 \begin{osservazione}
@@ -866,27 +884,23 @@ Possiamo indicare un punto mancante in una linea usando un cerchietto vuoto
 come nell'ingrandimento a fianco.
 \end{osservazione}
 }{
-\begin{center}\scalebox{1.0}{\limitigraficob}\end{center}
+\begin{center}\scalebox{0.9}{\limitigraficob}\end{center}
 }
 
-Lo studio del comportamento di una funzione quando \(x\) si avvicina 
-infinitamente ad un certo valore viene fatto usando i \emph{limiti}.
-
-Un tempo si trattavano queste situazioni usando infinitesimi e infiniti in 
-modo non del tutto rigoroso.
 Alcuni matematici del 1800, rifiutandosi di usare infinitesimi e infiniti, 
 hanno ricostruito la matematica creata nei secoli precedenti usando il 
 concetto di \emph{limite}.
-Questo concetto di limite perfezionato da Weierstrass è piuttosto 
-complesso e lo riprenderemo più avanti.
+I \emph{limiti} studiano il comportamento di una funzione quando \(x\) è 
+infinitamente vicino ad un certo valore ma diverso da quel valore.
+La definizione di limite perfezionata da Weierstrass è piuttosto 
+complessa e la vedremo alla fine del capitolo.
 Noi che usiamo numeri infinitesimi e infiniti diremo che:
 
 \begin{definizione}
 Il numero reale \(L\) è il \textbf{limite} della funzione \(f(x)\) 
 per \(x\) che tende a un valore \(c\) se \(f(x)\) è infinitamente vicino a 
 \(L\) per tutti gli \(x\) infinitamente vicini a \(c\) e diversi da 
-\(c\).\\
-E si scrive:
+\(c\).
 \[\lim_{x \to c} f(x) = L \stext{ se } \forall x \approx c \stext{ e } 
 x \neq c, \quad f(x) \approx L\] \\
 Dato che il numero reale infinitamente vicino ad un iperreale è proprio il 
@@ -903,19 +917,19 @@ per ogni infinitesimo \(\epsilon \neq 0\).
 \begin{esempio}
 Consideriamo la funzione \(f\) il cui grafico è riportato a fianco.
 
-\affiancati{.49}{.49}{
+\affiancati{.54}{.44}{
 Possiamo osservare che la funzione è continua (perché?) e che non è 
-definita per \\
+definita per 
 \(x = a \stext{ e } x = b\), quindi:
 \[\ID = \R \setminus \graffa{a;~b}\]
-Possiamo quindi studiare il limite per \(x \to a\) e \(x \to b\). 
+Possiamo studiare il limite per \(x \to a\) e \(x \to b\). 
 
 \[\lim_{x \to a}f(x) = L\]
 dato che per ogni \(x\) infinitamente vicino a \(a\) e diverso da \(a\), 
 \(f(x)\) è infinitamente vicino a \(L\). 
 \[\lim_{x \to b}f(x) = \text{ non esiste}\]
 }{
-\begin{center} \scalebox{.9}{\limitefinitodef} \end{center}
+\scalebox{.8}{\limitefinitodef}
 }
 perché per alcuni \(x\) infinitamente vicini a \(b\), \(f(x)\) è 
 infinitamente vicino a \(M\) e per alcuni \(x\) sempre infinitamente 
@@ -1006,11 +1020,11 @@ finito solo se ci sono alcune condizioni, ma in vari casi può fallire.
 I motivi per cui può fallire sono:
 \begin{enumerate} [nosep]
 \item la funzione \(f(c+\epsilon)\) non è definita per alcuni valori 
-dell'infinitesimo \(\epsilon \neq 0\); 
-\item al variare dell'infinitesimo \(\epsilon\) la parte standard 
-\(\pst{f(c+\epsilon)}\) non è sempre la stessa;
+dell'infinitesimo \(\epsilon \neq 0\);
 \item la funzione \(f(c+\epsilon)\) dà come risultato un valore infinito e 
-quindi non ha parte standard. 
+quindi non ha parte standard; 
+\item al variare dell'infinitesimo \(\epsilon\) la parte standard 
+\(\pst{f(c+\epsilon)}\) non è sempre la stessa. 
 \end{enumerate}
 
 Nelle prossime sezioni vedremo quando è possibile, comunque, ricavare delle 
@@ -2169,7 +2183,6 @@ per ogni \(x\) che dista da \(c\) meno di \(\delta\) e
 è diverso da \(c\),
 \(f(x)\) dista da \(L\) meno di \(\epsilon\).
 
-E si scrive:
 \[\lim_{x \rightarrow c}f(x) = L \stext{se}
 \forall \epsilon > 0 ~~ \exists \delta > 0 
 \sstext{tale che} \forall x \sstext{con} 0 < \abs{x - c} < \delta
@@ -2187,7 +2200,6 @@ per ogni \(x\) che dista da \(c\) meno di \(\delta\) e
 è diverso da \(c\),
 \(f(x)\) è maggiore di \(M\).
 
-E si scrive:
 \[\lim_{x \rightarrow c}f(x) = +\infty \stext{se}
 \forall M \in \R ~~ \exists \delta > 0 
 \sstext{tale che} \forall x \sstext{con} 0 < \abs{x - c} < \delta
