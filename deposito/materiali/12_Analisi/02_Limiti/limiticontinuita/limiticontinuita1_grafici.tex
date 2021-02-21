@@ -386,22 +386,68 @@
   }
 }
 
-\newcommand{\continuitafesp}{%
-  \def \fa{1.6**x}
-  \def \fam{.47*x+4.1}
-  \def \mix{-4}
-  \def \max{+4}
+\newcommand{\continuitafespa}{%
+  \def \fa{exp(x)}
+  \def \fb{1+x}
+  \def \fam{x+4.1}
+  \def \mix{-3}
+  \def \max{+2}
   \def \miy{0}
-  \def \may{7}
+  \def \may{3.8}
   \def \xp{0}
   \def \yp{1}
-  \disegno{
+  \disegno[10]{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, red!50!black] {\fb}
     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
-    \microscopio{(\xp, \yp)}{1}{120}{-50}{2}{(\xp-3.8, \yp+4.1)}
+    \node at (-2, .5) [green!50!black] {\(y=e^x\)};
+    \node at (1.7, 1.7) [red!50!black] {\(y=1+x\)};
+  }
+}
+
+\newcommand{\continuitafespb}{%
+  \def \fa{exp(x)}
+  \def \fb{1./(1-x)}
+  \def \fam{x+4.1}
+  \def \mix{-3}
+  \def \max{+2}
+  \def \miy{0}
+  \def \may{3.8}
+  \def \xp{0}
+  \def \yp{1}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:0.8, ultra thick, blue!50!black] {\fb}
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+    \node at (-2.2, .8) [blue!50!black] {\(y=\dfrac{1}{1-x}\)};
+    \node at (1.7, 2.5) [green!50!black] {\(y=e^x\)};
+  }
+}
+
+\newcommand{\continuitafespc}{%
+  \def \fa{exp(x)}
+  \def \fb{1+x}
+  \def \fc{1./(1-x)}
+  \def \fam{x+3.0}
+  \def \mix{-3}
+  \def \max{+2}
+  \def \miy{0}
+  \def \may{3.8}
+  \def \xp{0}
+  \def \yp{1}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, red!50!black] {\fb}
+    \tkzFct[domain=\mix-0.3:0.8, ultra thick, blue!50!black] {\fc}
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+    \microscopio{(\xp, \yp)}{.5}{120}{-50}{1}{(\xp-1.9, \yp+2)}
                 {\footnotesize \(\times \infty\)}
-    \tkzFct[domain=\xp-3.55:\xp+0.08, ultra thick, green!50!black] {\fam}
+    \tkzFct[domain=\xp-1.55:\xp-0.15, ultra thick, brown!50!black] {\fam}
+    \draw [dashed, thin, black] (-1.9, 2.2) node [left] {\(1\)} -- 
+                         (-.8, 2.2) -- (-.8, 1.2) node [below] {\(0\)};
   }
 }
 
@@ -510,16 +556,30 @@
 }
 
 \newcommand{\limitigraficoa}{% 
-  \def \funzione{(x**2-6*x+5)/(x**2+2*x-3)}
-  \disegno{
-    \rcom{-18}{+15}{-10}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-18.3,xmax=+15.3,ymin=-10.3,ymax=+10.3]
-    \tkzFct[domain=-18.3:-3.1, ultra thick, color=orange!50!black]
-         {\funzione}
-    \tkzFct[domain=-2.9:+15.3, ultra thick, color=orange!50!black]
-         {\funzione}
+  \def \fa{(x**2-6*x+5)/(x**2+2*x-3)}
+  \def \mix{-12}
+  \def \max{+10}
+  \def \miy{-10}
+  \def \may{+10}
+  \disegno[2.8]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:-3.1, ultra thick, color=orange!50!black] {\fa}
+    \tkzFct[domain=-2.9:\max+0.3, ultra thick, color=orange!50!black] {\fa}
   }
 }
+
+% \newcommand{\limitigraficoa}{% 
+%   \def \funzione{(x**2-6*x+5)/(x**2+2*x-3)}
+%   \disegno{
+%     \rcom{-18}{+15}{-10}{+10}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-18.3,xmax=+15.3,ymin=-10.3,ymax=+10.3]
+%     \tkzFct[domain=-18.3:-3.1, ultra thick, color=orange!50!black]
+%          {\funzione}
+%     \tkzFct[domain=-2.9:+15.3, ultra thick, color=orange!50!black]
+%          {\funzione}
+%   }
+% }
 
 \newcommand{\limitigraficob}{% 
   \def \funzione{(x**2-6*x+5)/(x**2+2*x-3)}
@@ -558,12 +618,12 @@
       \foreach \xp/\yp in {\xa/\ya, \xb/\yba, \xb/\ybb}{
         \filldraw [thick, fill=white] (\xp, \yp) circle(1.5pt);}
       \foreach \xp/\yp/\labx/\laby in {\xa/\ya/a/L, 
-                                       \xb/\yba/b/N}{
+                                       \xb/\yba/b/M}{
         \draw [thick, dotted, black] (0, \yp) 
           node [left] {\(\laby\)} -- (\xp, \yp) -- (\xp, 0)
           node [below] {\(\labx\)};}
       \draw [thick, dotted, black] (0, \ybb) 
-        node [left] {\(M\)} -- (\xb, \ybb);
+        node [left] {\(N\)} -- (\xb, \ybb);
     \end{scope}
     \microscopio{(\xa, \ya)}{1}{-130}{75}{2}{(\xa-3.0, \ya-4.3)}
                 {\footnotesize \(\times \infty\)}
@@ -575,8 +635,8 @@
                 {\footnotesize \(\times \infty\)}
     \tkzFct[domain=\xb+2:\xb+4.2, ultra thick, orange!50!black] {\fmbb}
       \foreach \xp/\yp/\lab in {.8/-2.4/{\tonda{a;~L}}, 
-                                \xb/6.5/{\tonda{b;~N}}, 
-                                \xb+2/+.125/{\tonda{b;~M}}}{
+                                \xb/6.5/{\tonda{b;~M}}, 
+                                \xb+2/+.125/{\tonda{b;~N}}}{
         \filldraw [thick, orange!50!black, fill=white] 
           (\xp, \yp) circle(1.5pt) node [above] {\(\lab\)};}
   }
@@ -832,6 +892,133 @@
     \tkzFct[domain=+1.6:+3.8, ultra thick, color=Green!50!black]
          {tan(x)}
     \node at (0, -4.8) {$y=\tan x$};
+  }
+}
+
+% \newcommand{\gnomino}[6]{
+%   % example:
+%   % \disegno{\gnomino{\xc}{\yc}{c}{L}{black}{black}}
+%   \def \x{#1}
+%   \def \y{#2}
+%   \def \lx{#3}
+%   \def \ly{#4}
+%   \def \colorlx{#5}
+%   \def \colorly{#6}
+%     \draw [thin, dashed, black] 
+%           (0, \y) node [left, \colorly] {\footnotesize \(\ly\)} -- 
+%           (\x, \y) -- (\x, 0) 
+%           node [below, \colorlx] {\footnotesize \(\lx\)};
+% }
+
+\newcommand{\taccax}[3]{
+  % example:
+  % \disegno{\taccay{-.2}{\yca}{L - \epsilon}}
+  \def \x{#1}
+  \def \y{#2}
+  \def \lx{#3}
+  \draw (\x, \y) node [below, black] {\footnotesize \(\lx\)} -- (\x, 0); 
+}
+
+\newcommand{\frecciax}[3]{
+  % example:
+  % \disegno{}
+  \def \pp{#1}
+  \def \pa{#2}
+  \def \lx{#3}
+  \draw [-{Latex[length=2mm, width=1mm]}, black] \pp 
+    node[below]{\footnotesize \(\lx\)} -- \pa; 
+}
+
+\newcommand{\taccay}[3]{
+  % example:
+  % \disegno{\taccay{-.2}{\yca}{L - \epsilon}}
+  \def \x{#1}
+  \def \y{#2}
+  \def \ly{#3}
+  \draw [left, black]  (\x, \y) node{\footnotesize \(\ly\)} -- (0, \y); 
+}
+
+\newcommand{\frecciay}[3]{
+  % example:
+  % \disegno{\frecciay{(-.7, 5+.5)}{(0, 5)}{f(c-\delta)}}
+  \def \pp{#1}
+  \def \pa{#2}
+  \def \ly{#3}
+  \draw [-{Latex[length=2mm, width=1mm]}, black]  \pp 
+    node[left]{\footnotesize \(\ly\)} -- \pa; 
+}
+
+\newcommand{\limiteedfin}{%
+  \def \fa{-.1*(x**3-7*x**2-6*x-8)}
+  \def \mix{0}
+  \def \max{10}
+  \def \miy{0}
+  \def \may{10}
+  \def \xca{2.2}
+  \def \xcaa{2.5}
+  \def \xc{3}
+  \def \xcbb{3.5}
+  \def \xcb{3.8}
+  \def \yca{4.7}
+  \def \ycaa{5.11}
+  \def \yc{6.2}
+  \def \ycbb{7.19}
+  \def \ycb{7.7}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{white, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \gnomino{\xc}{\yc}{c}{L}{black}{black}
+    \fill [blue, opacity=.2] (0, 4.7) -- (2.316, 4.7) -- (3, 6.2) --
+                              (3.8, 7.7) -- (0, 7.7); 
+    \fill [red, opacity=.3] (0, \ycaa) -- (2.5, \ycaa) -- (2.5, 0) --
+                               (3.5, 0) -- (3.5, \ycbb) -- (0, \ycbb); 
+    \filldraw (\xc, \yc) [orange!50!black, fill=white] circle(1.5pt);
+    \frecciay{(-.5, \yca-.5)}{(0, \yca)}{L - \epsilon}
+    \frecciay{(-.7, \ycaa)}{(0, \ycaa)}{f(c-\delta)}
+    \taccay{-.2}{\yc}{L}
+    \frecciay{(-.7, \ycbb)}{(0, \ycbb)}{f(c+\delta)}
+    \frecciay{(-.5, \ycb+.5)}{(0, \ycb)}{L + \epsilon}
+    \frecciax{(\xcaa-.5, -.5)}{(\xcaa, 0)}{c - \delta}
+    \taccax{\xc}{-.2}{c}
+    \frecciax{(\xcbb+.5, -.5)}{(\xcbb, 0)}{c + \delta}
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, orange!50!black] {\fa}
+  }
+}
+
+\newcommand{\limiteedinf}{% 
+  \def \fa{1/(x - 3)**2}
+  \def \mix{0}
+  \def \max{10}
+  \def \miy{0}
+  \def \may{10}
+  \def \xcaa{2.68}
+  \def \xc{3}
+  \def \xcbb{3.32}
+  \def \yc{6}
+  \def \ycaa{8.00}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{white, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \fill [blue, opacity=.2] 
+%       (0, \yc) -- (\max+.3, \yc) -- (\max+.3, \may+.3) -- (0, \may+.3); 
+    \fill [blue, opacity=.2] 
+      (0, \ycaa) -- (\max+.3, \ycaa) -- (\max+.3, \may+.3) -- (0, \may+.3); 
+    \fill [blue, opacity=.2] 
+      (0, \yc) -- (\xcaa, \yc) -- (\xcaa, \ycaa) -- (0, \ycaa); 
+    \fill [blue, opacity=.2] 
+      (\xcbb, \yc) -- (\max+.3, \yc) -- (\max+.3, \ycaa) -- (\xcbb, \ycaa); 
+    \fill [red, opacity=.3] 
+      (0, \ycaa) -- (\max+.3, \ycaa) -- (\max+.3, \may+.3) -- (0, \may+.3); 
+    \fill [red, opacity=.3] (\xcaa, 0) -- (\xcaa, \ycaa) -- 
+                            (\xcbb, \ycaa) -- (\xcbb, 0); 
+    \frecciay{(-.7, \ycaa-.4)}{(0, \ycaa)}{f(c-\delta)}
+    \taccay{-.2}{\yc}{M}
+    \frecciay{(-.7, \ycaa+.4)}{(0, \ycaa)}{f(c+\delta)}
+    \frecciax{(\xcaa-.5, -.5)}{(\xcaa, 0)}{c - \delta}
+    \taccax{\xc}{-.2}{c}
+    \frecciax{(\xcbb+.5, -.5)}{(\xcbb, 0)}{c + \delta}
+    \tkzFct[domain=\mix-0.3:2.8, ultra thick, orange!50!black] {\fa}
+    \tkzFct[domain=3.2:\max+0.3, ultra thick, orange!50!black] {\fa}
   }
 }
 

@@ -652,23 +652,43 @@ disequazioni
 \tikzset{
   telescopio/.pic={% Disegna un telescopio non standard
   % Esempio di chiamata:
-  % \draw (-1, 1) pic [rotate=0, scale=.5] {telescopio=\infty};
-  \begin{scope}[ultra thick]
-    \draw [fill=black, rounded corners=2] (5.4, -1.4) rectangle (6.9, -0.4);
-    \draw [rounded corners=2] (1.4, -1.3) rectangle (5.6, -0.5);
-    \draw (0.4, -1.2) rectangle (1.4, -0.6);
+  % \draw (-1, 1) pic [rotate=0, xscale=.5, yscale=-.5] {telescopio=\infty};
+  \begin{scope}[color=gray, ultra thick]
+    \draw [fill=gray, rounded corners=2] (5.4, -1.4) rectangle (6.9, -0.4);
+    \draw [fill=white, rounded corners=2] (1.4, -1.3) rectangle (5.6, -0.5);
+    \draw [fill=white](0.4, -1.2) rectangle (1.4, -0.6);
     \draw [fill=white] (0.8, -1.2) circle (0.2);
     \draw [fill=black, rounded corners=1] 
           (0.4, -1.3) -- (0.4, -0.5) -- (-0.45, -0.5) -- cycle;
-    \draw (-0.2, -0.5) rectangle (0.2, -0.2);
-    \draw [fill=black, rounded corners=1] (-0.3, -0.2) rectangle (0.3, 0);
+    \draw [fill=white] (-0.2, -0.5) rectangle (0.2, -0.2);
+    \draw [fill=gray, rounded corners=.5] (-0.3, -0.2) rectangle (0.3, 0);
     \draw [-{Stealth[length=2mm, open, round]}] (7.2, -.9) -- (8.2, -.9); 
-    \node at (8.8, -.9) {#1};
-%     \draw [-{Stealth[length=2mm, open, round]}] (7.2, -.9) -- (8.2, -.9) 
-%           node [right, yshift=1mm] {#1};
+    \node at (9.2, -.9) {#1};
   \end{scope}
   }
 }
+
+% % original:
+% \tikzset{
+%   telescopio/.pic={% Disegna un telescopio non standard
+%   % Esempio di chiamata:
+%   % \draw (-1, 1) pic [rotate=0, scale=.5] {telescopio=\infty};
+%   \begin{scope}[ultra thick]
+%     \draw [fill=black, rounded corners=2] (5.4, -1.4) rectangle (6.9, -0.4);
+%     \draw [rounded corners=2] (1.4, -1.3) rectangle (5.6, -0.5);
+%     \draw (0.4, -1.2) rectangle (1.4, -0.6);
+%     \draw [fill=white] (0.8, -1.2) circle (0.2);
+%     \draw [fill=black, rounded corners=1] 
+%           (0.4, -1.3) -- (0.4, -0.5) -- (-0.45, -0.5) -- cycle;
+%     \draw (-0.2, -0.5) rectangle (0.2, -0.2);
+%     \draw [fill=black, rounded corners=1] (-0.3, -0.2) rectangle (0.3, 0);
+% %     \draw [-{Stealth[length=2mm, open, round]}] (7.2, -.9) -- (8.2, -.9); 
+% %     \node at (8.8, -.9) {#1};
+%     \draw [-{Stealth[length=2mm, open, round]}] (7.2, -.9) -- (8.2, -.9) 
+%           node [right] {#1};
+%   \end{scope}
+%   }
+% }
 
 % \newcommand{\ellisse}[5]{% disegna un'ellisse dati: centro, semiassi, colore
 %   % Esempio di chiamata:
