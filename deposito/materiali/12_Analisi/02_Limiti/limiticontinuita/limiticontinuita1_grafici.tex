@@ -736,36 +736,110 @@
 }
 
 \newcommand{\limiteiesea}{% 
-  \def \fa{(x+2)/((x**2 +8*x +16))}
+  \def \fa{(x+2)/((x**2 +10*x +25))}
 %   \def \fama{-3*x - 11}
 %   \def \famb{+3*x - 11}
-  \def \mix{-8}
+  \def \mix{-10}
   \def \max{+2}
   \def \miy{-12}
   \def \may{+2}
-  \def \xp{-4}
+  \def \xp{-5}
   \def \yp{0}
+  \def \xta{-5}
+  \def \yta{-.5}
+  \def \xmica{-3.5}
+  \def \ymica{+2}
   \disegno{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \begin{scope} [ultra thick, orange!50!black]
       \tkzFct[domain=\mix-0.3:\xp-0.1] {\fa}
       \tkzFct[domain=\xp+0.1:\max+0.3] {\fa}
-%       \draw (\xp, \yp) -- (\xp+.015, \yp+.2);
-%       \filldraw (\xcb, 0) circle (1.5pt) node [above left=-.3] {\(c_2\)};
     \end{scope}
-%     \microscopio{(\xca, 0)}{1}{-100}{+110}{2}{(\xca-1.2, 0-4.7)}
-%                 {\footnotesize \(\times \infty\)}
-%     \microscopio{(\xcb, 0)}{.9}{-100}{+80}{2}{(\xcb+1.2, 0-4.7)}
-%                 {\footnotesize \(\times \infty\)}
-%     \begin{scope}[orange!50!black] 
-%       \tkzFct[domain=\xca-.18:\xca+.45, ultra thick] {\fama}
-%       \filldraw (\xca+.47, -3) circle (1.5pt);
-%       \tkzFct[domain=\xcb-.45:\xcb+.18, ultra thick] {\famb}
-%       \filldraw (\xcb-.47, -3) circle (1.5pt);
-%     \end{scope}
+    \draw (\xta, \yta) pic [rotate=-90, xscale=.5, yscale=.5, black] 
+      {telescopio=\(\infty\)};
+    \microscopio{(\xta, \yta)}{1}{+60}{-120}{2}{(0, 0)}{}
+    \draw [ultra thick, orange!50!black] (\xta+1.5, \yta+4.61) 
+      node [black, above] {\(-5\)} -- (\xta+1.5, \yta+0.61);
+    \microscopio{(\xmica, \ymica)}{1}{+150}{+0}{2}{(-8.2, 4.2)}
+      {\(\times \infty\)}
+    \draw [dashed, black] (\xmica-3, \ymica+2.45) 
+      node [black, above] {\(-5\)} -- (\xmica-3, \ymica-1.5);
+    \draw [ultra thick, orange!50!black] 
+      (\xmica-3.3, \ymica+2.45) -- (\xmica-3.3, \ymica-1.45)
+      (\xmica-2.7, \ymica+2.45) -- (\xmica-2.7, \ymica-1.45);
   }
 }
+
+\newcommand{\limiteieseb}{% 
+  \def \fa{(-2*x +6)/((x -4))}
+%   \def \fama{-3*x - 11}
+%   \def \famb{+3*x - 11}
+  \def \mix{-4}
+  \def \max{+10}
+  \def \miy{-7}
+  \def \may{+6}
+  \def \xa{+4}
+  \def \xta{+4}
+  \def \yta{-1.5}
+  \def \xmica{+6.5}
+  \def \ymica{0}
+  \def \xtb{+4}
+  \def \ytb{+1.5}
+  \def \xmicb{+1}
+  \def \ymicb{+1.5}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \begin{scope} [ultra thick, orange!50!black]
+      \tkzFct[domain=\mix-0.3:\xa-0.1] {\fa}
+      \tkzFct[domain=\xa+0.1:\max+0.3] {\fa}
+    \end{scope}
+    \draw (\xta, \yta) pic [rotate=-90, scale=.5, black] 
+      {telescopio=\(\infty\)};
+    \microscopio{(\xta, \yta)}{1}{+20}{-150}{2}{(0, 0)}{}
+    \draw [ultra thick, orange!50!black] (\xmica, \ymica+1.85) 
+      node [black, above] {\(+4\)} -- (\xmica, \ymica-2.15);
+    \microscopio{(\xmica, \ymica)}{1}{-20}{+180}{2}{(11., 1.6)}
+      {\(\times \infty\)}
+    \draw [dashed, black] (\xmica+3, \ymica+1.65) 
+      node [black, above] {\(+4\)} -- (\xmica+3, \ymica-2.25);
+    \draw [ultra thick, orange!50!black] 
+      (\xmica+3.3, \ymica+1.65) -- (\xmica+3.3, \ymica-2.25);
+    \draw (\xtb, \ytb) pic [rotate=+90, xscale=.5, yscale=.5, black] 
+      {telescopio=\(\infty\)};
+    \microscopio{(\xtb, \ytb)}{1}{+200}{-10}{2}{(0, 0)}{}
+    \draw [ultra thick, orange!50!black] (\xmicb, \ymicb+2) 
+      node [black, above] {\(+4\)} -- (\xmicb, \ymicb-2.0);
+    \microscopio{(\xmicb, \ymicb)}{1}{+180}{+0}{2}{(-3.7, 3.4)}
+       {\(\times \infty\)}
+    \draw [dashed, black] (\xmicb-3, \ymicb+2.) 
+      node [black, above] {\(+4\)} -- (\xmicb-3, \ymicb-2);
+    \draw [ultra thick, orange!50!black] 
+      (\xmicb-3.3, \ymicb+2.) -- (\xmicb-3.3, \ymicb-2);
+  }
+}
+
+% % Old:
+% \newcommand{\limiteiesea}{% 
+%   \def \fa{(x+2)/((x**2 +8*x +16))}
+% %   \def \fama{-3*x - 11}
+% %   \def \famb{+3*x - 11}
+%   \def \mix{-8}
+%   \def \max{+2}
+%   \def \miy{-12}
+%   \def \may{+2}
+%   \def \xp{-4}
+%   \def \yp{0}
+%   \disegno{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \begin{scope} [ultra thick, orange!50!black]
+%       \tkzFct[domain=\mix-0.3:\xp-0.1] {\fa}
+%       \tkzFct[domain=\xp+0.1:\max+0.3] {\fa}
+%     \end{scope}
+%   }
+% }
 
 \newcommand{\limitesinunosux}{% 
   \def \fa{sin(5./x)}
