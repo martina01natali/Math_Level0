@@ -177,9 +177,9 @@
   \def \xdmb{2.9}
   \def \ydmb{1.22}
   \disegno{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+   \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=-0.3+\mix, xmax=4.3,ymin=-1-0.3,ymax=+4+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, red!50!black] {\fa}
     \microscopio{(\xc, \yc)}{1}{60}{250}{2}{(\xc+3, \yc+4.4)}
                 {\footnotesize \(\times \infty\)}
     \tkzFct[domain=-0.8:+3.18, ultra thick, green!50!black] {\fb}
@@ -322,10 +322,10 @@
   \def \pq{(45:\max)}
   \disegno{
     \rcom{\mix}{\max}{\miy}{\may}{white}
-    \begin{scope}
+    %\begin{scope}
       \clip (\mix-0.3, \miy-0.3) rectangle (\max+0.3, \may+0.3);
       \draw [thick, green!50!black] (0, 0) circle (\max);
-    \end{scope}
+    \%end{scope}
     \draw (0, 0) -- \pp coordinate (p) node [right] 
       {\footnotesize\(P\)} 
                         node [right, yshift=12] {\footnotesize\(\Delta y\)}
@@ -361,7 +361,7 @@
 %   \def \yqm{5.5}
   \disegno{
     \rcom{\mix}{\max}{\miy}{\may}{white}
-    \begin{scope}
+    %\begin{scope}
       \clip (\mix-0.3, \miy-0.3) rectangle (\max+3.2, \may+1.7);
       \draw [thick, green!50!black] (0, 0) circle (\max);
     \draw (0, 0) -- \pp coordinate (p) node [right] 
@@ -382,7 +382,7 @@
           node [above, black, xshift=12] {\footnotesize\(d x\)}
       (5.4, 4.4) node [black] {\footnotesize\(\delta\)};
     \draw \pm |- \qm \pm -- \ppm \qm -- \qqm;
-    \end{scope}
+    %\end{scope}
   }
 }
 
