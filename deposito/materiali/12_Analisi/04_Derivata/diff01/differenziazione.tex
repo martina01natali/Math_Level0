@@ -45,17 +45,17 @@ adatto a risolvere problemi in ogni ambito scientifico: la derivata.
 Nel Settecento fiorirono alcune leggende su Galileo Galilei. Una di queste 
 racconta che per dimostrare che i gravi cadono con la stessa velocità, 
 gettò dalla Torre di Pisa due sfere di peso diverso, ma di uguali 
-dimensioni. 
-I due oggetti, come oggi possiamo immaginare, raggiunsero il suolo 
+dimensioni: i due oggetti raggiunsero il suolo 
 contemporaneamente.\\
 La Torre di Pisa è alta circa $56m$ e immaginiamo, per semplificare, che la 
 distanza percorsa dai due oggetti sia di $56m$ (ti lascio calcolare il 
 percorso effettivo: tieni presente che al giorno d'oggi l'inclinazione della 
 Torre è di $4,8^\circ$).\\
-Oggi sappiamo che un oggetto in caduta libera ha la seguente legge del moto:
+Oggi sappiamo che un oggetto in caduta libera partendo da fermo ha la seguente
+legge del moto:
 \(s=\frac{1}{2}gt^2\). Come al solito, $s$ è lo spazio in metri, $t$ è il 
-tempo in secondi, $g=9,81 m/s^2$ è l'accelerazione di gravità, costante nei
-pressi della superficie terrestre.\\
+tempo in secondi, $g=9,81 m/s^2$ è l'accelerazione di gravità, costante vicino
+alla superficie terrestre.\\
 Se cerchiamo la velocità media, basta dividere lo spazio percorso per il 
 tempo impiegato:
 
@@ -72,27 +72,39 @@ che corrispondono a circa \(60 km/h\).
 Ma gli oggetti partono fermi e arrivano velocissimi: 
 è possibile sapere quale è loro velocità in ogni istante?
 
-Un istante è un tempo di durata infinitesima: se consideriamo valori di tempo istantanei siamo portati naturalmente a passare da valori $t_1 \ t_2, \ \dots$, nell'insieme dei reali, a valori $t_1, \ t_1+dt, \ t_1+2dt,\ \dots\ t_2, \ \dots$ nell'insieme degli iperreali. È quindi il momento di usare le quantità infinitesime.\\
-Chiamiamo $dt$ (in questo caso sarà \(dt > 0\)) un intervallo di tempo infinitesimo, fra due istanti successivi $t$ e $t+dt$.
-Lo spazio percorso nella caduta, in quell'intervallo di tempo, applicando 
-la legge del moto, sarà:
-\[ ds=\frac{1}{2}g\tonda{t+dt}^2-\frac{1}{2}gt^2=
- \frac{1}{2}g\tonda{t^2+2tdt+(dt)^2}-\frac{1}{2}gt^2=
- gtdt+\frac{1}{2}(dt)^2\]
-Dividendo il tutto per \(dt\) si ottiene la velocità istantanea, quella che cambia istante per istante:
-\[ v(t)=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt\]
-L'espressione $gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt$ diventa un numero ben
-preciso per ogni valore di $t$ e per ogni valore $dt$, un iperreale finito
-che è la somma di un numero standard e di un numero infinitesimo.\\
-Se fissiamo un certo istante $\overline{t}$, $v(\overline{t})=9,81\overline{t}+\frac{1}{2}dt$ ha un valore variabile, che dipende dalla durata infinitesima $dt$. I vari $dt$ possibili sono infiniti, ma questo non cambia in modo rilevante la velocità, che si attesta sostanzialmente attorno al valore $9,81\overline{t}$.\\
-Per averne il valore reale, trascurando la variabilità residua dovuta agli infinitesimi, applichiamo la parte standard:
-\[ \pst{9,81t+\frac{1}{2}dt}=9,81t\]
-Questa è la velocità istantanea che cerchiamo: dipende dal tempo \(t\),
-cioè cresce con il passare dei secondi. 
+Non è facile definire con precisione un istante di tempo: possiamo immaginare 
+che sia un tempo assolatamente breve, un tempo di durata infinitesima.\\ 
+Considerando valori di tempo istantanei siamo portati naturalmente a passare da 
+valori $t_1 \ t_2, \ \dots$, nell'insieme dei reali, a valori $t_1, \ t_1+dt, \ 
+t_1+2dt,\ \dots\ t_2, \ \dots$ nell'insieme degli iperreali. È quindi il momento 
+di usare le quantità infinitesime.\\ Chiamiamo $dt$ (in questo caso sarà \(dt > 
+0\)) un intervallo di tempo infinitesimo, fra due istanti successivi $t$ e 
+$t+dt$. Lo spazio percorso nella caduta, in quell'intervallo di tempo, 
+applicando la legge del moto, sarà: \[ 
+ds=\frac{1}{2}g\tonda{t+dt}^2-\frac{1}{2}gt^2= \frac{1}{2}g\tonda{t^2+2t\cdot 
+dt+(dt)^2}-\frac{1}{2}gt^2= gt\cdot dt+\frac{1}{2}(dt)^2\] Dividendo il tutto 
+per \(dt\) si ottiene la velocità istantanea, che in questo caso cambia istante 
+dopo istante: 
+\[v(t)=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt\] 
+L'espressione $gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt$ diventa un numero ben 
+preciso per ogni valore di $t$ e per ogni valore $dt$, un iperreale finito che è 
+la somma di un numero standard e di un numero infinitesimo.\\ Se fissiamo 
+l'attenzione su un certo istante, supponiamo \(\overline{t}= 3s\), la velocità 
+$v(3)=9,81\cdot 3+\frac{1}{2}dt$ non ha comunque un valore completamente fissato 
+perché dipende ancora dalla durata infinitesima $dt$. I $dt$ possibili sono 
+infiniti, ma questo non cambia granché nel risultato, che si attesta 
+sostanzialmente attorno al valore $9,81\cdot 3=29,43m/s$.\\
+Conosciamo già la funzione che ci consente di ottenere la parte sostanziale 
+di un risultato iperreale, cioè di trascurare la sua variabilità 
+residua dovuta agli infinitesimi: si tratta di applicare la funzione  
+la parte standard.
+\[ \pst{9,81t+\frac{1}{2}dt}=9,81t.\] 
+Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo 
+\(t\), dai secondi che passano a partire dall'istante del lancio.
 
 \begin{center}
 \begin{tabular}{cc}\toprule
-\(t\) in \(s\) & \(v=9,81\times t\) (in \(m/s\)) \\\midrule
+\(t\) (in \(s\)) & \(v=9,81\times t\) (in \(m/s\)) \\\midrule
 \(0\) & \(0\)  \\
 \(1\) & \(9,81\times 1 =9,81\) \\
 \(2\) & \(9,81\times 2 =19,62\) \\
@@ -111,23 +123,25 @@ ogni valore reale di \(t\) e questa è la risposta alla domanda iniziale.
 La semplicità dei calcoli precedenti lascia intuire la ragione del successo 
 del
 calcolo con gli infinitesimi.  Questo tipo di calcolo fiorì per 150 anni a 
-partire dall'epoca di Newton e Leibniz. Ma suscitava vivaci polemiche fra
-gli specialisti, perché non si era in grado di spiegare come mai i 
-risultati, espressi attraverso numeri infinitesimi, alla fine diventassero numeri ``di uso comune``.
-Oggi i matematici conoscono meglio la materia e queste difficoltà sono 
-superate. Siamo quindi in grado di procedere nello studio di questa nuova branca della matematica, che si chiama \emph{Analisi infinitesimale}.
+partire dall'epoca di Newton e Leibniz. Ma suscitava vivaci polemiche fra gli 
+specialisti, perché non si era in grado di spiegare la regola che 
+permetteva di far sparire gli infinitesimi al termine dei calcoli. 
+
+Oggi i matematici conoscono meglio la materia e queste difficoltà sono superate. 
+Siamo quindi in grado di procedere nello studio di questa nuova branca della 
+matematica, che si chiama \emph{Analisi infinitesimale}.
 
 \subsubsection{Continuità, intervalli, differenze}
 \label{04_diffcontinterv}
 C'è un punto critico nei ragionamenti svolti a proposito della caduta dei 
-gravi, un punto che si dà sempre per scontato in fisica, ma non lo è per i 
-matematici e per i logici.
+gravi, un punto che si dà sempre per scontato nella fisica classica, ma non lo 
+è per i matematici e per i logici.
 
-Tutto il ragionamento vale perché si presuppone che il tempo scorra in modo
-uniforme. Se il tempo scorresse a scatti, anche minuscoli, quei calcoli non
-sarebbero possibili. Si dice infatti che il tempo \(t\) è una variabile
-continua, cioè assume tutti i valori, dal minimo al massimo, con regolarità,
-senza salti.
+Il ragionamento dell'esempio precedente si basa sull'assunto che il 
+tempo scorra in modo uniforme. Se il tempo scorresse a scatti, anche minuscoli, 
+quei calcoli non sarebbero possibili. Si dice infatti che il tempo \(t\) è una 
+variabile continua, cioè assume tutti i valori, dal minimo al massimo, con 
+regolarità, senza salti.
 
 \begin{definizione}
  Una variabile è una grandezza che può assumere valori diversi.
@@ -141,13 +155,11 @@ senza salti.
 
 Il più semplice esempio di una variabile continua in matematica è la 
 posizione $x$ sull'asse dei numeri reali. Infatti sappiamo che la retta reale 
-non
-ha buchi. A maggior ragione, è una variabile continua anche $x$, con $x\in\IR$,
-con la quale rappresentiamo la posizione sull'asse iperreale. \\
+non ha buchi. A maggior ragione, è una variabile continua anche  
+$x\in\IR$, con la quale rappresentiamo la posizione sull'asse iperreale. \\
 Viceversa una variabile che pesca i suoi valori in un insieme formato da 
-numeri isolati,
-cioè con differenze finite fra l'uno e l'altro, si dice \emph{variabile 
-discreta}. 
+numeri isolati, cioè con differenze finite fra l'uno e l'altro, si dice 
+\emph{variabile discreta}. 
 \begin{definizione}
  Una variabile discreta assume valori che variano per quantità finite.
 \end{definizione}
@@ -157,8 +169,7 @@ Nel calcolo precedente, $t$ varia con continuità da $0$ a $3,6$,
 assumendone tutti i valori, dal minimo al massimo. In matematica si scrive 
 così:
 \(t\in \quadra{0;\ 3,6}\). Le parentesi quadre sono importanti, indicano che 
-gli estremi
-dell'intervallo sono valori possibili, sono inclusi.
+gli estremi dell'intervallo sono valori possibili, sono inclusi.
 I tipi possibili di intervallo sono:
 \begin{center}
 \begin{tabular}{ccc}
@@ -208,8 +219,8 @@ Si intuisce che la parola incremento significa aumento, cioè differenza fra
 due valori nel passare dall'uno all'altro. In matematica si chiama 
 incremento anche quando il secondo valore è minore del primo, sicché la 
 differenza risulta negativa.
-Vediamo un esempio: 
-vogliamo calcolare l'incremento della 
+\begin{esempio}
+Vogliamo calcolare l'incremento della 
 funzione:~\(f(x) = \dfrac{1}{4} x^2 -x -3\)
 quando \(x\) parte da~\(3\) e aumenta di~\(4\).
 
@@ -224,7 +235,7 @@ Devo calcolare:
  \Delta f &= f(7) - f(3) = 
              \tonda{\dfrac{7^2}{4}-7-3} - \tonda{\dfrac{3^2}{4}-3-3} =\\
           &= \dfrac{49}{4} -10 - \dfrac{9}{4} +6 =
-             \dfrac{40}{4} -10 +6 =6
+             \dfrac{40}{4} -10 +6 =6.
 \end{align*}
 \end{minipage}
  \hfill
@@ -233,7 +244,7 @@ Devo calcolare:
 \incremento
  \end{center}
 \end{minipage}
-
+\end{esempio}
 È abbastanza evidente che il valore dell'incremento dipende dalla funzione, 
 dal punto di partenza e dall'incremento della $x$.
 
@@ -241,8 +252,9 @@ dal punto di partenza e dall'incremento della $x$.
  L'incremento di una funzione indica di quanto aumenta (diminuisce) il valore 
 di 
 quella funzione quando la sua variabile indipendente (\(x\)) varia di una certa 
-quantità \(a\) nel passare da \(x_0\) a \(x_0+a\):
-\[\Delta f(x_0) = f \tonda{x_0 + a} - f(x_0)\]
+quantità \(a\) nel passare da \(x_0\) a \(x_0+a\). \(a\) può essere positivo o 
+negativo.
+\[\Delta f(x_0) = f \tonda{x_0 + a} - f(x_0).\]
 \end{definizione}
 
 
@@ -269,23 +281,29 @@ indipendente (\(x\)) varia di una quantità infinitesima. Incrementi di
 questo tipo, se esistono e se sono infinitesimi, si chiamano ''differenziali``.
 
 \begin{definizione}
- Il differenziale di una funzione è l'incremento infinitesimo, se esiste, 
+ Il differenziale di una funzione è l'incremento infinitesimo, se c'è, 
  che la funzione subisce a causa di una variazione infinitesima della sua 
-variabile indipendente:
-\[df(x_0) = f \tonda{x_0 + \epsilon} - f(x_0).\]
+variabile indipendente \(x\), a partire da un valore fissato \(x\):
+\[df(x) = f \tonda{x + \epsilon} - f(x).\]
 \end{definizione}
 
 Come già visto per l'incremento finito $\Delta f$, anche il differenziale $df$ 
-dipende dall'espressione della funzione, dal valore $x_0$ dove inizia la 
+dipende dall'espressione della funzione, dal valore fissato dove inizia la 
 variazione della $x$ e dal suo incremento infinitesimo~$\epsilon$.\\
 Quindi il differenziale di una funzione \(df\) è esso stesso  una funzione:
-\(df=F(f, x_0, \epsilon)\).\\
+\(df=F(f, x, \epsilon)\).
+\begin{osservazione}
+Per segnalare che il simbolo \(df\) (oppure \(dx\), ecc.) non è il prodotto fra 
+due variabili ma indica una differenza infinitesima, nella lettura si pronuncia:
+\textit{de effe (de ics)}.
+\end{osservazione}
+\begin{osservazione}
 I differenziali, essendo infinitesimi, sono osservabili solo con 
-microscopi non standard.\\
+microscopi non standard.
+\end{osservazione}
 
 \begin{minipage}{.48 \textwidth}
-Vediamo un esempio: 
-
+\begin{esempio}
 Vogliamo calcolare l'incremento della 
 funzione:~\(f(x) = \dfrac{1}{4} x^2 -x -3\)
 quando \(x\) parte da~\(7\) e aumenta di~\(\epsilon\).
@@ -295,10 +313,12 @@ quando \(x\) parte da~\(7\) e aumenta di~\(\epsilon\).
            \dfrac{7^2}{4}  +7 +3 =\\
         &= \dfrac{49 +14 \epsilon +\epsilon^2}{4} -10 -\epsilon - 
            \dfrac{49}{4} +10 =\\
-        &= \dfrac{14 \epsilon +\epsilon^2}{4} -\epsilon =
+        &= \dfrac{14 \epsilon +\epsilon^2}{4} -\epsilon 
         = \dfrac{10 \epsilon +\epsilon^2}{4} =\\
-        &= 2,5 \epsilon + \dfrac{\epsilon^2}{4}. %\sim 2,5 \epsilon
+        &= 2,5 \epsilon + \dfrac{\epsilon^2}{4}, \quad \forall \epsilon. 
+%\sim 2,5 \epsilon
 \end{align*}
+\end{esempio}
 \end{minipage}
  \hfill
 \begin{minipage}{.48 \textwidth}
@@ -306,10 +326,12 @@ quando \(x\) parte da~\(7\) e aumenta di~\(\epsilon\).
 \differenziale
  \end{center}
 \end{minipage}
-
-Possiamo osservare che, in questo caso, l'incremento della funzione è 
-un differenziale: un infinitesimo che è la somma di due infinitesimi di 
-ordine diverso.
+L'incremento della funzione è un differenziale: un infinitesimo che è la somma 
+di due infinitesimi di ordine diverso. Il risultato non cambia 
+sostanzialmente, se al posto di \(\epsilon\) svolgiamo lo stesso calcolo 
+utilizzando un diverso infinitesimo \(\delta\). Per significare che il 
+risultato non dipende dalla scelta dell'infinitesimo, si indica: \(\forall 
+\epsilon\).
 
 \begin{comment}
  
@@ -413,13 +435,13 @@ parte dei casi, invece, ha un diretto influsso sul risultato.\\
 \subsection{Differenziale di alcune funzioni}
 \label{subsec:diff01_difffun}
 
-Nello svolgere i calcoli che seguono potremo indicare il differenziale in due
-modi diversi, ma equivalenti. Per esempio: \(df(7)\), come nell'esempio 
-precedente, oppure \(df(x)|_{x=7}\).\\
-Altro esempio: se \(f(x)= 5x-9\), il suo differenziale calcolato in $x_0$ si 
-indica con:\\
-\(df(x_0)=f(x_0+\epsilon)-f(x_0)=5(x_0+\epsilon)-9- (5x_0-9)=\dots\)\\ oppure 
-con: \(df(x)|_{x=x_0}=f(x_0+\epsilon)-f(x_0)=\dots\). 
+% Nello svolgere i calcoli che seguono potremo indicare il differenziale in due
+% modi diversi, ma equivalenti. Per esempio: \(df(7)\), come nell'esempio 
+% precedente, oppure \(df(x)|_{x=7}\).\\
+% Altro esempio: se \(f(x)= 5x-9\), il suo differenziale calcolato in $x_0$ si 
+% indica con:\\
+% \(df(x_0)=f(x_0+\epsilon)-f(x_0)=5(x_0+\epsilon)-9- (5x_0-9)=\dots\)\\ oppure 
+% con: \(df(x)|_{x=x_0}=f(x_0+\epsilon)-f(x_0)=\dots\). 
 
 \begin{osservazione}
  L'infinitesimo $\epsilon$ potrebbe anche essere negativo, in questo caso 
@@ -427,12 +449,11 @@ rappresenterebbe un ''decremento``.
 \(x_0 + \epsilon\) indica numeri iperreali che sulla retta iperreale possono
 trovarsi a destra di \(x_0\) (più grandi) o alla sua sinistra (più piccoli).\\
 \noindent Quando il segno di \(\epsilon\) diventerà importante ai fini del 
-calcolo, ne 
-tratteremo esplicitamente.\\
+calcolo, ne tratteremo esplicitamente.\\
 \end{osservazione}
 
 Iniziamo a differenziare le funzioni più semplici, in un generico punto 
-$x_0$. Ma prima di tutto, una precisazione essenziale:
+$x_0$. Ma prima di tutto, una precisazione essenziale
 
 \begin{osservazione}
  Il differenziale di una funzione è calcolabile solo negli intervalli in cui
@@ -444,12 +465,12 @@ $f(x)$.
 \subsubsection{Funzione costante}
 \label{subsubsec:diff01_diffcostante}
 
-Una funzione è costante se qualunque sia il valore di $x$ il risultato è 
-sempre lo stesso. Possiamo indicare questa funzione in diversi modi:
-\[f: x \mapsto k \quad \text{o} \quad f(x)=k \quad \text{o} \quad y = k\]
+Una funzione \(f(x)\) è costante se qualunque sia il valore di $x$ il risultato 
+è sempre lo stesso. Possiamo indicare questa funzione in diversi modi:
+\[f: x \mapsto k \quad \text{o} \quad f(x)=k \quad \text{o} \quad y = k.\]
 
 Il suo differenziale sarà:
-\[df(x_0)=f(x_0+\epsilon)-f(x_0)=k-k=0\]
+\[df(x_0)=f(x_0+\epsilon)-f(x_0)=k-k=0,\quad \forall \epsilon.\]
 Quindi, se la funzione è costante, il suo differenziale è nullo.
 Infatti, avendo sempre lo stesso valore per qualsiasi \(x\), la differenza 
 tra due suoi valori è zero. 
@@ -484,11 +505,16 @@ $x_0$ e vale su tutto l'asse iperreale.
 La funzione identica (o identità) è una funzione che riceve un valore e dà 
 come risultato lo stesso valore ricevuto. Possiamo indicare questa funzione 
 in diversi modi:
-\[f: x \mapsto x \quad \text{o} \quad f(x)=x \quad \text{o} \quad y = x\]
+\[f: x \mapsto x \quad \text{o} \quad f(x)=x \quad \text{o} \quad y = x.\]
 
 Se $f(x)=x$, allora, banalmente: $df(x)=dx=\epsilon$. Il risultato è
 generale, cioè non dipende da $x_0$. Infatti:\\
-\[df(x_0)=f(x_0+\epsilon)-f(x_0)=(x_0+\epsilon)-x_o=\epsilon\] 
+\[df(x_0)=f(x_0+\epsilon)-f(x_0)=(x_0+\epsilon)-x_0=\epsilon,\]
+ma anche
+\[
+ df(x)=f(x+\epsilon)-f(x)=(x+\epsilon)-x=\epsilon, \quad \forall \epsilon.
+\]
+
 
 %\begin{figure}[h!]
 \begin{inaccessibleblock}
@@ -528,7 +554,7 @@ un identico spostamento sull'asse $Y$?
 Una funzione lineare è una funzione espressa da un polinomio di primo grado:
 \[f: x \mapsto mx +q \quad \text{o} \quad 
   f(x)=mx +q \quad \text{o} \quad 
-  y = mx +q\]
+  y = mx +q.\]
 
 \begin{esempio}
  Iniziamo con un esempio numerico, supponiamo \(m=\dfrac{2}{3}\) e \(q=4\).
@@ -538,13 +564,13 @@ Una funzione lineare è una funzione espressa da un polinomio di primo grado:
 df(x_0) &=f(x_0+dx)-f(x_0)=\\
              &=\frac{2}{3}(x_0+dx)+4-\tonda{\frac{2}{3}x_0+4}=
                  \frac{2}{3}x_0+\frac{2}{3}dx+4-\frac{2}{3}x_0-4=
-                 \frac{2}{3}dx
+                 \frac{2}{3}dx,\quad \forall dx.
 \end{align*}
 Se disegni il grafico della funzione $y=\frac{2}{3}x$ puoi verificare che
 l'incremento infinitesimo dei valori $y$ corrisponde a $\frac{2}{3}$ 
 dell'incremento infinitesimo dei valori $x$. 
-Il risultato è generale, cioè vale $\forall x_0$, il differenziale non 
-dipende dal particolare $x_0$ in cui lo si calcola.
+Il risultato è generale, cioè vale $\forall x \in \IR$: il 
+differenziale non dipende dal particolare $x_0$ in cui lo si calcola.
 \end{esempio}
 
 \begin{esempio}
@@ -555,16 +581,16 @@ da $x_0$:
 df(x)|_{x=x_0} &=f(x_0+dx)-f(x_0)=\\
                &=-5(x_0+dx)-2-\tonda{-5x_0-2}=
                  -5x_0-5dx-2+5x_0+2=
-                 -5dx
+                 -5dx,\quad \forall dx.
 \end{align*}
 Quindi $df(x_0)=-5dx, \forall x_0 \in \IR$. Sottolineare che il risultato è 
-indifferente al valore di $x_0$ è come dire che vale per qualsiasi $x$: 
-$df(x_0)=-5dx, \forall x \in \IR$
+indifferente dal valore di $x_0$ è come dire che vale per qualsiasi $x$: 
+$df(x_0)=-5dx, \forall x \in \IR$.
 \end{esempio}
 
 \begin{teorema}
  Il differenziale di una funzione lineare $f(x)=mx+q$, (con $m\ne 0$) è $mdx$, 
- $\forall x\in \IR$.
+ $\forall x, \forall dx \in \IR$.
 \end{teorema}
 
 \noindent Ipotesi: \(f(x)=mx+q\) \tab Tesi: \(df(x)=mdx\)
@@ -574,11 +600,81 @@ $df(x_0)=-5dx, \forall x \in \IR$
 df(x_0) &=f(x_0+dx)-f(x_0)=\\
                &=m(x_0+dx)+q-\tonda{mx_0+q}=
                  mx_0-mdx+q-mx_0-q=
-                 mdx
+                 mdx,\quad \forall dx.
 \end{align*}
 Poiché nel risultato non compare $x_0$, anche in questo caso $df(x)$ non 
 dipende dal punto $x_0$, cioè vale \(\forall x\).
 \end{proof}
+
+\subsection{Pendenza di una retta e infinitesimi }
+Dalla geometria analitica abbiamo imparato che nell'equazione di una retta 
+\(y=mx +q\) \(m\) rappresenta il coefficiente angolare, cioè l'inclinazione 
+rispetto all'asse delle X del grafico della retta nel piano cartesiano.\\
+Conoscendo le coordinate di due punti qualsiasi della retta, \(A\) e 
+\(B\), il calcolo di \(m\) è facile:
+\(m=\frac{y_B-y_A}{x_B-x_A}\).\\
+\(m\) è quindi il rapporto fra gli incrementi lungo l'asse \(Y\) e 
+lungo l'asse \(X\) che si ottengono muovendosi da \(A\) a \(B\) lungo la 
+retta.
+
+Dal momento che ci occupiamo di incrementi infinitesimi, riscriviamo con i 
+differenziali la formula che corrisponde a \(m\) per una generica funzione 
+lineare \(f(x)=mx +q\) a partire da un qualsiasi punto \(x_0\), come se 
+volessimo muoverci lungo la retta nel passare da \(x_A=x_0\) a \(x_B=x_0+dx\). 
+In pratica \(x_B \approx x_A\) perché \(x_B-x_A=dx\).
+\[\frac{f(x_0+dx)-f(x_0)}{(x_0+dx)-x_0}=\frac{df(x_0)}{dx}.\]
+Ne risulta è un rapporto fra infinitesimi, che esiste se \(dx\ne 0\). Si 
+tratta di una formula importante.
+\begin{definizione}
+ Si chiama Rapporto Differenziale (RD) il rapporto  fra l'incremento 
+infinitesimo di una funzione e l'incremento infinitesimo (non nullo) della sua 
+variabile.
+\end{definizione}
+Quanto vale il RD per una funzione lineare, ponendo \(dx\ne 0\)?
+\begin{align*}
+ \text{funzione: }\quad f(x)&= mx+q\\
+ \text{RD: }\quad \frac{df(x_0)}{dx}& =\frac{f(x_0+dx)-f(x_0)}{(x_0+dx)-x_0}=
+ \frac{[m(x_0+dx)+q]-[mx_0+q]}{(x_0+dx)-x_0}=\\
+ &=\frac{mx_0+mdx+q-mx_0-q}{dx}=\frac{m\cancel{dx}}{\cancel{dx}}=m.
+\end{align*}
+\begin{osservazione}
+ Ragioniamo su quanto è stato fatto. Calcolando il coefficiente angolare della 
+retta per punti infinitamente vicini siamo entrati nell'insieme \(\IR\),
+abbiamo quindi operato sulla funzione estesa \(^\star f\) al posto di quella 
+reale \(f\).\\
+Il numero finito \(m\in \R\)  ha come corrispondente iperreale il numero finito 
+\(^*m\) che non è esattamente identico, perché nell'insieme \(\IR\) i 
+numeri finiti hanno la forma \(a+\epsilon\). Quindi anche \(m\) iperreale è in 
+realtà \(m+\epsilon\): non è un solo numero, ma una monade di numeri 
+tutti infinitamente vicini al reale \(m\). Per prendere la parte sostanziale di 
+questo insieme infinito e tornare a operare nell'insieme dei reali, dove non 
+esistono infiniti e infinitesimi, dobbiamo applicare la funzione \(\pst{}\).
+\end{osservazione}
+
+Conclusione: anche con gli iperreali si può calcolare l'inclinazione di una 
+retta, basta calcolare il RD. Per ottenere il numero reale corrispondente al  
+coefficiente angolare \(m\), basta calcolare \(\pst{RD}\).
+
+\subsection{Derivata}
+Il procedimento appena visto è di importanza fondamentale e si applica a tutte 
+le funzioni, non solo quelle lineari. Per questo richiede una definizione 
+precisa.
+\begin{definizione}
+ Si dice derivata \(f'(x_0)\) di una funzione \(f\) in un punto di ascissa 
+\(x_0\) del suo dominio iperreale, la parte standard del RD di \(f\), calcolato 
+in \(x_0\): 
+\[
+ f'(x_0)=\pst{\frac{df(x_0)}{dx}}
+\]
+se tale parte standard esiste ed è sempre la stessa al variare 
+dell'infinitesimo \(dx\), che deve essere diverso da 0.
+\end{definizione}
+
+
+\begin {comment}
+
+ 
+
 
 \subsubsection{Funzione quadratica}
 \label{subsubsec:diff01_diffquad}
