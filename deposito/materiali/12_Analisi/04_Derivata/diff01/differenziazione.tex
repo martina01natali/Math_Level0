@@ -206,11 +206,180 @@ ogni valore reale di \(t\) e questa è la risposta alla domanda iniziale.
 \section{Pendenza e derivata}
 \label{sec:differenziazione_pendenzaederivata}
 
+Il problema precedente equivale a calcolare la pendenza del grafico di 
+una funzione in un punto. Infatti nel piano \emph{tempo - spostamento}
+la velocità è rappresentata dalla pendenza della curva che rappresenta 
+il movimento.
+
 \subsection{Pendenza di una funzione in un punto}
 \label{subsec:differenziazione_pendenzafunzione}
 
+Una retta ha in ogni suo punto la stessa pendenza e possiamo definire come 
+pendenza il rapporto tra lo spostamento in verticale e lo spostamento in 
+orizzontale muovendoci da un punto \(A\) qualsiasi a un altro punto \(B\):
+\[pendenza = \dfrac{y_B - y_A}{x_B - x_A} = \dfrac{\Delta y}{\Delta x}\]
+Qualunque sia la coppia di punti distinti scelta, otterremo sempre lo 
+stesso valore che corrisponde al coefficiente angolare della retta.
+
+Ma quanto detto per le rette, non vale per tutte le funzioni, 
+in generale, la pendenza di una funzione varia da punto a punto. 
+Possiamo avvicinarci alla pendenza in un punto \(P\) scegliendo come 
+altro estremo dello spostamento, un punto molto vicino, ma averemo sempre 
+una pendenza media.
+E chi ci assicura che questa pendenza media sia vicina alla pendenza in
+quel punto?
+Se nel punto \(P\) la curva ha un salto, il metodo precedente non ci 
+fornisce dei valori sensati.
+
+Se la curva è sufficientemente regolare, possiamo pensare che, se 
+l'intervallo \(\Delta x\) è piccolo, la pendenza media relativa a questo 
+intervallo sia vicina alla pendenza nel punto \(P\).
+% \begin{center} \parabolaequasitangente \end{center}
+Se pongo \(P'\) a una \emph{distanza trascurabile} 
+da \(P\) la pendenza che calcolo dovrebbe avere una 
+\emph{differenza trascurabile}
+dalla pendenza della curva in quel punto.
+
+Gli iperreali ci mettono a disposizione dei numeri trascurabili rispetto
+a tutti i numeri reali: sono gli infinitesimi.
+Possiamo perciò usarli per ottenere la pendenza media in un intervallo
+infinitesimo:
+\[\fstar[pendenza] = \dfrac{f(x + \epsilon) - f(x)}
+                           {\tonda{x + \epsilon} - x}\]
+Il valore \(\fstar[pendenza]\) che si ottiene è un numero iperreale, 
+ma la pendenza che cerchiamo deve essere un \emph{numero reale} quindi 
+passiamo dagli iperreali ai reali usando la funzione 
+\emph{parte standard}.
+
+Se \(\fstar[pendenza]\) è un numero finito e 
+se \(\pst{\fstar[pendenza]}\) non dipende dal valore 
+dell'\emph{infinitesimo diverso da zero} scelto, 
+la parte standard ottenuta è proprio la pendenza della funzione nel punto.
+
+Più facile da fare che da spiegare:
+
+\begin{esempio}
+Applichiamo quanto visto a una curva abbastanza tranquilla. Calcola la 
+pendenza della parabola:
+\(f(x) = -\dfrac{1}{4}x^2+2x +1\) \quad
+nel suo punto di ascissa:~\(x_P=8\).
+Prendiamo sulla curva un punto \(P'\), diverso da \(P\) a 
+distanza infinitesima da \(P\) diversa da zero.
+
+L'ascissa di \(P'\) sarà \(x_{P'}=8+\delta\). 
+Con \(\delta\) infinitesimo e diverso da zero.
+
+I nostri due punti sono:
+\(P\punto{8}{f(8)}\) e \(P'\punto{8+\delta}{f(8+\delta})\).
+
+Per poter distinguere i due punti dovrò usare un microscopio con un 
+opportuno ingrandimento infinito.
+
+Calcoliamo i corrispondenti valori della funzione:
+
+\affiancati{.40}{.58}{
+\parabolaetangentea
+}{
+\begin{align*}
+f(8) &= -\frac{1}{4}8^2 + 2 \cdot 8 + 1 = -16+16+1 = +1\\
+f(8+\delta) &= -\frac{1}{4}\tonda{8+\delta}^2 + 2 \tonda{8+\delta} + 1 = \\
+&= -\frac{1}{4}\tonda{64+16\delta+\delta^2} + 16 + 2\delta + 1 =\\
+&= -16-4\delta-\frac{\delta^2}{4} + 16 + 2\delta + 1 =
++1 - 2\delta -\frac{\delta^2}{4}
+\end{align*}
+}
+
+Quindi i due punti sono:
+\(P\punto{8}{1}\) e 
+\(P'\punto{8+\delta}{+1 - 2\delta -\dfrac{\delta^2}{4}}\)
+
+\affiancati{.58}{.40}{
+Ora possiamo calcolare la pendenza della retta per questi due punti:
+\begin{align*}
+% m &= \frac{f(x + \delta) - f(x)}{x + \delta - x}=
+\fstar[pendenza] &= \frac{y_{P'} - y_{P}}{x_{P'} - x_{P}}=
+\frac{\cancel{+1} - 2\delta -\dfrac{\delta^2}{4}~ \cancel{-1}}
+     {8 + \delta - 8}= \\
+&=\frac{- 2\delta -\dfrac{\delta^2}{4}}{\delta}= 
+\frac{\delta \tonda{- 2-\dfrac{\delta}{4}}}{\delta}= 
+- 2-\dfrac{\delta}{4}
+\end{align*}
+}{
+\parabolaetangenteb
+}
+
+E, dato che il valore ottenuto è un finito, possiamo calcolare la sua parte 
+standard:
+\[\pst{-2-\dfrac{\delta}{4}} = \pst{-2}-\pst{\dfrac{\delta}{4}} =
+  -2 - 0 = -2\]
+Poiché il risultato ottenuto non dipende dal valore dell'infinitesimo 
+usato, possiamo concludere che la pendenza è \(-2\).
+\end{esempio}
+
+
 \subsection{Derivata di una funzione}
 \label{subsec:differenziazione_derivatafunzione}
+
+Mentre la differenza: \(f(x_0 + \epsilon) - f(x_0)\) dipende dalla 
+funzione, da \(x_0\) e da \(\epsilon\),
+se la pendenza esiste, dipende solo dalla funzione e dal valore \(x_0\) 
+e non dipende dall'infinitesimo usato.
+
+Se consideriamo una ben precisa funzione, la pendenza dipende solo dal 
+valore di \(x = x_0\).
+Quindi, data una funzione \(f\) si può considerare la funzione: 
+``pendenza di \(f\)'' che ha come argomento un numero reale, \(x\), 
+e come risultato la pendenza che è un altro numero reale.
+
+Questa funzione viene chiamata derivata della funzione \(f\) 
+e viene indicata con \(f'\):
+
+\begin{definizione}
+Chiamiamo \emph{derivata} della funzione \(f\) la funzione \(f'\) che
+dà come risultato la pendenza della funzione \(f\) per ogni valore 
+di \(x\).
+\end{definizione}
+
+Applichiamo il procedimento per calcolare la pendenza di una funzione 
+in un punto, ma questa volta rimandiamo finché è possibile la sostituzione 
+della variabile con il valore \(x_0\).
+
+\begin{esempio}
+
+Calcola la pendenza della funzione: 
+\(y=x^3 +2x^2 -2x +1\) \quad
+nel suo punto di ascissa:~\(x_P = 1\).
+
+Calcoliamo le coordinate di \(P\) di ascissa \(1\) e 
+di \(P'\) di ascissa \(1+\delta\), dove con \(\delta\) intendiamo una 
+quantità \emph{trascurabile}.
+\begin{align*}
+f(1) &= 1^3 + 2 \cdot 1^2 - 2 \cdot 1 + 1 = 2\\[1em]
+f(1 + \delta) &= 
+\tonda{1+\delta}^3 +2 \cdot \tonda{1+\delta}^2 -2 \cdot \tonda{1+\delta} +1 =\\
+&= 1+3\delta+3\delta^2+\delta^3+2+4\delta+2\delta^2-2-2\delta+1=\\
+&=2+5\delta+5\delta^2+\delta^3
+\end{align*}
+
+Applichiamo la formula per calcolare la pendenza nel punto \(P\):
+\begin{align*}
+pendenza&=\frac{f(1+\delta) - f(1)}{1 + \delta -1}=
+          \frac{2+5\delta+5\delta^2+\delta^3-2}{\delta}=
+        5+5\delta+\delta^2
+\end{align*}
+
+Nell'esempio precedente, avevamo ottenuto: \(-2 -\dfrac{\delta}{4}\). 
+In questo caso, se già \(\delta\) è una grandezza trascurabile, 
+\(\dfrac{\delta}{4}\) lo sarà a maggior ragione.
+
+Ma questa volta la pendenza è: \(5+5\delta+\delta^2\). 
+Siamo sicuri che possiamo trascurare i termini che contengono \(\delta\)?
+\end{esempio}
+
+
+
+ad un 
+altro esempio
 
 \section{Derivata di funzioni elementari}
 \label{sec:differenziazione_derivatafelementari}
