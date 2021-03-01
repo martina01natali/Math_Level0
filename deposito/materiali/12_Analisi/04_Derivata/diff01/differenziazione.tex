@@ -31,7 +31,7 @@ reale.
 \end{enumerate}
 
 \section{Introduzione}
-\label{}
+\label{sec:differenziazione_introduzione}
 Il problema di determinare la velocità istantanea ci ha portati a conoscere 
 i numeri infinitesimi e, attraverso questi, l'insieme dei numeri iperreali.
 Ora siamo in grado di cercare la risposta alla domanda rimasta in sospeso: 
@@ -40,8 +40,8 @@ La risposta, che conosciamo nelle forme moderne da più di 400 anni,
 propone al nostro studio un nuovo potentissimo strumento di calcolo, 
 adatto a risolvere problemi in ogni ambito scientifico: la derivata.
 
-\section{Velocità di caduta}
-\label{04_diffvelcaduta}
+\subsection{Velocità di caduta}
+\label{subsec:differenziazione_velcaduta}
 Nel Settecento fiorirono alcune leggende su Galileo Galilei. Una di queste 
 racconta che per dimostrare che i gravi cadono con la stessa velocità, 
 gettò dalla Torre di Pisa due sfere di peso diverso, ma di uguali 
@@ -118,83 +118,178 @@ La formula \(v=9,81\times t\) ci permette il calcolo della velocità per
 ogni valore reale di \(t\) e questa è la risposta alla domanda iniziale.
 % Per quale valore di \(t\) la velocità sarà uguale a quella media? 
 
-\section{Continuità}
-\label{04_diffcomtinuità}
-La semplicità dei calcoli precedenti lascia intuire la ragione del successo 
-del
-calcolo con gli infinitesimi.  Questo tipo di calcolo fiorì per 150 anni a 
-partire dall'epoca di Newton e Leibniz. Ma suscitava vivaci polemiche fra gli 
-specialisti, perché non si era in grado di spiegare la regola che 
-permetteva di far sparire gli infinitesimi al termine dei calcoli. 
+\subsection{La pendenza}
+\label{subsec:differenziazione_pendenza}
 
-Oggi i matematici conoscono meglio la materia e queste difficoltà sono superate. 
-Siamo quindi in grado di procedere nello studio di questa nuova branca della 
-matematica, che si chiama \emph{Analisi infinitesimale}.
+% \section{Continuità}
+% \label{04_diffcomtinuità}
+% La semplicità dei calcoli precedenti lascia intuire la ragione del 
+% successo del calcolo con gli infinitesimi. 
+% Questo tipo di calcolo fiorì per 150 anni a partire dall'epoca di 
+% Newton e Leibniz. 
+% Ma suscitava vivaci polemiche fra gli specialisti, perché non si era 
+% in grado di spiegare la regola che permetteva di far sparire gli 
+% infinitesimi al termine dei calcoli. 
+% 
+% Oggi i matematici conoscono meglio la materia e queste difficoltà 
+% sono superate. 
+% Siamo quindi in grado di procedere nello studio di questa nuova branca 
+% della matematica, che si chiama \emph{Analisi infinitesimale}.
+% 
+% \subsubsection{Continuità, intervalli, differenze}
+% \label{04_diffcontinterv}
+% C'è un punto critico nei ragionamenti svolti a proposito della caduta dei 
+% gravi, un punto che si dà sempre per scontato nella fisica classica, 
+% ma non lo è per i matematici e per i logici.
+% 
+% Il ragionamento dell'esempio precedente si basa sull'assunto che il 
+% tempo scorra in modo uniforme. 
+% Se il tempo scorresse a scatti, anche minuscoli, quei calcoli non 
+% sarebbero possibili. Si dice infatti che il tempo \(t\) è una 
+% variabile continua, cioè assume tutti i valori, dal minimo al massimo, 
+% con regolarità, senza salti.
+% 
+% \begin{definizione}
+%  Una variabile è una grandezza che può assumere valori diversi.
+%  L'insieme dei valori possibili costituisce il suo insieme di definizione.
+% \end{definizione}
+% 
+% \begin{definizione}
+%  Una variabile continua è definita in un intervallo di valori continuo.
+%  Le variazioni dei suoi valori possono essere arbitrariamente piccole.
+% \end{definizione}
+% 
+% Il più semplice esempio di una variabile continua in matematica è la 
+% posizione $x$ sull'asse dei numeri reali. Infatti sappiamo che la retta 
+% reale non ha buchi. 
+% A maggior ragione, è una variabile continua anche $x\in\IR$, 
+% con la quale rappresentiamo la posizione sull'asse iperreale. \\
+% Viceversa una variabile che pesca i suoi valori in un insieme formato 
+% da numeri isolati, cioè con differenze finite fra l'uno e l'altro, 
+% si dice \emph{variabile discreta}. 
+% \begin{definizione}
+%  Una variabile discreta assume valori che variano per quantità finite.
+% \end{definizione}
+% 
+% Un semplice esempio di variabile discreta è $n, n\in \N$.
+% Nel calcolo precedente, $t$ varia con continuità da $0$ a $3,6$,
+% assumendone tutti i valori, dal minimo al massimo. In matematica si 
+% scrive così:
+% \(t\in \quadra{0;\ 3,6}\). Le parentesi quadre sono importanti, indicano 
+% che gli estremi dell'intervallo sono valori possibili, sono inclusi.
+% I tipi possibili di intervallo sono:
+% \begin{center}
+% \begin{tabular}{ccc}
+% intervallo & sigla & significato\\\midrule
+% chiuso &$\intervcc{a}{b}$  & estremi compresi\\
+% aperto/chiuso & $\intervac{a}{b}$ & a escluso, b compreso\\
+% chiuso/aperto & $\intervca{a}{b}$ & a compreso, b escluso\\
+% aperto & $\intervaa{a}{b}$ & estremi esclusi
+% \end{tabular}
+% \label{tab:diff_tipiinterv}
+% \end{center}
+% Tutti i tipi di intervallo precedenti, nella retta reale o iperreale, 
+% sono continui, a meno di indicazioni diverse. Se un intervallo 
+% \(\intervcc{a}{b}\) 
+% contiene un punto (o più punti) di discontinuità, per esempio \(d\), 
+% allora occorre usare indicazioni diverse: 
+% \(\intervca{a}{d}\cup\intervac{d}{b}\)
+% 
+% La differenza \(b-a\) fra due numeri della retta iperreale può essere 
+% positiva, negativa o nulla. 
+% Indicheremo con \(\Delta\) la differenza fra due numeri standard, 
+% cioè una differenza finita, mentre, se la differenza è infinitesima, 
+% sarà indicata con \(\delta\) oppure \(\epsilon\) o altra lettera 
+% minuscola dell'alfabeto greco.
+% In analisi infinitesimale, le differenze infinitesime sono protagoniste.
 
-\subsubsection{Continuità, intervalli, differenze}
-\label{04_diffcontinterv}
-C'è un punto critico nei ragionamenti svolti a proposito della caduta dei 
-gravi, un punto che si dà sempre per scontato nella fisica classica, ma non lo 
-è per i matematici e per i logici.
+\section{Pendenza e derivata}
+\label{sec:differenziazione_pendenzaederivata}
 
-Il ragionamento dell'esempio precedente si basa sull'assunto che il 
-tempo scorra in modo uniforme. Se il tempo scorresse a scatti, anche minuscoli, 
-quei calcoli non sarebbero possibili. Si dice infatti che il tempo \(t\) è una 
-variabile continua, cioè assume tutti i valori, dal minimo al massimo, con 
-regolarità, senza salti.
+\subsection{Pendenza di una funzione in un punto}
+\label{subsec:differenziazione_pendenzafunzione}
 
-\begin{definizione}
- Una variabile è una grandezza che può assumere valori diversi.
- L'insieme dei valori possibili costituisce il suo insieme di definizione.
-\end{definizione}
+\subsection{Derivata di una funzione}
+\label{subsec:differenziazione_derivatafunzione}
 
-\begin{definizione}
- Una variabile continua è definita in un intervallo di valori continuo.
- Le variazioni dei suoi valori possono essere arbitrariamente piccole.
-\end{definizione}
+\section{Derivata di funzioni elementari}
+\label{sec:differenziazione_derivatafelementari}
 
-Il più semplice esempio di una variabile continua in matematica è la 
-posizione $x$ sull'asse dei numeri reali. Infatti sappiamo che la retta reale 
-non ha buchi. A maggior ragione, è una variabile continua anche  
-$x\in\IR$, con la quale rappresentiamo la posizione sull'asse iperreale. \\
-Viceversa una variabile che pesca i suoi valori in un insieme formato da 
-numeri isolati, cioè con differenze finite fra l'uno e l'altro, si dice 
-\emph{variabile discreta}. 
-\begin{definizione}
- Una variabile discreta assume valori che variano per quantità finite.
-\end{definizione}
+\subsection{Derivata della funzione identica}
+\label{subsec:differenziazione_derivatafidentica}
 
-Un semplice esempio di variabile discreta è $n, n\in \N$.
-Nel calcolo precedente, $t$ varia con continuità da $0$ a $3,6$,
-assumendone tutti i valori, dal minimo al massimo. In matematica si scrive 
-così:
-\(t\in \quadra{0;\ 3,6}\). Le parentesi quadre sono importanti, indicano che 
-gli estremi dell'intervallo sono valori possibili, sono inclusi.
-I tipi possibili di intervallo sono:
-\begin{center}
-\begin{tabular}{ccc}
-intervallo & sigla & significato\\\midrule
-chiuso &$\intervcc{a}{b}$  & estremi compresi\\
-aperto/chiuso & $\intervac{a}{b}$ & a escluso, b compreso\\
-chiuso/aperto & $\intervca{a}{b}$ & a compreso, b escluso\\
-aperto & $\intervaa{a}{b}$ & estremi esclusi
-\end{tabular}
-\label{tab:diff_tipiinterv}
-\end{center}
-Tutti i tipi di intervallo precedenti, nella retta reale o iperreale, sono
-continui, a meno di indicazioni diverse. Se un intervallo 
-\(\intervcc{a}{b}\) 
-contiene un punto (o più punti) di discontinuità, per esempio \(d\), allora 
-occorre usare indicazioni diverse: \(\intervca{a}{d}\cup\intervac{d}{b}\)
+\subsection{Derivata della funzione costante}
+\label{subsec:differenziazione_derivatafcostante}
 
-La differenza \(b-a\) fra due numeri della retta iperreale può essere 
-positiva, negativa o nulla. 
-Indicheremo con \(\Delta\) la differenza fra due numeri standard, cioè una 
-differenza finita, mentre, se la differenza è infinitesima, sarà indicata 
-con \(\delta\) oppure \(\epsilon\) o altra lettera minuscola dell'alfabeto 
-greco.
-In analisi infinitesimale, le differenze infinitesime sono protagoniste.
+\subsection{Derivata della funzione lineare}
+\label{subsec:differenziazione_derivataflineare}
 
+\subsection{Derivata della funzione quadratica}
+\label{subsec:differenziazione_derivatafquadratica}
+
+\section{Teoremi sulle derivate}
+\label{sec:differenziazione_teoremi}
+
+\subsection{Derivata della somma di funzioni}
+\label{subsec:differenziazione_derivatasomma}
+
+\subsection{Derivata del prodotto di funzioni}
+\label{subsec:differenziazione_derivataprodotto}
+
+\subsection{Derivata del quoziente di funzioni}
+\label{subsec:differenziazione_derivataquoziente}
+
+\subsection{Derivata di funzioni composte}
+\label{subsec:differenziazione_derivatacomposte}
+
+\subsection{Derivata di funzioni inverse}
+\label{subsec:differenziazione_derivatainverse}
+
+\section{Derivata di funzioni trascendenti}
+\label{sec:differenziazione_trascendenti}
+
+\subsection{Derivata della funzione esponenziale}
+\label{subsec:differenziazione_derivatafesponenziale}
+
+\subsection{Derivata della funzione logaritmo}
+\label{subsec:differenziazione_derivataflogaritmo}
+
+\subsection{Derivata della funzione seno}
+\label{subsec:differenziazione_derivatafseno}
+
+\subsection{Derivata della funzione coseno}
+\label{subsec:differenziazione_derivatafcoseno}
+
+\subsection{Derivata della funzione tangente}
+\label{subsec:differenziazione_derivataftangente}
+
+\section{Riassunto}
+\label{sec:differenziazione_sunto}
+
+\subsection{Differenziale}
+\label{subsec:differenziazione_differenziale}
+
+\subsection{Schema riassuntivo}
+\label{subsec:differenziazione_schemaderivate}
+
+\section{Applicazioni delle derivate}
+\label{sec:differenziazione_applicazioni}
+
+\subsection{Derivata e tangente}
+\label{subsec:differenziazione_derivataetangente}
+
+\subsection{Derivata e normale}
+\label{subsec:differenziazione_derivataenormale}
+
+\subsection{Derivata della derivata}
+\label{subsec:differenziazione_derivataseconda}
+
+\subsection{Altre applicazioni}
+\label{subsec:differenziazione_altreapplicazioni}
+
+\begin {comment}
+
+ 
 \section{Differenziale}
 \label{sec:diff01_differenziale}
 
@@ -333,7 +428,6 @@ utilizzando un diverso infinitesimo \(\delta\). Per significare che il
 risultato non dipende dalla scelta dell'infinitesimo, si indica: \(\forall 
 \epsilon\).
 
-\begin{comment}
  
 \subsection{Differenziale della variabile $x$}
 \label{subsec:diff01_diffx}
@@ -429,8 +523,6 @@ parte dei casi, invece, ha un diretto influsso sul risultato.\\
  potrebbe essere il triplo o il quadrato di un altro infinitesimo. 
  Il risultato non cambia e ha valore per qualsiasi $\epsilon$.
 \end{osservazione}
-
-\end{comment}
 
 \subsection{Differenziale di alcune funzioni}
 \label{subsec:diff01_difffun}
@@ -670,10 +762,6 @@ se tale parte standard esiste ed è sempre la stessa al variare
 dell'infinitesimo \(dx\), che deve essere diverso da 0.
 \end{definizione}
 
-
-\begin {comment}
-
- 
 
 
 \subsubsection{Funzione quadratica}
