@@ -12,7 +12,8 @@
 \label{subsec:divpol_divisione_euclide}
 
 Ricordiamo la divisione tra due numeri, per esempio~\(147:4\). Si tratta di 
-trovare un quoziente~\(q\) e un resto~\(r<4\), in modo che~\(147=q\times~4+r\). 
+trovare un quoziente~\(q\) e un resto~\(r<4\), 
+in modo che~\(147=q\times~4+r\). 
 Un algoritmo per trovare questi due numeri è il seguente:
 \begin{center}
 % \input{\folder lbr/fig001_div.pgf}\\
@@ -31,8 +32,9 @@ altri due polinomi, \(Q(x)\) \emph{quoziente} e~\(R(x)\) \emph{resto},
 con grado di~\(R(x)\) minore del grado di~\(B(x)\), per i 
 quali:~\(A(x) = B(x){\cdot}Q(x) + R(x)\).
 
-Per eseguire l'operazione si usa un algoritmo molto simile a quello usato per 
-la divisione tra numeri interi. Illustriamo l'algoritmo con un esempio.
+Per eseguire l'operazione si usa un algoritmo molto simile a quello 
+usato per la divisione tra numeri interi. Illustriamo l'algoritmo con 
+un esempio.
 
 % \begin{exrig}
  \begin{esempio}
@@ -67,8 +69,8 @@ Prima di eseguire l'algoritmo dobbiamo sempre controllare che:
 \begin{enumerate*}
  \item 
 \affiancati{\primo}{\secondo}{
- Disponiamo i polinomi secondo il seguente schema, del tutto simile a quello 
- usato per la divisione tra numeri.
+ Disponiamo i polinomi secondo il seguente schema, del tutto simile a 
+ quello usato per la divisione tra numeri.
 }{
 \begin{center} \divpola \end{center}
 }
@@ -81,8 +83,8 @@ Prima di eseguire l'algoritmo dobbiamo sempre controllare che:
 \begin{center} \divpolb \end{center}
 }
  \item 
-\affiancati{\primo}{\secondo}{Moltiplichiamo il primo termine ottenuto per tutti 
-i termini del divisore e 
+\affiancati{\primo}{\secondo}{Moltiplichiamo il primo termine ottenuto 
+per tutti i termini del divisore e 
 trascriviamo il risultato del prodotto sotto il dividendo,
 avendo cura, per essere facilitati nel calcolo, di:
 \begin{itemize*}
@@ -125,8 +127,8 @@ termini del primo resto parziale e addizioniamo i due polinomi.
 \affiancati{\primo}{\secondo}{
 Possiamo ripetere per l'ultima volta il procedimento precedente tra il 
 resto parziale~\(R_{p}(x)=x^2+\dfrac{11}{3}x-1\) e
-il divisore~\(B(x)\) in quanto hanno lo stesso grado. Dividendo il termine di 
-grado maggiore di~\(R_{p}(x)\), che è~\(x^2\),
+il divisore~\(B(x)\) in quanto hanno lo stesso grado. Dividendo il 
+termine di grado maggiore di~\(R_{p}(x)\), che è~\(x^2\),
 per il termine di grado maggiore di~\(B(x)\) che è~\(3x^2\) si 
 ottiene~\(\dfrac{1}{3}\) che è il terzo termine del polinomio quoziente.
 }{
@@ -162,20 +164,22 @@ A queste domande risponde il seguente teorema.
 % \end{exrig}
 
 \begin{teorema}[Divisione euclidea]
- Siano~\(A(x)\) e~\(B(x)\) due polinomi in una sola variabile, esistono e sono 
- unici due polinomi~\(Q(x)\) e~\(R(x)\), con grado di~\(R(x)\)
- minore o uguale del grado di~\(B(x)\), tali che~\(A(x)=Q(x)\cdot B(x)+R(x)\).
+ Siano~\(A(x)\) e~\(B(x)\) due polinomi in una sola variabile, esistono 
+ e sono  unici due polinomi~\(Q(x)\) e~\(R(x)\), con grado di~\(R(x)\)
+ minore o uguale del grado di~\(B(x)\), 
+ tali che~\(A(x)=Q(x)\cdot B(x)+R(x)\).
 \end{teorema}
 
 \osservazione Nel caso in cui il grado di~\(A(x)\) sia minore del grado 
-di~\(B(x)\) il teorema resta valido, in questo caso~\(Q(x)=0\) e~\(R(x)=A(x)\).
-Nel caso di polinomi in più variabili il teorema della divisione euclidea non 
-vale.
+di~\(B(x)\) il teorema resta valido, 
+in questo caso~\(Q(x)=0\) e~\(R(x)=A(x)\).
+Nel caso di polinomi in più variabili il teorema della divisione 
+euclidea non vale.
 
 \begin{definizione}
- Si dice che un polinomio~\(A\) (dividendo) è divisibile per un polinomio~\(B\) 
- (divisore) se esiste un polinomio~\(Q\) (quoziente) per il quale~\(A=Q\cdot 
-B\).
+ Si dice che un polinomio~\(A\) (dividendo) è divisibile per un 
+ polinomio~\(B\)  (divisore) se esiste un polinomio~\(Q\) (quoziente) 
+ per il quale~\(A=Q \cdot B\).
 \end{definizione}
 
 % \begin{exrig}
@@ -183,14 +187,14 @@ B\).
  Eseguiamo la divisione tra~\(A(x)=x^3-2x^2+x-2\) e~\(B(x)=x^2+1\).
 I due polinomi sono ordinati secondo potenze decrescenti della variabile, 
 il grado di~\(A\) è maggiore del grado di~\(B\) e quest'ultimo
-deve essere completo. 
+deve essere completato. 
 Eseguendo la divisione: 
 \begin{center}
 % \input{\folder lbr/fig009_div.pgf}\vspace*{-1.10ex}
 \divdue
 \end{center}
  \end{esempio}
-otteniamo:
+\noindent otteniamo:
 \(\tonda{x^3-2x^2+x-2}:\tonda{x^2+1}=(x-2)\) 
 il resto~\(R(x)\) è il polinomio nullo e~\(A(x)\) è divisibile per~\(B(x)\).
 Infatti~\(\tonda{x^2+1}\cdot (x-2)=\tonda{x^3-2x^2+x-2}\).
@@ -198,8 +202,8 @@ Infatti~\(\tonda{x^2+1}\cdot (x-2)=\tonda{x^3-2x^2+x-2}\).
 
 In conclusione, se~\(A(x)\) è un polinomio di grado~\(n\) e~\(B(x)\) un 
 polinomio di grado~\(m\) con~\(n\ge m\), quando si esegue la divisione 
-tra~\(A\) e~\(B\) si ottiene un polinomio quoziente~\(Q(x)\) di grado~\(n-m\) 
-e un polinomio~\(R(x)\) di grado~\(g<m\).
+tra~\(A\) e~\(B\) si ottiene un polinomio quoziente~\(Q(x)\) 
+di grado~\(n-m\) e un polinomio~\(R(x)\) di grado~\(g<m\).
 Si dimostra che i polinomi~\(Q(x)\) e~\(R(x)\) sono unici.
 
 Se~\(R(x)\) è il polinomio nullo, la divisione è esatta e il polinomio~\(A\) 
@@ -313,22 +317,13 @@ coefficienti essenziali riquadrati:
 
 In questa versione senza le variabili sono stati evidenziati i dati,
 riquadrati i risultati intermedi e cerchiati i risultati.
-Tutti gli altri valori sono inutili o ripetuti. La regola di Ruffini permette 
-di scrivere solo i dati necessari:
+Tutti gli altri valori sono inutili o ripetuti. 
 
-\begin{inaccessibleblock}[Divisione con il metodo di Ruffini.]
-% \vspace{-2ex}
-\begin{center}
-% \input{\folder lbr/fig042_ruff.pgf}
-\ruffinic
-\end{center}
-% \vspace*{-1.10ex}
-% \vspace{-2ex}
-\end{inaccessibleblock}
-
-Ma come si possono ottenere tutti i coefficienti senza l'algoritmo di Euclide?
-Vediamo in questo caso concreto:
-\begin{multicols}{2}
+La regola di Ruffini permette di scrivere solo i dati necessari,
+ma come si possono ottenere tutti i coefficienti senza l'algoritmo di Euclide?
+Lo vediamo in questo esempio:
+\affiancati{.50}{.50}{
+% \begin{multicols}{2}
 \begin{itemize*}
  \item \(-2\) è l'opposto del termine noto del divisore;
  \item addiziono \(+3\) con \(0\) e ottengo \(+3\);
@@ -341,8 +336,36 @@ Vediamo in questo caso concreto:
  \item moltiplico \(-2\) con \(-6\) e ottengo \(+12\); 
  \item addiziono \(-5\) con \(+12\) e ottengo \(+7\).
 \end{itemize*}
-\end{multicols}
+% \end{multicols}
 
+Come è riassunto nel diagramma a fianco dove le frecce 
+verdi tratteggiate indicano \emph{addizioni} e quelle 
+rosse punteggiate indicano \emph{moltiplicazione}.
+
+}{
+\vspace*{1em}
+\begin{inaccessibleblock}[Divisione con il metodo di Ruffini.]
+% \vspace{-2ex}
+\begin{center}
+% \input{\folder lbr/fig042_ruff.pgf}
+\ruffinic
+\end{center}
+% \vspace*{-1.10ex}
+% \vspace{-2ex}
+\end{inaccessibleblock}
+
+\vspace{1em}
+\begin{inaccessibleblock}[Divisione con il metodo di Ruffini.]
+% \vspace{-2ex}
+\begin{center}
+% \input{\folder lbr/fig043_ruff.pgf}
+\ruffinid
+\end{center}
+% \vspace*{-1.10ex}
+% \vspace{-2ex}
+\end{inaccessibleblock}
+
+}
 % \begin{itemize*}
 %  \item \(-2\) è l'opposto del termine noto del divisore:
 %  \item \(+3\) è il primo coefficiente del dividendo
@@ -356,46 +379,30 @@ Vediamo in questo caso concreto:
 %  \item \(+7 = (-5)+(+12)\) 
 % \end{itemize*}
 
-Come è riassunto nel seguente diagramma dove le frecce 
-verdi tratteggiate indicano \emph{addizioni} e quelle 
-rosse punteggiate indicano \emph{moltiplicazione}.
-
-\begin{inaccessibleblock}[Divisione con il metodo di Ruffini.]
-% \vspace{-2ex}
-\begin{center}
-% \input{\folder lbr/fig043_ruff.pgf}
-\ruffinid
-\end{center}
-% \vspace*{-1.10ex}
-% \vspace{-2ex}
-\end{inaccessibleblock}
-
-E aggiungendo le variabili si ottiene il risultato:
-
+E, aggiungendo le variabili, si ottiene il risultato:
 \[Q = 3 x^3 +2 x^2 +5 x -6 \quad R = +7\]
-
-Come avevamo calcolato con l'algoritmo di Euclide.
+come avevamo calcolato con l'algoritmo di Euclide.
 
 Da notare che:
-\begin{itemize*}
+\begin{itemize} [nosep]
  \item la prima riga contiene i coefficienti del dividendo;
- \item il termine noto del dividendo è posto a destra della seconda linea 
-  verticale;
- \item nella seconda riga, prima della prima linea verticale si scrive il 
-  termine noto del divisore cambiato di segno, così invece di ricordarsi di 
-  cambiare di segno ogni volta (come nell'algoritmo di Euclide), lo si fa una 
-  volta per tutte;
+ \item il termine noto del dividendo è posto a destra della seconda 
+  linea verticale;
+ \item nella seconda riga, prima della prima linea verticale si scrive 
+  il   termine noto del divisore cambiato di segno, così invece di 
+  ricordarsi di cambiare di segno ogni volta 
+  (come nell'algoritmo di Euclide), lo si fa una volta per tutte;
  \item l'algoritmo inizia con un'addizione tra il primo coefficiente del 
   dividendo e \(0\) (addizione facile);
  \item nella terza riga otteniamo i coefficienti del risultato;
- \item dividendo un polinomio di grado enne per un polinomio di primo grado 
-  si ottiene un polinomio di grado \(n-1\), quindi, in questo caso, il primo 
-  monomio sarà di grado \(2\);
- \item il termine in basso a destra è il resto della divisione, per forza di 
-  grado zero;
- \item se il resto della divisione è zero vuol dire che il \emph{dividendo} è 
-  un multiplo del \emph{divisore}.
-\end{itemize*}
+ \item dividendo un polinomio di grado \(n\) per un polinomio di primo 
+  grado   si ottiene un polinomio di grado \(n-1\), quindi, in questo 
+  caso, il primo monomio sarà di grado \(3\);
+ \item il termine in basso a destra è il resto della divisione, 
+  per forza di   grado zero;
+ \item se il resto della divisione è zero vuol dire che il 
+  \emph{dividendo} è un multiplo del \emph{divisore}.
+\end{itemize}
 
 
 %
@@ -442,10 +449,10 @@ binomio del tipo~\(x+k\) è uguale al valore che~\(A(x)\) assume quando
 al posto della variabile~\(x\) si sostituisce il valore~\(-k\), \(R=A(-k)\).
 \end{teorema}
 
-\emph{Dimostrazione}:
+\emph{Dimostrazione}\\
 Dalla divisione di~\(A(x)\) per~\(x-k\) otteniamo la seguente
 uguaglianza:
-\[(x-k)\cdot Q(x)+R=A(x)\]
+\[(x+k)\cdot Q(x)+R=A(x)\]
 in cui si è scritto~\(R\) anziché \(R(x)\), poiché essendo il divisore di 
 primo grado, il resto è di grado zero quindi è una costante.
 
@@ -463,19 +470,20 @@ sia divisibile per un binomio del tipo~\(x+k\) è
 che risulti~\(A(-k)=0\).
 \end{teorema}
 
-\emph{Dimostrazione}:
-\emph{Prima implicazione}:~\(A(x)\) divisibile 
-per~\(x+k\Rightarrow A(-k)=0\).
+\emph{Dimostrazione}\\
+\emph{Prima implicazione}: \quad se \(A(x)\) è divisibile 
+per~\(x+k\) \quad allora \quad \(A(-k)=0\).
 
 Poiché \(A(x)\) è divisibile per~\(x+k\), per definizione di divisibilità 
 deve essere~\(R=0\). 
 Ma, per il teorema del resto, \(A(-k)=R=0\), 
 quindi, per la proprietà transitiva dell'uguaglianza, \(A(-k)=0\).
 
-\emph{Seconda implicazione}:~\(A(-k)=0\Rightarrow A(x)\) divisibile per~\(x+k\).
+\noindent \emph{Seconda implicazione}: \quad se \(A(-k)=0\) \quad 
+allora \quad \(A(x)\) è divisibile per~\(x+k\).
 
 Il resto della divisione del polinomio~\(A(x)\) per il binomio~\(x+k\),
-per il teorema del resto risulta~\(R=A(-k)\) e per ipotesi~\(A(k)=0\),
+per il teorema del resto risulta~\(R=A(-k)\) e per ipotesi~\(A(-k)=0\),
 ne segue che~\(R=0\). Per definizione di divisibilità, essendo il
 resto della divisione zero, segue che~\(A(x)\) è divisibile per~\(x+k\).
 
@@ -1668,6 +1676,9 @@ di questi suggerimenti:
 % possiate acquisire una certa abilità nella scomposizione di polinomi.
 
 % \begin{exrig}
+
+\newpage %--------------------------------------------------
+
  \begin{esempio}
  \(a^{2}x+5abx-36b^{2}x\).
 
