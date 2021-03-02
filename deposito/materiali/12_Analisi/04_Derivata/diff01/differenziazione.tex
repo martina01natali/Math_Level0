@@ -102,7 +102,8 @@ la parte standard.
 Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo 
 \(t\), dai secondi che passano a partire dall'istante del lancio.
 
-\begin{center}
+\begin{minipage}{0.48\textwidth}
+ \begin{center}
 \begin{tabular}{cc}\toprule
 \(t\) (in \(s\)) & \(v=9,81\times t\) (in \(m/s\)) \\\midrule
 \(0\) & \(0\)  \\
@@ -113,16 +114,246 @@ Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo
 \end{tabular}
 \label{tab:diff_velocita}
 \end{center}
+\end{minipage}
+ \hfill
+\begin{minipage}{.48 \textwidth}
+ \begin{center}
+% \spaziovelocitacaduta
+Il grafico consente di visualizzare la legge oraria del 
+moto di caduta libera sotto due aspetti diversi: il ramo di parabola mostra che 
+progressivamente lo spazio percorso è sempre maggiore. La retta mostra 
+infatti che la progressione della velocità è lineare: man mano che il tempo 
+scorre la velocità cresce proporzionalmente, come già si vede dalla tabella.
+ \end{center}
+\end{minipage}
 
 La formula \(v=9,81\times t\) ci permette il calcolo della velocità per 
-ogni valore reale di \(t\) e questa è la risposta alla domanda iniziale.
-% Per quale valore di \(t\) la velocità sarà uguale a quella media? 
+ogni valore reale di \(t\) e questa è la risposta alla domanda iniziale. 
 
 \subsection{La pendenza}
 \label{subsec:differenziazione_pendenza}
+Per studiare i moti in laboratorio, Galileo usava piani inclinati. Una sferetta 
+rotola lungo un piano inclinato con accelerazione diversa a seconda 
+dell'inclinazione del piano. Minore è la pendenza del piano, minore è 
+l'accelerazione costante, minore è la velocità che si sviluppa. La pendenza del 
+piano e la velocità che si sviluppa, da zero al massimo, sono intimamente 
+collegate. Se il piano è orizzontale non c'è movimento e la velocità è 
+\(v=0\), come la pendenza. Se il piano è verticale, la caduta è libera e  
+la velocità progredisce come in tabella, teoricamente fino all'infinito, dato 
+che la pendenza è infinita.
 
-% \section{Continuità}
-% \label{04_diffcomtinuità}
+Useremo il termine \emph{pendenza} nel suo significato matematico.
+La \emph{pendenza} è la rapidità con cui varia una certa variabile
+numerica, in un particolare punto della sua variazione.
+
+Per variazione intendiamo in cambiamento di valore, da un valore iniziale a un 
+valore finale. Molto spesso invece di variazione si usa il termine 
+\emph{incremento}, o differenza.
+
+\subsubsection{Il Rapporto Incrementale e la pendenza}
+\label{subsubsec:RI}
+\begin{esempio}
+Misurando le temperature in una recente notte invernale, abbiamo registrato:
+
+ \begin{minipage}{0.48\textwidth}
+ \begin{center}
+\begin{tabular}{cccc}\toprule
+h (ore) & \(T (^\circ C)\) & \(\Delta T\) 
+             & \(\frac{\Delta T}{\Delta h}\)\\\midrule
+\(22\) & \(0\) & 0 & 0 \\
+\(23\) & \(0\) & -1 &-1\\
+\(24\) & \(-1\) &\dots & \dots\\
+\(1\)  & \(-2\)\\
+\(2\)  & \(-3\) \\
+...    & ... \\
+\(5\)  &  \(-4,5\) & 2,5 & 1,25\\
+\(7\)  &  \(-2\)\\ \bottomrule
+\end{tabular}
+\label{tab:diff_velocita}
+\end{center}
+\end{minipage}
+ \hfill
+\begin{minipage}{.48 \textwidth}
+ %\begin{center}
+% \notte_invernale
+% \end{center}
+\end{minipage}
+
+È facile calcolare le variazioni \(\Delta T\), ora per ora. Fra le 22 e le 23 
+non c'è variazione: l'incremento è zero. \\
+Alle 23 la temperatura iniza a calare: rispetto alle 24 c'è una 
+variazione negativa di un grado, quindi l'incremento \( \Delta T=-1\). \\
+Fra le \(5\) e le \(7\) l' incremento \(\Delta T= 2,5 ^\circ C\). Ma stavolta 
+la differenza è su un intervallo di \(2\) ore, quindi una variazione media di 
+\(1,25 ^\circ C\) all'ora.
+
+Mettendo in grafico i dati di questa funzione empirica, ne risulta una 
+spezzata. L'inclinazione dei vari segmenti si può calcolare direttamente sul 
+grafico con la formula del coefficiente angolare vista in geometria analitica 
+e corrisponde ai risultati dell'ultima colonna, che in effetti forniscono le 
+pendenze dei vari segmenti.  Vi sono pendenze positive, negative e nulle, in 
+corrispondenza di segmenti crescenti, decrescenti o orizzontali. 
+ \end{esempio}
+ 
+\(\frac{\Delta T}{\Delta h}\), il rapporto che calcola le pendenze, è il 
+rapporto fra gli incrementi della temperatura e gli incrementi orari. Un 
+rapporto di questo tipo si chiama Rapporto Incrementale.
+\begin{definizione}
+ Il Rapporto Incrementale (RI) di una funzione \(f(x)\) è il rapporto che 
+si calcola fra l'incremento di \(f\) e l'incremento di \(x\), quando \(x\) 
+cambia valore da \(x_0\) a \(x_0+\Delta x\).
+\[
+ RI=\frac{\Delta f(x_0)}{\Delta x}= \frac{f(x_0+\Delta x)-f(x_0)}{(x_0+\Delta 
+x)- x_0}.
+\]
+\end{definizione}
+L'incremento \(\Delta\) di una funzione non è sempre lo stesso, perché 
+cambia sia per la funzione, sia per il punto in cui lo si vuole calcolare, sia 
+rispetto a \(\Delta x\). È quindi a sua volta una funzione, una funzione di tre 
+variabili: \(\Delta=\Delta(f, x, \Delta x)\). \\
+Di conseguenza avviene lo stesso per il Rapporto Incrementale: \(RI=RI(f, x, 
+\Delta x)\).
+
+\subsubsection{Il Rapporto Differenziale e la pendenza}
+\label{subsubsec:RD}
+Immaginiamo ora di avere esigenze scientifiche raffinate e di predisporre 
+un apparato che misura le temperature ogni secondo. Allora il grafico appena 
+visto avrebbe spigoli meno visibili e i vari incrementi \(\Delta T\) sarebbero 
+numeri vicini allo zero. Potremmo conoscere il fenomeno con grande precisione 
+e individuare molti più dettagli calcolando le diverse pendenze.
+
+%grafico temperature smussato
+    \subsubsection{GRAFICO TEMPERATURE SMUSSATO}
+In una situazione ideale, non legata a strumenti di misura necessariamente 
+imperfetti, consideriamo una funzione matematica e il suo grafico e andiamo 
+alla ricerca della pendenza della funzione in un determinato punto. Questa 
+volta, operando nell'insieme \(\IR\), potremo considerare incrementi 
+infinitamente piccoli. Per ragioni storiche questi incrementi infinitesimi si
+chiamano \emph{differenziali}.
+\begin{definizione}
+ Il differenziale di una funzione è l'incremento infinitesimo, se c'è, 
+ che la funzione subisce a causa di una variazione infinitesima della sua 
+variabile indipendente \(x\), a partire da un valore fissato \(x_0\):
+\[df(x_0) = f \tonda{x_0 + \epsilon} - f(x_0).\]
+\end{definizione}
+
+Come già visto per l'incremento finito $\Delta f$, anche il differenziale $df$ 
+dipende dall'espressione della funzione, dal valore fissato dove inizia la 
+variazione della $x$ e dal suo incremento infinitesimo~$\epsilon$.\\
+Quindi il differenziale di una funzione \(df\) è esso stesso  una funzione:
+\(df=df(f, x_0, \epsilon)\). 
+
+\begin{osservazione}
+Per segnalare che il simbolo \(df\) (oppure \(dx\), ecc.) non è il prodotto fra 
+due variabili ma indica una differenza infinitesima, nella lettura si pronuncia:
+\textit{de effe (de ics)}.
+\end{osservazione}
+
+\begin{minipage}{.48 \textwidth}
+\begin{esempio}
+Vogliamo calcolare l'incremento della 
+funzione:~\(f(x) = \dfrac{1}{4} x^2 -x -3\)
+quando \(x\) parte da~\(7\) e ha un incremento di~\(\epsilon\).
+\begin{align*}
+  df(7) &= f(7+\epsilon) - f(7) = \\
+        &= \dfrac{\tonda{7 +\epsilon}^2}{4}  -\tonda{7 +\epsilon} -3 - 
+           \dfrac{7^2}{4}  +7 +3 =\\
+        &= \dfrac{49 +14 \epsilon +\epsilon^2}{4} -10 -\epsilon - 
+           \dfrac{49}{4} +10 =\\
+        &= \dfrac{14 \epsilon +\epsilon^2}{4} -\epsilon 
+        = \dfrac{10 \epsilon +\epsilon^2}{4} =\\
+        &= 2,5 \epsilon + \dfrac{\epsilon^2}{4}, \quad \forall \epsilon. 
+%\sim 2,5 \epsilon
+\end{align*}
+\end{esempio}
+\end{minipage}
+ \hfill
+\begin{minipage}{.48 \textwidth}
+ \begin{center}
+\differenziale
+ \end{center}
+\end{minipage}
+L'incremento della funzione è un differenziale: un infinitesimo che è la somma 
+di due infinitesimi di ordine diverso. Il risultato non cambia 
+sostanzialmente, se al posto di \(\epsilon\) svolgiamo lo stesso calcolo 
+utilizzando un diverso infinitesimo \(\delta\). Per significare che il 
+risultato non dipende dalla scelta dell'infinitesimo, si indica: \(\forall 
+\epsilon\).
+
+Nell'espressione della funzione riconosciamo che si tratta di una parabola, 
+una funzione il cui grafico ha pendenze sempre diverse, che aumentano (o 
+diminuiscono) gradualmente, allontanandosi dal vertice. Seguendo lo schema 
+usato per il grafico delle temperature, cerchiamo la pendenza per \(x=7\) 
+calcolando il rapporto fra gli incrementi, cioè in questo caso, fra i 
+differenziali.
+\begin{definizione}
+Il Rapporto Differenziale (RD) di una funzione \(f(x)\) è il 
+rapporto che si calcola fra l'incremento infinitesimo \(df\) della funzione 
+e l'incremento infinitesimo di \(x\), quando \(x\) cambia valore da \(x_0\) a 
+\(x_0+\epsilon\).
+\[
+ RI=\frac{\Delta f(x_0)}{dx}= \frac{f(x_0+\epsilon)-f(x_0)}{(x_0+\epsilon)- 
+x_0}.
+\]
+\end{definizione}
+Ricordando che in ogni rapporto il denominatore deve essere diverso 
+da zero, vediamo i calcoli.
+
+\[
+ RD=\frac{df(7)}{\epsilon}=\frac{f(7+\epsilon) - f(7)}{\epsilon}=\dots=
+ \frac{2,5 \epsilon + \dfrac{\epsilon^2}{4}}{\epsilon}=
+ \frac{\cancel{\epsilon}\tonda{2,5 + \frac{\epsilon}{4}}}{\cancel{\epsilon}}=
+ 2,5 + \frac{\epsilon}{4}, \quad \forall \epsilon\ne 0. 
+\]
+
+Le pendenze del grafico di temperature sono numeri reali e  con questi è facile 
+stabilire se una temperatura è in crescita di più o di meno rispetto ad 
+un'altra. Ora invece abbiamo un certo grado di incertezza, perché la pendenza 
+risulta un numero finito iperreale, la somma di uno standard e di 
+un infinitesimo. Si tratta di un numero non completamente esprimibile in 
+cifre, perché la sua parte infinitesima non ha un valore sconosciuto.
+Per fortuna, però, la sua parte infinitesima è trascurabile e si può 
+ragionevolmente concludere che, anche considerando gli infiniti possibili 
+valori dell'infinitesimo \(\frac{\epsilon}{4}\), tuttavia il risultato è 
+sostanzialmente uguale a \(2,5\).
+
+Tradotto in termini matematici, questo ragionamento corrisponde al calcolo 
+della parte standard.
+\[
+ \text{pendenza}=\pst{RD}=\pst{2,5 + \frac{\epsilon}{4}}=2,5.
+\]
+\begin{definizione}
+ La pendenza di una funzione \(f\) in un punto \(x_0\) del suo dominio, è la 
+parte standard del Rapporto Differenziale di \(f\) calcolato in \(x_0\), se 
+questa esiste ed è sempre uguale, qualsiasi sia l'incremento infinitesimo 
+diverso da zero che si sta usando.
+\end{definizione}
+\begin{esempio}
+ Calcoliamo per la stessa funzione la pendenza nel punto del vertice. 
+Trattandosi dell'unico punto a tangente orizzontale, non potrà che risultare 
+una pendenza uguale a zero.\\
+\begin{align*}
+ &f(x) = \dfrac{1}{4} x^2 -x -3 \quad x_0=2;\\
+ &RD=\frac{df(2)}{\epsilon}=\frac{f(2+\epsilon) - f(2)}{\epsilon}=
+  \frac{\tonda{2 +\epsilon}^2}{4}  -\tonda{2 +\epsilon} -3 - 
+           \frac{2^2}{4}  +2 +3 =\\
+  &= \dfrac{4 +4 \epsilon +\epsilon^2}{4} -5 -\epsilon - 1 +5 =
+ +1+ \epsilon +\frac{\epsilon^2}{4} -5 -\epsilon - 1 +5 =\frac{\epsilon^2}{4}.
+  \end{align*}
+Considerando che il rapporto differenziale esiste per qualsiasi infinitesimo 
+non nullo \(\epsilon\), calcoliamo la su parte standard.
+\[
+ \pst{RD}=\pst{\frac{\epsilon^2}{4}}=0.
+\]
+Il risultato è sempre lo stesso \(\forall \epsilon \ne 0\), abbiamo percioò la 
+conferma: la pendenza è uguale a zero per \(x=2\)
+\end{esempio}
+
+
+\newpage
+
+
+
 % La semplicità dei calcoli precedenti lascia intuire la ragione del 
 % successo del calcolo con gli infinitesimi. 
 % Questo tipo di calcolo fiorì per 150 anni a partire dall'epoca di 
@@ -135,73 +366,7 @@ ogni valore reale di \(t\) e questa è la risposta alla domanda iniziale.
 % sono superate. 
 % Siamo quindi in grado di procedere nello studio di questa nuova branca 
 % della matematica, che si chiama \emph{Analisi infinitesimale}.
-% 
-% \subsubsection{Continuità, intervalli, differenze}
-% \label{04_diffcontinterv}
-% C'è un punto critico nei ragionamenti svolti a proposito della caduta dei 
-% gravi, un punto che si dà sempre per scontato nella fisica classica, 
-% ma non lo è per i matematici e per i logici.
-% 
-% Il ragionamento dell'esempio precedente si basa sull'assunto che il 
-% tempo scorra in modo uniforme. 
-% Se il tempo scorresse a scatti, anche minuscoli, quei calcoli non 
-% sarebbero possibili. Si dice infatti che il tempo \(t\) è una 
-% variabile continua, cioè assume tutti i valori, dal minimo al massimo, 
-% con regolarità, senza salti.
-% 
-% \begin{definizione}
-%  Una variabile è una grandezza che può assumere valori diversi.
-%  L'insieme dei valori possibili costituisce il suo insieme di definizione.
-% \end{definizione}
-% 
-% \begin{definizione}
-%  Una variabile continua è definita in un intervallo di valori continuo.
-%  Le variazioni dei suoi valori possono essere arbitrariamente piccole.
-% \end{definizione}
-% 
-% Il più semplice esempio di una variabile continua in matematica è la 
-% posizione $x$ sull'asse dei numeri reali. Infatti sappiamo che la retta 
-% reale non ha buchi. 
-% A maggior ragione, è una variabile continua anche $x\in\IR$, 
-% con la quale rappresentiamo la posizione sull'asse iperreale. \\
-% Viceversa una variabile che pesca i suoi valori in un insieme formato 
-% da numeri isolati, cioè con differenze finite fra l'uno e l'altro, 
-% si dice \emph{variabile discreta}. 
-% \begin{definizione}
-%  Una variabile discreta assume valori che variano per quantità finite.
-% \end{definizione}
-% 
-% Un semplice esempio di variabile discreta è $n, n\in \N$.
-% Nel calcolo precedente, $t$ varia con continuità da $0$ a $3,6$,
-% assumendone tutti i valori, dal minimo al massimo. In matematica si 
-% scrive così:
-% \(t\in \quadra{0;\ 3,6}\). Le parentesi quadre sono importanti, indicano 
-% che gli estremi dell'intervallo sono valori possibili, sono inclusi.
-% I tipi possibili di intervallo sono:
-% \begin{center}
-% \begin{tabular}{ccc}
-% intervallo & sigla & significato\\\midrule
-% chiuso &$\intervcc{a}{b}$  & estremi compresi\\
-% aperto/chiuso & $\intervac{a}{b}$ & a escluso, b compreso\\
-% chiuso/aperto & $\intervca{a}{b}$ & a compreso, b escluso\\
-% aperto & $\intervaa{a}{b}$ & estremi esclusi
-% \end{tabular}
-% \label{tab:diff_tipiinterv}
-% \end{center}
-% Tutti i tipi di intervallo precedenti, nella retta reale o iperreale, 
-% sono continui, a meno di indicazioni diverse. Se un intervallo 
-% \(\intervcc{a}{b}\) 
-% contiene un punto (o più punti) di discontinuità, per esempio \(d\), 
-% allora occorre usare indicazioni diverse: 
-% \(\intervca{a}{d}\cup\intervac{d}{b}\)
-% 
-% La differenza \(b-a\) fra due numeri della retta iperreale può essere 
-% positiva, negativa o nulla. 
-% Indicheremo con \(\Delta\) la differenza fra due numeri standard, 
-% cioè una differenza finita, mentre, se la differenza è infinitesima, 
-% sarà indicata con \(\delta\) oppure \(\epsilon\) o altra lettera 
-% minuscola dell'alfabeto greco.
-% In analisi infinitesimale, le differenze infinitesime sono protagoniste.
+
 
 \section{Pendenza e derivata}
 \label{sec:differenziazione_pendenzaederivata}
@@ -366,7 +531,7 @@ Ovviamente, utilizzando una funzione diversa, gli incrementi calcolati con
 gli stessi parametri saranno, in generale diversi. (Prova ad esempio 
 con la funzione \(f(x)= 2^x\))
 
-
+\begin{comment}
 \subsubsection{Differenziale di una funzione}
 \label{subsubsec:diff01_parteprincipale}
 
