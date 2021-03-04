@@ -246,9 +246,6 @@ diverse pendenze.
 \end{minipage}
 
 
-% <<<<<<< HEAD
-%     
-% =======
 \affiancati{.50}{.50}{
 %grafico temperature smussato
 \begin{inaccessibleblock}[Grafico delle temperature con punti molto vicini]
@@ -263,7 +260,6 @@ diverse pendenze.
 \label{graf:temperaturec}
 }
 
-%>>>>>>> b5e6d815548194f1973585214ed69d15077ee464
 In una situazione ideale, non legata a strumenti di misura necessariamente 
 imperfetti, consideriamo una funzione matematica e il suo grafico e andiamo 
 alla ricerca della pendenza della funzione in un determinato punto. Questa 
@@ -416,7 +412,7 @@ Il Calcolo fiorì con grande successo per 150 anni a partire
 dall'epoca di Newton e Leibniz. 
 Ma suscitava vivaci polemiche fra gli specialisti, perché non si era 
 in grado di spiegare la regola che permetteva di far sparire gli 
-infinitesimi al termine dei calcoli, come al punto 3 dell'elenco.
+infinitesimi al termine dei calcoli, come al punto 4 dell'elenco.
 
 A quel tempo non si conosceva la teoria degli 
 insiemi numerici, gli iperreali e la funzione parte standard.
@@ -426,77 +422,17 @@ Siamo quindi in grado di procedere nello studio di questa nuova branca
 della matematica, che si chiama \emph{Analisi infinitesimale}.
 
 
-
-\begin{comment}
-
-\temperaturea
-
-\temperatureb
-
-\section{Pendenza e derivata}
-\label{sec:differenziazione_pendenzaederivata}
-
-Il problema precedente equivale a calcolare la pendenza del grafico di 
-una funzione in un punto. Infatti nel piano \emph{tempo - spostamento}
-la velocità è rappresentata dalla pendenza della curva che rappresenta 
-il movimento.
-
-\subsection{Pendenza di una funzione in un punto}
-\label{subsec:differenziazione_pendenzafunzione}
-
-Una retta ha in ogni suo punto la stessa pendenza e possiamo definire come 
-pendenza il rapporto tra lo spostamento in verticale e lo spostamento in 
-orizzontale muovendoci da un punto \(A\) qualsiasi a un altro punto \(B\):
-\[pendenza = \dfrac{y_B - y_A}{x_B - x_A} = \dfrac{\Delta y}{\Delta x}\]
-Qualunque sia la coppia di punti distinti scelta, otterremo sempre lo 
-stesso valore che corrisponde al coefficiente angolare della retta.
-
-Ma quanto detto per le rette, non vale per tutte le funzioni, 
-in generale, la pendenza di una funzione varia da punto a punto. 
-Possiamo avvicinarci alla pendenza in un punto \(P\) scegliendo come 
-altro estremo dello spostamento, un punto molto vicino, ma averemo sempre 
-una pendenza media.
-E chi ci assicura che questa pendenza media sia vicina alla pendenza in
-quel punto?
-Se nel punto \(P\) la curva ha un salto, il metodo precedente non ci 
-fornisce dei valori sensati.
-
-Se la curva è sufficientemente regolare, possiamo pensare che, se 
-l'intervallo \(\Delta x\) è piccolo, la pendenza media relativa a questo 
-intervallo sia vicina alla pendenza nel punto \(P\).
-% \begin{center} \parabolaequasitangente \end{center}
-Se pongo \(P'\) a una \emph{distanza trascurabile} 
-da \(P\) la pendenza che calcolo dovrebbe avere una 
-\emph{differenza trascurabile}
-dalla pendenza della curva in quel punto.
-
-Gli iperreali ci mettono a disposizione dei numeri trascurabili rispetto
-a tutti i numeri reali: sono gli infinitesimi.
-Possiamo perciò usarli per ottenere la pendenza media in un intervallo
-infinitesimo:
-\[\fstar[pendenza] = \dfrac{f(x + \epsilon) - f(x)}
-                           {\tonda{x + \epsilon} - x}\]
-Il valore \(\fstar[pendenza]\) che si ottiene è un numero iperreale, 
-ma la pendenza che cerchiamo deve essere un \emph{numero reale} quindi 
-passiamo dagli iperreali ai reali usando la funzione 
-\emph{parte standard}.
-
-Se \(\fstar[pendenza]\) è un numero finito e 
-se \(\pst{\fstar[pendenza]}\) non dipende dal valore 
-dell'\emph{infinitesimo diverso da zero} scelto, 
-la parte standard ottenuta è proprio la pendenza della funzione nel punto.
-
-Più facile da fare che da spiegare:
-\end{comment}
 \subsection{Pendenze in grafico}
 \label{subsec:pendenze_grafico}
-Le diverse pendenze di un grafico si possono disegnare? \\
+In un grafico le diverse pendenze della linea curva si colgono a vista o si
+possono anche disegnare? È chiaro che sarebbe molto più comodo poter vedere 
+sia la curva del grafico che la sua pendenza in qualche punto di interesse.\\
 Per provare a rispondere, ricordiamo il grafico \ref{graf:temperature}: lì gli 
 incrementi delle temperature, ora per ora, si riflettono nella diversa 
 inclinazione dei segmenti, che siamo abituati a calcolare con la nota formula 
 del coefficiente angolare.  
 È facile vedere che le stesse pendenze si calcolano anche con le 
-regole appena viste. Dimostriamolo. 
+regole dell'elenco precedente. Dimostriamolo. 
 
 Consideriamo una retta generica, non verticale: \(y=mx+q\) e un suo generico 
 punto di ascissa \(x_0\).
@@ -525,7 +461,7 @@ nostri grafici.
 Per visualizzare la pendenza di una curva in un suo punto 
 possiamo disegnare la retta che passa per quel punto e che ha per coefficiente 
 angolare proprio quella pendenza, come nell'esempio che segue.
-\textbf{ADATTARE L'ESEMPIO}
+
 \begin{esempio}
 Calcola la pendenza della parabola:
 \(f(x) = -\dfrac{1}{4}x^2+2x +1\) \quad nel suo punto di ascissa:~\(x_P=8\).
@@ -551,101 +487,143 @@ f(8) &= -\frac{1}{4}8^2 + 2 \cdot 8 + 1 = -16+16+1 = +1\\
 f(8+\delta) &= -\frac{1}{4}\tonda{8+\delta}^2 + 2 \tonda{8+\delta} + 1 = \\
 &= -\frac{1}{4}\tonda{64+16\delta+\delta^2} + 16 + 2\delta + 1 =\\
 &= -16-4\delta-\frac{\delta^2}{4} + 16 + 2\delta + 1 =
-+1 - 2\delta -\frac{\delta^2}{4}
++1 - 2\delta -\frac{\delta^2}{4}.
 \end{align*}
 }
 
 Quindi i due punti sono:
 \(P\punto{8}{1}\) e 
-\(P'\punto{8+\delta}{+1 - 2\delta -\dfrac{\delta^2}{4}}\)
+\(P'\punto{8+\delta}{+1 - 2\delta -\dfrac{\delta^2}{4}}\).
 
 \affiancati{.58}{.40}{
-Ora possiamo calcolare la pendenza della retta per questi due punti:
+Ora possiamo calcolare la pendenza per questi due punti:
 \begin{align*}
 % m &= \frac{f(x + \delta) - f(x)}{x + \delta - x}=
-\fstar[pendenza] &= \frac{y_{P'} - y_{P}}{x_{P'} - x_{P}}=
+RD &= \frac{y_{P'} - y_{P}}{x_{P'} - x_{P}}=
 \frac{\cancel{+1} - 2\delta -\dfrac{\delta^2}{4}~ \cancel{-1}}
      {8 + \delta - 8}= \\
 &=\frac{- 2\delta -\dfrac{\delta^2}{4}}{\delta}= 
 \frac{\delta \tonda{- 2-\dfrac{\delta}{4}}}{\delta}= 
-- 2-\dfrac{\delta}{4}
+- 2-\dfrac{\delta}{4}.
 \end{align*}
 }{
 \parabolaetangenteb
 }
+\(-2-\dfrac{\delta}{4}\) è il Rapporto Differenziale della curva, calcolato nel 
+tratto infinitesimo fra i punti \(P\) e \(P'\). Trattandosi di due punti 
+sostanzialmente coincidenti, il tratto di curva \(PP'\) è sostanzialmente un 
+segmento, che ha coefficiente angolare espresso dal Rapporto Differenziale. Un 
+metodo efficace per visualizzare la pendenza è proprio quello di disegnare la 
+retta per \(PP'\). 
 
-E, dato che il valore ottenuto è un finito, possiamo calcolare la sua parte 
-standard:
-\[\pst{-2-\dfrac{\delta}{4}} = \pst{-2}-\pst{\dfrac{\delta}{4}} =
-  -2 - 0 = -2\]
-Poiché il risultato ottenuto non dipende dal valore dell'infinitesimo 
-usato, possiamo concludere che la pendenza è \(-2\).
+Quante sono le rette che passano per \(PP'\)?\\
+Sono infinite, perché il loro coefficiente angolare è \(-2-\dfrac{\delta}{4}\), 
+che rappresenta un insieme di numeri indistinguibili, sostanzialmente uguali 
+\(-2\). 
+
+Isoliamo una di queste rette, che sono fra loro indistinguibili, in modo che 
+il suo disegno rappresenti tutto l'insieme. Per fare ciò, applichiamo la parte 
+standard a \(-2-\dfrac{\delta}{4}\).
+Possiamo farlo, dato che \(-2-\dfrac{\delta}{4}\) è un iperreale finito:
+\[
+\pst{RD}=\pst{-2-\dfrac{\delta}{4}} = \pst{-2}-\pst{\dfrac{\delta}{4}} =
+  -2 - 0 = -2.
+\]
+Il risultato non dipende dal valore dell'infinitesimo \(\delta\), così 
+possiamo concludere che la pendenza che cerchiamo è sostanzialmente \(-2\), sia 
+per il tratto di curva, sia per la retta che passa per gli stessi 
+punti.
+Nel piano cartesiano reale, cioè con numeri reali, \(P\) e \(P'\) coincidono, 
+perciò \(-2\) è la pendenza della retta tangente.
 \end{esempio}
+
+In conclusione, ora abbiamo un metodo per calcolare la pendenza di una curva in 
+un suo punto ed anche un modo di mostrarla nel piano cartesiano. 
+
 
 
 \subsection{Derivata di una funzione}
 \label{subsec:differenziazione_derivatafunzione}
+Abbiamo visto che \(RD=RD(f, x_0, \epsilon)\). Ma negli esempi precedenti la 
+funzione \(f\) era stata scelta. Se \(f\) è fissata, allora 
+\(RD=RD(x_0,\epsilon)\). Se poi se la pendenza esiste, quindi dopo avere 
+applicato la parte standard, gli infinitesimi spariscono e quindi la 
+pendenza dipende solo da \(x_0\).
 
-Mentre la differenza: \(f(x_0 + \epsilon) - f(x_0)\) dipende dalla 
-funzione, da \(x_0\) e da \(\epsilon\),
-se la pendenza esiste, dipende solo dalla funzione e dal valore \(x_0\) 
-e non dipende dall'infinitesimo usato.
-
-Se consideriamo una ben precisa funzione, la pendenza dipende solo dal 
-valore di \(x = x_0\).
-Quindi, data una funzione \(f\) si può considerare la funzione: 
-``pendenza di \(f\)'' che ha come argomento un numero reale, \(x\), 
-e come risultato la pendenza che è un altro numero reale.
+Quindi, per ogni funzione \(f\), si può considerare una ulteriore funzione:  
+``pendenza di \(f\)''. \\
+``pendenza di \(f\)'' ha come argomento un numero reale, \(x\), 
+e ha come risultato un altro numero reale, cioè la pendenza della curva che 
+rappresenta \(f\) nel piano cartesiano.
 
 Questa funzione viene chiamata derivata della funzione \(f\) 
-e viene indicata con \(f'\):
+e viene indicata con \(f'\).
 
 \begin{definizione}
 Chiamiamo \emph{derivata} della funzione \(f\) la funzione \(f'\) che
 dà come risultato la pendenza della funzione \(f\) per ogni valore 
 di \(x\).
 \end{definizione}
+>>>>>>>>> MANCA: \(dx\) al posto di \(\epsilon\)\\
+>>>>>>>>> \(f'(x)=\frac{df}{dx}\)\\
 
+\(f'\) quindi è la formula che consente di calcolare tutte le pendenze 
+di \(f\). Questa formula, ovviamente diversa da funzione a funzione, si deduce 
+dall'espressione di \(f\) applicando il procedimento che abbiamo visto negli 
+esempi.
+\begin{esempio}
+ Se \(f(x)=\dfrac{1}{4}x^2+1\), quale è l'espressione di \(f'(x)\)?
+ 
+Non essendo indicato un particolare valore di \(x_0\), proviamo a inventarne 
+qualcuno. Per esempio, per \(x_0=-4\) dovremo scrivere:
+\begin{align*}
+ &x_0= -4\quad\quad f(x_0)=f(-4)=\frac{1}{4}(-4)^2+1 = 5\\
+&\pst{\dfrac{f(x_0+\delta)+f(x_0)}{\delta}}=\dfrac{\frac{1}{4}(-4+\delta)^2+1-(
+ \ \frac{1}{4}(-4)^2+1)}{\delta}=\dots
+\end{align*}
+Al termine di alcuni tentativi, avremo il quadro della situazione:
+
+ \begin{minipage}{0.48\textwidth}
+ \begin{center}
+\begin{tabular}{ccc}\toprule
+\(x_0\) & \(f(x_0)=\frac{1}{4}x_0^2+1\) & \(f'(x_0)=?\) \\\midrule
+\(-4\) & \(5\)     & \(-2\) \\
+\(-2\) & \(2\)     &  \(-1\) \\
+\(0\) & \(1\)      & \(0\)  \\
+\(1\) & \(\dfrac{5}{4}\) & \(\dfrac{1}{2}\) \\
+\(2\)  & \(2\)     & \(1\)\\
+\(3\)  & \(\dfrac{13}{4}\) &\(\dfrac{3}{2}\)\\
+\\ \bottomrule
+\end{tabular}
+\label{tab:temperaturea}
+\end{center}
+\end{minipage}
+ \hfill
+\begin{minipage}{.48 \textwidth}
+%\begin{inaccessibleblock}[Grafico delle temperature per punti distanziati]
+%\begin{center} \scalebox{1}{\temperaturea} \end{center}
+%\end{inaccessibleblock}
+%\label{graf:temperaturea}
+\textbf{TABELLA E GRAFICO FUNZIONE E DERIVATA}
+\end{minipage}
+\end{esempio}
+Per ogni particolare \(x_0\) risulta uno e un solo valore di pendenza. In 
+questo caso i valori delle pendenze si allineano lungo la retta 
+\(y=\dfrac{x}{2}\).
+
+Questo ci conferma che, scelta la funzione \(f\), la sua derivata \(f'\) è la 
+funzione di \(x\) che genera l'insieme delle pendenze di \(f\).
+
+A questo punto andiamo alla ricerca delle regole che ci aiutano a derivare 
+rapidamente i vari tipi di funzione che conosciamo.
 Applichiamo il procedimento per calcolare la pendenza di una funzione 
 in un punto, ma questa volta rimandiamo finché è possibile la sostituzione 
 della variabile con il valore \(x_0\).
 
-\begin{esempio}
-
-Calcola la pendenza della funzione: 
-\(y=x^3 +2x^2 -2x +1\) \quad
-nel suo punto di ascissa:~\(x_P = 1\).
-
-Calcoliamo le coordinate di \(P\) di ascissa \(1\) e 
-di \(P'\) di ascissa \(1+\delta\), dove con \(\delta\) intendiamo una 
-quantità \emph{trascurabile}.
-\begin{align*}
-f(1) &= 1^3 + 2 \cdot 1^2 - 2 \cdot 1 + 1 = 2\\[1em]
-f(1 + \delta) &= 
-\tonda{1+\delta}^3 +2 \cdot \tonda{1+\delta}^2 -2 \cdot \tonda{1+\delta} +1 =\\
-&= 1+3\delta+3\delta^2+\delta^3+2+4\delta+2\delta^2-2-2\delta+1=\\
-&=2+5\delta+5\delta^2+\delta^3
-\end{align*}
-
-Applichiamo la formula per calcolare la pendenza nel punto \(P\):
-\begin{align*}
-pendenza&=\frac{f(1+\delta) - f(1)}{1 + \delta -1}=
-          \frac{2+5\delta+5\delta^2+\delta^3-2}{\delta}=
-        5+5\delta+\delta^2
-\end{align*}
-
-Nell'esempio precedente, avevamo ottenuto: \(-2 -\dfrac{\delta}{4}\). 
-In questo caso, se già \(\delta\) è una grandezza trascurabile, 
-\(\dfrac{\delta}{4}\) lo sarà a maggior ragione.
-
-Ma questa volta la pendenza è: \(5+5\delta+\delta^2\). 
-Siamo sicuri che possiamo trascurare i termini che contengono \(\delta\)?
-\end{esempio}
 
 
 
-ad un 
-altro esempio
+
 
 \section{Derivata di funzioni elementari}
 \label{sec:differenziazione_derivatafelementari}
