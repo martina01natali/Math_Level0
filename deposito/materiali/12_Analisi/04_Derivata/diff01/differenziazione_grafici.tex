@@ -40,7 +40,7 @@
   \foreach \xp/\yp in {1/3, 2/0, 3/0, 4/-1, 5/-3, 
 %                        6/-3, 
                        7/-4, 8/-5, 9/-5, 11/0} 
-    \filldraw (\xp, \yp) [orange!50!black] circle(2pt);
+    \filldraw (\xp, \yp) [blue!50!black] circle(2pt);
 }
 
 \newcommand{\temperaturepiano}{% 
@@ -69,7 +69,7 @@
   \def \pm{(3.3, -0.2)}
   \disegno[5]{
     \temperaturepiano
-    \draw[ultra thick, orange!50!black] plot[smooth] 
+    \draw[ultra thick, blue!50!black] plot[smooth] 
       coordinates {(1, 3) (2, 0) (3, 0) (4, -1) (5, -3) 
 %                    (6, -3) 
                    (7, -4) (8, -5) (9, -5) (11, 0)};
@@ -77,7 +77,7 @@
     \microscopio{\pm}{1.0}{30}{-120}{2}{(7.5, 3.5)}
                 {\footnotesize{\(\times 3600\)}}
     \foreach \xp/\yp in {3.5/2.9, 4.5/2.4, 5.5/1.75, 6.5/0.8} 
-      \filldraw (\xp, \yp) [orange!50!black] circle(2pt);
+      \filldraw (\xp, \yp) [blue!50!black] circle(2pt);
   }
 }
 
@@ -85,13 +85,13 @@
   % definita in intervallo 0-inf.
   \def \pm{(3.3, -0.2)}
   \disegno[5]{\temperaturepiano
-    \draw[ultra thick, orange!50!black] plot[smooth] 
+    \draw[ultra thick, blue!50!black] plot[smooth] 
       coordinates {(1, 3) (2, 0) (3, 0) (4, -1) (5, -3) 
 %                    (6, -3) 
                    (7, -4) (8, -5) (9, -5) (11, 0)};
     \microscopio{\pm}{1.0}{30}{-120}{2}{(7.5, 3.5)}
                 {\footnotesize{\(\times 3600\)}} 
-    \draw[ultra thick, orange!50!black] plot[smooth] 
+    \draw[ultra thick, blue!50!black] plot[smooth] 
       coordinates {(3.4, 2.9) (4.5, 2.4) (5.5, 1.75) (6.7, 0.7)};
   }
 }
@@ -168,9 +168,14 @@
 
 \newcommand{\micx}[8]{% 
   % interno del microscopio posto sull'asse x.
-  \def \basexa{#1} \def \basexb{#2} \def \basey{#3}
-  \def \xa{#4}     \def \xb{#5}     \def \yab{#6}
-  \def \eta{#7}    \def \etb{#8}
+  \def \basexa{#1}
+  \def \basexb{#2}
+  \def \basey{#3}
+  \def \xa{#4}
+  \def \xb{#5}
+  \def \yab{#6}
+  \def \eta{#7}
+  \def \etb{#8}
   \draw (\basexa, \basey) -- (\basexb, \basey);
   \fill [Cyan!50]  (\xa, \yab) -- (\xa, \basey) -- 
                    (\xb, \basey) -- (\xb, \yab) -- cycle;
@@ -180,15 +185,22 @@
         node [below, xshift=+2.5mm] {\etb};
 }
 
-\newcommand{\micf}[7]{% 
+
+\newcommand{\micf}[8]{% 
   % interno del microscopio posto sulla funzione.
-  \def \basea{#1}  \def \baseb{#2} \def \puntobase {#3} 
-  \def \puntoa{#4} \def \puntob{#5} \def \dx{#6} \def \df{#7}
+  \def \mcol{#1}
+  \def \basea{#2}  
+  \def \baseb{#3} 
+  \def \puntobase{#4} 
+  \def \puntoa{#5} 
+  \def \puntob{#6} 
+  \def \dx{#7} 
+  \def \df{#8}
   \path \puntoa node(pa) {} \puntob node(pb) {} \puntobase node(base) {};
   \fill [fill=Cyan!50] 
         (pa -| base) -- (pa |- pa) -- (pa |- base) -- 
         (pb |- base) -- (pb |- pb) -- (pb -| base) -- cycle;
-  \draw [ultra thick, color=Green!50!black] \basea -- \baseb;
+  \draw [ultra thick, color=\mcol] \basea -- \baseb;
   \draw [dashed] (pa -| base) -- (pa |- pa) -- (pa |- base)
         (pb -| base) -- (pb |- pb) -- (pb |- base);
   \draw [thick, color=Red!50!black] (pa |- pa) -- (pb |- pa)
@@ -198,20 +210,25 @@
 }
 
 \newcommand{\micy}[8]{% 
-  % interno del microscopio posto sull'asse x.
-  \def \baseya{#1} \def \baseyb{#2} \def \basex{#3}
-  \def \ya{#4}     \def \yb{#5}     \def \xab{#6}
-  \def \eta{#7}    \def \etb{#8}
+  % interno del microscopio posto sull'asse y.
+  \def \baseya{#1} 
+  \def \baseyb{#2} 
+  \def \basex{#3}
+  \def \ya{#4}
+  \def \yb{#5}
+  \def \xab{#6}
+  \def \eta{#7}
+  \def \etb{#8}
   \fill [Cyan!50]  (\xab, \ya) -- (\basex, \ya) -- 
                    (\basex, \yb) -- (\xab, \yb) -- cycle;
   \draw (\basex, \baseya) -- (\basex, \baseyb);
   \draw [dashed] (\basex, \ya) node [left] {\eta} -- (\xab, \ya);
-  \draw [dashed] (\basex, \yb) node [left] {\etb} -- 
-        (\xab, \yb);
+  \draw [dashed] (\basex, \yb) node [left] {\etb} -- (\xab, \yb);
 }
 
 \newcommand{\differenziale}{% 
   % definita in intervallo 0-inf.
+  
   \disegno{
   \rcom{-1}{+8}{-5}{+7}{gray!50, very thin, step=1}
   \tkzInit[xmin=-1.3, xmax=+8.3, ymin=-5.3, ymax=+7.3]
@@ -222,8 +239,8 @@
   \microscopio{(7, 0)}{1.5}{-60}{150}{2}{(11, -.3)}{\(\times \infty\)}
   \micx{7.65}{11.3}{-3.1}{9}{10}{-0.35}{\(7\)}{\(7+\epsilon\)}
   \microscopio{(7, 2.25)}{.5}{0}{180}{2}{(11, 4.2)}{\(\times  \infty\)}
-  \micf{(8.7, .4)}{(10.3, 4.1)}{(7.8, 0.34)}{(9, +1.1)}{(10, 3.4)} 
-      {\(\epsilon\)}{\(df(7)\)}
+  \micf{blue!50!black}{(8.7, .4)}{(10.3, 4.1)}{(7.8, 0.34)}{(9, +1.1)}
+       {(10, 3.4)} {\(\epsilon\)}{\(df(7)\)}
   \microscopio{(0, 2.25)}{.5}{0}{180}{2}{(4, 4.2)}{\(\times  \infty\)}
   \micy{0.25}{4.25}{2.51}{1.1}{3.4}{4.2}{\(f(7)\)}{\(f(7+\epsilon)\)}
     }
@@ -233,11 +250,12 @@
   \disegnod{4.5}{
   \rcom{-2}{+8}{-3}{+5}{gray!50, very thin, step=1}
   \tkzInit[xmin=-2.3, xmax=+8.3, ymin=-4.3, ymax=+4.3]
-  \tkzFct[thick, color=Maroon!50!black, domain=-2.3:8.3]{2.8}
+  \tkzFct[ultra thick, color=blue!50!black, domain=-2.3:8.3]{2.8}
   \microscopio{(0.7, 2.8)}{1}{-50}{-200}{2.5}{(5.8, -1.3)}
               {\(\times \infty\)}
-  \micf{(1.2, 1.5)}{(6.2, 1.5)}{(3, -1.2)}{(3, +1.5)}{(4, 1.5)}
-      {\(\epsilon\)}{\(df(x)\)}
+  \micf{blue!50!black}{(1.2, 1.5)}{(6.2, 1.5)}{(3, -1.2)}{(3, +1.5)}
+                        {(4, 1.5)}{\(\epsilon\)}{}
+  \node at (6.2, 1.5) [right, black] {\(df(x)\)};
   }
 }
 
@@ -245,15 +263,32 @@
   \disegnod{4.5}{
   \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1} 
   \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=6.3]
-  \tkzFct[ultra thick, color=Maroon!50!black, domain=-6.3:6.3]{1*x}
+  \tkzFct[ultra thick, color=blue!50!black, domain=-6.3:6.3]{1*x}
   \draw [dashed] (0, 1.5) -- (1.5,1.5) -- (1.5, 0) -- (1.5,1.5);
   \microscopio{(1.5, 0)}{1.5}{-35}{145}{2}{(6, -4.3)}{\(\times \infty\)}
   \micx{2.4}{6.3}{-2.3}{3.9}{4.9}{-0.1}{\(x\)}{\(x+\epsilon\)}
   \microscopio{(1.5, 1.5)}{1}{0}{200}{2}{(6, 4.3)}{\(\times \infty\)}
-  \micf{(2.9, .9)}{(5.7, 3.7)}{(2.45, 0.25)}{(3.9, 1.9)}{(4.9, 2.9)}
-      {\(\epsilon\)}{\(df(x)\)}
+  \micf{blue!50!black}{(2.9, .9)}{(5.7, 3.7)}{(2.45, 0.25)}{(3.9, 1.9)}
+       {(4.9, 2.9)}{\(\epsilon\)}{\(df(x)\)}
   \microscopio{(0, 1.5)}{1}{140}{0}{2}{(-4.5, 4.3)}{\(\times \infty\)}
   \micy{0.15}{4.15}{-2.8}{1.9}{2.9}{-0.9}{\(y=x\)}{\(y+\epsilon\)}
+     }    
+  }
+
+
+\newcommand{\funzlineare}{% m=1
+  \disegnod{4.5}{
+  \rcom{-6}{+6}{-1}{+11}{gray!50, very thin, step=1} 
+  \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=10.3]
+  \tkzFct[ultra thick, color=blue!50!black, domain=-6.3:6.3]{2./3*x+4}
+  \draw [dashed] (0, 5) -- (1.5, 5) -- (1.5, 0);
+  \microscopio{(1.5, 0)}{1}{45}{250}{2}{(5, +4.3)}{\(\times \infty\)}
+  \micx{1.4}{4.4}{1.3}{2.5}{3.7}{4.5}{\(x\)}{\(x+\epsilon\)}
+  \microscopio{(1.5, 5)}{1}{45}{250}{2}{(1.5, 9.5)}{\(\times \infty\)}
+  \micf{blue!50!black}{(1.2, 6.5)}{(4.55, 8.75)}{(0.95, 5.7)}{(2.5, 7.35)}
+       {(3.7, 8.15)}{\(\epsilon\)}{\(df(x)\)}
+  \microscopio{(0, 5)}{1.5}{120}{-40}{2}{(-1, 9.3)}{\(\times \infty\)}
+  \micy{5.65}{9.65}{-2.5}{7.35}{8.15}{-0.35}{\(y=x\)}{\(y+\epsilon\)}
      }    
   }
 
@@ -272,8 +307,8 @@
     \disegnod{4.5}{
     \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
     \tkzInit[xmin=-5.3, xmax=+5.3, ymin=-5.3, ymax=+5.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-5.3:0]{1/x}
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=0:+5.3]{1/x}
+     \tkzFct[ultra thick, color=blue!50!black, domain=-5.3:0]{1/x}
+     \tkzFct[ultra thick, color=blue!50!black, domain=0:+5.3]{1/x}
     }
 }
 
@@ -294,10 +329,10 @@
     \disegnod{4}{
     \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
     \tkzInit[xmin=-5.3, xmax=+5.3, ymin=-5.3, ymax=+5.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-5.3:1.95]{x-1}
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=2:+5.3]{x+1}
-     \filldraw [Maroon!50!black] (2, 3) circle (1.8pt);
-     \draw [Maroon!50!black] (2, 1) circle (1.8pt);
+     \tkzFct[ultra thick, color=blue!50!black, domain=-5.3:1.95]{x-1}
+     \tkzFct[ultra thick, color=blue!50!black, domain=2:+5.3]{x+1}
+     \filldraw [blue!50!black] (2, 3) circle (1.8pt);
+     \draw [blue!50!black] (2, 1) circle (1.8pt);
     }
 }
 
@@ -342,29 +377,35 @@
   \def \xc{\xb+\d}
   \def \yc{\yb+\d}
 
-  \disegno{
+  \disegno[4]{
+    \begin{scope}[font=\fontsize{8}{8}] %\scriptsize % \small
     \draw (\xa, \ya) node [below] {\(0\)} node [left] {\(0\)} -- 
-    (\xb, \ya) node [below] {\(b \sim b + db\)} -- 
+    (\xb, \ya) node [below] {\(b \approx b + \Delta b\)} -- 
     (\xb, \yb) -- 
-    (\xa, \yb) node [left] {\(h \sim h + dh\)} -- cycle;
-    \microscopio{(\xb, \yb)}{2}{120}{-50}{2}{(\xb, 9)}{\(\times 10^9\)}
-    \draw (.3*\xb, 1.82*\yb) -- (0.65*\xb, 1.82*\yb) -- (0.65*\xb, 1.36*\yb);
-    \microscopio{(\xb, \yb)}{2}{30}{240}{2}{(1.85*\xb, 8)}{\(\times \infty\)}
-    \fill [Cyan!50] 
-      (1.12*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb) -- 
-      (1.65*\xb, 1.8*\yb) -- (1.12*\xb, 1.8*\yb) -- cycle;
-     \fill [Cyan!50] 
-      (1.51*\xb, 1.65*\yb) -- (1.65*\xb, 1.65*\yb) -- 
-      (1.65*\xb, 1.27*\yb) -- (1.51*\xb, 1.2*\yb) -- cycle;  
-    \draw (1.12*\xb, 1.8*\yb) -- (1.65*\xb, 1.8*\yb)
-          (1.12*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb)
+    (\xa, \yb) node [left] {\(a \approx a + \Delta a\)} -- cycle;
+    \microscopio{(\xb, \yb)}{2}{120}{-50}{2}{(\xb, 9)}{\(\times n\)}
+    \draw (.29*\xb, 1.82*\yb) -- (0.65*\xb, 1.82*\yb) -- 
+          (0.65*\xb, 1.32*\yb);
+    \microscopio{(\xb, \yb)}{2}{30}{240}{2}{(1.85*\xb, 8)}
+                {\(\times \infty\)}
+    \fill [cyan!50] 
+      (1.126*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb) -- 
+      (1.65*\xb, 1.8*\yb) -- (1.129*\xb, 1.8*\yb) -- cycle;
+     \fill [cyan!50] 
+      (1.5*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb) -- 
+      (1.65*\xb, 1.275*\yb) -- (1.5*\xb, 1.19*\yb) -- cycle; 
+    \draw (1.126*\xb, 1.8*\yb) -- (1.65*\xb, 1.8*\yb)
+          (1.126*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb)
           (1.5*\xb, 1.8*\yb) -- (1.5*\xb, 1.2*\yb)
           (1.65*\xb, 1.8*\yb) -- (1.65*\xb, 1.27*\yb);
-    \draw (\xb / 2, \yb / 2) node {\(b \cdot h\)};
+    \draw (\xb / 2, \yb / 2) node {\(b \cdot a\)};
+    \end{scope}
     \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
-	    \draw (1.35*\xb, 1.7*\yb) node{\(b \cdot dh\)};
-	    \draw (1.57*\xb, 1.4*\yb) node [rotate=90] {\(db \cdot h\)};
-	    \draw (1.63*\xb, 1.85*\yb) node  {\(db \cdot dh\)};   
+	    \draw (1.35*\xb, 1.7*\yb) node{\(b \cdot \Delta a\)};
+	    \draw (1.57*\xb, 1.37*\yb) node [rotate=90] {\(\Delta b \cdot a\)};
+% 	    \draw (1.63*\xb, 1.85*\yb) node {\(\Delta b \cdot \Delta h\)};
+	    \draw (1.62*\xb, 1.73*\yb) node [rotate=-45] 
+	                                    {\(\Delta b \cdot \Delta a\)};
     \end{scope}
     }
 }
@@ -383,16 +424,18 @@
     (\xb, \ya) node [below] {\(b \sim b + db\)} -- 
     (\xb, \yb) -- 
     (\xa, \yb) node [left] {\(h \sim h + dh\)} -- cycle;
-    \microscopio{(\xb, \yb)}{2}{120}{-50}{2}{(\xb, 9)}{\(\times 10^9\)}
-    \draw (.3*\xb, 1.82*\yb) -- (0.65*\xb, 1.82*\yb) -- (0.65*\xb, 1.36*\yb);
-    \microscopio{(\xb, \yb)}{2}{30}{240}{2}{(1.85*\xb, 8)}{\(\times \infty\)}
-    \fill [Cyan!50] 
-      (1.13*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb) -- 
-      (1.65*\xb, 1.8*\yb) -- (1.13*\xb, 1.8*\yb) -- cycle;
-    \draw (1.12*\xb, 1.8*\yb) -- (1.65*\xb, 1.8*\yb)
-          (1.12*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb)
-          (1.5*\xb, 1.8*\yb) -- (1.5*\xb, 1.2*\yb)
-          (1.65*\xb, 1.8*\yb) -- (1.65*\xb, 1.27*\yb);
+    \microscopio{(\xb, \yb)}{2}{120}{-50}{2}{(\xb, 9)}{\(\times n\)}
+    \draw (.285*\xb, 1.82*\yb) -- (0.65*\xb, 1.82*\yb) -- 
+          (0.65*\xb, 1.32*\yb);
+    \microscopio{(\xb, \yb)}{2}{30}{240}{2}{(1.85*\xb, 8)}
+                {\(\times \infty\)}
+    \fill [cyan!50] 
+      (1.126*\xb, 1.6*\yb) -- (1.5*\xb, 1.6*\yb) -- 
+      (1.5*\xb, 1.8*\yb) -- (1.13*\xb, 1.8*\yb) -- cycle;
+    \draw (1.135*\xb, 1.8*\yb) -- (1.65*\xb, 1.8*\yb)
+          (1.126*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb)
+          (1.5*\xb, 1.8*\yb) -- (1.5*\xb, 1.185*\yb)
+          (1.65*\xb, 1.8*\yb) -- (1.65*\xb, 1.281*\yb);
     \draw (\xb / 2, \yb / 2) node {\(\mathit{A}\)};
     \draw (\xb +1, \yb/2) node {\(h=\frac{\mathit{A}}{b}\)};
     \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
@@ -421,7 +464,7 @@
       (3, 3.5) -- (2, 2) -- cycle;     
 %retta
     \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-4.3, ymax=4.3]
-    \tkzFct[ultra thick, color=Maroon!50!black, domain=-4.3:4.3]{1.5*x-1}
+    \tkzFct[ultra thick, color=blue!50!black, domain=-4.3:4.3]{1.5*x-1}
     }
 }
 
@@ -444,14 +487,15 @@
               \frac{-\frac{1}{2}}{2}=-\frac{1}{4}\)};
 % retta              
     \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-4.3, ymax=+4.3]
-    \tkzFct[ultra thick, color=Maroon!50!black, domain=-4.3:4.3]{-.25*x+.5}              
+    \tkzFct[ultra thick, color=blue!50!black, domain=-4.3:4.3]{-.25*x+.5}      
+        
     }
 }
 
 \newcommand{\retteorvert}{% m=0, m=inf.
     \disegnod{4.5}{
     \rcom{-4}{+4}{-4}{+4}{gray!50, very thin, step=1}
-        \draw [ultra thick, color=Maroon!50!black]
+        \draw [ultra thick, color=blue!50!black]
           (-4.3, -1.5) -- (4.3, -1.5);
     \draw [ultra thick, color=Green!60!black]
           (-2.8, -4.3) -- (-2.8, 4.3);
@@ -484,7 +528,7 @@
       (0, 3) circle (1.2pt)     node [above] {C}
       (2.35, 3.8) circle (1.2pt) node [above] {D}
       (3.6, 1) circle (1.2pt)  node [left] {E};
-    \begin{scope}[ultra thick, color=Maroon!50!black]
+    \begin{scope}[ultra thick, color=blue!50!black]
       \tkzInit[xmin=-4., xmax=+4, xstep=1., ymin=-5,ymax=8]
       \tkzFct[domain=-4:+4]{-.12*x*x*x+x+3}
     \end{scope}  
@@ -507,7 +551,7 @@
       (0, 3) circle (1.2pt)     node [above] {C}
       (2.35, 3.8) circle (1.2pt) node [above] {D}
       (3.6, 1) circle (1.2pt)  node [left] {E};
-    \begin{scope}[ultra thick, color=Maroon!50!black]
+    \begin{scope}[ultra thick, color=blue!50!black]
       \tkzInit[xmin=-4., xmax=+4, xstep=1., ymin=-5,ymax=8]
       \tkzFct[domain=-4:+4]{-.12*x*x*x+x+3}
     \end{scope}  
@@ -530,7 +574,7 @@
   \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-1.3,ymax=+10.3]
     \tkzFct{1.2*x-2}   % per AB
-  \begin{scope}[ultra thick, color=Maroon!50!black]
+  \begin{scope}[ultra thick, color=blue!50!black]
     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-0.3,ymax=+10.3]
     \tkzFct[domain=-10:+10]{0.2*x*(x+2)-x+2}
   \end{scope}
@@ -561,13 +605,13 @@
   \disegno{
   \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
   \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-1.3,ymax=+10.3]
-  \tkzFct[ultra thick, color=Maroon!50!black,
+  \tkzFct[ultra thick, color=blue!50!black,
           domain=-10.3:+10.3]{0.2*x*(x+2)-x+2} 
   \tkzFct[thick, color=Cyan!50!black] {1.4*x-3}
   \filldraw [color=Black] (5, 4) circle (2pt) node [below right] {A};
   \microscopio{(5, 4)}{3}{20}{230}{2}{(11.5, 8)}{\(\times \infty\)}
   \tkzInit[xmin=0,xmax=+10.2,ymin=0,ymax=+8.3]
-  \tkzFct[ultra thick, color=Maroon!50!black, domain=7.9:10.3] {1.4*x-6}
+  \tkzFct[ultra thick, color=blue!50!black, domain=7.9:10.3] {1.4*x-6}
   \tkzFct[thick, color=Cyan!50!black, domain=7.9:10.3] {1.4*x-6} 
   \fill [Cyan!50] (8.5, 5.9) -- (9.5, 7.3) -- (8.5, 7.3) -- cycle;
   \begin{scope}[color=Black]
@@ -600,7 +644,7 @@
     \disegnod{4.5}{
     \rcom{-1}{+7}{-5}{+2}{gray!50, very thin, step=1}
     \tkzInit[xmin=-1.3, xmax=+7.3, ymin=-5.3, ymax=+4.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-.3:7.3]{1-2*sqrt(x)}
+     \tkzFct[ultra thick, color=blue!50!black, domain=-.3:7.3]{1-2*sqrt(x)}
      \tkzFct[thick, dashed, color=Cyan!20!black, domain=.3:+7.3]{-.5*x-1}
      \filldraw (4, -3) circle (1.2pt);
     }
@@ -610,7 +654,7 @@
     \disegnod{4.5}{
     \rcom{-1}{+7}{-2}{+5}{gray!50, very thin, step=1}
     \tkzInit[xmin=-1.3, xmax=+7.3, ymin=-5.3, ymax=+4.3]
-    \tkzFct[ultra thick, color=Maroon!50!black, domain=-.3:2.3]{1-2*sqrt(x)}
+    \tkzFct[ultra thick, color=blue!50!black, domain=-.3:2.3]{1-2*sqrt(x)}
     \microscopio{(0, 1)}{1}{10}{200}{3}{(1, 5)}
     {\(\times \frac{1} {\sqrt{\epsilon}}\)};
     \draw [gray!50, very thin] (4,-.8) -- (4,5.1);
@@ -627,7 +671,7 @@
     \filldraw [black!] (9, 4.8) circle (1.5pt); % node [left] {\(1\)};
     \draw (3.5, 2) pic [rotate=270, scale=.5] {telescopio=-\(\frac{1}
     {\sqrt{\epsilon}}\)}; %\(1-2\sqrt{\epsilon}\)};
-    \draw  [color=Maroon!40!black, dotted, thick] (10, 7.6) -- (10, 1.6);
+    \draw  [color=blue!40!black, dotted, thick] (10, 7.6) -- (10, 1.6);
    }
 }
 
@@ -635,8 +679,8 @@
     \disegnod{4.5}{
     \rcom{-3}{+7}{-5}{+5}{gray!50, very thin, step=1}
     \tkzInit[xmin=-3.3, xmax=+7.3, ymin=-5.3, ymax=+5.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-3.3:2.0]{1/(x-2)}
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=2.0:7.3]{1/(x-2)}
+     \tkzFct[ultra thick, color=blue!50!black, domain=-3.3:2.0]{1/(x-2)}
+     \tkzFct[ultra thick, color=blue!50!black, domain=2.0:7.3]{1/(x-2)}
      \tkzFct[thick, color=Cyan!50!black, domain=-1:+3]{-x}
      \filldraw (1, -1) circle (1.4pt);
     }
@@ -646,8 +690,8 @@
     \disegnod{4.5}{
     \rcom{-4}{+4}{-2}{+6}{gray!50, very thin, step=1}
     \tkzInit[xmin=-4.3, xmax=+6.3, ymin=-4.3, ymax=+4.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=0:4.0]{x}
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-4:0]{-x}
+     \tkzFct[ultra thick, color=blue!50!black, domain=0:4.0]{x}
+     \tkzFct[ultra thick, color=blue!50!black, domain=-4:0]{-x}
      %\tkzFct[thick, color=Cyan!50!black, domain=:+2]{-x}
     % \filldraw (2, 2) circle (1.4pt);
     }
@@ -657,8 +701,8 @@
     \disegnod{4.5}{
     \rcom{-2}{+6}{-4}{+4}{gray!50, very thin, step=1}
     \tkzInit[xmin=-2.3, xmax=+6.3, ymin=-4.3, ymax=+4.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-2.3:2.0]{.5*x+1}
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=2.0:6.3]{-.5*x+3}
+     \tkzFct[ultra thick, color=blue!50!black, domain=-2.3:2.0]{.5*x+1}
+     \tkzFct[ultra thick, color=blue!50!black, domain=2.0:6.3]{-.5*x+3}
      %\tkzFct[thick, color=Cyan!50!black, domain=:+2]{-x}
      \filldraw (2, 2) circle (1.4pt);
     }
@@ -669,7 +713,7 @@
     \rcom{-4}{+4}{-1}{+9}{gray!50, very thin, step=1}
     \tkzInit[xmin=-3.3, xmax=+3.3, ymin=-1.3, ymax=+9.3]
     \tkzFct[ultra thick, color=Green!60!black, domain=-3.3:+3.3]{x*x}
-    \begin{scope}[thick, dotted, color=Maroon!40!black]
+    \begin{scope}[thick, dotted, color=blue!40!black]
      \tkzInit[xmin=-4., xmax=+4, xstep=1., ymin=-1,ymax=9.3]
      \tkzFct[domain=-4:+4]{-6*(x+3)+9}
      \tkzFct[domain=-4:+4]{-3*(x+1.5)+2.25}
@@ -688,7 +732,7 @@
     \disegnod{4.5}{
     \rcom{-4}{+4}{-5}{+5}{gray!50, very thin, step=1}
     \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-5.3, ymax=+5.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-4.3:+4.3]{2*x}
+     \tkzFct[ultra thick, color=blue!50!black, domain=-4.3:+4.3]{2*x}
     }
 }
 
@@ -697,7 +741,7 @@
     \rcom{-4}{+4}{-7}{+7}{gray!50, very thin, step=1}
     \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-7.3, ymax=+7.3]
     \tkzFct[ultra thick, color=Green!60!black, domain=-4.3:+4.3]{x*x*x}
-    \begin{scope}[thick, dotted, color=Maroon!40!black]
+    \begin{scope}[thick, dotted, color=blue!40!black]
      \tkzInit[xmin=-4., xmax=+4, xstep=1., ymin=-6.3,ymax=4]
      \tkzFct[domain=-2:-1.5]{12*(x+2)-8}
      \tkzFct[domain=-2.5:0]{6.75*(x+1.5)-3.375}
@@ -718,7 +762,7 @@
     \disegnod{4.5}{
     \rcom{-4}{+4}{-1}{+13}{gray!50, very thin, step=1}
     \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-1.3, ymax=+13.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-4.3:+4.3]{3*x*x}
+     \tkzFct[ultra thick, color=blue!50!black, domain=-4.3:+4.3]{3*x*x}
     }
 }
 
@@ -727,7 +771,7 @@
     \rcom{-1}{+12}{-1}{+4}{gray!50, very thin, step=1}
     \tkzInit[xmin=-1.3, xmax=+12.3, ymin=-1.3, ymax=+7.3]
     \tkzFct[ultra thick, color=Green!60!black, domain=0:+12.3]{sqrt(x)}
-    \begin{scope}[thick, dotted, color=Maroon!40!black]
+    \begin{scope}[thick, dotted, color=blue!40!black]
      \tkzInit[xmin=-1., xmax=+12.3, xstep=1., ymin=-1,ymax=4.3]
      \tkzFct[domain=-1:+6]{x-.25+.5}    
      \tkzFct[domain=-1:+6]{.5*(x-1)+1}
@@ -742,7 +786,8 @@
      \disegnod{4.5}{
      \rcom{-1}{+12}{-1}{+8}{gray!50, very thin, step=1}
      \tkzInit[xmin=0, xmax=+12.3, ymin=-1.3, ymax=+8.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-.3:+12.3]{1/(2*sqrt(x))}
+     \tkzFct[ultra thick, color=blue!50!black, 
+domain=-.3:+12.3]{1/(2*sqrt(x))}
     }
 }
 
@@ -752,7 +797,7 @@
     \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=+6.3]
     \tkzFct[ultra thick, color=Green!60!black, domain= -6.3:-0.1]{1/x}
     \tkzFct[ultra thick, color=Green!60!black, domain= 0.1:6.3]{1/x}    
-    \begin{scope}[thick, dotted, color=Maroon!40!black]
+    \begin{scope}[thick, dotted, color=blue!40!black]
      \tkzInit[xmin=-6.3, xmax=+6.3, xstep=1.0, ymin=-6.3,ymax=6.3]
      \tkzFct[domain=-6.3:+0]{-.04*(x+5)-.2}    
      \tkzFct[domain=-5.3:+0]{-.111*(x+3)-.333}
@@ -773,8 +818,8 @@
      \disegnod{4.5}{
       \rcom{-6}{+6}{-10}{+2}{gray!50, very thin, step=1}
       \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-10.3, ymax=0]
-      \tkzFct[ultra thick, color=Maroon!50!black, domain=-6.3:-.3]{-1/(x*x)}
-      \tkzFct[ultra thick, color=Maroon!50!black, domain=.3:6.3]{-1/(x*x)}
+      \tkzFct[ultra thick, color=blue!50!black, domain=-6.3:-.3]{-1/(x*x)}
+      \tkzFct[ultra thick, color=blue!50!black, domain=.3:6.3]{-1/(x*x)}
      
     }
 }
@@ -825,8 +870,8 @@
       node [left, yshift=-3pt] {\(v\)};
   \end{scope}
    \tkzInit[xmin=0, xmax=+8.3, ymin=-9, ymax=10]
-   \tkzFct[ultra thick, color=Maroon!50!black, domain=0:7.3]{-.33*x-.66}
-   \tkzFct[ultra thick, color=Maroon!50!black, domain=0:8.3]{x*x/8}
+   \tkzFct[ultra thick, color=blue!50!black, domain=0:7.3]{-.33*x-.66}
+   \tkzFct[ultra thick, color=blue!50!black, domain=0:8.3]{x*x/8}
    \draw [color=Cyan!50!black](0, -1.5) -- (2.5, -1.5) -- (2.5, .8) -- (0, .8)
       node [black, left, xshift=1mm] {\(v(u)\)};
    \draw [black] (0, -1.5) node [left] {\(t\)}
@@ -835,29 +880,33 @@
         (8, 8) node  {\(v=f(u)\)};
          
  \begin{scope}[black, font=\fontsize{6}{6}]       
-  \microscopio{(0, -1.5)}{2}{220}{0}{3}{(-4, -6)}{\(\times \infty\)} %mic. per dt
+  \microscopio{(0, -1.5)}{2}{220}{0}{3}{(-4, -6)}{\(\times \infty\)} %mic. per 
+dt
   \draw [gray!50, very thin] (-5,-6) -- (-5, 0.2);
   \fill [Cyan!50] (-5, -2.5) -- (-1.6, -2.5) -- (-1.6, -3.5) -- (-5,-3.5);
   \filldraw (-5, -3.5) circle (1.4pt) (-5, -2.5) circle (1.4pt);   
   \draw  (-5, -3) node [left] {\(dt\)};
  \draw  (-3.5, -3.3) node [below] {\(t+dt\)} (-3.5, -2.7) node [above] {\(t\)};
                   
- \microscopio{(2.5, -1.5)}{1}{-90}{90}{3}{(4, -8)}{\(\times \infty\)} %mic. per dt/du
- \draw [ultra thick, color=Maroon!50!black] (-.3, -4.5) -- (5.3, -6.5);
+ \microscopio{(2.5, -1.5)}{1}{-90}{90}{3}{(4, -8)}{\(\times \infty\)} %mic. per 
+dt/du
+ \draw [ultra thick, color=blue!50!black] (-.3, -4.5) -- (5.3, -6.5);
  \fill [Cyan!50] (.8, -5) -- (3.7, -6) -- (-.4, -6) -- (-.4, -5);
  \fill [Cyan!50] (1, -4.9) -- (3.8, -5.9) -- (3.8, -2.8) -- (1, -2.9);
  \draw  (.5, -5.5) node {\(dt\)};
     \filldraw (1, -5) circle (1.4pt) (3.8, -5.9) circle (1.4pt); 
     \draw  (2.5, -4) node  {\(du=3dt\)};
 
-    \microscopio{(2.4, 0)}{1.5}{10}{200}{3}{(8.5, -1.5)}{\(\times \infty\)} %mic. per du
+    \microscopio{(2.4, 0)}{1.5}{10}{200}{3}{(8.5, -1.5)}{\(\times \infty\)} 
+%mic. per du
     \fill [Cyan!50] (5.2, -1.3) -- (8.2, -1.3) -- (8.2, 3.8) -- (5.2, 3.8);
     \draw [gray!50, very thin] (3.8, 1) -- (9.7, 1);
     \draw (6.7, .5) node {\(du\)}  (4.8, 1.5) node {\(u\)}
           (9.5, 1.5) node {\(u+du\)};
  
-   \microscopio{(2.5, .8)}{3}{90}{-90}{3}{(6, 8.5)}{\(\times \infty\)} %mic. per du/dv
-   \tkzFct[ultra thick, color=Maroon!50!black, domain=0.1:5.2]{.6*x+5}
+   \microscopio{(2.5, .8)}{3}{90}{-90}{3}{(6, 8.5)}{\(\times \infty\)} %mic. 
+per du/dv
+   \tkzFct[ultra thick, color=blue!50!black, domain=0.1:5.2]{.6*x+5}
    \fill [Cyan!50] (1, 4.2) -- (4, 4.2) -- (4, 7.3) -- (1, 5.5);
    \fill [Cyan!50] (1, 5.7) -- (4, 7.5) -- (-0.4, 7.5) -- (-0.3, 5.7);
    \draw  (2.5, 5) node {\(du\)} (-.3, 6.5) node {\(dv\approx\frac{u}{4}du\)};
@@ -877,7 +926,7 @@
     \disegnod{4.5}{
     \rcom{-1}{+10.3}{-1}{+9}{gray!50, very thin, step=1}
     \tkzInit[xmin=-0.3, xmax=+10.3, ymin=-0.3, ymax=+9.3]
-    \tkzFct[ultra thick, color=Maroon!50!black, domain=0:+4.3]{x*x/2}
+    \tkzFct[ultra thick, color=blue!50!black, domain=0:+4.3]{x*x/2}
     \tkzFct[ultra thick, color=Green!50!black, domain=0:+10.3]{sqrt(2*x)}
     \tkzFct[thick, black, dashed, domain=0:+10.3]{x}
     \draw [thick, dotted] (8, 4) -- (4, 8);
@@ -908,7 +957,7 @@
     \rcom{-1}{+6}{-1}{+11}{gray!50, very thin, step=1}
     \tkzInit[xmin=-1.3, xmax=+6.3, ymin=-.3, ymax=+11.3]
     \tkzFct[ultra thick, color=Green!60!black, domain=-1.3:+7]{2**x}
-    \begin{scope}[thick, dotted, color=Maroon!40!black]
+    \begin{scope}[thick, dotted, color=blue!40!black]
      \tkzInit[xmin=-1.3, xmax=+6.3, xstep=1., ymin=-1,ymax=11]
      \tkzFct[domain=-1.3:4.3]{.5*(x+1)+.4}    
      \tkzFct[domain=-1:+5]{.4}
@@ -924,7 +973,7 @@
      \disegnod{4.5}{
      \rcom{-1}{+6}{-1}{+11}{gray!50, very thin, step=1}
      \tkzInit[xmin=-1.3, xmax=+6.3, ymin=-.3, ymax=+11.3]
-      \tkzFct[ultra thick, color=Maroon!50!black, domain=-1.3:+4]{.7*2**x}
+      \tkzFct[ultra thick, color=blue!50!black, domain=-1.3:+4]{.7*2**x}
      }
 }
 
@@ -932,7 +981,7 @@
     \disegnod{4.5}{
     \rcom{-6}{+10}{-6}{+10}{gray!50, very thin, step=1}
     \tkzInit[xmin=-6.3, xmax=+10.3, ymin=-6.3, ymax=+10.3]
-    \tkzFct[ultra thick, color=Maroon!60!black, domain=-4.3:+6]{2.72**x}
+    \tkzFct[ultra thick, color=blue!60!black, domain=-4.3:+6]{2.72**x}
     \tkzFct[ultra thick, color=Green!60!black, domain=0:+10.3]{log(x)}
     \tkzFct[thick, black, dashed, domain=-4:+10.3]{x}
    }
@@ -969,7 +1018,7 @@
     \rcom{-4}{+6}{-2}{+2}{gray!50, very thin, step=1}
     \tkzInit[xmin=-4.3, xmax=+6.3, ymin=-4, ymax=+4]
     \tkzFct[ultra thick, color=Green!60!black, domain=-4.3:+6.3]{sin(x)}
-    \begin{scope}[thick, dashed, color=Maroon!40!black]
+    \begin{scope}[thick, dashed, color=blue!40!black]
      \tkzInit[xmin=-4.3, xmax=+6.3, xstep=1, ymin=-2, ymax=2]
      \foreach \i in {-4, -3.5, -3, -2.5, -2, -1.5, -1, -.5,
          0, .5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6}
@@ -983,7 +1032,7 @@
       \disegnod{6}{
       \rcom{-4}{+6}{-2}{+2}{gray!50, very thin, step=1}
      \tkzInit[xmin=-4.3, xmax=+6.3, ymin=-4, ymax=4]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-4.3:+6.3]{cos(x)}
+     \tkzFct[ultra thick, color=blue!50!black, domain=-4.3:+6.3]{cos(x)}
       }
 }
 
@@ -992,7 +1041,7 @@
     \rcom{-4}{+6}{-2}{+2}{gray!50, very thin, step=1}
     \tkzInit[xmin=-4.3, xmax=+6.3, ymin=-4, ymax=+4]
     \tkzFct[ultra thick, color=Green!60!black, domain=-4.3:+6.3]{cos(x)}
-    \begin{scope}[thick, dashed, color=Maroon!40!black]
+    \begin{scope}[thick, dashed, color=blue!40!black]
      \tkzInit[xmin=-4.3, xmax=+6.3, xstep=1, ymin=-2, ymax=2]
      \foreach \i in {-4, -3.5, -3, -2.5, -2, -1.5, -1, -.5,
          0, .5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6}
@@ -1006,7 +1055,7 @@
       \disegnod{6}{
       \rcom{-4}{+6}{-2}{+2}{gray!50, very thin, step=1}
      \tkzInit[xmin=-4.3, xmax=+6.3, ymin=-4, ymax=4]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=-4.3:+6.3]{-sin(x)}
+     \tkzFct[ultra thick, color=blue!50!black, domain=-4.3:+6.3]{-sin(x)}
       }
 }
 
@@ -1018,7 +1067,7 @@
     \tkzFct[ultra thick, color=Green!60!black, domain=-3.14:-1.58]{tan(x)}
     \tkzFct[ultra thick, color=Green!60!black, domain=-1.55:1.55]{tan(x)}
     \tkzFct[ultra thick, color=Green!60!black, domain= 1.58: 3.14]{tan(x)}
-     \begin{scope}[thick, dashed, color=Maroon!40!black, xstep=1]
+     \begin{scope}[thick, dashed, color=blue!40!black, xstep=1]
       \foreach \i in {-3, -2.5, -2, -1.8}
            \tkzFct[domain=\i-1:\i+1]{(x-\i)/(cos(\i))**2+tan(\i)};
       \foreach \i in {-1.5, -1, -.5, 0, .5, 1, 1.5}
@@ -1034,7 +1083,7 @@
      \disegnod{4.5}{
      \rcom{-4}{+4}{-1}{+6}{gray!50, very thin, step=1}
      \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-1, ymax=6.3]
-      \begin{scope}[ultra thick, color=Maroon!50!black]
+      \begin{scope}[ultra thick, color=blue!50!black]
      \tkzFct [domain=-3.1:-1.6]{1/(cos(x))**2}
       \tkzFct [domain=-1.54:1.54]{1/(cos(x))**2}
      \tkzFct [domain=1.6:3.1]{1/(cos(x))**2}
@@ -1047,22 +1096,25 @@
 %       \disegnod{6}{
 %       \rcom{-1}{+6}{-1}{+6}{gray!50, very thin, step=1}
 %      \tkzInit[xmin=-1.3, xmax=+11.3, ymin=-1, ymax=12]
-%      \tkzFct[ultra thick, color=Maroon!50!black, domain=.5:5]{3*sin(.5*x)}
+%      \tkzFct[ultra thick, color=blue!50!black, domain=.5:5]{3*sin(.5*x)}
 %      \draw [color=Cyan!50!black, thick, dashed](.8, 1.9) -- (4, 3.7);
 %      \begin{scope}[black]
 %        \draw (-.5, 2.85) node [rotate=90] {\(f(x_0)\approx f(x_0+dx)\)}-- 
 %        (2.5, 2.85) -- (2.5, 0) node [below] {\(x_0\approx x_0 + dx\)}
-%        (5,1.5) node {\(y=f(x)\)} (6, 4.8) node [rotate=30]{\(y=f'(x_0)\Delta x+f(x_0)\)};
-%        \microscopio{(2.5, 2.85)}{1}{90}{-70}{2}{(0, 7.5)}{\(\times \infty\)}
+%        (5,1.5) node {\(y=f(x)\)} (6, 4.8) node 
+% [rotate=30]{\(y=f'(x_0)\Delta x+f(x_0)\)};
+%        \microscopio{(2.5, 2.85)}{1}{90}{-70}{2}{(0, 7.5)}
+%                    {\(\times \infty\)}
 %        \draw (0, 5) -- (3.4, 7) 
 %              (.85, 5.5)   -- (3, 5.5) 
 %              (3, 6.8) -- (3, 4.1)  (.85, 5.5) -- (.85, 4.1)
 %              (.85, 4.6) node {\(\pst{x_0}\)};
 %        \draw (3, 6.1) node {\(dy\)} (1.9, 5.5) node {\(dx\)};
 %        \microscopio{(3, 6.8)}{1}{20}{-140}{2}{(6, 6.2)}{\(\times \infty\)}
-%        \tkzFct[ultra thick, color=Maroon!50!black, domain=3.88:7.2]{.59*x+5}
+%        \tkzFct[ultra thick, color=blue!50!black, domain=3.88:7.2]{.59*x+5}
 %        \draw (6,8) node [rotate=30] {grafico};
-%        \tkzFct[ultra thick, color=Cyan!50!black, dashed, domain=3.5:6.8]{.59*x+6}
+%        \tkzFct[ultra thick, color=Cyan!50!black, dashed, 
+% domain=3.5:6.8]{.59*x+6}
 %        \draw (5,9.3) node [color=Cyan!50!black, rotate=30] {tangente};
 %      \end{scope}
 %      }
@@ -1114,11 +1166,11 @@
       \disegnod{6}{
       \rcom{-1}{+6}{-1}{+6}{gray!50, very thin, step=1}
      \tkzInit[xmin=-1.3, xmax=+6.3, ymin=-1.3, ymax=6.3]
-     \tkzFct[ultra thick, color=Maroon!50!black, domain=.5:4]{3*sin(.5*x)}
+     \tkzFct[ultra thick, color=blue!50!black, domain=.5:4]{3*sin(.5*x)}
      \tkzFct[ultra thick, color=Cyan!50!black, dashed, domain=.5:4]
      {1*(x-1.57)+ 2.15}
      \filldraw (1.57, 3*sin 45) circle (1.4pt);
-     \draw [color=Maroon!50!black, thick] (1.57, 2.13) -- (4.2, 2.13)
+     \draw [color=blue!50!black, thick] (1.57, 2.13) -- (4.2, 2.13)
         (4, 2.13) -- (4, 2.7) 
         (4, 2.4) node {\(\Delta f(x)\)};
      \draw [color=Cyan!50!black, thick] (4.2 , 2.13) -- (5.5, 2.13)
