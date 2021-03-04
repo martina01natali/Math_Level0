@@ -166,34 +166,35 @@ Misurando le temperature in una recente notte invernale, abbiamo registrato:
 \begin{tabular}{cccc}\toprule
 h (ore) & \(T (^\circ C)\) & \(\Delta T\) 
              & \(\frac{\Delta T}{\Delta h}\)\\\midrule
-\(20\) & \(4\) & \dots & \dots
+\(21\) & \(3\) & \(-3\) &\(-3\) \\
 \(22\) & \(0\) & 0 & 0 \\
-\(23\) & \(0\) & -1 &-1\\
+\(23\) & \(0\) & \(-1\) & \(-1\) \\
 \(24\) & \(-1\) &\dots & \dots\\
-\(1\)  & \(-2\)\\
-\(2\)  & \(-3\) \\
-...    & ... \\
-\(5\)  &  \(-4,5\) & 2,5 & 1,25\\
-\(7\)  &  \(-2\)\\ \bottomrule
+\(1\)  & \(-3\) & \(-1\) &\(-0,5\)\\
+\(3\)  & \(-4\) &\dots & \dots\\
+\(4\)  & \(-5\) & \(-5\)  &\(0\)\\
+\(5\)  & \(-5\) & \(0\) & \(2,5\)\\
+\(7\)  & \(0\)  &
+\\ \bottomrule
 \end{tabular}
 \label{tab:temperaturea}
 \end{center}
 \end{minipage}
  \hfill
 \begin{minipage}{.48 \textwidth}
- \begin{center}
- \temperaturea
-\end{center}
-\label{graf:temperature}
+\begin{inaccessibleblock}[Grafico delle temperature per punti distanziati]
+\begin{center} \scalebox{1}{\temperaturea} \end{center}
+\end{inaccessibleblock}
+\label{graf:temperaturea}
 \end{minipage}
 
 È facile calcolare le variazioni \(\Delta T\), ora per ora. Fra le 22 e le 23 
 non c'è variazione: l'incremento è zero. \\
-Alle 23 la temperatura iniza a calare: rispetto alle 24 c'è una 
-variazione negativa di un grado, quindi l'incremento \( \Delta T=-1\). \\
-Fra le \(5\) e le \(7\) l' incremento \(\Delta T= 2,5 ^\circ C\). Ma stavolta 
+Alle 23 la temperatura iniza a calare di \(1^\circ C\) rispetto alle 24, quindi 
+l'incremento \( \Delta T=-1\). \\
+Fra le \(5\) e le \(7\) l' incremento \(\Delta T= 5 ^\circ C\). Ma stavolta 
 la differenza è su un intervallo di \(2\) ore, quindi una variazione media di 
-\(1,25 ^\circ C\) all'ora.
+\(2,5 ^\circ C\) all'ora.
  
 Mettendo in grafico i dati di questa funzione empirica, ne risulta una 
 spezzata. L'inclinazione dei vari segmenti si può calcolare direttamente sul 
@@ -245,7 +246,24 @@ diverse pendenze.
 \end{minipage}
 
 
-    
+% <<<<<<< HEAD
+%     
+% =======
+\affiancati{.50}{.50}{
+%grafico temperature smussato
+\begin{inaccessibleblock}[Grafico delle temperature con punti molto vicini]
+\begin{center} \scalebox{1}{\temperatureb} \end{center}
+\end{inaccessibleblock}
+\label{graf:temperatureb}
+}{
+%grafico temperature smussato
+\begin{inaccessibleblock}[Grafico continuo delle temperature]
+\begin{center} \scalebox{1}{\temperaturec} \end{center}
+\end{inaccessibleblock}
+\label{graf:temperaturec}
+}
+
+%>>>>>>> b5e6d815548194f1973585214ed69d15077ee464
 In una situazione ideale, non legata a strumenti di misura necessariamente 
 imperfetti, consideriamo una funzione matematica e il suo grafico e andiamo 
 alla ricerca della pendenza della funzione in un determinato punto. Questa 
