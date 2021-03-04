@@ -567,7 +567,7 @@ di \(x\).
 >>>>>>>>> MANCA: \(dx\) al posto di \(\epsilon\)\\
 >>>>>>>>> \(f'(x)=\frac{df}{dx}\)\\
 
-\(f'\) quindi è la formula che consente di calcolare tutte le pendenze 
+\(f'\) quindi è la formula che consente di calcolare le pendenze 
 di \(f\). Questa formula, ovviamente diversa da funzione a funzione, si deduce 
 dall'espressione di \(f\) applicando il procedimento che abbiamo visto negli 
 esempi.
@@ -614,26 +614,57 @@ questo caso i valori delle pendenze si allineano lungo la retta
 Questo ci conferma che, scelta la funzione \(f\), la sua derivata \(f'\) è la 
 funzione di \(x\) che genera l'insieme delle pendenze di \(f\).
 
-A questo punto andiamo alla ricerca delle regole che ci aiutano a derivare 
-rapidamente i vari tipi di funzione che conosciamo.
-Applichiamo il procedimento per calcolare la pendenza di una funzione 
-in un punto, ma questa volta rimandiamo finché è possibile la sostituzione 
-della variabile con il valore \(x_0\).
-
-
-
-
 
 
 \section{Derivata di funzioni elementari}
 \label{sec:differenziazione_derivatafelementari}
+A questo punto andiamo alla ricerca di regole semplici che ci permettano di 
+calcolare \(f'\) senza ripetere tanti calcoli, come nell'esempio precedente, 
+che in molti casi sono piuttosto laboriosi.
 
+Deriveremo alcune funzioni elementari, cioè non cercheremo la pendenza di 
+queste funzioni per un particolare \(x_0\), ma per qualsiasi \(x\) del loro 
+dominio reale.
 \subsection{Derivata della funzione identica}
 \label{subsec:differenziazione_derivatafidentica}
+\begin{esempio}
+ Deriviamo la funzione più semplice: $f(x)=x$.\\
+ Innanzitutto dovremmo scrivere il differenziale della funzione \(df\), che 
+essendo \(f(x)=x\), risulta: \(df(x)=f(x+\epsilon)-f(x)=x+\epsilon-x=\epsilon\). 
+\\
+In pratica, nella funzione identica il differenziale \(dx=\epsilon\).\\
+Perciò: RD \(=\dfrac{df(x)}{dx}=\dfrac{dx}{dx}=1, \quad  \forall dx \ne 0\);\\
+Poiché il risultato è un numero finito, la parte standard esiste. Inoltre il 
+suo valore non dipende dall'infinitesimo considerato:\\
+\(f'(x)=\pst{\dfrac{df(x)}{dx}}=\pst{1}=1\).\\
+\end{esempio}
+Abbiamo così dimostrato un semplice teorema
+\begin{teorema}
+ La derivata della funzione identica \(f(x)=x\) è \(f'(x)=1\).
+\end{teorema}
+\begin{osservazione}
+ Non avendo specificato un particolare \(x_0\), il risultato vale per qualsiasi 
+\(x\).
+\end{osservazione}
+
+Dall'esempio precedente impariamo anche un dettaglio: al 
+posto di \(\epsilon\) si può scrivere il differenziale \(dx\). Questo ci dà 
+modo di riscrivere la definizione di derivata.
+\begin{definizione}
+ La derivata di una funzione \(f\) è la parte standard del Rapporto 
+Differenziale, se questa esiste e se non cambia valore al variare 
+dell'infinitesimo \(dx\), preso diverso da zero.
+\[
+ f'(x)=\pst{\frac{df(x)}{dx}}.
+\]
+\end{definizione}
+>>>>>>>>>>>\textbf{perché tante cautele?}
 
 \subsection{Derivata della funzione costante}
 \label{subsec:differenziazione_derivatafcostante}
 
+
+\newpage
 \subsection{Derivata della funzione lineare}
 \label{subsec:differenziazione_derivataflineare}
 
@@ -703,68 +734,6 @@ della variabile con il valore \(x_0\).
 \begin {comment}
 
  
-\section{Differenziale}
-\label{sec:diff01_differenziale}
-
-\subsubsection{Parte principale}
-\label{subsubsec:diff01_parteprincipale}
-I risultati dei calcoli che seguiranno in molti casi hanno la forma di una 
-somma fra infinitesimi di ordine diverso, come avviene nel prossimo esempio 
-sul differenziale della funzione quadratica e più avanti con le funzioni 
-potenza.
-In una somma di infinitesimi, gli infinitesimi di
-grado superiore (che sono quelli più vicini allo zero) pesano 
-sul risultato infinitamente meno degli altri: sono più trascurabili.
-Quando in una somma di infinitesimi si trascurano quelli di minor peso,
-si dice che si prende la \emph{parte principale} della somma.
-Lo si può fare perché la somma esatta e quella approssimata sono 
-numeri indistinguibili.
-
-\subsubsection{Incremento di una funzione}
-\label{subsubsec:diff01_incremento}
-   
-Si intuisce che la parola incremento significa aumento, cioè differenza fra 
-due valori nel passare dall'uno all'altro. In matematica si chiama 
-incremento anche quando il secondo valore è minore del primo, sicché la 
-differenza risulta negativa.
-\begin{esempio}
-Vogliamo calcolare l'incremento della 
-funzione:~\(f(x) = \dfrac{1}{4} x^2 -x -3\)
-quando \(x\) parte da~\(3\) e aumenta di~\(4\).
-
-
-\begin{minipage}{.48 \textwidth}
-Devo calcolare:
-\begin {itemize}[nosep]
- \item quanto vale la funzione per~$x_0=3$ e $x_1=3+4=7$;
- \item la differenza del secondo valore meno il primo: $f(7)-f(4)$.
-\end {itemize}
-\begin{align*}
- \Delta f &= f(7) - f(3) = 
-             \tonda{\dfrac{7^2}{4}-7-3} - \tonda{\dfrac{3^2}{4}-3-3} =\\
-          &= \dfrac{49}{4} -10 - \dfrac{9}{4} +6 =
-             \dfrac{40}{4} -10 +6 =6.
-\end{align*}
-\end{minipage}
- \hfill
-\begin{minipage}{.48 \textwidth}
- \begin{center}
-\incremento
- \end{center}
-\end{minipage}
-\end{esempio}
-È abbastanza evidente che il valore dell'incremento dipende dalla funzione, 
-dal punto di partenza e dall'incremento della $x$.
-
-\begin{definizione}
- L'incremento di una funzione indica di quanto aumenta (diminuisce) il valore 
-di 
-quella funzione quando la sua variabile indipendente (\(x\)) varia di una certa 
-quantità \(a\) nel passare da \(x_0\) a \(x_0+a\). \(a\) può essere positivo o 
-negativo.
-\[\Delta f(x_0) = f \tonda{x_0 + a} - f(x_0).\]
-\end{definizione}
-
 
 \ifcoding
 Con Python.
@@ -783,65 +752,6 @@ con la funzione \(f(x)= 2^x\))
 \subsubsection{Differenziale di una funzione}
 \label{subsubsec:diff01_parteprincipale}
 
-In matematica, e nelle sue applicazioni, sono particolarmente importanti 
-gli incrementi che una funzione subisce quando la variabile 
-indipendente (\(x\)) varia di una quantità infinitesima. Incrementi di 
-questo tipo, se esistono e se sono infinitesimi, si chiamano ''differenziali``.
-
-\begin{definizione}
- Il differenziale di una funzione è l'incremento infinitesimo, se c'è, 
- che la funzione subisce a causa di una variazione infinitesima della sua 
-variabile indipendente \(x\), a partire da un valore fissato \(x\):
-\[df(x) = f \tonda{x + \epsilon} - f(x).\]
-\end{definizione}
-
-Come già visto per l'incremento finito $\Delta f$, anche il differenziale $df$ 
-dipende dall'espressione della funzione, dal valore fissato dove inizia la 
-variazione della $x$ e dal suo incremento infinitesimo~$\epsilon$.\\
-Quindi il differenziale di una funzione \(df\) è esso stesso  una funzione:
-\(df=F(f, x, \epsilon)\).
-\begin{osservazione}
-Per segnalare che il simbolo \(df\) (oppure \(dx\), ecc.) non è il prodotto fra 
-due variabili ma indica una differenza infinitesima, nella lettura si pronuncia:
-\textit{de effe (de ics)}.
-\end{osservazione}
-\begin{osservazione}
-I differenziali, essendo infinitesimi, sono osservabili solo con 
-microscopi non standard.
-\end{osservazione}
-
-\begin{minipage}{.48 \textwidth}
-\begin{esempio}
-Vogliamo calcolare l'incremento della 
-funzione:~\(f(x) = \dfrac{1}{4} x^2 -x -3\)
-quando \(x\) parte da~\(7\) e aumenta di~\(\epsilon\).
-\begin{align*}
-  df(7) &= f(7+\epsilon) - f(7) = \\
-        &= \dfrac{\tonda{7 +\epsilon}^2}{4}  -\tonda{7 +\epsilon} -3 - 
-           \dfrac{7^2}{4}  +7 +3 =\\
-        &= \dfrac{49 +14 \epsilon +\epsilon^2}{4} -10 -\epsilon - 
-           \dfrac{49}{4} +10 =\\
-        &= \dfrac{14 \epsilon +\epsilon^2}{4} -\epsilon 
-        = \dfrac{10 \epsilon +\epsilon^2}{4} =\\
-        &= 2,5 \epsilon + \dfrac{\epsilon^2}{4}, \quad \forall \epsilon. 
-%\sim 2,5 \epsilon
-\end{align*}
-\end{esempio}
-\end{minipage}
- \hfill
-\begin{minipage}{.48 \textwidth}
- \begin{center}
-\differenziale
- \end{center}
-\end{minipage}
-L'incremento della funzione è un differenziale: un infinitesimo che è la somma 
-di due infinitesimi di ordine diverso. Il risultato non cambia 
-sostanzialmente, se al posto di \(\epsilon\) svolgiamo lo stesso calcolo 
-utilizzando un diverso infinitesimo \(\delta\). Per significare che il 
-risultato non dipende dalla scelta dell'infinitesimo, si indica: \(\forall 
-\epsilon\).
-
- 
 \subsection{Differenziale della variabile $x$}
 \label{subsec:diff01_diffx}
 
