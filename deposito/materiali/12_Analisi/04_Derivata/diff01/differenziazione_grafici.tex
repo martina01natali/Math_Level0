@@ -35,12 +35,34 @@
 
 \end{comment}
 
-\newcommand{\temperaturepunti}{% 
-  % Punti per le funzioni temperatura
-  \foreach \xp/\yp in {1/3, 2/0, 3/0, 4/-1, 5/-3, 
-%                        6/-3, 
-                       7/-4, 8/-5, 9/-5, 11/0} 
-    \filldraw (\xp, \yp) [blue!50!black] circle(2pt);
+\newcommand{\cadutapiano}[1]{% 
+  \def \ordlabel{#1}
+    \rcomvar{0}{+6}{0}{12}{gray!50, very thin, step=1}{t}{\ordlabel}
+    \foreach \tx in {0,...,6} 
+      \draw (\tx, 0) [black, below] node {\footnotesize\(\tx\)};
+    \foreach \ty/\ly in {0, 1/5, 2/10, 3/15, 4/20, 5/25, 6/30, 7/35,
+                        8/40, 9/45, 10/50, 11/55} 
+      \draw (0, \ty) [black, left] node {\footnotesize\(\ly\)};
+}
+
+\newcommand{\tempospaziocaduta}{% 
+  % definita in intervallo 0-inf.
+  \disegno[5]{
+    \cadutapiano{s}
+    \tkzInit[xmin=-0,xmax=+6.3,ymin=-0.3,ymax=+12.3]
+    \tkzFct[domain=0:+6.3, ultra thick, color=blue!50!black]
+           {.2*1./2*9.81*x**2}
+  }
+}
+
+\newcommand{\tempovelocitacaduta}{% 
+  % definita in intervallo 0-inf.
+  \disegno[5]{
+    \cadutapiano{v}
+    \tkzInit[xmin=-0,xmax=+6.3,ymin=-0.3,ymax=+12.3]
+    \tkzFct[domain=0:+6.3, ultra thick, color=green!50!black]
+           {.2*9.81*x}
+  }
 }
 
 \newcommand{\temperaturepiano}{% 
@@ -48,7 +70,15 @@
   \rcom{-0}{+12}{-5}{+4}{gray!50, very thin, step=1}
   \foreach \xp/\lab in {1/21, 2/22, 3/23, 4/24, 5/1, 6/2, 
                         7/3, 8/4, 9/5, 10/6, 11/7} 
-    \filldraw (\xp, 0) [black, below] node {\footnotesize\(\lab\)};
+    \draw (\xp, 0) [black, below] node {\footnotesize\(\lab\)};
+}
+
+\newcommand{\temperaturepunti}{% 
+  % Punti per le funzioni temperatura
+  \foreach \xp/\yp in {1/3, 2/0, 3/0, 4/-1, 5/-3, 
+%                        6/-3, 
+                       7/-4, 8/-5, 9/-5, 11/0} 
+    \filldraw (\xp, \yp) [blue!50!black] circle(2pt);
 }
 
 \newcommand{\temperaturea}{% 
@@ -96,8 +126,6 @@
   }
 }
 
-
-
 \newcommand{\parabolaetangente}{% 
   % Parabola e tangenti.
   \rcom{-2}{+10}{-1}{+6}{gray!50, very thin, step=1}
@@ -141,6 +169,24 @@
                          node [color=black, above right=-1.5mm, scale=.9] 
                          {\(P'\)};
   }
+}
+
+\newcommand{\funzioneederivata}{% 
+  % Una funzione e la sua derivata.
+  \def \fun{1./3*x**2 -2*x +5}
+  \def \der{2./3*x -2}
+  \disegno{
+  \rcom{-3}{+8}{-4}{+12}{gray!50, very thin, step=1}
+  \tkzInit[xmin=-3.3, xmax=+8.3, ymin=-4.3, ymax=+12.3]
+  \tkzFct[ultra thick, color=blue!50!black, domain=-3.3:+8.3]{\fun}
+  \tkzFct[ultra thick, color=green!50!black, domain=-3.3:+8.3]{\der}
+  \foreach \xp/\yp in {-2/10.33, -1/7.33, 0/5, 1/3.33, 2/2.33,
+                       3/2, 4/2.33, 5/3.33, 6/5, 7/7.33, 8/10.33} 
+    \filldraw (\xp, \yp) [blue!50!black] circle(2pt);
+  \foreach \xp/\yp in {-3/-4, -2/-3.33, -1/-2.67, 0/-2, 1/-1.33, 2/-0.66,
+                       3/0, 4/0.67, 5/1.33, 6/2, 7/2.67, 8/3.33} 
+    \filldraw (\xp, \yp) [green!50!black] circle(2pt);
+    }
 }
 
 \newcommand{\incremento}{% 
