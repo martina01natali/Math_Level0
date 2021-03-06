@@ -173,19 +173,20 @@
 
 \newcommand{\funzioneederivata}{% 
   % Una funzione e la sua derivata.
-  \def \fun{1./3*x**2 -2*x +5}
-  \def \der{2./3*x -2}
+%   \def \fun{1./3*\x**2 -2*\x +5} % Questo non va!
+  \def \fun{1./3*\x*\x -2*\x +5} % Questo sì!
+  \def \der{2./3*\x -2}
   \disegno{
   \rcom{-3}{+8}{-4}{+12}{gray!50, very thin, step=1}
   \tkzInit[xmin=-3.3, xmax=+8.3, ymin=-4.3, ymax=+12.3]
-  \tkzFct[ultra thick, color=blue!50!black, domain=-3.3:+8.3]{\fun}
-  \tkzFct[ultra thick, color=green!50!black, domain=-3.3:+8.3]{\der}
-  \foreach \xp/\yp in {-2/10.33, -1/7.33, 0/5, 1/3.33, 2/2.33,
-                       3/2, 4/2.33, 5/3.33, 6/5, 7/7.33, 8/10.33} 
-    \filldraw (\xp, \yp) [blue!50!black] circle(2pt);
-  \foreach \xp/\yp in {-3/-4, -2/-3.33, -1/-2.67, 0/-2, 1/-1.33, 2/-0.66,
-                       3/0, 4/0.67, 5/1.33, 6/2, 7/2.67, 8/3.33} 
-    \filldraw (\xp, \yp) [green!50!black] circle(2pt);
+  \graficoepunti{ultra thick, color=blue!50!black, domain=-3.3:+8.3}
+                {\fun}
+                {blue!50!black}{-2}{8}
+  \node at (-2.5, 8.5) {\(f(x)\)};
+  \graficoepunti{ultra thick, color=green!50!black, domain=-3.3:+8.3}
+                {\der}
+                {green!50!black}{-3}{8}
+  \node at (-2.5, -2.5) {\(f'(x)\)};
     }
 }
 
