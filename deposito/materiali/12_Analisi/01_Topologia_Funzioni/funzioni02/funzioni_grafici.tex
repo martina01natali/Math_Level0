@@ -88,67 +88,76 @@
       (0, \risultato) node [left, blue!50!black] {\(f(x)\)};
     \draw [dashed, blue!50!black] (\argomento, \risultato) --
       (\argomento, 0) node [below, red!50!black] {\(x\)};
-    \filldraw [Maroon!50!black] (\argomento, \risultato) circle (1.5pt)
+    \filldraw [brown!50!black] (\argomento, \risultato) circle (1.5pt)
       node [above] {P(arg; ris)};
   }
 }
 
 \newcommand{\graficoa}{% Alcuni punti del grafico di una funzione.
+  \def \fun{-2*\x+3}
   \disegno{
     \rcom{-5}{+7}{-10}{+10}{gray!50, very thin, step=1}
-    \foreach \x in {-3,...,6}
-      \filldraw [Blue!50!black] (\x, -2*\x+3) circle (2pt);
+    \fpunti{\fun}{brown!50!black}{-3}{+6}
   }
 }
 
+% \newcommand{\graficob}{% Grafico di una funzione con punti evidenziati.
+%   \def \fun{-2*\x+3}
+%   \disegno{
+%     \graficoxy{-5}{+7}{-10}{+10}{brown!50!black}{\fun}
+%     \foreach \x in {-3,...,6}
+%       \filldraw [Blue!50!black] (\x, -2*\x+3) circle (2pt);
+%   }
+% }
+
 \newcommand{\graficob}{% Grafico di una funzione con punti evidenziati.
+  \def \fun{-2*\x+3}
   \disegno{
-    \graficoxy{-5}{+7}{-10}{+10}{-2*x+3}
-    \foreach \x in {-3,...,6}
-      \filldraw [Blue!50!black] (\x, -2*\x+3) circle (2pt);
+    \graficoxy{-5}{+7}{-10}{+10}{brown!50!black}{\fun}
+    \fpunti{\fun}{brown!50!black}{-3}{+6}
   }
 }
 
 
 \newcommand{\intervallimonotonia}{% Interv. di monotonia di una funzione.
   \disegno{
-    \graficoxy{-10}{+10}{-10}{+10}{.03*x**3-.2*x**2-x}
-    \draw [Maroon!50!black] (-1.8, 1) -- (-1.8, 0) node [below] {\(a\)};
-    \draw [Maroon!50!black] (6.25, -6.8) -- (6.25, 0) node [above] {\(b\)};
+    \graficoxy{-10}{+10}{-10}{+10}{brown!50!black}{.03*x**3-.2*x**2-x}
+    \draw [brown!50!black] (-1.8, 1) -- (-1.8, 0) node [below] {\(a\)};
+    \draw [brown!50!black] (6.25, -6.8) -- (6.25, 0) node [above] {\(b\)};
   }
 }
 
 \newcommand{\graficoincipita}{% Grafico di una funzione per l'incipit.
   \disegno{
-    \graficoxy{-5}{+5}{-6}{+6}{.75*x-2}
+    \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{.75*x-2}
   }
 }
 
 \newcommand{\graficoincipitb}{% Grafico di una funzione per l'incipit.
   \disegno{
-    \graficoxy{-5}{+5}{-6}{+6}{-.5*x**2-2*x+3}
+    \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{-.5*x**2-2*x+3}
   }
 }
 
 \newcommand{\graficoincipitc}{% Grafico di una funzione per l'incipit.
   \disegno{
-    \graficoxy{-5}{+5}{-6}{+6}{2**x}
+    \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{2**x}
   }
 }
 
 \newcommand{\graficoincipitd}{% Grafico di una funzione per l'incipit.
   \disegno{
-    \graficoxy{-5}{+5}{-6}{+6}{log(x)}
+    \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{log(x)}
   }
 }
 
 \newcommand{\modelloquadratico}{% Modello quadratico per l'incipit.
   \disegno{
-    \graficoxy{-2}{+12}{-2}{+10}{.1*x**2-.9*x+3}
+    \graficoxy{-2}{+12}{-2}{+10}{brown!50!black}{.1*x**2-.9*x+3}
     \foreach \pi in {
     (1, 2), (2, 1.6), (3, 1.5), (6, 1.2), (7, 1.7), (8, 2), (9, 3.1)
     }
-    \filldraw [Maroon!50!black] \pi circle (2.5pt);
+    \filldraw [brown!50!black] \pi circle (2.5pt);
    
   }
 }
@@ -157,11 +166,11 @@
   \disegno{
     \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
-    \tkzFct[domain=-10.3:+2, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=-10.3:+2, ultra thick, color=brown!50!black]
            {.1*x**3-.5*x**2-2*x+6}
-    \tkzFct[domain=+2:+10.3, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=+2:+10.3, ultra thick, color=brown!50!black]
            {.1*x**3-.5*x**2-2*x+3}
-    \filldraw [Maroon!50!black] (2, +0.8) circle (2.5pt);
+    \filldraw [brown!50!black] (2, +0.8) circle (2.5pt);
   }
 }
 
@@ -169,7 +178,7 @@
   \disegno{
     \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
-    \tkzFct[domain=-10.3:+10.3, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=-10.3:+10.3, ultra thick, color=brown!50!black]
            {(2*x**2 + x + 1) / (x**2 + x + .5)}
   }
 }
@@ -179,11 +188,11 @@
   \disegno{
     \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
-    \tkzFct[domain=-10.3:-2, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=-10.3:-2, ultra thick, color=brown!50!black]
            {\funzione}
-    \tkzFct[domain=-2:+6, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=-2:+6, ultra thick, color=brown!50!black]
            {\funzione}
-    \tkzFct[domain=+6:+10.3, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=+6:+10.3, ultra thick, color=brown!50!black]
            {\funzione}
   }
 }
@@ -193,7 +202,7 @@
   \def \raggio{2pt}
   \disegno{
   \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
-  \begin{scope}[ultra thick, color=Maroon!50!black]
+  \begin{scope}[ultra thick, color=brown!50!black]
     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-0.3,ymax=+10.3]
     \tkzFct[domain=-10:+10]{0.2*x*(x+2)-x+2}
   \end{scope}
@@ -223,7 +232,7 @@
   \disegno{
     \rcom{-2}{+10}{-2}{+10}{gray!50, very thin, step=1}
     \tkzInit[xmin=-2.3,xmax=+10.3,ymin=-2.3,ymax=+10.3]
-    \tkzFct[domain=-10.3:+10.3, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=-10.3:+10.3, ultra thick, color=brown!50!black]
            {.05*x**3-0.73*x**2+3*x+4}
     \draw [thick, color=Green!50!black](1.1, 6.5) -- (1.2, 0) 
           node [thick, below] {a};
@@ -236,7 +245,7 @@
   \disegno{
     \rcom{-2}{+10}{-2}{+10}{gray!50, very thin, step=1}
     \tkzInit[xmin=-2.3,xmax=+10.3,ymin=-2.3,ymax=+10.3]
-    \tkzFct[domain=-10.3:+10.3, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=-10.3:+10.3, ultra thick, color=brown!50!black]
            {.1*x**3-1.1*x**2+3*x+4}
     \draw [thick, color=Green!50!black](1, 6) -- (1, 0) 
           node [thick, below] {a};
@@ -248,7 +257,7 @@
 \newcommand{\graficoint}[6]{  % Grafico di una funzione.
 % NON vanno gli intervalli!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   % Esempio di chiamata:
-  % \disegno{\graficoxy{-7}{+7}{-11}{+10}{2*x+3}{{-7.3/-.9}, {+.9/+7.3}}
+  % \disegno{\graficoint{-7}{+7}{-11}{+10}{2*x+3}{{-7.3/-.9}, {+.9/+7.3}}
   \def \grxmi{#1}
   \def \grxma{#2}
   \def \grymi{#3}
@@ -262,11 +271,11 @@
     \rcom{\grxmi}{\grxma}{\grymi}{\gryma}{gray!50, very thin, step=1}
     \tkzInit[xmin=\grxxmi,xmax=\grxxma,ymin=\gryymi,ymax=\gryyma]
     foreach \xmi/\xma in #6 {
-    \tkzFct[domain=\xmi:\xma, ultra thick, color=Maroon!50!black]
+    \tkzFct[domain=\xmi:\xma, ultra thick, color=brown!50!black]
            {\funzione}}
-%     \tkzFct[domain=-7.3:-1, ultra thick, color=Maroon!50!black]
+%     \tkzFct[domain=-7.3:-1, ultra thick, color=brown!50!black]
 %            {\funzione}
-%     \tkzFct[domain=+1:+7.3, ultra thick, color=Maroon!50!black]
+%     \tkzFct[domain=+1:+7.3, ultra thick, color=brown!50!black]
 %            {\funzione}
 }
 
@@ -284,7 +293,7 @@
 %   \pgfmathparse{\gryma+.3)} \let\gryyma\pgfmathresult
 %     \rcom{\grxmi}{\grxma}{\grymi}{\gryma}{gray!50, very thin, step=1}
 %     \tkzInit[xmin=\grxxmi,xmax=\grxxma,ymin=\gryymi,ymax=\gryyma]
-%     \tkzFct[domain=\grxxmi:\grxxma, ultra thick, color=Maroon!50!black]
+%     \tkzFct[domain=\grxxmi:\grxxma, ultra thick, color=brown!50!black]
 %            {\funzione}
 % }
 
@@ -295,7 +304,7 @@
 %     (-2.5, 9.25), (-1.5, 3.25), (-0.5, -0.75), (0.5, -2.75), 
 %     (1.5, -2.75), (2.5, -0.75), (3.5, 3.25), (4.5, 9.25) 
 %     }
-%     \filldraw [Maroon!50!black] \pi circle (1.5pt);
+%     \filldraw [brown!50!black] \pi circle (1.5pt);
     
     
 % 
