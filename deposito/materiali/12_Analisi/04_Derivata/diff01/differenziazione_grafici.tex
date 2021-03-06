@@ -176,18 +176,20 @@
 %   \def \fun{1./3*\x**2 -2*\x +5} % Questo non va!
   \def \fun{1./3*\x*\x -2*\x +5} % Questo sì!
   \def \der{2./3*\x -2}
+  \def \mix{-3}
+  \def \max{+8}
+  \def \miy{-4}
+  \def \may{12}
   \disegno{
-  \rcom{-3}{+8}{-4}{+12}{gray!50, very thin, step=1}
-  \tkzInit[xmin=-3.3, xmax=+8.3, ymin=-4.3, ymax=+12.3]
-  \graficoepunti{ultra thick, color=blue!50!black, domain=-3.3:+8.3}
-                {\fun}
-                {blue!50!black}{-2}{8}
-  \node at (-2.5, 8.5) {\(f(x)\)};
-  \graficoepunti{ultra thick, color=green!50!black, domain=-3.3:+8.3}
-                {\der}
-                {green!50!black}{-3}{8}
-  \node at (-2.5, -2.5) {\(f'(x)\)};
-    }
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[ultra thick, color=blue!50!black, domain=-3.3:+8.3]{\fun}
+    \fpunti{\fun}{blue!50!black}{-2}{8}
+    \node at (-2.5, 8.5) {\(f(x)\)};
+    \tkzFct[ultra thick, color=green!50!black, domain=-3.3:+8.3]{\der}
+    \fpunti{\der}{green!50!black}{-3}{8}
+    \node at (-2.5, -2.5) {\(f'(x)\)};
+  }
 }
 
 \newcommand{\incremento}{% 
