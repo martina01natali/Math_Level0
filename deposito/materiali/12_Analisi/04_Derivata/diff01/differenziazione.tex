@@ -110,21 +110,22 @@ la parte standard.
 Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo 
 \(t\), dai secondi che passano a partire dall'istante del lancio.
 
-% \begin{minipage}{0.48\textwidth}
+ \begin{minipage}{0.4\textwidth}
  \begin{center}
 \begin{tabular}{cc}\toprule
-\(t\) (in \(s\)) & \(v=9,81\times t\) (in \(m/s\)) \\\midrule
-\(0\) & \(0\)  \\
-\(1\) & \(9,81\times 1 =9,81\) \\
-\(2\) & \(9,81\times 2 =19,62\) \\
-... & ... \\
-\(3,6\) & \(9,81\times 3,36= ...\)\\\bottomrule
+\(t\)        & \(v=9,81\times t\)  \\
+(in \(s\))   &   (in \(m/s\)) \\\midrule
+\(0\)        & \(0\)  \\
+\(1\)        & \(9,81\) \\
+\(2\)        & \(19,62\) \\
+\dots        & \dots \\
+\(3,6\)      & \dots  \\\bottomrule
 \end{tabular}
 \label{tab:diff_velocita}
 \end{center}
-% \end{minipage}
-%  \hfill
-% \begin{minipage}{.48 \textwidth}
+ \end{minipage}
+  \hfill
+ \begin{minipage}{.58 \textwidth}
 \affiancati{.49}{.49}{
 \begin{inaccessibleblock}[Grafico tempo-spazio della caduta libera]
 \begin{center} \scalebox{1}{\tempospaziocaduta} \end{center}
@@ -136,7 +137,7 @@ Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo
 \end{inaccessibleblock}
 \label{graf:tempovelocitacaduta}
 }
-% \end{minipage}
+ \end{minipage}
 
 Il grafico visualizza la legge oraria del 
 moto di caduta libera sotto due aspetti diversi: il ramo di parabola 
@@ -413,13 +414,28 @@ il grafico di una funzione in un certo punto.
 \item La pendenza si calcola nell'insieme \(\IR\);
  \item si considerano infinitesimi diversi da zero;
  \item si scrive e si calcola il Rapporto Differenziale;
- \item se ne calcola la parte standard;
- \item si controlla se questa esiste e se ha sempre lo stesso risultato per 
+ \item se ne calcola la parte standard, se esiste;
+ \item si controlla se la parte standard ha sempre lo stesso risultato per 
 qualsiasi variazione infinitesima, ma diversa da zero, della variabile \(x\);
  \item se si supera il punto precedente, si ottiene il risultato che è un 
 numero reale.
 \end{enumerate}
 \end{itemize}
+\begin{osservazione}
+ Ai punti 4 e 5 dell'elenco si indicano alcuni controlli importanti. Vediamone 
+i motivi.
+ \begin{itemize}
+  \item [4:] Può non esistere la parte standard del Rapporto 
+Differenziale? Sì, perché si tratta di un rapporto fra due infinitesimi e non 
+è detto che risulti un numero finito. La parte standard si può calcolare solo 
+se l'argomento è un numero finito.
+\item [5:] La parte standard può dare risultati diversi a seconda 
+dell'infinitesimo che si usa? Sì, per esempio può cambiare di segno, come 
+accade quando si cerca la pendenza di \(f(x)=|x|\) in \(x_0=0\). L'esmpio sarà 
+discusso più avanti.
+ \end{itemize}
+
+\end{osservazione}
 
 \subsubsection{Brevi note di storia}
 Il calcolo appena descritto fu inventato nel 1600 (Calcolo infinitesimale, o 
@@ -430,10 +446,10 @@ Il Calcolo fiorì con grande successo per 150 anni a partire
 dall'epoca di Newton e Leibniz. 
 Ma suscitava vivaci polemiche fra gli specialisti, perché non si era 
 in grado di spiegare la regola che permetteva di far sparire gli 
-infinitesimi al termine dei calcoli, come al punto 4 dell'elenco.
+infinitesimi al termine dei calcoli, che per noi è il punto 4 dell'elenco.
 
-A quel tempo non si conosceva la teoria degli 
-insiemi numerici, gli iperreali e la funzione parte standard.
+A quel tempo non si conosceva la teoria degli insiemi numerici, gli iperreali e 
+la funzione parte standard.
 Oggi i matematici conoscono meglio la materia e quelle critiche  
 sono superate. 
 Siamo quindi in grado di procedere nello studio di questa nuova branca 
@@ -586,16 +602,18 @@ e viene indicata con \(f'\).
 
 \begin{definizione}
 Chiamiamo \emph{derivata} della funzione \(f\) la funzione \(f'\) che
-dà come risultato la pendenza della funzione \(f\) per ogni valore 
-di \(x\).
+ha come argomento \(x\) e calcola la pendenza della funzione \(f(x)\) per ogni 
+valore di \(x\).
 \end{definizione}
 
 \(f'\) quindi ci dà la formula per calcolare le pendenze 
 di \(f\). Questa formula, ovviamente diversa da funzione a funzione, si applica
 all'espressione di \(f\) secondo il procedimento in 
 \ref{subsubsec:ricetta_pendenza}, come negli esempi.
+
 \begin{esempio}
- Se \(f(x)=\dfrac{1}{3}x^2-2x+5\), quale è l'espressione di \(f'(x)\)?
+\label{esempio:esempio_5}
+Se \(f(x)=\dfrac{1}{3}x^2-2x+5\), quale è l'espressione di \(f'(x)\)?
  
 Non essendo indicato un particolare valore di \(x_0\), proviamo a inventarne 
 qualcuno. Per esempio, per \(x_0=4\) scriviamo:
@@ -638,7 +656,7 @@ Al termine di alcuni tentativi, il quadro della situazione è:
 Per ogni particolare \(x_0\) risulta uno e un solo valore di pendenza, come 
 deve succedere quando due insiemi (quello degli \(x_0\) e quello di 
 \(f'(x_0)\)) si corrispondono secondo una funzione. In 
-questo caso i valori delle pendenze si allineano lungo la retta 
+questo caso i valori della pendenza si allineano lungo la retta 
 \(y=\dfrac{2}{3}x-2\).
 
 
@@ -647,14 +665,14 @@ questo caso i valori delle pendenze si allineano lungo la retta
 \label{sec:differenziazione_derivatafsemplici}
 A questo punto andiamo alla ricerca di regole semplici che ci permettano di 
 calcolare \(f'\) senza ripetere procedimenti laboriosi, come 
-nell'esempio precedente, che in realtà è un caso fra i meno complicati.
+nell'esempio precedente che in realtà è un caso fra i meno complicati.
 
 Deriveremo alcune funzioni molto comuni, cioè non cercheremo la pendenza di 
 queste funzioni per ogni particolare \(x_0\), ma troveremo una formula, 
 unica per ogni \(f\), che si applica per qualsiasi\(x\) del suo dominio 
 reale.
-\subsection{Derivata della funzione identica}
 
+\subsection{Derivata della funzione identica}
 \label{subsec:differenziazione_derivatafidentica}
 \begin{esempio}
  Deriviamo la funzione più semplice: $f(x)=x$.\\
@@ -667,7 +685,7 @@ Poiché il risultato è un numero finito, la parte standard esiste. Inoltre il
 suo valore non dipende dall'infinitesimo considerato:\\
 \(f'(x)=\pst{\dfrac{df(x)}{dx}}=\pst{1}=1\).\\
 \end{esempio}
-Abbiamo così dimostrato un semplice teorema
+Abbiamo così dimostrato un semplice teorema:
 \begin{teorema}
  La derivata della funzione identica \(f(x)=x\) è \(f'(x)=1\).
 \end{teorema}
@@ -687,7 +705,6 @@ dell'infinitesimo \(dx\), preso diverso da zero.
  f'(x)=\pst{\frac{df(x)}{dx}}.
 \]
 \end{definizione}
-%>>>>>>>>>>>\textbf{perché tante cautele?}
 
 \subsection{Derivata della funzione costante}
 \label{subsec:differenziazione_derivatafcostante}
@@ -771,8 +788,8 @@ Poiché la parte standard, che esiste, non dipende dal valore dell'infinitesimo
 % \end{figure}
 
 %\vspace{1em}
-Grafico di \(f(x)=x^2\) con alcune sue tangenti, per mostrare le pendenze 
-delle curva. \\
+Grafico di \(f(x)=x^2\) con alcune sue tangenti, per mostrare le 
+diverse pendenze delle curva. \\
 Accanto: grafico dell'insieme delle pendenze, cioè della funzione derivata 
 \(f'(x)=2x\).\\
 Iniziamo dal ramo sinistro del primo grafico: al crescere di \(x\), la curva e 
@@ -788,13 +805,64 @@ lineare: la pendenza delle tangenti a una parabola varia come varia la \(y\)
 rispetto alla \(x\) in una retta.
 \end{osservazione}
 
-
-\newpage
 \section{Teoremi sulle derivate}
 \label{sec:differenziazione_teoremi}
+Per evitare calcoli laboriosi come quelli dell'Esempio \ref{esempio:esempio_5}, 
+che in realtà sono fra i più agevoli che ci potrebbero capitare, 
+cerchiamo regole di derivazione più immediate. 
 
-\subsection{Derivata della somma di funzioni}
+In quell'esempio, la funzione è \(f(x)=\dfrac{1}{3}x^2-2x+5\),  una somma 
+algebrica di tre addendi: \(\dfrac{1}{3}x^2\),\quad \(-2x\)\quad e\quad  \(+5 
+\): non potremmo derivarli separatamente e poi unire i risultati attraverso una 
+somma? È quello che stiamo per mostrare con i prossimi teoremi.
+
+\subsection{Derivata della somma (algebrica) di funzioni}
 \label{subsec:differenziazione_derivatasomma}
+\begin{teorema}
+ Se una funzione è la somma di due funzioni, anche la sua 
+ derivata, se c'è, sarà la somma delle due derivate.
+\end{teorema}
+\noindent Ipotesi: \(f=f_1 + f_2\) e esiste \(f'(x)\).\tab Tesi: \(f'=f'_1 + 
+f'_2\).\\
+(Ovvero: La derivata di una somma è la somma delle derivate)
+
+\begin{proof}
+Consideriamo il Rapporto Differenziale, calcolato in \(x\), dove \(f_1\), 
+\(f_2\) e quindi anche \(f\), hanno valore. Allora, per ogni infinitesimo non 
+nullo \(dx\):
+\begin{align*}
+ RD&=\dfrac{df(x)}{dx}=\dfrac{d[f_1(x)+ f_2(x)]}{dx}=\dfrac{[f_1(x+dx)+
+     f_2(x+dx)]-[f_1(x) + f_2(x)]}{dx}=\\
+ &= \dfrac{[f_1(x+dx)-f_1(x)] + [f_2(x+dx)-f_2(x)]}{dx}= 
+ \dfrac{f_1(x+dx)-f_1(x)}{dx}+\dfrac{f_2(x+dx)-f_2(x)}{dx}=\\
+  &=\dfrac{df_1(x)}{dx}+\dfrac{df_2(x)}{dx}.
+\end{align*}
+Si è detto che \(f'(x)\) esiste, quindi il Rapporto Differenziale 
+\(\dfrac{df(x)}{dx}\) è un numero finito e la sua parte standard non dipende da 
+\(dx\). Di conseguenza anche i Rapporti Differenziali per \(f_1(x)\) e per
+\(f_2(x)\) sono numeri finiti e le loro parti standard esistono e non possono 
+cambiare valore cambiando \(dx\).\\
+Per le proprietà della funzione parte standard vale quindi:
+\[
+ f'(x)=\pst{\dfrac{df}{dx}}=\pst{\dfrac{df_1(x)}{dx}+\dfrac{df_2(x)}{dx}}=
+ \pst{\dfrac{df_1(x)}{dx}}+\pst{\dfrac{df_2(x)}{dx}}=f'_1(x)+f'_2(x).
+ \]
+\end{proof}
+
+\begin{osservazione}
+ Il teorema vale anche per la differenza, in modo analogo e si può applicare 
+anche alla somma algebrica di più funzioni, come avviene comunemente nei 
+polinomi.
+\end{osservazione}
+
+\begin{esempio}
+ Deriviamo la funzione \(f(x)= x^2-x+12\).\\
+ In base a quanto già sappiamo, la derivata di \(x^2\) è \(2x\), la derivata 
+di \(x\) è \(1\) e la derivata di una costante è \(0\), quindi 
+\(f'(x)=2x-1\).\\
+Come si vede, non è stato necessario scrivere il Rapporto Differenziale.
+\end{esempio}
+
 
 \subsection{Derivata del prodotto di funzioni}
 \label{subsec:differenziazione_derivataprodotto}
@@ -802,6 +870,7 @@ rispetto alla \(x\) in una retta.
 \subsection{Derivata del quoziente di funzioni}
 \label{subsec:differenziazione_derivataquoziente}
 
+\newpage
 \subsection{Derivata di funzioni composte}
 \label{subsec:differenziazione_derivatacomposte}
 
