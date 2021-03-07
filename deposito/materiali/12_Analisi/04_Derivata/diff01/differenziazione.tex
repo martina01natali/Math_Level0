@@ -822,37 +822,36 @@ somma? È quello che stiamo per mostrare con i prossimi teoremi.
  Se una funzione è la somma di due funzioni, anche la sua 
  derivata, se c'è, sarà la somma delle due derivate.
 \end{teorema}
-\noindent Ipotesi: \(f=f_1 + f_2\) e esiste \(f'(x)\).\tab Tesi: \(f'=f'_1 + 
-f'_2\).\\
+\noindent Ipotesi: \(f=g + h\) e esiste \(f'(x)\).\tab Tesi: \(f'=g' + 
+h'\).\\
 (Ovvero: La derivata di una somma è la somma delle derivate)
 
 \begin{proof}
-Consideriamo il Rapporto Differenziale, calcolato in \(x\), dove \(f_1\), 
-\(f_2\) e quindi anche \(f\), hanno valore. Allora, per ogni infinitesimo non 
+Consideriamo il Rapporto Differenziale, calcolato in \(x\), dove \(g\), 
+\(h\) e quindi anche \(f\), hanno valore. Allora, per ogni infinitesimo non 
 nullo \(dx\):
 \begin{align*}
- RD&=\dfrac{df(x)}{dx}=\dfrac{d[f_1(x)+ f_2(x)]}{dx}=\dfrac{[f_1(x+dx)+
-     f_2(x+dx)]-[f_1(x) + f_2(x)]}{dx}=\\
- &= \dfrac{[f_1(x+dx)-f_1(x)] + [f_2(x+dx)-f_2(x)]}{dx}= 
- \dfrac{f_1(x+dx)-f_1(x)}{dx}+\dfrac{f_2(x+dx)-f_2(x)}{dx}=\\
-  &=\dfrac{df_1(x)}{dx}+\dfrac{df_2(x)}{dx}.
+ RD&=\dfrac{df(x)}{dx}=\dfrac{d[g(x)+ h(x)]}{dx}=\dfrac{[g(x+dx)+
+     h(x+dx)]-[g(x) + h(x)]}{dx}=\\
+ &= \dfrac{[g(x+dx)-g(x)] + [h(x+dx)-h(x)]}{dx}= 
+ \dfrac{g(x+dx)-g(x)}{dx}+\dfrac{h(x+dx)-h(x)}{dx}=\\
+  &=\dfrac{dg(x)}{dx}+\dfrac{dh(x)}{dx}.
 \end{align*}
 Si è detto che \(f'(x)\) esiste, quindi il Rapporto Differenziale 
 \(\dfrac{df(x)}{dx}\) è un numero finito e la sua parte standard non dipende da 
-\(dx\). Di conseguenza anche i Rapporti Differenziali per \(f_1(x)\) e per
-\(f_2(x)\) sono numeri finiti e le loro parti standard esistono e non possono 
+\(dx\). Di conseguenza anche i Rapporti Differenziali per \(g(x)\) e per
+\(h(x)\) sono numeri finiti e le loro parti standard esistono e non possono 
 cambiare valore cambiando \(dx\).\\
 Per le proprietà della funzione parte standard vale quindi:
 \[
- f'(x)=\pst{\dfrac{df}{dx}}=\pst{\dfrac{df_1(x)}{dx}+\dfrac{df_2(x)}{dx}}=
- \pst{\dfrac{df_1(x)}{dx}}+\pst{\dfrac{df_2(x)}{dx}}=f'_1(x)+f'_2(x).
+ f'(x)=\pst{\dfrac{df}{dx}}=\pst{\dfrac{dg(x)}{dx}+\dfrac{dh(x)}{dx}}=
+ \pst{\dfrac{dg(x)}{dx}}+\pst{\dfrac{dh(x)}{dx}}=g'(x)+h'(x).
  \]
 \end{proof}
 
 \begin{osservazione}
  Il teorema vale anche per la differenza, in modo analogo e si può applicare 
-anche alla somma algebrica di più funzioni, come avviene comunemente nei 
-polinomi.
+anche alla somma algebrica di più funzioni, per esempio ai polinomi.
 \end{osservazione}
 
 \begin{esempio}
@@ -866,6 +865,81 @@ Come si vede, non è stato necessario scrivere il Rapporto Differenziale.
 
 \subsection{Derivata del prodotto di funzioni}
 \label{subsec:differenziazione_derivataprodotto}
+
+In questo caso non presentiamo una vera dimostrazione, ma ricorriamo a un
+a un disegno che assumiamo riesca a descrivere efficacemente la 
+regola.
+
+Immaginiamo che le due funzioni, calcolate in un generico punto \(x\),
+esprimano la base e l'altezza di un rettangolo:
+\(b(x)=b\) sarà la base  e \(h(x)=h\) sarà l'altezza. 
+L'area ovviamente si ottiene da \(b(x)\cdot h(x)=\mathit{A}(x)\). 
+Differenziare il prodotto \(d\quadra{\mathit{A}(x)}\) vuol dire calcolare di
+quanto aumenta l'area del rettangolo, se i lati subiscono un incremento 
+infinitesimo. 
+
+\begin{osservazione}
+Gli incrementi della base e dell'altezza possono essere 
+diversi, perché \(b(x)\) e \(h(x)\) sono funzioni diverse, le quali possono
+reagire in modo diverso all'incremento \(dx\).
+\end{osservazione}
+
+\begin{teorema}
+ Se una funzione è il prodotto di due funzioni (le cui derivate esistono), la 
+sua  derivata, se esiste, è la somma fra due prodotti: la derivata della
+ prima funzione per la seconda più la prima funzione per il la 
+derivata della seconda.
+\end{teorema}
+\noindent Ipotesi: \(\mathit{A}(x)=b(x)\cdot h(x)\) \text{ e esistono }
+\(\mathit{A'}(x),\ b'(x),\ h'(x)\).\\ 
+Tesi: \(\mathit{A'}(x)=b'(x)\cdot h(x)+b(x)\cdot h'(x)\).
+
+\begin{figure}[h]
+\begin{inaccessibleblock}
+  [Rettangolo con uno gnomone finito e rettangolo con gnomone infinitesimo.]
+ \begin{center}
+ \begin{minipage}[]{.38 \textwidth}
+  \vspace{23mm} 
+  \incrementaleprodotto
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.58 \textwidth}
+  \differenzialeprodotto
+ \end{minipage}
+ \end{center}
+\end{inaccessibleblock}
+\caption{Incrementi finito e infinitesimo dell'area di un rettangolo} 
+\label{fig:Incre_prodotto}
+\end{figure}
+%\vspace{-.5em}
+\begin{proof}
+Prima di impostare la derivata, ragioniamo sull'espressione 
+dell'incremento infinitesimo di area che il disegno ci suggerisce. 
+
+La figura viene usata spesso per raffigurare il prodotto di due 
+binomi. Sarebbe da dimostrare che sia giusto usarla anche per il prodotto 
+fra le funzioni e i loro differenziali, ma per i nostri scopi accettiamo 
+queste semplificazioni.
+
+Concentriamoci sulla zona colorata del disegno, la figura a forma 
+di L rovesciata, detta \emph{gnomone}. È formata da tre parti:
+\begin{itemize} [nosep]
+ \item un rettangolo sottile, verticale e sulla destra, di base
+ infinitesima \(db(x)\) e altezza \(h(x)\);
+ \item un rettangolo orizzontale, in alto, di base \(b(x)\) e
+ altezza infinitesima \(dh(x)\);
+ \item un rettangolino in alto a destra, di area \(db(x) \cdot dh(x)\).
+\end{itemize}
+
+\end{proof}
+Dato che l'ultimo termine è un infinitesimo di ordine
+superiore, il risultato può essere approssimato alla sua parte principale, 
+senza gravi danni: \(d\mathit{A}(x)\sim db(x)\cdot h(x)+b(x)\cdot dh(x)\).
+
+
+
+
+
 
 \subsection{Derivata del quoziente di funzioni}
 \label{subsec:differenziazione_derivataquoziente}
