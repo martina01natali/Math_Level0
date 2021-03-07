@@ -405,14 +405,14 @@
     (\xb, \ya) node [below] {\(b\)} -- 
     (\xc, \ya) node [below] {\(b + \Delta b\)} --
     (\xc, \yc) -- 
-    (\xa, \yc) node [left] {\(h + \Delta h\)} -- 
-    (\xa, \yb) node [left] {\(h\)} -- cycle;
+    (\xa, \yc) node [left] {\(a + \Delta a\)} -- 
+    (\xa, \yb) node [left] {\(a\)} -- cycle;
     \draw (\xb, \ya) -- (\xb, \yc) (\xa, \yb) -- (\xc, \yb);
-    \draw (\xb / 2, \yb / 2) node {\(b \cdot h\)};
+    \draw (\xb / 2, \yb / 2) node {\(b \cdot a\)};
     \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
-	    \draw (\xb / 2, \yb + \dy / 2) node {\(b \cdot \Delta h\)};
-	    \draw (\xb + \dx / 2, \yb / 2) node [rotate=90] {\(\Delta b \cdot h\)};
-	    \draw (\xb + \dx / 2, \yb + \dy / 2) node {\(\Delta b \cdot \Delta h\)};
+	    \draw (\xb / 2, \yb + \dy / 2) node {\(b \cdot \Delta a\)};
+	    \draw (\xb + \dx / 2, \yb / 2) node [rotate=90] {\(\Delta b \cdot a\)};
+	    \draw (\xb + \dx / 2, \yb + \dy / 2) node {\(\Delta b \cdot \Delta a\)};
     \end{scope}
     }
 }
@@ -429,9 +429,9 @@
   \disegno[4]{
     \begin{scope}[font=\fontsize{8}{8}] %\scriptsize % \small
     \draw (\xa, \ya) node [below] {\(0\)} node [left] {\(0\)} -- 
-    (\xb, \ya) node [below] {\(b \approx b + \Delta b\)} -- 
+    (\xb, \ya) node [below] {\(b \approx b + d b\)} -- 
     (\xb, \yb) -- 
-    (\xa, \yb) node [left] {\(a \approx a + \Delta a\)} -- cycle;
+    (\xa, \yb) node [left] {\(a \approx a + d a\)} -- cycle;
     \microscopio{(\xb, \yb)}{2}{120}{-50}{2}{(\xb, 9)}{\(\times n\)}
     \draw (.29*\xb, 1.82*\yb) -- (0.65*\xb, 1.82*\yb) -- 
           (0.65*\xb, 1.32*\yb);
@@ -450,11 +450,11 @@
     \draw (\xb / 2, \yb / 2) node {\(b \cdot a\)};
     \end{scope}
     \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
-	    \draw (1.35*\xb, 1.7*\yb) node{\(b \cdot \Delta a\)};
-	    \draw (1.57*\xb, 1.37*\yb) node [rotate=90] {\(\Delta b \cdot a\)};
-% 	    \draw (1.63*\xb, 1.85*\yb) node {\(\Delta b \cdot \Delta h\)};
+	    \draw (1.35*\xb, 1.7*\yb) node{\(b \cdot d a\)};
+	    \draw (1.57*\xb, 1.37*\yb) node [rotate=-90] {\(a \cdot d b\)};
+% 	    \draw (1.63*\xb, 1.85*\yb) node {\(d b \cdot d h\)};
 	    \draw (1.62*\xb, 1.73*\yb) node [rotate=-45] 
-	                                    {\(\Delta b \cdot \Delta a\)};
+	                                    {\(d b \cdot d a\)};
     \end{scope}
     }
 }
