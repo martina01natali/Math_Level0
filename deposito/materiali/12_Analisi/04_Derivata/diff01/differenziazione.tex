@@ -888,8 +888,8 @@ reagire in modo diverso all'incremento \(dx\).
 \begin{teorema}
  Se una funzione è il prodotto di due funzioni (le cui derivate esistono), la 
 sua  derivata, se esiste, è la somma fra due prodotti: la derivata della
- prima funzione per la seconda più la prima funzione per il la 
-derivata della seconda.
+ prima funzione per la seconda (non derivata) più la prima funzione (non 
+derivata) per il la derivata della seconda.
 \end{teorema}
 \noindent Ipotesi: \(\mathit{S}(x)=b(x)\cdot a(x)\) \text{ e esistono }
 \(\mathit{S'}(x),\ b'(x),\ a'(x)\).\\ 
@@ -914,10 +914,9 @@ Tesi: \(\mathit{S'}(x)=b'(x)\cdot a(x)+b(x)\cdot a'(x)\).
 \end{figure}
 %\vspace{-.5em}
 Non daremo una vera dimostrazione della regola, ma ci lasceremo guidare da un 
-disegno che spesso si usa per rappresentare il prodotto fra due binomi. Anche 
-noi ci regoliamo in questo senso, quindi usiamo il disegno 
-come guida, senza soffermarci sui suoi limiti: infatti si potrebbe discutere 
-sul fatto che un'area rappresenti un prodotto tra funzioni.
+disegno che spesso si usa per rappresentare il prodotto fra due binomi, senza 
+soffermarci sui suoi limiti: infatti si potrebbe discutere sul fatto che un'area 
+rappresenti un prodotto tra funzioni.
 
 Prima di impostare la derivata, ragioniamo sull'espressione 
 dell'incremento infinitesimo di area che il disegno ci suggerisce. 
@@ -944,25 +943,182 @@ a(x)]}{dx}\sim \dfrac{db(x)\cdot a(x)+b(x)\cdot da(x)}{dx}=\\
 &=\dfrac{db(x)\cdot a(x)}{dx}+\dfrac{b(x)\cdot da(x)}{dx}=
 \dfrac{db(x)}{dx} a(x)+b(x)\dfrac{da(x)}{dx}.
 \end{align*}
-Per ipotesi abbiamo scritto che esistono le derivate delle tre funzioni, perciò 
+Per ipotesi esistono le derivate delle tre funzioni, perciò 
 i Rapporti Differenziali sono numeri finiti e si può ricavare la regola:
 \[
  S'(x)= b'(x)\cdot a(x)+ b(x)\cdot a'(x).
 \]
 
 \begin{esempio}
- Deriva la funzione \(f(x)=12x\)
-
+ Deriva la funzione \(f(x)=12x\). Si può svolgere questo semplice esercizio 
+scrivendo il rapporto differenziale, ma ora vogliamo applicare la regola del 
+prodotto.
+\begin{align*}
+ &f(x) = 12x\quad \text{ funzione 1: } a(x)=12\quad \text{ funzione 2: } 
+b(x)=x.\\
+ &\text{Derivate dei fattori: }a'(x)=0;\quad b'(x)=1.\\
+ &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
+ &f'(x)=0\cdot x + 12\cdot 1= 12.
+ \end{align*}
  \end{esempio}
+
+ \subsubsection{Derivata del prodotto per una costante}
+\label{subsubsec:derivata_f_per_k}
+ \begin{teorema}
+La derivata di una funzione \(f\) data dal prodotto \(k\cdot g(x)\) fra una 
+funzione derivabile \(g(x)\) e una costante \(k\) è il prodotto fra la costante 
+\(k\) e la derivata \(g'(x)\). \end{teorema}
+\noindent Ipotesi: \(f(x)=k\cdot g(x) \text{ e esiste }g'(x)\).
+\tab Tesi: \(f'(x)=k \cdot g'(x)\). 
+\begin{proof}
+Per la dimostrazione si può seguire la traccia dell'esempio precedente oppure 
+impostare il Rapporto Differenziale e arrivare senza difficoltà alla 
+conclusione.
+\end{proof}
+
 
 \begin{osservazione}
- la funzione lineare e gli esempi precedenti
+Questi due ultimi teoremi consentono una facile dimostrazione alla regola di 
+derivazione per le funzioni lineari, alternativa a quella data nel Teorema 
+\ref{subsec:differenziazione_derivataflineare}.
 \end{osservazione}
 
+\subsubsection{Derivata di una funzione potenza con esponente naturale}
+\label{subsubsec:derivata_f_potenza_N}
+La regola della derivata di un prodotto ci consente di dimostrare un ampio 
+insieme di altre regole. Iniziamo da una derivata che abbiamo già 
+dimostrato con il calcolo del Rapporto Differenziale e calcolato più volte.
 \begin{esempio}
- Deriva la funzione \(f(x)=x^2\) con la regola appena appresa
-
+ Deriva la funzione \(f(x)=x^2\) con la regola del prodotto. 
+\begin{align*}
+ &f(x) = x^2=x\cdot x;\quad \text{ funzione 1: } a(x)=x\quad \text{ funzione 2: 
+} 
+b(x)=x.\\
+ &\text{Derivate dei fattori: }a'(x)=1;\quad b'(x)=1.\\
+ &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
+ &f'(x)=1\cdot x + x\cdot 1= 2x.
+ \end{align*}
  \end{esempio}
+ Ora sviluppiamo alcuni casi successivi nella speranza di individuare una 
+regola generale.
+ \begin{esempio}
+ Deriva la funzione \(f(x)=x^3\) con la regola del prodotto. 
+\begin{align*}
+ &f(x) = x^3=x^2\cdot x; \quad \text{ funzione 1: } a(x)=x^2\quad \text{ 
+funzione 2: } 
+b(x)=x.\\
+ &\text{Derivate dei fattori: }a'(x)=2x;\quad b'(x)=1.\\
+ &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
+ &f'(x)=2x\cdot x + x^2\cdot 1= 3x^2.
+ \end{align*}
+ \end{esempio}
+ 
+ \begin{esempio}
+ Deriva la funzione \(f(x)=x^4\) con la regola del prodotto. 
+\begin{align*}
+ &f(x) = x^4=x^3 \cdot x;\quad \text{ funzione 1: } a(x)=x^3\quad \text{ 
+funzione 2: } b(x)=x.\\
+ &\text{Derivate dei fattori: }a'(x)=3x^2;\quad b'(x)=1.\\
+ &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
+ &f'(x)=3x^2\cdot x + x^3\cdot 1= 4x^3.
+ \end{align*}
+ \end{esempio}
+ 
+ In effetti c'è una regolarità nei risultati e possiamo enunciare il teorema.
+ 
+ \begin{teorema}
+  \label{diff01_teoderpotenza}
+  La derivata della funzione potenza \(f(x)= x^n\), con esponente 
+naturale, è: \(f'(x)=~nx^{n-1}\).
+  \end{teorema}
+\noindent Ipotesi: \(f(x)=x^n\), con \(n\in \N\) .\tab Tesi: 
+\(f'(x)=nx^{n-1}\). 
+\begin{proof}
+%  Una funzione potenza è una funzione che dà come risultato la potenza 
+% della variabile indipendente:
+% \[f: x \mapsto x^n \quad \text{o} \quad 
+%   f(x)=x^n \quad \text{o} \quad 
+%   y = x^n\]
+Ricaviamo per gradi il differenziale della funzione potenza \(f(x)=x^n\), 
+con un procedimento per induzione.
+
+Iniziamo dai casi già noti \(f(x)=x\) e \(f(x)=x^2\) e esaminiamo i successivi
+aumentando progressivamente l'esponente. Ancora una volta non inseriamo 
+l'indicazione relativa a \(x_0\), perché ci siamo accorti che è inutile. 
+Infatti i risultati cambiano al cambiare di \(x_0\), il che equivale a dire che 
+dipendono da \(x\).
+\begin{align*}
+  d(x) &=x+dx-x =dx\\
+  d(x^2) &=(x+dx)^2-x^2 = x^2 +2xdx +(dx)^2 -x^2 = 2xdx +(dx)^2\\
+  d(x^3) &=(x+dx)^3-x^3 =[x^3+3x^2dx+3x(dx)^2+(dx)^3]-x^3=
+                      3x^2dx+3x(dx)^2+(dx)^3\\
+  d(x^4) &=(x+dx)^4-x^4 = [x^4+4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4]-x^4=\\
+                      &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4  \\
+ d(x^5) &= (x+dx)^5-x^5 = [x^5+5x^4dx+\dots +(dx)^5 ]-x^5=\\
+                      &=5x^4dx+\dots+(dx)^5\\
+                      &\dots
+\end{align*}
+Possiamo osservare che il termine non infinitesimo si annulla sempre. Quindi,
+qualunque sia il valore di \(x\), l'incremento della funzione è infinitesimo. 
+Queste funzioni sono quindi continue in tutto \(\IR\) perché a variazioni 
+infinitesime della variabile \(x\) corrispondono sempre variazioni
+infinitesime della funzione.
+
+I vari differenziali hanno un'espressione sempre più lunga, ma se consideriamo 
+la parte principale di ogni espressione, cioè se trascuriamo 
+gli infinitesimi di ordine superiore, il risultato è molto semplice.
+
+% \newpage %----------------------------------------
+Quindi se invece del valore esatto ci accontentiamo della parte principale, 
+dato che è indistinguibile, concludiamo:
+\nopagebreak
+\begin{align*}
+  d(x) &=x+dx-x =dx\\
+  d(x^2) &=2xdx +(dx)^2 \sim 2xdx\\
+  d(x^3) &=3x^2dx+3x(dx)^2+(dx)^3 \sim 3x^2dx\\
+  d(x^4) &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4 \sim 4x^3dx\\
+  d(x^5) &=5x^4dx+10x^3(dx)^2+10x^2(dx)^3+5x(dx)^4+(dx)^5 \sim 5x^4dx\\
+  d(x^6) &=6x^5dx+\dots+(dx)^6 \sim 6x^5dx\\
+  d(x^7) &=7x^6(dx)+\dots+(dx)^7 \sim 7x^6dx\\
+  \dots &= \dots\\
+  d(x^{10}) &=10x^9(dx)+\dots+(dx)^{10} \sim 10x^9dx\\
+  \dots &= \dots\\
+  d(x^n) &=nx^{n-1}(dx)+\dots+(dx)^{n} \sim nx^{n-1}dx.\\    
+\end{align*}
+Ora che il meccanismo è chiaro, abbiamo la regola per il differenziale di questa 
+funzione:
+ \[d(x^n) \sim nx^{n-1}dx\]
+e la sfruttiamo per ricavare la formula della derivata.
+\[
+ \forall dx\ne 0:\quad
+ RD =\dfrac{d(x^n)}{dx}\sim \dfrac{nx^{n-1}dx}{dx}=nx^{n-1}.
+\]
+Il Rapporto Differenziale è indistinguibile da una quantità finita indipendente 
+da \(dx\), possiamo calcolarne la parte standard. Questa operazione, fra 
+l'altro, ci permette di eliminare gli infinitesimi di ordine superiore e quindi 
+di scrivere il segno di \(=\) al posto del segno \(\sim\).
+\[
+ f'(x)=\pst{\dfrac{d(x^n)}{dx}}=\pst{nx^{n-1}}=nx^{n-1}.
+\]
+\end{proof}
+Ora disponiamo di un'arma molto più potente, che, insieme alle precedenti, ci 
+permette di calcolare derivate come questa.
+\begin {esempio}
+ Derivare la funzione polinomiale \(f(x)= -\dfrac{4}{15}x^5+ 
+\dfrac{2}{3}x^3-13kx\).
+ \begin{align*}
+ &f(x) = -\dfrac{4}{15}x^5+ \dfrac{2}{3}x^3-13kx\\
+ &\text{funzione 1:} a(x)=-\dfrac{4}{15}x^5\quad \text{ funzione 2: } 
+b(x) =+ \dfrac{2}{3}x^3\quad \text{ funzione 3: } c(x) =-13kx.\\
+ &\text{Derivate degli addendi: }a'(x)=\dfrac{4}{3}x^4;\quad b'(x)=+2 x^2;
+ \quad c'(x)=-13k.\\
+ &\text{Quindi: } f'(x)=\dfrac{4}{3}x^4+2x^2-13k.
+ \end{align*}
+\end {esempio}
+
+
+  
+ 
  
  \subsubsection{Funzioni potenza a esponente intero}
  \label{subsubsec:derivata_potenze}
@@ -2818,7 +2974,7 @@ rispetto alla \(x\) in una retta.
 
 \begin{teorema}
   \label{diff01_teoderpotenza}
-  La derivata della generica funzione potenza è: \(\mathit{D}\quadra{x^n}=
+  La derivata della generica  è: \(\mathit{D}\quadra{x^n}=
   nx^{n-1}\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=x^n\) .\tab Tesi: \(f'(x)=nx^{n-1}\).
