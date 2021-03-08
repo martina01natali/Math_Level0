@@ -403,6 +403,74 @@ non nullo \(\epsilon\), calcoliamo la sua parte standard.
 Il risultato è sempre lo stesso \(\forall \epsilon \ne 0\), abbiamo perciò la 
 conferma: la pendenza è uguale a zero per \(x=2\).
 \end{esempio}
+
+\subsubsection{Controesempi}
+\label{subsubsec:controesempi}
+Cerchiamo la pendenza \(f'(0)\) per la funzione \(f(x)=\sqrt[3]{x^2}\). Da 
+notare che \(f(0)\) c’è e vale \(0\).\\
+\begin{align*}
+&f(x)=\sqrt[3]{x^2}\ \quad x_0=0.
+&RD=\frac{\sqrt[3]{(0+\epsilon)^2}-\sqrt[3]{0^2}}{\epsilon}=
+ \frac{\sqrt[3]{(\epsilon)^2}}{\epsilon}=\frac{1}{\sqrt[3]{\epsilon}}.
+\end{align*}
+
+\(f'(0)\) non c'è. Infatti qualsiasi sia l'infinitesimo non nullo \(\epsilon\), 
+\(\frac{1}{\sqrt[3]{\epsilon}}\) è un iperreale infinito e non esiste la parte
+standard  di un numero infinito.\\
+\vspace{3mm}
+Ciò è sufficiente per concludere che \(f\) non ha pendenza in \(0\).
+
+Anche nel prossimo esempio la pendenza non esiste, anche se la ragione è 
+diversa.
+
+\begin{esempio}
+ %valore assoluto
+\label{esempio:diff01_derimodulo}
+ Calcola la pendenza di \(f(x)=|x|\) per \(x=0\).\\
+ La funzione contiene un valore assoluto: riscriviamola per casi.\\
+ 
+% \begin{figure}[h!]
+ \begin{minipage}[]{.39 \textwidth}
+ \begin{center}
+\begin{inaccessibleblock}
+  [Derivata |x|]
+  \derivamodulouno
+\end{inaccessibleblock}
+\end{center}
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.59 \textwidth}
+  Funzione: \(f(x)=|x|=\begin{cases}
+   x\quad &\mbox{per }x\ge 0\\
+  -x\quad &\mbox{ per }x<0
+  \end{cases}\)\\
+  Differenziale per \(x=0\):\\ 
+\(df(0)=f(0+dx)-f(0)=0+dx-0=dx\);\\
+  Rapporto Differenziale:\\ 
+\(\dfrac{df(0)}{\epsilon}=\dfrac{dx}{\epsilon}=
+  \begin{cases}
+  1\quad &\mbox{per }x\ge 0\\
+ -1\quad &\mbox{ per }x<0
+ \end{cases}\)\\
+\end{minipage}
+\label{}
+% \end{figure} 
+
+Si tratta di due semirette che si uniscono nell'origine. Hanno pendenza \(m=1\) 
+per \(x\ge 0\) e \(m=-1\) per \(x<0\). Quale è la pendenza giusta per
+\(x=0\), nel punto cioè dove il grafico cambia pendenza all'improvviso?\\
+Nella monade di \(x=0\) gli infinitesimi \(\epsilon\) positivi causano una 
+variazione infinitesima positiva sull'asse \(y\) e lo stesso avviene per 
+gli \(\epsilon\) negativi. 
+Perciò per \(x=0\) la parte standard del Rapporto Differenziale non è la stessa 
+per qualsiasi \(\epsilon\ne 0\) e la pendenza non si può calcolare.
+\end{esempio}
+
+I due esempi chiariscono perché nella definizione di pendenza si debba 
+specificare: 
+``...\textit{purché essa esista e sia la stessa} \(\forall \epsilon\ne 0\)''.
+
+
 \subsubsection{In conclusione:} 
 \label{subsubsec:ricetta_pendenza}
 \begin{itemize}
@@ -733,7 +801,7 @@ Una funzione lineare è una funzione espressa da un polinomio di primo grado:
   y = mx +q.\]
 \begin{teorema}
   La derivata di una funzione lineare è il coefficiente angolare \(m\) della 
-retta che disega il suo grafico.
+retta che disegna il suo grafico.
   %: \(\mathit{D}\quadra{k}=0\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=mx+q\).\tab Tesi: \(f'(x)=m\).
@@ -742,7 +810,7 @@ retta che disega il suo grafico.
 è pensato per un particolare \(x_0\), mentre qui consideriamo che \(x\) sia 
 qualsiasi.
 \end{proof}
- 
+
 
 \subsection{Derivata della funzione quadratica}
 \label{subsec:differenziazione_derivatafquadratica}
@@ -975,7 +1043,13 @@ Per la dimostrazione si può seguire la traccia dell'esempio precedente oppure
 impostare il Rapporto Differenziale e arrivare senza difficoltà alla 
 conclusione.
 \end{proof}
-
+Abbiamo appena usato il termine ``derivabile'', che ha un significato 
+intuitivo. Comunque definiamolo.
+\begin{definizione}
+Una funzione per la quale la derivata è calcolabile si dice derivabile.
+Se non si specifica diversamente, si intende che la pendenza della funzione 
+sia calcolabile per ogni \(x\) del suo dominio.
+\end{definizione}
 
 \begin{osservazione}
 Questi due ultimi teoremi consentono una facile dimostrazione alla regola di 
@@ -1086,9 +1160,8 @@ dato che è indistinguibile, concludiamo:
   d(x^n) &=nx^{n-1}(dx)+\dots+(dx)^{n} \sim nx^{n-1}dx.\\    
 \end{align*}
 Ora che il meccanismo è chiaro, abbiamo la regola per il differenziale di questa 
-funzione:
- \[d(x^n) \sim nx^{n-1}dx\]
-e la sfruttiamo per ricavare la formula della derivata.
+funzione: \(d(x^n) \sim nx^{n-1}dx\) 
+e la sfruttiamo per ricavare il Rapporto Differenziale.
 \[
  \forall dx\ne 0:\quad
  RD =\dfrac{d(x^n)}{dx}\sim \dfrac{nx^{n-1}dx}{dx}=nx^{n-1}.
@@ -1101,11 +1174,43 @@ di scrivere il segno di \(=\) al posto del segno \(\sim\).
  f'(x)=\pst{\dfrac{d(x^n)}{dx}}=\pst{nx^{n-1}}=nx^{n-1}.
 \]
 \end{proof}
-Ora disponiamo di un'arma molto più potente, che, insieme alle precedenti, ci 
-permette di calcolare derivate come questa.
+
+Come esempio di derivata della funzione potenza, consideriamo \(f(x)=x^3\)
+e il suo grafico nel piano cartesiano. 
+
+\begin{minipage}[]{.48\textwidth}
+\begin{inaccessibleblock}
+  [m tangenti a cubica]
+ \begin{center}
+ \cubica
+ \end{center}
+\end{inaccessibleblock}
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.48\textwidth}
+ \begin{center}
+  \tangenticubica
+ \end{center}
+ \end{minipage}
+% \caption{$y=x^3\) e la pendenza \(y=m(x)=3x^2\) delle sue tangenti.} 
+% \label{}
+% \end{figure}
+%\vspace{1em}
+
+I due rami del grafico sono simmetrici rispetto all'origine e quindi lo sono 
+anche le pendenze delle tangenti. 
+
+Considerando le \(x\) crescenti, quindi da sinistra verso destra, le pendenze 
+delle tangenti sono sempre positive, all'inizio molto accentuate, poi 
+diminuiscono fino a \(m=0\). Poi riprendono a crescere, in maniera 
+sempre più evidente. Il grafico della funzione \(f'(x)=3 x^2\) ha 
+infatti la forma di una parabola simmetrica rispetto all'asse \(y\).
+
 \begin {esempio}
- Derivare la funzione polinomiale \(f(x)= -\dfrac{4}{15}x^5+ 
-\dfrac{2}{3}x^3-13kx\).
+Ora disponiamo di un'arma molto più potente di prima, che, insieme alle 
+precedenti, ci permette di calcolare derivate come questa.\\
+Derivare la funzione polinomiale 
+\(f(x)= -\dfrac{4}{15}x^5+ \dfrac{2}{3}x^3-13kx\).
  \begin{align*}
  &f(x) = -\dfrac{4}{15}x^5+ \dfrac{2}{3}x^3-13kx\\
  &\text{funzione 1:} a(x)=-\dfrac{4}{15}x^5\quad \text{ funzione 2: } 
@@ -1116,14 +1221,53 @@ b(x) =+ \dfrac{2}{3}x^3\quad \text{ funzione 3: } c(x) =-13kx.\\
  \end{align*}
 \end {esempio}
 
+ \subsubsection{Derivata di una funzione potenza con esponente intero}
+\label{subsubsec:derivata_f_potenza_Z} 
+ 
+ \begin{teorema}
+  La derivata della funzione reciproca \(f(x)=\dfrac{1}{x}\) è: \quad
+\(f'(x)=-\dfrac{1}{x^2}\).
+\end{teorema}
+\noindent Ipotesi: \(f(x)=\dfrac{1}{x}\).\tab Tesi: \(f'(x)=-\dfrac{1}{x^2}\).
+\begin{proof}
+\begin{align*}
+ &f(x)= \dfrac{1}{x}\quad\text{ con } x\ne 0.\quad\text{ Allora, } \forall 
+dx \ne  0:\\
+ &RD=\dfrac{df(x)}{dx}=\dfrac{\dfrac{1}{x+dx}-\dfrac{1}{x}}{dx}= 
+\dfrac{\dfrac{x-x-dx}{x(x+dx)}}{dx}=
+\dfrac{\dfrac{-\cancel{dx}}{x(x+dx)}}{\cancel{dx}}=\dfrac{-1}{x(x+dx)}.
+\end{align*}
+Date le ipotesi, il Rapporto Differenziale è un numero finito e 
+possiamo applicare la definizione di derivata. Per le proprietà della funzione 
+parte standard:
+\[
+ \pst{\dfrac{-1}{x(x+dx)}}=
+\dfrac{-1}{\pst{x(x+dx)}}=\dfrac{-1}{\pst{x}\pst{x+dx}}=
+      -\dfrac{1}{x\cdot x}=-\dfrac{1}{x^2}.
+\]
+Poiché il risultato non cambia \(\forall dex \ne 0\), la tesi è dimostrata.
+\end{proof}
 
-  
- 
- 
- \subsubsection{Funzioni potenza a esponente intero}
- \label{subsubsec:derivata_potenze}
- 
-
+% \begin{figure}[h!]
+\begin{inaccessibleblock}
+  [Grafico della funzione 1/x e della sua derivata: 1/(x^2)]
+ \begin{minipage}[]{.48\textwidth}
+ \begin{center}
+\scalebox{.9}{ \recip}
+ \end{center}
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.48\textwidth}
+ \begin{center}
+\scalebox{.9}{  \tangentirecip}
+ \end{center}
+ \end{minipage}
+\end{inaccessibleblock}
+%\caption{$y=\dfrac{1}{x}\) e la pendenza \(y=m(x)=\dfrac{-1}{x^2}\) delle sue 
+%   tangenti.} 
+% \label{}
+% \end{figure}
+\center {Grafico di \(f(x)=\frac{1}{x}\) e di \(f'(x)\)}
 
 
 
