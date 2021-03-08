@@ -110,7 +110,7 @@ la parte standard.
 Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo 
 \(t\), dai secondi che passano a partire dall'istante del lancio.
 
- \begin{minipage}{0.4\textwidth}
+ \begin{minipage}{0.3\textwidth}
  \begin{center}
 \begin{tabular}{cc}\toprule
 \(t\)        & \(v=9,81\times t\)  \\
@@ -125,8 +125,8 @@ Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo
 \end{center}
  \end{minipage}
   \hfill
- \begin{minipage}{.58 \textwidth}
-\affiancati{.49}{.49}{
+ \begin{minipage}{.68 \textwidth}
+\affiancati{.48}{.48}{
 \begin{inaccessibleblock}[Grafico tempo-spazio della caduta libera]
 \begin{center} \scalebox{1}{\tempospaziocaduta} \end{center}
 \end{inaccessibleblock}
@@ -629,14 +629,14 @@ Al termine di alcuni tentativi, il quadro della situazione è:
  \begin{center}
 \begin{tabular}{ccc}\toprule
 \(x_0\) & \(f(x_0)=\dfrac{1}{3}x_0^2-2x_0+5\) & \(f'(x_0)=?\) \\\midrule
-\(-2\) & \(\dfrac{31}{3}\)     & \(\dfrac{-10}{3}\) \\
-\(-1\) & \(\dfrac{22}{3}\)     &  \(\dfrac{-8}{3}\) \\
-\(0\)  & \(5\)                 & \(-2\)  \\
-\(1\)  & \(\dfrac{10}{3}\)     & \(\dfrac{-4}{3}\) \\
-\(2\)  & \(\dfrac{7}{3}\)      & \(\dfrac{-2}{3}\)\\
-\(3\)  & \(2\)                 & \(0\)\\
-\(4\)  & \(\dfrac{7}{3}\)       &\dots \\
-\(5\)  & \(\dfrac{10}{3}\) \\
+\(-2\) & \(31/3\) &  \(-10/3\)\\ 
+\(-1\) & \(22/3\) &  \(-8/3\) \\
+\(0\)  & \(5\)    & \(-2\)  \\
+\(1\)  & \(10/3\) & \(-4/3\) \\
+\(2\)  & \(7/3\)  & \(-2/3\)\\
+\(3\)  & \(2\)    & \(0\)\\
+\(4\)  & \(7/3\)  &\dots \\
+\(5\)  & \(10/3\) \\
 \(6\)  & \dots   \\
 \(\dots\)  \\
  \\
@@ -872,15 +872,16 @@ regola.
 
 Immaginiamo che le due funzioni, calcolate in un generico punto \(x\),
 esprimano la base e l'altezza di un rettangolo:
-\(b(x)=b\) sarà la base  e \(h(x)=h\) sarà l'altezza. 
-L'area ovviamente si ottiene da \(b(x)\cdot h(x)=\mathit{A}(x)\). 
-Differenziare il prodotto \(d\quadra{\mathit{A}(x)}\) vuol dire calcolare di
+\(b(x)=b\) sarà la base  e \(a(x)=a\) sarà l'altezza. 
+L'area \(\mathit{S}\) ovviamente si ottiene da \(b(x)\cdot 
+a(x)=\mathit{S}(x)\). 
+Differenziare il prodotto \(d\quadra{\mathit{S}(x)}\) vuol dire calcolare di
 quanto aumenta l'area del rettangolo, se i lati subiscono un incremento 
 infinitesimo. 
 
 \begin{osservazione}
 Gli incrementi della base e dell'altezza possono essere 
-diversi, perché \(b(x)\) e \(h(x)\) sono funzioni diverse, le quali possono
+diversi, perché \(b(x)\) e \(a(x)\) sono funzioni diverse, le quali possono
 reagire in modo diverso all'incremento \(dx\).
 \end{osservazione}
 
@@ -890,9 +891,9 @@ sua  derivata, se esiste, è la somma fra due prodotti: la derivata della
  prima funzione per la seconda più la prima funzione per il la 
 derivata della seconda.
 \end{teorema}
-\noindent Ipotesi: \(\mathit{A}(x)=b(x)\cdot h(x)\) \text{ e esistono }
-\(\mathit{A'}(x),\ b'(x),\ h'(x)\).\\ 
-Tesi: \(\mathit{A'}(x)=b'(x)\cdot h(x)+b(x)\cdot h'(x)\).
+\noindent Ipotesi: \(\mathit{S}(x)=b(x)\cdot a(x)\) \text{ e esistono }
+\(\mathit{S'}(x),\ b'(x),\ a'(x)\).\\ 
+Tesi: \(\mathit{S'}(x)=b'(x)\cdot a(x)+b(x)\cdot a'(x)\).
 
 \begin{figure}[h]
 \begin{inaccessibleblock}
@@ -912,29 +913,61 @@ Tesi: \(\mathit{A'}(x)=b'(x)\cdot h(x)+b(x)\cdot h'(x)\).
 \label{fig:Incre_prodotto}
 \end{figure}
 %\vspace{-.5em}
-\begin{proof}
+Non daremo una vera dimostrazione della regola, ma ci lasceremo guidare da un 
+disegno che spesso si usa per rappresentare il prodotto fra due binomi. Anche 
+noi ci regoliamo in questo senso, quindi usiamo il disegno 
+come guida, senza soffermarci sui suoi limiti: infatti si potrebbe discutere 
+sul fatto che un'area rappresenti un prodotto tra funzioni.
+
 Prima di impostare la derivata, ragioniamo sull'espressione 
 dell'incremento infinitesimo di area che il disegno ci suggerisce. 
-
-La figura viene usata spesso per raffigurare il prodotto di due 
-binomi. Sarebbe da dimostrare che sia giusto usarla anche per il prodotto 
-fra le funzioni e i loro differenziali, ma per i nostri scopi accettiamo 
-queste semplificazioni.
 
 Concentriamoci sulla zona colorata del disegno, la figura a forma 
 di L rovesciata, detta \emph{gnomone}. È formata da tre parti:
 \begin{itemize} [nosep]
  \item un rettangolo sottile, verticale e sulla destra, di base
- infinitesima \(db(x)\) e altezza \(h(x)\);
+ infinitesima \(db(x)\) e altezza \(a(x)\);
  \item un rettangolo orizzontale, in alto, di base \(b(x)\) e
- altezza infinitesima \(dh(x)\);
- \item un rettangolino in alto a destra, di area \(db(x) \cdot dh(x)\).
+ altezza infinitesima \(da(x)\);
+ \item un rettangolino in alto a destra, di area \(db(x) \cdot da(x)\).
 \end{itemize}
 
-\end{proof}
 Dato che l'ultimo termine è un infinitesimo di ordine
 superiore, il risultato può essere approssimato alla sua parte principale, 
-senza gravi danni: \(d\mathit{A}(x)\sim db(x)\cdot h(x)+b(x)\cdot dh(x)\).
+perché è indistinguibile:\\
+\[d\mathit{S}(x)\sim db(x)\cdot a(x)+b(x)\cdot da(x).\]
+Possiamo allora scrivere il Rapporto Differenziale:
+\begin{align*}
+\forall dx &\ne 0:\\
+RD& =   \dfrac{d\mathit {S}(x)}{dx}=\dfrac{d[b((x)\cdot 
+a(x)]}{dx}\sim \dfrac{db(x)\cdot a(x)+b(x)\cdot da(x)}{dx}=\\
+&=\dfrac{db(x)\cdot a(x)}{dx}+\dfrac{b(x)\cdot da(x)}{dx}=
+\dfrac{db(x)}{dx} a(x)+b(x)\dfrac{da(x)}{dx}.
+\end{align*}
+Per ipotesi abbiamo scritto che esistono le derivate delle tre funzioni, perciò 
+i Rapporti Differenziali sono numeri finiti e si può ricavare la regola:
+\[
+ S'(x)= b'(x)\cdot a(x)+ b(x)\cdot a'(x).
+\]
+
+\begin{esempio}
+ Deriva la funzione \(f(x)=12x\)
+
+ \end{esempio}
+
+\begin{osservazione}
+ la funzione lineare e gli esempi precedenti
+\end{osservazione}
+
+\begin{esempio}
+ Deriva la funzione \(f(x)=x^2\) con la regola appena appresa
+
+ \end{esempio}
+ 
+ \subsubsection{Funzioni potenza a esponente intero}
+ \label{subsubsec:derivata_potenze}
+ 
+
 
 
 
