@@ -982,9 +982,10 @@ Tesi: \(\mathit{S'}(x)=b'(x)\cdot a(x)+b(x)\cdot a'(x)\).
 \end{figure}
 %\vspace{-.5em}
 Non daremo una vera dimostrazione della regola, ma ci lasceremo guidare da un 
-disegno che spesso si usa per rappresentare il prodotto fra due binomi, senza 
-soffermarci sui suoi limiti: infatti si potrebbe discutere sul fatto che un'area 
-rappresenti un prodotto tra funzioni.
+disegno che spesso si usa per rappresentare il prodotto fra due binomi. 
+Segnaliamo, per correttezza, che si potrebbe discutere sul fatto che un'area 
+rappresenti un prodotto tra funzioni. A noi serve per avere una guida algebrica 
+nel giustificare la regola.
 
 Prima di impostare la derivata, ragioniamo sull'espressione 
 dell'incremento infinitesimo di area che il disegno ci suggerisce. 
@@ -1267,8 +1268,36 @@ Poiché il risultato non cambia \(\forall dex \ne 0\), la tesi è dimostrata.
 %   tangenti.} 
 % \label{}
 % \end{figure}
-\center {Grafico di \(f(x)=\frac{1}{x}\) e di \(f'(x)\)}
+\begin{center}Grafico di \(f(x)=\frac{1}{x}\) e di \(f'(x)\) \end{center}
 
+Se proseguiamo con gli esempi possiamo ricavare le regole di 
+derivazione per le potenze successive \(f(x)=\dfrac{1}{x^2}\), 
+\(f(x)=\dfrac{1}{x^2}\), e così via, con \(x\ne 0\). Ma possiamo anche 
+arrivarci in un altro modo, basta riscrivere le due funzioni precedenti come 
+potenze.
+
+Riscriviamo: \(f(x)=\frac{1}{x}=x^{-1}\),\quad  \(f(x)=\dfrac{1}{x^2}= 
+x^{-2}\), \dots , \(f(x)=\dfrac{1}{x^n}=x^{-n}\), con \(n\in \N\). 
+poiché \(n\geqslant 0\), fissiamo \(z=-n\), certamente positivo.
+Possiamo a questo punto riusare la regola delle funzioni potenza:
+\begin{align*}
+f(x)&=x^{-n}=x^z, \quad \text{con }x\ne 0.\quad  \text{Allora esiste la 
+derivata:}\\
+f'(x)&= zx^{z-1}=-nx^{-n-1}.
+\end{align*}
+Resta perciò dimostrato il seguente teorema.
+\begin{teorema}
+ La regola della derivata di una funzione potenza vale anche con esponente se 
+l'esponente è un intero negativo.
+\end{teorema}
+
+\begin{esempio}
+ Derivare \(f(x)=\dfrac{1}{x^2}\).\\
+ \begin{align*}
+  f(x)= \dfrac{1}{x^2}= x^{-2},\quad \text{con }x\ne 0.\\
+  f'(x)=-2x^{-2-1}=-2x^{-3}=\dfrac{-2}{x^3}.
+ \end{align*}
+\end{esempio}
 
 
 
@@ -1276,6 +1305,126 @@ Poiché il risultato non cambia \(\forall dex \ne 0\), la tesi è dimostrata.
 
 \subsection{Derivata del quoziente di funzioni}
 \label{subsec:differenziazione_derivataquoziente}
+\begin{teorema}
+ Se una funzione derivabile è data dal rapporto fra due funzioni derivabili, 
+con il denominatore non nullo, la sua derivata si ottiene calcolando
+ la differenza fra due prodotti (la derivata del numeratore per il 
+ denominatore meno il numeratore per la derivata del 
+denominatore) e dividendo il risultato per il quadrato del denominatore.
+\end{teorema}
+\noindent Ipotesi: \(a(x)=\dfrac{\mathit{S}(x)}{b(x)}\), 
+con \(b(x)\neq 0\) \tab 
+Tesi: 
+$da(x) \sim \dfrac{d\mathit{A}(x) \cdot b(x)-\mathit{A}(x) \cdot db(x)}
+             {\tonda{b(x)}^2}$
+
+\begin{proof}
+Ricorriamo alla geometria anche in questo caso: nel disegno \(\mathit{S}(x)\) è 
+la funzione che genera i valori per l'area, \(b(x)\) e \(a(x)\) generano le 
+possibili basi e altezze. Per prima cosa calcoliamo \(d\mathit{S}(x)\).
+
+\begin{minipage}[]{.48 \textwidth}
+Essendo \(\mathit{S}(x)=b(x) \cdot a(x)\) allora:\\ 
+\(a(x)=\frac{S(x)}{b(x)}\), con \(b(x)\neq 0\).\\
+Guardando il disegno, \(da(x)\) è l'incremento infinitesimo dell'altezza, si 
+tratta dell'altezza della fascia superiore colorata, che si si calcola
+dividendo il rettangolo superiore dello gnomone per la base del rettangolo.
+Il rettangolo superiore dello gnomone è uguale a tutto lo gnomone 
+infinitesimo, \(d\mathit{S}\), meno il rettangolo destro infinitesimo, di area
+\(a\cdot db\) e meno il rettangolino, in alto a destra,
+\end{minipage} 
+ \hfill
+ \begin{minipage}[]{.48 \textwidth}
+ \begin{center}
+ \begin{inaccessibleblock}
+  [Altezza rettangolo con gnomone infinitesimo.]
+  \differenzialerapporto
+ \end{inaccessibleblock}
+ \end{center}
+\end{minipage}
+anch'esso infinitesimo. Dunque:
+\begin{align*}
+ d\quadra{\frac{\mathit{S}(x)}{b(x)}}&=da(x)=
+ \frac{\quadra{d\mathit{S}(x) - a \cdot db(x) - db(x) \cdot da(x)}}
+        {b(x)}=\\
+ &=\frac{\quadra{d\mathit{S}(x) - \dfrac{\mathit{S(x)}}{b(x)} \cdot db(x) - 
+          db(x) \cdot da(x)}}{b(x)}=
+ \frac{\dfrac{d\mathit{S}(x) \cdot b(x) - \mathit{S(x)} \cdot db(x) -
+               b(x) \cdot db(x) \cdot da(x)}{b(x)}}{b(x)}=\\
+ &=\frac{d\mathit{S}(x) \cdot b(x) - \mathit{S(x)} \cdot db(x) -
+              b(x) \cdot db(x) \cdot da(x)}{\tonda{b(x)}^2} \sim 
+ \frac{d\mathit{S}(x) \cdot b(x) - \mathit{S(x)} \cdot db(x)}{\tonda{b(x)}^2}.
+\end{align*}
+Come si vede, l'ultimo termine al numeratore nel risultato manca in quanto è 
+infinitesimo di ordine superiore ed è quindi trascurabile rispetto agli altri 
+termini. Vediamo ora il Rapporto differenziale e la derivata.
+\begin{align*}
+ a(x)&=\frac{\mathit{S}(x)}{b(x)}.\quad \forall dx\ne 0:\\
+ RD  &=\dfrac{da(x)}{dx}\sim  \dfrac{\dfrac{d\mathit{S}(x) \cdot b(x) - 
+\mathit{S(x)} \cdot db(x)}{\tonda{b(x)}^2}}{dx}=
+\dfrac{d\mathit{S}(x) \cdot b(x) - \mathit{S(x)} \cdot 
+ db(x)}{dx}\cdot\dfrac{1}{\tonda{b(x)}^2}=\\
+    &=\tonda{\dfrac{d\mathit{S}(x) \cdot b(x)}{dx}-\frac{\mathit{S(x)} \cdot 
+ db(x)}{dx} }\cdot\dfrac{1}{\tonda{b(x)}^2}= 
+\dfrac{\dfrac{\mathit{S(x)}}{dx}b(x)-\mathit{S(x)}\dfrac{db(x)}{dx}}{\tonda{b(x) 
+}^2}.
+\end{align*}
+Poiché \(\mathit{S(x)}\) e \(b(x)\) sono per ipotesi derivabili, esistono le 
+parti standard dei Rapporti Differenziali, indipendenti dai \(dx\) non nulli 
+usati, e si ottiene così \(
+ a'(x)=\dfrac{\mathit{S'(x)}\cdot b(x)-\mathit{S(x)}\cdot b'(x)}{(b(x))^2}\).
+ 
+Tornando alla notazione abituale, la regola della derivata del rapporto di 
+funzioni diventa:
+\begin{align*}
+ f(x) &=\dfrac{g(x)}{h(x)},\quad\text{ con } h(x)\ne 0.\\
+ f'(x) &=\dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}.
+\end{align*}
+\end{proof}
+\begin{esempio}
+ Anche se abbiamo già il risultato, applichiamo la regola alla funzione 
+\(f(x)=\frac{1}{x}\), in cui poniamo \(g(x)=1\) e \(h(x)=x\), per cui 
+\(g'(x)=0\) e \(h'(x)=1\).
+\[
+f'(x)= \dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}=\dfrac{0\cdot 
+x-1\cdot 1}{x^2}=-\dfrac{1}{x^2}.
+\]
+\end{esempio}
+
+\begin{esempio}
+Proviamo ora con \(f(x)= \dfrac{1}{x^2}\). 
+\[
+f'(x)= \dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}=
+\dfrac{0\cdot x^2-1\cdot 2x}{x^4}=-\dfrac{2}{x^3}.
+\]
+\end{esempio}
+
+
+
+\subsubsection{Sintesi provvisoria}
+\label{subsubsec:diff01_sintesiprovvisoria}
+Abbiamo dimostrato le regole di derivazione per alcune funzioni elementari: 
+\begin{enumerate} [noitemsep]
+ \item \(\dfrac{d(k)}{dx} = 0\) \tab  derivata di una costante;
+ \item \(\dfrac{d(x)}{dx} = 1\) \tab derivata della funzione identica;
+ \item \(\dfrac{d(x^\alpha)} {dx} = \alpha x^{\alpha-1}\) \tab 
+ derivata della funzione potenza (\(\alpha \in \Q\))
+\end{enumerate}
+ 
+
+E abbiamo giustificato le regole di derivazione per alcune funzioni che sono 
+somma, prodotto o quoziente di altre:
+\begin{enumerate} [noitemsep]
+ \item \(\dfrac{d(k\cdot f)}{dx}=kf'\) \tab 
+ derivata del prodotto per una costante;
+ \item \(\dfrac{d\tonda{f\pm g}}{dx}=f'\pm g'\) \tab 
+ derivata di una somma o differenza;
+ \item \(\dfrac{d(f\cdot g)}{dx}= f'\cdot g+f\cdot g'\) \tab 
+ derivata del prodotto;
+ \item \(\dfrac{d\tonda{\dfrac{f}{g}}}{dx}=\frac{f'\cdot g-f\cdot 
+g'}{g^2}\)\tab 
+derivata  del rapporto (\(g \ne 0\)).
+\end{enumerate}
 
 \newpage
 \subsection{Derivata di funzioni composte}
