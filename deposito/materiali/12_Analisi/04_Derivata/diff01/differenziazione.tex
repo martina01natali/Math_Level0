@@ -110,7 +110,7 @@ la parte standard.
 Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo 
 \(t\), dai secondi che passano a partire dall'istante del lancio.
 
- \begin{minipage}{0.4\textwidth}
+ \begin{minipage}{0.3\textwidth}
  \begin{center}
 \begin{tabular}{cc}\toprule
 \(t\)        & \(v=9,81\times t\)  \\
@@ -125,8 +125,8 @@ Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo
 \end{center}
  \end{minipage}
   \hfill
- \begin{minipage}{.58 \textwidth}
-\affiancati{.49}{.49}{
+ \begin{minipage}{.68 \textwidth}
+\affiancati{.48}{.48}{
 \begin{inaccessibleblock}[Grafico tempo-spazio della caduta libera]
 \begin{center} \scalebox{1}{\tempospaziocaduta} \end{center}
 \end{inaccessibleblock}
@@ -403,6 +403,74 @@ non nullo \(\epsilon\), calcoliamo la sua parte standard.
 Il risultato è sempre lo stesso \(\forall \epsilon \ne 0\), abbiamo perciò la 
 conferma: la pendenza è uguale a zero per \(x=2\).
 \end{esempio}
+
+\subsubsection{Controesempi}
+\label{subsubsec:controesempi}
+Cerchiamo la pendenza \(f'(0)\) per la funzione \(f(x)=\sqrt[3]{x^2}\). Da 
+notare che \(f(0)\) c’è e vale \(0\).\\
+\begin{align*}
+&f(x)=\sqrt[3]{x^2}\ \quad x_0=0.
+&RD=\frac{\sqrt[3]{(0+\epsilon)^2}-\sqrt[3]{0^2}}{\epsilon}=
+ \frac{\sqrt[3]{(\epsilon)^2}}{\epsilon}=\frac{1}{\sqrt[3]{\epsilon}}.
+\end{align*}
+
+\(f'(0)\) non c'è. Infatti qualsiasi sia l'infinitesimo non nullo \(\epsilon\), 
+\(\frac{1}{\sqrt[3]{\epsilon}}\) è un iperreale infinito e non esiste la parte
+standard  di un numero infinito.\\
+\vspace{3mm}
+Ciò è sufficiente per concludere che \(f\) non ha pendenza in \(0\).
+
+Anche nel prossimo esempio la pendenza non esiste, anche se la ragione è 
+diversa.
+
+\begin{esempio}
+ %valore assoluto
+\label{esempio:diff01_derimodulo}
+ Calcola la pendenza di \(f(x)=|x|\) per \(x=0\).\\
+ La funzione contiene un valore assoluto: riscriviamola per casi.\\
+ 
+% \begin{figure}[h!]
+ \begin{minipage}[]{.39 \textwidth}
+ \begin{center}
+\begin{inaccessibleblock}
+  [Derivata |x|]
+  \derivamodulouno
+\end{inaccessibleblock}
+\end{center}
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.59 \textwidth}
+  Funzione: \(f(x)=|x|=\begin{cases}
+   x\quad &\mbox{per }x\ge 0\\
+  -x\quad &\mbox{ per }x<0
+  \end{cases}\)\\
+  Differenziale per \(x=0\):\\ 
+\(df(0)=f(0+dx)-f(0)=0+dx-0=dx\);\\
+  Rapporto Differenziale:\\ 
+\(\dfrac{df(0)}{\epsilon}=\dfrac{dx}{\epsilon}=
+  \begin{cases}
+  1\quad &\mbox{per }x\ge 0\\
+ -1\quad &\mbox{ per }x<0
+ \end{cases}\)\\
+\end{minipage}
+\label{}
+% \end{figure} 
+
+Si tratta di due semirette che si uniscono nell'origine. Hanno pendenza \(m=1\) 
+per \(x\ge 0\) e \(m=-1\) per \(x<0\). Quale è la pendenza giusta per
+\(x=0\), nel punto cioè dove il grafico cambia pendenza all'improvviso?\\
+Nella monade di \(x=0\) gli infinitesimi \(\epsilon\) positivi causano una 
+variazione infinitesima positiva sull'asse \(y\) e lo stesso avviene per 
+gli \(\epsilon\) negativi. 
+Perciò per \(x=0\) la parte standard del Rapporto Differenziale non è la stessa 
+per qualsiasi \(\epsilon\ne 0\) e la pendenza non si può calcolare.
+\end{esempio}
+
+I due esempi chiariscono perché nella definizione di pendenza si debba 
+specificare: 
+``...\textit{purché essa esista e sia la stessa} \(\forall \epsilon\ne 0\)''.
+
+
 \subsubsection{In conclusione:} 
 \label{subsubsec:ricetta_pendenza}
 \begin{itemize}
@@ -629,14 +697,14 @@ Al termine di alcuni tentativi, il quadro della situazione è:
  \begin{center}
 \begin{tabular}{ccc}\toprule
 \(x_0\) & \(f(x_0)=\dfrac{1}{3}x_0^2-2x_0+5\) & \(f'(x_0)=?\) \\\midrule
-\(-2\) & \(\dfrac{31}{3}\)     & \(\dfrac{-10}{3}\) \\
-\(-1\) & \(\dfrac{22}{3}\)     &  \(\dfrac{-8}{3}\) \\
-\(0\)  & \(5\)                 & \(-2\)  \\
-\(1\)  & \(\dfrac{10}{3}\)     & \(\dfrac{-4}{3}\) \\
-\(2\)  & \(\dfrac{7}{3}\)      & \(\dfrac{-2}{3}\)\\
-\(3\)  & \(2\)                 & \(0\)\\
-\(4\)  & \(\dfrac{7}{3}\)       &\dots \\
-\(5\)  & \(\dfrac{10}{3}\) \\
+\(-2\) & \(31/3\) &  \(-10/3\)\\ 
+\(-1\) & \(22/3\) &  \(-8/3\) \\
+\(0\)  & \(5\)    & \(-2\)  \\
+\(1\)  & \(10/3\) & \(-4/3\) \\
+\(2\)  & \(7/3\)  & \(-2/3\)\\
+\(3\)  & \(2\)    & \(0\)\\
+\(4\)  & \(7/3\)  &\dots \\
+\(5\)  & \(10/3\) \\
 \(6\)  & \dots   \\
 \(\dots\)  \\
  \\
@@ -733,7 +801,7 @@ Una funzione lineare è una funzione espressa da un polinomio di primo grado:
   y = mx +q.\]
 \begin{teorema}
   La derivata di una funzione lineare è il coefficiente angolare \(m\) della 
-retta che disega il suo grafico.
+retta che disegna il suo grafico.
   %: \(\mathit{D}\quadra{k}=0\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=mx+q\).\tab Tesi: \(f'(x)=m\).
@@ -742,7 +810,7 @@ retta che disega il suo grafico.
 è pensato per un particolare \(x_0\), mentre qui consideriamo che \(x\) sia 
 qualsiasi.
 \end{proof}
- 
+
 
 \subsection{Derivata della funzione quadratica}
 \label{subsec:differenziazione_derivatafquadratica}
@@ -822,37 +890,36 @@ somma? È quello che stiamo per mostrare con i prossimi teoremi.
  Se una funzione è la somma di due funzioni, anche la sua 
  derivata, se c'è, sarà la somma delle due derivate.
 \end{teorema}
-\noindent Ipotesi: \(f=f_1 + f_2\) e esiste \(f'(x)\).\tab Tesi: \(f'=f'_1 + 
-f'_2\).\\
+\noindent Ipotesi: \(f=g + h\) e esiste \(f'(x)\).\tab Tesi: \(f'=g' + 
+h'\).\\
 (Ovvero: La derivata di una somma è la somma delle derivate)
 
 \begin{proof}
-Consideriamo il Rapporto Differenziale, calcolato in \(x\), dove \(f_1\), 
-\(f_2\) e quindi anche \(f\), hanno valore. Allora, per ogni infinitesimo non 
+Consideriamo il Rapporto Differenziale, calcolato in \(x\), dove \(g\), 
+\(h\) e quindi anche \(f\), hanno valore. Allora, per ogni infinitesimo non 
 nullo \(dx\):
 \begin{align*}
- RD&=\dfrac{df(x)}{dx}=\dfrac{d[f_1(x)+ f_2(x)]}{dx}=\dfrac{[f_1(x+dx)+
-     f_2(x+dx)]-[f_1(x) + f_2(x)]}{dx}=\\
- &= \dfrac{[f_1(x+dx)-f_1(x)] + [f_2(x+dx)-f_2(x)]}{dx}= 
- \dfrac{f_1(x+dx)-f_1(x)}{dx}+\dfrac{f_2(x+dx)-f_2(x)}{dx}=\\
-  &=\dfrac{df_1(x)}{dx}+\dfrac{df_2(x)}{dx}.
+ RD&=\dfrac{df(x)}{dx}=\dfrac{d[g(x)+ h(x)]}{dx}=\dfrac{[g(x+dx)+
+     h(x+dx)]-[g(x) + h(x)]}{dx}=\\
+ &= \dfrac{[g(x+dx)-g(x)] + [h(x+dx)-h(x)]}{dx}= 
+ \dfrac{g(x+dx)-g(x)}{dx}+\dfrac{h(x+dx)-h(x)}{dx}=\\
+  &=\dfrac{dg(x)}{dx}+\dfrac{dh(x)}{dx}.
 \end{align*}
 Si è detto che \(f'(x)\) esiste, quindi il Rapporto Differenziale 
 \(\dfrac{df(x)}{dx}\) è un numero finito e la sua parte standard non dipende da 
-\(dx\). Di conseguenza anche i Rapporti Differenziali per \(f_1(x)\) e per
-\(f_2(x)\) sono numeri finiti e le loro parti standard esistono e non possono 
+\(dx\). Di conseguenza anche i Rapporti Differenziali per \(g(x)\) e per
+\(h(x)\) sono numeri finiti e le loro parti standard esistono e non possono 
 cambiare valore cambiando \(dx\).\\
 Per le proprietà della funzione parte standard vale quindi:
 \[
- f'(x)=\pst{\dfrac{df}{dx}}=\pst{\dfrac{df_1(x)}{dx}+\dfrac{df_2(x)}{dx}}=
- \pst{\dfrac{df_1(x)}{dx}}+\pst{\dfrac{df_2(x)}{dx}}=f'_1(x)+f'_2(x).
+ f'(x)=\pst{\dfrac{df}{dx}}=\pst{\dfrac{dg(x)}{dx}+\dfrac{dh(x)}{dx}}=
+ \pst{\dfrac{dg(x)}{dx}}+\pst{\dfrac{dh(x)}{dx}}=g'(x)+h'(x).
  \]
 \end{proof}
 
 \begin{osservazione}
  Il teorema vale anche per la differenza, in modo analogo e si può applicare 
-anche alla somma algebrica di più funzioni, come avviene comunemente nei 
-polinomi.
+anche alla somma algebrica di più funzioni, per esempio ai polinomi.
 \end{osservazione}
 
 \begin{esempio}
@@ -866,6 +933,346 @@ Come si vede, non è stato necessario scrivere il Rapporto Differenziale.
 
 \subsection{Derivata del prodotto di funzioni}
 \label{subsec:differenziazione_derivataprodotto}
+
+In questo caso non presentiamo una vera dimostrazione, ma ricorriamo a un
+a un disegno che assumiamo riesca a descrivere efficacemente la 
+regola.
+
+Immaginiamo che le due funzioni, calcolate in un generico punto \(x\),
+esprimano la base e l'altezza di un rettangolo:
+\(b(x)=b\) sarà la base  e \(a(x)=a\) sarà l'altezza. 
+L'area \(\mathit{S}\) ovviamente si ottiene da \(b(x)\cdot 
+a(x)=\mathit{S}(x)\). 
+Differenziare il prodotto \(d\quadra{\mathit{S}(x)}\) vuol dire calcolare di
+quanto aumenta l'area del rettangolo, se i lati subiscono un incremento 
+infinitesimo. 
+
+\begin{osservazione}
+Gli incrementi della base e dell'altezza possono essere 
+diversi, perché \(b(x)\) e \(a(x)\) sono funzioni diverse, le quali possono
+reagire in modo diverso all'incremento \(dx\).
+\end{osservazione}
+
+\begin{teorema}
+ Se una funzione è il prodotto di due funzioni (le cui derivate esistono), la 
+sua  derivata, se esiste, è la somma fra due prodotti: la derivata della
+ prima funzione per la seconda (non derivata) più la prima funzione (non 
+derivata) per il la derivata della seconda.
+\end{teorema}
+\noindent Ipotesi: \(\mathit{S}(x)=b(x)\cdot a(x)\) \text{ e esistono }
+\(\mathit{S'}(x),\ b'(x),\ a'(x)\).\\ 
+Tesi: \(\mathit{S'}(x)=b'(x)\cdot a(x)+b(x)\cdot a'(x)\).
+
+\begin{figure}[h]
+\begin{inaccessibleblock}
+  [Rettangolo con uno gnomone finito e rettangolo con gnomone infinitesimo.]
+ \begin{center}
+ \begin{minipage}[]{.38 \textwidth}
+  \vspace{23mm} 
+  \incrementaleprodotto
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.58 \textwidth}
+  \differenzialeprodotto
+ \end{minipage}
+ \end{center}
+\end{inaccessibleblock}
+\caption{Incrementi finito e infinitesimo dell'area di un rettangolo} 
+\label{fig:Incre_prodotto}
+\end{figure}
+%\vspace{-.5em}
+Non daremo una vera dimostrazione della regola, ma ci lasceremo guidare da un 
+disegno che spesso si usa per rappresentare il prodotto fra due binomi, senza 
+soffermarci sui suoi limiti: infatti si potrebbe discutere sul fatto che un'area 
+rappresenti un prodotto tra funzioni.
+
+Prima di impostare la derivata, ragioniamo sull'espressione 
+dell'incremento infinitesimo di area che il disegno ci suggerisce. 
+
+Concentriamoci sulla zona colorata del disegno, la figura a forma 
+di L rovesciata, detta \emph{gnomone}. È formata da tre parti:
+\begin{itemize} [nosep]
+ \item un rettangolo sottile, verticale e sulla destra, di base
+ infinitesima \(db(x)\) e altezza \(a(x)\);
+ \item un rettangolo orizzontale, in alto, di base \(b(x)\) e
+ altezza infinitesima \(da(x)\);
+ \item un rettangolino in alto a destra, di area \(db(x) \cdot da(x)\).
+\end{itemize}
+
+Dato che l'ultimo termine è un infinitesimo di ordine
+superiore, il risultato può essere approssimato alla sua parte principale, 
+perché è indistinguibile:\\
+\[d\mathit{S}(x)\sim db(x)\cdot a(x)+b(x)\cdot da(x).\]
+Possiamo allora scrivere il Rapporto Differenziale:
+\begin{align*}
+\forall dx &\ne 0:\\
+RD& =   \dfrac{d\mathit {S}(x)}{dx}=\dfrac{d[b((x)\cdot 
+a(x)]}{dx}\sim \dfrac{db(x)\cdot a(x)+b(x)\cdot da(x)}{dx}=\\
+&=\dfrac{db(x)\cdot a(x)}{dx}+\dfrac{b(x)\cdot da(x)}{dx}=
+\dfrac{db(x)}{dx} a(x)+b(x)\dfrac{da(x)}{dx}.
+\end{align*}
+Per ipotesi esistono le derivate delle tre funzioni, perciò 
+i Rapporti Differenziali sono numeri finiti e si può ricavare la regola:
+\[
+ S'(x)= b'(x)\cdot a(x)+ b(x)\cdot a'(x).
+\]
+
+\begin{esempio}
+ Deriva la funzione \(f(x)=12x\). Si può svolgere questo semplice esercizio 
+scrivendo il rapporto differenziale, ma ora vogliamo applicare la regola del 
+prodotto.
+\begin{align*}
+ &f(x) = 12x\quad \text{ funzione 1: } a(x)=12\quad \text{ funzione 2: } 
+b(x)=x.\\
+ &\text{Derivate dei fattori: }a'(x)=0;\quad b'(x)=1.\\
+ &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
+ &f'(x)=0\cdot x + 12\cdot 1= 12.
+ \end{align*}
+ \end{esempio}
+
+ \subsubsection{Derivata del prodotto per una costante}
+\label{subsubsec:derivata_f_per_k}
+ \begin{teorema}
+La derivata di una funzione \(f\) data dal prodotto \(k\cdot g(x)\) fra una 
+funzione derivabile \(g(x)\) e una costante \(k\) è il prodotto fra la costante 
+\(k\) e la derivata \(g'(x)\). \end{teorema}
+\noindent Ipotesi: \(f(x)=k\cdot g(x) \text{ e esiste }g'(x)\).
+\tab Tesi: \(f'(x)=k \cdot g'(x)\). 
+\begin{proof}
+Per la dimostrazione si può seguire la traccia dell'esempio precedente oppure 
+impostare il Rapporto Differenziale e arrivare senza difficoltà alla 
+conclusione.
+\end{proof}
+Abbiamo appena usato il termine ``derivabile'', che ha un significato 
+intuitivo. Comunque definiamolo.
+\begin{definizione}
+Una funzione per la quale la derivata è calcolabile si dice derivabile.
+Se non si specifica diversamente, si intende che la pendenza della funzione 
+sia calcolabile per ogni \(x\) del suo dominio.
+\end{definizione}
+
+\begin{osservazione}
+Questi due ultimi teoremi consentono una facile dimostrazione alla regola di 
+derivazione per le funzioni lineari, alternativa a quella data nel Teorema 
+\ref{subsec:differenziazione_derivataflineare}.
+\end{osservazione}
+
+\subsubsection{Derivata di una funzione potenza con esponente naturale}
+\label{subsubsec:derivata_f_potenza_N}
+La regola della derivata di un prodotto ci consente di dimostrare un ampio 
+insieme di altre regole. Iniziamo da una derivata che abbiamo già 
+dimostrato con il calcolo del Rapporto Differenziale e calcolato più volte.
+\begin{esempio}
+ Deriva la funzione \(f(x)=x^2\) con la regola del prodotto. 
+\begin{align*}
+ &f(x) = x^2=x\cdot x;\quad \text{ funzione 1: } a(x)=x\quad \text{ funzione 2: 
+} 
+b(x)=x.\\
+ &\text{Derivate dei fattori: }a'(x)=1;\quad b'(x)=1.\\
+ &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
+ &f'(x)=1\cdot x + x\cdot 1= 2x.
+ \end{align*}
+ \end{esempio}
+ Ora sviluppiamo alcuni casi successivi nella speranza di individuare una 
+regola generale.
+ \begin{esempio}
+ Deriva la funzione \(f(x)=x^3\) con la regola del prodotto. 
+\begin{align*}
+ &f(x) = x^3=x^2\cdot x; \quad \text{ funzione 1: } a(x)=x^2\quad \text{ 
+funzione 2: } 
+b(x)=x.\\
+ &\text{Derivate dei fattori: }a'(x)=2x;\quad b'(x)=1.\\
+ &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
+ &f'(x)=2x\cdot x + x^2\cdot 1= 3x^2.
+ \end{align*}
+ \end{esempio}
+ 
+ \begin{esempio}
+ Deriva la funzione \(f(x)=x^4\) con la regola del prodotto. 
+\begin{align*}
+ &f(x) = x^4=x^3 \cdot x;\quad \text{ funzione 1: } a(x)=x^3\quad \text{ 
+funzione 2: } b(x)=x.\\
+ &\text{Derivate dei fattori: }a'(x)=3x^2;\quad b'(x)=1.\\
+ &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
+ &f'(x)=3x^2\cdot x + x^3\cdot 1= 4x^3.
+ \end{align*}
+ \end{esempio}
+ 
+ In effetti c'è una regolarità nei risultati e possiamo enunciare il teorema.
+ 
+ \begin{teorema}
+  \label{diff01_teoderpotenza}
+  La derivata della funzione potenza \(f(x)= x^n\), con esponente 
+naturale, è: \(f'(x)=~nx^{n-1}\).
+  \end{teorema}
+\noindent Ipotesi: \(f(x)=x^n\), con \(n\in \N\) .\tab Tesi: 
+\(f'(x)=nx^{n-1}\). 
+\begin{proof}
+%  Una funzione potenza è una funzione che dà come risultato la potenza 
+% della variabile indipendente:
+% \[f: x \mapsto x^n \quad \text{o} \quad 
+%   f(x)=x^n \quad \text{o} \quad 
+%   y = x^n\]
+Ricaviamo per gradi il differenziale della funzione potenza \(f(x)=x^n\), 
+con un procedimento per induzione.
+
+Iniziamo dai casi già noti \(f(x)=x\) e \(f(x)=x^2\) e esaminiamo i successivi
+aumentando progressivamente l'esponente. Ancora una volta non inseriamo 
+l'indicazione relativa a \(x_0\), perché ci siamo accorti che è inutile. 
+Infatti i risultati cambiano al cambiare di \(x_0\), il che equivale a dire che 
+dipendono da \(x\).
+\begin{align*}
+  d(x) &=x+dx-x =dx\\
+  d(x^2) &=(x+dx)^2-x^2 = x^2 +2xdx +(dx)^2 -x^2 = 2xdx +(dx)^2\\
+  d(x^3) &=(x+dx)^3-x^3 =[x^3+3x^2dx+3x(dx)^2+(dx)^3]-x^3=
+                      3x^2dx+3x(dx)^2+(dx)^3\\
+  d(x^4) &=(x+dx)^4-x^4 = [x^4+4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4]-x^4=\\
+                      &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4  \\
+ d(x^5) &= (x+dx)^5-x^5 = [x^5+5x^4dx+\dots +(dx)^5 ]-x^5=\\
+                      &=5x^4dx+\dots+(dx)^5\\
+                      &\dots
+\end{align*}
+Possiamo osservare che il termine non infinitesimo si annulla sempre. Quindi,
+qualunque sia il valore di \(x\), l'incremento della funzione è infinitesimo. 
+Queste funzioni sono quindi continue in tutto \(\IR\) perché a variazioni 
+infinitesime della variabile \(x\) corrispondono sempre variazioni
+infinitesime della funzione.
+
+I vari differenziali hanno un'espressione sempre più lunga, ma se consideriamo 
+la parte principale di ogni espressione, cioè se trascuriamo 
+gli infinitesimi di ordine superiore, il risultato è molto semplice.
+
+% \newpage %----------------------------------------
+Quindi se invece del valore esatto ci accontentiamo della parte principale, 
+dato che è indistinguibile, concludiamo:
+\nopagebreak
+\begin{align*}
+  d(x) &=x+dx-x =dx\\
+  d(x^2) &=2xdx +(dx)^2 \sim 2xdx\\
+  d(x^3) &=3x^2dx+3x(dx)^2+(dx)^3 \sim 3x^2dx\\
+  d(x^4) &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4 \sim 4x^3dx\\
+  d(x^5) &=5x^4dx+10x^3(dx)^2+10x^2(dx)^3+5x(dx)^4+(dx)^5 \sim 5x^4dx\\
+  d(x^6) &=6x^5dx+\dots+(dx)^6 \sim 6x^5dx\\
+  d(x^7) &=7x^6(dx)+\dots+(dx)^7 \sim 7x^6dx\\
+  \dots &= \dots\\
+  d(x^{10}) &=10x^9(dx)+\dots+(dx)^{10} \sim 10x^9dx\\
+  \dots &= \dots\\
+  d(x^n) &=nx^{n-1}(dx)+\dots+(dx)^{n} \sim nx^{n-1}dx.\\    
+\end{align*}
+Ora che il meccanismo è chiaro, abbiamo la regola per il differenziale di questa 
+funzione: \(d(x^n) \sim nx^{n-1}dx\) 
+e la sfruttiamo per ricavare il Rapporto Differenziale.
+\[
+ \forall dx\ne 0:\quad
+ RD =\dfrac{d(x^n)}{dx}\sim \dfrac{nx^{n-1}dx}{dx}=nx^{n-1}.
+\]
+Il Rapporto Differenziale è indistinguibile da una quantità finita indipendente 
+da \(dx\), possiamo calcolarne la parte standard. Questa operazione, fra 
+l'altro, ci permette di eliminare gli infinitesimi di ordine superiore e quindi 
+di scrivere il segno di \(=\) al posto del segno \(\sim\).
+\[
+ f'(x)=\pst{\dfrac{d(x^n)}{dx}}=\pst{nx^{n-1}}=nx^{n-1}.
+\]
+\end{proof}
+
+Come esempio di derivata della funzione potenza, consideriamo \(f(x)=x^3\)
+e il suo grafico nel piano cartesiano. 
+
+\begin{minipage}[]{.48\textwidth}
+\begin{inaccessibleblock}
+  [m tangenti a cubica]
+ \begin{center}
+ \cubica
+ \end{center}
+\end{inaccessibleblock}
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.48\textwidth}
+ \begin{center}
+  \tangenticubica
+ \end{center}
+ \end{minipage}
+% \caption{$y=x^3\) e la pendenza \(y=m(x)=3x^2\) delle sue tangenti.} 
+% \label{}
+% \end{figure}
+%\vspace{1em}
+
+I due rami del grafico sono simmetrici rispetto all'origine e quindi lo sono 
+anche le pendenze delle tangenti. 
+
+Considerando le \(x\) crescenti, quindi da sinistra verso destra, le pendenze 
+delle tangenti sono sempre positive, all'inizio molto accentuate, poi 
+diminuiscono fino a \(m=0\). Poi riprendono a crescere, in maniera 
+sempre più evidente. Il grafico della funzione \(f'(x)=3 x^2\) ha 
+infatti la forma di una parabola simmetrica rispetto all'asse \(y\).
+
+\begin {esempio}
+Ora disponiamo di un'arma molto più potente di prima, che, insieme alle 
+precedenti, ci permette di calcolare derivate come questa.\\
+Derivare la funzione polinomiale 
+\(f(x)= -\dfrac{4}{15}x^5+ \dfrac{2}{3}x^3-13kx\).
+ \begin{align*}
+ &f(x) = -\dfrac{4}{15}x^5+ \dfrac{2}{3}x^3-13kx\\
+ &\text{funzione 1:} a(x)=-\dfrac{4}{15}x^5\quad \text{ funzione 2: } 
+b(x) =+ \dfrac{2}{3}x^3\quad \text{ funzione 3: } c(x) =-13kx.\\
+ &\text{Derivate degli addendi: }a'(x)=\dfrac{4}{3}x^4;\quad b'(x)=+2 x^2;
+ \quad c'(x)=-13k.\\
+ &\text{Quindi: } f'(x)=\dfrac{4}{3}x^4+2x^2-13k.
+ \end{align*}
+\end {esempio}
+
+ \subsubsection{Derivata di una funzione potenza con esponente intero}
+\label{subsubsec:derivata_f_potenza_Z} 
+ 
+ \begin{teorema}
+  La derivata della funzione reciproca \(f(x)=\dfrac{1}{x}\) è: \quad
+\(f'(x)=-\dfrac{1}{x^2}\).
+\end{teorema}
+\noindent Ipotesi: \(f(x)=\dfrac{1}{x}\).\tab Tesi: \(f'(x)=-\dfrac{1}{x^2}\).
+\begin{proof}
+\begin{align*}
+ &f(x)= \dfrac{1}{x}\quad\text{ con } x\ne 0.\quad\text{ Allora, } \forall 
+dx \ne  0:\\
+ &RD=\dfrac{df(x)}{dx}=\dfrac{\dfrac{1}{x+dx}-\dfrac{1}{x}}{dx}= 
+\dfrac{\dfrac{x-x-dx}{x(x+dx)}}{dx}=
+\dfrac{\dfrac{-\cancel{dx}}{x(x+dx)}}{\cancel{dx}}=\dfrac{-1}{x(x+dx)}.
+\end{align*}
+Date le ipotesi, il Rapporto Differenziale è un numero finito e 
+possiamo applicare la definizione di derivata. Per le proprietà della funzione 
+parte standard:
+\[
+ \pst{\dfrac{-1}{x(x+dx)}}=
+\dfrac{-1}{\pst{x(x+dx)}}=\dfrac{-1}{\pst{x}\pst{x+dx}}=
+      -\dfrac{1}{x\cdot x}=-\dfrac{1}{x^2}.
+\]
+Poiché il risultato non cambia \(\forall dex \ne 0\), la tesi è dimostrata.
+\end{proof}
+
+% \begin{figure}[h!]
+\begin{inaccessibleblock}
+  [Grafico della funzione 1/x e della sua derivata: 1/(x^2)]
+ \begin{minipage}[]{.48\textwidth}
+ \begin{center}
+\scalebox{.9}{ \recip}
+ \end{center}
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.48\textwidth}
+ \begin{center}
+\scalebox{.9}{  \tangentirecip}
+ \end{center}
+ \end{minipage}
+\end{inaccessibleblock}
+%\caption{$y=\dfrac{1}{x}\) e la pendenza \(y=m(x)=\dfrac{-1}{x^2}\) delle sue 
+%   tangenti.} 
+% \label{}
+% \end{figure}
+\center {Grafico di \(f(x)=\frac{1}{x}\) e di \(f'(x)\)}
+
+
+
+
+
 
 \subsection{Derivata del quoziente di funzioni}
 \label{subsec:differenziazione_derivataquoziente}
@@ -2711,7 +3118,7 @@ rispetto alla \(x\) in una retta.
 
 \begin{teorema}
   \label{diff01_teoderpotenza}
-  La derivata della generica funzione potenza è: \(\mathit{D}\quadra{x^n}=
+  La derivata della generica  è: \(\mathit{D}\quadra{x^n}=
   nx^{n-1}\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=x^n\) .\tab Tesi: \(f'(x)=nx^{n-1}\).
