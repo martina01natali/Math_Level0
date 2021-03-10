@@ -1246,7 +1246,7 @@ parte standard:
 \dfrac{-1}{\pst{x(x+dx)}}=\dfrac{-1}{\pst{x}\pst{x+dx}}=
       -\dfrac{1}{x\cdot x}=-\dfrac{1}{x^2}.
 \]
-Poiché il risultato non cambia \(\forall dex \ne 0\), la tesi è dimostrata.
+Poiché il risultato non cambia \(\forall dx \ne 0\), la tesi è dimostrata.
 \end{proof}
 
 % \begin{figure}[h!]
@@ -1272,24 +1272,25 @@ Poiché il risultato non cambia \(\forall dex \ne 0\), la tesi è dimostrata.
 
 Se proseguiamo con gli esempi possiamo ricavare le regole di 
 derivazione per le potenze successive \(f(x)=\dfrac{1}{x^2}\), 
-\(f(x)=\dfrac{1}{x^2}\), e così via, con \(x\ne 0\). Ma possiamo anche 
-arrivarci in un altro modo, basta riscrivere le due funzioni precedenti come 
-potenze.
+\(f(x)=\dfrac{1}{x^3}\), e così via, con \(x\ne 0\). Ma ci arriviamo 
+più comodamente come segue.
 
-Riscriviamo: \(f(x)=\frac{1}{x}=x^{-1}\),\quad  \(f(x)=\dfrac{1}{x^2}= 
+\begin{teorema}
+ La regola della derivata di una funzione potenza vale anche se 
+l'esponente è un intero negativo, quindi vale anche con esponente \(z\in\Z\).
+\end{teorema}
+
+\begin{proof}
+ Riscriviamo: \(f(x)=\frac{1}{x}=x^{-1}\),\quad  \(f(x)=\dfrac{1}{x^2}= 
 x^{-2}\), \dots , \(f(x)=\dfrac{1}{x^n}=x^{-n}\), con \(n\in \N\). 
-poiché \(n\geqslant 0\), fissiamo \(z=-n\), certamente positivo.
+Poiché \(n\geqslant 0\), fissiamo \(z=-n\), certamente positivo.
 Possiamo a questo punto riusare la regola delle funzioni potenza:
 \begin{align*}
 f(x)&=x^{-n}=x^z, \quad \text{con }x\ne 0.\quad  \text{Allora esiste la 
 derivata:}\\
 f'(x)&= zx^{z-1}=-nx^{-n-1}.
 \end{align*}
-Resta perciò dimostrato il seguente teorema.
-\begin{teorema}
- La regola della derivata di una funzione potenza vale anche con esponente se 
-l'esponente è un intero negativo.
-\end{teorema}
+\end{proof}
 
 \begin{esempio}
  Derivare \(f(x)=\dfrac{1}{x^2}\).\\
@@ -1298,9 +1299,6 @@ l'esponente è un intero negativo.
   f'(x)=-2x^{-2-1}=-2x^{-3}=\dfrac{-2}{x^3}.
  \end{align*}
 \end{esempio}
-
-
-
 
 
 \subsection{Derivata del quoziente di funzioni}
@@ -1399,8 +1397,40 @@ f'(x)= \dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}=
 \]
 \end{esempio}
 
+Grazie quest'ultima regola siamo in grado di derivare funzioni 
+come la seguente:
+\begin{esempio}
+ Calcola la pendenza della funzione \(f(x)=\dfrac{x^2}{x-2}\) nel punto 
+di ascissa \(x=1\).\\
+%\begin{figure}[h]
+\begin{inaccessibleblock}
+  %\begin{center}
+ \begin{minipage}[]{.40 \textwidth}
+   \vspace{-.5em}
+  \derivaomografica
+ % \caption{}
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.58 \textwidth}
+Applichiamo direttamente la regola 
+\ref{subsec:differenziazione_derivataquoziente}.
+Dato che il numeratore e il 
+denominatore sono entrambe funzioni derivabili e che \(x=1\) non annulla il 
+denominatore, si ha: 
 
-
+\begin{align*}
+f'(x)&=\dfrac{2x\cdot(x-2)-x^2\cdot 1}{(x-2)^2}=\dfrac{x^2-4x}{(x-2)^2}.\\
+f'(1)&=\dfrac{1^2-4\cdot 1}{(1-2)^2}=\dfrac{-3}{1}=-3.
+\end{align*}
+\(f'(x)\) è la derivata. \(f'(1)\) è la derivata calcolata per 
+\(x=1\), cioè la pendenza della curva nel punto \((1,\ f(1)).\)
+\end{minipage}
+%\end{center}
+\end{inaccessibleblock}
+%\label{}
+%\end{figure} 
+Per \(x=1\), la curva ha pendenza \(m=-3\).\\
+\end{esempio}
 \subsubsection{Sintesi provvisoria}
 \label{subsubsec:diff01_sintesiprovvisoria}
 Abbiamo dimostrato le regole di derivazione per alcune funzioni elementari: 
@@ -1408,11 +1438,14 @@ Abbiamo dimostrato le regole di derivazione per alcune funzioni elementari:
  \item \(\dfrac{d(k)}{dx} = 0\) \tab  derivata di una costante;
  \item \(\dfrac{d(x)}{dx} = 1\) \tab derivata della funzione identica;
  \item \(\dfrac{d(x^\alpha)} {dx} = \alpha x^{\alpha-1}\) \tab 
- derivata della funzione potenza (\(\alpha \in \Q\))
+ derivata della funzione potenza (\(\alpha \in \R\)).
 \end{enumerate}
- 
+\begin{osservazione}
+ La regola 3 anticipa un risultato giustificato per ora solo con \(\alpha \in 
+\Z\), ma che in realtà ha valore con qualsiasi esponente reale.
+\end{osservazione}
 
-E abbiamo giustificato le regole di derivazione per alcune funzioni che sono 
+Conosciamo anche le regole di derivazione per alcune funzioni che sono 
 somma, prodotto o quoziente di altre:
 \begin{enumerate} [noitemsep]
  \item \(\dfrac{d(k\cdot f)}{dx}=kf'\) \tab 
@@ -1421,10 +1454,78 @@ somma, prodotto o quoziente di altre:
  derivata di una somma o differenza;
  \item \(\dfrac{d(f\cdot g)}{dx}= f'\cdot g+f\cdot g'\) \tab 
  derivata del prodotto;
- \item \(\dfrac{d\tonda{\dfrac{f}{g}}}{dx}=\frac{f'\cdot g-f\cdot 
-g'}{g^2}\)\tab 
+ \item \(\dfrac{d\tonda{\dfrac{f}{g}}}{dx}=\dfrac{f'\cdot 
+g-f\cdot g'}{g^2}\)\tab 
 derivata  del rapporto (\(g \ne 0\)).
 \end{enumerate}
+
+\subsubsection{Derivata della funzione radice quadrata}
+\label{subsubsec:f_radice}
+\begin{teorema}
+  La derivata della funzione \(f(x)=\sqrt{x}\), con \(x \geq 0\), è: 
+\(f'(x)= \dfrac{1}{2\sqrt{x}}\), purché \(x\ne 0\).
+\end{teorema}
+\noindent Ipotesi: \(f(x)=\sqrt{x}\), con \(x\geq 0\) .\tab Tesi: 
+    \(f'(x)=\dfrac{1}{2\sqrt{x}}\).
+\begin{proof}
+ Calcoliamo separatamente \(df(x)\), che richiede una specie di 
+razionalizzazione al contrario. Perciò, \(\forall dx\ne 0\) e se \(x\ne 0\):
+  \begin{align*}
+   df(x) &= f(x+dx)-f(x)=\sqrt{x+dx}-\sqrt{x}=
+          \tonda{\sqrt{x+dx}-\sqrt{x}}\cdot
+          \frac{\sqrt{x+dx}+ \sqrt{x}}{\sqrt{x+dx}+\sqrt{x}}=\\
+       &=\frac{x+dx-x}{\sqrt{x+dx}+\sqrt{x}}=
+         \frac{dx}{\sqrt{x+dx}+\sqrt{x}}\\
+   RD&=\dfrac{df(x)}{dx}=\dfrac{dx}{dx\tonda{\sqrt{x+dx}+\sqrt{x}}}=
+       \dfrac{1}{\sqrt{x+dx}+\sqrt{x}}.
+  \end{align*}
+Poiché il Rapporto Differenziale  con \(x\ne 0\) è un numero finito, 
+esiste parte standard. Allora:
+\begin{align*}
+ \pst{\dfrac{df(x)}{dx}}&= \pst{\dfrac{1}{\sqrt{x+dx}+\sqrt{x}}}=
+      \dfrac{1}{\pst{\sqrt{x+dx}+\sqrt{x}}}=
+      \dfrac{1}{\pst{\sqrt{x+dx}}+\pst{\sqrt{x}}}=\\
+      &=\dfrac{1}{\sqrt{x}+\sqrt{x}}=\dfrac{1}{2\sqrt{x}}.
+\end{align*}
+La parte standard non cambia al cambiare del \(dx\) usato, quindi si conclude 
+che la derivata esiste e 
+\[
+ f'(x)=\dfrac{1}{2\sqrt{x}}.
+\]
+\end{proof}
+
+% \begin{figure}[h!]
+\begin{inaccessibleblock}
+  [m tangenti a radquad]
+ \begin{minipage}[]{.48\textwidth}
+ \begin{center}
+\scalebox{.9}{ \radquad}
+ \end{center}
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.48\textwidth}
+ \begin{center}
+\scalebox{.9}{  \tangentiradquad}
+ \end{center}
+ \end{minipage}
+\end{inaccessibleblock}
+
+Le rette tangenti ai punti vicini all'origine hanno una pendenza elevata, 
+che si attenua gradualmente man mano che \(x\) aumenta, fino ad assestarsi quasi
+orizzontalmente.
+
+\begin{osservazione}
+ Per confermare l'osservazione precedente sulle funzioni potenza, adottiamo 
+quella regola anche per il caso appena visto, che deriviamo come potenza.
+\begin{align*}
+ f(x)&=\sqrt{x}=x^{\frac{1}{2}},\quad \text{ con  } x\geq 0\\
+ f'(x)&=\dfrac{1}{2}x^{\frac{1}{2}-1}=\dfrac{1}{2}x^{-\frac{1}{2}}=
+ \dfrac{1}{2x^{\frac{1}{2}}}=\dfrac{1}{2\sqrt{x}},\quad \text{ con  } x\ne 0.
+\end{align*}
+\end{osservazione}
+
+
+
 
 \newpage
 \subsection{Derivata di funzioni composte}
