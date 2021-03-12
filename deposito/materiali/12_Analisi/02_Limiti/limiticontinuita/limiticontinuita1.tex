@@ -372,6 +372,134 @@ un infinitesimo, anche
 \(\Delta(\cos x) \stext{ e } \Delta(\sen x)\) sono infinitesimi. \qed
 }
 
+È stato dimostrato inoltre il seguente teorema relativo alle funzioni 
+monotòne (crescenti o decrescenti):
+
+\begin{teorema}[Continuità della funzione monotòne]
+Una funzione reale \(f\) definita in un intervallo \(\intervcc{a}{b}\)
+che sia monotòna e assuma tutti i valori compresi tra 
+\(f(a) \stext{e} f(b)\) è continua.
+\end{teorema}
+
+
+
+\begin{comment}
+A titolo di esempio dimostriamo la continuità della
+funzione esponenziale. Dobbiamo mostrare che
+lim x→c e x = e c .
+ ̄  ̄e x
+ − e c  ̄
+  ̄ < ε, ε > 0
+ ̄ x−c
+  ̄ ε
+ ̄e
+ − 1 ̄ < = ε0
+e
+ c1 − ε0
+ < e
+ x−c
+ < 1 + ε0
+per 0 < ε0
+ < 1 → ln ¡
+1 − ε0
+ ¢
+ < x − c < ln ¡
+1 + ε
+0
+ ¢
+se
+ δ = min ¡
+− ln ¡
+1 − ε0 ¢ , ln ¡
+1 + ε0 ¢¢
+ → −δ < x − c < δ
+
+\end{comment}
+
+\begin{comment}
+\newpage %==========================================================
+
+\begin{teorema}[Continuità della funzione logaritmo]
+La funzione logaritmo (\(f(x) = \ln(x)\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=\ln x\).\\ 
+Tesi: 
+\(f(x +\epsilon) \approx f(x) \stext{ cioè }
+\ln(x +\epsilon) - \ln(x) \approx 0 \quad (\forall \epsilon \approx 0)\).
+
+\emph{Dimostrazione}
+\begin{align*}
+\ln(x +\epsilon) - \ln(x) \stackrel{1}{=} 
+\ln \frac{x + \epsilon}{x} \stackrel{2}{=} 
+% \ln \tonda{\frac{\cancel{x}}{\cancel{x}} + \frac{\epsilon}{x}} 
+% \stackrel{3}{=} 
+\epsilon \cdot \frac{1}{\epsilon} \ln \tonda{1 + \frac{\epsilon}{x}} 
+\stackrel{3}{=} 
+\epsilon  \ln \tonda{1 + \frac{1}{x}\epsilon}^{\frac{1}{\epsilon}} 
+\stackrel{4}{\approx} 
+\epsilon \ln \tonda{e^{\frac{1}{x}}} 
+% \stackrel{5}{\approx} 
+% \epsilon \frac{1}{x} 
+\stackrel{5}{\approx} 0
+\end{align*}
+~\qed
+
+Dove i passaggi indicati hanno le seguenti giustificazioni.
+\begin{enumerate} [nosep]
+\item Proprietà dei logaritmi: differenza di logaritmi.
+% \item Banale passaggio algebrico.
+\item Moltiplicazione per \(1 = \frac{\epsilon}{\epsilon}\).
+\item Proprietà dei logaritmi: costante per un logaritmo.
+\item Vedi nel capitolo sulle funzioni esponenziali l'esempio:
+``Una particolare funzione esponenziale'' 
+% \item Per la definizione di logaritmo.
+% \item Per qualunque \(x \in \R\) anche \(e^{\frac{1}{x}}\)
+% è un numero reale e quindi finito. 
+\item Per qualunque \(x \in \R\) anche \(\ln \tonda{e^{\frac{1}{x}}}\)
+è un numero reale e quindi finito. 
+Moltiplicando un finito per un infinitesimo si ottiene un infinitesimo.
+\end{enumerate}
+
+\begin{teorema}[Continuità della funzione esponenziale]
+La funzione esponenziale (\(f(x) = e^x\)) è continua.
+\end{teorema}
+
+\noindent Ipotesi: \(f(x)=e^x\).\\ 
+Tesi: 
+\(f(x +\epsilon) \approx f(x) \stext{ cioè }
+e^{x +\epsilon} - e^x \approx 0 \quad (\forall \epsilon \approx 0)\).
+
+\emph{Dimostrazione}
+\begin{align*}
+e^{x +\epsilon} - e^x \stackrel{1}{=} 
+e^{x +\epsilon} - e^x \stackrel{2}{=} 
+\ln \tonda{\frac{\cancel{x}}{\cancel{x}} + \frac{\epsilon}{x}} 
+\stackrel{3}{=} 
+\epsilon \cdot \frac{1}{\epsilon} \ln \tonda{1 + \frac{\epsilon}{x}} 
+\stackrel{4}{=} 
+\epsilon  \ln \tonda{1 + \frac{1}{x}\epsilon}^{\frac{1}{\epsilon}} 
+\stackrel{5}{\approx} \epsilon e^{\frac{1}{x}} \stackrel{6}{\approx} 0
+\end{align*}
+~\qed
+
+Dove i passaggi indicati hanno le seguenti giustificazioni.
+\begin{enumerate} [nosep]
+\item Proprietà dei logaritmi: differenza di logaritmi.
+\item Banale passaggio algebrico.
+\item Moltiplicazione per \(1 = \frac{\epsilon}{\epsilon}\).
+\item Proprietà dei logaritmi: costante per un logaritmo.
+\item Vedi nel capitolo sulle funzioni esponenziali l'esempio:
+``Una particolare funzione esponenziale'' 
+\item Per qualunque \(x \in \R\) anche \(e^{\frac{1}{x}}\)
+è un numero reale e quindi finito. 
+Moltiplicando un finito per un infinitesimo si ottiene un infinitesimo.
+\end{enumerate}
+
+\end{comment}
+
+\begin{comment}
+
 \begin{teorema}[Continuità della funzione esponenziale in zero]
 La funzione esponenziale (\(f(x) = e^x\)) è continua in \(0\).
 \end{teorema}
@@ -499,6 +627,8 @@ e^{x} = f(x) \qed
 %  \setlength\premulticols{6\baselineskip}
 
 %----------
+
+\end{comment}
 
 \noindent\begin{minipage}{\textwidth}
 Oltre alle funzioni precedenti, anche altre funzioni elementari sono 
@@ -1453,9 +1583,9 @@ Dato che il risultato ottenuto è un finito:
 % \[\lim_{x \to -\infty}\frac{3x^2-4x+5}{x^2-2x+3} \stackrel{1}{=} 
 % \pst{\frac{3M^2-4M+5}{M^2-2M+3}} \stackrel{2}{=} 
 % \pst{\frac{3\cancel{M^2}}{\cancel{M^2}}} = \pst{3} = 3\]
-Dove le uguaglianze segnate hanno le seguenti giustificazioni:
+Dove i passaggi indicati hanno le seguenti giustificazioni:
 \begin{enumerate} [nosep]
-\item sostituiamo numeratore e denominatore con espressioni indistinguibili 
+\item Sostituiamo numeratore e denominatore con espressioni indistinguibili 
 (vedi la sezione sul confronto tra numeri iperreali).
 \item La parte standard di un numero reale è il numero reale stesso.
 \end{enumerate}
