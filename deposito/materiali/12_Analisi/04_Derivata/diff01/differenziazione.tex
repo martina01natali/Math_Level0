@@ -47,14 +47,14 @@ racconta che per dimostrare che i gravi cadono con la stessa velocità,
 gettò dalla Torre di Pisa due sfere di peso diverso, ma di uguali 
 dimensioni: i due oggetti raggiunsero il suolo 
 contemporaneamente.\\
-La Torre di Pisa è alta circa $56m$ e immaginiamo, per semplificare, che la 
-distanza percorsa dai due oggetti sia di $56m$ (ti lascio calcolare il 
+La Torre di Pisa è alta circa \(56m\) e immaginiamo, per semplificare, che la 
+distanza percorsa dai due oggetti sia di \(56m\) (ti lascio calcolare il 
 percorso effettivo: tieni presente che al giorno d'oggi l'inclinazione della 
-Torre è di $4,8^\circ$).\\
+Torre è di \(4,8^\circ\).\\
 Oggi sappiamo che un oggetto in caduta libera partendo da fermo ha la seguente
 legge del moto:
-\(s=\frac{1}{2}gt^2\). Come al solito, $s$ è lo spazio in metri, $t$ è il 
-tempo in secondi, $g=9,81 m/s^2$ è l'accelerazione di gravità, costante vicino
+\(s=\frac{1}{2}gt^2\). Come al solito, \(s\) è lo spazio in metri, \(t\) è il 
+tempo in secondi, \(g=9,81 m/s^2\) è l'accelerazione di gravità, costante vicino
 alla superficie terrestre.\\
 Se cerchiamo la velocità media, basta dividere lo spazio percorso per il 
 tempo impiegato:
@@ -743,7 +743,7 @@ reale.
 \subsection{Derivata della funzione identica}
 \label{subsec:differenziazione_derivatafidentica}
 \begin{esempio}
- Deriviamo la funzione più semplice: $f(x)=x$.\\
+ Deriviamo la funzione più semplice: \(f(x)=x\).\\
  Innanzitutto dovremmo scrivere il differenziale della funzione \(df\), che 
 essendo \(f(x)=x\), risulta: \(df(x)=f(x+\epsilon)-f(x)=x+\epsilon-x=\epsilon\). 
 \\
@@ -875,14 +875,20 @@ rispetto alla \(x\) in una retta.
 
 \section{Teoremi sulle derivate}
 \label{sec:differenziazione_teoremi}
+\begin{definizione}
+Una funzione per la quale la derivata è calcolabile si dice derivabile.
+Se non si specifica diversamente, si intende che la pendenza della funzione 
+è calcolabile per ogni \(x\) del suo dominio.
+\end{definizione}
+
 Per evitare calcoli laboriosi come quelli dell'Esempio \ref{esempio:esempio_5}, 
 che in realtà sono fra i più agevoli che ci potrebbero capitare, 
 cerchiamo regole di derivazione più immediate. 
 
 In quell'esempio, la funzione è \(f(x)=\dfrac{1}{3}x^2-2x+5\),  una somma 
 algebrica di tre addendi: \(\dfrac{1}{3}x^2\),\quad \(-2x\)\quad e\quad  \(+5 
-\): non potremmo derivarli separatamente e poi unire i risultati attraverso una 
-somma? È quello che stiamo per mostrare con i prossimi teoremi.
+\): non potremmo derivarli separatamente e poi unire i risultati 
+sommandoli? È quello che stiamo per mostrare con i prossimi teoremi.
 
 \subsection{Derivata della somma (algebrica) di funzioni}
 \label{subsec:differenziazione_derivatasomma}
@@ -1044,19 +1050,62 @@ Per la dimostrazione si può seguire la traccia dell'esempio precedente oppure
 impostare il Rapporto Differenziale e arrivare senza difficoltà alla 
 conclusione.
 \end{proof}
-Abbiamo appena usato il termine ``derivabile'', che ha un significato 
-intuitivo. Comunque definiamolo.
-\begin{definizione}
-Una funzione per la quale la derivata è calcolabile si dice derivabile.
-Se non si specifica diversamente, si intende che la pendenza della funzione 
-sia calcolabile per ogni \(x\) del suo dominio.
-\end{definizione}
+
 
 \begin{osservazione}
 Questi due ultimi teoremi consentono una facile dimostrazione alla regola di 
 derivazione per le funzioni lineari, alternativa a quella data nel Teorema 
 \ref{subsec:differenziazione_derivataflineare}.
 \end{osservazione}
+
+
+\begin{esempio}
+ %valore assoluto
+ È derivabile la funzione \(f(x)=\dfrac{1}{2}|x-2|+2\)?\\
+ La funzione contiene un valore assoluto: seguendo l’esempio 
+\ref{esempio:diff01_derimodulo} riscriviamola come se fosse divisa in due rami:
+
+% \begin{figure}[h!]
+ \begin{minipage}[]{.33 \textwidth}
+% \begin{center}
+\begin{inaccessibleblock}
+  [Derivate radice]
+  \derivamodulodue
+\end{inaccessibleblock}
+%\end{center}
+%   \caption{}
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.65 \textwidth}
+\(f(x)= \dfrac{1}{2}|x-2|+2
+=\begin{cases}
+  \dfrac{x-2}{2}+2 &\text{ per } x-2< 0  \\
+ \dfrac{-(x-2)}{2}+2 &\text{ per } x-2 \ge 0
+\end{cases} 
+=\\ =
+\begin{cases}
+ \dfrac{x}{2}+1 &\text{ per } x<2 \\
+ -\dfrac{x}{2}+3 &\text{ per } x\ge 2
+\end{cases}.\)
+\end{minipage}
+% \end{figure} 
+\vspace{1em}
+Si tratta di due semirette che si uniscono in \(\punto{2}{2}\). L'equazione
+di ciascuna di loro è una funzione lineare e già sappiamo che per ognuno dei 
+rami la pendenza esiste ed è il coefficiente angolare. Quindi, anche senza 
+calcolarla, abbiamo:
+\(f'(x)= \begin{cases}
+ \dfrac{1}{2} &\text{ per } x<2 \\
+ -\dfrac{1}{2} &\text{ per } x > 2
+\end{cases}\)\\
+Quale è la pendenza giusta della tangente per \(x=2\), nel punto cioè dove il 
+grafico cambia pendenza?
+
+Per ragioni analoghe a quelle illustrate in \ref{esempio:diff01_derimodulo}
+concludiamo che \(f'(2)\)  non esiste e quindi \(f\) è derivabile, ma non in 
+tutto l'insieme di definizione.
+\end{esempio}
+
 
 \subsubsection{Derivata di una funzione potenza con esponente naturale}
 \label{subsubsec:derivata_f_potenza_N}
@@ -1313,8 +1362,8 @@ denominatore) e dividendo il risultato per il quadrato del denominatore.
 \noindent Ipotesi: \(a(x)=\dfrac{\mathit{S}(x)}{b(x)}\), 
 con \(b(x)\neq 0\) \tab 
 Tesi: 
-$da(x) \sim \dfrac{d\mathit{A}(x) \cdot b(x)-\mathit{A}(x) \cdot db(x)}
-             {\tonda{b(x)}^2}$
+\(da(x) \sim \dfrac{d\mathit{A}(x) \cdot b(x)-\mathit{A}(x) \cdot db(x)}
+             {\tonda{b(x)}^2}\)
 
 \begin{proof}
 Ricorriamo alla geometria anche in questo caso: nel disegno \(\mathit{S}(x)\) è 
@@ -1431,6 +1480,7 @@ f'(1)&=\dfrac{1^2-4\cdot 1}{(1-2)^2}=\dfrac{-3}{1}=-3.
 %\end{figure} 
 Per \(x=1\), la curva ha pendenza \(m=-3\).\\
 \end{esempio}
+
 \subsubsection{Sintesi provvisoria}
 \label{subsubsec:diff01_sintesiprovvisoria}
 Abbiamo dimostrato le regole di derivazione per alcune funzioni elementari: 
@@ -1441,6 +1491,7 @@ Abbiamo dimostrato le regole di derivazione per alcune funzioni elementari:
  derivata della funzione potenza (\(\alpha \in \R\)).
 \end{enumerate}
 \begin{osservazione}
+\label{oss:regola3}
  La regola 3 anticipa un risultato giustificato per ora solo con \(\alpha \in 
 \Z\), ma che in realtà ha valore con qualsiasi esponente reale.
 \end{osservazione}
@@ -1480,7 +1531,7 @@ razionalizzazione al contrario. Perciò, \(\forall dx\ne 0\) e se \(x\ne 0\):
        \dfrac{1}{\sqrt{x+dx}+\sqrt{x}}.
   \end{align*}
 Poiché il Rapporto Differenziale  con \(x\ne 0\) è un numero finito, 
-esiste parte standard. Allora:
+esiste la parte standard. Allora:
 \begin{align*}
  \pst{\dfrac{df(x)}{dx}}&= \pst{\dfrac{1}{\sqrt{x+dx}+\sqrt{x}}}=
       \dfrac{1}{\pst{\sqrt{x+dx}+\sqrt{x}}}=
@@ -1515,22 +1566,444 @@ che si attenua gradualmente man mano che \(x\) aumenta, fino ad assestarsi quasi
 orizzontalmente.
 
 \begin{osservazione}
- Per confermare l'osservazione precedente sulle funzioni potenza, adottiamo 
-quella regola anche per il caso appena visto, che deriviamo come potenza.
+ Per confermare l'osservazione di pag.~\pageref{oss:regola3}  sulle 
+funzioni potenza, adottiamo quella regola anche per il caso appena visto, che 
+deriviamo di nuovo dopo averlo espresso come potenza.
 \begin{align*}
- f(x)&=\sqrt{x}=x^{\frac{1}{2}},\quad \text{ con  } x\geq 0\\
+ f(x)&=\sqrt{x}=x^{\frac{1}{2}},\quad \text{ con  } x\geq 0.\\
  f'(x)&=\dfrac{1}{2}x^{\frac{1}{2}-1}=\dfrac{1}{2}x^{-\frac{1}{2}}=
  \dfrac{1}{2x^{\frac{1}{2}}}=\dfrac{1}{2\sqrt{x}},\quad \text{ con  } x\ne 0.
 \end{align*}
 \end{osservazione}
 
+\subsection{Differenziale e incremento}
+\label{subsec:diff01_diff_inc}
+Abbiamo visto più volte che il Rapporto Differenziale di una funzione e la 
+sua derivata sono cose diverse: infatti, in una funzione derivabile,
+\(f'(x_0)=\pst{RD}\). Applicando la parte standard si eliminano dal Rapporto 
+Differenziale gli infinitesimi che il rapporto genera, così rimane solo il 
+numero reale che si accetta come valore della pendenza.
+
+Fra \(f'(x_0)\) e \(RD\) c'è solo una differenza di infinitesimi:
+\(RD-f'(x_0)=\epsilon\). Concentrando i nostri ragionamenti su un particolare 
+\(x_0\) e sviluppando le formule, si ha:\\
+\(\dfrac{df(x_0)}{dx}-f'(x_0)=\epsilon\quad \rightarrow\quad
+df(x_0)=f'(x_0)dx+\epsilon\cdot dx\quad \rightarrow\)\\
+\(\rightarrow\quad f(x_0+dx)-f(x_0)=f'(x_0)dx+\epsilon\cdot dx
+\rightarrow\quad f(x_0+dx)=f'(x_0)dx+f(x_0)+\epsilon\cdot dx\).\\
+Se mancasse l'ultimo termine, l'equazione \(f(x_0+dx)=f'(x_0)dx+f(x_0)\) 
+sarebbe quella di una retta: la si ottiene scrivendo \(x-x_0\) invece di \(dx\) 
+e \(m\) invece di \(f'(x_0)\), cioè \(f(x)=m(x-x_0) +f(x_0)\). 
+La retta, che passa per il punto della curva con ascissa \(x_0\) e ha la stessa 
+pendenza della curva, è la sua tangente per quel punto. 
+
+La conclusione è che \emph{a distanza \(dx\) dal punto che si vuole esaminare, 
+fra la curva e la tangente c'è una differenza pari a \(\epsilon\cdot dx\), un 
+infinitesimo di ordine superiore a \(dx\)}. Questa differenza è
+\emph{l'incremento infinitesimo della curva rispetto alla tangente}.
+
+\begin{inaccessibleblock}
+  [differenziale della tangente]
+  \begin{minipage}[]{.47\textwidth}
+    \begin{center} \derivata \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.47\textwidth} \vspace{2.5em}
+Nel punto \(\punto{x_0}{f(x_0)}\) il grafico della funzione e la tangente
+sono indistinguibili. 
+Il campo visivo del primo microscopio mostra \({x_0}\) e \(dx\), 
+perché l'ingrandimento è infinito. A questo livello 
+microscopico la curvatura del grafico non esiste,  per cui la curva e 
+la tangente sono sovrapposte. Nemmeno un secondo microscopio infinito, con 
+cui l'ingrandimento complessivo diventa \(\infty^2\), puntato su \(x_0\) può 
+distinguere i due grafici. Ma un terzo microscopio, centrato a 
+distanza infinitesima dal punto nel primo microscopio, mostra la tangente e 
+la curva come rette parallele, che distano fra loro 
+\(\epsilon\cdot dx\), cioè un infinitesimo di un infinitesimo.
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
+
+\begin{teorema}
+\label{teo:inc}
+ \emph{Teorema dell'incremento.} A distanza infinitesima dal punto di ascissa 
+\(x_0\), la funzione derivabile \(f(x)\) ha un valore che è la somma fra 
+il valore della sua tangente \(t(x)\) passante per \(\punto{x_0}{f(x_0)}\) e un 
+infinitesimo dell'infinitesimo \(dx\):
+\[f(x_0+dx)=\underbrace{f'(x_0)dx+f(x_0)}_{t(x)}+\epsilon\cdot dx.\]
+\end{teorema}
+L'importante conseguenza di questo teorema è che se ci troviamo in 
+difficoltà a calcolare l'incremento infinitesimo di 
+\(f\), possiamo considerare al suo posto l'incremento lungo la 
+tangente, perché l'errore che si commette è una quantità trascurabile anche 
+rispetto a \(dx\).
+
+\subsection{Derivata di funzioni composte}
+\label{subsec:differenziazione_derivatainverse}
+
+\begin{esempio}
+  Deriva la funzione \(f(g)=\dfrac{g^2}{8}\). 
+  Soluzione: \(f'(g)=\dfrac{1}{8}2g=\dfrac{g}{4}\). \\
+Deriva la funzione \(g(x)=3x-2\). Soluzione: \(g'(x)=3\).\\
+Combiniamo i due esempi: \(f=f(g)\) e \(g=g(x)\), cioè \(f\) è funzione di 
+\(g\), nel senso che facciamo dipendere i suoi valori dai quadrati, divisi per 
+\(8\), dei numeri \(g\).
+Invece \(g\) è funzione di \(x\), nel senso che i suoi valori sono i valori 
+\(x\) triplicati e poi ridotti di \(2\). abbiamo quindi la funzione 
+\(f=f(g(x))\). Scritto in forma matematica: 
+\(f(g(x))=\dfrac{[g(x)]^2}{8}=\dfrac{(3x-2)^2}{8}\).
+\end{esempio}
+\begin{inaccessibleblock}
+  [box funzione composta]
+ \begin{center}
+ \begin{minipage}[]{.48\textwidth}
+  \boxfcomposta
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.48\textwidth}
+Si tratta di una macchina che incatena due calcoli successivi.\\
+Immettiamo ad esempio il valore \(t=6\). La macchina sviluppa al suo interno 
+\(u(6)=3\cdot 6-2=16\) grazie a \(u\) e infine produce 
+\(v(16)=\dfrac{16^2}{8}=32\).
+Una catena del genere si chiama \emph{funzione di funzione} o
+\emph{funzione composta}: in questo caso \(f(g(x))\).\\
+ \end{minipage}
+ \end{center}
+\end{inaccessibleblock}
+\label{}
+
+Considerando che i valori \(x\) per arrivare alla trasformazione prevista 
+da \(f\) devono prima essere trasformati da \(g\), come deriviamo  \(f\) 
+rispetto a \(x\)? La formula sintetica è: 
+\(f'(g(x))=\pst{\dfrac{df(g(x))}{dx}}\) e il punto da studiare è il calcolo 
+del differenziale al numeratore.
+% \begin{inaccessibleblock}
+%   [differenziale funzione composta]
+%  \begin{center}
+%  \begin{minipage}[]{.48\textwidth}
+%   \diffcomposta
+%  \end{minipage} 
+%   \hfill
+%  \begin{minipage}[]{.48\textwidth}
+% Dal primo esempio sappiamo che \(dv=\dfrac{u}{4}du\ +\) infinitesimi di 
+% ordine superiore. Poiché \(u=3t-2\), \(du=3dt\), avremo:\\
+% \(dv\approx \dfrac{u}{4}du\). \hspace{1cm} \(du=3dt\). \(\srarrow 
+% dv=\dfrac{3t-2}{4}3dt \srarrow\\ 
+% \srarrow 
+% \pst{\dfrac{d(v(u(t)))}{dt}}=\pst{\dfrac{(3t-2)3dt}{4dt}}\\
+% =\dfrac{9t-6}{4}\).
+%  \end{minipage}
+%  \end{center}
+% \end{inaccessibleblock}
+% \label{}
 
 
+\begin{esempio}
+  Calcolare \(f'(x)\), con \(f(x)=\sqrt{3-x^2}\).\\
+  \(f(x)\) è composta da due funzioni entrambe derivabili. Si può pensare
+  formata così: \(g(x)=3-x^2\) e \(f(g(x))=\sqrt{g(x)}=\sqrt{3-x^2}\).\\
+  Il differenziale \(df\) si potrebbe calcolare dalla definizione: 
+ \(df(g)=f(g+dg)+f(g)\) e questo obbliga poi a sviluppare \(dg\) e inglobarlo 
+nel calcolo. \\
+ C'è una via più diretta e semplice: fare riferirmento al Teorema~\ref{teo:inc}.
+La conseguenza del teorema è che si può calcolare il differenziale della 
+tangente invece di quello della funzione, perché si tralasciano quantità 
+che comunque sono trascurabili rispetto a \(dx\). Quindi:
+\begin{align*}
+ &df(g)\sim f'(g)dg\quad \rightarrow\quad 
+d\tonda{\sqrt{g(x)}}\sim\frac{1}{2\sqrt{g(x)}}\cdot dg(x)\quad \rightarrow\quad 
+RD=\dfrac{df(g(x))}{dg(x)}\sim\dfrac{1}{2\sqrt{g(x)}}.\\
+&dg(x)=d(3-x^2)\sim-2x\cdot dx\quad \rightarrow\quad RD= \dfrac{dg(x)}{dx}\sim
+-2d.\\
+&RD=\dfrac{df(g(x))}{dx}\sim\dfrac{1}{2\sqrt{g(x)}}\cdot \dfrac{dg(x)}{dx}\sim
+  \frac{1}{2\sqrt{3-x^2}}\cdot (-2x).
+\end{align*}
+Poiché le funzioni sono derivabili, possiamo scrivere direttamente:
+ \[f'(x)=\pst{\dfrac{-2x}{2\sqrt{3-x^2}}}=
+  \dfrac{-x}{\sqrt{3-x^2}}.\]
+\end{esempio}
 
-\newpage
+\begin{teorema}
+  \label{teo:diff01_dericomp}
+ Se esistono le derivate \(g'(x)\) e \(f'(g(x))\) per il medesimo valore \(x\),
+ la funzione composta \(f(g(x))\) è derivabile e la sua derivata si calcola
+ così: \(f'(x)=f'(g(x))=f'(g)\cdot g'(x)\), cioè la derivata di una funzione 
+composta è il prodotto delle derivate delle funzioni componenti, ciascuna 
+rispetto alla propria variabile.
+\end{teorema}
+\noindent Ipotesi: \(f(x)=f(g(x))\), \(f\), \(g\) derivabili .\tab 
+Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\).
+
+\begin{proof}
+
+Anzitutto, poiché esiste \(g'(x)\), \(dg(x)\) è infinitesimo per ogni 
+infinitesimo \(dx \).\\
+Poi, poiché esiste \(f'(g)\), dal teorema dell'incremento si deduce che per ogni 
+infinitesimo \(\epsilon\) c'è un infinitesimo \(dx\) tale che 
+\(df(g(x))=f'(g)\cdot dg + \epsilon\cdot dg.\)
+
+
+Così, dividendo per qualsiasi infinitesimo non nullo \(dx\)
+%{\footnotesize
+ \begin{align*}
+ &\pst{\frac{df(x)}{dx}}
+ =\pst{\frac{df(g)}{dx}}=\\
+ &=\pst{\frac{f'(g)\cdot dg + \epsilon\cdot dg}{d x}}=
+ \pst{\frac{f'(g)\cdot dg}{d x}}+ \pst{\frac{\epsilon\cdot dg}{dx}}=\\
+ &= f'(g)\cdot \pst{\frac{dg}{dx}}+ \pst{\epsilon}\cdot\pst{\frac{dg}{dx}}=
+ f'(x)\cdot g'(x).
+\end{align*}
+\end{proof}
+
+\begin{esempio}
+  Derivare \(f(x)=\tonda{-\dfrac{3}{2}x^3+2x^2-6}^5\).\\
+  Poniamo \(g(x)=-\dfrac{2}{3}x^3+2x^2-6\) e \(f(g)=g^5\). \\
+  Allora: 
+  \(f'(g)= 5g^4\) e \(g'(x)=-2x^2+4x\), \\
+  quindi: 
+  \(f'(x)=f'(g)\cdot g'(x)=5g^4(-2x^2+4x)=
+  5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)\).
+\end{esempio}
+\begin{osservazione}
+ La regola della funzione composta si estende ai casi in cui le funzioni 
+ in gioco sono tre, o più:
+ \(\mathit{D}\quadra{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)\).
+\end{osservazione}
+
+
+\subsection{Derivata di funzioni inverse}
+\label{subsec:differenziazione_derivatainverse}
+
+
+\begin{comment}
+La figura mostra che la tangente e la secante per due punti infinitamente 
+vicini sono distinguibili solo al dettaglio degli infinitesimi. Lo 
+stesso avviene per la derivata e il rapporto differenziale.\\
+Dalla definizione di derivata \(f'(x)=\pst{\dfrac{df(x)}{dx}}\) ricaviamo che
+\(f'(x)\sim \dfrac{df(x)}{dx}\): la derivata e il rapporto differenziale 
+sono quantità quasi, ma non esattamente, uguali. Possiamo esprimere 
+meglio questo concetto:\\
+\(\dfrac{df(x)}{dx}=f'(x)+\epsilon(x)\) e quindi 
+\(df(x)=f'(x)dx+\epsilon(x)dx\).\\
+\(\epsilon(x)\) è l'infinitesimo, o l'insieme di infinitesimi, che fa la 
+differenza fra la derivata e il rapporto differenziale.  
+\(\epsilon(x)dx\), un prodotto fra infinitesimi, forma un infinitesimo 
+di ordine superiore rispetto a \(f'(x)dx\).
+Nella maggior parte dei casi pratici si tratta di una differenza 
+trascurabile 
+e si può accettare l'espressione \(f'(x)dx\) al posto dell'espressione
+\(df(x)\), che può essere meno comoda da calcolare.\\
+Nella storia del calcolo infinitesimale l'uso di una formula al posto 
+dell'altra
+è diventato normale e molti testi definiscono differenziale della 
+funzione il prodotto \(f'(x)dx\), invece della differenza infinitesimale 
+\(df(x)\).
+
+Il problema diventa più critico nelle applicazioni pratiche, quando si 
+devono 
+usare le differenze finite al posto dei differenziali. Si usa allora, per
+analogia:\\
+\(\Delta f(x)=f'(x_0)\Delta x + \delta(x)\Delta x\).\\
+Dato che l'ultimo termine è il meno rilevante, si ha:\\
+\(\Delta f(x)\cong f'(x_0)\Delta x \srarrow
+f(x)-f(x_0)\cong f'(x_0)(x-x_0)\srarrow f(x)\cong f'(x_0)(x-x_0)+ f(x_0)\).\\
+Si tratta dell'usuale equazione della tangente per \(x=x_0\).\\
+La formula è esatta solo per le funzioni rappresentate da rette.
+Per le altre funzioni la differenza \(\Delta f(x)\) fra due valori della 
+funzione 
+può essere anche molto diversa da \(f'(x_0)\Delta x\), che è in realtà la 
+differenza fra due valori \(y\), calcolati lungo la tangente.
+
+\begin{inaccessibleblock}
+  [differenziale della tangente]
+  \begin{minipage}[]{.4\textwidth}
+    \begin{center} \scalebox{1}{\falsodifferenziale} \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.55\textwidth}
+ Allontanandosi da \(x_0\) di una quantità finita \(\Delta x\), le differenze 
+della funzione \(\Delta f(x)\), calcolate a partire da \(x_0\), possono 
+ essere anche molto diverse dalle differenze \(f'(x_0)\Delta x\), calcolate 
+lungo la tangente.
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
+
+Nei testi in cui si scrive che \(\Delta f(x)=f'(x_0)\Delta x+\delta(x)\Delta 
+x\), \(f'(x_0)\Delta x\) viene chiamato differenziale, anche se si tratta di 
+una 
+differenza, una quantità finita, non infinitesima. In tali testi la differenza
+\(\Delta f(x)\) è detta incremento e l'equazione\\
+\(\Delta f(x)\cong f'(x_0)\Delta x\) \hspace{.5cm}(\emph{Equazione alle 
+differenze})\\ 
+esprime il cosiddetto \emph{Teorema dell'incremento}.\\
+Ai fini pratici l'Equazione alle differenze è un'equazione utile, 
+soprattutto 
+quando si studiano i fenomeni naturali, perché le variazioni che si 
+misurano in
+questi ambiti sono differenze finite. 
+Ovviamente i risultati che si ottengono utilizzando il teorema 
+dell'incremento
+saranno tanto più precisi quanto più piccola è la variazione \(\Delta x\), in 
+rapporto ai valori \(x\).
+
+\begin {esempio}
+Fare una stima ragionevole della quantità \(\sqrt{25,162}\).\\
+Si sta usando la funzione \(f(x)=\sqrt{x}\), la cui derivata è: 
+\(f'(x)=\dfrac{1}{2\sqrt{x}}\).\\
+Utilizziamo il teorema dell'incremento, fissando \(x_0=25\) e \(\Delta 
+x=0,162\).\\
+\(\Delta f(x)=f'(x_0)\Delta x+\delta(x)\Delta x\cong f'(x_0)\Delta x
+\srarrow f(x)\cong f'(x_0)\Delta x+ f(x_0)\)\\
+\(f(25,162)\cong f'(25)\cdot 0,162+f(25)\srarrow 
+\sqrt{25,162}\cong \dfrac{1}{2\sqrt{25}}\cdot 0,162+ \sqrt{25}=
+\dfrac{0,162}{10}+5\cong 5,0162\).\\
+Confronta il risultato con quanto propone la calcolatrice.\\
+Poiché l'approssimazione è tanto migliore quanto più piccolo è \(\Delta x\),
+ripeti l'esercizio con \(x_0=25,1001\) (la cui radice è \(5,01\)) e quindi
+\(\Delta x=0,06199\).
+\end {esempio}
+
+
 \subsection{Derivata di funzioni composte}
 \label{subsec:differenziazione_derivatacomposte}
 
+
+
+\begin{esempio}
+  Deriva la funzione \(v(u)=\dfrac{u^2}{8}\). 
+  Soluzione: \(v'(u)=\dfrac{1}{8}2u=\dfrac{u}{4}\). Infatti il differenziale è 
+\(dv(u)=\dfrac{1}{8}[2udu+(du)^2]\) perché \(df(x)=2xdx+(dx)^2\) 
+  e \(d(kf(x)=kdf(x)\). La parte standard del rapporto differenziale fornisce
+  il risultato \(\dfrac{u}{4}\).
+\end{esempio}
+
+\begin{esempio}
+Deriva la funzione \(u(t)=3t-2\). Soluzione: \(u'(t)=3\). Infatti il 
+ differenziale è \(du(t)=3dt-0\). Allora la parte 
+ standard del rapporto differenziale fornisce il risultato \(3\).
+\end{esempio}
+
+Combiniamo i due esempi: \(v=f(u)\) e \(u=f(t)\), cioè \(v\) è funzione di 
+\(u\), 
+perché i suoi valori dipendono dai quadrati, divisi per \(8\), dei numeri \(u\).
+Invece \(u\) è funzione di \(t\), nel senso che i suoi valori sono i valori 
+\(t\) 
+triplicati e poi ridotti di 2. In ``matematichese'':\\
+\(v(u(t))=\dfrac{[u(t)]^2}{8}=\dfrac{(3t-2)^2}{8}\).
+
+
+\begin{inaccessibleblock}
+  [box funzione composta]
+ \begin{center}
+ \begin{minipage}[]{.48\textwidth}
+  \boxfcomposta
+ \end{minipage} 
+ \hfill
+ \begin{minipage}[]{.48\textwidth}
+Si tratta di una macchina che incatena due calcoli successivi.\\
+Immettiamo ad esempio il valore \(t=6\). La macchina sviluppa al suo interno 
+\(u(6)=3\cdot 6-2=16\) grazie a \(u\) e infine produce 
+\(v(16)=\dfrac{16^2}{8}=32\).
+Una catena del genere si chiama \emph{funzione di funzione} o
+\emph{funzione composta}: \(v(u(t))\).\\
+ \end{minipage}
+ \end{center}
+\end{inaccessibleblock}
+\label{}
+
+Come deriviamo  \(v\) rispetto a \(t\)? Dalla definizione di derivata: 
+\(\mathit{D}\quadra{v(u(t))}=\pst{\dfrac{d(v(u(t)))}{dt}}\), 
+e il punto è il calcolo dei differenziali.
+\begin{inaccessibleblock}
+  [differenziale funzione composta]
+ \begin{center}
+ \begin{minipage}[]{.48\textwidth}
+  \diffcomposta
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.48\textwidth}
+Dal primo esempio sappiamo che \(dv=\dfrac{u}{4}du\ +\) infinitesimi di 
+ordine superiore. Poiché \(u=3t-2\), \(du=3dt\), avremo:\\
+\(dv\approx \dfrac{u}{4}du\). \hspace{1cm} \(du=3dt\). \(\srarrow 
+dv=\dfrac{3t-2}{4}3dt \srarrow\\ 
+\srarrow 
+\pst{\dfrac{d(v(u(t)))}{dt}}=\pst{\dfrac{(3t-2)3dt}{4dt}}\\
+=\dfrac{9t-6}{4}\).
+ \end{minipage}
+ \end{center}
+\end{inaccessibleblock}
+\label{}
+
+C'è un modo più semplice? In questo caso, sì: basta sviluppare il quadrato
+\((3t-2)^2\), dividere ogni termine per \(8\) e poi derivare il polinomio. 
+Ma a volte il modo più semplice non c'è.
+\begin{esempio}
+  Calcolare \(f'(x)\), con \(f(x)=\sqrt{3-x^2}\).\\
+  \(f(x)\) è composta: si può pensare
+  formata così: \(g(x)=3-x^2\) e \(f(g(x))=\sqrt{g(x)}=\sqrt{3-x^2}\).\\
+  In questo modo si vedono meglio i differenziali.
+  \(df(x)=d\tonda{\sqrt{g(x)}}\approx\frac{1}{2\sqrt{g(x)}}\cdot dg(x)\) e 
+  \(dg(x)=d(3-x^2)\approx-2xdx\). Per brevità, raccogliamo sotto un'unica
+  sigla \(\epsilon\) tutti gli infinitesimi 
+  di ordine superiore, che poi la parte standard si incaricherà di far 
+  scomparire nel momento di calcolare la derivata.\\
+  Il differenziale: \(df(x)=df(g(x))=\frac{1}{2\sqrt{g(x)}}\cdot 
+dg(x)+\delta=
+  \frac{1}{2\sqrt{3-x^2}}\cdot (-2x)dx+ \epsilon\).\\
+  Da qui la derivata: 
+  \(f'(x)=\pst{\dfrac{\frac{-2xdx}{2\sqrt{3-x^2}} +\epsilon}{dx}}=
+  \dfrac{-x}{\sqrt{3-x^2}}\).
+\end{esempio}
+Esaminiamo in modo astratto come abbiamo costruito il rapporto 
+differenziale della funzione composta nell'esempio precedente: 
+\(\dfrac{df}{dx}=\dfrac{df}{dg}\dfrac{dg}{dx}\). \\
+Sembra un'uguaglianza banale, perché semplificando si otterrebbe l'identità.
+In realtà i due differenziali \(dg\) sono scritti allo stesso modo ma hanno un
+significato diverso e non è detto che si possano semplificare.\\
+\(dg\) al denominatore differenzia la variabile indipendente della funzione 
+\(f\), \(dg\) al numeratore è la conseguenza del differenziale \(dx\). Perciò
+se varia \(x\) si ha un effetto su \(g(x)\) e se varia \(g\) si ha un effetto 
+su  \(f(g)\). In generale le due variazioni \(dg\) saranno diverse per 
+infinitesimi di ordine superiore, che possono essere eliminati considerando le 
+parti standard.\\
+Non avremo occasione di affrontare queste difficoltà, nei nostri esercizi.
+Ma sono questioni importanti per una regola che vogliamo sempre valida. 
+Perciò il prossimo enunciato deve contenere tutti i dettagli.
+
+\begin{teorema}
+  \label{teo:diff01_dericomp}
+ Se esistono le derivate \(g'(x)\) e \(f'(g(x))\) per il medesimo valore \(x\),
+ la funzione composta \(f(g(x))\) è derivabile e la sua derivata si calcola
+ così: \(f'(x)=f'(g(x))=f'(g)\cdot g'(x)\), cioè la derivata di una funzione 
+composta è il prodotto delle derivate delle funzioni componenti, 
+ciascuna rispetto alla propria variabile.
+\end{teorema}
+\noindent Ipotesi: \(f(x)=f(g(x))\), \(f\), \(g\) derivabili .\tab 
+Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\).
+% \begin{proof}
+%   Tralasciando di specificare la scomparsa degli infinitesimi di ordine 
+%   superiore e grazie alle proprietà della funzione \(\pst{}\), abbiamo:\\
+%   \(f'(g(x))=\pst{\dfrac{df(x)}{dx}}=
+%   \pst{\dfrac{df(g)}{dg}\dfrac{dg(x)}{dx}}=
+%   \pst{\dfrac{df(g))}{dg}}\pst{\dfrac{dg(x)}{dx}}=
+%   f'(g(x))g'(x)\).
+% \end{proof}
+\begin{esempio}
+  Derivare \(f(x)=\tonda{-\dfrac{3}{2}x^3+2x^2-6}^5\).\\
+  Poniamo \(g(x)=-\dfrac{2}{3}x^3+2x^2-6\) e \(f(g)=g^5\). \\
+  Allora: 
+  \(f'(g)= 5g^4\) e \(g'(x)=-2x^2+4x\), \\
+  quindi: 
+  \(f'(x)=f'(g)\cdot g'(x)=5g^4(-2x^2+4x)=
+  5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)\).
+\end{esempio}
+\begin{osservazione}
+ La regola della funzione composta si estende ai casi in cui le funzioni 
+ in gioco sono tre, o più:
+ \(\mathit{D}\quadra{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)\).
+\end{osservazione}
+\end{comment}
 \subsection{Derivata di funzioni inverse}
 \label{subsec:differenziazione_derivatainverse}
 
@@ -2437,7 +2910,7 @@ infinitesimo, \(d\mathit{A}\),
  \end{minipage} 
  \hfill
  \begin{minipage}[]{.58 \textwidth}
-\end{comment}
+
  \begin{center}
  \begin{inaccessibleblock}
   [Altezza rettangolo con gnomone infinitesimo.]
