@@ -295,6 +295,11 @@
     }
 }
 
+
+\newcommand{\pendenzaradicecubica}{% diff. di f costante
+  \disegno{\graficoxy{-5}{+5}{-5}{+5}{blue!50!black}{x**(2./3)}}
+}
+
 \newcommand{\diffcostante}{% diff. di f costante
   \disegnod{4.5}{
   \rcom{-2}{+8}{-3}{+5}{gray!50, very thin, step=1}
@@ -908,70 +913,242 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
     }
 }
 
-\newcommand{\diffcomposta}{%differenziale di f composta
-   \disegnod{3}{
-  \draw[gray!50, very thin, step=1] 
-  (-0.3, -10-0.3) grid (10+0.3, 10+0.3); % Griglia
-  \begin{scope}[-{Stealth[length=2mm, open, round]}, black] % Assi
-    \draw (0, 0) -- (0, -10-0.5) 
-      node [left, yshift=-3pt] {\(t\)};
-    \draw (-0.3, 0) -- (10+0.5, 0) 
-      node [below, xshift=-3pt] {\(u\)};
-    \draw (0, 0) -- (0, 10+0.5) 
-      node [left, yshift=-3pt] {\(v\)};
-  \end{scope}
-   \tkzInit[xmin=0, xmax=+8.3, ymin=-9, ymax=10]
-   \tkzFct[ultra thick, color=blue!50!black, domain=0:7.3]{-.33*x-.66}
-   \tkzFct[ultra thick, color=blue!50!black, domain=0:8.3]{x*x/8}
-   \draw [color=Cyan!50!black](0, -1.5) -- (2.5, -1.5) -- (2.5, .8) -- (0, .8)
-      node [black, left, xshift=1mm] {\(v(u)\)};
-   \draw [black] (0, -1.5) node [left] {\(t\)}
-        (2.4, -0.5) node {\(u(t)\)}
-        (7, -3) node {\(u=f(t)\)}
-        (8, 8) node  {\(v=f(u)\)};
-         
- \begin{scope}[black, font=\fontsize{6}{6}]       
-  \microscopio{(0, -1.5)}{2}{220}{0}{3}{(-4, -6)}{\(\times \infty\)} %mic. per 
-dt
-  \draw [gray!50, very thin] (-5,-6) -- (-5, 0.2);
-  \fill [Cyan!50] (-5, -2.5) -- (-1.6, -2.5) -- (-1.6, -3.5) -- (-5,-3.5);
-  \filldraw (-5, -3.5) circle (1.4pt) (-5, -2.5) circle (1.4pt);   
-  \draw  (-5, -3) node [left] {\(dt\)};
- \draw  (-3.5, -3.3) node [below] {\(t+dt\)} (-3.5, -2.7) node [above] {\(t\)};
-                  
- \microscopio{(2.5, -1.5)}{1}{-90}{90}{3}{(4, -8)}{\(\times \infty\)} %mic. per 
-dt/du
- \draw [ultra thick, color=blue!50!black] (-.3, -4.5) -- (5.3, -6.5);
- \fill [Cyan!50] (.8, -5) -- (3.7, -6) -- (-.4, -6) -- (-.4, -5);
- \fill [Cyan!50] (1, -4.9) -- (3.8, -5.9) -- (3.8, -2.8) -- (1, -2.9);
- \draw  (.5, -5.5) node {\(dt\)};
-    \filldraw (1, -5) circle (1.4pt) (3.8, -5.9) circle (1.4pt); 
-    \draw  (2.5, -4) node  {\(du=3dt\)};
-
-    \microscopio{(2.4, 0)}{1.5}{10}{200}{3}{(8.5, -1.5)}{\(\times \infty\)} 
-%mic. per du
-    \fill [Cyan!50] (5.2, -1.3) -- (8.2, -1.3) -- (8.2, 3.8) -- (5.2, 3.8);
-    \draw [gray!50, very thin] (3.8, 1) -- (9.7, 1);
-    \draw (6.7, .5) node {\(du\)}  (4.8, 1.5) node {\(u\)}
-          (9.5, 1.5) node {\(u+du\)};
- 
-   \microscopio{(2.5, .8)}{3}{90}{-90}{3}{(6, 8.5)}{\(\times \infty\)} %mic. 
-per du/dv
-   \tkzFct[ultra thick, color=blue!50!black, domain=0.1:5.2]{.6*x+5}
-   \fill [Cyan!50] (1, 4.2) -- (4, 4.2) -- (4, 7.3) -- (1, 5.5);
-   \fill [Cyan!50] (1, 5.7) -- (4, 7.5) -- (-0.4, 7.5) -- (-0.3, 5.7);
-   \draw  (2.5, 5) node {\(du\)} (-.3, 6.5) node {\(dv\approx\frac{u}{4}du\)};
-   \filldraw (1, 5.6) circle (1.4pt) (4, 7.4) circle (1.4pt); 
-
-   \microscopio{(0, .8)}{3}{120}{0}{3}{(-4, 7)}{\(\times \infty\)} %mic. per dv
-   \draw [gray!50, very thin] (-5,.4) -- (-5, 6.4);
-   \fill [Cyan!50] (-5, 2.3) -- (-5, 4.1) -- (-1.7, 4.1) -- (-1.7, 2.3);
-   \draw (-4.8, 3.2) node {\(dv=\frac{9t-6}{4}dt\)};
-   \filldraw (-5, 2.3) circle (1.4pt) (-5, 4.1) circle (1.4pt); 
-   \draw  (-3.5, 2.1) node {\(v\)} (-3.5, 4.3) node {\(v+dv\)};                
-  \end{scope}              
-   }
+%--------------------
+% \derivatacomposta
+\newcommand{\funzione}[9]{% 
+  % Uso: \disegno{\funzione{x*x*x-5*x*x+5*x+4}{4.1, 3.5}{g}
+  %                        {3.2}{1.56}{(2.8, 2.0)}{P_g}{x}{t}}
+  \def \func {#1}
+  \def \pnf {#2}
+  \def \nf {#3}
+  \def \xp {#4}
+  \def \yp {#5}
+  \def \poslp {#6}
+  \def \lp {#7}
+  \def \nax {#8}
+  \def \nay {#9}
+  \rcomvar{0}{+7}{0}{7}{gray!50, very thin, step=1}{\(\nax\)}{\(\nay\)}
+  \draw [dashed, gray] (\xp, 0) -- (\xp, \yp) -- (0, \yp);
+  \tkzInit[xmin=-0.3,xmax=+7.3,ymin=-0.3,ymax=+7.3]
+  \tkzFct[ultra thick, domain=0:+7.3] {\func} 
+  \node at (\pnf) {\(\nf\)};
+  \filldraw [color=black] (\xp, \yp) circle (1.5pt) 
+                                     node at (\poslp) {\(\lp\)};
 }
+
+\newcommand{\funzioneg}{
+\funzione{x*x*x-5*x*x+5*x+4}{4.5, 6.5}{g}
+         {3.10}{1.25}{3.0, 3.5}{P_g}{x}{t}}
+
+\newcommand{\funzioneh}{
+\funzione{x**.5}{5.8, 1.8}{h}
+         {1.25}{1.12}{2.2, 1.8}{P_h}{}{}}
+
+\newcommand{\funzionef}{
+\funzione{(x*x*x-5*x*x+5*x+4)**.5}{5.0, 6.7}{F}
+         {3.1}{1.12}{2.7, 1.7}{P}{x}{y}}
+
+\newcommand{\microscopioxg}{
+  \def \xasse{2.5}
+  \def \ydasha{-4.9}
+  \def \ydashb{-5.9}
+  \microscopio{(0, -3.1)}{1.5}{-45}{-220}{2}{(-5, -7)}{}
+%                 {\tiny \(\times \frac{1}{d x}\)}
+    \draw (\xasse, -3.45) --(\xasse, -7.43);
+    \draw [dashed] 
+          (0.7, \ydasha) -- (\xasse, \ydasha) node [right=-.15] 
+                                        {\scriptsize \(x\)}
+          (0.7, \ydashb) -- (\xasse, \ydashb) node [right=-.15] 
+                                        {\scriptsize \(x+d x\)};
+}
+
+\newcommand{\microscopioxf}{
+  \def \yasse{-3}
+  \def \xdasha{4.83}
+  \def \xdashb{5.83}
+  \microscopio{(3.1, 0)}{1.5}{-45}{120}{2}{(7, -5)}{}
+%                 {\tiny \(\times \frac{1}{d x}\)}
+  \draw (3.18, \yasse) -- (7.13, \yasse);
+  \draw [dashed] (\xdasha, -1.1) -- (\xdasha, \yasse) 
+                 node [below, xshift=-1mm] {\scriptsize \(x\)}
+                 (\xdashb, -1.1) -- (\xdashb, \yasse) 
+                 node [below=-.1, xshift=+2mm] {\scriptsize \(x+d x\)};
+}
+
+\newcommand{\microscopiopg}{
+  \def \xpa {-2.5}
+  \def \ypa {-4.9}
+  \def \xpb {-5.4}
+  \def \ypb {-5.9}
+  \microscopio{(-1.25, -3.1)}{1.5}{220}{45}{2}{(-5, -7)}{}
+%                 {\tiny \(\times \frac{1}{d x}\)}
+  \tkzInit[xmin=-9,xmax=+0,ymin=-8,ymax=0]
+  \tkzFct[ultra thick, color=red!50!black, domain=-5.8:-1.96] {.348*x-4.04} 
+  \draw [dashed] 
+        (\xpb, -4.4) -- (\xpb, \ypb) -- (-1.85, \ypb)
+        (\xpa, -4.3) -- (\xpa, \ypb)  (\xpa, \ypa) -- (-1.9, \ypa);
+  \filldraw (\xpa, \ypa) circle (1.5pt) [fill=green];
+  \filldraw (\xpb, \ypb) circle (1.5pt) [fill=green];
+  \node at (-2, -5.4) [black] {\scriptsize \(d x\)};
+  \node at (-3.8, -6.3) [black] {\scriptsize \(d t\)};
+}
+
+\newcommand{\microscopioth}{
+  \def \yasse{-2.4}
+  \def \xdasha{-2.50}
+  \def \xdashb{-5.4}
+  \microscopio{(-1.25, 0)}{1.5}{220}{45}{2}{(-5, -7)}{}
+%                 {\tiny \(\times \frac{1}{d x}\)}
+  \draw (-5.80, \yasse) -- (-1.85, \yasse);
+  \draw [dashed] (\xdasha, -1) -- (\xdasha, -3.8) 
+                 (\xdashb, -1.2) -- (\xdashb, -3.5);
+  \node at (-3.8, -2.8) {\scriptsize \(d t\)};
+}
+
+\newcommand{\microscopioph}{
+  \def \xpa {-2.5}
+  \def \ypa {+3.2}
+  \def \xpb {-5.4}
+  \def \ypb {+4.5}
+  \microscopio{(-1.25, 1.12)}{2.0}{130}{-45}{2}{(-5, -7)}{}
+%                 {\tiny \(\times \frac{1}{d x}\)}
+  \tkzInit[xmin=-9,xmax=+9,ymin=-8,ymax=+8]
+  \tkzFct[ultra thick, color=blue!50!black, domain=-5.8:-2.25] {-.45*x+2.08} 
+  \draw [dashed] 
+        (-2.0, \ypb) -- (\xpb, \ypb) -- (\xpb, 2.7)
+        (-2.2, \ypa) -- (\xpb, \ypa)  (\xpa, \ypa) -- (\xpa, 2.7);
+  \filldraw (\xpa, \ypa) circle (1.5pt) [fill=green];
+  \filldraw (\xpb, \ypb) circle (1.5pt) [fill=green];
+  \node at (-3.8, 2.5) [black] {\scriptsize \(d t\)};
+  \node at (-5.95, 3.8) [black] {\scriptsize \(d y\)};
+}
+
+\newcommand{\microscopioyf}{
+  \def \xasse{+1.5}
+  \def \ydasha{+3.2}
+  \def \ydashb{+4.5}
+  \microscopio{(0, 1.12)}{1.5}{50}{-100}{2}{(-5, -7)}{}
+%                 {\tiny \(\times \frac{1}{d x}\)}
+  \draw (\xasse, +2.3) -- (\xasse, 6.2);
+  \draw [dashed] (-0.3, \ydasha) -- (+3.0, \ydasha) 
+                 (-0.6, \ydashb) -- (+3.25, \ydashb);
+  \node at (\xasse+.5, 3.8) {\scriptsize \(d y\)};
+}
+
+\newcommand{\microscopiopf}{
+  \def \xpa {+4.83}
+  \def \ypa {+3.2}
+  \def \xpb {+5.83}
+  \def \ypb {+4.5}
+  \microscopio{(3.1, 1.12)}{1.5}{15}{250}{2}{(-5, -7)}{}
+%                 {\tiny \(\times \frac{1}{d x}\)}
+  \tkzInit[xmin=-9,xmax=+9,ymin=-8,ymax=+8]
+  \tkzFct[ultra thick, color=violet!50!black, domain=3.85:6.3] {1.29*x-3.0} 
+  \draw [dashed] 
+        (+3.7, \ypb) -- (\xpb, \ypb) -- (\xpb, 1.5)
+        (+3.3, \ypa) -- (\xpb, \ypa)  (\xpa, \ypa) -- (\xpa, 1.4);
+  \filldraw (\xpa, \ypa) circle (1.5pt) [fill=green];
+  \filldraw (\xpb, \ypb) circle (1.5pt) [fill=green];
+  \node at (5.35, 2.8) [black] {\scriptsize \(d x\)};
+  \node at (6.4, 3.8) [black] {\scriptsize \(d y\)};
+}
+
+
+\newcommand{\derivatacomposta}{% 
+  % Derivata della funzione composta
+  \disegno[5]{
+    \begin{scope}[rotate=-90, yscale=-1, red!50!black]
+      \funzioneg
+    \end{scope}
+    \begin{scope}[xscale=-1, blue!50!black]
+      \funzioneh
+    \end{scope}
+    \begin{scope}[violet!50!black]
+      \funzionef
+      \draw [dashed, gray] (0, -3.1) arc (-90:0:3.1);
+    \end{scope}
+
+%     \begin{scope}[]
+%     \draw [dashed] 
+%           (2, 4) -- (2, 0) node [black, below] 
+%                              {\scriptsize \(x\approx x+\Delta x\)}
+%           (2, 4) -- (0, 4) node [black, left] 
+%                              {\scriptsize \(f(x) \approx f(x+\Delta x)\)};
+%     \end{scope}
+    % Microscopio x_0-0
+    \microscopioxg
+    \microscopioxf
+    \microscopiopg
+    \microscopioth
+    \microscopioph
+    \microscopioyf
+    \microscopiopf
+  }
+}
+
+
+% \newcommand{\diffcomposta}{%differenziale di f composta
+%   \disegno[3]{
+%   \draw[gray!50, very thin, step=1] 
+%   (-0.3, -10-0.3) grid (10+0.3, 10+0.3); % Griglia
+%   \begin{scope}[-{Stealth[length=2mm, open, round]}, black] % Assi
+%     \draw (0, 0) -- (0, -10-0.5) 
+%       node [left, yshift=-3pt] {\(t\)};
+%     \draw (-0.3, 0) -- (10+0.5, 0) 
+%       node [below, xshift=-3pt] {\(u\)};
+%     \draw (0, 0) -- (0, 10+0.5) 
+%       node [left, yshift=-3pt] {\(v\)};
+%   \end{scope}
+%    \tkzInit[xmin=0, xmax=+8.3, ymin=-9, ymax=10]
+%    \tkzFct[ultra thick, color=brown!50!black, domain=0:7.3]{-.33*x-.66}
+%    \tkzFct[ultra thick, color=brown!50!black, domain=0:8.3]{x*x/8}
+%    \draw [color=cyan!50!black](0, -1.5) -- (2.5, -1.5) -- 
+%          (2.5, .8) -- (0, .8) node [black, left, xshift=1mm] {\(v(u)\)};
+%    \draw [black] (0, -1.5) node [left] {\(t\)}
+%          (2.4, -0.5) node {\(u(t)\)}
+%          (7, -3) node {\(u=f(t)\)}
+%          (8, 8) node  {\(v=f(u)\)};
+%  \begin{scope}[black, font=\fontsize{6}{6}] 
+%   \microscopio{(0, -1.5)}{2}{220}{0}{3}{(-4, -6)}
+%               {\(\times \infty\)} % mic. dt
+%   \draw [gray!50, very thin] (-5,-6) -- (-5, 0.2);
+%   \fill [cyan!50] (-5, -2.5) -- (-1.6, -2.5) -- (-1.6, -3.5) -- (-5,-3.5);
+%   \filldraw (-5, -3.5) circle (1.4pt) (-5, -2.5) circle (1.4pt); 
+%   \draw (-5, -3) node [left] {\(dt\)};
+%   \draw (-3.5, -3.3) node [below] {\(t+dt\)} (-3.5, -2.7) 
+%         node [above] {\(t\)};
+%   \microscopio{(2.5, -1.5)}{1}{-90}{90}{3}{(4, -8)}
+%               {\(\times \infty\)} % mic. dt/du
+%   \draw [ultra thick, color=brown!50!black] (-.3, -4.5) -- (5.3, -6.5);
+%   \fill [cyan!50] (.8, -5) -- (3.7, -6) -- (-.4, -6) -- (-.4, -5);
+%   \fill [cyan!50] (1, -4.9) -- (3.8, -5.9) -- (3.8, -2.8) -- (1, -2.9);
+%   \draw  (.5, -5.5) node {\(dt\)};
+%   \filldraw (1, -5) circle (1.4pt) (3.8, -5.9) circle (1.4pt); 
+%   \draw  (2.5, -4) node  {\(du=3dt\)};
+%   \microscopio{(2.4, 0)}{1.5}{10}{200}{3}{(8.5, -1.5)}
+%               {\(\times \infty\)} %mic. per du
+%   \fill [cyan!50] (5.2, -1.3) -- (8.2, -1.3) -- (8.2, 3.8) -- (5.2, 3.8);
+%   \draw [gray!50, very thin] (3.8, 1) -- (9.7, 1);
+%   \draw (6.7, .5) node {\(du\)}  (4.8, 1.5) node {\(u\)}
+%         (9.5, 1.5) node {\(u+du\)};
+%   \microscopio{(2.5, .8)}{3}{90}{-90}{3}{(6, 8.5)}
+%               {\(\times \infty\)} %mic. per du/dv
+%   \tkzFct[ultra thick, color=brown!50!black, domain=0.1:5.2]{.6*x+5}
+%   \fill [cyan!50] (1, 4.2) -- (4, 4.2) -- (4, 7.3) -- (1, 5.5);
+%   \fill [cyan!50] (1, 5.7) -- (4, 7.5) -- (-0.4, 7.5) -- (-0.3, 5.7);
+%   \draw (2.5, 5) node {\(du\)} (-.3, 6.5) 
+%         node {\(dv\approx\frac{u}{4}du\)};
+%   \filldraw (1, 5.6) circle (1.4pt) (4, 7.4) circle (1.4pt); 
+%   \microscopio{(0, .8)}{3}{120}{0}{3}{(-4, 7)}
+%               {\(\times \infty\)} %mic. per dv
+%   \draw [gray!50, very thin] (-5,.4) -- (-5, 6.4);
+%   \fill [cyan!50] (-5, 2.3) -- (-5, 4.1) -- (-1.7, 4.1) -- (-1.7, 2.3);
+%   \draw (-4.8, 3.2) node {\(dv=\frac{9t-6}{4}dt\)};
+%   \filldraw (-5, 2.3) circle (1.4pt) (-5, 4.1) circle (1.4pt); 
+%   \draw  (-3.5, 2.1) node {\(v\)} (-3.5, 4.3) node {\(v+dv\)}; 
+%   \end{scope} 
+%   }
+% }
 
 \newcommand{\diffinversa}{% parabola e radice per x>=0 
     \disegnod{4.5}{

@@ -1755,6 +1755,67 @@ Così, dividendo per qualsiasi infinitesimo non nullo \(dx\)
 \end{align*}
 \end{proof}
 
+Vogliamo rappresentare nella stessa immagine le funzioni 
+\(g(x)\), \(f(g)\) e \(f(x) = f(g(x))\).
+Andrebbero rappresentate tutte nello stesso piano cartesiano, ma 
+sovrapporle renderebbe difficile la comprensione. 
+Proviamo a vedere se riproducendo più versioni dello stesso piano, 
+specchiato e ruotato, si riesce a seguire il meccanismo della funzione 
+composta.
+
+\noindent\begin{minipage}{.32\textwidth}
+\begin{center}
+Partiamo dalla funzione \(g\):
+
+\disegno[5]{
+  \begin{scope}[red!50!black] \funzioneg \end{scope}
+}
+\end{center}
+\end{minipage}
+\begin{minipage}{.32\textwidth}
+\begin{center}
+\(g(x)\) specchiata:
+
+\disegno[5]{
+  \begin{scope}[yscale=-1, red!50!black] \funzioneg \end{scope}
+}
+\end{center}
+\end{minipage}
+\begin{minipage}{.32\textwidth}
+\begin{center}
+\(g(x)\) ruotata di \(-90\text{°}\):
+
+\disegno[5]{
+  \begin{scope}[rotate=-90, yscale=-1, red!50!black]
+    \funzioneg
+  \end{scope}
+}
+\end{center}
+\end{minipage}
+
+\noindent\begin{minipage}{.32\textwidth}
+\begin{center}
+Aggiungiamo la funzione \(f(t)\) specchiata rispetto a \(y\).
+
+\disegno[5]{
+  \begin{scope}[rotate=-90, yscale=-1, red!50!black]
+    \funzioneg
+  \end{scope}
+  \begin{scope}[xscale=-1, blue!50!black]
+    \funzioneh
+  \end{scope}
+}
+\end{center}
+\end{minipage}
+\begin{minipage}{.65\textwidth}
+\begin{center}
+Mettiamo tutto insieme e anche, \(f(x) = f(g(x))\): \\[.5em]
+
+\derivatacomposta
+\end{center}
+\end{minipage}
+
+
 \begin{esempio}
   Derivare \(f(x)=\tonda{-\dfrac{3}{2}x^3+2x^2-6}^5\).\\
   Poniamo \(g(x)=-\dfrac{2}{3}x^3+2x^2-6\) e \(f(g)=g^5\). \\
