@@ -1639,7 +1639,7 @@ tangente, perché l'errore che si commette è una quantità trascurabile anche
 rispetto a \(dx\).
 
 \subsection{Derivata di funzioni composte}
-\label{subsec:differenziazione_derivatainverse}
+\label{subsec:differenziazione_derivatacomposta}
 
 \begin{esempio}
   Deriva la funzione \(f(g)=\dfrac{g^2}{8}\). 
@@ -1677,33 +1677,13 @@ da \(f\) devono prima essere trasformati da \(g\), come deriviamo  \(f\)
 rispetto a \(x\)? La formula sintetica è: 
 \(f'(g(x))=\pst{\dfrac{df(g(x))}{dx}}\) e il punto da studiare è il calcolo 
 del differenziale al numeratore.
-% \begin{inaccessibleblock}
-%   [differenziale funzione composta]
-%  \begin{center}
-%  \begin{minipage}[]{.48\textwidth}
-%   \diffcomposta
-%  \end{minipage} 
-%   \hfill
-%  \begin{minipage}[]{.48\textwidth}
-% Dal primo esempio sappiamo che \(dv=\dfrac{u}{4}du\ +\) infinitesimi di 
-% ordine superiore. Poiché \(u=3t-2\), \(du=3dt\), avremo:\\
-% \(dv\approx \dfrac{u}{4}du\). \hspace{1cm} \(du=3dt\). \(\srarrow 
-% dv=\dfrac{3t-2}{4}3dt \srarrow\\ 
-% \srarrow 
-% \pst{\dfrac{d(v(u(t)))}{dt}}=\pst{\dfrac{(3t-2)3dt}{4dt}}\\
-% =\dfrac{9t-6}{4}\).
-%  \end{minipage}
-%  \end{center}
-% \end{inaccessibleblock}
-% \label{}
-
 
 \begin{esempio}
   Calcolare \(f'(x)\), con \(f(x)=\sqrt{3-x^2}\).\\
   \(f(x)\) è composta da due funzioni entrambe derivabili. Si può pensare
   formata così: \(g(x)=3-x^2\) e \(f(g(x))=\sqrt{g(x)}=\sqrt{3-x^2}\).\\
   Il differenziale \(df\) si potrebbe calcolare dalla definizione: 
- \(df(g)=f(g+dg)+f(g)\) e questo obbliga poi a sviluppare \(dg\) e inglobarlo 
+ \(df(g)=f(g+dg)-f(g)\) e questo obbliga poi a sviluppare \(dg\) e inglobarlo 
 nel calcolo. \\
  C'è una via più diretta e semplice: fare riferirmento al Teorema~\ref{teo:inc}.
 La conseguenza del teorema è che si può calcolare il differenziale della 
@@ -1714,7 +1694,7 @@ che comunque sono trascurabili rispetto a \(dx\). Quindi:
 d\tonda{\sqrt{g(x)}}\sim\frac{1}{2\sqrt{g(x)}}\cdot dg(x)\quad \rightarrow\quad 
 RD=\dfrac{df(g(x))}{dg(x)}\sim\dfrac{1}{2\sqrt{g(x)}}.\\
 &dg(x)=d(3-x^2)\sim-2x\cdot dx\quad \rightarrow\quad RD= \dfrac{dg(x)}{dx}\sim
--2d.\\
+-2x.\\
 &RD=\dfrac{df(g(x))}{dx}\sim\dfrac{1}{2\sqrt{g(x)}}\cdot \dfrac{dg(x)}{dx}\sim
   \frac{1}{2\sqrt{3-x^2}}\cdot (-2x).
 \end{align*}
@@ -1739,7 +1719,7 @@ Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\).
 Anzitutto, poiché esiste \(g'(x)\), \(dg(x)\) è infinitesimo per ogni 
 infinitesimo \(dx \).\\
 Poi, poiché esiste \(f'(g)\), dal teorema dell'incremento si deduce che per ogni 
-infinitesimo \(\epsilon\) c'è un infinitesimo \(dx\) tale che 
+infinitesimo \(dg\) c'è un infinitesimo \(\epsilon\) tale che 
 \(df(g(x))=f'(g)\cdot dg + \epsilon\cdot dg.\)
 
 
@@ -1818,10 +1798,9 @@ Mettiamo tutto insieme e anche, \(f(x) = f(g(x))\): \\[.5em]
 
 \begin{esempio}
   Derivare \(f(x)=\tonda{-\dfrac{3}{2}x^3+2x^2-6}^5\).\\
-  Poniamo \(g(x)=-\dfrac{2}{3}x^3+2x^2-6\) e \(f(g)=g^5\). \\
+  Poniamo \(g(x)=-\dfrac{2}{3}x^3+2x^2-6\)\quad e\quad \(f(g)=g^5\). \\
   Allora: 
-  \(f'(g)= 5g^4\) e \(g'(x)=-2x^2+4x\), \\
-  quindi: 
+  \(f'(g)= 5g^4\)\quad e\quad \(g'(x)=-2x^2+4x\),\quad quindi: \\
   \(f'(x)=f'(g)\cdot g'(x)=5g^4(-2x^2+4x)=
   5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)\).
 \end{esempio}
@@ -1831,289 +1810,812 @@ Mettiamo tutto insieme e anche, \(f(x) = f(g(x))\): \\[.5em]
  \(\mathit{D}\quadra{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)\).
 \end{osservazione}
 
-\diffcomposta
+
 
 \subsection{Derivata di funzioni inverse}
 \label{subsec:differenziazione_derivatainverse}
+ Cosa si intende per funzioni inverse? \(y=x\cdot k\) e \(x=\frac{y}{k}\), per 
+esempio, sono formule inverse l'una dell'altra, ma non sono funzioni inverse 
+rispetto alla stessa variabile \(x\). Le due diverse espressioni esprimono la 
+stessa iperbole equilatera e lo stesso grafico, quindi hanno le stesse tangenti 
+al grafico e la stessa derivata rispetto a \(x\).\\
+\begin{definizione}
+ Un funzione \(x=g(y)\) si dice inversa di una funzione \(y=f(x)\) se la 
+composizione delle due funzioni \(f(g(y))=x\).
+\end{definizione}
 
+\begin{osservazione}
+Data una qualsiasi funzione \(f(x)\), non è scontato che la sua inversa esista 
+\(\forall x\) nel dominio di \(f\). Per questo, quando si cerca l'inversa di 
+una funzione, succede di dover restringere il dominio di questa. Per esempio, 
+\(x=g(y)=\sqrt{y}\) è inversa di \(y=f(x)=x^2\),  perché 
+\(f(g(y))=(g(y))^2=(\sqrt{x})^2=x\), ma la composizione è possibile 
+solo se \(x \ge 0\), mentre \(f\) vale \(\forall x\). In questo caso, quindi, 
+dobbiamo considerare per \(f\) il dominio più ristretto, perchè al di fuori di 
+questo l'inversa non esiste.
 
-\begin{comment}
-La figura mostra che la tangente e la secante per due punti infinitamente 
-vicini sono distinguibili solo al dettaglio degli infinitesimi. Lo 
-stesso avviene per la derivata e il rapporto differenziale.\\
-Dalla definizione di derivata \(f'(x)=\pst{\dfrac{df(x)}{dx}}\) ricaviamo che
-\(f'(x)\sim \dfrac{df(x)}{dx}\): la derivata e il rapporto differenziale 
-sono quantità quasi, ma non esattamente, uguali. Possiamo esprimere 
-meglio questo concetto:\\
-\(\dfrac{df(x)}{dx}=f'(x)+\epsilon(x)\) e quindi 
-\(df(x)=f'(x)dx+\epsilon(x)dx\).\\
-\(\epsilon(x)\) è l'infinitesimo, o l'insieme di infinitesimi, che fa la 
-differenza fra la derivata e il rapporto differenziale.  
-\(\epsilon(x)dx\), un prodotto fra infinitesimi, forma un infinitesimo 
-di ordine superiore rispetto a \(f'(x)dx\).
-Nella maggior parte dei casi pratici si tratta di una differenza 
-trascurabile 
-e si può accettare l'espressione \(f'(x)dx\) al posto dell'espressione
-\(df(x)\), che può essere meno comoda da calcolare.\\
-Nella storia del calcolo infinitesimale l'uso di una formula al posto 
-dell'altra
-è diventato normale e molti testi definiscono differenziale della 
-funzione il prodotto \(f'(x)dx\), invece della differenza infinitesimale 
-\(df(x)\).
+Una buona regola pratica per capire se \(g=f^{-1}\) esiste, è tagliare 
+il grafico di \(f\) con una retta orizzontale: se la
+retta incrocia il grafico di \(f\) in più punti, \(f^{-1}\) non esiste.\\
+\end{osservazione}
 
-Il problema diventa più critico nelle applicazioni pratiche, quando si 
-devono 
-usare le differenze finite al posto dei differenziali. Si usa allora, per
-analogia:\\
-\(\Delta f(x)=f'(x_0)\Delta x + \delta(x)\Delta x\).\\
-Dato che l'ultimo termine è il meno rilevante, si ha:\\
-\(\Delta f(x)\cong f'(x_0)\Delta x \srarrow
-f(x)-f(x_0)\cong f'(x_0)(x-x_0)\srarrow f(x)\cong f'(x_0)(x-x_0)+ f(x_0)\).\\
-Si tratta dell'usuale equazione della tangente per \(x=x_0\).\\
-La formula è esatta solo per le funzioni rappresentate da rette.
-Per le altre funzioni la differenza \(\Delta f(x)\) fra due valori della 
-funzione 
-può essere anche molto diversa da \(f'(x_0)\Delta x\), che è in realtà la 
-differenza fra due valori \(y\), calcolati lungo la tangente.
+Considera il caso semplice che segue.
+\begin{esempio}
+  Derivare \(f(x)=\sqrt{x^2}\), con \(x \ge 0\).\\
+  Si dirà: non c'è problema, \(f(x)\) corrisponde algebricamente a 
+  \(f(x)=\sqrt{x^2}=x\), perciò  \(f'(x)=1\).\\
+  Vero. Ma poniamo \(x=g(y)=y^2\) e \(f(x)=f(g(y))=\sqrt{g(y)}\).\\
+  Con la regola delle funzioni composte si ha:\\ 
+  \(f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
+  \dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x=1\).\\
+  Conclusione: 
+La derivata \(\mathit{D}\quadra{x^2}=\dfrac{1}{\mathit{D}\quadra{\sqrt{x}}}\). 
+In questo calcolo, inoltre, bisogna segnalare che \(g'(x)\) esiste se \(x\ne0\).
+\end{esempio}
+Si intuisce che: siccome \(f'(g)\cdot g'(x)=1\), allora 
+\(g'(x)=\dfrac{1}{f'(g)}\).
+L'intuizione è corretta ed effettivamente questa regola vale. 
+Occorre però precisare che la regola vale
+ \begin{enumerate} [noitemsep]
+  \item se esiste l'inversa della funzione da derivare;
+  \item se entrambe le funzioni sono derivabili;
+  \item se  \(f'(g)\ne 0\).
+ \end{enumerate}
+
 
 \begin{inaccessibleblock}
-  [differenziale della tangente]
-  \begin{minipage}[]{.4\textwidth}
-    \begin{center} \scalebox{1}{\falsodifferenziale} \end{center}
+  [differenziale funzione inversa]
+ \begin{center}
+ \begin{minipage}[]{.55\textwidth}
+  \diffinversa
  \end{minipage} 
   \hfill
- \begin{minipage}[]{.55\textwidth}
- Allontanandosi da \(x_0\) di una quantità finita \(\Delta x\), le differenze 
-della funzione \(\Delta f(x)\), calcolate a partire da \(x_0\), possono 
- essere anche molto diverse dalle differenze \(f'(x_0)\Delta x\), calcolate 
-lungo la tangente.
+ \begin{minipage}[]{.42\textwidth}
+Se valgono tutte le condizioni favorevoli, allora esistono la funzione
+\(f\) e la sua inversa \(g=f^{-1}\). La funzione e la sua inversa, se esiste,
+hanno grafici simmetrici rispetto alla bisettrice \(y=x\).
+
+Ogni punto \(\punto{x}{f^{-1}(x)}\) sulla curva della funzione inversa ha un
+corrispondente \(\punto{y}{f(y)}\) sulla curva \(y=f(x)\), nella simmetria 
+rispetto alla bisettrice. Guardiamo come si corrispondono i differenziali:
+\(dx\) e \(dy\) di una curva sono invertiti rispetto ai differenziali 
+dell'altra.
+Quindi le derivate corrispondenti sono reciproche l'una con l'altra.
+ \end{minipage}
+ \end{center}
+\end{inaccessibleblock}
+\label{}
+
+\begin{teorema}
+\label{teo:derinversa}
+% In realtà l'ipotesi sarebbe diversa, vedi Ruggero appunti per corso Firenze
+Le derivate di due funzioni \(f\), \(g\), inverse l'una dell'altra, se esistono
+ e sono diverse da zero, sono reciproche l'una rispetto all'altra.
+\end{teorema}
+\noindent Ipotesi: \(y=f(x)\), \(x=g(y)\) \(f\), \(g\) derivabili, con 
+\(f'\ne0\), 
+\(g'\ne 0\).
+\hspace{2cm} Tesi: \(f'(x)=\dfrac{1}{g'(y)}\).
+\begin{proof}
+  Grazie alle proprietà della funzione \(\pst{}\), abbiamo:\\
+  \(f'(x)\cdot g'(y)=\pst{\dfrac{dy}{dx}}\cdot\pst{\dfrac{dx}{dy}}=
+  \pst{\dfrac{dy}{dx}\cdot\dfrac{dx}{dy}}=\pst{1}=1\)\\
+  per cui: \(f'(x)=\dfrac{1}{g'(y)}\).
+\end{proof}
+\begin{osservazione}
+ Dire che il Rapporto Differenziale \(\frac{dy}{dx}\) è reciproco di 
+\(\frac{dx}{dy}\) non è banale come dire che la frazione \(\frac{3}{4}\) è 
+reciproca di \(\frac{4}{3}\).
+ Una frazione è un rapporto fra numeri e genera un numero, il rapporto 
+differenziale è un rapporto fra funzioni e genera una funzione. In più,  
+in una frazione come la frazione \(\frac{3}{4}\) i numeri \(3\) e \(4\) sono 
+indipendenti, invece il differenziale \(dy\) dipende da \(dx\) nel rapporto
+\(\frac{dy}{dx}\),  e \(dx\) dipende da \(dy\) nel rapporto inverso. \\
+\end{osservazione}
+
+A proposito della derivata delle funzioni potenza, abbiamo anticipato che la 
+regola \(f'(x)= \alpha x^{\alpha-1}\) vale anche con esponenti razionali. Ora 
+siamo in grado di giustificarlo:
+\begin{proof}
+ Derivare \(y=f(x)=\sqrt[m]{x}\), con \(m\in \N\).\\
+ Poiché l'inversa \(g(y)=y^m\) ha derivata \(g'(y)=my^{m-1}\), ricordando il 
+Teorema~\ref{teo:derinversa} calcoliamo:\\
+\(f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{my^{m-1}}=\dfrac{1}{m(\sqrt[m]{x})^{m-1}}=
+\dfrac {1} {m} x^{-\frac{m-1}{m}}=\dfrac{1}{m} x^{\frac{1}{m}-1}\), con 
+\(x\ne 0\),\\
+ed è lo stesso risultato che si ottiene scrivendo \(f(x)=x^\frac{1}{m}\) e 
+derivando in base alla regola delle funzioni potenza.
+
+Il caso generale, in cui \(y=f(x)=\sqrt[m]{x^n}=x^\frac{m}{n}\) si può 
+dimostrare con lo stesso procedimento, oppure si può utilizzare  
+il Teorema \ref{teo:diff01_dericomp}, 
+unito alla dimostrazione che si legge  nelle righe precedenti. 
+\end{proof}
+
+\begin{esempio}
+ Derivare \(y=f(x)=\sqrt[3]{x}\).\\
+ Poiché l'inversa \(g(y)=y^3\) ha derivata \(g'(y)=3y^2\), per il 
+Teorema~\ref{teo:derinversa}, calcoliamo:\\
+\(f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{3y^2}=\dfrac{1}{3(\sqrt[3]{x})^2}=\dfrac{1}{3
+} x^{-\frac{2}{3}}\), con \(x\ne 0\).\\
+Se esprimiamo \(f(x)\) come potenza, abbiamo:\\
+\(f(x)=\sqrt[3]{x}=x^\frac{1}{3}\). Applicando la regola \(f'(x)= \alpha 
+x^{\alpha-1}\) 
+risulta: \(f'(x)=\dfrac{1}{3}x^{\frac{1}{3}-1}=\dfrac{1}{3}x^{-\frac{2}{3}}\)
+e le due derivazioni danno lo stesso risultato.
+\end{esempio}
+
+Nel prossimo esercizio sfruttiamo sia la regola per la derivata di una funzione 
+composta che la regola per la derivata della funzione inversa.
+\begin{esempio}
+  Trova la derivata di \(f(x)=\dfrac{1}{\sqrt{5-x^2}}\).
+  \begin{enumerate}[noitemsep]
+   \item Usando il teorema \ref{teo:diff01_dericomp} e le regole 
+precedenti:\\
+   \(f'(x)=\mathit{D}\quadra{\dfrac{1}{\sqrt{5-x}}}=
+   \mathit{D}\quadra{(5-x)^\frac{-1}{2}}=-\dfrac{1}{2}(5-x)
+   ^\frac{-3}{2}(-1) = \dfrac{1}{2(\sqrt{5-x})^3}\).
+   \item Usando la regola del Teorema~\ref{teo:derinversa}:\\
+   Costruiamo la formula inversa con pochi passaggi algebrici: riavremo la 
+   stessa funzione, in cui \(y\) figura come variabile indipendente: 
+\(x=f(y)\).\\
+   Quindi deriviamo: \(\mathit{D}\quadra{x}=x'=f'(y)=\pst{\dfrac{dx}{dy}}\).\\
+   \(f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x}\srarrow 
+   y^{-2}=5-x\srarrow x=5-y^{-2}\)  (formula inversa)\\
+   \(x'=\pst{\dfrac{dx}{dy}}=-2y^{-3}\) (derivata della funzione inversa)\\
+   \(\srarrow y'=\pst{\dfrac{dy}{dx}}=\dfrac{y^3}{2}=
+   \dfrac{1}{2(\sqrt{5-x})^3}\).
+  \end{enumerate}
+\end{esempio}
+
+% \section{Derivata di funzioni trascendenti}
+% \label{sec:differenziazione_trascendenti}
+% 
+% \subsection{Derivata della funzione esponenziale}
+% \label{subsec:differenziazione_derivatafesponenziale}
+% 
+% \subsection{Derivata della funzione logaritmo}
+% \label{subsec:differenziazione_derivataflogaritmo}
+% 
+% \subsection{Derivata della funzione seno}
+% \label{subsec:differenziazione_derivatafseno}
+% 
+% \subsection{Derivata della funzione coseno}
+% \label{subsec:differenziazione_derivatafcoseno}
+% 
+% \subsection{Derivata della funzione tangente}
+% \label{subsec:differenziazione_derivataftangente}
+% 
+% \section{Riassunto}
+% \label{sec:differenziazione_sunto}
+% 
+% \subsection{Differenziale}
+% \label{subsec:differenziazione_differenziale}
+% 
+% \subsection{Schema riassuntivo}
+% \label{subsec:differenziazione_schemaderivate}
+% 
+% \section{Applicazioni delle derivate}
+% \label{sec:differenziazione_applicazioni}
+% 
+% \subsection{Derivata e tangente}
+% \label{subsec:differenziazione_derivataetangente}
+% 
+% \subsection{Derivata e normale}
+% \label{subsec:differenziazione_derivataenormale}
+% 
+% \subsection{Derivata della derivata}
+% \label{subsec:differenziazione_derivataseconda}
+% 
+% \subsection{Altre applicazioni}
+% \label{subsec:differenziazione_altreapplicazioni}
+
+
+\section{Derivare funzioni trascendenti}
+\label{sec:diff01_deritrasc}
+Finora abbiamo imparato a derivare le funzioni algebriche. In 
+questa sezione ci occupiamo delle funzioni trascendenti e dovremo prima 
+imparare a differenziarle.
+
+\subsection{Derivata di \(f(x)=a^x\)}
+\label{subsubsec:deri_a_alla_x}
+Il grafico di una generica funzione esponenziale \(y=a^x\), confrontato con 
+il grafico dell'andamento delle sue pendenze è una sorpresa rispetto ai 
+confronti che abbiamo fatto per altre funzioni. 
+% I due grafici praticamente si accompagnano: 
+% rivelano uguali pendenze in coppie di punti di uguale ordinata.
+
+\begin{inaccessibleblock}
+  [esponenziale e pendenze]
+  \begin{minipage}[]{.45\textwidth}
+\begin{center} \scalebox{.8}{   \esp} \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.42\textwidth}
+\begin{center} \scalebox{.8}{   \tangentiesp} \end{center}
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
+\begin{center} Il grafico di \(y=a^x\), con alcune sue tangenti, e l'inviluppo 
+delle tangenti.\end{center}
+
+Anche se i due grafici non sono identici, le pendenze delle tangenti pare che 
+abbiano un andamento anch'esso esponenziale: la derivata della 
+funzione ha un grafico che somiglia molto al grafico della funzione.
+Sviluppiamo matematicamente questa intuizione, ricordando le proprietà
+delle potenze.\\
+Differenziale di \(f(x)=a^x\): \quad
+\(df=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1}\).\\
+\(RD=\dfrac{df(x)}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x\).\\
+Per poter derivare occorre che il rapporto sia finito.
+
+L'espressione del Rapporto Differenziale contiene sia \(a^x\), che è 
+una funzione esponenziale e per ogni fissato \(x\) genera un numero finito, sia 
+il fattore \(\dfrac{\tonda{a^{dx}-1}}{dx}\) che è da interpretare.\\
+\(\dfrac{\tonda{a^{dx}-1}}{dx}= \dfrac{a^{(0+dx)}-a^0}{dx}=
+\dfrac{d(a^x)}{dx}\bigg |_{x=0}= \dfrac{df(0)}{dx}\).\\
+Perciò il Rapporto Differenziale risulta:\\
+\(RD=\dfrac{df(x)}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x=
+\dfrac{df(0)}{dx}\cdot a^x\).\\
+Perciò il Rapporto Differenziale è un prodotto fra l'esponenziale stesso 
+\(a^x\) e il Rapporto Differenziale di \(f(x)\) calcolato per \(x=0\).
+Dobbiamo presumere che quest'ultimo sia un numero non infinito per proseguire 
+nel ragionamento e in effetti lo potremo verificare fra poco.
+
+Applicando la parte standard e si ottiene:\\
+\(f'(x)= \pst{\dfrac{df(0)}{dx}\cdot a^x}=f'(0)\cdot f(x)\).\\
+\emph{La derivata di una funzione esponenziale è proporzionale alla
+funzione stessa, attraverso un fattore che corrisponde alla derivata 
+calcolata in} \(x=0\).\\
+
+Volevamo calcolare la derivata di \(f(x)=a^x\) e ci ritroviamo con
+un risultato che contiene la derivata stessa \(f'(0)\), insomma non si direbbe 
+che ci siano stati grandi progressi. Ma fingiamo per un attimo che \(f'(0)\) 
+non incida sul risultato, cioè che \(f'(0)=1\). In questo modo la funzione e la
+sua derivata sarebbero proprio identiche e i due grafici sarebbero 
+sovrapponibili.\\
+\(f'(0)=1\srarrow \pst{\dfrac{a^{dx}-1}{dx}}=1\srarrow a^{dx}\sim dx +1
+\srarrow a\sim(dx+1)^\frac{1}{dx}\).\\
+Abbiamo già incontrato un'espressione analoga in passato:
+l'espressione individua il Numero di Nepero \(e=\pst{(dx+1)^\frac{1}{dx}}\).\\
+Conclusione: perché una funzione esponenziale generica \(a^x\) coincida con la
+sua derivata occorre che la base sia \(a=e\). \(f(x)=e^x\) è la funzione 
+esponenziale pura.
+
+
+\begin{teorema}
+ La derivata della funzione esponenziale \(f(x)=e^x\) coincide con la funzione 
+stessa.
+\end{teorema}
+\noindent Ipotesi: \(f(x)=e^x\). \tab \(f'(x)=e^x\).
+\begin{proof}
+ Non abbiamo dato una vera dimostrazione, abbiamo sviluppato un ragionamento 
+a partire da un'intuizione sull'analogia dei due grafici. Per completarlo, 
+occorrerebbe dimostrare l'unicità della tesi, ma non è essenziale per i nostri 
+scopi. Resta comunque stabilito che  \emph{la funzione
+ esponenziale pura \(f(x)=e^x\) coincide con la propria derivata}.
+\end{proof}
+Attraverso l'uso del numero \(e\) siamo finalmente in grado di derivare la 
+funzione esponenziale generica \(f(x)=a^x\) e così risolvere anche i dubbi 
+sulla finitezza del Rapporto Differenziale.
+
+\begin{teorema}
+  La derivata della funzione esponenziale generica \(f(x)=a^x\), con 
+\(a>0\), è:\\ 
+\(f'(x)= a^x\ln{a}\).
+\end{teorema}
+\noindent Ipotesi: \(f(x)=a^x\); \tab Tesi: \(f'(x)=a^x\ln{a}\).
+\begin{proof}
+ Usiamo una trasformazione appresa con lo studio dei logaritmi e applichiamo 
+ il teorema a pag.~\pageref{teo:diff01_dericomp}:
+ \(f(x)~=~a^x~=~e^{\ln a^x}\). Se poniamo \(g(x)=\ln a^x=x\ln a\), si ottiene:\\
+ \(f(g(x))=e^{g(x)}\srarrow f'(g(x))=f'(g)g'(x)= e^{x\ln a}\ln a=
+ e^{\ln a^x}\ln a=a^x\ln a\).
+\end{proof}
+\begin{esempio}
+  Calcola la derivata di \(f(x)=3e^{x-1}\).\\
+  Poniamo \(g(x)=x-1\). \(f(x)=3e^{g(x)}\srarrow f'(x)=3e^{g(x)}\cdot g'(x)=
+  3e^{x-1}\cdot 1=3e^{x-1}\).
+\end{esempio}
+\begin{esempio}
+  Calcola la derivata di \(f(x)=e^{x^2}\).\\
+  Poniamo \(g(x)=x^2\srarrow f(x)=e^{g(x)}\srarrow f'(x)=e^{g(x)}\cdot g'(x)=
+  e^{x^2}\cdot 2x=2xe^{x^2}\).
+\end{esempio}
+
+\begin{esempio}
+  Calcola la derivata di \(f(x)=2^{x^2}\).\\
+  Poniamo \(g(x)=x^2\srarrow f(x)=2^{g(x)}\).\\
+  \(f'(x)=\tonda{2^{g(x)}\ln 2} g'(x)=   2^{x^2}\ln 2\cdot 2x=xe^{x^2+1}\ln 2\).
+\end{esempio}
+
+\subsection{Derivata di \(f(x)=\log_a x\)}
+\label{}
+\begin{esempio}
+  Calcola la derivata di \(f(x)=e^{\ln x}\).\\
+  Poniamo \(g(x)=\ln x\srarrow f(x)=e^{g(x)}\srarrow f'(x)=e^{g(x)}\cdot g'(x)=
+  e^{\ln x}\) \dots ???.\\
+  Ragioniamo: dalle proprietà
+  dei logaritmi si ha: \(e^{\ln x} =x\), che è la funzione identica. Quindi
+  \begin{enumerate}[noitemsep]
+    \item \(e^{\ln x} =x\) e anche \(\ln e^x= x\ln e=x\), così come 
+    \(f(f^{-1}(x))=f^{-1}(f(x))=x\): le due funzioni sono una inversa 
+dell'altra,
+    il logaritmo naturale \(g(x)=\ln x\) è la funzione inversa della
+    funzione esponenziale \(f(x)=e^x\);
+    \item 
+\(\mathit{D}\quadra{f^{-1}(x)}=\dfrac{1}{\mathit{D}\quadra{(f^{-1}(x)}}\);
+    \item \(\mathit{D}\quadra{\ln x}=\dfrac{1}{\mathit{D}\quadra{e^{g(x)}}}
+    =\dfrac{1}{e^{\ln x}}=\dfrac{1}{x}\).
+  \end{enumerate}
+\end{esempio}
+
+\begin{inaccessibleblock}
+  [esponenziale e logaritmo]
+  \begin{minipage}[]{.55\textwidth}
+\begin{center} \scalebox{.8}{\esplog} \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.42\textwidth}
+ \begin{teorema}
+  La derivata della funzione \\
+  logaritmo naturale è: \(\mathit{D}\quadra{\ln x}=
+  \dfrac{1}{x}, \stext{con} x>0\).
+\end{teorema}
+\noindent Ipotesi: \(f(x)=\ln x, \mbox{ con } x>0\).\\
+\noindent Tesi: \(f'(x)=\dfrac{1}{x}\).
+\begin{proof}
+La dimostrazione è nei ragionamenti dell'esempio precedente, ai quali 
+bisogna aggiungere le precauzioni perché le due funzioni siano invertibili e 
+derivabili: poiché \(\ln x\) esiste per \(x>0\), i ragionamenti valgono solo per 
+\(x>0\)
+\end{proof} 
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
+\\
+
+Vediamo ora il caso generale, quando la base del logaritmo è genericamente 
+\(a>0\).
+\begin{teorema}
+  La derivata della funzione logaritmo in base \(a\) è: 
+  \(\mathit{D}\quadra{\log_a x}= \dfrac{1}{x\ln a}\).
+\end{teorema}
+\noindent Ipotesi: \(f(x)=\log_a x\). \tab \(f'(x)=\dfrac{1}{x\ln a}\)
+\begin{proof}
+Si ottiene direttamente dalla formula del cambiamento di base:\\
+\(\log_a x=\dfrac{1}{\ln a}\ln x\).
+\end{proof}
+
+\begin{esempio}
+    Derivare la funzione \(f(x)=Log(x^2+1)^2\).\\
+    \(g(x)=(x^2+1)^2\srarrow f(x)=Log (g(x))\)\\
+    \( f'(x)=\dfrac{1}{\ln 10}
+    \dfrac{1}{g(x)}g'(x)=
+    \dfrac{1}{(\ln 10)(x^2+1)^2}2(x^2+1)2x=\dfrac{4x}{(\ln 10)(x^2+1)}\).\\
+    Nota che \(g(x)=(x^2+1)^2\) è a sua volta una funzione composta del tipo 
+    \(g(x)=\quadra{h(x)}^2\) e quindi è stata applicata la regola della derivata
+    di più funzioni composte.
+\end{esempio}
+
+Abbiamo ora tutti gli strumenti per convalidare l'osservazione al teorema 
+\ref{diff01_teoderpotenza}, a proposito delle funzioni potenza.
+
+\begin{teorema}
+\label{teo:funzione_potenza_generica}
+  La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
+  \(\mathit{D}\quadra{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha\).
+\end{teorema}
+\noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
+\(\forall \alpha\).
+\begin{proof}
+Combinando alcune delle regole precedenti, si ha:\\
+\(f(x)=x^\alpha=e^{\ln x^\alpha}=e^{\alpha\ln x}\)\\
+\(f'(x)=e^{\alpha\ln x}\alpha\dfrac{1}{x}=x^\alpha\frac{\alpha}{x}=
+\alpha x^{\alpha-1}\).\\
+Poiché non è stata fatta nessuna particolare ipotesi sull'esponente (intero 
+o razionale, positivo o negativo, o irrazionale), allora il teorema vale 
+per qualsiasi esponente.
+\end{proof}
+
+\begin{esempio}
+  Derivare \(f(x)=x^{\sqrt{2}}\).\\
+  \(f'(x)=\sqrt{2}x^{\sqrt{2}-1}\).
+\end{esempio}
+
+
+\subsection{Derivata di funzioni circolari}
+\label{}
+Anche per queste funzioni dobbiamo dapprima definire il differenziale. 
+Per una migliore comprensione, ci affidiamo soprattutto al piano cartesiano.
+\subsubsection{Derivata di \(f(x)=\sen x\)}
+Nel capitolo sugli Iperreali abbiamo già visto 
+(vedi pag. \pageref{subsubsec:insnum_fseno}) che per angoli infinitesimi il 
+seno e 
+l'angolo sono indistinguibili: \(\st\tonda{\frac{\sen 
+\epsilon}{\epsilon}}=1\).
+Dall'analisi del disegno ricaviamo l'espressione del differenziale
+\(df(x)=d(\sen x)= \sen (x+dx) -\sen x\).
+
+\begin{inaccessibleblock}
+  [differenziale del seno]
+  \begin{minipage}[]{.40\textwidth}
+   \dseno 
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.56\textwidth}
+Nell'ingrandimento al microscopio non standard, l'incremento infinitesimo di
+arco \(\overset{\frown}{AB}\) (che corrisponde all'incremento di angolo da \(x\)
+a \(x+dx\)) è racchiuso fra due raggi indistinguibili da segmenti paralleli 
+nei punti \(A\equiv \punto{x}{\sen x}\) e \(B\equiv \punto{x+dx}{\sen(x+dx)}\). 
+L'arco, a sua volta, risulta indistinguibile dal segmento rettilineo \(AB\).
+I segmenti che uniscono \(A\) e \(B\) con le loro proiezioni sull'asse \(X\) 
+sono
+verticali e paralleli, perciò \(ABC\) è un triangolo rettangolo infinitesimo, 
+simile al triangolo \(BOC\). La sua altezza \(BC\) corrisponde a \(d\sen x\). 
+ \end{minipage}
+\end{inaccessibleblock}
+\label{fig_diff01dseno}\\
+
+Risolviamo il triangolo rettangolo \(ABC\) rispetto al lato \(BC\):\\
+\(BC=AB\cdot \cos x \srarrow d(\sen x)= dx\cdot cos x\)  
+
+\begin{teorema}
+  La derivata della funzione \(f(x)=\sen x\) è \(\mathit{D}\quadra{\sen 
+x}=\cos x\).
+\end{teorema}
+\noindent Ipotesi: \(f(x)=\sen x\). \tab \(f'(x)=\cos x\).
+\begin{proof}
+ Il commento al disegno giustifica la tesi. 
+\end{proof}
+
+
+\begin{osservazione}
+  Si potrebbe criticare il metodo per la dimostrazione: chi assicura che 
+negli
+  altri quadranti le relazioni fra le variabili non cambino? Saremo troppo
+  legati al disegno?\\
+  Ci sono altri modi per dimostrare la tesi, più vincolati al calcolo
+  e meno al disegno.  Per esempio, dalle formule di addizione abbiamo:
+  \(\sen(x+dx)=\sen x \cos dx + \sen dx \cos x\). Allora:\\
+  \(\dfrac{\sen(x+dx)-\sen x}{dx}=\dfrac{\sen x \cos dx + \sen dx \cos x -
+   \sen x}{dx}=\\
+  =\sen x \dfrac{\cos x-1}{dx}+ \cos x\dfrac{\sen dx}{dx}=
+  \sen x\cdot 0 + \cos x\cdot 1=\cos x\),\\
+  in cui si fa uso delle forme indeterminate discusse a pag. 
+  \pageref{subsubsec:insnum_fseno}. Alla fine basta applicare la funzione 
+  \(\pst{}\).
+\end{osservazione}
+
+\begin{osservazione}
+Anche il grafico dell'andamento delle tangenti conferma la tesi
+in modo assai espressivo. \\
+\begin{inaccessibleblock}
+  [differenziale del seno]
+  \begin{minipage}[]{.47\textwidth}
+    \begin{center} \seno \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.47\textwidth}
+ \begin{center} \tangentiseno \end{center}
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
+\end{osservazione}
+
+\begin{esempio}
+Quale pendenza ha il grafico di \(y=\sen x\) nell'origine?\\
+\(f(x)= \sen x \srarrow f'(x)=\cos x\srarrow f'(0)=\cos 0=1\).\\
+La tangente al grafico nell'origine è la retta \(y=x\).
+\end{esempio}
+
+\begin{esempio}
+Derivare \(f(x)=\sen^2 x\) e \(g(x)= \sen x^2\).\\
+\(f'(x)=2\sen x \cos x\) e \(g'(x)=cos x^2\cdot 2x= 2x \cos x^2\).
+\end{esempio}
+
+\begin{esempio}
+Derivare \(f(x)=\sen^2 x\) e \(g(x)= \sen 2x\).\\
+\(f'(x)=2\sen x \cos x\) e \(g'(x)=cos 2x\cdot 2= 2 \cos 2x\).
+\end{esempio}
+
+\begin{esempio}
+  Derivare \(f(x)=x^{\sen x}\).\\
+  Si tratta di una funzione di tipo nuovo, un misto fra una funzione potenza
+  e una funzione esponenziale. Si risolve con una trasformazione che abbiamo
+  già visto e con l'uso delle regole della funzione composta e del prodotto.\\
+  \(x^{\sen x}=e^{{(\ln x)}^{\sen x}}=e^{\sen x\ln x}\).\\
+  \(f'(x)=e^{\sen x\ln x}(\cos x \ln x +\dfrac{\sen x}{x})=
+  x^{\sen x}(\cos x \ln x +\dfrac{\sen x}{x})\).
+\end{esempio}
+
+ \subsubsection{Derivata di \(f(x)=\cos x\)}
+\begin{teorema}
+  La derivata della funzione \(f(x)=\cos x\) è \(\mathit{D}\quadra{\cos x}=
+  -\sen x\).
+\end{teorema}
+\noindent Ipotesi: \(f(x)=\cos x\). \tab \(f'(x)=-\sen x\).
+\begin{proof}
+  Il disegno con cui dimostrare la tesi è uguale a quello di pag.
+  \pageref{fig_diff01dseno}. Lo puoi riprodurre, tenendo però l'attenzione
+  concentrata sul segmento \(AC\).\\
+L'unica osservazione importante è che nel passare da \(x\) a \( x+dx\), cioè 
+mentre l'angolo cresce, il valore del coseno decresce. Infatti, al contrario di 
+quanto avviene per il seno, nel primo quadrante si ha: \( \cos(x+dx)<\cos x\). 
+Questa è la ragione del segno meno nel risultato.
+\end{proof}
+
+\begin{inaccessibleblock}
+  [differenziale del coseno]
+  \begin{minipage}[]{.47\textwidth}
+    \begin{center} \coseno \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.47\textwidth}
+ \begin{center} \tangenticoseno \end{center}
  \end{minipage}
 \end{inaccessibleblock}
 \label{}
 
-Nei testi in cui si scrive che \(\Delta f(x)=f'(x_0)\Delta x+\delta(x)\Delta 
-x\), \(f'(x_0)\Delta x\) viene chiamato differenziale, anche se si tratta di 
-una 
-differenza, una quantità finita, non infinitesima. In tali testi la differenza
-\(\Delta f(x)\) è detta incremento e l'equazione\\
-\(\Delta f(x)\cong f'(x_0)\Delta x\) \hspace{.5cm}(\emph{Equazione alle 
-differenze})\\ 
-esprime il cosiddetto \emph{Teorema dell'incremento}.\\
-Ai fini pratici l'Equazione alle differenze è un'equazione utile, 
-soprattutto 
-quando si studiano i fenomeni naturali, perché le variazioni che si 
-misurano in
-questi ambiti sono differenze finite. 
-Ovviamente i risultati che si ottengono utilizzando il teorema 
-dell'incremento
-saranno tanto più precisi quanto più piccola è la variazione \(\Delta x\), in 
-rapporto ai valori \(x\).
+\begin{esempio}
+Quale pendenza ha il grafico di \(y=\cos x\) per \(x=0\)?\\
+\(f(x)= \cos x \srarrow f'(x)=-\sen x\srarrow f'(0)=-\sen 0=0\).\\
+In \(x=0\) la tangente al grafico è orizzontale.
+\end{esempio} 
+
+\begin{esempio}
+Derivare \(f(x)=\cos^2 x\) e \(g(x)= \cos x^2\).\\
+\(f'(x)=2\cos x(-\sen x)=-2\sen x\cos x\) e \(g'(x)=-\sen x^2\cdot 2x=-2x\sen 
+x^2\).
+\end{esempio}
+
+\begin{esempio}
+Derivare \(f(x)=\cos^2 x +\sen^2 x\).\\
+\(f'(x)=-2\sen x\cos x + 2\sen x \cos x = 0\).
+\end{esempio}
+
+
+\subsubsection{Derivata di \(f(x)=\tg x\)}
+
+\affiancati{.39}{.59}{
+La funzione \(f(x)=\tg x\) è discontinua per \(x= \pm\frac{\pi}{2}\). La 
+derivata quindi non può esistere nei punti corrispondenti, come mostra il 
+grafico.
+}{
+\begin{inaccessibleblock}
+  [differenziale della tangente]
+  \begin{minipage}[]{.49\textwidth}
+    \begin{center} \tangente \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.49\textwidth}
+ \begin{center} \tangentitangente \end{center}
+ \end{minipage}
+\end{inaccessibleblock}
+\label{}
+}
+\begin{teorema}
+   La derivata della funzione \(f(x)=\tg x\) è \(\mathit{D}\quadra{\tg x}=
+   \dfrac{1}{\cos^2 x}=1+tg^2 x\) per \(x\ne \pm\frac{\pi}{2}\).
+\end{teorema}
+\noindent Ipotesi: \(f(x)=\tg x\). \tab \(f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x\),
+per \(x\ne\pm\frac{\pi}{2}\).
+\begin{proof}
+Per calcolare la derivata nei punti in cui la funzione è continua, 
+ricorriamo alla seconda relazione fondamentale: \(\tg x=\frac{\sin x}{\cos x}\) 
+e
+sfruttiamo la regola della derivata di un quoziente (pag. 
+\pageref{sec:diff01_regolederivate}).\\
+\(\mathit{D}\quadra{\tg x}=\mathit{D}\quadra{\dfrac{\sin x}{\cos x}}=
+\dfrac{\mathit{D}\quadra{\sen x}\cdot \cos x-\sen x\cdot 
+  \mathit{D}\quadra{\cos x}} {\cos^2 x}=
+\dfrac{\sen^2 x +\cos^2 x}{\cos^2 x}=\dfrac{1}{\cos^2 x}=\tg^2+1\)
+\end{proof}
 
 \begin {esempio}
-Fare una stima ragionevole della quantità \(\sqrt{25,162}\).\\
-Si sta usando la funzione \(f(x)=\sqrt{x}\), la cui derivata è: 
-\(f'(x)=\dfrac{1}{2\sqrt{x}}\).\\
-Utilizziamo il teorema dell'incremento, fissando \(x_0=25\) e \(\Delta 
-x=0,162\).\\
-\(\Delta f(x)=f'(x_0)\Delta x+\delta(x)\Delta x\cong f'(x_0)\Delta x
-\srarrow f(x)\cong f'(x_0)\Delta x+ f(x_0)\)\\
-\(f(25,162)\cong f'(25)\cdot 0,162+f(25)\srarrow 
-\sqrt{25,162}\cong \dfrac{1}{2\sqrt{25}}\cdot 0,162+ \sqrt{25}=
-\dfrac{0,162}{10}+5\cong 5,0162\).\\
-Confronta il risultato con quanto propone la calcolatrice.\\
-Poiché l'approssimazione è tanto migliore quanto più piccolo è \(\Delta x\),
-ripeti l'esercizio con \(x_0=25,1001\) (la cui radice è \(5,01\)) e quindi
-\(\Delta x=0,06199\).
+Quale è la pendenza del grafico di \(y=\tg x\), per \(x=\dfrac{\pi}{4}\)? E per
+\(x=\dfrac{\pi}{2}\)?\\
+\(f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{4})=1+\tg^2\dfrac{\pi}{4}=2\)\\
+\(f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{2})=1+\tg^2\dfrac{\pi}{2}=\) ???\\
+Per \(x\approx\dfrac{\pi}{2}\) il grafico della funzione cresce verticalmente,
+la sua pendenza è un numero infinito e la parte standard di un infinito non
+esiste. D'altra parte, se \(x\) è esattamente uguale a \(\dfrac{\pi}{2}\) ,
+la tangente ha un punto di discontinuità.
 \end {esempio}
 
 
-\subsection{Derivata di funzioni composte}
-\label{subsec:differenziazione_derivatacomposte}
-
-
-
-\begin{esempio}
-  Deriva la funzione \(v(u)=\dfrac{u^2}{8}\). 
-  Soluzione: \(v'(u)=\dfrac{1}{8}2u=\dfrac{u}{4}\). Infatti il differenziale è 
-\(dv(u)=\dfrac{1}{8}[2udu+(du)^2]\) perché \(df(x)=2xdx+(dx)^2\) 
-  e \(d(kf(x)=kdf(x)\). La parte standard del rapporto differenziale fornisce
-  il risultato \(\dfrac{u}{4}\).
-\end{esempio}
-
-\begin{esempio}
-Deriva la funzione \(u(t)=3t-2\). Soluzione: \(u'(t)=3\). Infatti il 
- differenziale è \(du(t)=3dt-0\). Allora la parte 
- standard del rapporto differenziale fornisce il risultato \(3\).
-\end{esempio}
-
-Combiniamo i due esempi: \(v=f(u)\) e \(u=f(t)\), cioè \(v\) è funzione di 
-\(u\), 
-perché i suoi valori dipendono dai quadrati, divisi per \(8\), dei numeri \(u\).
-Invece \(u\) è funzione di \(t\), nel senso che i suoi valori sono i valori 
-\(t\) 
-triplicati e poi ridotti di 2. In ``matematichese'':\\
-\(v(u(t))=\dfrac{[u(t)]^2}{8}=\dfrac{(3t-2)^2}{8}\).
-
-
-\begin{inaccessibleblock}
-  [box funzione composta]
- \begin{center}
- \begin{minipage}[]{.48\textwidth}
-  \boxfcomposta
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.48\textwidth}
-Si tratta di una macchina che incatena due calcoli successivi.\\
-Immettiamo ad esempio il valore \(t=6\). La macchina sviluppa al suo interno 
-\(u(6)=3\cdot 6-2=16\) grazie a \(u\) e infine produce 
-\(v(16)=\dfrac{16^2}{8}=32\).
-Una catena del genere si chiama \emph{funzione di funzione} o
-\emph{funzione composta}: \(v(u(t))\).\\
- \end{minipage}
- \end{center}
-\end{inaccessibleblock}
-\label{}
-
-Come deriviamo  \(v\) rispetto a \(t\)? Dalla definizione di derivata: 
-\(\mathit{D}\quadra{v(u(t))}=\pst{\dfrac{d(v(u(t)))}{dt}}\), 
-e il punto è il calcolo dei differenziali.
-\begin{inaccessibleblock}
-  [differenziale funzione composta]
- \begin{center}
- \begin{minipage}[]{.48\textwidth}
-  \diffcomposta
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.48\textwidth}
-Dal primo esempio sappiamo che \(dv=\dfrac{u}{4}du\ +\) infinitesimi di 
-ordine superiore. Poiché \(u=3t-2\), \(du=3dt\), avremo:\\
-\(dv\approx \dfrac{u}{4}du\). \hspace{1cm} \(du=3dt\). \(\srarrow 
-dv=\dfrac{3t-2}{4}3dt \srarrow\\ 
-\srarrow 
-\pst{\dfrac{d(v(u(t)))}{dt}}=\pst{\dfrac{(3t-2)3dt}{4dt}}\\
-=\dfrac{9t-6}{4}\).
- \end{minipage}
- \end{center}
-\end{inaccessibleblock}
-\label{}
-
-C'è un modo più semplice? In questo caso, sì: basta sviluppare il quadrato
-\((3t-2)^2\), dividere ogni termine per \(8\) e poi derivare il polinomio. 
-Ma a volte il modo più semplice non c'è.
-\begin{esempio}
-  Calcolare \(f'(x)\), con \(f(x)=\sqrt{3-x^2}\).\\
-  \(f(x)\) è composta: si può pensare
-  formata così: \(g(x)=3-x^2\) e \(f(g(x))=\sqrt{g(x)}=\sqrt{3-x^2}\).\\
-  In questo modo si vedono meglio i differenziali.
-  \(df(x)=d\tonda{\sqrt{g(x)}}\approx\frac{1}{2\sqrt{g(x)}}\cdot dg(x)\) e 
-  \(dg(x)=d(3-x^2)\approx-2xdx\). Per brevità, raccogliamo sotto un'unica
-  sigla \(\epsilon\) tutti gli infinitesimi 
-  di ordine superiore, che poi la parte standard si incaricherà di far 
-  scomparire nel momento di calcolare la derivata.\\
-  Il differenziale: \(df(x)=df(g(x))=\frac{1}{2\sqrt{g(x)}}\cdot 
-dg(x)+\delta=
-  \frac{1}{2\sqrt{3-x^2}}\cdot (-2x)dx+ \epsilon\).\\
-  Da qui la derivata: 
-  \(f'(x)=\pst{\dfrac{\frac{-2xdx}{2\sqrt{3-x^2}} +\epsilon}{dx}}=
-  \dfrac{-x}{\sqrt{3-x^2}}\).
-\end{esempio}
-Esaminiamo in modo astratto come abbiamo costruito il rapporto 
-differenziale della funzione composta nell'esempio precedente: 
-\(\dfrac{df}{dx}=\dfrac{df}{dg}\dfrac{dg}{dx}\). \\
-Sembra un'uguaglianza banale, perché semplificando si otterrebbe l'identità.
-In realtà i due differenziali \(dg\) sono scritti allo stesso modo ma hanno un
-significato diverso e non è detto che si possano semplificare.\\
-\(dg\) al denominatore differenzia la variabile indipendente della funzione 
-\(f\), \(dg\) al numeratore è la conseguenza del differenziale \(dx\). Perciò
-se varia \(x\) si ha un effetto su \(g(x)\) e se varia \(g\) si ha un effetto 
-su  \(f(g)\). In generale le due variazioni \(dg\) saranno diverse per 
-infinitesimi di ordine superiore, che possono essere eliminati considerando le 
-parti standard.\\
-Non avremo occasione di affrontare queste difficoltà, nei nostri esercizi.
-Ma sono questioni importanti per una regola che vogliamo sempre valida. 
-Perciò il prossimo enunciato deve contenere tutti i dettagli.
-
-\begin{teorema}
-  \label{teo:diff01_dericomp}
- Se esistono le derivate \(g'(x)\) e \(f'(g(x))\) per il medesimo valore \(x\),
- la funzione composta \(f(g(x))\) è derivabile e la sua derivata si calcola
- così: \(f'(x)=f'(g(x))=f'(g)\cdot g'(x)\), cioè la derivata di una funzione 
-composta è il prodotto delle derivate delle funzioni componenti, 
-ciascuna rispetto alla propria variabile.
-\end{teorema}
-\noindent Ipotesi: \(f(x)=f(g(x))\), \(f\), \(g\) derivabili .\tab 
-Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\).
-% \begin{proof}
-%   Tralasciando di specificare la scomparsa degli infinitesimi di ordine 
-%   superiore e grazie alle proprietà della funzione \(\pst{}\), abbiamo:\\
-%   \(f'(g(x))=\pst{\dfrac{df(x)}{dx}}=
-%   \pst{\dfrac{df(g)}{dg}\dfrac{dg(x)}{dx}}=
-%   \pst{\dfrac{df(g))}{dg}}\pst{\dfrac{dg(x)}{dx}}=
-%   f'(g(x))g'(x)\).
-% \end{proof}
-\begin{esempio}
-  Derivare \(f(x)=\tonda{-\dfrac{3}{2}x^3+2x^2-6}^5\).\\
-  Poniamo \(g(x)=-\dfrac{2}{3}x^3+2x^2-6\) e \(f(g)=g^5\). \\
-  Allora: 
-  \(f'(g)= 5g^4\) e \(g'(x)=-2x^2+4x\), \\
-  quindi: 
-  \(f'(x)=f'(g)\cdot g'(x)=5g^4(-2x^2+4x)=
-  5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)\).
-\end{esempio}
-\begin{osservazione}
- La regola della funzione composta si estende ai casi in cui le funzioni 
- in gioco sono tre, o più:
- \(\mathit{D}\quadra{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)\).
-\end{osservazione}
-\end{comment}
-\subsection{Derivata di funzioni inverse}
-\label{subsec:differenziazione_derivatainverse}
-
-\section{Derivata di funzioni trascendenti}
-\label{sec:differenziazione_trascendenti}
-
-\subsection{Derivata della funzione esponenziale}
-\label{subsec:differenziazione_derivatafesponenziale}
-
-\subsection{Derivata della funzione logaritmo}
-\label{subsec:differenziazione_derivataflogaritmo}
-
-\subsection{Derivata della funzione seno}
-\label{subsec:differenziazione_derivatafseno}
-
-\subsection{Derivata della funzione coseno}
-\label{subsec:differenziazione_derivatafcoseno}
-
-\subsection{Derivata della funzione tangente}
-\label{subsec:differenziazione_derivataftangente}
-
-\section{Riassunto}
-\label{sec:differenziazione_sunto}
-
-\subsection{Differenziale}
-\label{subsec:differenziazione_differenziale}
-
-\subsection{Schema riassuntivo}
-\label{subsec:differenziazione_schemaderivate}
-
-\section{Applicazioni delle derivate}
-\label{sec:differenziazione_applicazioni}
+\section{Applicazioni}
+\label{sec:diff01_applicazioni}
+Si è tanto parlato delle tangenti ai grafici di funzione e delle loro 
+pendenze,
+senza mai arrivare a definire l'effettiva equazione delle tangenti che
+interessano. Ora cercheremo di colmare questa lacuna.
 
 \subsection{Derivata e tangente}
-\label{subsec:differenziazione_derivataetangente}
+ Hai già incontrato negli anni scorsi dei problemi in cui si chiedeva di 
+ calcolare la tangente ad una parabola in un suo punto. Il metodo di 
+calcolo 
+ algebrico che usavi è efficace ma macchinoso e, sfortunatamente, vale solo 
+ per le coniche. Il metodo delle derivate, invece, si rivela
+ molto più potente e rapido.\\
+ Poiché la tangente è una retta, la sua equazione è del tipo 
+\(y-y_0=m(x-x_0)\), 
+ dove  \(\punto{x_0}{y_0}\) è il punto di tangenza 
+ e \(m\) è la pendenza della retta, sulla quale sappiamo ormai tutto.
+ Si ha \(y=m(x-x_0)+y_0\) e poiché \(m=f'(x_0)\), relativo alla funzione 
+\(f(x)\)
+ di cui si sta studiando il grafico, l'equazione risolvente è:\\
+ \(y=f'(x_0)(x-x_0)+y_0\).
+ 
+\begin{esempio}
+  Trova le equazioni delle tangenti alla parabola \(f(x)=x^2\) nei suoi punti
+  \(V~\equiv~\punto{0}{f(0)}\) e \(B\equiv\punto{-6}{f(-6)}\).\\
+  Soluzione. Nel punto \(V\): \(f'(0)~=~2\cdot 0~=~0=m\). La tangente è 
+  orizzontale e coincide con l'asse \(X\): \(y=~m(x~-~x_0)~+~y_0~=~0\).\\
+  Nel punto \(B\): \(f'(-6)=2 (-6)=-12\). \(m=-12\), la tangente è inclinata
+  verso il basso:
+  \(y=m(x-x_0)+y_0= -12(x+6)+36\srarrow y=-12x-36\).
+ \end{esempio}
 
+ \pagebreak %--------------------------------------------------
+
+\begin{esempio}
+  Trova i punti di intersezione degli assi con la tangente in 
+\(\punto{2}{f(2)}\)
+  alla curva \(f(x)=2x^3-x\).\\ Soluzione.
+  Ricerca della tangente per \(x=2\): \(f'(x)=6x^2-1\) e \(f'(2)=6\cdot 
+4-1=23\).\\
+  \(y_0=f(2)=2\cdot 2^3-2=14\). La tangente: \(y=23(x-2)+14=23x-32\).
+  Le intersezioni: \\
+  Con l'asse \(X\): \(y=0\srarrow x=\dfrac{32}{23}\srarrow
+  \punto{\dfrac{32}{23}}{0}\).\\
+  Con l'asse \(Y\): \(x=0 \srarrow y=-32\srarrow \punto{0}{-32}\).
+\end{esempio}
+
+\begin{esempio}
+  In quale punto del suo grafico la parabola \(y=4x^2-3x+6\) è inclinata di 
+  \(45^\circ\)?\\
+  Soluzione. Nel punto che cerchiamo, la parabola avrà un'inclinazione 
+  indistinguibile da quella della tangente.
+  Le rette inclinate di \(45^\circ\) hanno pendenza \(m=1\), come la bisettrice 
+  del primo-terzo quadrante.  Dobbiamo quindi imporre alla derivata il valore 
+  \(1\).\\
+  \(f(x)=4x^2-3x+6\srarrow f'(x)=8x-3\).\\
+  \(8x-3=1\srarrow x=\dfrac{1}{2}\). Il punto è 
+\(\punto{\dfrac{1}{2}}{\dfrac{11}{2}}\).
+\end{esempio}
+
+\begin{esempio}
+  È vero che l'iperbole equilatera di equazione \(xy=16\) ha per vertici i 
+punti 
+  medi del segmento che gli assi staccano sulle tangenti ai vertici? \\
+  Risposta. Consideriamo per comodità solo il ramo destro del grafico.
+  Il vertice sarà un punto \(V\) di coordinate uguali, essendo l'iperbole
+  equilatera. Quindi \(V=V\punto{4}{4}\).\\
+  Poiché la funzione è \(y=\dfrac{16}{x}\), la sua derivata in \(V\) è 
+  \(y'|_{x=4}= -\dfrac{16}{x^2}\bigg|_{x=4}=-1\)
+  e l'equazione della tangente in \(V\) è \(y=-1(x-4)+4=-x+8\).\\
+  La retta \(y=-x+8\) interseca gli assi in \(\punto{8}{0}\) e \(\punto{0}{8}\) 
+ed 
+  è facile verificare che il punto \(V\) è medio fra i due.
+  Per ragioni di simmetria accade lo stesso
+  con il vertice opposto \(\punto{-4}{-4}\).
+  \begin{osservazione}
+   In realtà si tratta di una proprietà generale dell'iperbole equilatera.
+   Qualsiasi retta tangente al grafico stacca sugli assi coordinati dei 
+   segmenti che hanno il punto medio coincidente con il punto di tangenza. 
+   Non è difficile dimostrarlo usando l'equazione generica \(yx=k^2\) e per 
+   punto di tangenza le coordinate \(\punto{a}{\dfrac{k^2}{a}}\).
+  \end{osservazione}
+ \end{esempio}
+
+\begin{esempio}
+  È vero che è inclinato di \(30^\circ\) il raggio  
+  della circonferenza \(x^2+y^2=20\) che unisce l'origine al suo punto di 
+ascissa
+  \(4\)?\\
+  Risposta. No, non è vero. \\
+  Il modo più elementare per verificarlo è calcolare l'ordinata
+  del punto e cercare l'angolo di inclinazione dell'ipotenusa coincidente 
+con 
+  il raggio.\\
+  L'alternativa è calcolare la derivata:
+  \(x^2+y^2=20\srarrow y=\sqrt{20-x^2}\) (data lo posizione del punto,
+  consideriamo solo la semicirconferenza per \(y>0\)).\\
+  \(f'(4)= \dfrac{-2x}{2\sqrt{20-x^2}}\bigg|_{x=4}=\dfrac{-4}{\sqrt{20-16}}=
+  \dfrac{-4}{2}=-2\).\\
+  Dunque la tangente ha una pendenza pari a \(-2\). Poiché il raggio e la 
+  tangente sono perpendicolari, la retta che contiene questo raggio avrà 
+  pendenza \(-\dfrac{1}{-2}=\dfrac{1}{2}\).\\
+  Possiamo controllare la risposta con la calcolatrice.
+  \end{esempio}
+ 
 \subsection{Derivata e normale}
-\label{subsec:differenziazione_derivataenormale}
+\label{}
+Come si vede dall'ultimo esempio, una volta che si sappia come calcolare 
+la tangente ad una curva, il calcolo della normale risulta molto facile.
+Poiché la tangente e la normale, se passano per lo stesso punto, sono rette
+perpendicolari e quindi hanno i coefficienti angolari antireciproci,
+l'equazione di una normale ad una curva \(y=f(x)\) in un punto 
+\(\punto{x_0}{y_0}\)
+sarà:\\
+\(y=\dfrac{-1}{f'(x_0)}(x-x_0)+y_0\),\\
+dove la pendenza della normale \(m_n=\frac{-1}{m_t}\) è appunto 
+l'antireciproco della pendenza della tangente.
+
+\begin{esempio}
+Scrivi l'equazione della tangente e della normale alla curva di equazione
+\(y=\dfrac{x^2-1}{\ln x -1}\) nel suo punto di ascissa \(1\).\\
+Soluzione. \(y'|_{x=1}=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
+{(\ln x -1)^2}\bigg|_{x=1}=\dfrac{2\cdot 1(0-1)-(1-1)\cdot 
+1}{(0-1)^2}=-2\).\\
+La pendenza della tangente è \(m=-2\). Per \(x=1\) la funzione vale:
+\(\dfrac{1^2-1}{\ln 1 -1}=0=y_0\). L'equazione della tangente è quindi:
+\(y=-2(x-1)=-2x+2\). Di conseguenza la normale ha equazione 
+\(y=\dfrac{1}{2}(x-1)=\dfrac{1}{2}x-\dfrac{1}{2}\).
+\end{esempio}
+
+
+\begin{esempio}
+Scrivi l'equazione della tangente e della normale alla curva di equazione
+\(y=\dfrac{x^2+1}{\ln x +1}\) nel suo punto di ascissa \(1\).\\
+Soluzione. \(y'|_{x=1}=\dfrac{2x(\ln x+1)-(x^2+1)\dfrac{1}{x}}
+{(\ln x +1)^2}\bigg|_{x=1}=\dfrac{2\cdot 1(0+1)-(1+1)\cdot 1}{(0+1)^2}=0\).\\
+La tangente è quindi una retta orizzontale. Di conseguenza la normale è 
+verticale, come si vede subito se si prova a calcolare l'antireciproco di 
+\(0\).
+\end{esempio}
 
 \subsection{Derivata della derivata}
-\label{subsec:differenziazione_derivataseconda}
+\label{}
+Abbiamo già notato che la derivata  di una funzione dipende dal punto in 
+cui si 
+calcola e che, una volta stabilito questo punto, ha un unico risultato,
+se esiste.
+Quindi la derivata di una funzione è a sua volta una funzione e,
+se ci sono le condizioni, può essere derivata a sua volta.
+\begin{definizione}
+ Se una funzione \(f(x)\) è derivabile, la sua derivata è la funzione \(f'(x)\).
+ Se anche \(f'(x)\) è derivabile, allora esiste la funzione \(f''(x)\) ed è
+ chiamata \emph{derivata seconda di \(f(x)\)}.
+\end{definizione}
+Le regole di calcolo della derivata seconda sono le stesse regole che 
+abbiamo già visto, quindi la seconda derivazione, se è possibile, non comporta 
+problemi diversi da quelli conosciuti.\\
+Riferendoci a un generico grafico di funzione \(y=f(x)\), la derivata prima 
+\(f'(x)\) ci consente di trovare le pendenze delle tangenti al grafico. La
+derivata seconda \(f''(x)\) descrive con quanta rapidità (o lentezza) variano 
+queste pendenze, perciò ci indica quanto siano aperte o chiuse le concavità 
+che \(y=f(x)\) disegna nel piano cartesiano.\\
+Se le condizioni sono favorevoli, esistono e sono calcolabili anche le 
+derivate terze, quarte, ecc. di una funzione, anche se non sono essenziali 
+per i nostri scopi. Il loro calcolo segue i metodi già visti.
 
-\subsection{Altre applicazioni}
-\label{subsec:differenziazione_altreapplicazioni}
+\begin{esempio}
+Calcola \(f''(1)\) di \(f(x)=2x^5-3x^4+x^3+5x^2-6x+9\).\\
+Derivata prima: \(f'(x)=10 x^4-12 x^3+3x^2+10 x-6\).\\
+Derivata seconda per \(x=1\): \((40x^3-36x^2+6x+10)|_{x=1}=40-36+6+10=20\).
+\end{esempio}
 
-\begin {comment}
+\begin{esempio}
+Calcola \(f''(x)\) di \(f(x)=\ln x\).\\
+\(f'(x)=\dfrac{1}{x}\) e \(f''(x)=-\dfrac{1}{x^2}\).\\
+\begin{osservazione}
+ La funzione \(\ln x\) esiste per \(x>0\). Le derivate prima e seconda 
+esistono per \(x\ne 0\).
+ In generale, l'esistenza di una derivata (prima, seconda, terza \dots) è
+ indipendente dall'esistenza della funzione da derivare.
+\end{osservazione}
+\end{esempio}
 
- 
+\begin{esempio}
+ Calcola le derivate successive di \(f(x)=\sen x\).\\
+ \(f'(x)=\cos x\) \hspace{1cm}  \(f''(x)=-\sen x\) \hspace{1cm}
+ \(f'''(x)=-\cos x\) \hspace{1cm} \(f^{IV}(x)=\sen x\) \dots
+\end{esempio}
+
+
+\begin {comment} 
 
 \ifcoding
 Con Python.
@@ -4441,599 +4943,6 @@ $x=f(y)\).\\
 % la derivazione risulta elementare.
 \end{esempio}
 
-
-\section{Derivare funzioni trascendenti}
-\label{sec:diff01_deritrasc}
-Nel capitolo \ref{sec:diff01_differenziale} abbiamo imparato a 
-differenziare solo funzioni algebriche. In questa sezione, quindi, prima di
-derivare le funzioni trascendenti, dovremo imparare a differenziarle.
-Abbiamo già discusso il comportamento di queste funzioni nell'insieme degli
-Iperreali e abbiamo ormai un bagaglio sufficiente di conoscenza delle derivate.
-
-\subsection{Derivata di \(f(x)=a^x$}
-\label{}
-Il grafico di una generica funzione esponenziale \(y=a^x\), confrontato con 
-il grafico dell'andamento delle sue tangenti è una sorpresa rispetto ai 
-confronti che abbiamo fatto per altre funzioni. 
-% I due grafici praticamente si accompagnano: 
-% rivelano uguali pendenze in coppie di punti di uguale ordinata.
-
-\begin{inaccessibleblock}
-  [esponenziale e derivate]
-  \begin{minipage}[]{.45\textwidth}
-\begin{center} \scalebox{.8}{   \esp} \end{center}
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.42\textwidth}
-\begin{center} \scalebox{.8}{   \tangentiesp} \end{center}
- \end{minipage}
-\end{inaccessibleblock}
-\label{}
-
-Anche se i due grafici non sono esattamente identici, l'andamento delle 
-pendenze delle tangenti, cioè l'andamento della derivata della funzione, è 
-anch'esso esponenziale.
-Sviluppiamo matematicamente questa intuizione, ricordando le proprietà
-delle potenze.\\
-Differenziale di \(y=a^x\): 
-$dy=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1}\).\\
-Rapporto differenziale: \(\dfrac{dy}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x\).\\
-Per  derivare, ora dovremmo applicare la parte standard e il risultato dovrebbe
-essere anch'esso una funzione esponenziale, se la nostra intuizione del grafico 
-è corretta.\\
-L'espressione del rapporto differenziale contiene \(a^x\), che è funzione 
-esponenziale, ed un fattore da interpretare per capirne il significato. Lo
-si può trasformare, ricorrendo alle proprietà delle potenze.\\
-$\dfrac{\tonda{a^{dx}-1}}{dx}= \dfrac{a^{(0+dx)}-a^0}{dx}=
-\dfrac{d(a^x)}{dx}\bigg |_{x=0}= \dfrac{df(x)}{dx}\bigg |_{x=0}\).\\
-Perciò il rapporto differenziale risulta:\\
-$\dfrac{dy}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x=
-\dfrac{d(a^x)}{dx}\bigg |_{x=0}\cdot a^x$\\
-Per la derivata, basta applicare la parte standard e si ottiene:\\
-$f'(x)= f'(0)\cdot f(x)\).
-\emph{La derivata di una funzione esponenziale è proporzionale alla
-funzione stessa, attraverso un fattore che corrisponde alla derivata 
-calcolata in} \(x=0\).\\
-
-Volevamo calcolare la derivata di \(f(x)=a^x\) e ci ritroviamo con
-un risultato che contiene la derivata stessa \(f'(0)\), insomma non si direbbe 
-che ci siano stati grandi progressi. Ma fingiamo per un attimo che \(f'(0)\) 
-non 
-incida sul risultato, cioè che \(f'(0)=1\). In questo modo la funzione e la
-sua derivata sarebbero proprio identiche e i due grafici sarebbero 
-sovrapponibili.\\
-$f'(0)=1\srarrow \pst{\dfrac{a^{dx}-1}{dx}}=1\srarrow a^{dx}\sim dx +1
-\srarrow a\sim(dx+1)^\frac{1}{dx}\).\\
-Abbiamo già incontrato un'espressione analoga in passato:
-l'espressione individua il Numero di Nepero \(e=\pst{(dx+1)^\frac{1}{dx}}\).\\
-Conclusione: perché una funzione esponenziale generica \(a^x\) coincida con la
-sua derivata occorre che la base sia \(a=e\). \(f(x)=e^x\) si dice funzione 
-esponenziale pura.
-
-
-\begin{teorema}
- La derivata della funzione esponenziale \(\mathit{D}\quadra{e^x}\) coincide 
-con la funzione stessa.
-\end{teorema}
-\noindent Ipotesi: \(f(x)=e^x\). \tab \(f'(x)=e^x\).
-\begin{proof}
- La dimostrazione è già stata costruita gradualmente per via intuitiva. 
- Occorrerebbe dimostrare l'unicità della tesi, ma non è essenziale
- per i nostri scopi. Resta comunque stabilito che  \emph{la funzione
- esponenziale pura \(f(x)=e^x\) coincide con la propria derivata}.
-\end{proof}
-Attraverso l'uso del numero \(e\) siamo finalmente in grado di derivare la 
-funzione esponenziale generica \(f(x)=a^x\).
-
-\begin{teorema}
-  La derivata della funzione esponenziale qualsiasi, con base \(a>0\), è:\\ 
-$\mathit{D}\quadra{a^x}=
-  a^x\ln{a}\).
-\end{teorema}
-\noindent Ipotesi: \(f(x)=a^x\); \tab Tesi: \(f'(x)=a^x\ln{a}\).
-\begin{proof}
- Usiamo una trasformazione appresa con lo studio dei logaritmi e applichiamo 
- il teorema a pag.\pageref{teo:diff01_dericomp}:
- \(f(x)~=~a^x~=~e^{\ln a^x}\). Se poniamo \(g(x)=\ln a^x=x\ln a\), si ottiene:\\
- \(f(g(x))=e^{g(x)}\srarrow f'(g(x))=f'(g)g'(x)= e^{x\ln a}\ln a=
- e^{\ln a^x}\ln a=a^x\ln a\).
-\end{proof}
-\begin{esempio}
-  Calcola la derivata di \(f(x)=3e^{x-1}\).\\
-  Poniamo \(g(x)=x-1\). \(f(x)=3e^{g(x)}\srarrow f'(x)=3e^{g(x)}\cdot g'(x)=
-  3e^{x-1}\cdot 1=3e^{x-1}\).
-\end{esempio}
-\begin{esempio}
-  Calcola la derivata di \(f(x)=e^{x^2}\).\\
-  Poniamo \(g(x)=x^2\srarrow f(x)=e^{g(x)}\srarrow f'(x)=e^{g(x)}\cdot g'(x)=
-  e^{x^2}\cdot 2x=2xe^{x^2}\).
-\end{esempio}
-
-
-
-\subsection{Derivata di \(f(x)=\log_a x$}
-\label{}
-\begin{esempio}
-  Calcola la derivata di \(f(x)=e^{\ln x}\).\\
-  Poniamo \(g(x)=\ln x\srarrow f(x)=e^{g(x)}\srarrow f'(x)=e^{g(x)}\cdot g'(x)=
-  e^{\ln x}\) \dots ???.\\
-  Ragioniamo: dalle proprietà
-  dei logaritmi si ha: \(e^{\ln x} =x\), che è la funzione identica. Quindi
-  \begin{enumerate}[noitemsep]
-    \item \(e^{\ln x} =x\) e anche \(\ln e^x= x\ln e=x\), così come 
-    \(f(f^{-1}(x))=f^{-1}(f(x))=x\): le due funzioni sono una inversa 
-dell'altra,
-    il logaritmo naturale \(g(x)=\ln x\) è la funzione inversa della
-    funzione esponenziale \(f(x)=e^x\);
-    \item 
-$\mathit{D}\quadra{f^{-1}(x)}=\dfrac{1}{\mathit{D}\quadra{(f^{-1}(x)}}\);
-    \item \(\mathit{D}\quadra{\ln x}=\dfrac{1}{\mathit{D}\quadra{e^{g(x)}}}
-    =\dfrac{1}{e^{\ln x}}=\dfrac{1}{x}\).
-  \end{enumerate}
-\end{esempio}
-
-\begin{inaccessibleblock}
-  [esponenziale e logaritmo]
-  \begin{minipage}[]{.55\textwidth}
-\begin{center} \scalebox{.8}{\esplog} \end{center}
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.42\textwidth}
- \begin{teorema}
-  La derivata della funzione \\
-  logaritmo naturale è: \(\mathit{D}\quadra{\ln x}=
-  \dfrac{1}{x}, \stext{con} x>0\).
-\end{teorema}
-\noindent Ipotesi: \(f(x)=\ln x, \mbox{ con } x>0\).\\
-\noindent Tesi: \(f'(x)=\dfrac{1}{x}\).
-\begin{proof}
-La dimostrazione è nei ragionamenti dell'esempio precedente, ai quali 
-bisogna 
-aggiungere le precauzioni perché le due funzioni siano invertibili e 
-derivabili: 
-poiché \(\ln x\) esiste per \(x>0\), i ragionamenti valgono solo per \(x>0$
-\end{proof} 
- \end{minipage}
-\end{inaccessibleblock}
-\label{}
-\\
-
-Vediamo ora il caso generale, quando la base del logaritmo è genericamente 
-$a>0\).
-\begin{teorema}
-  La derivata della funzione logaritmo in base \(a\) è: 
-  \(\mathit{D}\quadra{\log_a x}= \dfrac{1}{x\ln a}\).
-\end{teorema}
-\noindent Ipotesi: \(f(x)=\log_a x\). \tab \(f'(x)=\dfrac{1}{x\ln a}$
-\begin{proof}
-Si ottiene direttamente dalla formula del cambiamento di base:\\
-$\log_a x=\dfrac{1}{\ln a}\ln x\).
-\end{proof}
-
-\begin{esempio}
-    Derivare la funzione \(f(x)=Log(x^2+1)^2\).\\
-    \(g(x)=(x^2+1)^2\srarrow f(x)=Log (g(x))\srarrow f'(x)=\dfrac{1}{\ln 10}
-    \dfrac{1}{g(x)}g'(x)=\\
-    =\dfrac{1}{(\ln 10)(x^2+1)^2}2(x^2+1)2x=\dfrac{4x}{(\ln 10)(x^2+1)}\).\\
-    Nota che \(g(x)=(x^2+1)^2\) è a sua volta una funzione composta del tipo 
-    \(g(x)=\quadra{h(x)}^2\) e quindi è stata applicata la regola della derivata
-    di più funzioni composte.
-\end{esempio}
-
-Abbiamo ora tutti gli strumenti per convalidare l'osservazione al teorema 
-\ref{diff01_teoderpotenza}, a proposito delle funzioni potenza.
-
-\begin{teorema}
-  La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
-  \(\mathit{D}\quadra{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha\).
-\end{teorema}
-\noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
-$\forall \alpha\).
-\begin{proof}
-Combinando alcune delle regole precedenti, si ha:\\
-$f(x)=x^\alpha=e^{\ln x^\alpha}=e^{\alpha\ln x}$\\
-$f'(x)=e^{\alpha\ln x}\alpha\dfrac{1}{x}=x^\alpha\frac{\alpha}{x}=
-\alpha x^{\alpha-1}\).\\
-Poiché non è stata fatta nessuna particolare ipotesi sull'esponente (intero 
-o 
-razionale positivo o negativo, irrazionale ...), allora il teorema vale per 
-qualsiasi esponente.
-\end{proof}
-
-\begin{esempio}
-  Derivare \(f(x)=x^{\sqrt{2}}\).\\
-  \(f'(x)=\sqrt{2}x^{\sqrt{2}-1}\).
-\end{esempio}
-
-
-\subsection{Derivata di funzioni circolari}
-\label{}
-Anche per queste funzioni dobbiamo dapprima definire il differenziale. 
-Per una migliore comprensione, ci affidiamo soprattutto al piano cartesiano.
-\subsubsection{Derivata di \(f(x)=\sen x$}
-Nel capitolo sugli Iperreali abbiamo già visto 
-(vedi pag. \pageref{subsubsec:insnum_fseno}) che per angoli infinitesimi il 
-seno e 
-l'angolo sono indistinguibili: \(\st\tonda{\frac{\sen 
-\epsilon}{\epsilon}}=1\).
-Dall'analisi del disegno ricaviamo l'espressione del differenziale
-$df(x)=d(\sen x)= \sen (x+dx) -\sen x\).
-
-\begin{inaccessibleblock}
-  [differenziale del seno]
-  \begin{minipage}[]{.40\textwidth}
-   \dseno 
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.56\textwidth}
-Nell'ingrandimento al microscopio non standard, l'incremento infinitesimo di
-arco \(\overset{\frown}{AB}\) (che corrisponde all'incremento di angolo da \(x$
-a \(x+dx\)) è racchiuso fra due raggi indistinguibili da segmenti paralleli 
-nei punti \(A\equiv \punto{x}{\sen x}\) e \(B\equiv \punto{x+dx}{\sen(x+dx)}\). 
-L'arco, a sua volta, risulta indistinguibile dal segmento rettilineo \(AB\).
-I segmenti che uniscono \(A\) e \(B\) con le loro proiezioni sull'asse \(X\) 
-sono
-verticali e paralleli, perciò \(ABC\) è un triangolo rettangolo infinitesimo, 
-simile al triangolo \(BOC\). La sua altezza \(BC\) corrisponde a \(d\sen x\). 
- \end{minipage}
-\end{inaccessibleblock}
-\label{fig_diff01dseno}\\
-
-Risolviamo il triangolo rettangolo \(ABC\) rispetto al lato \(BC\):\\
-$BC=AB\cdot \cos x \srarrow d(\sen x)= dx\cdot cos x\)  
-
-\begin{teorema}
-  La derivata della funzione \(f(x)=\sen x\) è \(\mathit{D}\quadra{\sen 
-x}=\cos x\).
-\end{teorema}
-\noindent Ipotesi: \(f(x)=\sen x\). \tab \(f'(x)=\cos x\).
-\begin{proof}
- Il commento al disegno giustifica la tesi. 
-\end{proof}
-
-
-\begin{osservazione}
-  Si potrebbe criticare il metodo per la dimostrazione: chi assicura che 
-negli
-  altri quadranti le relazioni fra le variabili non cambino? Saremo troppo
-  legati al disegno?\\
-  Ci sono altri modi per dimostrare la tesi, più vincolati al calcolo
-  e meno al disegno.  Per esempio, dalle formule di addizione abbiamo:
-  \(\sen(x+dx)=\sen x \cos dx + \sen dx \cos x\). Allora:\\
-  \(\dfrac{\sen(x+dx)-\sen x}{dx}=\dfrac{\sen x \cos dx + \sen dx \cos x -
-   \sen x}{dx}=\\
-  =\sen x \dfrac{\cos x-1}{dx}+ \cos x\dfrac{\sen dx}{dx}=
-  \sen x\cdot 0 + \cos x\cdot 1=\cos x\),\\
-  in cui si fa uso delle forme indeterminate discusse a pag. 
-  \pageref{subsubsec:insnum_fseno}. Alla fine basta applicare la funzione 
-  \(\pst{}\).
-\end{osservazione}
-
-\begin{osservazione}
-Anche il grafico dell'andamento delle tangenti conferma la tesi
-in modo assai espressivo. \\
-\begin{inaccessibleblock}
-  [differenziale del seno]
-  \begin{minipage}[]{.47\textwidth}
-    \begin{center} \seno \end{center}
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.47\textwidth}
- \begin{center} \tangentiseno \end{center}
- \end{minipage}
-\end{inaccessibleblock}
-\label{}
-\end{osservazione}
-
-\begin{esempio}
-Quale pendenza ha il grafico di \(y=\sen x\) nell'origine?\\
-$f(x)= \sen x \srarrow f'(x)=\cos x\srarrow f'(0)=\cos 0=1\).\\
-La tangente al grafico nell'origine è la retta \(y=x\).
-\end{esempio}
-
-\begin{esempio}
-Derivare \(f(x)=\sen^2 x\) e \(g(x)= \sen x^2\).\\
-$f'(x)=2\sen x \cos x\) e \(g'(x)=cos x^2\cdot 2x= 2x \cos x^2\).
-\end{esempio}
-
-\begin{esempio}
-Derivare \(f(x)=\sen^2 x\) e \(g(x)= \sen 2x\).\\
-$f'(x)=2\sen x \cos x\) e \(g'(x)=cos 2x\cdot 2= 2 \cos 2x\).
-\end{esempio}
-
-\begin{esempio}
-  Derivare \(f(x)=x^{\sen x}\).\\
-  Si tratta di una funzione di tipo nuovo, un misto fra una funzione potenza
-  e una funzione esponenziale. Si risolve con una trasformazione che abbiamo
-  già visto e con l'uso delle regole della funzione composta e del prodotto.\\
-  \(x^{\sen x}=e^{{(\ln x)}^{\sen x}}=e^{\sen x\ln x}\).\\
-  \(f'(x)=e^{\sen x\ln x}(\cos x \ln x +\dfrac{\sen x}{x})=
-  x^{\sen x}(\cos x \ln x +\dfrac{\sen x}{x})\).
-\end{esempio}
-
- \subsubsection{Derivata di \(f(x)=\cos x$}
-\begin{teorema}
-  La derivata della funzione \(f(x)=\cos x\) è \(\mathit{D}\quadra{\cos x}=
-  -\sen x\).
-\end{teorema}
-\noindent Ipotesi: \(f(x)=\cos x\). \tab \(f'(x)=-\sen x\).
-\begin{proof}
-  Il disegno con cui dimostrare la tesi è uguale a quello di pag.
-  \pageref{fig_diff01dseno}. Lo puoi riprodurre, tenendo però l'attenzione
-  concentrata sul segmento \(AC\).\\
-L'unica osservazione importante è che nel passare da \(x\) a \( x+dx\), cioè 
-mentre l'angolo cresce, il valore del coseno decresce. Infatti, al contrario di 
-quanto avviene per il seno, nel primo quadrante si ha: \( \cos(x+dx)<\cos x\). 
-Questa è la ragione del segno meno nel risultato.
-\end{proof}
-
-\begin{inaccessibleblock}
-  [differenziale del coseno]
-  \begin{minipage}[]{.47\textwidth}
-    \begin{center} \coseno \end{center}
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.47\textwidth}
- \begin{center} \tangenticoseno \end{center}
- \end{minipage}
-\end{inaccessibleblock}
-\label{}
-
-\begin{esempio}
-Quale pendenza ha il grafico di \(y=\cos x\) per \(x=0$?\\
-$f(x)= \cos x \srarrow f'(x)=-\sen x\srarrow f'(0)=-\sen 0=0\).\\
-In \(x=0\) la tangente al grafico è orizzontale.
-\end{esempio} 
-
-\begin{esempio}
-Derivare \(f(x)=\cos^2 x\) e \(g(x)= \cos x^2\).\\
-$f'(x)=2\cos x(-\sen x)=-2\sen x\cos x\) e \(g'(x)=-\sen x^2\cdot 2x=-2x\sen 
-x^2\).
-\end{esempio}
-
-\begin{esempio}
-Derivare \(f(x)=\cos^2 x +\sen^2 x\).\\
-$f'(x)=-2\sen x\cos x + 2\sen x \cos x = 0\).
-\end{esempio}
-
-
-\subsubsection{Derivata di \(f(x)=\tg x$}
-
-\affiancati{.39}{.59}{
-La funzione \(f(x)=\tg x\) è discontinua per \(x= \pm\frac{\pi}{2}\). La 
-derivata quindi non può esistere nei punti corrispondenti, come mostra il 
-grafico.
-}{
-\begin{inaccessibleblock}
-  [differenziale della tangente]
-  \begin{minipage}[]{.49\textwidth}
-    \begin{center} \tangente \end{center}
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.49\textwidth}
- \begin{center} \tangentitangente \end{center}
- \end{minipage}
-\end{inaccessibleblock}
-\label{}
-}
-\begin{teorema}
-   La derivata della funzione \(f(x)=\tg x\) è \(\mathit{D}\quadra{\tg x}=
-   \dfrac{1}{\cos^2 x}=1+tg^2 x\) per \(x\ne \pm\frac{\pi}{2}\).
-\end{teorema}
-\noindent Ipotesi: \(f(x)=\tg x\). \tab \(f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x\),
-per \(x\ne\pm\frac{\pi}{2}\).
-\begin{proof}
-Per calcolare la derivata nei punti in cui la funzione è continua, 
-ricorriamo alla seconda relazione fondamentale: \(\tg x=\frac{\sin x}{\cos x}\) 
-e
-sfruttiamo la regola della derivata di un quoziente (pag. 
-\pageref{sec:diff01_regolederivate}).\\
-$\mathit{D}\quadra{\tg x}=\mathit{D}\quadra{\dfrac{\sin x}{\cos x}}=
-\dfrac{\mathit{D}\quadra{\sen x}\cdot \cos x-\sen x\cdot 
-  \mathit{D}\quadra{\cos x}} {\cos^2 x}=
-\dfrac{\sen^2 x +\cos^2 x}{\cos^2 x}=\dfrac{1}{\cos^2 x}=\tg^2+1$
-\end{proof}
-
-\begin {esempio}
-Quale è la pendenza del grafico di \(y=\tg x\), per \(x=\dfrac{\pi}{4}$? E per
-$x=\dfrac{\pi}{2}$?\\
-$f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{4})=1+\tg^2\dfrac{\pi}{4}=2$\\
-$f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{2})=1+\tg^2\dfrac{\pi}{2}=\) ???\\
-Per \(x\approx\dfrac{\pi}{2}\) il grafico della funzione cresce verticalmente,
-la sua pendenza è un numero infinito e la parte standard di un infinito non
-esiste. D'altra parte, se \(x\) è esattamente uguale a \(\dfrac{\pi}{2}\) ,
-la tangente ha un punto di discontinuità.
-\end {esempio}
-
-
-\section{Applicazioni}
-\label{sec:diff01_applicazioni}
-Si è tanto parlato delle tangenti ai grafici di funzione e delle loro 
-pendenze,
-senza mai arrivare a definire l'effettiva equazione delle tangenti che
-interessano. Ora cercheremo di colmare questa lacuna.
-
-\subsection{Derivata e tangente}
- Hai già incontrato negli anni scorsi dei problemi in cui si chiedeva di 
- calcolare la tangente ad una parabola in un suo punto. Il metodo di 
-calcolo 
- algebrico che usavi è efficace ma macchinoso e, sfortunatamente, vale solo 
- per le coniche. Il metodo delle derivate, invece, si rivela
- molto più potente e rapido.\\
- Poiché la tangente è una retta, la sua equazione è del tipo 
-$y-y_0=m(x-x_0)\), 
- dove  \(\punto{x_0}{y_0}\) è il punto di tangenza 
- e \(m\) è la pendenza della retta, sulla quale sappiamo ormai tutto.
- Si ha \(y=m(x-x_0)+y_0\) e poiché \(m=f'(x_0)\), relativo alla funzione \(f(x)$
- di cui si sta studiando il grafico, l'equazione risolvente è:\\
- \(y=f'(x_0)(x-x_0)+y_0\).
- 
-\begin{esempio}
-  Trova le equazioni delle tangenti alla parabola \(f(x)=x^2\) nei suoi punti
-  \(V~\equiv~\punto{0}{f(0)}\) e \(B\equiv\punto{-6}{f(-6)}\).\\
-  Soluzione. Nel punto \(V\): \(f'(0)~=~2\cdot 0~=~0=m\). La tangente è 
-  orizzontale e coincide con l'asse \(X\): \(y=~m(x~-~x_0)~+~y_0~=~0\).\\
-  Nel punto \(B\): \(f'(-6)=2 (-6)=-12\). \(m=-12\), la tangente è inclinata
-  verso il basso:
-  \(y=m(x-x_0)+y_0= -12(x+6)+36\srarrow y=-12x-36\).
- \end{esempio}
-
- \pagebreak %--------------------------------------------------
-
-\begin{esempio}
-  Trova i punti di intersezione degli assi con la tangente in 
-$\punto{2}{f(2)}$
-  alla curva \(f(x)=2x^3-x\).\\ Soluzione.
-  Ricerca della tangente per \(x=2\): \(f'(x)=6x^2-1\) e \(f'(2)=6\cdot 
-4-1=23\).\\
-  \(y_0=f(2)=2\cdot 2^3-2=14\). La tangente: \(y=23(x-2)+14=23x-32\).
-  Le intersezioni: \\
-  Con l'asse \(X\): \(y=0\srarrow x=\dfrac{32}{23}\srarrow
-  \punto{\dfrac{32}{23}}{0}\).\\
-  Con l'asse \(Y\): \(x=0 \srarrow y=-32\srarrow \punto{0}{-32}\).
-\end{esempio}
-
-\begin{esempio}
-  In quale punto del suo grafico la parabola \(y=4x^2-3x+6\) è inclinata di 
-  \(45^\circ$?\\
-  Soluzione. Nel punto che cerchiamo, la parabola avrà un'inclinazione 
-  indistinguibile da quella della tangente.
-  Le rette inclinate di \(45^\circ\) hanno pendenza \(m=1\), come la bisettrice 
-  del primo-terzo quadrante.  Dobbiamo quindi imporre alla derivata il valore 
-  \(1\).\\
-  \(f(x)=4x^2-3x+6\srarrow f'(x)=8x-3\).\\
-  \(8x-3=1\srarrow x=\dfrac{1}{2}\). Il punto è 
-$\punto{\dfrac{1}{2}}{\dfrac{11}{2}}\).
-\end{esempio}
-
-\begin{esempio}
-  È vero che l'iperbole equilatera di equazione \(xy=16\) ha per vertici i 
-punti 
-  medi del segmento che gli assi staccano sulle tangenti ai vertici? \\
-  Risposta. Consideriamo per comodità solo il ramo destro del grafico.
-  Il vertice sarà un punto \(V\) di coordinate uguali, essendo l'iperbole
-  equilatera. Quindi \(V=V\punto{4}{4}\).\\
-  Poiché la funzione è \(y=\dfrac{16}{x}\), la sua derivata in \(V\) è 
-  \(y'|_{x=4}= -\dfrac{16}{x^2}\bigg|_{x=4}=-1$
-  e l'equazione della tangente in \(V\) è \(y=-1(x-4)+4=-x+8\).\\
-  La retta \(y=-x+8\) interseca gli assi in \(\punto{8}{0}\) e \(\punto{0}{8}\) 
-ed 
-  è facile verificare che il punto \(V\) è medio fra i due.
-  Per ragioni di simmetria accade lo stesso
-  con il vertice opposto \(\punto{-4}{-4}\).
-  \begin{osservazione}
-   In realtà si tratta di una proprietà generale dell'iperbole equilatera.
-   Qualsiasi retta tangente al grafico stacca sugli assi coordinati dei 
-   segmenti che hanno il punto medio coincidente con il punto di tangenza. 
-   Non è difficile dimostrarlo usando l'equazione generica \(yx=k^2\) e per 
-   punto di tangenza le coordinate \(\punto{a}{\dfrac{k^2}{a}}\).
-  \end{osservazione}
- \end{esempio}
-
-\begin{esempio}
-  È vero che è inclinato di \(30^\circ\) il raggio  
-  della circonferenza \(x^2+y^2=20\) che unisce l'origine al suo punto di 
-ascissa
-  \(4$?\\
-  Risposta. No, non è vero. \\
-  Il modo più elementare per verificarlo è calcolare l'ordinata
-  del punto e cercare l'angolo di inclinazione dell'ipotenusa coincidente 
-con 
-  il raggio.\\
-  L'alternativa è calcolare la derivata:
-  \(x^2+y^2=20\srarrow y=\sqrt{20-x^2}\) (data lo posizione del punto,
-  consideriamo solo la semicirconferenza per \(y>0\)).\\
-  \(f'(4)= \dfrac{-2x}{2\sqrt{20-x^2}}\bigg|_{x=4}=\dfrac{-4}{\sqrt{20-16}}=
-  \dfrac{-4}{2}=-2\).\\
-  Dunque la tangente ha una pendenza pari a \(-2\). Poiché il raggio e la 
-  tangente sono perpendicolari, la retta che contiene questo raggio avrà 
-  pendenza \(-\dfrac{1}{-2}=\dfrac{1}{2}\).\\
-  Possiamo controllare la risposta con la calcolatrice.
-  \end{esempio}
- 
-\subsection{Derivata e normale}
-\label{}
-Come si vede dall'ultimo esempio, una volta che si sappia come calcolare 
-la tangente ad una curva, il calcolo della normale risulta molto facile.
-Poiché la tangente e la normale, se passano per lo stesso punto, sono rette
-perpendicolari e quindi hanno i coefficienti angolari antireciproci,
-l'equazione di una normale ad una curva \(y=f(x)\) in un punto 
-$\punto{x_0}{y_0}$
-sarà:\\
-$y=\dfrac{-1}{f'(x_0)}(x-x_0)+y_0\),\\
-dove la pendenza della normale \(m_n=\frac{-1}{m_t}\) è appunto 
-l'antireciproco della pendenza della tangente.
-
-\begin{esempio}
-Scrivi l'equazione della tangente e della normale alla curva di equazione
-$y=\dfrac{x^2-1}{\ln x -1}\) nel suo punto di ascissa \(1\).\\
-Soluzione. \(y'|_{x=1}=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
-{(\ln x -1)^2}\bigg|_{x=1}=\dfrac{2\cdot 1(0-1)-(1-1)\cdot 
-1}{(0-1)^2}=-2\).\\
-La pendenza della tangente è \(m=-2\). Per \(x=1\) la funzione vale:
-$\dfrac{1^2-1}{\ln 1 -1}=0=y_0\). L'equazione della tangente è quindi:
-$y=-2(x-1)=-2x+2\). Di conseguenza la normale ha equazione 
-$y=\dfrac{1}{2}(x-1)=\dfrac{1}{2}x-\dfrac{1}{2}\).
-\end{esempio}
-
-
-\begin{esempio}
-Scrivi l'equazione della tangente e della normale alla curva di equazione
-$y=\dfrac{x^2+1}{\ln x +1}\) nel suo punto di ascissa \(1\).\\
-Soluzione. \(y'|_{x=1}=\dfrac{2x(\ln x+1)-(x^2+1)\dfrac{1}{x}}
-{(\ln x +1)^2}\bigg|_{x=1}=\dfrac{2\cdot 1(0+1)-(1+1)\cdot 1}{(0+1)^2}=0\).\\
-La tangente è quindi una retta orizzontale. Di conseguenza la normale è 
-verticale, come si vede subito se si prova a calcolare l'antireciproco di 
-$0\).
-\end{esempio}
-
-\subsection{Derivata della derivata}
-\label{}
-Abbiamo già notato che la derivata  di una funzione dipende dal punto in 
-cui si 
-calcola e che, una volta stabilito questo punto, ha un unico risultato,
-se esiste.
-Quindi la derivata di una funzione è a sua volta una funzione e,
-se ci sono le condizioni, può essere derivata a sua volta.
-\begin{definizione}
- Se una funzione \(f(x)\) è derivabile, la sua derivata è la funzione \(f'(x)\).
- Se anche \(f'(x)\) è derivabile, allora esiste la funzione \(f''(x)\) ed è
- chiamata \emph{derivata seconda di \(f(x)$}.
-\end{definizione}
-Le regole di calcolo della derivata seconda sono le stesse regole che 
-abbiamo già visto, quindi la seconda derivazione, se è possibile, non comporta 
-problemi diversi da quelli conosciuti.\\
-Riferendoci a un generico grafico di funzione \(y=f(x)\), la derivata prima 
-$f'(x)\) ci consente di trovare le pendenze delle tangenti al grafico. La
-derivata seconda \(f''(x)\) descrive con quanta rapidità (o lentezza) variano 
-queste pendenze, perciò ci indica quanto siano aperte o chiuse le concavità 
-che \(y=f(x)\) disegna nel piano cartesiano.\\
-Se le condizioni sono favorevoli, esistono e sono calcolabili anche le 
-derivate terze, quarte, ecc. di una funzione, anche se non sono essenziali 
-per i nostri scopi. Il loro calcolo segue i metodi già visti.
-
-\begin{esempio}
-Calcola \(f''(1)\) di \(f(x)=2x^5-3x^4+x^3+5x^2-6x+9\).\\
-Derivata prima: \(f'(x)=10 x^4-12 x^3+3x^2+10 x-6\).\\
-Derivata seconda per \(x=1\): \((40x^3-36x^2+6x+10)|_{x=1}=40-36+6+10=20\).
-\end{esempio}
-
-\begin{esempio}
-Calcola \(f''(x)\) di \(f(x)=\ln x\).\\
-$f'(x)=\dfrac{1}{x}\) e \(f''(x)=-\dfrac{1}{x^2}\).\\
-\begin{osservazione}
- La funzione \(\ln x \( esiste per \(x>0\). Le derivate prima e seconda esistono
- per \(x\ne 0\).
- In generale, l'esistenza di una derivata (prima, seconda, terza. \dots) è
- indipendente dall'esistenza della funzione da derivare.
-\end{osservazione}
-\end{esempio}
-
-\begin{esempio}
- Calcola le derivate successive di \(f(x)=\sen x\).\\
- \(f'(x)=\cos x\) \hspace{1cm}\) f''(x)=-\sen x\) \hspace{1cm}
- \(f'''(x)=-\cos x\) \hspace{1cm} \(f^{IV}(x)=\sen x\) \dots
-\end{esempio}
 
 \subsection{Derivata, differenza, differenziale, incremento}
 \label{subsec:diff01_deridiff}
