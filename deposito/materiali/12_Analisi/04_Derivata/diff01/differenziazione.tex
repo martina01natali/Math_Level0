@@ -728,6 +728,29 @@ questo caso i valori della pendenza si allineano lungo la retta
 \(y=\dfrac{2}{3}x-2\).
 
 
+\subsubsection{Nomi per la derivata}
+Il nome \emph{derivata} per indicare il calcolo che abbiamo descritto ha 
+origini storiche. Si è diffuso  ovunque (derivative, derivada, dérivée, 
+...) anche se non rende pienamente il significato di ciò che rappresenta. 
+Se ne potrà intuire la ragione in un capitolo successivo, quando parleremo 
+anche di funzioni primitive.\\
+Sempre per ragioni storiche, si sono diffusi vari simboli che rappresentano 
+l'operazione di derivazione:
+\begin{enumerate}[noitemsep]
+ \item \(f'(x_0)\) è il simbolo per il risultato della derivazione di \(f\) 
+ per \(x= x_0\): è la pendenza della curva in \(x_0\);
+ \item \(\mathit{D}\quadra{f(x)}\) indica la formula della derivazione di 
+\(f\),  per es. \(\mathit{D}\quadra{5x\sqrt[3]{x^2}}=5\sqrt[3]{x^2}+\dfrac{10x}
+ {3\sqrt[3]{x}}\);
+ \item \(\dot{f}\) equivale a \(f'\) e si usa in alcuni corsi universitari;
+ \item \(\dfrac{d}{dx}f(x)\) è come \(f'(x)\), cioè corrisponde alla parte 
+standard del Rapporto Differenziale;
+ \item \(\dfrac{df(x)}{dx}\) si trova spesso nei libri come se il Rapporto
+ Differenziale e la derivata fossero la stessa cosa. Se la derivata 
+esiste, quest'uguaglianza si può accettare, trattandosi di quantità 
+indistinguibili. 
+\end{enumerate}
+
 
 \section{Derivata di alcune funzioni semplici}
 \label{sec:differenziazione_derivatafsemplici}
@@ -755,7 +778,8 @@ suo valore non dipende dall'infinitesimo considerato:\\
 \end{esempio}
 Abbiamo così dimostrato un semplice teorema:
 \begin{teorema}
- La derivata della funzione identica \(f(x)=x\) è \(f'(x)=1\).
+ La derivata della funzione identica \(f(x)=x\) è 
+\(\mathit{D}\quadra{x}=1\).
 \end{teorema}
 \begin{osservazione}
  Non avendo specificato un particolare \(x_0\), il risultato vale per qualsiasi 
@@ -786,7 +810,8 @@ Quindi, se la funzione è costante, il suo differenziale è nullo.
 Infatti, avendo sempre lo stesso valore per qualsiasi \(x\), la differenza 
 tra due suoi valori è zero. 
 \begin{teorema}
-  La derivata di una funzione costante è \(0\). %: \(\mathit{D}\quadra{k}=0\).
+  La derivata di una funzione costante è \(\mathit{D}\quadra{k}=0\):\quad 
+\(\mathit{D}\quadra{k}=0\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f'(x)=0\).
 \begin{proof}
@@ -893,10 +918,10 @@ sommandoli? È quello che stiamo per mostrare con i prossimi teoremi.
 \subsection{Derivata della somma (algebrica) di funzioni}
 \label{subsec:differenziazione_derivatasomma}
 \begin{teorema}
- Se una funzione è la somma di due funzioni, anche la sua 
- derivata, se c'è, sarà la somma delle due derivate.
+ Se una funzione è la somma di più funzioni, anche la sua 
+ derivata, se c'è, è la somma delle derivate degli addendi.
 \end{teorema}
-\noindent Ipotesi: \(f=g + h\) e esiste \(f'(x)\).\tab Tesi: \(f'=g' + 
+\noindent Ipotesi: \(f=g + h\) e esistono \(f'(x), \).\tab Tesi: \(f'=g' + 
 h'\).\\
 (Ovvero: La derivata di una somma è la somma delle derivate)
 
@@ -967,7 +992,7 @@ derivata) per il la derivata della seconda.
 \end{teorema}
 \noindent Ipotesi: \(\mathit{S}(x)=b(x)\cdot a(x)\) \text{ e esistono }
 \(\mathit{S'}(x),\ b'(x),\ a'(x)\).\\ 
-Tesi: \(\mathit{S'}(x)=b'(x)\cdot a(x)+b(x)\cdot a'(x)\).
+Tesi: \(\mathit{D}\quadra{\mathit S(x)}=b'(x)\cdot a(x)+b(x)\cdot a'(x)\).
 
 \begin{figure}[h]
 \begin{inaccessibleblock}
@@ -1040,9 +1065,11 @@ b(x)=x.\\
  \subsubsection{Derivata del prodotto per una costante}
 \label{subsubsec:derivata_f_per_k}
  \begin{teorema}
-La derivata di una funzione \(f\) data dal prodotto \(k\cdot g(x)\) fra una 
-funzione derivabile \(g(x)\) e una costante \(k\) è il prodotto fra la costante 
-\(k\) e la derivata \(g'(x)\). \end{teorema}
+La derivata di una funzione \(f(x)=k\cdot g(x)\), prodotto fra una 
+funzione derivabile \(g(x)\) e una costante \(k\), è il prodotto fra la 
+costante \(k\) e la derivata \(g'(x)\): 
+\(\mathit{D}\quadra{k\cdot g(x)}=k \cdot g'(x)\).
+\end{teorema}
 \noindent Ipotesi: \(f(x)=k\cdot g(x) \text{ e esiste }g'(x)\).
 \tab Tesi: \(f'(x)=k \cdot g'(x)\). 
 \begin{proof}
@@ -1153,7 +1180,7 @@ funzione 2: } b(x)=x.\\
  \begin{teorema}
   \label{diff01_teoderpotenza}
   La derivata della funzione potenza \(f(x)= x^n\), con esponente 
-naturale, è: \(f'(x)=~nx^{n-1}\).
+naturale, è: \(\mathit{D}\quadra{x^n}=~nx^{n-1}\).
   \end{teorema}
 \noindent Ipotesi: \(f(x)=x^n\), con \(n\in \N\) .\tab Tesi: 
 \(f'(x)=nx^{n-1}\). 
@@ -1276,7 +1303,7 @@ b(x) =+ \dfrac{2}{3}x^3\quad \text{ funzione 3: } c(x) =-13kx.\\
  
  \begin{teorema}
   La derivata della funzione reciproca \(f(x)=\dfrac{1}{x}\) è: \quad
-\(f'(x)=-\dfrac{1}{x^2}\).
+\(\mathit{D}\quadra{\dfrac{1}{x}}=-\dfrac{1}{x^2}\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=\dfrac{1}{x}\).\tab Tesi: \(f'(x)=-\dfrac{1}{x^2}\).
 \begin{proof}
@@ -1362,7 +1389,7 @@ denominatore) e dividendo il risultato per il quadrato del denominatore.
 \noindent Ipotesi: \(a(x)=\dfrac{\mathit{S}(x)}{b(x)}\), 
 con \(b(x)\neq 0\) \tab 
 Tesi: 
-\(da(x) \sim \dfrac{d\mathit{A}(x) \cdot b(x)-\mathit{A}(x) \cdot db(x)}
+\(a'(x) = \dfrac{d\mathit{A}(x) \cdot b(x)-\mathit{A}(x) \cdot db(x)}
              {\tonda{b(x)}^2}\)
 
 \begin{proof}
@@ -1485,27 +1512,29 @@ Per \(x=1\), la curva ha pendenza \(m=-3\).\\
 \label{subsubsec:diff01_sintesiprovvisoria}
 Abbiamo dimostrato le regole di derivazione per alcune funzioni elementari: 
 \begin{enumerate} [noitemsep]
- \item \(\dfrac{d(k)}{dx} = 0\) \tab  derivata di una costante;
- \item \(\dfrac{d(x)}{dx} = 1\) \tab derivata della funzione identica;
- \item \(\dfrac{d(x^\alpha)} {dx} = \alpha x^{\alpha-1}\) \tab 
- derivata della funzione potenza (\(\alpha \in \R\)).
+ \item \(\mathit{D}\quadra{k} = 0\) \tab  derivata di una 
+costante;
+ \item \(\mathit{D}\quadra{x} = 1\) \tab derivata della funzione identica;
+ \item \(\mathit{D}\quadra{x^\alpha} = \alpha x^{\alpha-1}\) 
+\tab  derivata della funzione potenza (\(\alpha \in \R\)).
 \end{enumerate}
 \begin{osservazione}
 \label{oss:regola3}
  La regola 3 anticipa un risultato giustificato per ora solo con \(\alpha \in 
-\Z\), ma che in realtà ha valore con qualsiasi esponente reale.
+\Z\), ma che in realtà ha valore con qualsiasi esponente reale 
+(vedi pag.~\pageref{teo:funzione_potenza_generica}).
 \end{osservazione}
 
 Conosciamo anche le regole di derivazione per alcune funzioni che sono 
 somma, prodotto o quoziente di altre:
 \begin{enumerate} [noitemsep]
- \item \(\dfrac{d(k\cdot f)}{dx}=kf'\) \tab 
+ \item \(\mathit{D}\quadra{k\cdot f}=kf'\) \tab 
  derivata del prodotto per una costante;
- \item \(\dfrac{d\tonda{f\pm g}}{dx}=f'\pm g'\) \tab 
+ \item \(\mathit{D}\quadra{f\pm g}=f'\pm g'\) \tab 
  derivata di una somma o differenza;
- \item \(\dfrac{d(f\cdot g)}{dx}= f'\cdot g+f\cdot g'\) \tab 
+ \item \(\mathit{D}\quadra{f\cdot g}= f'\cdot g+f\cdot g'\) \tab 
  derivata del prodotto;
- \item \(\dfrac{d\tonda{\dfrac{f}{g}}}{dx}=\dfrac{f'\cdot 
+ \item \(\mathit{D}\quadra{\dfrac{f}{g}}=\dfrac{f'\cdot 
 g-f\cdot g'}{g^2}\)\tab 
 derivata  del rapporto (\(g \ne 0\)).
 \end{enumerate}
@@ -1514,7 +1543,7 @@ derivata  del rapporto (\(g \ne 0\)).
 \label{subsubsec:f_radice}
 \begin{teorema}
   La derivata della funzione \(f(x)=\sqrt{x}\), con \(x \geq 0\), è: 
-\(f'(x)= \dfrac{1}{2\sqrt{x}}\), purché \(x\ne 0\).
+\(\mathit{D}\quadra{\dfrac{1}{2\sqrt{x}}}\), con \(x > 0\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=\sqrt{x}\), con \(x\geq 0\) .\tab Tesi: 
     \(f'(x)=\dfrac{1}{2\sqrt{x}}\).
@@ -1541,7 +1570,7 @@ esiste la parte standard. Allora:
 La parte standard non cambia al cambiare del \(dx\) usato, quindi si conclude 
 che la derivata esiste e 
 \[
- f'(x)=\dfrac{1}{2\sqrt{x}}.
+ f'(x)=\dfrac{1}{2\sqrt{x}}\quad (x>0).
 \]
 \end{proof}
 
@@ -1572,7 +1601,7 @@ deriviamo di nuovo dopo averlo espresso come potenza.
 \begin{align*}
  f(x)&=\sqrt{x}=x^{\frac{1}{2}},\quad \text{ con  } x\geq 0.\\
  f'(x)&=\dfrac{1}{2}x^{\frac{1}{2}-1}=\dfrac{1}{2}x^{-\frac{1}{2}}=
- \dfrac{1}{2x^{\frac{1}{2}}}=\dfrac{1}{2\sqrt{x}},\quad \text{ con  } x\ne 0.
+ \dfrac{1}{2x^{\frac{1}{2}}}=\dfrac{1}{2\sqrt{x}},\quad \text{ con  } x > 0.
 \end{align*}
 \end{osservazione}
 
@@ -1926,10 +1955,10 @@ Teorema~\ref{teo:derinversa} calcoliamo:\\
 ed è lo stesso risultato che si ottiene scrivendo \(f(x)=x^\frac{1}{m}\) e 
 derivando in base alla regola delle funzioni potenza.
 
-Il caso generale, in cui \(y=f(x)=\sqrt[m]{x^n}=x^\frac{m}{n}\) si può 
-dimostrare con lo stesso procedimento, oppure si può utilizzare  
-il Teorema \ref{teo:diff01_dericomp}, 
-unito alla dimostrazione che si legge  nelle righe precedenti. 
+Il caso in cui \(y=f(x)=\sqrt[m]{x^n}=x^\frac{m}{n}\) si  dimostra con lo 
+in modo analogo, anche avvalendosi del Teorema \ref{teo:diff01_dericomp}.
+La dimostrazione valida per qualsiasi esponente reale è a 
+pag.~\pageref{teo:funzione_potenza_generica}.
 \end{proof}
 
 \begin{esempio}
@@ -2039,8 +2068,8 @@ confronti che abbiamo fatto per altre funzioni.
 \begin{center} Il grafico di \(y=a^x\), con alcune sue tangenti, e l'inviluppo 
 delle tangenti.\end{center}
 
-Anche se i due grafici non sono identici, le pendenze delle tangenti pare che 
-abbiano un andamento anch'esso esponenziale: la derivata della 
+Anche se i due grafici non sono identici, le pendenze delle tangenti sembrano
+avere un andamento anch'esso esponenziale: la derivata della 
 funzione ha un grafico che somiglia molto al grafico della funzione.
 Sviluppiamo matematicamente questa intuizione, ricordando le proprietà
 delle potenze.\\
@@ -2054,11 +2083,11 @@ una funzione esponenziale e per ogni fissato \(x\) genera un numero finito, sia
 il fattore \(\dfrac{\tonda{a^{dx}-1}}{dx}\) che è da interpretare.\\
 \(\dfrac{\tonda{a^{dx}-1}}{dx}= \dfrac{a^{(0+dx)}-a^0}{dx}=
 \dfrac{d(a^x)}{dx}\bigg |_{x=0}= \dfrac{df(0)}{dx}\).\\
-Perciò il Rapporto Differenziale risulta:\\
+Il Rapporto Differenziale risulta:\\
 \(RD=\dfrac{df(x)}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x=
 \dfrac{df(0)}{dx}\cdot a^x\).\\
 Perciò il Rapporto Differenziale è un prodotto fra l'esponenziale stesso 
-\(a^x\) e il Rapporto Differenziale di \(f(x)\) calcolato per \(x=0\).
+\(a^x\) e il Rapporto Differenziale di \(a^x)\) calcolato per \(x=0\).
 Dobbiamo presumere che quest'ultimo sia un numero non infinito per proseguire 
 nel ragionamento e in effetti lo potremo verificare fra poco.
 
@@ -2085,7 +2114,7 @@ esponenziale pura.
 
 \begin{teorema}
  La derivata della funzione esponenziale \(f(x)=e^x\) coincide con la funzione 
-stessa.
+stessa: \(\mathit{D}\quadra{e^x}=e^x\)
 \end{teorema}
 \noindent Ipotesi: \(f(x)=e^x\). \tab \(f'(x)=e^x\).
 \begin{proof}
@@ -2126,7 +2155,7 @@ sulla finitezza del Rapporto Differenziale.
 \begin{esempio}
   Calcola la derivata di \(f(x)=2^{x^2}\).\\
   Poniamo \(g(x)=x^2\srarrow f(x)=2^{g(x)}\).\\
-  \(f'(x)=\tonda{2^{g(x)}\ln 2} g'(x)=   2^{x^2}\ln 2\cdot 2x=xe^{x^2+1}\ln 2\).
+  \(f'(x)=\tonda{2^{g(x)}\ln 2} g'(x)=   2^{x^2}\ln 2\cdot 2x=x2^{x^2+1}\ln 2\).
 \end{esempio}
 
 \subsection{Derivata di \(f(x)=\log_a x\)}
@@ -2229,10 +2258,8 @@ per qualsiasi esponente.
 Anche per queste funzioni dobbiamo dapprima definire il differenziale. 
 Per una migliore comprensione, ci affidiamo soprattutto al piano cartesiano.
 \subsubsection{Derivata di \(f(x)=\sen x\)}
-Nel capitolo sugli Iperreali abbiamo già visto 
-(vedi pag. \pageref{subsubsec:insnum_fseno}) che per angoli infinitesimi il 
-seno e 
-l'angolo sono indistinguibili: \(\st\tonda{\frac{\sen 
+Abbiamo già visto (pag.~\pageref{limiti:par_f_seno}) che per angoli 
+infinitesimi il seno e l'angolo sono indistinguibili: \(\st\tonda{\frac{\sen 
 \epsilon}{\epsilon}}=1\).
 Dall'analisi del disegno ricaviamo l'espressione del differenziale
 \(df(x)=d(\sen x)= \sen (x+dx) -\sen x\).
@@ -2277,14 +2304,15 @@ negli
   legati al disegno?\\
   Ci sono altri modi per dimostrare la tesi, più vincolati al calcolo
   e meno al disegno.  Per esempio, dalle formule di addizione abbiamo:
-  \(\sen(x+dx)=\sen x \cos dx + \sen dx \cos x\). Allora:\\
+  \(RD=\sen(x+dx)=\sen x \cos dx + \sen dx \cos x\). Allora:\\
   \(\dfrac{\sen(x+dx)-\sen x}{dx}=\dfrac{\sen x \cos dx + \sen dx \cos x -
    \sen x}{dx}=\\
-  =\sen x \dfrac{\cos x-1}{dx}+ \cos x\dfrac{\sen dx}{dx}=
+  =\sen x \dfrac{\cos dx-1}{dx}+ \cos x\dfrac{\sen dx}{dx}\sim
   \sen x\cdot 0 + \cos x\cdot 1=\cos x\),\\
   in cui si fa uso delle forme indeterminate discusse a pag. 
-  \pageref{subsubsec:insnum_fseno}. Alla fine basta applicare la funzione 
-  \(\pst{}\).
+  \pageref{subsubsec:insnum_fseno}. Quando poi, per ottenere la derivata, 
+si applica la parte standard, gli infinitesimi che vengono sottointesi dal 
+segno \(\sim\) si eliminano e si ha l'uguaglianza in tutti i passaggi.
 \end{osservazione}
 
 \begin{osservazione}
