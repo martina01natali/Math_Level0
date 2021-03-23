@@ -5,6 +5,9 @@
 % 
 % 
 
+\def \fcolor{green!50!black} % colore della funzione
+\def \dcolor{blue!50!black} % colore della derivata
+
 \begin{comment}
 \begin{tikzpicture}[thick]
 \draw[help lines] (0,0) grid (3,2);
@@ -1248,17 +1251,17 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
     \ascisse{-4,...,+5}
     \ordinate{1,...,\may}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
     \foreach \xo/\yo in {-4/0.1975309, -3/0.2962963, -2/0.4444444, 
                          -1/0.6666667, 0/1, +1/1.5, 
                          +2/2.25, +3/3.375, +4/5.0625, +5/7.59375}{
-      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, 
-              opacity=.3, blue!50!black] {\fb}
-      \filldraw (\xo, \yo) circle(2pt);}
-    \foreach \ym/\lm in {1/0.08, 1.4/0.12, 2.0/0.18, 
-                         2.6/0.27, 3.5/0.41, 4.7/0.61, 
-                         6.2/0.91, 7.9/1.37, 9.5/2.05, 
-                         11.2/3.08}{
+      \filldraw [\fcolor] (\xo, \yo) circle(2pt);
+      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+             {\fb}}
+    \foreach \ym/\lm in {1/0.08, 1.5/0.12, 2.0/0.18, 
+                         2.7/0.27, 3.6/0.41, 4.8/0.61, 
+                         6.2/0.91, 7.9/1.37, 9.8/2.05, 
+                         11.3/3.08}{
       \draw (6.2, \ym) node [right, black] {\footnotesize\(m \simeq \lm\)};
     }
   }
@@ -1277,10 +1280,10 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
     \ascisse{-4,...,+5}
     \ordinate{1,...,+11}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
     \foreach \xp/\yp in {-4/0.08, -3/0.12, -2/0.18, -1/0.27, 0/0.41, 
                          +1/0.61, +2/0.91, +3/1.37, +4/2.05, +5/3.08}{
-      \filldraw (\xp, \yp) circle(2pt);}
+      \filldraw (\xp, \yp) [\dcolor] circle(2pt);}
   }
 }
 
