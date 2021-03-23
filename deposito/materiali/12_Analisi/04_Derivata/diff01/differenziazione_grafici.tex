@@ -5,6 +5,9 @@
 % 
 % 
 
+\def \fcolor{green!50!black} % colore della funzione
+\def \dcolor{blue!50!black} % colore della derivata
+
 \begin{comment}
 \begin{tikzpicture}[thick]
 \draw[help lines] (0,0) grid (3,2);
@@ -1180,29 +1183,108 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
      }
 }
 
-\newcommand{\esp}{%  y=a^x e tangenti
-    \disegnod{4.5}{
-    \rcom{-1}{+6}{-1}{+11}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-1.3, xmax=+6.3, ymin=-.3, ymax=+11.3]
-    \tkzFct[ultra thick, color=Green!60!black, domain=-1.3:+7]{2**x}
-    \begin{scope}[thick, dotted, color=blue!40!black]
-     \tkzInit[xmin=-1.3, xmax=+6.3, xstep=1., ymin=-1,ymax=11]
-     \tkzFct[domain=-1.3:4.3]{.5*(x+1)+.4}    
-     \tkzFct[domain=-1:+5]{.4}
-     \tkzFct[domain=-0.5:5]{2*(x-1)+1.9}
-     \tkzFct[domain=0:+5.5]{4*(x-2)+3.6} 
-     \tkzFct[domain=1:+6]{8*(x-3)+7.6} 
-    \end{scope}
-   }
+% \newcommand{\esp}{%  y=a^x e tangenti
+%     \disegnod{4.5}{
+%     \rcom{-1}{+6}{-1}{+11}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-1.3, xmax=+6.3, ymin=-.3, ymax=+11.3]
+%     \tkzFct[ultra thick, color=Green!60!black, domain=-1.3:+7]{2**x}
+%     \begin{scope}[thick, dotted, color=blue!40!black]
+%      \tkzInit[xmin=-1.3, xmax=+6.3, xstep=1., ymin=-1,ymax=11]
+%      \tkzFct[domain=-1.3:4.3]{.5*(x+1)+.4}    
+%      \tkzFct[domain=-1:+5]{.4}
+%      \tkzFct[domain=-0.5:5]{2*(x-1)+1.9}
+%      \tkzFct[domain=0:+5.5]{4*(x-2)+3.6} 
+%      \tkzFct[domain=1:+6]{8*(x-3)+7.6} 
+%     \end{scope}
+%    }
+% }
+
+% \newcommand{\tangentiesp}{% 
+%   % Funzione esponenziale e inviluppo delle tangenti
+%   \def \base{1.5}
+%   \def \fa{\base**x}
+%   \def \fb{(\base**\xo)*(x-\xo-1)}
+%   \def \mix{-4}
+%   \def \max{+6}
+%   \def \miy{0}
+%   \def \may{+9}
+%   \disegnod{6}{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+%     \foreach \xo in {-4, -3.5,...,4}{
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, 
+%             opacity=.3, blue!50!black] {\fb}}
+%   }
+% }
+
+% \newcommand{\ascisse}[2]{% 
+%   \def \da{#1}
+%   \def \a{#2}
+%   \foreach \xp in {\da,...,\a}{
+%     \draw (\xp, 0) node [below, black] {\footnotesize\(\xp\)};}
+% }
+
+\newcommand{\ascisse}[1]{% 
+  \def \valori{#1}
+  \foreach \xp in \valori {
+    \draw (\xp, 0) node [below, black] {\footnotesize\(\xp\)};}
 }
-   
-\newcommand{\tangentiesp}{% 
-    % definita in intervallo 0-inf.
-     \disegnod{4.5}{
-     \rcom{-1}{+6}{-1}{+11}{gray!50, very thin, step=1}
-     \tkzInit[xmin=-1.3, xmax=+6.3, ymin=-.3, ymax=+11.3]
-      \tkzFct[ultra thick, color=blue!50!black, domain=-1.3:+4]{.7*2**x}
-     }
+
+\newcommand{\ordinate}[1]{% 
+  \def \valori{#1}
+  \foreach \yp in \valori {
+    \draw (0, \yp) node [left, black] {\footnotesize\(\yp\)};}
+}
+
+\newcommand{\esp}{%
+  % Funzione esponenziale con tangenti
+  \def \base{1.5}
+  \def \fa{\base**x}
+  \def \fb{(\base**\xo)*(log(\base)*(x-\xo)+1)}
+  \def \mix{-4}
+  \def \max{+6}
+  \def \miy{0}
+  \def \may{+11}
+  \disegnod{6}{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{-4,...,+5}
+    \ordinate{1,...,\may}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+    \foreach \xo/\yo in {-4/0.1975309, -3/0.2962963, -2/0.4444444, 
+                         -1/0.6666667, 0/1, +1/1.5, 
+                         +2/2.25, +3/3.375, +4/5.0625, +5/7.59375}{
+      \filldraw [\fcolor] (\xo, \yo) circle(2pt);
+      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+             {\fb}}
+    \foreach \ym/\lm in {1/0.08, 1.5/0.12, 2.0/0.18, 
+                         2.7/0.27, 3.6/0.41, 4.8/0.61, 
+                         6.2/0.91, 7.9/1.37, 9.8/2.05, 
+                         11.3/3.08}{
+      \draw (6.2, \ym) node [right, black] {\footnotesize\(m \simeq \lm\)};
+    }
+  }
+}
+
+\newcommand{\derivataesp}{% 
+  % Funzione esponenziale con tangenti
+  \def \base{1.5}
+  \def \fa{0.4054651081081644*\base**x}
+  \def \mix{-4}
+  \def \max{+6}
+  \def \miy{0}
+  \def \may{+11}
+  \disegnod{6}{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{-4,...,+5}
+    \ordinate{1,...,+11}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+    \foreach \xp/\yp in {-4/0.08, -3/0.12, -2/0.18, -1/0.27, 0/0.41, 
+                         +1/0.61, +2/0.91, +3/1.37, +4/2.05, +5/3.08}{
+      \filldraw (\xp, \yp) [\dcolor] circle(2pt);}
+  }
 }
 
 \newcommand{\esplog}{%  y=e^x e ln x
