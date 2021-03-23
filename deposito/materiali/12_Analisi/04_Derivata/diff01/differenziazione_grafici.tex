@@ -1196,41 +1196,91 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
 %    }
 % }
 
-\newcommand{\esp}{% 
+% \newcommand{\tangentiesp}{% 
+%   % Funzione esponenziale e inviluppo delle tangenti
+%   \def \base{1.5}
+%   \def \fa{\base**x}
+%   \def \fb{(\base**\xo)*(x-\xo-1)}
+%   \def \mix{-4}
+%   \def \max{+6}
+%   \def \miy{0}
+%   \def \may{+9}
+%   \disegnod{6}{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
+%     \foreach \xo in {-4, -3.5,...,4}{
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, 
+%             opacity=.3, blue!50!black] {\fb}}
+%   }
+% }
+
+% \newcommand{\ascisse}[2]{% 
+%   \def \da{#1}
+%   \def \a{#2}
+%   \foreach \xp in {\da,...,\a}{
+%     \draw (\xp, 0) node [below, black] {\footnotesize\(\xp\)};}
+% }
+
+\newcommand{\ascisse}[1]{% 
+  \def \valori{#1}
+  \foreach \xp in \valori {
+    \draw (\xp, 0) node [below, black] {\footnotesize\(\xp\)};}
+}
+
+\newcommand{\ordinate}[1]{% 
+  \def \valori{#1}
+  \foreach \yp in \valori {
+    \draw (0, \yp) node [left, black] {\footnotesize\(\yp\)};}
+}
+
+\newcommand{\esp}{%
   % Funzione esponenziale con tangenti
   \def \base{1.5}
   \def \fa{\base**x}
-  \def \fb{(\base**\xo)*(x-\xo-1)/log(\base)}
-  \def \mix{-6}
+  \def \fb{(\base**\xo)*(log(\base)*(x-\xo)+1)}
+  \def \mix{-4}
   \def \max{+6}
   \def \miy{0}
-  \def \may{+9}
+  \def \may{+11}
   \disegnod{6}{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{-4,...,+5}
+    \ordinate{1,...,\may}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
-    \foreach \xo in {-4, -3.5,...,4}{
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, 
-            opacity=.3, blue!50!black] {\fb}}
+    \foreach \xo/\yo in {-4/0.1975309, -3/0.2962963, -2/0.4444444, 
+                         -1/0.6666667, 0/1, +1/1.5, 
+                         +2/2.25, +3/3.375, +4/5.0625, +5/7.59375}{
+      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, 
+              opacity=.3, blue!50!black] {\fb}
+      \filldraw (\xo, \yo) circle(2pt);}
+    \foreach \ym/\lm in {1/0.08, 1.4/0.12, 2.0/0.18, 
+                         2.6/0.27, 3.5/0.41, 4.7/0.61, 
+                         6.2/0.91, 7.9/1.37, 9.5/2.05, 
+                         11.2/3.08}{
+      \draw (6.2, \ym) node [right, black] {\footnotesize\(m \simeq \lm\)};
+    }
   }
 }
 
-\newcommand{\tangentiesp}{% 
-  % Funzione esponenziale e inviluppo delle tangenti
+\newcommand{\derivataesp}{% 
+  % Funzione esponenziale con tangenti
   \def \base{1.5}
-  \def \fa{\base**x}
-  \def \fb{(\base**\xo)*(x-\xo-1)}
-  \def \mix{-6}
+  \def \fa{0.4054651081081644*\base**x}
+  \def \mix{-4}
   \def \max{+6}
   \def \miy{0}
-  \def \may{+9}
+  \def \may{+11}
   \disegnod{6}{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{-4,...,+5}
+    \ordinate{1,...,+11}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, green!50!black] {\fa}
-    \foreach \xo in {-4, -3.5,...,4}{
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, 
-            opacity=.3, blue!50!black] {\fb}}
+    \foreach \xp/\yp in {-4/0.08, -3/0.12, -2/0.18, -1/0.27, 0/0.41, 
+                         +1/0.61, +2/0.91, +3/1.37, +4/2.05, +5/3.08}{
+      \filldraw (\xp, \yp) circle(2pt);}
   }
 }
 
