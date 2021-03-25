@@ -1490,3 +1490,58 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
              (4, 2.7) -- (4, 0) node [below] {\(x_0 + \Delta x\)};
      }
 }
+
+\newcommand{\polregincirc}[2]{% 
+  % Poligono regolare inscritto e circoscritto.
+  \def \ra{#1}
+  \def \nlati{#2}
+  \pgfmathparse{\ra / cos(deg(pi / \nlati))} \let\rb\pgfmathresult
+  \pgfmathparse{360. / \nlati} \let\ang\pgfmathresult
+  \draw [thick, orange!50!black] circle(\ra);
+%   \draw (0:\ra) \foreach \x in {60,120,...,359} {-- (\x:\ra)} -- cycle;
+  \draw [thick, blue!50!black] 
+    (0:\ra) \foreach \x in {1,...,\nlati} {-- (\x*\ang:\ra)} -- cycle;
+  \draw [thick, green!50!black] 
+    (0:\rb) \foreach \x in {1,...,\nlati} {-- (\x*\ang:\rb)} -- cycle;
+}
+
+% \newcommand{\pigrecoa}{% 
+%   % Approsimazioni di pigreco esagono e dodecagono.
+%   \disegno{\polregincirc{5}{6}}
+% }
+% 
+% \newcommand{\pigrecob}{% 
+%   % Approsimazioni di pigreco esagono e dodecagono.
+%   \disegno{\polregincirc{5}{12}}
+% }
+
+\newcommand{\agnesia}{% 
+  % Approsimazioni di pigreco esagono e dodecagono.
+  \def \ra{15}
+  \def \ang{25}
+  \def \rang{2}
+  \disegno{
+    \rcom{-16}{+16}{-1}{+16}{gray!50, very thin, step=20}
+    \pgfmathparse{\ra * cos(\ang)} \let\cosang\pgfmathresult
+    \pgfmathparse{\ra * sin(\ang)} \let\sinang\pgfmathresult
+    \pgfmathparse{\ra * tan(\ang)} \let\tanang\pgfmathresult
+    \begin{scope}[thick]
+      \draw (\ra, 0) arc(0:180:\ra);
+      \draw (\rang, 0) arc(0:\ang:\rang);
+      \node at (\ang/2:\rang) [right] {\(\alpha\)};
+      \path[draw] (0, 0) coordinate [label=below left:\(A\)] (A)
+        (180:\ra) coordinate [label=below:\(G\)] (G)
+        -- (0:\ra) coordinate [label=below:\(C\)] (C)
+        -- (\ang:\ra) coordinate [label=above:\(D\)] (D)
+        -- cycle
+        (0, 0) -- (D);
+      \begin{scope} [dashed]
+      \path[draw]
+        (D) -- (\cosang, 0) coordinate [label=below:\(B\)] (B)
+        (D) -- (\ra, \sinang) coordinate [label=right:\(F\)] (B)
+        (D) -- (\ra, \tanang) coordinate [label=above right:\(E\)] (E)
+        (E) -- (C);
+      \end{scope}
+    \end{scope}
+  }
+}
