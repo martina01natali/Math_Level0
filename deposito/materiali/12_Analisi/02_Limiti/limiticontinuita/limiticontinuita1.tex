@@ -2062,48 +2062,58 @@ dimostrati.
 
 \paragraph{Funzione seno}~
 \label{limiti:par_f_seno}
+
 Osservando il grafico della funzione seno, risulta abbastanza evidente che:
 \[\lim_{x \rightarrow 0}{\sen x} = \pst{\sen \delta} = 0
 \quad \text{e che} \quad 
 \lim_{x \rightarrow \infty}{\sen x} = \pst{\sen M} = \text{ non esiste}\]
 Infatti man mano che \(x\) aumenta, \(\sen x\)
 continua a variare tra \(-1\) e \(+1\) e quindi 
-\(\sen M\) non può essere infinitamente vicino ad un solo numero reale.
+\(\sen M\) non può essere infinitamente vicino ad un solo numero reale.\\
 
 Per esaminare il comportamento della funzione \(sen x\) quando l'arco (e 
 l'angolo \(\delta\)) si avvicina a zero, si può ripercorrere il geniale 
 ragionamento di Archimede, che lo portò a determinare un valore di \(\pi\) 
-poco diverso da quello odierno. Archimede immaginò la circonferenza con un 
-poligono regolare inscritto e uno circoscritto e determinò la lunghezza del 
+poco diverso da quello odierno. Archimede immaginò la circonferenza racchiusa 
+fra poligono regolare inscritto e uno circoscritto e determinò la lunghezza del 
 lato in base al diametro. Raddoppiando progressivamente i lati (fino a 96 
 lati!) e aggiornando i calcoli, si accorse che il rapporto fra i perimetri e i 
 diametri si assestava progressivamente intorno al valore 
 \(\frac{223}{71}\simeq 3,141\). Dato che la circonferenza è intermedia fra il 
 poligono inscritto e quello circoscritto, questo numero, che noi chiamiamo 
 \(\pi\), ci indica il rapporto fra una circonferenza e il 
-suo diametro. Questo vale per tutti i cerchi, di qualsiasi raggio.
+suo diametro. Questo vale per tutti i cerchi, di qualsiasi raggio.\\
+
+\affiancati{.50}{.50}{
+\disegno{\polregincirc{4}{6}}
+}{
+\disegno{\polregincirc{4}{12}}
+}
 
 Se sfruttiamo il ragionamento di Archimede in modo non standard, possiamo dire 
 che la misura della circonferenza è infinitamente vicina al perimetro dei 
-poligoni a lei inscritti e circoscritti, con infiniti lati.\\
+poligoni di infiniti lati, a lei inscritti e circoscritti.\\
 Isoliamo uno dei lati infinitesimi del poligono inscritto. La 
-metà di questo lato \(\frac{l}{2}\) corrisponde graficamente al seno 
-dell'angolo al centro infinitesimo \(sen \delta\):\\
-\(sen \delta \approx \dfrac{1}{2}\dfrac{2\pi r}{N}\approx \dfrac{2p}{N}=
+metà\footnote{Pare infatti che il nome della funzione \emph{seno} derivi da 
+un'errata traduzione latina (\emph{sinus}) di un termine arabo indicante una 
+\emph{mezza corda}.} di questo lato, \(\dfrac{l}{2}\), corrisponde graficamente 
+al seno 
+dell'angolo al centro infinitesimo \(sen \delta\):
+\[sen \delta \approx \dfrac{1}{2}\dfrac{2\pi r}{N}\approx \dfrac{2p}{N}=
 \dfrac{1}{2}\dfrac{Nl}{N}\quad \rightarrow\quad
-\sin \delta \approx\dfrac{l}{2}\),\quad
-con \(N\) ipernaturale infinito.  
+\sin \delta \approx\dfrac{l}{2},\quad \text{con } N \text{ ipernaturale 
+infinito.}  \]
 
 Poiché stiamo parlando di un poligono inscritto di infiniti lati, con 
 raggio fissato, \(l\) è necessariamente infinitesimo, come l'arco e l'angolo 
-\(\delta\), e concludiamo: \emph{l'arco infinitesimo che corrisponde a  
-\(\delta\) e \(\sen\delta\) sono indistinguibili}.
+\(\delta\), e concludiamo: \emph{l'arco infinitesimo, che corrisponde a  
+\(\delta\), e \(\sen\delta\) sono indistinguibili}.
 
 Tutto questo porta facilmente a dimostrare il seguente limite notevole:
 \[\lim_{x \rightarrow 0}\frac{\sen x}{x} = 
   \pst{\frac{\sen \delta}{\delta}} = 1\]
   
-Possiamo anche rappresentare graficamente questo limite notevole.
+Possiamo anche rappresentarlo graficamente.
 
 \begin{minipage}{.49\textwidth}
 L'arco infinitesimo differisce dalla corda sottesa per infinitesimi di ordine 
@@ -2143,6 +2153,8 @@ Per la funzione coseno valgono i seguenti limiti:
 \lim_{x \rightarrow \infty}{\cos x} = \pst{\cos M} = \text{ non es.}\]
 
 Sono interessanti i seguenti due limiti che riguardano il coseno:
+\paragraph{Confrontare \(1-\cos\delta\) e \(\delta\)}~
+\label{senoverso1}
 
 \begin{align*}
  \lim_{x \rightarrow 0} \frac{1-\cos x}{x} &=
@@ -2171,7 +2183,8 @@ Dove i passaggi hanno i seguenti motivi:
  \item un infinitesimo fratto un non infinitesimo è un infinitesimo 
 e la sua parte standard è 0.
 \end{enumerate}
-
+Questo limite ci dice in sostanza che la quantità \(1- \cos \delta\) è 
+infinitesima rispetto a \(\delta\).
 \begin{osservazione}
 Dato che \(\sen \delta \sim \delta\), i seguenti due limiti sono 
 equivalenti:
@@ -2180,6 +2193,9 @@ equivalenti:
  \pst{\frac{1-\cos \delta}{\sen \delta}} =
  \lim_{x \rightarrow 0} \frac{1-\cos x}{\sen x}\]
 \end{osservazione}
+
+\paragraph{Confrontare \(1-\cos\delta\) e \(\delta^2\)}~
+\label{senoverso2}
 
 L'altro limite notevole, che si dimostra in modo analogo a quello 
 precedente, è:
@@ -2208,6 +2224,31 @@ Dove i passaggi hanno i seguenti motivi:
  \item riscrivo l'espressione in un modo più comodo;
  \item ricordando i limiti visti precedentemente.
 \end{enumerate}
+
+\newpage
+\paragraph{Da un libro di 300 anni fa}\hspace{-3mm}\footnote{
+Maria Gaetana Agnesi (1718-1799) fu un'insigne matematica milanese. Nel 1748 
+pubblicò le \emph{Instituzioni analitiche ad uso della gioventù italiana}, un 
+manuale di matematica che per chiarezza e profondità si diffuse in tutta 
+Europa. 
+Il disegno è tratto dall'originale.}~
+
+\affiancati{.59}{.39}{
+\agnesia}{
+Per intuire la portata di questi due ultimi limiti recuperiamo il 
+brillante ragionamento di M.G.Agnesi, che immagina che l'angolo \(\delta\) e 
+quindi l'arco \(CD\) siano infinitesimi. Il diametro \(GC\) è una 
+quantità finita ed è base del triangolo rettangolo \(GCD\), quindi, per il 2° 
+Teorema di Euclide:\\
+\(GB:BD=BD:BC\).}
+\(\dfrac{GB}{BD}\) è il rapporto fra una quantità finita ed una infinitesima 
+ed è quindi un infinito. Allora deve essere altrettanto infinito il secondo 
+rapporto di questa proporzione. La conseguenza di tutto questo è che il 
+segmento \(BC= AC-AB=1-\cos\delta\) è infinitesimo rispetto a 
+\(BD=\sen \delta\) ed è quindi infinitesimo del secondo ordine. Questo 
+giustifica il valore finito del limite 
+\(\lim_{x \rightarrow 0} \dfrac{1-\cos x}{x^2}\).
+
 
 \subsubsection{Esponenziali e logaritmi}
 
