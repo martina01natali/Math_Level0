@@ -1154,19 +1154,17 @@
       \draw (\ra, 0) arc(0:180:\ra);
       \draw (\rang, 0) arc(0:\ang:\rang);
       \node at (\ang/2:\rang) [right] {\(\delta\)};
-      \path[draw] (0, 0) coordinate [label=below left:\(A\)] (A)
+      \draw (0, 0) coordinate [label=below left:\(A\)] (A)
         (180:\ra) coordinate [label=below:\(G\)] (G)
         -- (0:\ra) coordinate [label=below:\(C\)] (C)
         -- (\ang:\ra) coordinate [label=above:\(D\)] (D)
         -- cycle
         (0, 0) -- (D);
-      \begin{scope} [dashed]
-      \path[draw]
+      \draw[dashed]
         (D) -- (\cosang, 0) coordinate [label=below:\(B\)] (B);
-      %  (D) -- (\ra, \sinang) coordinate [label=right:\(F\)] (B)
+       % (D) -- (\ra, \sinang) coordinate [label=right:\(F\)] (B)
        % (D) -- (\ra, \tanang) coordinate [label=above right:\(E\)] (E)
        % (E) -- (C);
-      \end{scope}
     \end{scope}
   }
 }
