@@ -913,27 +913,62 @@
   \def \xa{#1} \def \xb{#2} \def \xc{#3} \def \xd{#4}
   \def \ya{#5} \def \yb{#6} \def \yc{#7}
   \def \lab{#8}
+%   \draw (\xa, \ya) -- (\xd, \ya);
   \draw (\xa, \ya) -- (\xd, \ya);
-  \draw (\xa, \ya) -- (\xd, \ya);
-  \draw [Green!50!black, ultra thick] (\xc, \yb) -- (\xb, \yb);
-  \draw [brown!50!black, ultra thick] (\xb, \ya) node [below] {\lab} -- 
-                                       (\xb, \yb);
+  \draw [brown!50!black, ultra thick] (\xc, \yb) -- (\xb, \yb);
+  \draw [brown!50!black, ultra thick] (\xb, \ya) 
+        node [below, black] {\footnotesize\(\lab\)} -- (\xb, \yb);
   \draw (\xb, \yb) -- (\xb, \yc);
 }
 
-\newcommand{\limiteseno}{% 
-\disegno[20]{
-  \rcom{-1.0}{+1.0}{-1.0}{+1.0}{gray!50, very thin, step=1}
-  \draw [brown!50!black, ultra thick] (0, 0) circle (1);
-  \draw [Green!50!black, ultra thick] (0, 0) -- (1.45, 0);
-  \microscopio{(1, 0)}{.3}{40}{230}{.5}{(1.8, 1.2)}{\(\times \infty\)}
-  \limmicx{1.14}{1.6}{1.07}{1.97}{.3}{.7}{1.08}{1}
-  \draw (1.7, .5) node {$\delta$};
-  \microscopio{(0, 0)}{.3}{120}{320}{.5}{(-.8, 1.2)}{\(\times  \infty\)}
-  \limmicx{-0.12}{-0.5}{-0.05}{-0.95}{.3}{.7}{1.08}{0}
-  \draw (-0.75, .5) node {$\sen \delta$};
-  }
+\newcommand{\limmicxb}[9]{% 
+  % interno del microscopio posto sull'asse x.
+  \def \xa{#1} \def \xb{#2} \def \xc{#3} \def \xd{#4}
+  \def \ya{#5} \def \yb{#6} \def \yc{#7}
+  \def \laba{#8}
+  \def \labb{#9}
+  \draw (\xa, \ya) -- (\xd, \ya);
+  \draw [blue!50!black, ultra thick] (\xb, \yb) -- (\xb, \ya)
+        node [below, black] {\footnotesize\(\laba\)};
+  \draw [brown!50!black, ultra thick] (\xc, \yc) -- (\xc, \ya)
+        node [below, black] {\footnotesize\(\labb\)};
 }
+
+\newcommand{\limmicp}[6]{% 
+  % interno del microscopio posto sull'asse x.
+  \def \xa{#1} \def \xb{#2} \def \xc{#3}
+  \def \ya{#4} \def \yb{#5} \def \yc{#6}
+  \draw [brown!50!black, ultra thick] (\xa, \ya) -- (\xc, \ya);
+  \draw [blue!50!black, ultra thick] (\xb, \ya) -- (\xb, \yb);
+  \draw [green!50!black, ultra thick] (\xc, \ya) -- (\xc, \yc);
+}
+
+\newcommand{\limmicpb}[8]{% 
+  % interno del microscopio posto sull'asse x.
+  \def \xa{#1} \def \xb{#2} \def \xc{#3}
+  \def \ya{#4} \def \yb{#5} \def \yc{#6}
+  \def \laba{#7}
+  \def \labb{#8}
+  \draw [green!50!black, ultra thick] (\xa, \ya) -- (\xa, \yc)
+        node [right, black] {\footnotesize\(\laba\)};
+  \draw [black] (\xb, \yb) -- (\xa, \yb)
+        node [right, black] {\footnotesize\(\labb\)};
+  \draw [brown!50!black, ultra thick] (\xc, \yc) -- (\xa, \yc);
+}
+% 
+% \newcommand{\limiteseno}{% 
+% \disegno[20]{
+%   \rcom{-1.0}{+1.0}{-1.0}{+1.0}{gray!50, very thin, step=1}
+%   \draw [brown!50!black, ultra thick] (0, 0) circle (1);
+%   \draw [Green!50!black, ultra thick] (0, 0) -- (1.45, 0);
+%   \microscopio{(1, 0)}{.3}{40}{230}{.5}{(1.8, 1.2)}{\(\times \infty\)}
+%   \limmicx{1.14}{1.6}{1.07}{1.97}{.3}{.7}{1.08}{1}
+%   \draw (1.7, .5) node {$\delta$};
+%   \microscopio{(0, 0)}{.3}{120}{320}{.5}{(-.8, 1.2)}{\(\times  \infty\)}
+%   \limmicx{-0.12}{-0.5}{-0.05}{-0.95}{.3}{.7}{1.08}{0}
+%   \draw (-0.75, .5) node {$\sen \delta$};
+%   }
+% }
 
 \newcommand{\sinusoide}{%
 \disegno[5]{
@@ -968,6 +1003,118 @@
     \node at (0, -4.8) {$y=\tan x$};
   }
 }
+
+\newcommand{\polregincirc}[2]{% 
+  % Poligono regolare inscritto e circoscritto.
+  \def \ra{#1}
+  \def \nlati{#2}
+  \pgfmathparse{\ra / cos(deg(pi / \nlati))} \let\rb\pgfmathresult
+  \pgfmathparse{360. / \nlati} \let\ang\pgfmathresult
+  \draw [thick, orange!50!black] circle(\ra);
+%   \draw (0:\ra) \foreach \x in {60,120,...,359} {-- (\x:\ra)} -- cycle;
+  \draw [thick, blue!50!black] 
+    (0:\ra) \foreach \x in {1,...,\nlati} {-- (\x*\ang:\ra)} -- cycle;
+  \draw [thick, green!50!black] 
+    (0:\rb) \foreach \x in {1,...,\nlati} {-- (\x*\ang:\rb)} -- cycle;
+}
+
+\newcommand{\agnesia}{% 
+  % Approsimazioni di pigreco esagono e dodecagono.
+  \def \ra{7}
+  \def \ang{25}
+  \def \rang{2}
+  \disegno{
+    \rcom{-8}{+8}{-1}{+8}{gray!50, very thin, step=20}
+    \pgfmathparse{\ra * cos(\ang)} \let\cosang\pgfmathresult
+    \pgfmathparse{\ra * sin(\ang)} \let\sinang\pgfmathresult
+    \pgfmathparse{\ra * tan(\ang)} \let\tanang\pgfmathresult
+    \begin{scope}[thick]
+      \draw (\ra, 0) arc(0:180:\ra);
+      \draw (\rang, 0) arc(0:\ang:\rang);
+      \node at (\ang/2:\rang) [right] {\(\Delta\)};
+      \draw (0, 0) coordinate [label=below left:\(A\)] (A)
+        (180:\ra) coordinate [label=below:\(G\)] (G)
+        -- (0:\ra) coordinate [label=below:\(C\)] (C)
+        -- (\ang:\ra) coordinate [label=above:\(D\)] (D)
+        -- cycle
+        (0, 0) -- (D);
+      \draw[dashed]
+        (D) -- (\cosang, 0) coordinate [label=below:\(B\)] (B)
+        (D) -- (\ra, \sinang) coordinate [label=right:\(F\)] (F)
+        (D) -- (\ra, \tanang) coordinate [label=above right:\(E\)] (E)
+        (E) -- (C);
+    \end{scope}
+  }
+}
+
+\newcommand{\limiteseno}{\agnesib}
+
+% \newcommand{\agnesib}{% 
+%   % Approsimazioni di pigreco esagono e dodecagono.
+%   \def \ra{7}
+%   \def \ang{25}
+%   \disegno{
+%     \rcom{-8}{+8}{-1}{+8}{gray!50, very thin, step=20}
+%     \begin{scope}[thick]
+%       \draw (\ra, 0) arc(0:180:\ra);
+%       \frecciax{(2, -.5)}{(1, 0)}{\delta}
+%       \draw % (2, -1) node [below] {\(\delta\)}
+%             (0, 0) node [below left] {\(A\)}
+%             (-\ra, 0) node [below] {\(G\)}
+%             (+\ra, 0) node [below] {\(B \approx C\)};
+%       \draw [Green!50!black, ultra thick] (0, 0) -- (\ra, 0);
+%   \microscopio{(\ra, 0)}{1}{40}{230}{2}{(\ra+2, 4)}{\(\times \infty\)}
+%     \end{scope}
+%   }
+% }
+
+\newcommand{\agnesib}{% 
+  \def \ra{1}
+  \disegno[20]{
+    \rcom{-0.8}{+0.9}{0}{+1.0}{gray!50, very thin, step=1}
+    \draw [brown!50!black, ultra thick] (\ra, 0) arc(0:180:\ra);
+    \draw (0, 0) node [below left] {\(A\)}
+          (+\ra, 0) node [below] {\(B \sim C\)};
+    \frecciax{(.4, -.2)}{(.2, 0)}{\delta}
+    \draw [brown!50!black, ultra thick] (0, 0) -- (1.30, 0);
+    \microscopio{(0, 0)}{.3}{120}{320}{.5}{(-.85, 1.1)}{\(\times  \infty\)}
+    \limmicx{-0.12}{-0.5}{-0.05}{-0.95}{.3}{.7}{1.08}{0}
+%     \draw (-0.75, .5) node {$\sen \delta$};
+    \draw [-{Latex[length=2mm, width=1mm]}, black] (-.7, -.2) node[below]
+          {\footnotesize \(\sen \delta \sim \delta \sim \tan \delta\)} 
+          .. controls (-.7, -.1) and (-.6, .5) .. (-.5, .5); 
+    \microscopio{(1, 0)}{.3}{40}{230}{.5}{(2.1, 1.0)}{\(\times \infty\)}
+    \limmicx{1.14}{1.6}{1.07}{1.97}{.3}{.7}{1.08}{}
+    \frecciax{(1.9, .1)}{(1.6, .3)}{B \sim C}
+    \frecciax{(2.2, .6)}{(1.6, .7)}{D \sim E \sim F}
+    \draw (1.5, .5) node {$\delta$};
+    \microscopio{(1.6, .3)}{.5}{-100}{90}{.5}
+                {(1.0, -1.1)}{\(\times \infty\)}
+    \limmicxb{1.13}{1.4}{1.6}{1.9}{-1}{-.19}{-.19}{B}{C}
+    \microscopio{(1.6, .7)}{.3}{120}{-90}{.5}
+                {(.9, 1.8)}{\(\times \infty\)}
+    \limmicp{0.97}{1.3}{1.5}{1.6}{.98}{.96}
+    \frecciax{(1.1, 1.4)}{(1.3, 1.6)}{D}
+    \frecciax{(1.9, 1.4)}{(1.5, 1.6)}{E \sim F}
+    \microscopio{(1.5, 1.6)}{.2}{80}{-100}{.5}
+                {(1.1, 2.7)}{\(\times \infty\)}
+    \limmicpb{1.8}{1.14}{1.16}{1.85}{2.2}{2.5}{F}{E}
+  }
+}
+
+% \newcommand{\limiteseno}{% 
+% \disegno[20]{
+%   \rcom{-1.0}{+1.0}{-1.0}{+1.0}{gray!50, very thin, step=1}
+%   \draw [brown!50!black, ultra thick] (0, 0) circle (1);
+%   \draw [Green!50!black, ultra thick] (0, 0) -- (1.45, 0);
+%   \microscopio{(1, 0)}{.3}{40}{230}{.5}{(1.8, 1.2)}{\(\times \infty\)}
+%   \limmicx{1.14}{1.6}{1.07}{1.97}{.3}{.7}{1.08}{1}
+%   \draw (1.7, .5) node {$\delta$};
+%   \microscopio{(0, 0)}{.3}{120}{320}{.5}{(-.8, 1.2)}{\(\times  \infty\)}
+%   \limmicx{-0.12}{-0.5}{-0.05}{-0.95}{.3}{.7}{1.08}{0}
+%   \draw (-0.75, .5) node {$\sen \delta$};
+%   }
+% }
 
 % \newcommand{\gnomino}[6]{
 %   % example:
@@ -1113,59 +1260,6 @@
     \filldraw [brown!50!black] (1, 2) circle (2pt);
     \draw [brown!50!black] (1, -1.7) circle (2pt);
     \draw [brown!50!black] (4, -1) circle (2pt);
-  }
-}
-
-\newcommand{\polregincirc}[2]{% 
-  % Poligono regolare inscritto e circoscritto.
-  \def \ra{#1}
-  \def \nlati{#2}
-  \pgfmathparse{\ra / cos(deg(pi / \nlati))} \let\rb\pgfmathresult
-  \pgfmathparse{360. / \nlati} \let\ang\pgfmathresult
-  \draw [thick, orange!50!black] circle(\ra);
-%   \draw (0:\ra) \foreach \x in {60,120,...,359} {-- (\x:\ra)} -- cycle;
-  \draw [thick, blue!50!black] 
-    (0:\ra) \foreach \x in {1,...,\nlati} {-- (\x*\ang:\ra)} -- cycle;
-  \draw [thick, green!50!black] 
-    (0:\rb) \foreach \x in {1,...,\nlati} {-- (\x*\ang:\rb)} -- cycle;
-}
-
-% \newcommand{\pigrecoa}{% 
-%   % Approsimazioni di pigreco esagono e dodecagono.
-%   \disegno{\polregincirc{5}{6}}
-% }
-% 
-% \newcommand{\pigrecob}{% 
-%   % Approsimazioni di pigreco esagono e dodecagono.
-%   \disegno{\polregincirc{5}{12}}
-% }
-
-\newcommand{\agnesia}{% 
-  % Approsimazioni di pigreco esagono e dodecagono.
-  \def \ra{7}
-  \def \ang{25}
-  \def \rang{2}
-  \disegno{
-    \rcom{-8}{+8}{-1}{+8}{gray!50, very thin, step=20}
-    \pgfmathparse{\ra * cos(\ang)} \let\cosang\pgfmathresult
-    \pgfmathparse{\ra * sin(\ang)} \let\sinang\pgfmathresult
-    \pgfmathparse{\ra * tan(\ang)} \let\tanang\pgfmathresult
-    \begin{scope}[thick]
-      \draw (\ra, 0) arc(0:180:\ra);
-      \draw (\rang, 0) arc(0:\ang:\rang);
-      \node at (\ang/2:\rang) [right] {\(\delta\)};
-      \draw (0, 0) coordinate [label=below left:\(A\)] (A)
-        (180:\ra) coordinate [label=below:\(G\)] (G)
-        -- (0:\ra) coordinate [label=below:\(C\)] (C)
-        -- (\ang:\ra) coordinate [label=above:\(D\)] (D)
-        -- cycle
-        (0, 0) -- (D);
-      \draw[dashed]
-        (D) -- (\cosang, 0) coordinate [label=below:\(B\)] (B);
-       % (D) -- (\ra, \sinang) coordinate [label=right:\(F\)] (B)
-       % (D) -- (\ra, \tanang) coordinate [label=above right:\(E\)] (E)
-       % (E) -- (C);
-    \end{scope}
   }
 }
 
