@@ -2059,11 +2059,57 @@ dimostrati.
 \begin{minipage}{.33\textwidth}
 \begin{center} \tangentoide \end{center}
 \end{minipage}
+\label{gra:goniometriche}
 
+\paragraph{Da un libro scritto 300 anni fa}\hspace{-3mm}\footnote{
+Maria Gaetana Agnesi (1718-1799) fu un'insigne matematica milanese. Nel 1748 
+pubblicò le \emph{Instituzioni analitiche ad uso della gioventù italiana}, un 
+manuale di matematica che per chiarezza e profondità si diffuse in tutta 
+Europa. Il disegno è tratto dall'originale.}~
+
+\affiancati{.64}{.34}{
+\agnesia}{
+Recuperiamo il brillante e suggestivo ragionamento di M.G.Agnesi a proposito 
+delle relazioni che esistono fra un angolo \(\Delta\), e 
+quindi l'arco \(CD\), se infinitesimi, e le relative funzioni goniometriche.}
+\label{par:agnesi}
+
+\begin{enumerate}[noitemsep]
+ \item (Sul coseno) Dato che
+il diametro \(GC\) è una quantità finita ed è la base del triangolo rettangolo 
+\(GCD\), per il 2° Teorema di Euclide: \(GB:BD=BD:BC\).\\
+\(\dfrac{GB}{BD}\) è il rapporto fra una quantità finita ed una 
+infinitesima ed è quindi un infinito. Quindi deve essere altrettanto infinito 
+il secondo rapporto di questa proporzione. Allora il segmento \(BC= 
+AC-AB=1-\cos~\Delta\) è infinitesimo rispetto a \(BD=\sen~\Delta\) ed è per 
+questo un infinitesimo del secondo ordine.\\
+L'ordine di infinitesimo si può evidenziare rielaborando la  proporzione: 
+\(BC=\dfrac{BD^2}{BG}\). Il denominatore è una quantità finita, per cui la 
+frazione esprime una quantità infinitesima al quadrato.\\
+
+ \item (Su seno e tangente) Dato che sono simili i triangoli 
+\(ABD\) e \(DFE\) e che nel primo triangolo la base è infinita rispetto 
+all'altezza, lo stesso succederà nel secondo triangolo. Ma la base di questo, 
+\(DF\), si è appena visto che è infinitesima del secondo ordine, quindi 
+l'altezza \(EF\) è infinitesima del terzo.  \(EF\) è la differenza 
+fra la tangente e il seno, Allora l'arco il seno e la 
+tangente ``\emph{si possono assumere per eguali}''.
+\end{enumerate}
+Si può concludere, con parole moderne: 
+\begin{itemize}[noitemsep]
+ \item se l'angolo è infinitesimo, il seno, l'arco e la tangente sono 
+indistinguibili;
+\item il limite \(\lim_{x \rightarrow 0} \dfrac{1-\cos x}{x}\) 
+deve risultare nullo e il \(\lim_{x \rightarrow 0} \dfrac{1-\cos x}{x^2}\) 
+deve avere un valore finito.
+\end{itemize}
+
+Su tutto questo ritorniamo con calcoli più precisi.
 \paragraph{Funzione seno}~
 \label{limiti:par_f_seno}
 
-Osservando il grafico della funzione seno, risulta abbastanza evidente che:
+Osservando il grafico della funzione seno a pag.~\pageref{gra:goniometriche}, 
+si intuisce che:
 \[\lim_{x \rightarrow 0}{\sen x} = \pst{\sen \delta} = 0
 \quad \text{e che} \quad 
 \lim_{x \rightarrow \infty}{\sen x} = \pst{\sen M} = \text{ non esiste}\]
@@ -2071,18 +2117,19 @@ Infatti man mano che \(x\) aumenta, \(\sen x\)
 continua a variare tra \(-1\) e \(+1\) e quindi 
 \(\sen M\) non può essere infinitamente vicino ad un solo numero reale.\\
 
-Per esaminare il comportamento della funzione \(sen x\) quando l'arco (e 
-l'angolo \(\delta\)) si avvicina a zero, si può ripercorrere il geniale 
-ragionamento di Archimede, che lo portò a determinare un valore di \(\pi\) 
-poco diverso da quello odierno. Archimede immaginò la circonferenza racchiusa 
-fra poligono regolare inscritto e uno circoscritto e determinò la lunghezza del 
-lato in base al diametro. Raddoppiando progressivamente i lati (fino a 96 
-lati!) e aggiornando i calcoli, si accorse che il rapporto fra i perimetri e i 
-diametri si assestava progressivamente intorno al valore 
-\(\frac{223}{71}\simeq 3,141\). Dato che la circonferenza è intermedia fra il 
-poligono inscritto e quello circoscritto, questo numero, che noi chiamiamo 
-\(\pi\), ci indica il rapporto fra una circonferenza e il 
-suo diametro. Questo vale per tutti i cerchi, di qualsiasi raggio.\\
+Per capire il comportamento della funzione \(sen x\) quando l'arco (e 
+l'angolo \(\delta\)) si avvicina a zero, seguiamo, in aggiunta a quanto 
+abbbiamo visto nella pagina precedente, il geniale ragionamento di Archimede, a 
+proposito del rapporto fra circonferenza e diametro.\\
+Archimede immaginò la circonferenza racchiusa fra un poligono regolare inscritto 
+e uno circoscritto e determinò la lunghezza del lato in base al diametro. 
+Raddoppiando progressivamente i lati (fino a 96 lati!) e aggiornando i calcoli, 
+si accorse che il rapporto fra i perimetri e i diametri si assestava 
+progressivamente intorno al valore \(\frac{223}{71}\simeq 3,141\). Dato che la 
+circonferenza è intermedia fra il poligono inscritto e quello circoscritto, 
+questo numero, che noi chiamiamo \(\pi\), ci indica il rapporto fra una 
+circonferenza e il suo diametro. Questo vale per tutti i cerchi, di qualsiasi 
+raggio.\\
 
 \affiancati{.50}{.50}{
 \begin{center}
@@ -2114,34 +2161,45 @@ Possiamo ripetere un discorso analogo anche per la metà del lato infinitesimo
 del poligono circoscritto di infiniti lati, che sarà lungo quanto \(\tan 
 \delta\).
 
-Concludiamo che \emph{per un angolo infinitesimo, il seno, l'arco e la 
-tangente sono indistinguibili}.
-
-Tutto questo porta facilmente a dimostrare il seguente limite notevole:
-\[\lim_{x \rightarrow 0}\frac{\sen x}{x} = 
-  \pst{\frac{\sen \delta}{\delta}} = 1\]
+Come si è già visto seguendo il ragionamento della Agnesi 
+(pag~\pageref{par:agnesi}), anche  in questo caso dobbiamo 
+concludere che il seno, l'arco e la tangente di un angolo infinitesimo sono 
+indistinguibili.
   
-Possiamo anche rappresentarlo graficamente.
+Rappresentiamo in modo non standard la situazione di pag~\pageref{par:agnesi}.
 
-\begin{minipage}{.49\textwidth}
-L'arco infinitesimo differisce dalla corda sottesa per infinitesimi di ordine 
-superiore alle loro lunghezze. Perciò il loro rapporto è \(1\).
-Se rappresentiamo in una circonferenza goniometrica un arco di ampiezza 
-infinitesima e il corrispondente seno, appaiono non distinguibili ad ogni 
-ingrandimento finito. 
-Se li ingrandiamo con un microscopio non standard che permetta di 
-osservare \(\delta\), possiamo vedere che sono ancora indistinguibili 
-cioè differiscono per infinitesimi di ordine superiore. 
-
-Quindi il loro rapporto è \(1\).
+\begin{minipage}{.47\textwidth}
+Se l'angolo \(\delta\) è infinitesimo, i due raggi che lo formano nel disegno a 
+grandezza naturale risultano sovrapposti: \(AC\) coincide con \(AD\), 
+\(\delta\) sembra zero, il coseno sembra lungo quanto il raggio e il seno non si 
+riesce a distinguere, come l'arco. Ci vuole un microscopio infinito (M1) per 
+individuare l'arco \(CD\) che appare come un segmento verticale, con i due raggi 
+in arrivo che risultano paralleli. Con un nuovo ingrandimento infinito (M2) sul 
+punto \(C\) possiamo cogliere la distinzione fra il coseno e il raggio, cioè 
+\(BC=1-\cos\delta\), che, come ha ben spiegato l'Agnesi, è un segmento 
+infinitesimo del secondo ordine.\\
+In M3 abbiamo la stessa grandezza \(DE~=~BC\) sul secondo lato 
+dell'angolo \(\delta\). 
 \end{minipage}
 \hfill
 \begin{minipage}{.49\textwidth}
 \begin{center} \limiteseno \end{center}
 \end{minipage}
+Puntiamo allora M4 su \(E\) per distinguere la 
+differenza \(CF-CE\) fra il seno e la tangente, che ora possiamo cogliere 
+perché l'ingrandimento complessivo è del terzo ordine.
 
-Si coinclude che \(\sen \delta \text{ è diverso da } \delta\) solo per 
-infinitesimi di ordine superiore a \(\delta\).
+In questo modo si mette in evidenza che se \(\delta\) è infinitesimo,  
+\(\delta\), \(\sen~\delta\) e \(\tan\delta\) sono infinitesimi indistinguibili 
+(M1 e M5),  mentre \(1-\cos\delta\) è un infinitesimo del secondo ordine 
+rispetto a \(\delta\) (M2).
+
+Tutto questo giustifica i limiti notevoli che seguono, alcuni dei quali si 
+dimostrano anche con il calcolo diretto.
+\[\lim_{x \rightarrow 0}\frac{\sen x}{x} = 
+  \pst{\frac{\sen \delta}{\delta}} = 1\]
+% Si conclude che \(\sen \delta \text{ è diverso da } \delta\) solo per 
+% infinitesimi di ordine superiore a \(\delta\).
 
 \paragraph{Funzione tangente}~
 
@@ -2179,7 +2237,7 @@ Sono interessanti i seguenti due limiti che riguardano il coseno:
  \pst{\frac{\sen \delta}{\delta} \cdot 
       \frac{\sen \delta}{1+\cos \delta}}
 ~ \stackrel{5}{=}
- \pst{1 \cdot \frac{\delta}{2}} = 0
+ \pst{1 \cdot \frac{\delta}{2}} = 0.
 \end{align*}
 Dove i passaggi hanno i seguenti motivi:
 \begin{enumerate} [nosep]
@@ -2191,15 +2249,15 @@ Dove i passaggi hanno i seguenti motivi:
  \item un infinitesimo fratto un non infinitesimo è un infinitesimo 
 e la sua parte standard è 0.
 \end{enumerate}
-Questo limite ci dice in sostanza che la quantità \(1- \cos \delta\) è 
-infinitesima rispetto a \(\delta\).
+% Questo limite ci dice in sostanza che la quantità \(1- \cos \delta\) è 
+% infinitesima rispetto a \(\delta\).
 \begin{osservazione}
 Dato che \(\sen \delta \sim \delta\), i seguenti due limiti sono 
 equivalenti:
 \[\lim_{x \rightarrow 0} \frac{1-\cos x}{x} =
  \pst{\frac{1-\cos \delta}{\delta}} =
  \pst{\frac{1-\cos \delta}{\sen \delta}} =
- \lim_{x \rightarrow 0} \frac{1-\cos x}{\sen x}\]
+ \lim_{x \rightarrow 0} \frac{1-\cos x}{\sen x}.\]
 \end{osservazione}
 
 \paragraph{Confrontare \(1-\cos\delta\) e \(\delta^2\)}~
@@ -2233,35 +2291,35 @@ Dove i passaggi hanno i seguenti motivi:
  \item ricordando i limiti visti precedentemente.
 \end{enumerate}
 
-\newpage
-\paragraph{Da un libro scritto 300 anni fa}\hspace{-3mm}\footnote{
-Maria Gaetana Agnesi (1718-1799) fu un'insigne matematica milanese. Nel 1748 
-pubblicò le \emph{Instituzioni analitiche ad uso della gioventù italiana}, un 
-manuale di matematica che per chiarezza e profondità si diffuse in tutta 
-Europa. Il disegno è tratto dall'originale.}~
-
-\affiancati{.59}{.39}{
-\agnesia}{
-Per intuire la portata di questi due ultimi limiti recuperiamo il 
-brillante ragionamento di M.G.Agnesi, che immagina che l'angolo \(\delta\) e 
-quindi l'arco \(CD\) siano infinitesimi. Il diametro \(GC\) è una 
-quantità finita ed è la base del triangolo rettangolo \(GCD\). \\
-Per il 2° Teorema di Euclide:
-\begin{center} \(GB:BD=BD:BC\). \end{center}}
-
-\(\dfrac{GB}{BD}\) è il rapporto fra una quantità finita ed una 
-infinitesima 
-ed è quindi un infinito. Quindi deve essere altrettanto infinito il secondo 
-rapporto di questa proporzione. Allora il segmento \(BC= AC-AB=1-\cos~\delta\) 
-è infinitesimo rispetto a \(BD=\sen~\delta\) ed è per questo un infinitesimo 
-del secondo ordine. L'ordine di infinitesimo si può evidenziare rielaborando la 
-proporzione: \(BC=\dfrac{BD^2}{BG}\). Il denominatore è una quantità 
-finita, per cui la frazione esprime una quantità infinitesima al 
-quadrato.
-
-Tutto questo giustifica il valore finito del limite
-\(\lim_{x \rightarrow 0} \dfrac{1-\cos x}{x^2}\).
-
+% 
+% \paragraph{Da un libro scritto 300 anni fa}\hspace{-3mm}\footnote{
+% Maria Gaetana Agnesi (1718-1799) fu un'insigne matematica milanese. Nel 1748 
+% pubblicò le \emph{Instituzioni analitiche ad uso della gioventù italiana}, un 
+% manuale di matematica che per chiarezza e profondità si diffuse in tutta 
+% Europa. Il disegno è tratto dall'originale.}~
+% 
+% \affiancati{.59}{.39}{
+% \agnesia}{
+% Per intuire la portata di questi due ultimi limiti recuperiamo il 
+% brillante ragionamento di M.G.Agnesi, che immagina che l'angolo \(\delta\) e 
+% quindi l'arco \(CD\) siano infinitesimi. Il diametro \(GC\) è una 
+% quantità finita ed è la base del triangolo rettangolo \(GCD\). \\
+% Per il 2° Teorema di Euclide:
+% \begin{center} \(GB:BD=BD:BC\). \end{center}}
+% 
+% \(\dfrac{GB}{BD}\) è il rapporto fra una quantità finita ed una 
+% infinitesima 
+% ed è quindi un infinito. Quindi deve essere altrettanto infinito il secondo 
+% rapporto di questa proporzione. Allora il segmento \(BC= AC-AB=1-\cos~\delta\) 
+% è infinitesimo rispetto a \(BD=\sen~\delta\) ed è per questo un infinitesimo 
+% del secondo ordine. L'ordine di infinitesimo si può evidenziare rielaborando la 
+% proporzione: \(BC=\dfrac{BD^2}{BG}\). Il denominatore è una quantità 
+% finita, per cui la frazione esprime una quantità infinitesima al 
+% quadrato.
+% 
+% Tutto questo giustifica il valore finito del limite
+% \(\lim_{x \rightarrow 0} \dfrac{1-\cos x}{x^2}\).
+% 
 
 \subsubsection{Esponenziali e logaritmi}
 
