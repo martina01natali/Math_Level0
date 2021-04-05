@@ -21,23 +21,44 @@ Chi volesse approfondire l'argomento può acquistare il testo
 all'indirizzo: 
 \href{https://www.unilibro.it/libri/f/autore/goldoni\_giorgio}
      {www.unilibro.it/libri/f/autore/goldoni\_giorgio}.}
-Le nuove tecniche di calcolo che presentiamo si basano sulla conoscenza 
-dell'insieme degli Iperreali e sull'applicazione diffusa del \emph{principio di estensione naturale} agli Iperreali delle proprietà utili, che sono vere nell'insieme dei Reali.\\
-Per esempio, il concetto di funzione che abbiamo già definito nei Reali, sarà 
-applicato silenziosamente anche agli Iperreali e non scriveremo \(f^*\) al 
-posto 
-di \(f\), per indicare \(f\) estesa, oppure \(f(x^*)\) o simili. 
-Se ci sarà bisogno, chiariremo i dubbi che possono insorgere in questa 
-estensione o i casi particolari più interessanti.\\
-L'argomento del capitolo è centrato sull'uso degli infinitesimi, quindi dei 
-numeri iperreali. Come si vedrà, il percorso tipico di soluzione di un problema 
-sarà: 
+I numeri iperreali ci permettono di affrontare una nuova classe di problemi 
+molto importante sono tutti i problemi legati alla pendenza (e quindi alla 
+velocità e all'accelerazione).
+
+I metodi che seguiremo faranno uso del \emph{principio di estensione 
+naturale}: è possibile estendere agli iperreali tutte le proprietà che 
+sono vere nei numeri reali.
+Per esempio, il concetto di funzione che abbiamo già definito nei Reali, 
+sarà applicato anche agli Iperreali: chiameremo sempre \(f\) anche
+la funzione iperreale che ha per argomento un numero iperreale, 
+e che ha, nei reali, lo stesso comportamento.
+
+% Per esempio, il concetto di funzione che abbiamo già definito nei Reali, 
+% sarà applicato anche agli Iperreali: se la funzione \(f\) ha per 
+% argomento un numero iperreale, invece di scrivere \effestar per indicare 
+% la funzione iperreale che ha, nei reali, lo stesso comportamento della
+% funzione reale \(f\)
+% 
+% e non scriveremo \(f^*\) al 
+% posto 
+% di \(f\), per indicare \(f\) estesa, oppure \(f(x^*)\) o simili. 
+% 
+% Le nuove tecniche di calcolo che presentiamo si basano sulla conoscenza 
+% dell'insieme degli Iperreali e sull'applicazione diffusa del \emph{principio di estensione naturale} agli Iperreali delle proprietà utili, che sono vere nell'insieme dei Reali.\\
+% Per esempio, il concetto di funzione che abbiamo già definito nei Reali, sarà 
+% applicato silenziosamente anche agli Iperreali e non scriveremo \(f^*\) al 
+% posto 
+% di \(f\), per indicare \(f\) estesa, oppure \(f(x^*)\) o simili. 
+% Se ci sarà bisogno, chiariremo i dubbi che possono insorgere in questa 
+% estensione o i casi particolari più interessanti.\\
+% L'argomento del capitolo è centrato sull'uso degli infinitesimi, quindi 
+% dei numeri iperreali. Come si vedrà, 
+Il percorso tipico di soluzione di un problema sarà: 
 \begin{enumerate}[noitemsep, nosep]
 \item definire il problema nell'insieme dei reali;
 \item trovare la soluzione mediante un calcolo con numeri iperreali;
 \item applicare la funzione \(\pst{}\) alla soluzione, per convertirla in 
-numero 
-reale.
+numero reale.
 \end{enumerate}
 
 \section{Introduzione}
@@ -57,15 +78,18 @@ racconta che per dimostrare che i gravi cadono con la stessa velocità,
 gettò dalla Torre di Pisa due sfere di peso diverso, ma di uguali 
 dimensioni: i due oggetti raggiunsero il suolo 
 contemporaneamente.\\
-La Torre di Pisa è alta circa \(56m\) e immaginiamo, per semplificare, che la 
-distanza percorsa dai due oggetti sia di \(56m\) (ti lascio calcolare il 
-percorso effettivo: tieni presente che al giorno d'oggi l'inclinazione della 
-Torre è di \(4,8^\circ\).\\
-Oggi sappiamo che un oggetto in caduta libera partendo da fermo ha la seguente
-legge del moto:
-\(s=\frac{1}{2}gt^2\). Come al solito, \(s\) è lo spazio in metri, \(t\) è il 
-tempo in secondi, \(g=9,81 m/s^2\) è l'accelerazione di gravità, costante vicino
-alla superficie terrestre.\\
+La Torre di Pisa è alta circa \(56m\) e immaginiamo, per semplificare, 
+che la distanza percorsa dai due oggetti sia di \(56m\) (ti lascio 
+calcolare il percorso effettivo: tieni presente che al giorno d'oggi 
+l'inclinazione della Torre è di \(4,8^\circ\).\\
+Oggi sappiamo che un oggetto in caduta libera partendo da fermo ha la 
+seguente legge del moto:
+\(s=\dfrac{1}{2}gt^2\). Come al solito, \(s\) è lo spazio in metri, 
+\(t\) è il tempo in secondi, \(g=9,81 m/s^2\) è l'accelerazione di 
+gravità, costante vicino alla superficie terrestre.
+
+\newpage %------------------------------------------
+
 Se cerchiamo la velocità media, basta dividere lo spazio percorso per il 
 tempo impiegato:
 
@@ -82,36 +106,36 @@ che corrispondono a circa \(60 km/h\).
 Ma gli oggetti partono fermi e arrivano velocissimi: 
 è possibile sapere quale è loro velocità in ogni istante?
 
-Non è facile definire con precisione un istante di tempo: possiamo immaginare 
-che sia un tempo assolutamente breve, un tempo di durata infinitesima.\\ 
-Considerando valori di tempo istantanei siamo portati naturalmente a passare da 
-valori \(t_1 \ t_2, \ \dots\), nell'insieme dei reali, a valori \(t_1, \ 
-t_1+dt, \ 
-t_1+2dt,\ \dots\ t_2, \ \dots\) nell'insieme degli iperreali. È quindi il 
-momento 
-di usare le quantità infinitesime.\\ Chiamiamo \(dt\) (in questo caso sarà \(dt 
-> 
-0\)) un intervallo di tempo infinitesimo, fra due istanti successivi \(t\) e 
-\(t+dt\). Lo spazio percorso nella caduta, in quell'intervallo di tempo, 
+Non è facile definire con precisione un istante di tempo: possiamo 
+immaginare che sia un tempo assolutamente breve, un tempo di durata 
+infinitesima.\\ 
+Considerando valori di tempo istantanei siamo portati naturalmente a 
+passare da valori \(t_1, \ t_2, \ \dots\), nell'insieme dei reali, a valori 
+\(t_1, \ t_1+dt, \ t_1+2dt,\ \dots\ t_2, \ \dots\) nell'insieme degli
+iperreali. 
+È quindi il momento di usare le quantità infinitesime.\\ 
+Chiamiamo \(dt\) 
+% (in questo caso sarà \(dt > 0\)) 
+un intervallo di tempo infinitesimo, fra due istanti successivi \(t\) e 
+\(t+dt\). 
+Lo spazio percorso nella caduta, in quell'intervallo di tempo, 
 applicando la legge del moto, sarà: 
-\[ 
-ds=\frac{1}{2}g\tonda{t+dt}^2-\frac{1}{2}gt^2= \frac{1}{2}g\tonda{t^2+2t\cdot 
+\[ds=\frac{1}{2}g\tonda{t+dt}^2-\frac{1}{2}gt^2= 
+\frac{1}{2}g\tonda{t^2+2t\cdot 
 dt+(dt)^2}-\frac{1}{2}gt^2= gt\cdot dt+\frac{1}{2}(dt)^2\] 
-Dividendo il tutto 
-per \(dt\) si ottiene la velocità istantanea, che in questo caso cambia istante 
-dopo istante: 
+Dividendo il tutto per \(dt\) si ottiene la velocità istantanea, 
+che in questo caso cambia istante dopo istante: 
 \[v(t)=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt\] 
-L'espressione \(gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt\) diventa un numero ben 
-preciso per ogni valore di \(t\) e per ogni valore \(dt\), un iperreale finito 
-che 
-è 
-la somma di un numero standard e di un numero infinitesimo.\\ Se fissiamo 
-l'attenzione su un certo istante, supponiamo \(\overline{t}= 3s\), la velocità 
-\(v(3)=9,81\cdot 3+\frac{1}{2}dt\) non ha comunque un valore completamente 
-fissato 
-perché dipende ancora dalla durata infinitesima \(dt\). I \(dt\) possibili sono 
-infiniti, ma questo non cambia granché nel risultato, che si attesta 
-sostanzialmente attorno al valore \(9,81\cdot 3=29,43m/s\).\\
+L'espressione \(gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt\) diventa un numero 
+ben preciso per ogni valore di \(t\) e per ogni valore \(dt\), un iperreale
+finito che è la somma di un numero standard e di un numero infinitesimo.\\ 
+Se fissiamo l'attenzione su un certo istante, supponiamo 
+\(\overline{t}= 3s\), la velocità \(v(3)=9,81\cdot 3+\frac{1}{2}dt\) 
+non ha comunque un valore completamente fissato 
+perché dipende ancora dalla durata infinitesima \(dt\). 
+I \(dt\) possibili sono infiniti, ma questo non cambia granché nel 
+risultato, che si attesta sostanzialmente attorno al valore 
+\(9,81\cdot 3=29,43m/s\).\\
 Conosciamo già la funzione che ci consente di ottenere la parte sostanziale 
 di un risultato iperreale, cioè di trascurare la sua variabilità 
 residua dovuta agli infinitesimi: si tratta di applicare la funzione  
@@ -152,8 +176,8 @@ Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo
 Il grafico visualizza la legge oraria del 
 moto di caduta libera sotto due aspetti diversi: il ramo di parabola 
 (spazio/tempo) mostra che intervalli di tempo uguali a partire da istanti 
-diversi corrispondono a spazi progressivamente sempre maggiori. 
-Infatti la retta (velocità/tempo) mostra che la progressione della 
+diversi corrispondono a spazi progressivamente sempre maggiori. \\
+Infatti la retta (tempo-velocità) mostra che la progressione della 
 velocità è lineare: man mano che il tempo 
 scorre la velocità cresce proporzionalmente, come già si vede dalla tabella.
 La formula \(v=9,81\times t\) ci permette il calcolo della velocità per 
@@ -161,46 +185,61 @@ ogni valore reale di \(t\) e questa è la risposta alla domanda iniziale.
 
 \subsection{La pendenza}
 \label{subsec:differenziazione_pendenza}
-Per studiare i moti in laboratorio, Galileo usava piani inclinati. Una sferetta 
-rotola lungo un piano inclinato con accelerazione diversa a seconda 
-dell'inclinazione del piano. Minore è la pendenza del piano, minore è 
-l'accelerazione costante, minore è la velocità che si sviluppa. \\
-La pendenza del 
-piano e la velocità che si sviluppa, da zero al massimo, sono intimamente 
-collegate. Se il piano è orizzontale non c'è movimento e la velocità è 
-\(v=0\), come la pendenza. Se il piano è verticale, la caduta è libera e  
-la velocità progredisce come in tabella, teoricamente fino all'infinito, dato 
-che la pendenza è infinita.
+Per studiare i moti in laboratorio, Galileo usava piani inclinati. 
+Una sferetta rotola lungo un piano inclinato con accelerazione diversa a 
+seconda dell'inclinazione del piano. 
+Minore è la pendenza del piano, minore è l'accelerazione costante, 
+minore è la velocità che la sferetta sviluppa a partire da ferma. \\
+La pendenza del piano e la velocità che si sviluppa, da zero al massimo, 
+sono intimamente collegate. 
+Se il piano è orizzontale, la sferetta ferma resta ferma e la velocità è 
+\(v=0\), come la pendenza. 
+Se il piano è verticale, la caduta è libera e la velocità progredisce 
+come in tabella
+% , teoricamente fino all'infinito, dato che la pendenza è infinita
+.
 
-Useremo il termine \emph{pendenza} nel suo significato matematico.
+Con il termine \emph{pendenza} intendiamo:
 \begin{definizione}
-La \emph{pendenza} è la rapidità con cui varia una certa variabile
-numerica, in un particolare punto della sua variazione. 
+Quanto varia l'altezza rispetto la variazione in orizzontale. 
 \end{definizione}
 
-Per variazione intendiamo in cambiamento di valore, da un valore iniziale a un 
-valore finale. Molto spesso invece di variazione si usa il termine 
-\emph{incremento}, o differenza.
+% TODO: disegno di pendenza costante e pendenze variabili
+
+Useremo il termine \emph{pendenza} in un suo significato più generale:
+\begin{definizione}
+La \emph{pendenza} è la rapidità con cui varia una certa funzione reale, 
+rispetto alla variazione del suo argomento. 
+\end{definizione}
+
+% La pendenza media di una funzione in un punto \(x_0\) è data da:
+% \[pendenzamedia = \frac{f(x_1) - f(x_0)}{x_1 - x_0}\]
+% Cioè il rapporto tra la variazione della funzione e la variazione delicate 
+% suo argomento.
+Per variazione intendiamo in cambiamento di valore, da un valore iniziale a 
+un valore finale. 
+Molto spesso invece di variazione si usa il termine \emph{incremento}, o 
+differenza.
 
 \subsubsection{Il Rapporto Incrementale e la pendenza}
 \label{subsubsec:RI}
 \begin{esempio}
 Misurando le temperature in una recente notte invernale, abbiamo registrato:
 
- \begin{minipage}{0.48\textwidth}
+\noindent \begin{minipage}{0.48\textwidth}
  \begin{center}
-\begin{tabular}{cccc}\toprule
-h (ore) & \(T (^\circ C)\) & \(\Delta T\) 
-             & \(frac{\Delta T}{\Delta h}\)\\\midrule
-\(21\) & \(3\) & \(-3\) &\(-3\) \\
-\(22\) & \(0\) & 0 & 0 \\
-\(23\) & \(0\) & \(-1\) & \(-1\) \\
-\(24\) & \(-1\) &\dots & \dots\\
-\(1\)  & \(-3\) & \(-1\) &\(-0,5\)\\
-\(3\)  & \(-4\) &\dots & \dots\\
-\(4\)  & \(-5\) & \(-5\)  &\(0\)\\
-\(5\)  & \(-5\) & \(0\) & \(2,5\)\\
-\(7\)  & \(0\)  &
+\begin{tabular}{ccccc}\toprule
+h (ore) & \(T (^\circ \! C)\) & \(\Delta T\) & \(\Delta h\)
+             & \(\frac{\Delta T}{\Delta h}\)\\\midrule
+\(21\) & \(3\) & -- & -- & -- \\
+\(22\) & \(0\) & \(-3\) & \(1\) &\(-3\) \\
+\(23\) & \(0\) & 0 & \(1\) & 0 \\
+\(24\) & \(-1\) & \(-1\) & \(1\) & \(-1\) \\
+\(1\) & \(-3\) &\dots &\dots & \dots\\
+\(3\)  & \(-4\) & \(-1\) & \(2\) &\(-0,5\)\\
+\(4\)  & \(-5\) &\dots &\dots & \dots\\
+\(5\)  & \(-5\) & \(0\)  & \(1\) &\(0\)\\
+\(7\)  & \(-0\) & \(0\) & \(2\) & \(2,5\)
 \\ \bottomrule
 \end{tabular}
 \label{tab:temperaturea}
@@ -215,103 +254,133 @@ h (ore) & \(T (^\circ C)\) & \(\Delta T\)
 \end{minipage}
 
 È facile calcolare le variazioni \(\Delta T\), ora per ora. 
+Alcune di queste sono riportate nella tabella precedente, 
+completa le righe della tabella dove appaiono dei puntini.
+
 Fra le 22 e le 23 non c'è variazione: l'incremento è zero. \\
-Alle 23 la temperatura inizia a calare di \(1^\circ C\) 
-rispetto alle 24, quindi l'incremento \( \Delta T=-1\). \\
+Alle 23 la temperatura inizia a calare e alle 24 è calata di 
+\(1^\circ C\), quindi l'incremento \( \Delta T=-1\). \\
 Fra le \(5\) e le \(7\) l' incremento \(\Delta T= 5 ^\circ C\). 
 Ma stavolta la differenza è su un intervallo di \(2\) ore, 
 quindi una variazione media di \(2,5 ^\circ C\) all'ora.
 
 Mettendo in grafico i dati di questa funzione empirica, ne risulta una 
-spezzata. L'inclinazione dei vari segmenti si può calcolare direttamente sul 
-grafico con la formula del coefficiente angolare vista in geometria analitica 
-e corrisponde ai risultati dell'ultima colonna, che in effetti forniscono le 
-pendenze dei vari segmenti.  Vi sono pendenze positive, negative e nulle, in 
+spezzata. 
+L'inclinazione dei vari segmenti si può calcolare direttamente sul 
+grafico con la formula del coefficiente angolare vista in geometria 
+analitica e corrisponde ai risultati dell'ultima colonna, 
+che in effetti forniscono le pendenze dei vari segmenti. 
+Vi sono pendenze positive, negative e nulle, in 
 corrispondenza di segmenti crescenti, decrescenti o orizzontali. 
 \end{esempio}
  
-\(\dfrac{\Delta T}{\Delta h}\), il rapporto che calcola le pendenze, è il 
-rapporto fra gli incrementi della temperatura e gli incrementi orari. Un 
-rapporto di questo tipo si chiama Rapporto Incrementale.
+% \(\dfrac{\Delta T}{\Delta h}\), il 
+Il rapporto che calcola le pendenze, è il 
+rapporto fra gli incrementi della temperatura e gli incrementi orari. 
+Un rapporto di questo tipo si chiama Rapporto Incrementale.
 \begin{definizione}
-Il Rapporto Incrementale (RI) di una funzione \(f(x)\) è il rapporto che 
-si calcola fra l'incremento di \(f\) e l'incremento di \(x\), quando \(x\) 
-cambia valore da \(x_0\) a \(x_0+\Delta x\).
-\[
- RI= \frac{f(x_0+\Delta x)-f(x_0)}{(x_0+\Delta x)- x_0}=
- \frac{\Delta f(x_0)}{\Delta x}.
-\]
+Il Rapporto Incrementale (\(RI\)) 
+di una funzione \(f\) 
+in un dato punto \(x_0\)
+per un certo incremento \(\Delta\)
+è il rapporto 
+fra l'incremento di \(f\) e l'incremento di \(x\), quando \(x\) 
+cambia valore da \(x_0\) a \(x_0+\Delta\).
+\[RI(f,~x_0,~\Delta) = 
+  \frac{f(x_0+\Delta)-f(x_0)}{(x_0+\Delta)- x_0}=
+  \frac{\Delta f(x_0)}{\Delta}\]
 \end{definizione}
-L'incremento \(\Delta\) di una funzione non è sempre lo stesso, perché 
-cambia sia per la funzione, sia per il punto in cui lo si vuole calcolare, 
-sia rispetto a \(\Delta x\). 
-È quindi a sua volta una funzione, una funzione di tre 
-variabili: \(\Delta=\Delta(f, x, \Delta x)\). \\
-Di conseguenza avviene lo stesso per il Rapporto Incrementale: \(RI=RI(f, x, 
-\Delta x)\).
+L'incremento non è sempre lo stesso, dipende: 
+\begin{itemize} [nosep]
+\item dalla funzione \(f\), 
+\item dal punto da cui si calcola \(x_0\), 
+\item dall'incremento \(\Delta\).
+\end{itemize}
+Di conseguenza anche il Rapporto Incrementale dipende da quei tre 
+parametri: \(RI(f,~x_0,~\Delta)\).
 
 \subsubsection{Il Rapporto Differenziale e la pendenza}
 \label{subsubsec:RD}
 
-\begin{minipage}{0.48\textwidth}
-% \begin{center}
 Immaginiamo ora di avere esigenze scientifiche molto raffinate e di 
 predisporre un apparato che misura le temperature ogni secondo. 
-Allora il grafico appena visto avrebbe spigoli meno visibili e i vari 
-incrementi \(\Delta T\) sarebbero numeri vicini allo zero. 
-Potremmo conoscere il fenomeno con grande precisione e individuare molti 
-più dettagli, se potessimo visualizzare le diverse pendenze.
-%\end{center}
-\end{minipage}
- \hfill
-\begin{minipage}{.48 \textwidth}
- \begin{center}
- \temperatureb
-\label{graf:temperatureb}
- \end{center}
-\label{graf:temperature}
-\end{minipage}
-
+I punti del grafico sarebbero così vicini che per distinguerli dovremmo 
+usare una lente.
+Potremmo anche tracciare il grafico della temperatura con un pennino che si 
+sposta su un rullo di carta tracciando una linea continua.
+% Allora il grafico appena visto avrebbe spigoli meno visibili e i vari 
+% incrementi \(\Delta T\) sarebbero numeri vicini allo zero. 
+% Potremmo conoscere il fenomeno con grande precisione e individuare molti 
+% più dettagli, se potessimo visualizzare le diverse pendenze.
+% 
+% % \begin{minipage}{0.48\textwidth}
+% % % \begin{center}
+% % Immaginiamo ora di avere esigenze scientifiche molto raffinate e di 
+% % predisporre un apparato che misura le temperature ogni secondo. 
+% % Allora il grafico appena visto avrebbe spigoli meno visibili e i vari 
+% % incrementi \(\Delta T\) sarebbero numeri vicini allo zero. 
+% % Potremmo conoscere il fenomeno con grande precisione e individuare molti 
+% % più dettagli, se potessimo visualizzare le diverse pendenze.
+% % %\end{center}
+% % \end{minipage}
+% %  \hfill
+% % \begin{minipage}{.48 \textwidth}
+% %  \begin{center}
+% % \scalebox{1}{ \temperatureb}
+% % \label{graf:temperatureb}
+% %  \end{center}
+% % \label{graf:temperature}
+% % \end{minipage}
+% 
+% Se abbiamo un pennino che traccia in ogni istante la temperatura otterremo 
+% una linea continua.
 
 \affiancati{.50}{.50}{
 %grafico temperature smussato
 \begin{inaccessibleblock}[Grafico delle temperature con punti molto vicini]
-\begin{center} \scalebox{1}{\temperatureb} \end{center}
+\begin{center} \scalebox{.9}{\temperatureb} \end{center}
 \end{inaccessibleblock}
 \label{graf:temperatureb}
 }{
 %grafico temperature smussato
 \begin{inaccessibleblock}[Grafico continuo delle temperature]
-\begin{center} \scalebox{1}{\temperaturec} \end{center}
+\begin{center} \scalebox{.9}{\temperaturec} \end{center}
 \end{inaccessibleblock}
 \label{graf:temperaturec}
 }
 
 In una situazione ideale, non legata a strumenti di misura necessariamente 
 imperfetti, consideriamo una funzione matematica e il suo grafico e andiamo 
-alla ricerca della pendenza della funzione in un determinato punto. Questa 
-volta, operando nell'insieme \(\IR\), potremo considerare incrementi 
-infinitamente piccoli. Per ragioni storiche questi incrementi infinitesimi si
-chiamano \emph{differenziali}.
+alla ricerca della pendenza della funzione. 
+% in un determinato punto. Questa 
+% volta, operando 
+Operando nell'insieme degli iperreali (\(\IR\)), potremo considerare 
+incrementi infinitamente piccoli. 
+Per ragioni storiche questi incrementi infinitesimi si chiamano 
+\emph{differenziali}.
 \begin{definizione}
- Il differenziale \(df\) di una funzione \(f\) è l'incremento infinitesimo, se 
-c'è, che la funzione subisce a causa di una variazione infinitesima della sua 
-variabile indipendente \(x\), a partire da un valore fissato \(x_0\):
-\[df(x_0) = f \tonda{x_0 + \epsilon} - f(x_0).\]
+Il differenziale \(df\) (\emph{de effe}) di una funzione \(f\) è 
+l'incremento infinitesimo, se esiste, 
+che la funzione subisce a causa di una variazione infinitesima 
+\(\epsilon\) diversa da zero, della sua variabile indipendente \(x\), 
+a partire da un valore fissato \(x_0\):
+\[df(x_0) = f \tonda{x_0 + \epsilon} - f(x_0)\]
 \end{definizione}
-
-Come già visto per l'incremento finito \(\Delta f\), anche il differenziale 
-\(df\) 
-dipende dall'espressione della funzione, dal valore fissato \(x_0\) dove inizia 
-la variazione della \(x\) e dal suo incremento infinitesimo~\(\epsilon\).\\
+Come già visto per l'incremento \(\Delta f\), anche il differenziale 
+\(df\) dipende 
+\begin{itemize} [nosep]
+\item dalla funzione, 
+\item dal valore \(x_0\) dove inizia la variazione della \(x\),
+\item dal suo incremento infinitesimo~\(\epsilon\).
+\end{itemize}
 Quindi il differenziale di una funzione \(df\) è esso stesso  una funzione:
-\(df=df(f, x_0, \epsilon)\). 
-
+\(d(f,~x_0,~\epsilon)\). 
 \begin{osservazione}
-Per segnalare che il simbolo \(df\) (oppure \(dx\), ecc.) non è il prodotto fra 
-due variabili (cioè \(df\ne d \cdot f,\ dx\ne d\cdot x,\ \dots)\) ma indica 
-una differenza infinitesima, nella lettura si pronuncia:
-\textit{de effe (de ics)}.
+Per segnalare che il simbolo \(df\) (oppure \(dx\), ecc.) non è il prodotto 
+fra due variabili 
+(cioè \(df\ne d \cdot f,\ dx\ne d\cdot x,\ \dots\)) ma indica 
+una differenza infinitesima, nella lettura si pronunciano:
+\textit{de effe, de ics}.
 \end{osservazione}
 
 \begin{minipage}{.48 \textwidth}
@@ -327,7 +396,8 @@ quando \(x\) parte da~\(7\) e ha un incremento di~\(\epsilon\).
            \dfrac{49}{4} +10 =\\
         &= \dfrac{14 \epsilon +\epsilon^2}{4} -\epsilon 
         = \dfrac{10 \epsilon +\epsilon^2}{4} =\\
-        &= 2,5 \epsilon + \dfrac{\epsilon^2}{4}, \quad \forall \epsilon. 
+        &= 2,5 \epsilon + \dfrac{\epsilon^2}{4}
+%         \quad \forall \epsilon 
 %\sim 2,5 \epsilon
 \end{align*}
 \end{esempio}
@@ -338,63 +408,91 @@ quando \(x\) parte da~\(7\) e ha un incremento di~\(\epsilon\).
 \differenziale
  \end{center}
 \end{minipage}
-L'incremento della funzione è un differenziale: un infinitesimo che è la somma 
-di due infinitesimi di ordine diverso. Il risultato non cambia 
-sostanzialmente, se al posto di \(\epsilon\) svolgiamo lo stesso calcolo 
-utilizzando un diverso infinitesimo \(\delta\). Per significare che il 
-risultato non dipende dalla scelta dell'infinitesimo, si indica: \(\forall 
-\epsilon\).
+L'incremento della funzione è un differenziale: un infinitesimo che è la 
+somma di due infinitesimi di ordine diverso. 
+% Il risultato non cambia 
+% sostanzialmente, se al posto di \(\epsilon\) svolgiamo lo stesso calcolo 
+% utilizzando un diverso infinitesimo \(\delta\). Per significare che il 
+% risultato non dipende dalla scelta dell'infinitesimo, si indica: \(\forall 
+% \epsilon\).
 
-Nell'espressione della funzione riconosciamo che si tratta di una parabola, 
-una funzione il cui grafico ha pendenze sempre diverse, che aumentano (o 
-diminuiscono) gradualmente, allontanandosi dal vertice. Seguendo lo schema 
-usato per il grafico delle temperature, cerchiamo la pendenza per \(x=7\) 
-calcolando il rapporto fra gli incrementi, cioè in questo caso, fra i 
-differenziali.
+% Nell'espressione della funzione riconosciamo che si tratta di una parabola, 
+% una funzione il cui grafico ha pendenze sempre diverse, che aumentano (o 
+% diminuiscono) gradualmente, allontanandosi dal vertice. Seguendo lo schema 
+% usato per il grafico delle temperature, cerchiamo la pendenza per \(x=7\) 
+% calcolando il rapporto fra gli incrementi, cioè in questo caso, fra i 
+% differenziali.
+
+La pendenza della funzione \(f\) nel punto \(x_0\) è legata al 
+rapporto tra l'incremento della funzione e l'incremento della variabile 
+\(x\) quando questo incremento è infinitesimo. 
+Questo rapporto viene detto \emph{Rapporto Differenziale}:
 \begin{definizione}
-Il Rapporto Differenziale (RD) di una funzione \(f(x)\) è il 
-rapporto che si calcola fra l'incremento infinitesimo \(df\) della funzione 
-e l'incremento infinitesimo di \(x\), quando \(x\) cambia valore da \(x_0\) a 
-\(x_0+\epsilon\).
-\[
- RI= \frac{f(x_0+\epsilon)-f(x_0)}{(x_0+\epsilon)- 
-x_0}=\frac{df(x_0)}{\epsilon}.
-\]
+Il \emph{Rapporto Differenziale} (\(RD\)) di una funzione \(f\) è il 
+quoziente fra l'incremento infinitesimo \(df\) della funzione 
+e l'incremento infinitesimo di \(x\), quando \(x\) cambia valore da 
+\(x_0\) a \(x_0+\epsilon\) con \(\epsilon \ne 0\).
+\[RD(f, x_0, \epsilon) = 
+\frac{f(x_0+\epsilon)-f(x_0)}{(x_0+\epsilon)- x_0} =
+\frac{df(x_0)}{\epsilon}\]
 \end{definizione}
-Ricordando che in ogni rapporto il denominatore deve essere diverso 
-da zero, vediamo i calcoli.
+La differenza tra Rapporto Differenziale e Rapporto Incrementale sta nel 
+fatto che nel \(RD\) l'incremento è un numero iperreale infinitesimo, 
+nel \(RI\) l'incremento è un numero non infinitesimo.
 
-\[
- RD=\frac{df(7)}{\epsilon}=\frac{f(7+\epsilon) - f(7)}{\epsilon}=\dots=
+Continuando l'esempio precedente calcoliamo \(RD(f,~7,~\epsilon)\):
+\[RD(f,~7,~\epsilon) =
+%  \frac{df(7)}{\epsilon}=
+ \frac{f(7+\epsilon) - f(7)}{\epsilon}=\dots=
  \frac{2,5 \epsilon + \dfrac{\epsilon^2}{4}}{\epsilon}=
  \frac{\cancel{\epsilon}\tonda{2,5 + \dfrac{\epsilon}{4}}}{\cancel{\epsilon}}=
- 2,5 + \frac{\epsilon}{4}, \quad \forall \epsilon\ne 0. 
+ 2,5 + \frac{\epsilon}{4}
+%  , \quad \forall \epsilon \ne 0
 \]
 
-Le pendenze del grafico di temperature sono numeri reali e  con questi è facile 
-stabilire se una temperatura è in crescita di più o di meno rispetto ad 
-un'altra. Ora invece abbiamo un risultato parzialmente incerto, perché la 
-pendenza risulta un numero finito iperreale, la somma di uno standard e di 
-un infinitesimo. Si tratta di un numero non completamente esprimibile in 
-cifre, perché la sua parte infinitesima ha un valore sconosciuto.
-Per fortuna, però, questa parte infinitesima è trascurabile e si può 
-ragionevolmente concludere che, anche considerando gli infiniti possibili 
-valori dell'infinitesimo \(\dfrac{\epsilon}{4}\), tuttavia il risultato è 
-sostanzialmente uguale a \(2,5\).
+Ma il Rapporto Differenziale data una funzione e un punto, dipende 
+dall'incremento \(\epsilon\) e quindi cambia al cambiare dell'infinitesimo. 
+E questo è un problema. 
 
-Tradotto in termini matematici, questo ragionamento corrisponde al calcolo 
-della parte standard.
-\[
- \text{pendenza}=\pst{RD}=\pst{2,5 + \frac{\epsilon}{4}}=2,5.
-\]
+Non solo, il Rapporto Differenziale è un numero iperreale, mentre noi 
+abbiamo bisogno che la pendenza di una funzione reale sia un numero reale.
+
+Si può risolvere il secondo problema utilizzando la funzione 
+\emph{parte standard} che trasforma un iperreale finito nel più vicino
+numero reale.
+
+Se il numero reale così ottenuto non dipende dal valore dell'incremento 
+infinitesimo, abbiamo ottenuto la pendenza della funzione in quel punto.
+
+% Le pendenze del grafico di temperature sono numeri reali e  con questi è 
+% facile stabilire se una temperatura è in crescita di più o di meno 
+% rispetto ad un'altra.
+% Ora invece abbiamo un risultato parzialmente incerto, perché la 
+% pendenza risulta un numero finito iperreale, la somma di uno standard e di 
+% un infinitesimo. Si tratta di un numero non completamente esprimibile in 
+% cifre, perché la sua parte infinitesima ha un valore sconosciuto.
+% Per fortuna, però, questa parte infinitesima è trascurabile e si può 
+% ragionevolmente concludere che, anche considerando gli infiniti possibili 
+% valori dell'infinitesimo \(\dfrac{\epsilon}{4}\), tuttavia il risultato è 
+% sostanzialmente uguale a \(2,5\).
+% 
+% Tradotto in termini matematici, questo ragionamento corrisponde al calcolo 
+% della parte standard.
+% \[ \text{pendenza}=\pst{RD}=\pst{2,5 + \frac{\epsilon}{4}}=2,5\]
 \begin{definizione}
- La pendenza di una funzione \(f\) in un punto \(x_0\) del suo dominio, è la 
+La pendenza di una funzione \(f\) in un punto \(x_0\) del suo dominio, è la 
 parte standard del Rapporto Differenziale di \(f\) calcolato in \(x_0\), se 
-questa esiste ed è sempre uguale, qualsiasi sia l'incremento infinitesimo 
-diverso da zero che si sta usando.
+questa esiste ed è sempre la stessa, qualsiasi sia l'incremento infinitesimo 
+diverso da zero.
 \end{definizione}
+
+La pendenza della funzione \(f\) nel punto \(x_0\) viene indicata con 
+\(f'(x_0)\):
+\[pendenza(f,~x_0) = f'(x_0)\]
+
+
 \begin{esempio}
- Calcoliamo per la stessa funzione la pendenza nel punto del vertice. 
+Calcoliamo per la stessa funzione la pendenza nel punto del vertice. 
 Trattandosi dell'unico punto a tangente orizzontale, non potrà che risultare 
 una pendenza uguale a zero.\\
 \begin{align*}
@@ -407,28 +505,32 @@ una pendenza uguale a zero.\\
   \end{align*}
 Considerando che il rapporto differenziale esiste per qualsiasi infinitesimo 
 non nullo \(\epsilon\), calcoliamo la sua parte standard.
-\[
- \pst{RD}=\pst{\frac{\epsilon^2}{4}}=0.
-\]
-Il risultato è sempre lo stesso \(\forall \epsilon \ne 0\), abbiamo perciò la 
-conferma: la pendenza è uguale a zero per \(x=2\).
+\[pendenza(f,~2) = f'(2) = \pst{RD}=\pst{\frac{\epsilon^2}{4}}=0\]
+Il risultato è sempre lo stesso \(\forall \epsilon \ne 0\), abbiamo 
+perciò la conferma: la pendenza è uguale a zero per \(x=2\).
 \end{esempio}
 
 \subsubsection{Controesempi}
 \label{subsubsec:controesempi}
 Cerchiamo la pendenza \(f'(0)\) per la funzione \(f(x)=\sqrt[3]{x^2}\). Da 
-notare che \(f(0)\) c’è e vale \(0\).\\
+notare che \(f(0)\) c’è e vale \(0\).
+% TODO Grafico della funzione.
 \begin{align*}
-&f(x)=\sqrt[3]{x^2}\ \quad x_0=0.
+&f(x)=\sqrt[3]{x^2}\ \quad x_0=0
 &RD=\frac{\sqrt[3]{(0+\epsilon)^2}-\sqrt[3]{0^2}}{\epsilon}=
- \frac{\sqrt[3]{(\epsilon)^2}}{\epsilon}=\frac{1}{\sqrt[3]{\epsilon}}.
+ \frac{\sqrt[3]{(\epsilon)^2}}{\epsilon}=
+ \frac{\cancel{\tonda{\sqrt[3]{\epsilon}}^2}}
+ {\tonda{\sqrt[3]{\epsilon}}^{\cancel{3}}}=
+ \frac{1}{\sqrt[3]{\epsilon}}
 \end{align*}
-
-\(f'(0)\) non c'è. Infatti qualsiasi sia l'infinitesimo non nullo \(\epsilon\), 
-\(frac{1}{\sqrt[3]{\epsilon}}\) è un iperreale infinito e non esiste la parte
-standard  di un numero infinito.\\
-\vspace{3mm}
-Ciò è sufficiente per concludere che \(f\) non ha pendenza in \(0\).
+Qualsiasi sia l'infinitesimo \(\epsilon \neq 0\), \(RD\) è un numero
+infinito, non ha dunque parte standard perciò la funzione \(f\) non ha 
+pendenza in \(0\).
+% \(f'(0)\) non c'è. Infatti qualsiasi sia l'infinitesimo 
+% \(\epsilon \neq 0\), 
+% \(\dfrac{1}{\sqrt[3]{\epsilon}}\) è un iperreale infinito e 
+% non esiste la parte standard  di un numero infinito.
+% Quindi la funzione \(f\) non ha pendenza in \(0\).
 
 Anche nel prossimo esempio la pendenza non esiste, anche se la ragione è 
 diversa.
@@ -443,59 +545,96 @@ diversa.
  \begin{minipage}[]{.39 \textwidth}
  \begin{center}
 \begin{inaccessibleblock}
-  [Derivata |x|]
+  [Grafico della funzione valore assoluto di x]
   \derivamodulouno
 \end{inaccessibleblock}
 \end{center}
  \end{minipage} 
  \hfill
  \begin{minipage}[]{.59 \textwidth}
-  Funzione: \(f(x)=|x|=\begin{cases}
-   x\quad &\mbox{per }x\ge 0\\
-  -x\quad &\mbox{ per }x<0
-  \end{cases}\)\\
-  Differenziale per \(x=0\):\\ 
-\(df(0)=f(0+dx)-f(0)=0+dx-0=dx\);\\
-  Rapporto Differenziale:\\ 
-\(\dfrac{df(0)}{\epsilon}=\dfrac{dx}{\epsilon}=
+Funzione: 
+\(f(x)=|x|=\begin{cases}
+  -x\quad &\mbox{ per }x<0\\
+  +x\quad &\mbox{ per }x\ge 0
+\end{cases}\)
+
+\vspace{.5em}
+Differenziale per \(x=0\):
+
+\vspace{.5em}
+\(df(0) = \abs{0+\epsilon} - \abs{0} = \abs{\epsilon}\);
+
+\vspace{.5em}
+Rapporto Differenziale:
+
+\vspace{.5em}
+\(\dfrac{df(0)}{\epsilon}=\dfrac{\abs{\epsilon}}{\epsilon}=
   \begin{cases}
-  1\quad &\mbox{per }x\ge 0\\
- -1\quad &\mbox{ per }x<0
- \end{cases}\)\\
+ -1\quad &\mbox{ per } \epsilon < 0\\
+ +1\quad &\mbox{ per } \epsilon > 0
+ \end{cases}\)
 \end{minipage}
 \label{}
 % \end{figure} 
 
-Si tratta di due semirette che si uniscono nell'origine. Hanno pendenza \(m=1\) 
-per \(x\ge 0\) e \(m=-1\) per \(x<0\). Quale è la pendenza giusta per
+Il grafico di \(f(x) = \abs{x}\) è formato da due semirette che si uniscono 
+nell'origine. 
+Per \(x < 0\) la semiretta ha coefficiente angolare \(m = -1\) 
+per \(x > 0\) la semiretta ha coefficiente angolare \(m = +1\). 
+Quale è la pendenza giusta per
 \(x=0\), nel punto cioè dove il grafico cambia pendenza all'improvviso?\\
 Nella monade di \(x=0\) gli infinitesimi \(\epsilon\) positivi causano una 
 variazione infinitesima positiva sull'asse \(y\) e lo stesso avviene per 
 gli \(\epsilon\) negativi. 
-Perciò per \(x=0\) la parte standard del Rapporto Differenziale non è la stessa 
-per qualsiasi \(\epsilon\ne 0\) e la pendenza non si può calcolare.
+Perciò a seconda del segno di \(\epsilon\), la parte standard del Rapporto 
+Differenziale può essere \(-1\) o \(+1\) e dato che non è la stessa 
+per qualsiasi \(\epsilon \ne 0\) la pendenza di questa funzione in \(0\) 
+non è definita.
 \end{esempio}
 
 I due esempi chiariscono perché nella definizione di pendenza si debba 
 specificare: 
 ``...\textit{purché essa esista e sia la stessa} \(\forall \epsilon\ne 0\)''.
 
+\bigskip
+Nell'ultimo esempio la funzione presenta un cambio improvviso di pendenza:
+Immediatamente a sinistra di \(x_0\) la funzione ha una pendenza diversa 
+da quella che ha immediatamente a destra. 
+Diremo che la funzione ha un \emph{punto angoloso} in \(x_0\).
+
+% L'ultimo esempio visto ci presenta il caso di una funzione con un 
+% \emph{punto angoloso} un punto nel quale la funzione ha una pendenza a 
+% sinistra diversa dalla pendenza che ha a destra.
+
+\begin{definizione}
+Diremo che una funzione ha un punto angoloso se: 
+\begin{itemize} [nosep]
+\item 
+la parte standard del \(RD\) calcolato con 
+\(\epsilon < 0\) esiste ed è sempre la stessa,
+\item 
+la parte standard del \(RD\) calcolato con 
+\(\epsilon > 0\) esiste ed è sempre la stessa,
+\end{itemize}
+e queste due parti standard sono diverse.
+\end{definizione}
 
 \subsubsection{In conclusione:} 
 \label{subsubsec:ricetta_pendenza}
 \begin{itemize}
- \item La pendenza è un numero reale che consente di capire con quale velocità 
-variano i dati di un fenomeno in un certo momento oppure quanto sia inclinato 
-il grafico di una funzione in un certo punto.
+ \item La pendenza è un numero reale che consente di capire con quale 
+velocità variano i dati di un fenomeno in un certo momento oppure quanto sia 
+inclinato il grafico di una funzione in un certo punto.
 
 \begin{enumerate}
 \item La pendenza si calcola nell'insieme \(\IR\);
- \item si considerano infinitesimi diversi da zero;
- \item si scrive e si calcola il Rapporto Differenziale;
- \item se ne calcola la parte standard, se esiste;
- \item si controlla se la parte standard ha sempre lo stesso risultato per 
-qualsiasi variazione infinitesima, ma diversa da zero, della variabile \(x\);
- \item se si supera il punto precedente, si ottiene il risultato che è un 
+\item si considerano infinitesimi diversi da zero;
+\item si scrive e si calcola il Rapporto Differenziale;
+\item se ne calcola la parte standard, se esiste;
+\item si controlla se la parte standard ha sempre lo stesso risultato per 
+qualsiasi variazione infinitesima, ma diversa da zero, della variabile 
+\(x\);
+\item se si supera il punto precedente, si ottiene il risultato che è un 
 numero reale.
 \end{enumerate}
 \end{itemize}
@@ -514,6 +653,9 @@ discusso più avanti.
  \end{itemize}
 
 \end{osservazione}
+
+
+\begin{comment}
 
 \subsubsection{Brevi note di storia}
 Il calcolo appena descritto fu inventato nel 1600 (Calcolo infinitesimale, o 

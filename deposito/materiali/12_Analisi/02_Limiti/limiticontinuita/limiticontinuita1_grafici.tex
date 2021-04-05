@@ -1010,16 +1010,21 @@
   \def \nlati{#2}
   \pgfmathparse{\ra / cos(deg(pi / \nlati))} \let\rb\pgfmathresult
   \pgfmathparse{360. / \nlati} \let\ang\pgfmathresult
+  \pgfmathparse{\ang / 2} \let\sang\pgfmathresult
   \draw [thick, orange!50!black] circle(\ra);
-%   \draw (0:\ra) \foreach \x in {60,120,...,359} {-- (\x:\ra)} -- cycle;
   \draw [thick, blue!50!black] 
-    (0:\ra) \foreach \x in {1,...,\nlati} {-- (\x*\ang:\ra)} -- cycle;
+    (\sang:\ra) 
+    \foreach \x in {1,...,\nlati} {-- (\x*\ang+\sang:\ra)} -- cycle;
   \draw [thick, green!50!black] 
-    (0:\rb) \foreach \x in {1,...,\nlati} {-- (\x*\ang:\rb)} -- cycle;
+    (\sang:\rb) 
+    \foreach \x in {1,...,\nlati} {-- (\x*\ang+\sang:\rb)} -- cycle;
+  \draw (0, 0) -- (0:\ra) (0, 0) -- (\sang:\rb);
+  \draw (\ra*.2, 0) arc(0:\ang/2:\ra*.2);
+  \node at (\sang/2:\ra*.2) [right] {\footnotesize \(x\)};
 }
 
 \newcommand{\agnesia}{% 
-  % Approsimazioni di pigreco esagono e dodecagono.
+  % Riproduzione disegno Agnesi (atti VII p. 106).
   \def \ra{7}
   \def \ang{25}
   \def \rang{2}
@@ -1071,12 +1076,14 @@
 \newcommand{\agnesib}{% 
   \def \ra{1}
   \disegno[20]{
-    \rcom{-0.8}{+0.9}{0}{+1.0}{gray!50, very thin, step=1}
+    \rcom{-0.8}{+1}{0}{+1.0}{gray!50, very thin, step=1}
     \draw [brown!50!black, ultra thick] (\ra, 0) arc(0:180:\ra);
-    \draw (0, 0) node [below left] {\(A\)}
-          (+\ra, 0) node [below] {\(B \sim C\)};
+    \draw (0, 0) node [below left] {\(A\)};
+    \draw [-{Latex[length=2mm, width=1mm]}, black] (+.6, -.4)
+          node[below] {\footnotesize \(B \sim C \sim D\)} 
+          .. controls (+.6, -.2) and (1, -.3) .. (1, 0); 
     \frecciax{(.4, -.2)}{(.2, 0)}{\delta}
-    \draw [brown!50!black, ultra thick] (0, 0) -- (1.30, 0);
+    \draw [brown!50!black, ultra thick] (0, 0) -- (1.42, 0);
     \microscopio{(0, 0)}{.3}{120}{320}{.5}{(-.85, 1.1)}{~}
     \limmicx{-0.12}{-0.5}{-0.05}{-0.95}{.3}{.7}{1.08}{}
     \draw [-{Latex[length=2mm, width=1mm]}, black] (-.7, -.2) node[below]
