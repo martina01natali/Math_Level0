@@ -626,41 +626,37 @@ e queste due parti standard sono diverse.
 \end{definizione}
 
 \subsubsection{In conclusione:} 
-\label{subsubsec:ricetta_pendenza}
-\begin{itemize}
- \item La pendenza è un numero reale che consente di capire con quale 
+La pendenza è un numero reale che consente di capire con quale 
 velocità variano i dati di un fenomeno in un certo momento oppure quanto sia 
 inclinato il grafico di una funzione in un certo punto.
+Chiamiamo \(f'(x_0)\) la pendenza della funzione \(f\) nel punto \(x_0\).
 
+\begin{procedura}
+\label{proc:ricetta_pendenza}
+Per calcolare la pendenza di una funzione \(f\) nel punto \(x_0\):
 \begin{enumerate}
-\item La pendenza si calcola nell'insieme \(\IR\);
-\item si considerano infinitesimi diversi da zero;
-\item si scrive e si calcola il Rapporto Differenziale (\(RD\));
+\item si calcola il Rapporto Differenziale:
+\(RD(f,~x_0,~\epsilon)= \dfrac{f(x_0+\epsilon) -f(x_0)}{\epsilon}\);
 \item se esiste e è finito se ne calcola la parte standard;
-\item si controlla se la parte standard ha sempre lo stesso valore per 
-qualsiasi variazione infinitesima diversa da zero, della variabile \(x\);
-\item se si supera il punto precedente, il numero reale ottenuto è la 
-pendenza.
+\item se la parte standard non dipende dall'infinitesimo 
+\(\epsilon \neq 0\), la pendenza della funzione \(f\) in \(x_0\) è:
+\(f'(x_0) = \pst{RD(f,~x_0,~\epsilon)}\).
 \end{enumerate}
-\end{itemize}
+\end{procedura}
 \begin{osservazione}
-Ai punti 4 e 5 dell'elenco si indicano alcuni controlli importanti.
+Ai punti 2 e 3 dell'elenco si indicano alcuni controlli importanti.
 Vediamone i motivi.
  \begin{itemize}
-  \item [4:] Può non esistere la parte standard del Rapporto 
+  \item [2:] Può non esistere la parte standard del Rapporto 
 Differenziale? Sì, perché si tratta di un rapporto fra due infinitesimi 
 e non è detto che risulti un numero finito. La parte standard si può 
 calcolare solo se l'argomento è un numero finito.
-\item [5:] La parte standard può dare risultati diversi a seconda 
+\item [3:] La parte standard può dare risultati diversi a seconda 
 dell'infinitesimo che si usa? Sì, per esempio può cambiare di segno, come 
 accade quando si cerca la pendenza di \(f(x)=|x|\) in \(x_0=0\). 
 Vedi esempio \ref{esempio:diff01_derimodulo}.
  \end{itemize}
-
 \end{osservazione}
-
-
-\begin{comment}
 
 \subsubsection{Brevi note di storia}
 Il calcolo appena descritto fu inventato nel 1600 (Calcolo infinitesimale, o 
@@ -673,9 +669,9 @@ Ma suscitava vivaci polemiche fra gli specialisti, perché non si era
 in grado di spiegare la regola che permetteva di far sparire gli 
 infinitesimi al termine dei calcoli, che per noi è il punto 4 dell'elenco.
 
-A quel tempo non si conosceva la teoria degli insiemi numerici, gli iperreali e 
-la funzione parte standard.
-Oggi i matematici conoscono meglio la materia e quelle critiche  
+A quel tempo non si conosceva la teoria degli insiemi numerici, 
+gli iperreali e la funzione parte standard.
+Oggi i matematici conoscono meglio la materia e quelle critiche 
 sono superate. 
 Siamo quindi in grado di procedere nello studio di questa nuova branca 
 della matematica, che si chiama \emph{Analisi infinitesimale}.
@@ -686,58 +682,79 @@ della matematica, che si chiama \emph{Analisi infinitesimale}.
 Nel grafico di \(f\), le diverse pendenze della curva di solito si colgono a 
 vista. Ma si possono anche disegnare? Se fosse possibile esprimerle con un 
 disegno sarebbe molto più facile confrontarle e interpretarle.\\
-Per provare a rispondere, ricordiamo il grafico \ref{graf:temperature}: lì gli 
-incrementi delle temperature, ora per ora, si riflettono nella diversa 
-inclinazione dei segmenti, che siamo abituati a calcolare con la nota formula 
-del coefficiente angolare.  
+Per provare a rispondere, ricordiamo il grafico \ref{graf:temperaturea}: 
+lì gli incrementi delle temperature, ora per ora, si riflettono nella 
+diversa inclinazione dei segmenti, che siamo abituati a calcolare con la 
+nota formula del coefficiente angolare. 
 È facile vedere che le stesse pendenze si calcolano anche con le 
-regole dell'elenco in \ref{subsubsec:ricetta_pendenza}. 
+regole della procedura \ref{proc:ricetta_pendenza}. 
 Dimostriamolo. 
 
-Consideriamo una retta generica, non verticale: \(y=mx+q\) e un suo generico 
-punto di ascissa \(x_0\).
+Consideriamo una retta generica, non verticale: \(y=mx+q\) 
+dove \(m\) e \(q\) sono numeri reali 
+e un suo generico punto di ascissa \(x_0\).
 \begin{teorema}
 \label{teo:pendenza_retta}
   Per le funzioni lineari la pendenza è il coefficiente angolare.
 \end{teorema}
 \noindent Ipotesi: \(f(x)=mx+q\) \tab Tesi: \(\text{pendenza }=m\)
-\begin{proof}
+% \begin{proof}
+% Per qualsiasi \(\epsilon\ne 0\):
+% \begin{align*}
+% RD &=\dfrac{df(x_0)}{\epsilon} =\dfrac{f(x_0+\epsilon)-f(x_0)}{\epsilon}=\\
+%                &=\dfrac{m(x_0+\epsilon)+q-\tonda{mx_0+q}}{\epsilon}=
+%                  \dfrac{mx_0-m\epsilon+q-mx_0-q}{\epsilon}=
+%                  \dfrac{m\epsilon}{\epsilon}=m\\
+% \pst{RD}&= \pst{m}=m.
+% \end{align*}
+% \end{proof}
+\emph{Dimostrazione}
 Per qualsiasi \(\epsilon\ne 0\):
 \begin{align*}
 RD &=\dfrac{df(x_0)}{\epsilon} =\dfrac{f(x_0+\epsilon)-f(x_0)}{\epsilon}=\\
                &=\dfrac{m(x_0+\epsilon)+q-\tonda{mx_0+q}}{\epsilon}=
                  \dfrac{mx_0-m\epsilon+q-mx_0-q}{\epsilon}=
-                 \dfrac{m\epsilon}{\epsilon}=m.\\
-\pst{RD}&= \pst{m}=m.
+                 \dfrac{m\epsilon}{\epsilon}=m
 \end{align*}
-\end{proof}
-L'ultimo passaggio è corretto perché il Rapporto Differenziale è un numero 
-finito e perché la parte standard non cambia al variare di \(\epsilon\), 
-infinitesimo non nullo.
+Dato che \(RD\) è un numero finito:\\
+\(pendenza = \pst{RD}= \pst{m}=m 
+\quad \text{poiché il risultato non dipende da } \epsilon
+\hfill \qed\)
 
-Poiché nel risultato non compare \(x_0\), anche in questo caso \(df(x)\) non 
-dipende dal punto \(x_0\), cioè vale \(\forall x\): la pendenza di una retta è 
-un valore costante.
+% L'ultimo passaggio è corretto perché il Rapporto Differenziale è un numero 
+% finito e perché la parte standard non cambia al variare di \(\epsilon\), 
+% infinitesimo non nullo.
+\vspace{1em}
+Poiché nel risultato non compare \(x_0\), 
+% anche in questo caso \(df(x)\) non dipende dal punto \(x_0\), 
+cioè vale \(\forall x\): la pendenza di una retta è un valore costante.
 
-Si tratta di un risultato molto utile per individuare le pendenze nei 
-nostri grafici. 
+% Si tratta di un risultato molto utile per individuare le pendenze nei 
+% nostri grafici. 
 
 Per visualizzare la pendenza di una curva in un suo punto 
-possiamo disegnare la retta che passa per quel punto e che ha per coefficiente 
-angolare proprio quella pendenza, come nell'esempio che segue.
+possiamo disegnare la retta che passa per quel punto e che ha per 
+coefficiente angolare proprio quella pendenza, cioè la sua tangente.
+% come nell'esempio che segue.
+
+\begin{definizione}
+Chiamiamo \emph{tangente} ad una funzione \(f\) in un punto \(P\) la retta 
+passante per \(P\) che ha per coefficiente angolare la pendenza della 
+funzione in quel punto.
+\end{definizione}
+
 
 \begin{esempio}
-Calcola la pendenza della parabola:
+Visualizza la pendenza della parabola:
 \(f(x) = -\dfrac{1}{4}x^2+2x +1\) \quad nel suo punto di ascissa:~\(x_P=8\).
+
 Prendiamo sulla curva un punto \(P'\), diverso da \(P\) a 
-distanza infinitesima da \(P\) diversa da zero.
+distanza infinitesima da \(P\).
 
-L'ascissa di \(P'\) sarà \(x_{P'}=8+\delta\). 
-Con \(\delta\) infinitesimo e diverso da zero.
-
-I nostri due punti sono:
+L'ascissa di \(P'\) sarà \(x_{P'}=8+\delta\), 
+con \(\delta\) infinitesimo e diverso da zero.
+I nostri due punti sono quindi:
 \(P\punto{8}{f(8)}\) e \(P'\punto{8+\delta}{f(8+\delta})\).
-
 Per poter distinguere i due punti dovrò usare un microscopio con un 
 opportuno ingrandimento infinito.
 
@@ -751,7 +768,7 @@ f(8) &= -\frac{1}{4}8^2 + 2 \cdot 8 + 1 = -16+16+1 = +1\\
 f(8+\delta) &= -\frac{1}{4}\tonda{8+\delta}^2 + 2 \tonda{8+\delta} + 1 = \\
 &= -\frac{1}{4}\tonda{64+16\delta+\delta^2} + 16 + 2\delta + 1 =\\
 &= -16-4\delta-\frac{\delta^2}{4} + 16 + 2\delta + 1 =
-+1 - 2\delta -\frac{\delta^2}{4}.
++1 - 2\delta -\frac{\delta^2}{4}
 \end{align*}
 }
 
@@ -762,7 +779,6 @@ Quindi i due punti sono:
 \affiancati{.58}{.40}{
 Ora possiamo calcolare la pendenza per questi due punti:
 \begin{align*}
-% m &= \frac{f(x + \delta) - f(x)}{x + \delta - x}=
 RD &= \frac{y_{P'} - y_{P}}{x_{P'} - x_{P}}=
 \frac{\cancel{+1} - 2\delta -\dfrac{\delta^2}{4}~ \cancel{-1}}
      {8 + \delta - 8}= \\
@@ -773,48 +789,66 @@ RD &= \frac{y_{P'} - y_{P}}{x_{P'} - x_{P}}=
 }{
 \parabolaetangenteb
 }
-\(-2-\dfrac{\delta}{4}\) è il Rapporto Differenziale della curva, calcolato nel 
-tratto infinitesimo fra i punti \(P\) e \(P'\). Trattandosi di due punti 
-sostanzialmente coincidenti, il tratto di curva \(PP'\) è sostanzialmente un 
-segmento, che ha il coefficiente angolare espresso dal Rapporto Differenziale. 
-Un metodo efficace per visualizzare la pendenza è proprio quello di disegnare 
-la retta per \(PP'\). 
-
-Quante sono le rette che passano per \(PP'\)?\\
-Sono infinite, perché il loro coefficiente angolare è \(-2-\dfrac{\delta}{4}\), 
-che rappresenta infiniti numeri indistinguibili, sostanzialmente 
-uguali a \(-2\). 
-
-Isoliamo una di queste rette, in modo che il suo disegno le rappresenti tutte. 
-Per fare ciò, calcoliamo \(\pst{-2-\dfrac{\delta}{4}}\).
-Possiamo farlo, dato che \(-2-\dfrac{\delta}{4}\) è un iperreale finito:
-\[
-\pst{RD}=\pst{-2-\dfrac{\delta}{4}} = \pst{-2}-\pst{\dfrac{\delta}{4}} =
-  -2 - 0 = -2.
-\]
-Il risultato non dipende dal valore dell'infinitesimo \(\delta\), così 
-possiamo concludere che la pendenza che cerchiamo è sostanzialmente \(-2\), sia 
-per il tratto di curva, sia per la retta che passa per gli stessi 
-punti.
-
-Nel piano cartesiano reale, cioè con numeri reali, \(P\) e \(P'\) coincidono, 
-perciò \(-2\) è la pendenza della retta tangente.
+Il Rapporto Differenziale della curva, vicino al punto \(P\)
+è \(-2-\dfrac{\delta}{4}\) 
+e dipende dal valore dell'infinitesimo \(\delta\).
+Quindi questo \(RD\) rappresenta infinite pendenze.
+Ma se trasformiamo ognuna di queste pendenze in un numero reale,
+usando la funzione \emph{parte standard} otteniamo sempre:
+% \(\pst{-2-\dfrac{\delta}{4}} = -2\).
+\[\pst{RD}=\pst{-2-\dfrac{\delta}{4}} = 
+  \pst{-2}-\pst{\dfrac{\delta}{4}} = -2 - 0 = -2\]
+Dato che questo valore non dipende dall'infinitesimo scelto, è proprio la 
+pendenza della funzione \(f\) nel punto di ascissa \(8\) e possiamo 
+rappresentare la pendenza disegnando una retta che passa per il punto 
+\(P\) che ha coefficiente angolare uguale alla pendenza, 
+cioè la sua tangente in \(P\).
+% \(-2-\dfrac{\delta}{4}\) è il Rapporto Differenziale della curva, 
+% calcolato nel tratto infinitesimo fra i punti \(P\) e \(P'\). 
+% Trattandosi di due punti sostanzialmente coincidenti, 
+% il tratto di curva \(PP'\) è sostanzialmente un segmento, che ha il 
+% coefficiente angolare espresso dal Rapporto Differenziale. 
+% Un metodo efficace per visualizzare la pendenza è proprio quello di 
+% disegnare 
+% la retta per \(PP'\). 
+% 
+% Quante sono le rette che passano per \(PP'\)?\\
+% Sono infinite, perché il loro coefficiente angolare è 
+% \(-2-\dfrac{\delta}{4}\), 
+% che rappresenta infiniti numeri indistinguibili, sostanzialmente 
+% uguali a \(-2\). 
+% 
+% Isoliamo una di queste rette, in modo che il suo disegno le rappresenti 
+% tutte. 
+% Per fare ciò, calcoliamo \(\pst{-2-\dfrac{\delta}{4}}\).
+% Possiamo farlo, dato che \(-2-\dfrac{\delta}{4}\) è un iperreale finito:
+% \[
+% \pst{RD}=\pst{-2-\dfrac{\delta}{4}} = \pst{-2}-\pst{\dfrac{\delta}{4}} =
+%   -2 - 0 = -2.
+% \]
+% Il risultato non dipende dal valore dell'infinitesimo \(\delta\), così 
+% possiamo concludere che la pendenza che cerchiamo è sostanzialmente 
+% \(-2\), sia per il tratto di curva, sia per la retta che passa per gli 
+% stessi punti.
+% 
+% Nel piano cartesiano reale, cioè con numeri reali, \(P\) e \(P'\) 
+% coincidono, perciò \(-2\) è la pendenza della retta tangente.
 \end{esempio}
 
-In conclusione, ora abbiamo un metodo per calcolare la pendenza di una curva in 
-un suo punto ed anche un modo di mostrarla nel piano cartesiano: con il 
-disegno della tangente alla curva in quel punto. 
-
-
+In conclusione, ora abbiamo un metodo per calcolare la pendenza di una 
+curva in un suo punto ed anche un modo di mostrarla nel piano cartesiano: 
+con il disegno della tangente alla curva in quel punto. 
 
 \subsection{Derivata di una funzione}
 \label{subsec:differenziazione_derivatafunzione}
-Abbiamo visto che \(RD=RD(f, x_0, \epsilon)\). 
-
-Negli esempi precedenti la funzione \(f\) era stata scelta. Se \(f\) è fissata, 
-allora \(RD=RD(x_0,\epsilon)\). Se poi se la pendenza esiste, quindi dopo avere 
-applicato la parte standard, gli infinitesimi spariscono e quindi la 
-pendenza dipende solo da \(x_0\).
+Abbiamo visto che il Rapporto Differenziale dipende da \(3\) parametri:
+\(RD(f,~x_0,~\epsilon)\). 
+Se nel problema che stiamo risolvendo \(f\) è fissata, allora il Rapporto 
+Differenziale dipende solo da \(x_0\) e da \(\epsilon)\). 
+Se poi siamo interessati alla pendenza della funzione \(f\), 
+e questa esiste, non dipende dalla particolare scelta dell'infinitesimo 
+quindi la pendenza della funzione, se esiste, dipende solo dal punto preso 
+in considerazione: \(x_0\).
 
 Quindi, per ogni funzione \(f\), si può considerare una ulteriore funzione:  
 ``pendenza di \(f\)''. \\
@@ -827,14 +861,14 @@ e viene indicata con \(f'\).
 
 \begin{definizione}
 Chiamiamo \emph{derivata} della funzione \(f\) la funzione \(f'\) che
-ha come argomento \(x\) e calcola la pendenza della funzione \(f(x)\) per ogni 
-valore di \(x\).
+ha come argomento \(x\) e come risultato la pendenza della funzione 
+\(f\) nel punto di ascissa \(x\).
 \end{definizione}
 
 \(f'\) quindi ci dà la formula per calcolare le pendenze 
-di \(f\). Questa formula, ovviamente diversa da funzione a funzione, si applica
-all'espressione di \(f\) secondo il procedimento in 
-\ref{subsubsec:ricetta_pendenza}, come negli esempi.
+di \(f\). Questa formula, ovviamente diversa da funzione a funzione, 
+si applica all'espressione di \(f\) secondo il procedimento in 
+\ref{proc:ricetta_pendenza}, come negli esempi.
 
 \begin{esempio}
 \label{esempio:esempio_5}
@@ -845,8 +879,9 @@ qualcuno. Per esempio, per \(x_0=4\) scriviamo:
 \begin{align*}
  &\forall \delta\ne 0:\quad x_0= 4\quad\quad 
 f(x_0)=f(4)=\frac{1}{3}(4)^2-2\cdot 4+5 = \dfrac{7}{3}\\
-&\pst{\dfrac{f(x_0+\delta)+f(x_0)}{\delta}}=\dfrac{\dfrac{1}{3}(4+\delta)^2-2(4+
-\delta) + 5 - (\dfrac{1}{3}4^2-2\cdot 4+5)}{\delta}=\dots
+&\pst{\dfrac{f(x_0+\delta)+f(x_0)}{\delta}}=
+\dfrac{\dfrac{1}{3}(4+\delta)^2-2(4+\delta) + 5 - 
+(\dfrac{1}{3}4^2-2\cdot 4+5)}{\delta}=\dots
 \end{align*}
 Al termine di alcuni tentativi, il quadro della situazione è:
 
@@ -863,26 +898,55 @@ Al termine di alcuni tentativi, il quadro della situazione è:
 \(4\)  & \(7/3\)  &\dots \\
 \(5\)  & \(10/3\) \\
 \(6\)  & \dots   \\
-\(\dots\)  \\
- \\
-\\ \bottomrule
+\(\dots\)  
 \end{tabular}
-\label{tab:temperaturea}
+\label{tab:derivataa}
 \end{center}
 \end{minipage}
  \hfill
 \begin{minipage}{.48 \textwidth}
 \begin{inaccessibleblock}[Grafico di una funzione e della sua derivata.]
-\begin{center} \scalebox{1}{\funzioneederivata} \end{center}
+\begin{center} \scalebox{.7}{\funzioneederivata} \end{center}
 \end{inaccessibleblock}
 \label{graf:funzioneederivata}
 \end{minipage}
 \end{esempio}
 Per ogni particolare \(x_0\) risulta uno e un solo valore di pendenza, come 
 deve succedere quando due insiemi (quello degli \(x_0\) e quello di 
-\(f'(x_0)\)) si corrispondono secondo una funzione. In 
-questo caso i valori della pendenza si allineano lungo la retta 
-\(y=\dfrac{2}{3}x-2\).
+\(f'(x_0)\)) si corrispondono secondo una funzione. 
+In questo caso i valori della pendenza si allineano lungo una retta.
+
+Calcoliamo la pendenza della funzione in un generico punto \(x\).
+Iniziamo calcolando il Rapporto Differenziale:
+\begin{align*}RD = \dfrac{f(x + \epsilon) - f(x)}{\epsilon} &=
+  \dfrac{\dfrac{1}{3}(x+\epsilon)^2-2(x+\epsilon) + 5 - 
+          (\dfrac{1}{3}x^2-2\cdot x+5)}
+        {\epsilon} = \\
+&= \dfrac{\cancel{\dfrac{1}{3}x^2}+\dfrac{2}{3} \epsilon x 
+          +\dfrac{1}{3}\epsilon^2~\cancel{-2x}-2\epsilon~\cancel{+5} - 
+          \cancel{\dfrac{1}{3}x^2}~\cancel{+2x}~\cancel{-5}}
+         {\epsilon}=\\
+&= \dfrac{+\dfrac{2}{3} \epsilon x 
+          +\dfrac{1}{3}\epsilon^2-2\epsilon}
+         {\epsilon}=
+= \dfrac{\cancel{\epsilon} \tonda{+\dfrac{2}{3}x -2+\dfrac{1}{3}\epsilon}}
+        {\cancel{\epsilon}}=
+\dfrac{2}{3}x-2+\dfrac{1}{3}\epsilon
+\end{align*}
+Abbiamo ottenuto una funzione che rappresenta senz'altro un numero finito 
+dato che è la somma algebrica di 3 numeri finiti.
+Possiamo dunque calcolarne la parte standard:
+\[\pst{\dfrac{2}{3}x-2+\dfrac{1}{3}\epsilon}=
+  \pst{\dfrac{2}{3}x}-\pst{2}+\pst{\dfrac{1}{3}\epsilon}=
+  \dfrac{2}{3}x-2\]
+Il valore ottenuto è indipendente dall'infinitesimo \(\epsilon \neq 0\) 
+e quindi rappresenta la pendenza di \(f\) in funzione di \(x\):
+\[f(x) = \dfrac{1}{3}x^2-2x+5 \sRarrow f'(x) = \dfrac{2}{3}x-2\]
+
+\begin{definizione}
+Indichiamo con il termine \emph{derivata} la funzione che, al variare di 
+\(x\) rappresenta la corrispondente pendenza della funzione \(f\).
+\end{definizione}
 
 
 \subsubsection{Nomi per la derivata}
@@ -893,9 +957,13 @@ Se ne potrà intuire la ragione in un capitolo successivo, quando parleremo
 anche di funzioni primitive.\\
 Sempre per ragioni storiche, si sono diffusi vari simboli che rappresentano 
 l'operazione di derivazione:
+
+Sostituirei questo elenco con la tabella seguente.
+
 \begin{enumerate}[noitemsep]
- \item \(f'(x_0)\) è il simbolo per il risultato della derivazione di \(f\) 
- per \(x= x_0\): è la pendenza della curva in \(x_0\);
+ \item \(f'(x_0)\) indica la pendenza della funzione \(f\) in \(x_0\);
+ \item \(f'(x)\) è il simbolo per il risultato della derivazione di \(f\) 
+ per \(x= x_0\): è la pendenza della funzione \(f\) in \(x_0\);
  \item \(\mathit{D}\quadra{f(x)}\) indica la formula della derivazione di 
 \(f\),  per es. \(\mathit{D}\quadra{5x\sqrt[3]{x^2}}=5\sqrt[3]{x^2}+\dfrac{10x}
  {3\sqrt[3]{x}}\);
@@ -908,17 +976,34 @@ esiste, quest'uguaglianza si può accettare, trattandosi di quantità
 indistinguibili. 
 \end{enumerate}
 
+\begin{center}
+\begin{tabular}{cc}
+% \toprule
+derivata di \(f(x)\) & pendenza di \(f\) in \(x_0\) \\
+\midrule
+\(f'(x)\) &  \(f'(x_0)\)\\[.3em]
+\(\mathit{D}\quadra{f(x)}\) & \(\mathit{D}\quadra{f(x_0)}\)\\[.3em]
+\(\dot{f}\) & \(\dot{f}(x_0)\)\\[.3em]
+\(\dfrac{d}{dx}f(x)\) & \(\dfrac{d}{dx}f(x_0)\) \\[1em]
+\(\dfrac{df(x)}{dx}\) & \(\dfrac{df(x_0)}{dx}\) \\[.5em]
+\bottomrule
+\end{tabular}
+\end{center}
 
 \section{Derivata di alcune funzioni semplici}
 \label{sec:differenziazione_derivatafsemplici}
-A questo punto andiamo alla ricerca di regole semplici che ci permettano di 
-calcolare \(f'\) senza ripetere procedimenti laboriosi, come 
-nell'esempio precedente che in realtà è un caso fra i meno complicati.
+A questo punto andiamo alla ricerca di regole semplici che ci permettano 
+di calcolare la derivata di una funzione senza ripetere procedimenti 
+laboriosi, come nell'esempio precedente che in realtà è un caso fra i 
+meno complicati.
 
-Deriveremo alcune funzioni molto comuni, cioè non cercheremo la pendenza di 
-queste funzioni per ogni particolare \(x_0\), ma troveremo una formula, 
-unica per ogni \(f\), che si applica per qualsiasi\(x\) del suo dominio 
-reale.
+Calcoleremo la derivata di alcune funzioni molto comuni, cioè cercheremo 
+la pendenza di queste funzioni non per un particolare \(x_0\), ma per ogni 
+valore \(x\) del suo insieme di definizione.
+
+
+\begin{comment}
+
 
 \subsection{Derivata della funzione identica}
 \label{subsec:differenziazione_derivatafidentica}
