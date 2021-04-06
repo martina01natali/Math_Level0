@@ -708,26 +708,24 @@ e un suo generico punto di ascissa \(x_0\).
 % \pst{RD}&= \pst{m}=m.
 % \end{align*}
 % \end{proof}
-\emph{Dimostrazione}
-Per qualsiasi \(\epsilon\ne 0\):
-\begin{align*}
-RD &=\dfrac{df(x_0)}{\epsilon} =\dfrac{f(x_0+\epsilon)-f(x_0)}{\epsilon}=\\
-               &=\dfrac{m(x_0+\epsilon)+q-\tonda{mx_0+q}}{\epsilon}=
-                 \dfrac{mx_0-m\epsilon+q-mx_0-q}{\epsilon}=
-                 \dfrac{m\epsilon}{\epsilon}=m
-\end{align*}
-Dato che \(RD\) è un numero finito:\\
-\(pendenza = \pst{RD}= \pst{m}=m 
-\quad \text{poiché il risultato non dipende da } \epsilon
-\hfill \qed\)
 
-% L'ultimo passaggio è corretto perché il Rapporto Differenziale è un numero 
-% finito e perché la parte standard non cambia al variare di \(\epsilon\), 
-% infinitesimo non nullo.
+\emph{Dimostrazione}
+% Per qualsiasi \(\epsilon \ne 0\):
+\begin{align*}
+RD &=\dfrac{df(x_0)}{\epsilon} =\dfrac{f(x_0+\epsilon)-f(x_0)}{\epsilon}=
+     \dfrac{m(x_0+\epsilon)+q-\tonda{mx_0+q}}{\epsilon}=\\
+   &= \dfrac{mx_0-m\epsilon+q-mx_0-q}{\epsilon}=
+    \dfrac{m\epsilon}{\epsilon}=m
+\end{align*}
+Dato che \(RD\) è un numero finito:
+\[pendenza = \pst{RD}= \pst{m}=m\]
+
+\vspace{-1em} \hspace{25mm} 
+poiché il valore della parte standard non dipende da \(\epsilon\) \qed
+
 \vspace{1em}
-Poiché nel risultato non compare \(x_0\), 
-% anche in questo caso \(df(x)\) non dipende dal punto \(x_0\), 
-cioè vale \(\forall x\): la pendenza di una retta è un valore costante.
+Poiché nel risultato non compare \(x_0\), il risultato ottenuto
+vale \(\forall x\): la pendenza di una retta è un valore costante.
 
 % Si tratta di un risultato molto utile per individuare le pendenze nei 
 % nostri grafici. 
@@ -949,7 +947,7 @@ Indichiamo con il termine \emph{derivata} la funzione che, al variare di
 \end{definizione}
 
 
-\subsubsection{Nomi per la derivata}
+\subsubsection{Simboli per la derivata}
 Il nome \emph{derivata} per indicare il calcolo che abbiamo descritto ha 
 origini storiche. Si è diffuso  ovunque (derivative, derivada, dérivée, 
 ...) anche se non rende pienamente il significato di ciò che rappresenta. 
@@ -1001,44 +999,45 @@ Calcoleremo la derivata di alcune funzioni molto comuni, cioè cercheremo
 la pendenza di queste funzioni non per un particolare \(x_0\), ma per ogni 
 valore \(x\) del suo insieme di definizione.
 
-
-\begin{comment}
-
-
 \subsection{Derivata della funzione identica}
 \label{subsec:differenziazione_derivatafidentica}
-\begin{esempio}
- Deriviamo la funzione più semplice: \(f(x)=x\).\\
- Innanzitutto dovremmo scrivere il differenziale della funzione \(df\), che 
-essendo \(f(x)=x\), risulta: 
-\(df(x)=f(x+\epsilon)-f(x)=x+\epsilon-x=\epsilon\). 
-\\
-In pratica, nella funzione identica il differenziale \(dx=\epsilon\).\\
-Perciò: RD \(=\dfrac{df(x)}{dx}=\dfrac{dx}{dx}=1, \quad  \forall dx \ne 0\);\\
-Poiché il risultato è un numero finito, la parte standard esiste. Inoltre il 
-suo valore non dipende dall'infinitesimo considerato:\\
-\(f'(x)=\pst{\dfrac{df(x)}{dx}}=\pst{1}=1\).\\
-\end{esempio}
-Abbiamo così dimostrato un semplice teorema:
 \begin{teorema}
- La derivata della funzione identica \(f(x)=x\) è 
-\(\mathit{D}\quadra{x}=1\).
+La derivata della funzione identica \(f(x)=x\) è \(1\):
+\[\mathit{D}\quadra{f(x)} = \mathit{D}\quadra{x} = 1\]
 \end{teorema}
+\emph{Dimostrazione}
+
+% Deriviamo la funzione identica: \(f(x)=x\).\\
+Innanzitutto dovremmo scrivere il differenziale della funzione e della 
+variabile \(x\): 
+\[df(x)=f(x+\epsilon)-f(x)=x+\epsilon-x=\epsilon \qquad 
+  dx = (x +\epsilon) -x = x +\epsilon -x = \epsilon\] 
+Perciò: 
+\[RD = \dfrac{df(x)}{dx}=\dfrac{\epsilon}{\epsilon}=1, \quad 
+\forall \epsilon \ne 0\]
+Poiché il risultato è un numero finito, la parte standard esiste e 
+poiché il suo valore non dipende dall'infinitesimo considerato:
+\[f'(x)=\pst{\dfrac{df(x)}{dx}}=\pst{1}=1\]
+
 \begin{osservazione}
- Non avendo specificato un particolare \(x_0\), il risultato vale per qualsiasi 
-\(x\).
+Non avendo specificato un particolare \(x_0\), il risultato vale per 
+qualsiasi \(x\).
 \end{osservazione}
 
-Dall'esempio precedente impariamo anche un dettaglio: al 
-posto di \(\epsilon\) si può scrivere il differenziale \(dx\). Questo ci dà 
-modo di ridefinire la derivata.
+Dato che \(dx = \epsilon\), nei prossimi esempi, invece che usare 
+l'infinitesimo \(\epsilon \neq 0\) useremo \(dx\) intendendo sempre un 
+infinitesimo diverso da zero.
+Utilizzando questa osservazione possiamo scrivere il 
+Rapporto Differenziale in questo modo: 
+\[RD = \dfrac{f(x +\epsilon) -f(x)}{(x +\epsilon) -x} = 
+       \dfrac{f(x +dx) -f(x)}{(x +dx) -x} = 
+       \dfrac{df(x)}{dx}\]
 \begin{definizione}
  La derivata di una funzione \(f\) è la parte standard del Rapporto 
 Differenziale, se questa esiste e se non cambia valore al variare 
-dell'infinitesimo \(dx\), preso diverso da zero.
-\[
- f'(x)=\pst{\frac{df(x)}{dx}}.
-\]
+dell'infinitesimo \(dx \neq 0\):
+\[f'(x) = \pst{\dfrac{f(x +dx) -f(x)}{x +dx -x}}=
+  \pst{\frac{df(x)}{dx}}\]
 \end{definizione}
 
 \subsection{Derivata della funzione costante}
@@ -1047,20 +1046,53 @@ Una funzione \(f(x)\) è costante se qualunque sia il valore di \(x\) il
 risultato è sempre lo stesso. Possiamo indicare questa funzione in diversi modi:
 \[f: x \mapsto k \quad \text{o} \quad f(x)=k \quad \text{o} \quad y = k.\]
 
-Il suo differenziale sarà:
-\[df(x_0)=f(x_0+\epsilon)-f(x_0)=k-k=0,\quad \forall \epsilon.\]
-Quindi, se la funzione è costante, il suo differenziale è nullo.
-Infatti, avendo sempre lo stesso valore per qualsiasi \(x\), la differenza 
-tra due suoi valori è zero. 
 \begin{teorema}
-  La derivata di una funzione costante è \(\mathit{D}\quadra{k}=0\):\quad 
-\(\mathit{D}\quadra{k}=0\).
+La derivata di una funzione costante \(f(x) = k\) è \(0\):
+\[\mathit{D}\quadra{k}=0\]
 \end{teorema}
-\noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f'(x)=0\).
+\emph{Dimostrazione}
+\[RD = \dfrac{df(x)}{dx} = \dfrac{f(x +\epsilon) -f(x)}{dx} =
+  \dfrac{k-k}{dx} = \dfrac{0}{dx} = 0\]
+Poiché il risultato è un numero finito, la parte standard esiste e 
+poiché il suo valore non dipende dall'infinitesimo considerato:
+\[f'(x) = \pst{\dfrac{df(x)}{dx}} = \pst{0} = 0\]
+% 
+% Il suo differenziale sarà:
+% \[df(x_0)=f(x_0+\epsilon)-f(x_0)=k-k=0,\quad \forall \epsilon.\]
+% Quindi, se la funzione è costante, il suo differenziale è nullo.
+% Infatti, avendo sempre lo stesso valore per qualsiasi \(x\), la differenza 
+% tra due suoi valori è zero. 
+% \noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f'(x)=0\).
+% \begin{proof}
+%  Infatti \(df(x)=0\).
+% \end{proof}
+
+\begin{comment}
+
+\subsection{Derivata della funzione }
+\label{subsec:differenziazione_}
+Una funzione lineare è :
+\[f: x \mapsto mx +q \quad \text{o} \quad   f(x)=mx +q \quad \text{o} \quad 
+  y = mx +q.\]
+\begin{teorema}
+  La derivata di una funzione lineare è 
+\end{teorema}
+\noindent Ipotesi: \tab Tesi: 
 \begin{proof}
- Infatti \(df(x)=0\).
+\begin{align*}
+RD &=\dfrac{df(x)}{dx} =\dfrac{f(x+dx)-f(x)}{dx}=\\
+               &=\dfrac{m(x+dx)+q-\tonda{mx+q}}{dx}=
+                 \dfrac{mx-mdx+q-mx-q}{dx}=
+                 \dfrac{mdx}{dx}=m
+\end{align*}
+Dato che \(RD\) è un numero finito:
+\[f'(x) = \pst{RD}= \pst{m}=m\]
+
+\vspace{-1em} \hspace{20mm} 
+poiché il valore della parte standard non dipende da \(dx\).
 \end{proof}
 
+\end{comment}
 
 \subsection{Derivata della funzione lineare}
 \label{subsec:differenziazione_derivataflineare}
@@ -1068,71 +1100,93 @@ Una funzione lineare è una funzione espressa da un polinomio di primo grado:
 \[f: x \mapsto mx +q \quad \text{o} \quad   f(x)=mx +q \quad \text{o} \quad 
   y = mx +q.\]
 \begin{teorema}
-  La derivata di una funzione lineare è il coefficiente angolare \(m\) della 
-retta che disegna il suo grafico.
-  %: \(\mathit{D}\quadra{k}=0\).
+La derivata di una funzione lineare è il suo coefficiente angolare \(m\):
+\[\mathit{D}\quadra{mx+q}=m\]
+%   La derivata di una funzione lineare è il coefficiente angolare \(m\) 
+% della retta che disegna il suo grafico.
 \end{teorema}
-\noindent Ipotesi: \(f(x)=mx+q\).\tab Tesi: \(f'(x)=m\).
+\noindent Ipotesi: \(f(x)=mx+q\)\tab Tesi: \(f'(x)=m\)
 \begin{proof}
- Per la dimostrazione, basta adattare il Teorema \ref{teo:pendenza_retta}, che 
-è pensato per un particolare \(x_0\), mentre qui consideriamo che \(x\) sia 
-qualsiasi.
-\end{proof}
+\begin{align*}
+RD &=\dfrac{df(x)}{dx} =\dfrac{f(x+dx)-f(x)}{dx}=\\
+               &=\dfrac{m(x+dx)+q-\tonda{mx+q}}{dx}=
+                 \dfrac{mx-mdx+q-mx-q}{dx}=
+                 \dfrac{mdx}{dx}=m
+\end{align*}
+Dato che \(RD\) è un numero finito:
+\[f'(x) = \pst{RD}= \pst{m}=m\]
 
+\vspace{-1em} \hspace{20mm} 
+poiché il valore della parte standard non dipende da \(dx\).
+\end{proof}
 
 \subsection{Derivata della funzione quadratica}
 \label{subsec:differenziazione_derivatafquadratica}
-In alcuni esempi abbiamo già calcolato la pendenza di una funzione espressa da 
-un polinomio di secondo grado. Concentriamoci sul caso generale e semplice: 
+In alcuni esempi abbiamo già calcolato la pendenza di una funzione 
+espressa da un polinomio di secondo grado. 
+Concentriamoci sul caso generale e semplice: 
 \(f(x)=x^2\).
 \begin{teorema}
-  La derivata della funzione quadratica è: \(\mathit{D}\quadra{x^2}=2x\).
+La derivata della funzione quadratica \(f(x)=x^2\) è \(2x\):
+\[\mathit{D}\quadra{x^2}=2x\] 
 \end{teorema}
-\noindent Ipotesi: \(f(x)=x^2\) .\tab Tesi: \(f'(x)=2x\).
+\noindent Ipotesi: \(f(x)=x^2\) \tab Tesi: \(f'(x)=2x\).
 \begin{proof}
 \begin{align*}
- \forall dx&\ne 0:\\
- RD&=\dfrac{df(x)}{dx}=\dfrac{(x+dx)^2-x^2}{dx}=\dfrac{x^2+2xdx+(dx)^2-x^2}{dx}=
-  \dfrac{2xdx+(dx)^2}{dx}=\dfrac{\cancel{dx}\tonda{2x+dx}}{\cancel{dx}}=\\
-  &=2x+dx.
+RD &=\dfrac{df(x)}{dx}=\dfrac{(x+dx)^2-x^2}{dx}=
+     \dfrac{x^2+2xdx+(dx)^2-x^2}{dx}=\\
+   &=\dfrac{2xdx+(dx)^2}{dx}=
+     \dfrac{\cancel{dx}\tonda{2x+dx}}{\cancel{dx}} = 2x+dx.
 \end{align*}
 Il Rapporto Differenziale è un numero finito, quindi esiste la parte standard.
-\[
- \pst{RD}=\pst{2x+dx}=2x.
-\]
-Poiché la parte standard, che esiste, non dipende dal valore dell'infinitesimo 
-\(dx\), allora esiste \(f'(x)\) ed è uguale a \(2x\).
+\[f'(x) = \pst{RD}=\pst{2x+dx}=2x\]
+
+\vspace{-1em} \hspace{20mm} 
+poiché il valore della parte standard non dipende da \(dx\).
 \end{proof}
 
-% \begin{figure}[h!]
- \begin{minipage}[]{.48\textwidth}
 \begin{inaccessibleblock}
-  [m tangenti a parabola]
- \begin{center}
- \parabola
- \end{center}
+  [esponenziale e pendenze]
+\hspace{-20mm}\affiancati{.55}{.43}{
+\begin{center} \scalebox{.8}{\parabola} \end{center}
+}{
+\begin{center} \scalebox{.8}{\derivataparabola} \end{center}
+}
 \end{inaccessibleblock}
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.48\textwidth}
- \begin{center}
-  \tangentiparabola
- \end{center}
- \end{minipage}
-% \caption{\(y=x^2\) e la pendenza \(y=m(x)=2x\) delle sue tangenti.} 
-% \label{}
-% \end{figure}
+\label{}
+\begin{center} Il grafico di \(y=x^2\), con alcune sue tangenti, e 
+la sua derivata: \(y=2x\).\end{center}
+
+% % \begin{figure}[h!]
+%  \begin{minipage}[]{.48\textwidth}
+% \begin{inaccessibleblock}
+%   [m tangenti a parabola]
+%  \begin{center}
+%  \parabola
+%  \end{center}
+% \end{inaccessibleblock}
+%  \end{minipage} 
+%  \hfill
+%  \begin{minipage}[]{.48\textwidth}
+%  \begin{center}
+%   \tangentiparabola
+%  \end{center}
+%  \end{minipage}
+% % \caption{\(y=x^2\) e la pendenza \(y=m(x)=2x\) delle sue tangenti.} 
+% % \label{}
+% % \end{figure}
 
 %\vspace{1em}
 Grafico di \(f(x)=x^2\) con alcune sue tangenti, per mostrare le 
-diverse pendenze delle curva. \\
-Accanto: grafico dell'insieme delle pendenze, cioè della funzione derivata 
-\(f'(x)=2x\).\\
-Iniziamo dal ramo sinistro del primo grafico: al crescere di \(x\), la curva e 
-le sue tangenti passano da un'inclinazione fortemente verso il basso (\(m<0\)) 
-alla direzione orizzontale, nel vertice della parabola. Per \(x>0\), poi, 
-l'inclinazione aumenta progressivamente. Il progresso della pendenza delle 
-tangenti è costante: per questo motivo il grafico della derivata è una
+diverse pendenze delle curva e accanto: grafico delle pendenze, cioè della 
+funzione derivata \(f'(x)=2x\).
+
+Iniziamo dal ramo sinistro del primo grafico: al crescere di \(x\), 
+la curva e le sue tangenti passano da un'inclinazione fortemente 
+decrescente (\(m<0\)), alla direzione orizzontale nel vertice \(m=0\), 
+per diventare sempre più crescente \(m>0\).
+Il progresso della pendenza delle tangenti è costante: 
+per questo motivo il grafico della derivata è una
 una retta per l'origine.
 
 \begin{osservazione}
@@ -1375,6 +1429,10 @@ Per ragioni analoghe a quelle illustrate in \ref{esempio:diff01_derimodulo}
 concludiamo che \(f'(2)\)  non esiste e quindi \(f\) è derivabile, ma non in 
 tutto l'insieme di definizione.
 \end{esempio}
+
+
+\begin{comment}
+
 
 
 \subsubsection{Derivata di una funzione potenza con esponente naturale}

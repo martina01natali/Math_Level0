@@ -767,33 +767,77 @@
     }
 }
 
-\newcommand{\parabola}{%  y=x^2 e tangenti
-    \disegnod{4.5}{
-    \rcom{-4}{+4}{-1}{+9}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-3.3, xmax=+3.3, ymin=-1.3, ymax=+9.3]
-    \tkzFct[ultra thick, color=Green!60!black, domain=-3.3:+3.3]{x*x}
-    \begin{scope}[thick, dotted, color=blue!40!black]
-     \tkzInit[xmin=-4., xmax=+4, xstep=1., ymin=-1,ymax=9.3]
-     \tkzFct[domain=-4:+4]{-6*(x+3)+9}
-     \tkzFct[domain=-4:+4]{-3*(x+1.5)+2.25}
-     \tkzFct[domain=-4:+4]{-1*(x+.5)+.25} 
-     \tkzFct[domain=-4:+4]{0}     
-     \tkzFct[domain=-4:+4]{6*(x-3)+9}
-     \tkzFct[domain=-4:+4]{3*(x-1.5)+2.25}
-     \tkzFct[domain=-4:+4]{1*(x-.5)+.25}    
-    \end{scope}
-   }
-}
-    
-
-\newcommand{\tangentiparabola}{% 
-    % definita in intervallo 0-inf.
-    \disegnod{4.5}{
-    \rcom{-4}{+4}{-5}{+5}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-5.3, ymax=+5.3]
-     \tkzFct[ultra thick, color=blue!50!black, domain=-4.3:+4.3]{2*x}
+\newcommand{\parabola}{%
+  % Funzione esponenziale con tangenti
+  \def \fa{x**2}
+  \def \fb{(2*\xo)*(x-\xo)+\xo*\xo}
+  \def \mix{-5}
+  \def \max{+5}
+  \def \miy{0}
+  \def \may{+11}
+  \disegnod{6}{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{-4,...,+5}
+    \ordinate{1,...,\may}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+    \foreach \xo in {-3, ..., +3}{
+      \filldraw [\fcolor] (\xo, \xo*\xo) circle(2pt);
+      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+             {\fb}}
+    \foreach \xm/\ym/\lm in {-2.3/11/-6, -4.5/10.5/-4, -4/4.5/-2, 
+                              0/0.7/0,
+                             +2.3/11/+6, +4.5/10.5/+4, +4/4.5/+2}{
+      \draw (\xm, \ym) node {\footnotesize\(m = \lm\)};
     }
+  }
 }
+
+\newcommand{\derivataparabola}{% 
+  % Funzione esponenziale con tangenti
+  \def \fa{2*x}
+  \def \mix{-5}
+  \def \max{+5}
+  \def \miy{-5}
+  \def \may{+6}
+  \disegnod{6}{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{-5,...,+5}
+    \ordinate{-5,...,+5}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+    \foreach \xp in {-2, ..., +3}{
+      \filldraw (\xp, 2*\xp) [\dcolor] circle(2pt);}
+  }
+}
+
+% \newcommand{\parabola}{%  y=x^2 e tangenti
+%     \disegnod{4.5}{
+%     \rcom{-4}{+4}{-1}{+9}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-3.3, xmax=+3.3, ymin=-1.3, ymax=+9.3]
+%     \tkzFct[ultra thick, color=Green!60!black, domain=-3.3:+3.3]{x*x}
+%     \begin{scope}[thick, dotted, color=blue!40!black]
+%      \tkzInit[xmin=-4., xmax=+4, xstep=1., ymin=-1,ymax=9.3]
+%      \tkzFct[domain=-4:+4]{-6*(x+3)+9}
+%      \tkzFct[domain=-4:+4]{-3*(x+1.5)+2.25}
+%      \tkzFct[domain=-4:+4]{-1*(x+.5)+.25} 
+%      \tkzFct[domain=-4:+4]{0}     
+%      \tkzFct[domain=-4:+4]{6*(x-3)+9}
+%      \tkzFct[domain=-4:+4]{3*(x-1.5)+2.25}
+%      \tkzFct[domain=-4:+4]{1*(x-.5)+.25}    
+%     \end{scope}
+%    }
+% }
+%     
+% 
+% \newcommand{\tangentiparabola}{% 
+%     % definita in intervallo 0-inf.
+%     \disegnod{4.5}{
+%     \rcom{-4}{+4}{-5}{+5}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-5.3, ymax=+5.3]
+%      \tkzFct[ultra thick, color=blue!50!black, domain=-4.3:+4.3]{2*x}
+%     }
+% }
 
 \newcommand{\cubica}{%  y=x^3 e tangenti
     \disegnod{4.5}{
