@@ -962,9 +962,10 @@ Sostituirei questo elenco con la tabella seguente.
  \item \(f'(x_0)\) indica la pendenza della funzione \(f\) in \(x_0\);
  \item \(f'(x)\) è il simbolo per il risultato della derivazione di \(f\) 
  per \(x= x_0\): è la pendenza della funzione \(f\) in \(x_0\);
- \item \(\mathit{D}\quadra{f(x)}\) indica la formula della derivazione di 
-\(f\),  per es. \(\mathit{D}\quadra{5x\sqrt[3]{x^2}}=5\sqrt[3]{x^2}+\dfrac{10x}
- {3\sqrt[3]{x}}\);
+ \item \(\Deriv{f(x)}\) indica la formula della derivazione di 
+\(f\),  per es. 
+\(\Deriv{5x\sqrt[3]{x^2}}=5\sqrt[3]{x^2}+\dfrac{10x}
+  {3\sqrt[3]{x}}\);
  \item \(\dot{f}\) equivale a \(f'\) e si usa in alcuni corsi universitari;
  \item \(\dfrac{d}{dx}f(x)\) è come \(f'(x)\), cioè corrisponde alla parte 
 standard del Rapporto Differenziale;
@@ -980,7 +981,7 @@ indistinguibili.
 derivata di \(f(x)\) & pendenza di \(f\) in \(x_0\) \\
 \midrule
 \(f'(x)\) &  \(f'(x_0)\)\\[.3em]
-\(\mathit{D}\quadra{f(x)}\) & \(\mathit{D}\quadra{f(x_0)}\)\\[.3em]
+\(\Deriv{f(x)}\) & \(\Deriv{f(x_0)}\)\\[.3em]
 \(\dot{f}\) & \(\dot{f}(x_0)\)\\[.3em]
 \(\dfrac{d}{dx}f(x)\) & \(\dfrac{d}{dx}f(x_0)\) \\[1em]
 \(\dfrac{df(x)}{dx}\) & \(\dfrac{df(x_0)}{dx}\) \\[.5em]
@@ -1003,7 +1004,7 @@ valore \(x\) del suo insieme di definizione.
 \label{subsec:differenziazione_derivatafidentica}
 \begin{teorema}
 La derivata della funzione identica \(f(x)=x\) è \(1\):
-\[\mathit{D}\quadra{f(x)} = \mathit{D}\quadra{x} = 1\]
+\[\Deriv{f(x)} = \Deriv{x} = 1\]
 \end{teorema}
 \emph{Dimostrazione}
 
@@ -1043,12 +1044,13 @@ dell'infinitesimo \(dx \neq 0\):
 \subsection{Derivata della funzione costante}
 \label{subsec:differenziazione_derivatafcostante}
 Una funzione \(f(x)\) è costante se qualunque sia il valore di \(x\) il 
-risultato è sempre lo stesso. Possiamo indicare questa funzione in diversi modi:
+risultato è sempre lo stesso. Possiamo indicare questa funzione in diversi 
+modi:
 \[f: x \mapsto k \quad \text{o} \quad f(x)=k \quad \text{o} \quad y = k.\]
 
 \begin{teorema}
 La derivata di una funzione costante \(f(x) = k\) è \(0\):
-\[\mathit{D}\quadra{k}=0\]
+\[\Deriv{k}=0\]
 \end{teorema}
 \emph{Dimostrazione}
 \[RD = \dfrac{df(x)}{dx} = \dfrac{f(x +\epsilon) -f(x)}{dx} =
@@ -1101,7 +1103,7 @@ Una funzione lineare è una funzione espressa da un polinomio di primo grado:
   y = mx +q.\]
 \begin{teorema}
 La derivata di una funzione lineare è il suo coefficiente angolare \(m\):
-\[\mathit{D}\quadra{mx+q}=m\]
+\[\Deriv{mx+q}=m\]
 %   La derivata di una funzione lineare è il coefficiente angolare \(m\) 
 % della retta che disegna il suo grafico.
 \end{teorema}
@@ -1128,7 +1130,7 @@ Concentriamoci sul caso generale e semplice:
 \(f(x)=x^2\).
 \begin{teorema}
 La derivata della funzione quadratica \(f(x)=x^2\) è \(2x\):
-\[\mathit{D}\quadra{x^2}=2x\] 
+\[\Deriv{x^2}=2x\] 
 \end{teorema}
 \noindent Ipotesi: \(f(x)=x^2\) \tab Tesi: \(f'(x)=2x\).
 \begin{proof}
@@ -1138,7 +1140,8 @@ RD &=\dfrac{df(x)}{dx}=\dfrac{(x+dx)^2-x^2}{dx}=
    &=\dfrac{2xdx+(dx)^2}{dx}=
      \dfrac{\cancel{dx}\tonda{2x+dx}}{\cancel{dx}} = 2x+dx.
 \end{align*}
-Il Rapporto Differenziale è un numero finito, quindi esiste la parte standard.
+Il Rapporto Differenziale è un numero finito, quindi esiste la parte 
+standard.
 \[f'(x) = \pst{RD}=\pst{2x+dx}=2x\]
 
 \vspace{-1em} \hspace{20mm} 
@@ -1197,30 +1200,44 @@ rispetto alla \(x\) in una retta.
 
 \section{Teoremi sulle derivate}
 \label{sec:differenziazione_teoremi}
+
+Nei paragrafi precedenti abbiamo visto che alcune funzioni hanno una 
+funzione derivata e la loro derivata è facile da memorizzare anche senza 
+dover fare calcoli ogni volta:
+\[\Deriv{k}=0 \qquad 
+  \Deriv{x}=1 \qquad 
+  \Deriv{x^2}=2x
+\]
 \begin{definizione}
-Una funzione per la quale la derivata è calcolabile si dice derivabile.
-Se non si specifica diversamente, si intende che la pendenza della funzione 
-è calcolabile per ogni \(x\) del suo dominio.
+Una funzione per la quale si può calcolare la derivata si dice 
+derivabile.
+Cioè la sua pendenza è calcolabile per ogni valore \(x\) del suo dominio.
+% TODO in che senso la frase seguente?
+% Se non si specifica diversamente, si intende che la pendenza della 
+% funzione è calcolabile per ogni \(x\) del suo dominio.
 \end{definizione}
 
-Per evitare calcoli laboriosi come quelli dell'Esempio \ref{esempio:esempio_5}, 
+Per evitare calcoli laboriosi come quelli dell'Esempio 
+\ref{esempio:esempio_5}, 
 che in realtà sono fra i più agevoli che ci potrebbero capitare, 
 cerchiamo regole di derivazione più immediate. 
 
 In quell'esempio, la funzione è \(f(x)=\dfrac{1}{3}x^2-2x+5\),  una somma 
-algebrica di tre addendi: \(\dfrac{1}{3}x^2\),\quad \(-2x\)\quad e\quad  \(+5 
-\): non potremmo derivarli separatamente e poi unire i risultati 
+algebrica di tre addendi: \(\dfrac{1}{3}x^2\),\quad \(-2x\)\quad e\quad  
+\(+5 \): non potremmo derivarli separatamente e poi unire i risultati 
 sommandoli? È quello che stiamo per mostrare con i prossimi teoremi.
 
 \subsection{Derivata della somma (algebrica) di funzioni}
 \label{subsec:differenziazione_derivatasomma}
 \begin{teorema}
- Se una funzione è la somma di più funzioni, anche la sua 
- derivata, se c'è, è la somma delle derivate degli addendi.
+ Se una funzione è la somma di più funzioni derivabili, la sua 
+ derivata è la somma delle derivate degli addendi.
+ 
+Ovvero: La derivata di una somma è la somma delle derivate.
+\[\Deriv{g + h}=\Deriv{g}+\Deriv{h}\]
 \end{teorema}
-\noindent Ipotesi: \(f=g + h\) e esistono \(f'(x), \).\tab Tesi: \(f'=g' + 
-h'\).\\
-(Ovvero: La derivata di una somma è la somma delle derivate)
+\noindent Ipotesi: \(f = g + h\) e esistono \(g'\) e \(h'\) 
+\tab Tesi: \(f'=g' + h'\)
 
 \begin{proof}
 Consideriamo il Rapporto Differenziale, calcolato in \(x\), dove \(g\), 
@@ -1233,16 +1250,12 @@ nullo \(dx\):
  \dfrac{g(x+dx)-g(x)}{dx}+\dfrac{h(x+dx)-h(x)}{dx}=\\
   &=\dfrac{dg(x)}{dx}+\dfrac{dh(x)}{dx}.
 \end{align*}
-Si è detto che \(f'(x)\) esiste, quindi il Rapporto Differenziale 
-\(\dfrac{df(x)}{dx}\) è un numero finito e la sua parte standard non dipende da 
-\(dx\). Di conseguenza anche i Rapporti Differenziali per \(g(x)\) e per
-\(h(x)\) sono numeri finiti e le loro parti standard esistono e non possono 
-cambiare valore cambiando \(dx\).\\
-Per le proprietà della funzione parte standard vale quindi:
-\[
- f'(x)=\pst{\dfrac{df}{dx}}=\pst{\dfrac{dg(x)}{dx}+\dfrac{dh(x)}{dx}}=
- \pst{\dfrac{dg(x)}{dx}}+\pst{\dfrac{dh(x)}{dx}}=g'(x)+h'(x).
- \]
+Dato che \(g\) e \(h\) sono derivabili esiste anche la parte standard dei 
+loro Rapporti Differenziali e è indipendente dall'infinitesimo 
+\(dx \neq 0\) usato e la stessa caratteristica l'avrà anche la somma di
+queste parti standard:
+\[f'(x)=\pst{\dfrac{df}{dx}}=\pst{\dfrac{dg(x)}{dx}+\dfrac{dh(x)}{dx}}=
+        \pst{\dfrac{dg(x)}{dx}}+\pst{\dfrac{dh(x)}{dx}}=g'(x)+h'(x)\]
 \end{proof}
 
 \begin{osservazione}
@@ -1254,17 +1267,20 @@ anche alla somma algebrica di più funzioni, per esempio ai polinomi.
  Deriviamo la funzione \(f(x)= x^2-x+12\).\\
  In base a quanto già sappiamo, la derivata di \(x^2\) è \(2x\), la derivata 
 di \(x\) è \(1\) e la derivata di una costante è \(0\), quindi 
-\(f'(x)=2x-1\).\\
-Come si vede, non è stato necessario scrivere il Rapporto Differenziale.
+\(\Deriv{x^2-x+12}= 
+  \Deriv{x^2} + 
+  \Deriv{-x} + 
+  \Deriv{+12}=
+  2x-1\).\\
+Come si vede, non è stato necessario calcolare il Rapporto Differenziale.
 \end{esempio}
-
 
 \subsection{Derivata del prodotto di funzioni}
 \label{subsec:differenziazione_derivataprodotto}
 
-In questo caso non presentiamo una vera dimostrazione, ma ricorriamo a un
-a un disegno che assumiamo riesca a descrivere efficacemente la 
-regola.
+% In questo caso non presentiamo una vera dimostrazione, ma ricorriamo a un
+% a un disegno che assumiamo riesca a descrivere efficacemente la 
+% regola.
 
 Immaginiamo che le due funzioni, calcolate in un generico punto \(x\),
 esprimano la base e l'altezza di un rettangolo:
@@ -1282,14 +1298,15 @@ reagire in modo diverso all'incremento \(dx\).
 \end{osservazione}
 
 \begin{teorema}
- Se una funzione è il prodotto di due funzioni (le cui derivate esistono), la 
-sua  derivata, se esiste, è la somma fra due prodotti: la derivata della
- prima funzione per la seconda (non derivata) più la prima funzione (non 
-derivata) per il la derivata della seconda.
+Se una funzione è il prodotto di due funzioni derivabili, 
+la sua  derivata, se esiste, è la somma fra due prodotti: la derivata 
+della prima funzione per la seconda (non derivata) più la prima funzione 
+(non derivata) per il la derivata della seconda.
+\[\Deriv{b \cdot a}=\Deriv{b} \cdot a + b \cdot \Deriv{a}\]
 \end{teorema}
-\noindent Ipotesi: \(\mathit{S}(x)=b(x)\cdot a(x)\) \text{ e esistono }
-\(\mathit{S'}(x),\ b'(x),\ a'(x)\).\\ 
-Tesi: \(\mathit{D}\quadra{\mathit S(x)}=b'(x)\cdot a(x)+b(x)\cdot a'(x)\).
+\noindent Ipotesi: \(f = b \cdot a\) \text{ e esistono }
+\(b'\) e \(a'\) \tab 
+Tesi: \(f' = b' \cdot a + b \cdot a'\).
 
 \begin{figure}[h]
 \begin{inaccessibleblock}
@@ -1309,11 +1326,11 @@ Tesi: \(\mathit{D}\quadra{\mathit S(x)}=b'(x)\cdot a(x)+b(x)\cdot a'(x)\).
 \label{fig:Incre_prodotto}
 \end{figure}
 %\vspace{-.5em}
-Non daremo una vera dimostrazione della regola, ma ci lasceremo guidare da un 
-disegno che spesso si usa per rappresentare il prodotto fra due binomi. 
-Segnaliamo, per correttezza, che si potrebbe discutere sul fatto che un'area 
-rappresenti un prodotto tra funzioni. A noi serve per avere una guida algebrica 
-nel giustificare la regola.
+Ci faremo guidare dal disegno che spesso si usa per rappresentare il 
+prodotto fra due binomi. 
+\footnote{~Si potrebbe discutere sul fatto che 
+un'area rappresenti un prodotto tra funzioni. 
+A noi serve per avere una guida algebrica nel giustificare la regola.}
 
 Prima di impostare la derivata, ragioniamo sull'espressione 
 dell'incremento infinitesimo di area che il disegno ci suggerisce. 
@@ -1328,51 +1345,79 @@ di L rovesciata, detta \emph{gnomone}. È formata da tre parti:
  \item un rettangolino in alto a destra, di area \(db(x) \cdot da(x)\).
 \end{itemize}
 
+\begin{proof}
 Dato che l'ultimo termine è un infinitesimo di ordine
 superiore, il risultato può essere approssimato alla sua parte principale, 
-perché è indistinguibile:\\
-\[d\mathit{S}(x)\sim db(x)\cdot a(x)+b(x)\cdot da(x).\]
+perché è indistinguibile:
+\[df(x) = db(x)\cdot a(x) + b(x)\cdot da(x) + db(x)\cdot da(x)
+                 \sim db(x)\cdot a(x)+b(x)\cdot da(x)\]
 Possiamo allora scrivere il Rapporto Differenziale:
 \begin{align*}
-\forall dx &\ne 0:\\
-RD& =   \dfrac{d\mathit {S}(x)}{dx}=\dfrac{d[b((x)\cdot 
-a(x)]}{dx}\sim \dfrac{db(x)\cdot a(x)+b(x)\cdot da(x)}{dx}=\\
+RD& = \dfrac{df(x)}{dx}=\dfrac{d[b((x)\cdot a(x)]}{dx} \sim 
+      \dfrac{db(x)\cdot a(x)+b(x)\cdot da(x)}{dx}=\\
 &=\dfrac{db(x)\cdot a(x)}{dx}+\dfrac{b(x)\cdot da(x)}{dx}=
-\dfrac{db(x)}{dx} a(x)+b(x)\dfrac{da(x)}{dx}.
+\dfrac{db(x)}{dx} a(x)+b(x)\dfrac{da(x)}{dx} =
+b'(x) \cdot a(x) + b(x) \cdot a'(x)
 \end{align*}
-Per ipotesi esistono le derivate delle tre funzioni, perciò 
-i Rapporti Differenziali sono numeri finiti e si può ricavare la regola:
-\[
- S'(x)= b'(x)\cdot a(x)+ b(x)\cdot a'(x).
-\]
+Per ipotesi esistono le derivate delle due funzioni, perciò 
+il Rapporto Differenziale è un numero finito e la sua parte standard non 
+dipende dall'infinitesimo \(dx \neq 0\), quindi:
+\[f' = b' \cdot a + b \cdot a'\]
+\end{proof}
 
 \begin{esempio}
- Deriva la funzione \(f(x)=12x\). Si può svolgere questo semplice esercizio 
-scrivendo il rapporto differenziale, ma ora vogliamo applicare la regola del 
-prodotto.
-\begin{align*}
- &f(x) = 12x\quad \text{ funzione 1: } a(x)=12\quad \text{ funzione 2: } 
-b(x)=x.\\
- &\text{Derivate dei fattori: }a'(x)=0;\quad b'(x)=1.\\
- &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
- &f'(x)=0\cdot x + 12\cdot 1= 12.
- \end{align*}
- \end{esempio}
+\label{esem:diff_prodottocostante}
+Calcola la derivata della funzione \(f(x)=12x\).
 
- \subsubsection{Derivata del prodotto per una costante}
+Si può svolgere questo semplice esercizio scrivendo il Rapporto 
+Differenziale, ma ora vogliamo applicare la regola del prodotto.\\
+\(f = b \cdot a\) \quad con \(b(x) = 12\) e \(a(x) = x\)
+\[f' = b' \cdot a + b \cdot a' = 
+\Deriv{12} \cdot x + 12 \cdot \Deriv{x} =
+0 \cdot x + 12\cdot 1 = 12\]
+\end{esempio}
+
+\begin{esempio}
+\label{esem:diff_quadrato}
+Calcola la derivata della funzione \(f(x)=x^2\).
+
+Abbiamo già risolto questo problema,
+ma ora vogliamo applicare la regola del prodotto.\\
+\(f = g \cdot h\) \quad con \(g(x) = x\) e \(h(x) = x\)
+\[f' = g' \cdot h + g \cdot h' = 
+\Deriv{x} \cdot x + x \cdot \Deriv{x} =
+1 \cdot x + x \cdot 1 = 2x\]
+\end{esempio}
+
+\subsubsection{Derivata del prodotto per una costante}
 \label{subsubsec:derivata_f_per_k}
- \begin{teorema}
-La derivata di una funzione \(f(x)=k\cdot g(x)\), prodotto fra una 
-funzione derivabile \(g(x)\) e una costante \(k\), è il prodotto fra la 
-costante \(k\) e la derivata \(g'(x)\): 
-\(\mathit{D}\quadra{k\cdot g(x)}=k \cdot g'(x)\).
+
+Dal teorema precedente e guardando il suo primo esempio si può 
+generalizzare:
+\begin{teorema}
+La derivata del prodotto di una costante per una funzione derivabile
+\(f(x) = k \cdot g(x)\), è il prodotto fra la 
+costante \(k\) e la derivata \(g'(x)\) della funzione: 
+\[\Deriv{k \cdot g(x)} =k \cdot \Deriv{g(x)}\]
 \end{teorema}
-\noindent Ipotesi: \(f(x)=k\cdot g(x) \text{ e esiste }g'(x)\).
-\tab Tesi: \(f'(x)=k \cdot g'(x)\). 
+\noindent Ipotesi: \(f = k \cdot g \text{ e esiste } g'\)
+\tab Tesi: \(f' = k \cdot g'\). 
 \begin{proof}
-Per la dimostrazione si può seguire la traccia dell'esempio precedente oppure 
-impostare il Rapporto Differenziale e arrivare senza difficoltà alla 
-conclusione.
+Primo metodo: applichiamo il teorema precedente:
+\[f' = b' \cdot a + b \cdot a' = 
+\Deriv{k} \cdot g + k \cdot \Deriv{g} =
+0 \cdot g + k\cdot g' = k \cdot g'\]
+\end{proof}
+
+\begin{proof}
+Secondo metodo: calcoliamo il Rapporto Differenziale:
+\begin{align*}
+f' &= \pst{\frac{f(x +dx) - f(x)}{dx}} = 
+      \pst{\frac{k \cdot g(x +dx) - k \cdot g(x)}{dx}} = \\
+   &= \pst{k \cdot \frac{g(x +dx) - \cdot g(x)}{dx}} = 
+      \pst{k} \cdot \pst{\frac{g(x +dx) - \cdot g(x)}{dx}} = 
+      k \cdot g'
+\end{align*}
 \end{proof}
 
 
@@ -1382,53 +1427,81 @@ derivazione per le funzioni lineari, alternativa a quella data nel Teorema
 \ref{subsec:differenziazione_derivataflineare}.
 \end{osservazione}
 
+\begin{esempio}
+\label{esem:diff_prodottocostante}
+Calcola la derivata della funzione \(f(x)=-\dfrac{3}{2}x+5\).
+
+\[\Deriv{-\dfrac{3}{2}x+5} = 
+  -\dfrac{3}{2} \cdot \Deriv{x} + \Deriv{5} = 
+  -\dfrac{3}{2} \cdot 1 + 0 = -\dfrac{3}{2}\]
+\end{esempio}
+
+
 
 \begin{esempio}
  %valore assoluto
- È derivabile la funzione \(f(x)=\dfrac{1}{2}|x-2|+2\)?\\
- La funzione contiene un valore assoluto: seguendo l’esempio 
-\ref{esempio:diff01_derimodulo} riscriviamola come se fosse divisa in due rami:
+È derivabile la funzione \(f(x)=-\dfrac{1}{2}|x-2|+2\)?
 
-% \begin{figure}[h!]
- \begin{minipage}[]{.33 \textwidth}
-% \begin{center}
+La funzione contiene un valore assoluto: seguendo l’esempio 
+\ref{esempio:diff01_derimodulo} riscriviamola come una funzione definita 
+a tratti:
+\[f(x) = -\dfrac{1}{2}|x -2| +2 =
+\sistema{
+ +\dfrac{x-2}{2} +2 &\text{ per } x-2 < 0  \\[.5em]
+ -\dfrac{x-2}{2} +2 &\text{ per } x-2 \ge 0
+} 
+=
+\sistema{
+ +\dfrac{1}{2}x +1 &\text{ per } x < 2 \\[.5em]
+ -\dfrac{1}{2}x +3 &\text{ per } x \ge 2
+}
+% \begin{cases}
+%  +\dfrac{x}{2}+1 &\text{ per } x < 2 \\[.5em]
+%  -\dfrac{x}{2}+3 &\text{ per } x \ge 2
+% \end{cases}
+\]
+
+\affiancati{.33}{.65}{
 \begin{inaccessibleblock}
-  [Derivate radice]
+  [Funzione con modulo e sua derivata]
   \derivamodulodue
 \end{inaccessibleblock}
-%\end{center}
-%   \caption{}
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.65 \textwidth}
-\(f(x)= \dfrac{1}{2}|x-2|+2
-=\begin{cases}
-  \dfrac{x-2}{2}+2 &\text{ per } x-2< 0  \\
- \dfrac{-(x-2)}{2}+2 &\text{ per } x-2 \ge 0
-\end{cases} 
-=\\ =
-\begin{cases}
- \dfrac{x}{2}+1 &\text{ per } x<2 \\
- -\dfrac{x}{2}+3 &\text{ per } x\ge 2
-\end{cases}.\)
-\end{minipage}
-% \end{figure} 
-\vspace{1em}
+}{
 Si tratta di due semirette che si uniscono in \(\punto{2}{2}\). L'equazione
 di ciascuna di loro è una funzione lineare e già sappiamo che per ognuno dei 
-rami la pendenza esiste ed è il coefficiente angolare. Quindi, anche senza 
-calcolarla, abbiamo:
-\(f'(x)= \begin{cases}
- \dfrac{1}{2} &\text{ per } x<2 \\
+rami la pendenza esiste ed è il coefficiente angolare. Quindi il calcolo
+è immediato:
+\[f'(x)= \begin{cases}
+ +\dfrac{1}{2} &\text{ per } x < 2 \\[.5em]
  -\dfrac{1}{2} &\text{ per } x > 2
-\end{cases}\)\\
-Quale è la pendenza giusta della tangente per \(x=2\), nel punto cioè dove il 
-grafico cambia pendenza?
+\end{cases}\]
+}
 
-Per ragioni analoghe a quelle illustrate in \ref{esempio:diff01_derimodulo}
-concludiamo che \(f'(2)\)  non esiste e quindi \(f\) è derivabile, ma non in 
-tutto l'insieme di definizione.
+\vspace{.5em}
+Quale è la pendenza della funzione per \(x=2\)?\\
+Poiché che la parte standard del Rapporto Differenziale 
+\begin{itemize} [nosep]
+\item per tutti i valori negativi di \(dx\) vale \(+\dfrac{1}{2}\),
+\item per tutti i valori positivi di \(dx\) vale \(-\dfrac{1}{2}\),
+\end{itemize}
+la funzione \(f\) non ha pendenza (o derivata) per \(x = 2\), 
+cioè \(f'(2)\) non esiste. 
+Vedi anche l'esempio \ref{esempio:diff01_derimodulo}.
+
+Dato che a sinistra di \(x = 2\) la funzione ha pendenza \(+\dfrac{1}{2}\) 
+e a destra ha pendenza \(-\dfrac{1}{2}\), possiamo affermare che in \(2\)
+la funzione ha un \emph{punto angoloso}.
 \end{esempio}
+
+Si può osservare che:
+\begin{itemize} [nosep]
+\item \(f\) è definita in tutto \(\R\),
+\item \(f\) è continua in tutto \(\R\),
+\item \(f\) non è derivabile in tutto \(\R\).
+\end{itemize}
+
+Perché una funzione sia derivabile deve essere continua, ma non è detto 
+che se è continua sia anche derivabile.
 
 
 \begin{comment}
@@ -1481,7 +1554,7 @@ funzione 2: } b(x)=x.\\
  \begin{teorema}
   \label{diff01_teoderpotenza}
   La derivata della funzione potenza \(f(x)= x^n\), con esponente 
-naturale, è: \(\mathit{D}\quadra{x^n}=~nx^{n-1}\).
+naturale, è: \(\Deriv{x^n}=~nx^{n-1}\).
   \end{teorema}
 \noindent Ipotesi: \(f(x)=x^n\), con \(n\in \N\) .\tab Tesi: 
 \(f'(x)=nx^{n-1}\). 
@@ -1605,7 +1678,7 @@ b(x) =+ \dfrac{2}{3}x^3\quad \text{ funzione 3: } c(x) =-13kx.\\
  
  \begin{teorema}
   La derivata della funzione reciproca \(f(x)=\dfrac{1}{x}\) è: \quad
-\(\mathit{D}\quadra{\dfrac{1}{x}}=-\dfrac{1}{x^2}\).
+\(\Deriv{\dfrac{1}{x}}=-\dfrac{1}{x^2}\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=\dfrac{1}{x}\).\tab Tesi: \(f'(x)=-\dfrac{1}{x^2}\).
 \begin{proof}
@@ -1815,10 +1888,10 @@ Per \(x=1\), la curva ha pendenza \(m=-3\).\\
 \label{subsubsec:diff01_sintesiprovvisoria}
 Abbiamo dimostrato le regole di derivazione per alcune funzioni elementari: 
 \begin{enumerate} [noitemsep]
- \item \(\mathit{D}\quadra{k} = 0\) \tab  derivata di una 
+ \item \(\Deriv{k} = 0\) \tab  derivata di una 
 costante;
- \item \(\mathit{D}\quadra{x} = 1\) \tab derivata della funzione identica;
- \item \(\mathit{D}\quadra{x^\alpha} = \alpha x^{\alpha-1}\) 
+ \item \(\Deriv{x} = 1\) \tab derivata della funzione identica;
+ \item \(\Deriv{x^\alpha} = \alpha x^{\alpha-1}\) 
 \tab  derivata della funzione potenza (\(\alpha \in \R\)).
 \end{enumerate}
 \begin{osservazione}
@@ -1831,13 +1904,13 @@ costante;
 Conosciamo anche le regole di derivazione per alcune funzioni che sono 
 somma, prodotto o quoziente di altre:
 \begin{enumerate} [noitemsep]
- \item \(\mathit{D}\quadra{k\cdot f}=kf'\) \tab 
+ \item \(\Deriv{k\cdot f}=kf'\) \tab 
  derivata del prodotto per una costante;
- \item \(\mathit{D}\quadra{f\pm g}=f'\pm g'\) \tab 
+ \item \(\Deriv{f\pm g}=f'\pm g'\) \tab 
  derivata di una somma o differenza;
- \item \(\mathit{D}\quadra{f\cdot g}= f'\cdot g+f\cdot g'\) \tab 
+ \item \(\Deriv{f\cdot g}= f'\cdot g+f\cdot g'\) \tab 
  derivata del prodotto;
- \item \(\mathit{D}\quadra{\dfrac{f}{g}}=\dfrac{f'\cdot 
+ \item \(\Deriv{\dfrac{f}{g}}=\dfrac{f'\cdot 
 g-f\cdot g'}{g^2}\)\tab 
 derivata  del rapporto (\(g \ne 0\)).
 \end{enumerate}
@@ -1846,7 +1919,7 @@ derivata  del rapporto (\(g \ne 0\)).
 \label{subsubsec:f_radice}
 \begin{teorema}
   La derivata della funzione \(f(x)=\sqrt{x}\), con \(x \geq 0\), è: 
-\(\mathit{D}\quadra{\dfrac{1}{2\sqrt{x}}}\), con \(x > 0\).
+\(\Deriv{\dfrac{1}{2\sqrt{x}}}\), con \(x > 0\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=\sqrt{x}\), con \(x\geq 0\) .\tab Tesi: 
     \(f'(x)=\dfrac{1}{2\sqrt{x}}\).
@@ -2140,7 +2213,7 @@ Mettiamo tutto insieme e anche, \(f(x) = f(g(x))\): \\[.5em]
 \begin{osservazione}
  La regola della funzione composta si estende ai casi in cui le funzioni 
  in gioco sono tre, o più:
- \(\mathit{D}\quadra{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)\).
+ \(\Deriv{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)\).
 \end{osservazione}
 
 
@@ -2182,7 +2255,7 @@ Considera il caso semplice che segue.
   \(f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
   \dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x=1\).\\
   Conclusione: 
-La derivata \(\mathit{D}\quadra{x^2}=\dfrac{1}{\mathit{D}\quadra{\sqrt{x}}}\). 
+La derivata \(\Deriv{x^2}=\dfrac{1}{\Deriv{\sqrt{x}}}\). 
 In questo calcolo, inoltre, bisogna segnalare che \(g'(x)\) esiste se \(x\ne0\).
 \end{esempio}
 Si intuisce che: siccome \(f'(g)\cdot g'(x)=1\), allora 
@@ -2285,14 +2358,14 @@ composta che la regola per la derivata della funzione inversa.
   \begin{enumerate}[noitemsep]
    \item Usando il teorema \ref{teo:diff01_dericomp} e le regole 
 precedenti:\\
-   \(f'(x)=\mathit{D}\quadra{\dfrac{1}{\sqrt{5-x}}}=
-   \mathit{D}\quadra{(5-x)^\frac{-1}{2}}=-\dfrac{1}{2}(5-x)
+   \(f'(x)=\Deriv{\dfrac{1}{\sqrt{5-x}}}=
+   \Deriv{(5-x)^\frac{-1}{2}}=-\dfrac{1}{2}(5-x)
    ^\frac{-3}{2}(-1) = \dfrac{1}{2(\sqrt{5-x})^3}\).
    \item Usando la regola del Teorema~\ref{teo:derinversa}:\\
    Costruiamo la formula inversa con pochi passaggi algebrici: riavremo la 
    stessa funzione, in cui \(y\) figura come variabile indipendente: 
 \(x=f(y)\).\\
-   Quindi deriviamo: \(\mathit{D}\quadra{x}=x'=f'(y)=\pst{\dfrac{dx}{dy}}\).\\
+   Quindi deriviamo: \(\Deriv{x}=x'=f'(y)=\pst{\dfrac{dx}{dy}}\).\\
    \(f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x}\srarrow 
    y^{-2}=5-x\srarrow x=5-y^{-2}\)  (formula inversa)\\
    \(x'=\pst{\dfrac{dx}{dy}}=-2y^{-3}\) (derivata della funzione inversa)\\
@@ -2450,7 +2523,7 @@ esponenziale pura.
 
 \begin{teorema}
  La derivata della funzione esponenziale \(f(x)=e^x\) coincide con la funzione 
-stessa: \(\mathit{D}\quadra{e^x}=e^x\)
+stessa: \(\Deriv{e^x}=e^x\)
 \end{teorema}
 \noindent Ipotesi: \(f(x)=e^x\). \tab \(f'(x)=e^x\).
 \begin{proof}
@@ -2509,8 +2582,8 @@ dell'altra,
     il logaritmo naturale \(g(x)=\ln x\) è la funzione inversa della
     funzione esponenziale \(f(x)=e^x\);
     \item 
-\(\mathit{D}\quadra{f^{-1}(x)}=\dfrac{1}{\mathit{D}\quadra{(f^{-1}(x)}}\);
-    \item \(\mathit{D}\quadra{\ln x}=\dfrac{1}{\mathit{D}\quadra{e^{g(x)}}}
+\(\Deriv{f^{-1}(x)}=\dfrac{1}{\Deriv{(f^{-1}(x)}}\);
+    \item \(\Deriv{\ln x}=\dfrac{1}{\Deriv{e^{g(x)}}}
     =\dfrac{1}{e^{\ln x}}=\dfrac{1}{x}\).
   \end{enumerate}
 \end{esempio}
@@ -2524,7 +2597,7 @@ dell'altra,
  \begin{minipage}[]{.42\textwidth}
  \begin{teorema}
   La derivata della funzione \\
-  logaritmo naturale è: \(\mathit{D}\quadra{\ln x}=
+  logaritmo naturale è: \(\Deriv{\ln x}=
   \dfrac{1}{x}, \stext{con} x>0\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=\ln x, \mbox{ con } x>0\).\\
@@ -2545,7 +2618,7 @@ Vediamo ora il caso generale, quando la base del logaritmo è genericamente
 \(a>0\).
 \begin{teorema}
   La derivata della funzione logaritmo in base \(a\) è: 
-  \(\mathit{D}\quadra{\log_a x}= \dfrac{1}{x\ln a}\).
+  \(\Deriv{\log_a x}= \dfrac{1}{x\ln a}\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=\log_a x\). \tab \(f'(x)=\dfrac{1}{x\ln a}\)
 \begin{proof}
@@ -2570,7 +2643,7 @@ Abbiamo ora tutti gli strumenti per convalidare l'osservazione al teorema
 \begin{teorema}
 \label{teo:funzione_potenza_generica}
   La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
-  \(\mathit{D}\quadra{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha\).
+  \(\Deriv{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
 \(\forall \alpha\).
@@ -2625,7 +2698,7 @@ Risolviamo il triangolo rettangolo \(ABC\) rispetto al lato \(BC\):\\
 \(BC=AB\cdot \cos x \srarrow d(\sen x)= dx\cdot cos x\)  
 
 \begin{teorema}
-  La derivata della funzione \(f(x)=\sen x\) è \(\mathit{D}\quadra{\sen 
+  La derivata della funzione \(f(x)=\sen x\) è \(\Deriv{\sen 
 x}=\cos x\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=\sen x\). \tab \(f'(x)=\cos x\).
@@ -2696,7 +2769,7 @@ Derivare \(f(x)=\sen^2 x\) e \(g(x)= \sen 2x\).\\
 
  \subsubsection{Derivata di \(f(x)=\cos x\)}
 \begin{teorema}
-  La derivata della funzione \(f(x)=\cos x\) è \(\mathit{D}\quadra{\cos x}=
+  La derivata della funzione \(f(x)=\cos x\) è \(\Deriv{\cos x}=
   -\sen x\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=\cos x\). \tab \(f'(x)=-\sen x\).
@@ -2760,7 +2833,7 @@ grafico.
 \label{}
 }
 \begin{teorema}
-   La derivata della funzione \(f(x)=\tg x\) è \(\mathit{D}\quadra{\tg x}=
+   La derivata della funzione \(f(x)=\tg x\) è \(\Deriv{\tg x}=
    \dfrac{1}{\cos^2 x}=1+tg^2 x\) per \(x\ne \pm\frac{\pi}{2}\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=\tg x\). \tab \(f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x\),
@@ -2771,9 +2844,9 @@ ricorriamo alla seconda relazione fondamentale: \(\tg x=\frac{\sin x}{\cos x}\)
 e
 sfruttiamo la regola della derivata di un quoziente (pag. 
 \pageref{sec:diff01_regolederivate}).\\
-\(\mathit{D}\quadra{\tg x}=\mathit{D}\quadra{\dfrac{\sin x}{\cos x}}=
-\dfrac{\mathit{D}\quadra{\sen x}\cdot \cos x-\sen x\cdot 
-  \mathit{D}\quadra{\cos x}} {\cos^2 x}=
+\(\Deriv{\tg x}=\Deriv{\dfrac{\sin x}{\cos x}}=
+\dfrac{\Deriv{\sen x}\cdot \cos x-\sen x\cdot 
+  \Deriv{\cos x}} {\cos^2 x}=
 \dfrac{\sen^2 x +\cos^2 x}{\cos^2 x}=\dfrac{1}{\cos^2 x}=\tg^2+1\)
 \end{proof}
 
@@ -4430,8 +4503,8 @@ l'operazione di derivazione:
 \begin{enumerate}[noitemsep]
  \item \(f'(x_0)\) è il simbolo per il risultato della derivazione di \(f\) 
  per \(x= x_0\): semplice e sintetico;
- \item \(\mathit{D}\quadra{f(x)}\) indica la formula della derivazione di 
-\(f\),  per es. \(\mathit{D}\quadra{5x\sqrt[3]{x^2}}=5\sqrt[3]{x^2}+\dfrac{10x}
+ \item \(\Deriv{f(x)}\) indica la formula della derivazione di 
+\(f\),  per es. \(\Deriv{5x\sqrt[3]{x^2}}=5\sqrt[3]{x^2}+\dfrac{10x}
  {3\sqrt[3]{x}}\);
  \item \(\dot{f}\) equivale a \(f'\); si usa in alcuni corsi universitari;
  \item \(\dfrac{d}{dx}f(x)\) è come \(f'(x)\): si pone in evidenza che si 
@@ -4706,7 +4779,7 @@ Grazie al capitolo \ref{subsubsec:diff01_diffsint}, sappiamo già come
 differenziare alcune funzioni algebriche: da quelle regole e dalla 
 definizione di derivata ...deriva direttamente quanto segue.
 \begin{teorema}
-  La derivata di una funzione costante è \(0\): \(\mathit{D}\quadra{k}=0\).
+  La derivata di una funzione costante è \(0\): \(\Deriv{k}=0\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f'(x)=0\).
 \begin{proof}
@@ -4714,7 +4787,7 @@ definizione di derivata ...deriva direttamente quanto segue.
 \end{proof}
 
 \begin{teorema}
-  La derivata della funzione identica è 1: \(\mathit{D}\quadra{x}=1\).
+  La derivata della funzione identica è 1: \(\Deriv{x}=1\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=x\).\tab Tesi: \(f'(x)=1\).
 \begin{proof}
@@ -4727,7 +4800,7 @@ risaputa.
 \end{osservazione}
 
 \begin{teorema}
-  La derivata della funzione quadratica è: \(\mathit{D}\quadra{x^2}=2x\).
+  La derivata della funzione quadratica è: \(\Deriv{x^2}=2x\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=x^2\) .\tab Tesi: \(f'(x)=2x\).
 \begin{proof}
@@ -4770,7 +4843,7 @@ rispetto alla \(x\) in una retta.
 
 \begin{teorema}
   \label{diff01_teoderpotenza}
-  La derivata della generica  è: \(\mathit{D}\quadra{x^n}=
+  La derivata della generica  è: \(\Deriv{x^n}=
   nx^{n-1}\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=x^n\) .\tab Tesi: \(f'(x)=nx^{n-1}\).
@@ -4819,7 +4892,7 @@ parabola simmetrica rispetto all'asse \(Y\).
 
 \begin{corollario}
   La derivata della funzione radice quadrata è: 
-\(\mathit{D}\quadra{\sqrt{x}}=
+\(\Deriv{\sqrt{x}}=
     \dfrac{1}{2\sqrt{x}}\), con la restrizione \(x\ne 0\).
 \end{corollario}
 \noindent Ipotesi: \(f(x)=\sqrt{x}\), con \(x\ne 0\) .\tab Tesi: 
@@ -4865,7 +4938,7 @@ si attenua gradualmente man mano che \(x\) aumenta, fino ad assestarsi quasi
 orizzontalmente.
 
 \begin{corollario}
-  La derivata della funzione reciproca è: \(\mathit{D}\quadra{\dfrac{1}{x}}=
+  La derivata della funzione reciproca è: \(\Deriv{\dfrac{1}{x}}=
     -\dfrac{1}{x^2}\).
 \end{corollario}
 \noindent Ipotesi: \(f(x)=\dfrac{1}{x}\).\tab Tesi: \(f'(x)=-\dfrac{1}{x^2}\).
@@ -4914,21 +4987,21 @@ funzioni elementari.
   Si tratta di una funzione nuova, ma è facile riconoscere che è formata 
   dalla somma (algebrica) di due funzioni e ciascuna di queste è data dal 
   prodotto fra la costante \(3\) e una funzione appena trattata. Perciò:\\
-  \(\mathit{D}\quadra{3x}=3\cdot\mathit{D}\quadra{x}=3\cdot 1=3\); \tab
-  \(\mathit{D}\quadra{\dfrac{3}{x}}=3\cdot\mathit{D}\quadra{\dfrac{1}{x}}
+  \(\Deriv{3x}=3\cdot\Deriv{x}=3\cdot 1=3\); \tab
+  \(\Deriv{\dfrac{3}{x}}=3\cdot\Deriv{\dfrac{1}{x}}
   =3\cdot \dfrac{-1}{x^2}=\dfrac{-3}{x^2}\);\\
-  \(f'(x)=\mathit{D}\quadra{3x-\dfrac{3}{x}}=\mathit{D}\quadra{3x}-
-  \mathit{D}\quadra{\dfrac{3}{x}}= 3-\dfrac{-3}{x^2}= 3+\dfrac{3}{x^2}\);\\
+  \(f'(x)=\Deriv{3x-\dfrac{3}{x}}=\Deriv{3x}-
+  \Deriv{\dfrac{3}{x}}= 3-\dfrac{-3}{x^2}= 3+\dfrac{3}{x^2}\);\\
   \(f'(3)=3+\dfrac{3}{9}= 10\).
 \end{esempio}
 Senza troppi problemi, abbiamo dato per scontato che 
 \begin{enumerate}[noitemsep]
  \item La derivata del prodotto tra una costante e  una funzione è il 
 prodotto  fra la costante e la derivata della funzione: \quad 
- \(\mathit{D}\quadra{kf(x)}=k\mathit{D}\quadra{f(x)}\).
+ \(\Deriv{kf(x)}=k\Deriv{f(x)}\).
  \item La derivata della somma algebrica fra due funzioni è la somma 
 algebrica  delle due derivate: \quad
-\(\mathit{D}\quadra{f(x)+g(x)}=\mathit{D}\quadra{f(x)}+\mathit{D}\quadra{g(x)
+\(\Deriv{f(x)+g(x)}=\Deriv{f(x)}+\Deriv{g(x)
 }\).
 \end{enumerate}
 Da dove derivano queste certezze? Basta tornare alle regole di composizione
@@ -4938,7 +5011,7 @@ conferma.
 \begin{esempio}
 Deriva la funzione che nel piano cartesiano è rappresentata dalla retta 
 \(y=x+9\).\\
-\(\mathit{D}\quadra{x+9}=1\).
+\(\Deriv{x+9}=1\).
 \end{esempio}
 
 Sempre in riferimento a quanto appreso sui differenziali 
@@ -4949,13 +5022,13 @@ anche le regole 3 e 4 risultano giustificate:
 \item La derivata del prodotto fra due funzioni è la somma fra due prodotti:
 la derivata della prima funzione per la seconda (non derivata) più la prima 
 funzione (non derivata) per la derivata della seconda: \quad 
-\(\mathit{D}\quadra{f(x)\cdot g(x)}=f'(x)\cdot g(x)+f(x)\cdot g'(x)\).
+\(\Deriv{f(x)\cdot g(x)}=f'(x)\cdot g(x)+f(x)\cdot g'(x)\).
 \item La derivata del quoziente fra due funzioni è la frazione che ha per 
 denominatore il quadrato del divisore e per numeratore la differenza fra due
 prodotti: la derivata della prima funzione per la seconda (non derivata) 
 meno
 la prima funzione (non derivata) per la derivata della seconda: \quad 
-\(\mathit{D}\quadra{\dfrac{f(x)}{g(x)}}=\dfrac{f'(x)\cdot g(x)-f(x)\cdot 
+\(\Deriv{\dfrac{f(x)}{g(x)}}=\dfrac{f'(x)\cdot g(x)-f(x)\cdot 
 g'(x)}
   {\quadra{g(x)}^2}\).
 \end{enumerate} 
@@ -5065,7 +5138,7 @@ Una catena del genere si chiama \emph{funzione di funzione} o
 \label{}
 
 Come deriviamo  \(v\) rispetto a \(t\)? Dalla definizione di derivata: 
-\(\mathit{D}\quadra{v(u(t))}=\pst{\dfrac{d(v(u(t)))}{dt}}\), 
+\(\Deriv{v(u(t))}=\pst{\dfrac{d(v(u(t)))}{dt}}\), 
 e il punto è il calcolo dei differenziali.
 \begin{inaccessibleblock}
   [differenziale funzione composta]
@@ -5156,7 +5229,7 @@ Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\).
 \begin{osservazione}
  La regola della funzione composta si estende ai casi in cui le funzioni 
  in gioco sono tre, o più:
- \(\mathit{D}\quadra{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)\).
+ \(\Deriv{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)\).
 \end{osservazione}
 % \begin{osservazione}
 %  Lo studente smart si era già accorto che la derivata di un prodotto non 
@@ -5221,7 +5294,7 @@ Considera il caso semplice che segue.
   \(f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
   \dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x=1\).\\
   Conclusione: 
-\(\mathit{D}\quadra{x^2}=\dfrac{1}{\mathit{D}\quadra{\sqrt{x}}}\).
+\(\Deriv{x^2}=\dfrac{1}{\Deriv{\sqrt{x}}}\).
 \end{esempio}
 Si intuisce che: siccome \(f'(g)\cdot g'(x)=1\), allora 
 \(g'(x)=\dfrac{1}{f'(g)}\).
@@ -5292,14 +5365,14 @@ Per questo bisogna essere precisi nell'enunciato.
   \begin{enumerate}[noitemsep]
    \item Usando il teorema \ref{teo:diff01_dericomp} e le regole 
 precedenti:\\
-   \(f'(x)=\mathit{D}\quadra{\dfrac{1}{\sqrt{5-x}}}=
-   \mathit{D}\quadra{(5-x)^\frac{-1}{2}}=-\dfrac{1}{2}(5-x)
+   \(f'(x)=\Deriv{\dfrac{1}{\sqrt{5-x}}}=
+   \Deriv{(5-x)^\frac{-1}{2}}=-\dfrac{1}{2}(5-x)
    ^\frac{-3}{2}(-1) = \dfrac{1}{2(\sqrt{5-x})^3}\).
    \item Usando la regola appena appresa:\\
    Costruiamo la formula inversa con pochi passaggi algebrici: riavremo la 
    stessa funzione, in cui \(y\) figura come variabile indipendente: 
 \(x=f(y)\).\\
-   Quindi deriviamo: \(\mathit{D}\quadra{x}=x'=f'(y)=\pst{\dfrac{dx}{dy}}\).\\
+   Quindi deriviamo: \(\Deriv{x}=x'=f'(y)=\pst{\dfrac{dx}{dy}}\).\\
    \(f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x}\srarrow 
    y^{-2}=5-x\srarrow x=5-y^{-2}\)  (formula inversa)\\
    \(x'=\pst{\dfrac{dx}{dy}}=-2y^{-3}\) (derivata della funzione inversa)\\
@@ -5456,14 +5529,14 @@ derivazione:
 \vspace{.5em}
 \begin{tabular}{l}
 \vspace{.5em}  Regole di derivazione\\\vspace{.5em}
-\(\mathit{D}\quadra{f(x)+g(x)}=f'(x)+g'(x)\)\\\vspace{.5em}
-\(\mathit{D}\quadra{kf(x)}=kf'(x)\)\\\vspace{.5em}
-\(\mathit{D}\quadra{f(x)\cdot g(x)}=f'(x)\cdot g(x)+f(x)\cdot 
+\(\Deriv{f(x)+g(x)}=f'(x)+g'(x)\)\\\vspace{.5em}
+\(\Deriv{kf(x)}=kf'(x)\)\\\vspace{.5em}
+\(\Deriv{f(x)\cdot g(x)}=f'(x)\cdot g(x)+f(x)\cdot 
 g'(x)\)\\\vspace{.5em}
-\(\mathit{D}\quadra{\dfrac{1}{f(x)}}=-\dfrac{f'(x)}{f^2(x)}\)\\\vspace{.5em}
-\(\mathit{D}\quadra{\dfrac{f(x)}{g(x)}}=\dfrac{f'(x)\cdot g(x)-f(x)
+\(\Deriv{\dfrac{1}{f(x)}}=-\dfrac{f'(x)}{f^2(x)}\)\\\vspace{.5em}
+\(\Deriv{\dfrac{f(x)}{g(x)}}=\dfrac{f'(x)\cdot g(x)-f(x)
     \cdot g'(x)}{g^2(x)}\)\\\vspace{.5em}
-\(\mathit{D}\quadra{f(g(x))=f'(g(x))\cdot g'(x)}\)
+\(\Deriv{f(g(x))=f'(g(x))\cdot g'(x)}\)
 \end{tabular}
 \end{center}
 \end{minipage}
