@@ -756,15 +756,24 @@
     }
 }
 
-\newcommand{\derivamodulodue}{% derivate val ass.
-    \disegnod{4.5}{
-    \rcom{-2}{+6}{-4}{+4}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-2.3, xmax=+6.3, ymin=-4.3, ymax=+4.3]
-     \tkzFct[ultra thick, color=blue!50!black, domain=-2.3:2.0]{.5*x+1}
-     \tkzFct[ultra thick, color=blue!50!black, domain=2.0:6.3]{-.5*x+3}
-     %\tkzFct[thick, color=Cyan!50!black, domain=:+2]{-x}
-     \filldraw (2, 2) circle (1.4pt);
-    }
+\newcommand{\derivamodulodue}{% funzione e derivata val ass.
+  \def \fa{-.5*abs(x-2)+2}
+  \def \fda{+.5}
+  \def \fdb{-.5}
+  \def \mix{-2}
+  \def \max{+6}
+  \def \miy{-3}
+  \def \may{+4}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+    \tkzFct[domain=\mix-0.3:2, ultra thick, \dcolor] {\fda}
+    \tkzFct[domain=2:\max+0.3, ultra thick, \dcolor] {\fdb}
+%     \filldraw (2, 2) circle (1.4pt);
+    \draw (4.5, 1.15) node [\fcolor] {\(f\)}
+          (4.5, -.95) node [\dcolor] {\(f'\)};
+  }
 }
 
 \newcommand{\parabola}{%
