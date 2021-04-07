@@ -3,6 +3,19 @@
 
 \input{\folder differenziazione_grafici.tex}
 
+% -----------------------------------------------
+% % TODO Possibile schema:
+% - definizioni
+% - - introduzione
+% - - pendenza
+% - - funzione derivata
+% - teoremi
+% - - funzioni elementari algebriche (radice?)
+% - - regole di derivazione
+% - - funzioni trascendenti
+% - Applicazioni
+% -----------------------------------------------
+
 \chapter{Derivate}
 
 % \affiancati{.50}{.50}{
@@ -1149,14 +1162,14 @@ poiché il valore della parte standard non dipende da \(dx\).
 \end{proof}
 
 \begin{inaccessibleblock}
-  [esponenziale e pendenze]
+  [Parabola con pendenze e sua derivata]
 \hspace{-20mm}\affiancati{.55}{.43}{
 \begin{center} \scalebox{.8}{\parabola} \end{center}
 }{
 \begin{center} \scalebox{.8}{\derivataparabola} \end{center}
 }
 \end{inaccessibleblock}
-\label{}
+\label{img:diff_parabola_con_pendenze}
 \begin{center} Il grafico di \(y=x^2\), con alcune sue tangenti, e 
 la sua derivata: \(y=2x\).\end{center}
 
@@ -1376,18 +1389,18 @@ Differenziale, ma ora vogliamo applicare la regola del prodotto.\\
 \Deriv{12} \cdot x + 12 \cdot \Deriv{x} =
 0 \cdot x + 12\cdot 1 = 12\]
 \end{esempio}
-
-\begin{esempio}
-\label{esem:diff_quadrato}
-Calcola la derivata della funzione \(f(x)=x^2\).
-
-Abbiamo già risolto questo problema,
-ma ora vogliamo applicare la regola del prodotto.\\
-\(f = g \cdot h\) \quad con \(g(x) = x\) e \(h(x) = x\)
-\[f' = g' \cdot h + g \cdot h' = 
-\Deriv{x} \cdot x + x \cdot \Deriv{x} =
-1 \cdot x + x \cdot 1 = 2x\]
-\end{esempio}
+% 
+% \begin{esempio}
+% \label{esem:diff_quadrato}
+% Calcola la derivata della funzione \(f(x)=x^2\).
+% 
+% Abbiamo già risolto questo problema,
+% ma ora vogliamo applicare la regola del prodotto.\\
+% \(f = g \cdot h\) \quad con \(g(x) = x\) e \(h(x) = x\)
+% \[f' = g' \cdot h + g \cdot h' = 
+% \Deriv{x} \cdot x + x \cdot \Deriv{x} =
+% 1 \cdot x + x \cdot 1 = 2x\]
+% \end{esempio}
 
 \subsubsection{Derivata del prodotto per una costante}
 \label{subsubsec:derivata_f_per_k}
@@ -1419,7 +1432,6 @@ f' &= \pst{\frac{f(x +dx) - f(x)}{dx}} =
       k \cdot g'
 \end{align*}
 \end{proof}
-
 
 \begin{osservazione}
 Questi due ultimi teoremi consentono una facile dimostrazione alla regola di 
@@ -1454,12 +1466,7 @@ a tratti:
 \sistema{
  +\dfrac{1}{2}x +1 &\text{ per } x < 2 \\[.5em]
  -\dfrac{1}{2}x +3 &\text{ per } x \ge 2
-}
-% \begin{cases}
-%  +\dfrac{x}{2}+1 &\text{ per } x < 2 \\[.5em]
-%  -\dfrac{x}{2}+3 &\text{ per } x \ge 2
-% \end{cases}
-\]
+}\]
 
 \affiancati{.33}{.65}{
 \begin{inaccessibleblock}
@@ -1500,57 +1507,100 @@ Si può osservare che:
 \item \(f\) non è derivabile in tutto \(\R\).
 \end{itemize}
 
+% TODO forse questo va messo nella zona definizioni
 Perché una funzione sia derivabile deve essere continua, ma non è detto 
 che se è continua sia anche derivabile.
 
-
-\begin{comment}
-
-
-
 \subsubsection{Derivata di una funzione potenza con esponente naturale}
 \label{subsubsec:derivata_f_potenza_N}
-La regola della derivata di un prodotto ci consente di dimostrare un ampio 
-insieme di altre regole. Iniziamo da una derivata che abbiamo già 
-dimostrato con il calcolo del Rapporto Differenziale e calcolato più volte.
+La regola della derivata di un prodotto ci consente di dimostrare un 
+ampio insieme di altre regole. 
+Iniziamo da una derivata che abbiamo già dimostrato con il calcolo del 
+Rapporto Differenziale e calcolato più volte.
+
 \begin{esempio}
- Deriva la funzione \(f(x)=x^2\) con la regola del prodotto. 
-\begin{align*}
- &f(x) = x^2=x\cdot x;\quad \text{ funzione 1: } a(x)=x\quad \text{ funzione 2: 
-} 
-b(x)=x.\\
- &\text{Derivate dei fattori: }a'(x)=1;\quad b'(x)=1.\\
- &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
- &f'(x)=1\cdot x + x\cdot 1= 2x.
- \end{align*}
- \end{esempio}
- Ora sviluppiamo alcuni casi successivi nella speranza di individuare una 
-regola generale.
- \begin{esempio}
- Deriva la funzione \(f(x)=x^3\) con la regola del prodotto. 
-\begin{align*}
- &f(x) = x^3=x^2\cdot x; \quad \text{ funzione 1: } a(x)=x^2\quad \text{ 
-funzione 2: } 
-b(x)=x.\\
- &\text{Derivate dei fattori: }a'(x)=2x;\quad b'(x)=1.\\
- &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
- &f'(x)=2x\cdot x + x^2\cdot 1= 3x^2.
- \end{align*}
- \end{esempio}
- 
- \begin{esempio}
- Deriva la funzione \(f(x)=x^4\) con la regola del prodotto. 
-\begin{align*}
- &f(x) = x^4=x^3 \cdot x;\quad \text{ funzione 1: } a(x)=x^3\quad \text{ 
-funzione 2: } b(x)=x.\\
- &\text{Derivate dei fattori: }a'(x)=3x^2;\quad b'(x)=1.\\
- &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad \text{ quindi:}\\
- &f'(x)=3x^2\cdot x + x^3\cdot 1= 4x^3.
- \end{align*}
- \end{esempio}
- 
- In effetti c'è una regolarità nei risultati e possiamo enunciare il teorema.
- 
+\label{esem:diff_quadrato}
+Calcola la derivata della funzione \(f(x)=x^2\).
+
+Applicando la regola del prodotto:
+\(f = g \cdot h\) \quad con: \quad \(g(x) = x\) \quad e \quad \(h(x) = x\)
+\[f' = g' \cdot h + g \cdot h' = 
+\Deriv{x} \cdot x + x \cdot \Deriv{x} =
+1 \cdot x + x \cdot 1 = 2x\]
+\end{esempio}
+
+\begin{esempio}
+\label{esem:diff_quadrato}
+Calcola la derivata della funzione \(f(x)=x^3\).
+
+Sempre applicando la regola del prodotto:
+\(f = g \cdot h\) \quad con: \quad \(g(x) = x^2\) \quad e \quad \(h(x) = x\)
+\[f' = g' \cdot h + g \cdot h' = 
+\Deriv{x^2} \cdot x + x^2 \cdot \Deriv{x} =
+2x \cdot x + x^2 \cdot 1 = 3x^2\]
+\end{esempio}
+
+\begin{esempio}
+\label{esem:diff_quadrato}
+Calcola la derivata della funzione \(f(x)=x^4\).
+
+Sempre applicando la regola del prodotto:
+\(f = g \cdot h\) \quad con: \quad \(g(x) = x^3\) \quad e \quad \(h(x) = x\)
+\[f' = g' \cdot h + g \cdot h' = 
+\Deriv{x^3} \cdot x + x^3 \cdot \Deriv{x} =
+3x^2 \cdot x + x^3 \cdot 1 = 4x^3\]
+\end{esempio}
+
+
+
+% \begin{esempio}
+%  Deriva la funzione \(f(x)=x^2\) con la regola del prodotto. 
+% \begin{align*}
+%  &f(x) = x^2=x\cdot x;\quad \text{ funzione 1: } a(x)=x\quad 
+% \text{ funzione 2: 
+% } 
+% b(x)=x.\\
+%  &\text{Derivate dei fattori: }a'(x)=1;\quad b'(x)=1.\\
+%  &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad 
+% \text{ quindi:}\\
+%  &f'(x)=1\cdot x + x\cdot 1= 2x.
+%  \end{align*}
+%  \end{esempio}
+%  Ora sviluppiamo alcuni casi successivi nella speranza di individuare una 
+% regola generale.
+%  \begin{esempio}
+%  Deriva la funzione \(f(x)=x^3\) con la regola del prodotto. 
+% \begin{align*}
+%  &f(x) = x^3=x^2\cdot x; \quad \text{ funzione 1: } a(x)=x^2\quad \text{ 
+% funzione 2: } 
+% b(x)=x.\\
+%  &\text{Derivate dei fattori: }a'(x)=2x;\quad b'(x)=1.\\
+%  &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad 
+% \text{ quindi:}\\
+%  &f'(x)=2x\cdot x + x^2\cdot 1= 3x^2.
+%  \end{align*}
+%  \end{esempio}
+%  
+%  \begin{esempio}
+%  Deriva la funzione \(f(x)=x^4\) con la regola del prodotto. 
+% \begin{align*}
+%  &f(x) = x^4=x^3 \cdot x;\quad \text{ funzione 1: } a(x)=x^3\quad \text{ 
+% funzione 2: } b(x)=x.\\
+%  &\text{Derivate dei fattori: }a'(x)=3x^2;\quad b'(x)=1.\\
+%  &\text{Regola: } f'(x)=a'(x)\cdot b(x)+a(x)\cdot b'(x),\quad 
+% \text{ quindi:}\\
+%  &f'(x)=3x^2\cdot x + x^3\cdot 1= 4x^3.
+%  \end{align*}
+%  \end{esempio}
+
+In effetti c'è una regolarità nei risultati:
+\[\Deriv{x} = 1; \quad \Deriv{x^2} = 2x; \quad \Deriv{x^3} = 3x^2; \quad 
+  \Deriv{x^4} = 4x^3;\]
+e possiamo avanzare la congettura che 
+\[\Deriv{x^5} = 5x^4; \quad \Deriv{x^6} = 6x^5; \quad \dots\]
+e in generale:
+\[\Deriv{x^n} = nx^{n-1}\]
+
  \begin{teorema}
   \label{diff01_teoderpotenza}
   La derivata della funzione potenza \(f(x)= x^n\), con esponente 
@@ -1567,30 +1617,33 @@ naturale, è: \(\Deriv{x^n}=~nx^{n-1}\).
 Ricaviamo per gradi il differenziale della funzione potenza \(f(x)=x^n\), 
 con un procedimento per induzione.
 
-Iniziamo dai casi già noti \(f(x)=x\) e \(f(x)=x^2\) e esaminiamo i successivi
-aumentando progressivamente l'esponente. Ancora una volta non inseriamo 
-l'indicazione relativa a \(x_0\), perché ci siamo accorti che è inutile. 
-Infatti i risultati cambiano al cambiare di \(x_0\), il che equivale a dire che 
-dipendono da \(x\).
+Iniziamo dai casi già noti \(f(x)=x\) e \(f(x)=x^2\) e esaminiamo i 
+successivi aumentando progressivamente l'esponente. 
+Ancora una volta non inseriamo l'indicazione relativa a \(x_0\), perché 
+ci siamo accorti che è inutile. 
+Infatti i risultati cambiano al cambiare di \(x_0\), il che equivale a 
+dire che dipendono da \(x\).
 \begin{align*}
   d(x) &=x+dx-x =dx\\
   d(x^2) &=(x+dx)^2-x^2 = x^2 +2xdx +(dx)^2 -x^2 = 2xdx +(dx)^2\\
-  d(x^3) &=(x+dx)^3-x^3 =[x^3+3x^2dx+3x(dx)^2+(dx)^3]-x^3=
+  d(x^3) &=(x+dx)^3-x^3 = \quad{x^3+3x^2dx+3x(dx)^2+(dx)^3}-x^3=
                       3x^2dx+3x(dx)^2+(dx)^3\\
-  d(x^4) &=(x+dx)^4-x^4 = [x^4+4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4]-x^4=\\
-                      &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4  \\
- d(x^5) &= (x+dx)^5-x^5 = [x^5+5x^4dx+\dots +(dx)^5 ]-x^5=\\
-                      &=5x^4dx+\dots+(dx)^5\\
-                      &\dots
+  d(x^4) &=(x+dx)^4-x^4 = 
+           \quad{x^4+4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4}-x^4=\\
+         &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4  \\
+  d(x^5) &= (x+dx)^5-x^5 = \quad{x^5+5x^4dx+\dots +(dx)^5}-x^5=\\
+         &=5x^4dx+\dots+(dx)^5\\
+  \dots  &= \dots
 \end{align*}
-Possiamo osservare che il termine non infinitesimo si annulla sempre. Quindi,
-qualunque sia il valore di \(x\), l'incremento della funzione è infinitesimo. 
+Possiamo osservare che il termine non infinitesimo si annulla sempre. 
+Quindi, qualunque sia il valore di \(x\), l'incremento della funzione è 
+infinitesimo. 
 Queste funzioni sono quindi continue in tutto \(\IR\) perché a variazioni 
 infinitesime della variabile \(x\) corrispondono sempre variazioni
 infinitesime della funzione.
 
-I vari differenziali hanno un'espressione sempre più lunga, ma se consideriamo 
-la parte principale di ogni espressione, cioè se trascuriamo 
+I vari differenziali hanno un'espressione sempre più lunga, ma se 
+consideriamo la parte principale di ogni espressione, cioè se trascuriamo 
 gli infinitesimi di ordine superiore, il risultato è molto semplice.
 
 % \newpage %----------------------------------------
@@ -1603,75 +1656,103 @@ dato che è indistinguibile, concludiamo:
   d(x^3) &=3x^2dx+3x(dx)^2+(dx)^3 \sim 3x^2dx\\
   d(x^4) &=4x^3dx+6x^2(dx)^2+4x(dx)^3+(dx)^4 \sim 4x^3dx\\
   d(x^5) &=5x^4dx+10x^3(dx)^2+10x^2(dx)^3+5x(dx)^4+(dx)^5 \sim 5x^4dx\\
-  d(x^6) &=6x^5dx+\dots+(dx)^6 \sim 6x^5dx\\
-  d(x^7) &=7x^6(dx)+\dots+(dx)^7 \sim 7x^6dx\\
+%   d(x^6) &=6x^5dx+\dots+(dx)^6 \sim 6x^5dx\\
+%   d(x^7) &=7x^6(dx)+\dots+(dx)^7 \sim 7x^6dx\\
   \dots &= \dots\\
   d(x^{10}) &=10x^9(dx)+\dots+(dx)^{10} \sim 10x^9dx\\
   \dots &= \dots\\
-  d(x^n) &=nx^{n-1}(dx)+\dots+(dx)^{n} \sim nx^{n-1}dx.\\    
+  d(x^n) &=nx^{n-1}(dx)+\dots+(dx)^{n} \sim nx^{n-1}dx\\    
 \end{align*}
 Ora che il meccanismo è chiaro, abbiamo la regola per il differenziale di 
 questa 
 funzione: \(d(x^n) \sim nx^{n-1}dx\) 
 e la sfruttiamo per ricavare il Rapporto Differenziale.
-\[
- \forall dx\ne 0:\quad
- RD =\dfrac{d(x^n)}{dx}\sim \dfrac{nx^{n-1}dx}{dx}=nx^{n-1}.
-\]
-Il Rapporto Differenziale è indistinguibile da una quantità finita indipendente 
-da \(dx\), possiamo calcolarne la parte standard. Questa operazione, fra 
-l'altro, ci permette di eliminare gli infinitesimi di ordine superiore e quindi 
-di scrivere il segno di \(=\) al posto del segno \(\sim\).
-\[
- f'(x)=\pst{\dfrac{d(x^n)}{dx}}=\pst{nx^{n-1}}=nx^{n-1}.
-\]
+\[ \forall dx\ne 0:\quad
+ RD =\dfrac{d(x^n)}{dx}\sim \dfrac{nx^{n-1}dx}{dx}=nx^{n-1}\]
+Il Rapporto Differenziale è indistinguibile da una quantità finita 
+indipendente da \(dx\), possiamo calcolarne la parte standard. 
+Questa operazione, fra l'altro, ci permette di eliminare gli infinitesimi 
+di ordine superiore e quindi di scrivere il segno di \(=\) al posto del 
+segno \(\sim\).
+\[ f'(x)=\pst{\dfrac{d(x^n)}{dx}}=\pst{nx^{n-1}}=nx^{n-1}\]
 \end{proof}
 
 Come esempio di derivata della funzione potenza, consideriamo \(f(x)=x^3\)
 e il suo grafico nel piano cartesiano. 
 
-\begin{minipage}[]{.48\textwidth}
 \begin{inaccessibleblock}
-  [m tangenti a cubica]
- \begin{center}
- \cubica
- \end{center}
+  [Cubica con pendenze e sua derivata]
+\hspace{-20mm}\affiancati{.55}{.43}{
+\begin{center} \scalebox{.6}{\cubica} \end{center}
+}{
+\begin{center} \scalebox{.6}{\derivatacubica} \end{center}
+}
 \end{inaccessibleblock}
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.48\textwidth}
- \begin{center}
-  \tangenticubica
- \end{center}
- \end{minipage}
+\label{img:diff_cubica_con_pendenze}
+\begin{center} Il grafico di \(y=x^3\), con alcune sue tangenti, e 
+la sua derivata: \(y=3x^2\).\end{center}
+
+% \begin{minipage}[]{.48\textwidth}
+% \begin{inaccessibleblock}
+%   [m tangenti a cubica]
+%  \begin{center}
+%  \cubica
+%  \end{center}
+% \end{inaccessibleblock}
+%  \end{minipage} 
+%  \hfill
+%  \begin{minipage}[]{.48\textwidth}
+%  \begin{center}
+%   \tangenticubica
+%  \end{center}
+%  \end{minipage}
 % \caption{\(y=x^3\) e la pendenza \(y=m(x)=3x^2\) delle sue tangenti.} 
 % \label{}
 % \end{figure}
 %\vspace{1em}
 
-I due rami del grafico sono simmetrici rispetto all'origine e quindi lo sono 
-anche le pendenze delle tangenti. 
+I due rami del grafico sono simmetrici rispetto all'origine
+% e quindi lo sono anche le pendenze delle tangenti
+. 
+Considerando le \(x\) crescenti, quindi da sinistra verso destra, le 
+pendenze delle tangenti sono sempre positive, all'inizio molto 
+accentuate, poi diminuiscono fino a \(m=0\). Poi riprendono a crescere, 
+in maniera sempre più evidente. Il grafico della funzione \(f'(x)=3 x^2\) 
+ha infatti la forma di una parabola simmetrica rispetto all'asse \(y\).
 
-Considerando le \(x\) crescenti, quindi da sinistra verso destra, le pendenze 
-delle tangenti sono sempre positive, all'inizio molto accentuate, poi 
-diminuiscono fino a \(m=0\). Poi riprendono a crescere, in maniera 
-sempre più evidente. Il grafico della funzione \(f'(x)=3 x^2\) ha 
-infatti la forma di una parabola simmetrica rispetto all'asse \(y\).
-
-\begin {esempio}
 Ora disponiamo di un'arma molto più potente di prima, che, insieme alle 
-precedenti, ci permette di calcolare derivate come questa.\\
-Derivare la funzione polinomiale 
-\(f(x)= -\dfrac{4}{15}x^5+ \dfrac{2}{3}x^3-13kx\).
- \begin{align*}
- &f(x) = -\dfrac{4}{15}x^5+ \dfrac{2}{3}x^3-13kx\\
- &\text{funzione 1:} a(x)=-\dfrac{4}{15}x^5\quad \text{ funzione 2: } 
-b(x) =+ \dfrac{2}{3}x^3\quad \text{ funzione 3: } c(x) =-13kx.\\
- &\text{Derivate degli addendi: }a'(x)=\dfrac{4}{3}x^4;\quad b'(x)=+2 x^2;
- \quad c'(x)=-13k.\\
- &\text{Quindi: } f'(x)=\dfrac{4}{3}x^4+2x^2-13k.
- \end{align*}
-\end {esempio}
+precedenti, ci permette di calcolare la derivata delle funzioni 
+polinomiali. 
+
+\begin{esempio}
+\label{esem:diff_prodottocostante}
+Calcola la derivata della funzione 
+\(f(x)=-\dfrac{4}{15}x^5 +\dfrac{2}{3}x^3-13x\).
+\begin{align*}
+\Deriv{-\dfrac{4}{15}x^5+ \dfrac{2}{3}x^3-13x} &= 
+-\dfrac{4}{15} \cdot \Deriv{x^5} + 
+ \dfrac{2}{3} \Deriv{x^3} -13 \cdot \Deriv{x}=\\
+&=-\dfrac{4}{15} \cdot 5x^4 + \dfrac{2}{3} 3x^2 -13 =
+-\dfrac{4}{3} x^4 + 2x^2 -13
+\end{align*}
+\end{esempio}
+
+% \begin {esempio}
+% \(f(x)= -\dfrac{4}{15}x^5+ \dfrac{2}{3}x^3-13kx\).
+%  \begin{align*}
+%  &f(x) = -\dfrac{4}{15}x^5+ \dfrac{2}{3}x^3-13kx\\
+%  &\text{funzione 1:} a(x)=-\dfrac{4}{15}x^5\quad \text{ funzione 2: } 
+% b(x) =+ \dfrac{2}{3}x^3\quad \text{ funzione 3: } c(x) =-13kx.\\
+%  &\text{Derivate degli addendi: }a'(x)=\dfrac{4}{3}x^4;\quad b'(x)=+2 x^2;
+%  \quad c'(x)=-13k.\\
+%  &\text{Quindi: } f'(x)=\dfrac{4}{3}x^4+2x^2-13k.
+%  \end{align*}
+% \end {esempio}
+
+
+\begin{comment}
+
+
 
  \subsubsection{Derivata di una funzione potenza con esponente intero}
 \label{subsubsec:derivata_f_potenza_Z} 
@@ -1680,7 +1761,8 @@ b(x) =+ \dfrac{2}{3}x^3\quad \text{ funzione 3: } c(x) =-13kx.\\
   La derivata della funzione reciproca \(f(x)=\dfrac{1}{x}\) è: \quad
 \(\Deriv{\dfrac{1}{x}}=-\dfrac{1}{x^2}\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\dfrac{1}{x}\).\tab Tesi: \(f'(x)=-\dfrac{1}{x^2}\).
+\noindent Ipotesi: \(f(x)=\dfrac{1}{x}\) \tab 
+Tesi: \(f'(x)=-\dfrac{1}{x^2}\)
 \begin{proof}
 \begin{align*}
  &f(x)= \dfrac{1}{x}\quad\text{ con } x\ne 0.\quad\text{ Allora, } \forall 
@@ -1690,8 +1772,8 @@ dx \ne  0:\\
 \dfrac{\dfrac{-\cancel{dx}}{x(x+dx)}}{\cancel{dx}}=\dfrac{-1}{x(x+dx)}.
 \end{align*}
 Date le ipotesi, il Rapporto Differenziale è un numero finito e 
-possiamo applicare la definizione di derivata. Per le proprietà della funzione 
-parte standard:
+possiamo applicare la definizione di derivata. 
+Per le proprietà della funzione parte standard:
 \[
  \pst{\dfrac{-1}{x(x+dx)}}=
 \dfrac{-1}{\pst{x(x+dx)}}=\dfrac{-1}{\pst{x}\pst{x+dx}}=
