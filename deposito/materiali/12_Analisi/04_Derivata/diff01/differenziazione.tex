@@ -1749,24 +1749,19 @@ Calcola la derivata della funzione
 %  \end{align*}
 % \end {esempio}
 
-
-\begin{comment}
-
-
-
  \subsubsection{Derivata di una funzione potenza con esponente intero}
 \label{subsubsec:derivata_f_potenza_Z} 
  
- \begin{teorema}
-  La derivata della funzione reciproca \(f(x)=\dfrac{1}{x}\) è: \quad
+\begin{teorema}
+La derivata della funzione reciproca \(f(x)=\dfrac{1}{x}\) è: \quad
 \(\Deriv{\dfrac{1}{x}}=-\dfrac{1}{x^2}\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\dfrac{1}{x}\) \tab 
+\noindent Ipotesi: \(f(x)=\dfrac{1}{x}\) \quad  con \(x \ne 0\)\tab 
 Tesi: \(f'(x)=-\dfrac{1}{x^2}\)
 \begin{proof}
 \begin{align*}
- &f(x)= \dfrac{1}{x}\quad\text{ con } x\ne 0.\quad\text{ Allora, } \forall 
-dx \ne  0:\\
+%  &f(x)= \dfrac{1}{x}\quad\text{ con } x\ne 0.\quad\text{ Allora, } 
+%  \forall dx \ne  0:\\
  &RD=\dfrac{df(x)}{dx}=\dfrac{\dfrac{1}{x+dx}-\dfrac{1}{x}}{dx}= 
 \dfrac{\dfrac{x-x-dx}{x(x+dx)}}{dx}=
 \dfrac{\dfrac{-\cancel{dx}}{x(x+dx)}}{\cancel{dx}}=\dfrac{-1}{x(x+dx)}.
@@ -1774,34 +1769,45 @@ dx \ne  0:\\
 Date le ipotesi, il Rapporto Differenziale è un numero finito e 
 possiamo applicare la definizione di derivata. 
 Per le proprietà della funzione parte standard:
-\[
- \pst{\dfrac{-1}{x(x+dx)}}=
+\[ \pst{\dfrac{-1}{x(x+dx)}}=
 \dfrac{-1}{\pst{x(x+dx)}}=\dfrac{-1}{\pst{x}\pst{x+dx}}=
-      -\dfrac{1}{x\cdot x}=-\dfrac{1}{x^2}.
-\]
-Poiché il risultato non cambia \(\forall dx \ne 0\), la tesi è dimostrata.
+      -\dfrac{1}{x\cdot x}=-\dfrac{1}{x^2}\]
+Poiché il risultato non cambia al variare dell'infinitesimo \(dx \ne 0\), 
+la tesi è dimostrata.
 \end{proof}
 
-% \begin{figure}[h!]
 \begin{inaccessibleblock}
-  [Grafico della funzione 1/x e della sua derivata: 1/(x^2)]
- \begin{minipage}[]{.48\textwidth}
- \begin{center}
-\scalebox{.9}{ \recip}
- \end{center}
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.48\textwidth}
- \begin{center}
-\scalebox{.9}{  \tangentirecip}
- \end{center}
- \end{minipage}
+  [Funzione 1/x, alcune tangenti, e derivata]
+\hspace{-20mm}\affiancati{.55}{.43}{
+\begin{center} \scalebox{.7}{\recipr} \end{center}
+}{
+\begin{center} \scalebox{.7}{\derivatarecipr} \end{center}
+}
 \end{inaccessibleblock}
-%\caption{\(y=\dfrac{1}{x}\) e la pendenza \(y=m(x)=\dfrac{-1}{x^2}\) delle sue 
-%   tangenti.} 
-% \label{}
-% \end{figure}
-\begin{center}Grafico di \(f(x)=\frac{1}{x}\) e di \(f'(x)\) \end{center}
+\label{img:diff_cubica_con_pendenze}
+\begin{center}Grafico di \(f(x)=\dfrac{1}{x}\) e di \(f'(x)\) \end{center}
+
+% % \begin{figure}[h!]
+% \begin{inaccessibleblock}
+%   [Grafico della funzione 1/x e della sua derivata: 1/(x^2)]
+%  \begin{minipage}[]{.48\textwidth}
+%  \begin{center}
+% \scalebox{.9}{ \recip}
+%  \end{center}
+%  \end{minipage} 
+%  \hfill
+%  \begin{minipage}[]{.48\textwidth}
+%  \begin{center}
+% \scalebox{.9}{  \tangentirecip}
+%  \end{center}
+%  \end{minipage}
+% \end{inaccessibleblock}
+% %\caption{\(y=\dfrac{1}{x}\) e la pendenza \(y=m(x)=\dfrac{-1}{x^2}\) 
+% % delle sue 
+% %   tangenti.} 
+% % \label{}
+% % \end{figure}
+% \begin{center}Grafico di \(f(x)=\frac{1}{x}\) e di \(f'(x)\) \end{center}
 
 Se proseguiamo con gli esempi possiamo ricavare le regole di 
 derivazione per le potenze successive \(f(x)=\dfrac{1}{x^2}\), 
@@ -1809,8 +1815,9 @@ derivazione per le potenze successive \(f(x)=\dfrac{1}{x^2}\),
 più comodamente come segue.
 
 \begin{teorema}
- La regola della derivata di una funzione potenza vale anche se 
-l'esponente è un intero negativo, quindi vale anche con esponente \(z\in\Z\).
+La regola della derivata di una funzione potenza vale anche se 
+l'esponente è un intero negativo, quindi vale anche con esponente 
+\(z\in\Z\).
 \end{teorema}
 
 \begin{proof}
@@ -1832,6 +1839,10 @@ f'(x)&= zx^{z-1}=-nx^{-n-1}.
   f'(x)=-2x^{-2-1}=-2x^{-3}=\dfrac{-2}{x^3}.
  \end{align*}
 \end{esempio}
+
+
+\begin{comment}
+
 
 
 \subsection{Derivata del quoziente di funzioni}

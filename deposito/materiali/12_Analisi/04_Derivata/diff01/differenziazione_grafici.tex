@@ -922,6 +922,107 @@
 %     }
 % }
 
+\newcommand{\funzioneetangenti}[8]{%
+  % Esempio di chiamata:
+  % 
+  \def \fa{#1}
+  \def \faa{#2}
+  \def \fb{#3}
+  \def \mix{#4}
+  \def \max{#5}
+  \def \miy{#6}
+  \def \may{#7}
+  \def \intervallo{#8}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{\mix,...,\max}
+    \ordinate{\miy,...,\may}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+    \foreach \xo in \intervallo{
+      \filldraw [\fcolor] (\xo, \faa) circle(2pt);
+      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+             {\fb}}
+    \foreach \xm/\ym/\lm in {-2/7.5/12, -4/-6.5/3, -3.5/0.5/0, 
+                             +4.5/+6.5/+3, +2.3/-7.5/+12}{
+      \draw (\xm, \ym) node {\footnotesize\(m = \lm\)};
+    }
+  }
+}
+
+\newcommand{\derivataepunti}[6]{% 
+  % Esempio di chiamata:
+  % 
+  \def \fa{#1}
+  \def \mix{#2}
+  \def \max{#3}
+  \def \miy{#4}
+  \def \may{#5}
+  \def \intervallo{#6}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{\mix,...,\max}
+    \ordinate{\miy,...,\may}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+    \foreach \x in \intervallo{
+      \filldraw (\x, \fa) [\dcolor] circle(2pt);}
+  }
+}
+
+\newcommand{\recipr}{% Funzione 1/n e alcune tangenti
+  \def \fa{1./x}
+  \def \faa{1./\xo}
+  \def \fb{-1/\xo/\xo*(x-\xo)+1/\xo}
+  \def \mix{-6}
+  \def \max{+6}
+  \def \miy{-6}
+  \def \may{+6}
+  \def \intervallo{-2., -1, -0.5, +0.5, +1, +2.}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{\mix,...,\max}
+    \ordinate{\miy,...,\may}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:-0.1, ultra thick, \fcolor] {\fa}
+    \tkzFct[domain=+0.1:\max+0.3, ultra thick, \fcolor] {\fa}
+    \foreach \xo in \intervallo{
+      \filldraw [\fcolor] (\xo, \faa) circle(2pt);
+      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+             {\fb}}
+    \foreach \xm/\ym/\lm in {-6/1/-0.25, -6/4.5/-1, -2/6.5/4, 
+                             +6/-1/-0.25, +6/-4.5/-1, +2/-6.5/4}{
+      \draw (\xm, \ym) node {\footnotesize\(m = \lm\)};
+    }
+  }
+}
+
+%   \funzioneetangenti{1./x}{1./\xo}{-1/\xo/\xo*(x-\xo)+1/\xo}
+%                     {-6}{6}{-6}{6}
+%                     {-2, -1, +1, +2}
+
+
+\newcommand{\derivatarecipr}{% Derivata della funzione 1/x con punti
+  % Funzione esponenziale con tangenti
+  \def \fa{-1./\x/\x}
+%   \def \faa{-1./\xo/\xo}
+  \def \mix{-6}
+  \def \max{+6}
+  \def \miy{-10}
+  \def \may{+2}
+  \def \intervallo{+0.5, +1., +2.}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{\mix,...,\max}
+    \ordinate{\miy,...,\may}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+    \foreach \x in \intervallo{
+      \filldraw (\x, \fa) [\dcolor] circle(2pt);
+      \filldraw (-\x, \fa) [\dcolor] circle(2pt);}
+  }
+}
+
 \newcommand{\radquad}{%  y=sqrt{x} e tangenti
     \disegnod{4.5}{
     \rcom{-1}{+12}{-1}{+4}{gray!50, very thin, step=1}
@@ -947,38 +1048,37 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
     }
 }
 
-\newcommand{\recip}{%  y=sqrt{x} e tangenti
-    \disegnod{4.5}{
-    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=+6.3]
-    \tkzFct[ultra thick, color=Green!60!black, domain= -6.3:-0.1]{1/x}
-    \tkzFct[ultra thick, color=Green!60!black, domain= 0.1:6.3]{1/x}    
-    \begin{scope}[thick, dotted, color=blue!40!black]
-     \tkzInit[xmin=-6.3, xmax=+6.3, xstep=1.0, ymin=-6.3,ymax=6.3]
-     \tkzFct[domain=-6.3:+0]{-.04*(x+5)-.2}    
-     \tkzFct[domain=-5.3:+0]{-.111*(x+3)-.333}
-     \tkzFct[domain=-4:+2]{-x-2}   
-     \tkzFct[domain=-1.5:2]{-4*(x+.5)-2}
-     \tkzFct[domain=-.5:0]{-25*(x+.2)-5} 
-     \tkzFct[domain=0:+6.3]{-.04*(x-5)+.2}    
-     \tkzFct[domain=0:5.3]{-.111*(x-3)+.333}
-     \tkzFct[domain=-2:+4]{-x+2}   
-     \tkzFct[domain=-.5:1.5]{-4*(x-.5)+2}
-     \tkzFct[domain=0.1:5]{-25*(x-.2)+5}   
-    \end{scope}
-   }
-}
-   
-\newcommand{\tangentirecip}{% 
-    % definita in intervallo 0-inf.
-     \disegnod{4.5}{
-      \rcom{-6}{+6}{-10}{+2}{gray!50, very thin, step=1}
-      \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-10.3, ymax=0]
-      \tkzFct[ultra thick, color=blue!50!black, domain=-6.3:-.3]{-1/(x*x)}
-      \tkzFct[ultra thick, color=blue!50!black, domain=.3:6.3]{-1/(x*x)}
-     
-    }
-}
+% \newcommand{\recip}{%  y=sqrt{x} e tangenti
+%     \disegnod{4.5}{
+%     \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=+6.3]
+%     \tkzFct[ultra thick, color=Green!60!black, domain= -6.3:-0.1]{1/x}
+%     \tkzFct[ultra thick, color=Green!60!black, domain= 0.1:6.3]{1/x}    
+%     \begin{scope}[thick, dotted, color=blue!40!black]
+%      \tkzInit[xmin=-6.3, xmax=+6.3, xstep=1.0, ymin=-6.3,ymax=6.3]
+%      \tkzFct[domain=-6.3:+0]{-.04*(x+5)-.2}    
+%      \tkzFct[domain=-5.3:+0]{-.111*(x+3)-.333}
+%      \tkzFct[domain=-4:+2]{-x-2}   
+%      \tkzFct[domain=-1.5:2]{-4*(x+.5)-2}
+%      \tkzFct[domain=-.5:0]{-25*(x+.2)-5} 
+%      \tkzFct[domain=0:+6.3]{-.04*(x-5)+.2}    
+%      \tkzFct[domain=0:5.3]{-.111*(x-3)+.333}
+%      \tkzFct[domain=-2:+4]{-x+2}   
+%      \tkzFct[domain=-.5:1.5]{-4*(x-.5)+2}
+%      \tkzFct[domain=0.1:5]{-25*(x-.2)+5}   
+%     \end{scope}
+%    }
+% }
+% 
+% \newcommand{\tangentirecip}{% 
+%     % definita in intervallo 0-inf.
+%      \disegnod{4.5}{
+%       \rcom{-6}{+6}{-10}{+2}{gray!50, very thin, step=1}
+%       \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-10.3, ymax=0]
+%       \tkzFct[ultra thick, color=blue!50!black, domain=-6.3:-.3]{-1/(x*x)}
+%       \tkzFct[ultra thick, color=blue!50!black, domain=.3:6.3]{-1/(x*x)}
+%     }
+% }
 
 \newcommand{\boxfcomposta}{% rettangolo 
   \def \xa{2}
