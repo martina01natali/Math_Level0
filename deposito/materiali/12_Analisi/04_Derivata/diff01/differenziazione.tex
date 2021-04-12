@@ -1317,28 +1317,21 @@ della prima funzione per la seconda (non derivata) più la prima funzione
 (non derivata) per il la derivata della seconda.
 \[\Deriv{b \cdot a}=\Deriv{b} \cdot a + b \cdot \Deriv{a}\]
 \end{teorema}
-\noindent Ipotesi: \(f = b \cdot a\) \text{ e esistono }
+\noindent Ipotesi: \(S = b \cdot a\) \text{ e esistono }
 \(b'\) e \(a'\) \tab 
-Tesi: \(f' = b' \cdot a + b \cdot a'\).
+Tesi: \(S' = b' \cdot a + b \cdot a'\).
 
-\begin{figure}[h]
 \begin{inaccessibleblock}
-  [Rettangolo con uno gnomone finito e rettangolo con gnomone infinitesimo.]
- \begin{center}
- \begin{minipage}[]{.38 \textwidth}
-  \vspace{23mm} 
+  [Rettangolo con uno gnomone reale e rettangolo con gnomone infinitesimo.]
+\affiancati{.38}{.58}{
+  \vspace{25mm} 
   \incrementaleprodotto
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.58 \textwidth}
-  \differenzialeprodotto
- \end{minipage}
- \end{center}
+}{ 
+  \differenzialeprodotto}
 \end{inaccessibleblock}
-\caption{Incrementi finito e infinitesimo dell'area di un rettangolo} 
+% \caption{Incrementi finito e infinitesimo dell'area di un rettangolo} 
 \label{fig:Incre_prodotto}
-\end{figure}
-%\vspace{-.5em}
+
 Ci faremo guidare dal disegno che spesso si usa per rappresentare il 
 prodotto fra due binomi. 
 \footnote{~Si potrebbe discutere sul fatto che 
@@ -1362,7 +1355,7 @@ di L rovesciata, detta \emph{gnomone}. È formata da tre parti:
 Dato che l'ultimo termine è un infinitesimo di ordine
 superiore, il risultato può essere approssimato alla sua parte principale, 
 perché è indistinguibile:
-\[df(x) = db(x)\cdot a(x) + b(x)\cdot da(x) + db(x)\cdot da(x)
+\[dS(x) = db(x)\cdot a(x) + b(x)\cdot da(x) + db(x)\cdot da(x)
                  \sim db(x)\cdot a(x)+b(x)\cdot da(x)\]
 Possiamo allora scrivere il Rapporto Differenziale:
 \begin{align*}
@@ -1375,7 +1368,7 @@ b'(x) \cdot a(x) + b(x) \cdot a'(x)
 Per ipotesi esistono le derivate delle due funzioni, perciò 
 il Rapporto Differenziale è un numero finito e la sua parte standard non 
 dipende dall'infinitesimo \(dx \neq 0\), quindi:
-\[f' = b' \cdot a + b \cdot a'\]
+\[S' = b' \cdot a + b \cdot a'\]
 \end{proof}
 
 \begin{esempio}
@@ -1384,8 +1377,8 @@ Calcola la derivata della funzione \(f(x)=12x\).
 
 Si può svolgere questo semplice esercizio scrivendo il Rapporto 
 Differenziale, ma ora vogliamo applicare la regola del prodotto.\\
-\(f = b \cdot a\) \quad con \(b(x) = 12\) e \(a(x) = x\)
-\[f' = b' \cdot a + b \cdot a' = 
+\(f = g \cdot h\) \quad con \(g(x) = 12\) e \(h(x) = x\)
+\[f' = g' \cdot h + g \cdot h' = 
 \Deriv{12} \cdot x + 12 \cdot \Deriv{x} =
 0 \cdot x + 12\cdot 1 = 12\]
 \end{esempio}
@@ -1423,7 +1416,7 @@ Primo metodo: applichiamo il teorema precedente:
 \end{proof}
 
 \begin{proof}
-Secondo metodo: calcoliamo il Rapporto Differenziale:
+Secondo metodo: calcolo della derivata attraverso il Rapporto Differenziale:
 \begin{align*}
 f' &= \pst{\frac{f(x +dx) - f(x)}{dx}} = 
       \pst{\frac{k \cdot g(x +dx) - k \cdot g(x)}{dx}} = \\
@@ -1448,8 +1441,7 @@ Calcola la derivata della funzione \(f(x)=-\dfrac{3}{2}x+5\).
   -\dfrac{3}{2} \cdot 1 + 0 = -\dfrac{3}{2}\]
 \end{esempio}
 
-
-
+% TODO: vale la pena inserire qui questo esempio complesso?
 \begin{esempio}
  %valore assoluto
 È derivabile la funzione \(f(x)=-\dfrac{1}{2}|x-2|+2\)?
@@ -1749,24 +1741,19 @@ Calcola la derivata della funzione
 %  \end{align*}
 % \end {esempio}
 
-
-\begin{comment}
-
-
-
  \subsubsection{Derivata di una funzione potenza con esponente intero}
 \label{subsubsec:derivata_f_potenza_Z} 
  
- \begin{teorema}
-  La derivata della funzione reciproca \(f(x)=\dfrac{1}{x}\) è: \quad
+\begin{teorema}
+La derivata della funzione reciproca \(f(x)=\dfrac{1}{x}\) è: \quad
 \(\Deriv{\dfrac{1}{x}}=-\dfrac{1}{x^2}\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\dfrac{1}{x}\) \tab 
+\noindent Ipotesi: \(f(x)=\dfrac{1}{x}\) \quad  con \(x \ne 0\)\tab 
 Tesi: \(f'(x)=-\dfrac{1}{x^2}\)
 \begin{proof}
 \begin{align*}
- &f(x)= \dfrac{1}{x}\quad\text{ con } x\ne 0.\quad\text{ Allora, } \forall 
-dx \ne  0:\\
+%  &f(x)= \dfrac{1}{x}\quad\text{ con } x\ne 0.\quad\text{ Allora, } 
+%  \forall dx \ne  0:\\
  &RD=\dfrac{df(x)}{dx}=\dfrac{\dfrac{1}{x+dx}-\dfrac{1}{x}}{dx}= 
 \dfrac{\dfrac{x-x-dx}{x(x+dx)}}{dx}=
 \dfrac{\dfrac{-\cancel{dx}}{x(x+dx)}}{\cancel{dx}}=\dfrac{-1}{x(x+dx)}.
@@ -1774,43 +1761,59 @@ dx \ne  0:\\
 Date le ipotesi, il Rapporto Differenziale è un numero finito e 
 possiamo applicare la definizione di derivata. 
 Per le proprietà della funzione parte standard:
-\[
- \pst{\dfrac{-1}{x(x+dx)}}=
+\[ \pst{\dfrac{-1}{x(x+dx)}}=
 \dfrac{-1}{\pst{x(x+dx)}}=\dfrac{-1}{\pst{x}\pst{x+dx}}=
-      -\dfrac{1}{x\cdot x}=-\dfrac{1}{x^2}.
-\]
-Poiché il risultato non cambia \(\forall dx \ne 0\), la tesi è dimostrata.
+      -\dfrac{1}{x\cdot x}=-\dfrac{1}{x^2}\]
+Poiché il risultato non cambia al variare dell'infinitesimo \(dx \ne 0\), 
+la tesi è dimostrata.
 \end{proof}
 
-% \begin{figure}[h!]
 \begin{inaccessibleblock}
-  [Grafico della funzione 1/x e della sua derivata: 1/(x^2)]
- \begin{minipage}[]{.48\textwidth}
- \begin{center}
-\scalebox{.9}{ \recip}
- \end{center}
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.48\textwidth}
- \begin{center}
-\scalebox{.9}{  \tangentirecip}
- \end{center}
- \end{minipage}
+  [Funzione 1/x, alcune tangenti, e derivata]
+\hspace{-20mm}\affiancati{.55}{.43}{
+\begin{center} \scalebox{.7}{\recipr} \end{center}
+}{
+\begin{center} \scalebox{.7}{\derivatarecipr} \end{center}
+}
 \end{inaccessibleblock}
-%\caption{\(y=\dfrac{1}{x}\) e la pendenza \(y=m(x)=\dfrac{-1}{x^2}\) delle sue 
-%   tangenti.} 
-% \label{}
-% \end{figure}
-\begin{center}Grafico di \(f(x)=\frac{1}{x}\) e di \(f'(x)\) \end{center}
+\label{img:diff_cubica_con_pendenze}
+\begin{center}Grafico di \(f(x)=\dfrac{1}{x}\) e di \(f'(x)\) \end{center}
+
+% % \begin{figure}[h!]
+% \begin{inaccessibleblock}
+%   [Grafico della funzione 1/x e della sua derivata: 1/(x^2)]
+%  \begin{minipage}[]{.48\textwidth}
+%  \begin{center}
+% \scalebox{.9}{ \recip}
+%  \end{center}
+%  \end{minipage} 
+%  \hfill
+%  \begin{minipage}[]{.48\textwidth}
+%  \begin{center}
+% \scalebox{.9}{  \tangentirecip}
+%  \end{center}
+%  \end{minipage}
+% \end{inaccessibleblock}
+% %\caption{\(y=\dfrac{1}{x}\) e la pendenza \(y=m(x)=\dfrac{-1}{x^2}\) 
+% % delle sue 
+% %   tangenti.} 
+% % \label{}
+% % \end{figure}
+% \begin{center}Grafico di \(f(x)=\frac{1}{x}\) e di \(f'(x)\) \end{center}
 
 Se proseguiamo con gli esempi possiamo ricavare le regole di 
 derivazione per le potenze successive \(f(x)=\dfrac{1}{x^2}\), 
 \(f(x)=\dfrac{1}{x^3}\), e così via, con \(x\ne 0\). Ma ci arriviamo 
 più comodamente come segue.
 
+% TODO Sistemare
+
+\begin{center}\textbf{Da sistemare}\end{center}
+
 \begin{teorema}
- La regola della derivata di una funzione potenza vale anche se 
-l'esponente è un intero negativo, quindi vale anche con esponente \(z\in\Z\).
+La regola della derivata di una funzione potenza vale anche se 
+l'esponente è un intero negativo, quindi vale anche con esponente 
+\(z\in\Z\).
 \end{teorema}
 
 \begin{proof}
@@ -1833,7 +1836,6 @@ f'(x)&= zx^{z-1}=-nx^{-n-1}.
  \end{align*}
 \end{esempio}
 
-
 \subsection{Derivata del quoziente di funzioni}
 \label{subsec:differenziazione_derivataquoziente}
 \begin{teorema}
@@ -1850,19 +1852,20 @@ Tesi:
              {\tonda{b(x)}^2}\)
 
 \begin{proof}
-Ricorriamo alla geometria anche in questo caso: nel disegno \(\mathit{S}(x)\) è 
-la funzione che genera i valori per l'area, \(b(x)\) e \(a(x)\) generano le 
-possibili basi e altezze. Per prima cosa calcoliamo \(d\mathit{S}(x)\).
+Ricorriamo alla geometria anche in questo caso: nel disegno 
+\(\mathit{S}(x)\) è la funzione che genera i valori per l'area, \(b(x)\) 
+e \(a(x)\) generano le possibili basi e altezze. 
+Per prima cosa calcoliamo \(d\mathit{S}(x)\).
 
-\begin{minipage}[]{.48 \textwidth}
+\noindent \begin{minipage}[]{.48 \textwidth}
 Essendo \(\mathit{S}(x)=b(x) \cdot a(x)\) allora:\\ 
-\(a(x)=\frac{S(x)}{b(x)}\), con \(b(x)\neq 0\).\\
+\(a(x)=\dfrac{S(x)}{b(x)}\), con \(b(x)\neq 0\).\\
 Guardando il disegno, \(da(x)\) è l'incremento infinitesimo dell'altezza, si 
 tratta dell'altezza della fascia superiore colorata, che si si calcola
 dividendo il rettangolo superiore dello gnomone per la base del rettangolo.
 Il rettangolo superiore dello gnomone è uguale a tutto lo gnomone 
-infinitesimo, \(d\mathit{S}\), meno il rettangolo destro infinitesimo, di area
-\(a\cdot db\) e meno il rettangolino, in alto a destra,
+infinitesimo, \(d\mathit{S}\), meno il rettangolo destro infinitesimo, 
+di area \(a\cdot db\) e meno il rettangolino, in alto a destra,
 \end{minipage} 
  \hfill
  \begin{minipage}[]{.48 \textwidth}
@@ -1875,22 +1878,23 @@ infinitesimo, \(d\mathit{S}\), meno il rettangolo destro infinitesimo, di area
 \end{minipage}
 anch'esso infinitesimo. Dunque:
 \begin{align*}
- d\quadra{\frac{\mathit{S}(x)}{b(x)}}&=da(x)=
- \frac{\quadra{d\mathit{S}(x) - a \cdot db(x) - db(x) \cdot da(x)}}
-        {b(x)}=\\
- &=\frac{\quadra{d\mathit{S}(x) - \dfrac{\mathit{S(x)}}{b(x)} \cdot db(x) - 
-          db(x) \cdot da(x)}}{b(x)}=
- \frac{\dfrac{d\mathit{S}(x) \cdot b(x) - \mathit{S(x)} \cdot db(x) -
+da(x) &= d\quadra{\frac{\mathit{S}(x)}{b(x)}}=
+ \frac{d\mathit{S}(x) - a(x) \cdot db(x) - db(x) \cdot da(x)}{b(x)}=\\
+ &=\frac{d\mathit{S}(x) - \dfrac{\mathit{S(x)}}{b(x)} \cdot db(x) - 
+          db(x) \cdot da(x)}{b(x)}=\\
+ &=\frac{\dfrac{d\mathit{S}(x) \cdot b(x) - \mathit{S(x)} \cdot db(x) -
                b(x) \cdot db(x) \cdot da(x)}{b(x)}}{b(x)}=\\
  &=\frac{d\mathit{S}(x) \cdot b(x) - \mathit{S(x)} \cdot db(x) -
               b(x) \cdot db(x) \cdot da(x)}{\tonda{b(x)}^2} \sim 
- \frac{d\mathit{S}(x) \cdot b(x) - \mathit{S(x)} \cdot db(x)}{\tonda{b(x)}^2}.
+ \frac{d\mathit{S}(x) \cdot b(x) - \mathit{S(x)} \cdot db(x)}
+      {\tonda{b(x)}^2}
 \end{align*}
-Come si vede, l'ultimo termine al numeratore nel risultato manca in quanto è 
-infinitesimo di ordine superiore ed è quindi trascurabile rispetto agli altri 
-termini. Vediamo ora il Rapporto differenziale e la derivata.
+Come si vede, l'ultimo termine al numeratore nel risultato manca in quanto 
+è infinitesimo di ordine superiore ed è quindi trascurabile rispetto agli 
+altri termini. 
+Vediamo ora il Rapporto differenziale e la derivata.
 \begin{align*}
- a(x)&=\frac{\mathit{S}(x)}{b(x)}.\quad \forall dx\ne 0:\\
+%  a(x)&=\frac{\mathit{S}(x)}{b(x)}.\quad \forall dx\ne 0:\\
  RD  &=\dfrac{da(x)}{dx}\sim  \dfrac{\dfrac{d\mathit{S}(x) \cdot b(x) - 
 \mathit{S(x)} \cdot db(x)}{\tonda{b(x)}^2}}{dx}=
 \dfrac{d\mathit{S}(x) \cdot b(x) - \mathit{S(x)} \cdot 
@@ -1898,29 +1902,37 @@ termini. Vediamo ora il Rapporto differenziale e la derivata.
 &=\tonda{\dfrac{d\mathit{S}(x) \cdot b(x)}{dx}-
   \frac{\mathit{S(x)} \cdot  db(x)}{dx} }\cdot\dfrac{1}{\tonda{b(x)}^2}= 
 \dfrac{\dfrac{\mathit{S(x)}}{dx}b(x)-
-\mathit{S(x)}\dfrac{db(x)}{dx}}{\tonda{b(x)}^2}.
+\mathit{S(x)}\dfrac{db(x)}{dx}}{\tonda{b(x)}^2}
 \end{align*}
 Poiché \(\mathit{S(x)}\) e \(b(x)\) sono per ipotesi derivabili, esistono le 
 parti standard dei Rapporti Differenziali, indipendenti dai \(dx\) non nulli 
-usati, e si ottiene così \(
-a'(x)=\dfrac{\mathit{S'(x)}\cdot b(x)-
+usati, e si ottiene così 
+\(a'(x)=\dfrac{\mathit{S'(x)}\cdot b(x)-
       \mathit{S(x)} \cdot b'(x)}{(b(x))^2}\).
- 
+
 Tornando alla notazione abituale, la regola della derivata del rapporto di 
 funzioni diventa:
-\begin{align*}
- f(x) &=\dfrac{g(x)}{h(x)},\quad\text{ con } h(x)\ne 0.\\
- f'(x) &=\dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}.
-\end{align*}
+\[f = \dfrac{g}{h},\quad\text{ con } h \ne 0 \qquad
+ f' = \dfrac{g' \cdot h - g \cdot h'}{h^2}\]
+% \begin{align*}
+%  f(x) &=\dfrac{g(x)}{h(x)},\quad\text{ con } h(x)\ne 0.\\
+%  f'(x) &=\dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}.
+% \end{align*}
 \end{proof}
 \begin{esempio}
- Anche se abbiamo già il risultato, applichiamo la regola alla funzione 
-\(f(x)=\frac{1}{x}\), in cui poniamo \(g(x)=1\) e \(h(x)=x\), per cui 
-\(g'(x)=0\) e \(h'(x)=1\).
+ Applichiamo la regola alla funzione: 
+\(f(x) = \dfrac{g(x)}{h(x)} = \dfrac{1}{x}\), 
 \[
-f'(x)= \dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}=\dfrac{0\cdot 
-x-1\cdot 1}{x^2}=-\dfrac{1}{x^2}.
+f'= \dfrac{g'\cdot h - g \cdot h'}{h^2} =
+    \dfrac{\Deriv{1} \cdot x - 1 \cdot \Deriv{x}}{x^2} =
+    \dfrac{0 \cdot x - 1 \cdot 1}{x^2} = -\dfrac{1}{x^2}.
 \]
+% in cui poniamo \(g(x)=1\) e \(h(x)=x\), per cui 
+% \(g'(x)=0\) e \(h'(x)=1\).
+% \[
+% f'(x)= \dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}=\dfrac{0\cdot 
+% x-1\cdot 1}{x^2}=-\dfrac{1}{x^2}.
+% \]
 \end{esempio}
 
 \begin{esempio}
@@ -1935,35 +1947,56 @@ Grazie quest'ultima regola siamo in grado di derivare funzioni
 come la seguente:
 \begin{esempio}
  Calcola la pendenza della funzione \(f(x)=\dfrac{x^2}{x-2}\) nel punto 
-di ascissa \(x=1\).\\
-%\begin{figure}[h]
+di ascissa \(x=1\).
+
+\affiancati{.38}{.60}{
+\vspace{-.5em}
 \begin{inaccessibleblock}
-  %\begin{center}
- \begin{minipage}[]{.40 \textwidth}
-   \vspace{-.5em}
-  \derivaomografica
- % \caption{}
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.58 \textwidth}
+[Ramo di una funzione con tangente nel punto (1; -1)]
+\derivaomografica
+\end{inaccessibleblock}
+}{
 Applichiamo direttamente la regola 
 \ref{subsec:differenziazione_derivataquoziente}.
 Dato che il numeratore e il 
 denominatore sono entrambe funzioni derivabili e che \(x=1\) non annulla il 
 denominatore, si ha: 
-
 \begin{align*}
-f'(x)&=\dfrac{2x\cdot(x-2)-x^2\cdot 1}{(x-2)^2}=\dfrac{x^2-4x}{(x-2)^2}.\\
-f'(1)&=\dfrac{1^2-4\cdot 1}{(1-2)^2}=\dfrac{-3}{1}=-3.
+f'(x)&=\dfrac{2x\cdot(x-2)-x^2\cdot 1}{(x-2)^2}=\dfrac{x^2-4x}{(x-2)^2}\\
+f'(1)&=\dfrac{1^2-4\cdot 1}{(1-2)^2}=\dfrac{-3}{1}=-3
 \end{align*}
-\(f'(x)\) è la derivata. \(f'(1)\) è la derivata calcolata per 
-\(x=1\), cioè la pendenza della curva nel punto \((1,\ f(1)).\)
-\end{minipage}
-%\end{center}
-\end{inaccessibleblock}
+\(f'(x)\) è la derivata, \(f'(1)\) è la derivata calcolata per 
+\(x=1\), cioè la pendenza della curva nel punto \(\punto{1}{f(1)}\).
+
+Per \(x = 1\), la curva ha pendenza \(m = -3\).
+}
+% %\begin{figure}[h]
+% \begin{inaccessibleblock}
+%   %\begin{center}
+%  \begin{minipage}[]{.40 \textwidth}
+%  % \caption{}
+%  \end{minipage} 
+%  \hfill
+%  \begin{minipage}[]{.58 \textwidth}
+% Applichiamo direttamente la regola 
+% \ref{subsec:differenziazione_derivataquoziente}.
+% Dato che il numeratore e il 
+% denominatore sono entrambe funzioni derivabili e che \(x=1\) non annulla il 
+% denominatore, si ha: 
+% 
+% \begin{align*}
+% f'(x)&=\dfrac{2x\cdot(x-2)-x^2\cdot 1}{(x-2)^2}=\dfrac{x^2-4x}{(x-2)^2}.\\
+% f'(1)&=\dfrac{1^2-4\cdot 1}{(1-2)^2}=\dfrac{-3}{1}=-3.
+% \end{align*}
+% \(f'(x)\) è la derivata. \(f'(1)\) è la derivata calcolata per 
+% \(x=1\), cioè la pendenza della curva nel punto \((1,\ f(1)).\)
+% \end{minipage}
+% %\end{center}
+% \end{inaccessibleblock}
 %\label{}
 %\end{figure} 
-Per \(x=1\), la curva ha pendenza \(m=-3\).\\
+% 
+% Per \(x=1\), la curva ha pendenza \(m=-3\).
 \end{esempio}
 
 \subsubsection{Sintesi provvisoria}
@@ -1978,8 +2011,9 @@ costante;
 \end{enumerate}
 \begin{osservazione}
 \label{oss:regola3}
- La regola 3 anticipa un risultato giustificato per ora solo con \(\alpha \in 
-\Z\), ma che in realtà ha valore con qualsiasi esponente reale 
+La regola 3 anticipa un risultato giustificato per ora solo con 
+\(\alpha \in \Z\), 
+ma che in realtà ha valore con qualsiasi esponente reale 
 (vedi pag.~\pageref{teo:funzione_potenza_generica}).
 \end{osservazione}
 
@@ -2006,8 +2040,9 @@ derivata  del rapporto (\(g \ne 0\)).
 \noindent Ipotesi: \(f(x)=\sqrt{x}\), con \(x\geq 0\) .\tab Tesi: 
     \(f'(x)=\dfrac{1}{2\sqrt{x}}\).
 \begin{proof}
- Calcoliamo separatamente \(df(x)\), che richiede una specie di 
-razionalizzazione al contrario. Perciò, \(\forall dx\ne 0\) e se \(x\ne 0\):
+Calcoliamo separatamente \(df(x)\), che richiede una razionalizzazione 
+del numeratore. 
+Perciò, \(\forall dx\ne 0\) e se \(x\ne 0\):
   \begin{align*}
    df(x) &= f(x+dx)-f(x)=\sqrt{x+dx}-\sqrt{x}=
           \tonda{\sqrt{x+dx}-\sqrt{x}}\cdot
@@ -2025,37 +2060,46 @@ esiste la parte standard. Allora:
       \dfrac{1}{\pst{\sqrt{x+dx}}+\pst{\sqrt{x}}}=\\
       &=\dfrac{1}{\sqrt{x}+\sqrt{x}}=\dfrac{1}{2\sqrt{x}}.
 \end{align*}
-La parte standard non cambia al cambiare del \(dx\) usato, quindi si conclude 
-che la derivata esiste e 
-\[
- f'(x)=\dfrac{1}{2\sqrt{x}}\quad (x>0).
-\]
+La parte standard non cambia al cambiare del \(dx\) usato, quindi si 
+conclude che la derivata esiste e 
+\[ f'(x)=\dfrac{1}{2\sqrt{x}}\quad (x>0)\]
 \end{proof}
 
-% \begin{figure}[h!]
 \begin{inaccessibleblock}
-  [m tangenti a radquad]
- \begin{minipage}[]{.48\textwidth}
- \begin{center}
-\scalebox{.9}{ \radquad}
- \end{center}
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.48\textwidth}
- \begin{center}
-\scalebox{.9}{  \tangentiradquad}
- \end{center}
- \end{minipage}
+  [Funzione radice quadrata di x con alcune tangenti e la sua derivata]
+\hspace{-20mm}\affiancati{.49}{.49}{
+\begin{center} \scalebox{1}{\radquadn} \end{center}
+}{
+\begin{center} \scalebox{1}{\derivataradquad} \end{center}
+}
 \end{inaccessibleblock}
+\label{img:diff_cubica_con_pendenze}
+\begin{center}Grafico di \(f(x)=\sqrt{x}\) e di \(f'(x)\) \end{center}
+
+% % \begin{figure}[h!]
+% \begin{inaccessibleblock}
+%   [m tangenti a radquad]
+%  \begin{minipage}[]{.48\textwidth}
+%  \begin{center}
+% \scalebox{.9}{ \radquad}
+%  \end{center}
+%  \end{minipage} 
+%  \hfill
+%  \begin{minipage}[]{.48\textwidth}
+%  \begin{center}
+% \scalebox{.9}{  \tangentiradquad}
+%  \end{center}
+%  \end{minipage}
+% \end{inaccessibleblock}
 
 Le rette tangenti ai punti vicini all'origine hanno una pendenza elevata, 
-che si attenua gradualmente man mano che \(x\) aumenta, fino ad assestarsi quasi
-orizzontalmente.
+che si attenua gradualmente man mano che \(x\) aumenta, fino ad 
+assestarsi quasi orizzontalmente.
 
 \begin{osservazione}
  Per confermare l'osservazione di pag.~\pageref{oss:regola3}  sulle 
-funzioni potenza, adottiamo quella regola anche per il caso appena visto, che 
-deriviamo di nuovo dopo averlo espresso come potenza.
+funzioni potenza, adottiamo quella regola anche per il caso appena visto, 
+che deriviamo di nuovo dopo averlo espresso come potenza.
 \begin{align*}
  f(x)&=\sqrt{x}=x^{\frac{1}{2}},\quad \text{ con  } x\geq 0.\\
  f'(x)&=\dfrac{1}{2}x^{\frac{1}{2}-1}=\dfrac{1}{2}x^{-\frac{1}{2}}=
@@ -2072,58 +2116,64 @@ Differenziale gli infinitesimi che il rapporto genera, così rimane solo il
 numero reale che si accetta come valore della pendenza.
 
 Fra \(f'(x_0)\) e \(RD\) c'è solo una differenza di infinitesimi:
-\(RD-f'(x_0)=\epsilon\). Concentrando i nostri ragionamenti su un particolare 
-\(x_0\) e sviluppando le formule, si ha:\\
+\(RD-f'(x_0)=\epsilon\). Concentrando i nostri ragionamenti su un 
+particolare \(x_0\) e sviluppando le formule, si ha:\\
 \(\dfrac{df(x_0)}{dx}-f'(x_0)=\epsilon\quad \rightarrow\quad
 df(x_0)=f'(x_0)dx+\epsilon\cdot dx\quad \rightarrow\)\\
 \(\rightarrow\quad f(x_0+dx)-f(x_0)=f'(x_0)dx+\epsilon\cdot dx
 \rightarrow\quad f(x_0+dx)=f'(x_0)dx+f(x_0)+\epsilon\cdot dx\).\\
 Se mancasse l'ultimo termine, l'equazione \(f(x_0+dx)=f'(x_0)dx+f(x_0)\) 
-sarebbe quella di una retta: la si ottiene scrivendo \(x-x_0\) invece di \(dx\) 
-e \(m\) invece di \(f'(x_0)\), cioè \(f(x)=m(x-x_0) +f(x_0)\). 
-La retta, che passa per il punto della curva con ascissa \(x_0\) e ha la stessa 
-pendenza della curva, è la sua tangente per quel punto. 
+sarebbe quella di una retta: la si ottiene scrivendo \(x-x_0\) invece di 
+\(dx\) e \(m\) invece di \(f'(x_0)\), cioè \(f(x)=m(x-x_0) +f(x_0)\). 
+La retta, che passa per il punto della curva con ascissa \(x_0\) e ha la 
+stessa pendenza della curva, è la sua tangente per quel punto. 
 
-La conclusione è che \emph{a distanza \(dx\) dal punto che si vuole esaminare, 
-fra la curva e la tangente c'è una differenza pari a \(\epsilon\cdot dx\), un 
-infinitesimo di ordine superiore a \(dx\)}. Questa differenza è
-\emph{l'incremento infinitesimo della curva rispetto alla tangente}.
+La conclusione è che \emph{a distanza \(dx\) dal punto che si vuole 
+esaminare, fra la curva e la tangente c'è una differenza pari a 
+\(\epsilon\cdot dx\), un infinitesimo di ordine superiore a \(dx\)}. 
+Questa differenza è \emph{l'incremento infinitesimo della curva rispetto 
+alla tangente}.
 
+\begin{minipage}[]{.47\textwidth}
 \begin{inaccessibleblock}
   [differenziale della tangente]
-  \begin{minipage}[]{.47\textwidth}
-    \begin{center} \derivata \end{center}
- \end{minipage} 
+    \begin{center} \differenzialens \end{center}
+\end{inaccessibleblock}
+\end{minipage} 
   \hfill
- \begin{minipage}[]{.47\textwidth} \vspace{2.5em}
+\begin{minipage}[]{.47\textwidth} \vspace{2.5em}
 Nel punto \(\punto{x_0}{f(x_0)}\) il grafico della funzione e la tangente
 sono indistinguibili. 
 Il campo visivo del primo microscopio mostra \({x_0}\) e \(dx\), 
 perché l'ingrandimento è infinito. A questo livello 
 microscopico la curvatura del grafico non esiste,  per cui la curva e 
-la tangente sono sovrapposte. Nemmeno un secondo microscopio infinito, con 
-cui l'ingrandimento complessivo diventa \(\infty^2\), puntato su \(x_0\) può 
-distinguere i due grafici. Ma un terzo microscopio, centrato a 
-distanza infinitesima dal punto nel primo microscopio, mostra la tangente e 
+la tangente sono sovrapposte. 
+Nemmeno un secondo microscopio non standard puntato 
+nel primo microscopio su \(x_0\), per cui 
+l'ingrandimento complessivo diventa \(\infty^2\), può distinguere i due 
+grafici. 
+Ma un microscopio non standard, centrato nel primo microscopio a 
+distanza infinitesima da \(x_0\), mostra la tangente e 
 la curva come rette parallele, che distano fra loro 
-\(\epsilon\cdot dx\), cioè un infinitesimo di un infinitesimo.
- \end{minipage}
-\end{inaccessibleblock}
+\(\epsilon \cdot dx\), cioè un infinitesimo di un infinitesimo.
+\end{minipage}
 \label{}
 
 \begin{teorema}
 \label{teo:inc}
- \emph{Teorema dell'incremento.} A distanza infinitesima dal punto di ascissa 
-\(x_0\), la funzione derivabile \(f(x)\) ha un valore che è la somma fra 
-il valore della sua tangente \(t(x)\) passante per \(\punto{x_0}{f(x_0)}\) e un 
-infinitesimo dell'infinitesimo \(dx\):
-\[f(x_0+dx)=\underbrace{f'(x_0)dx+f(x_0)}_{t(x)}+\epsilon\cdot dx.\]
+\emph{Teorema dell'incremento.} A distanza infinitesima dal punto di 
+ascissa \(x_0\), la funzione derivabile \(f(x)\) ha un valore che è la 
+somma fra il valore della sua tangente \(t(x)\) passante per 
+\(\punto{x_0}{f(x_0)}\) e un infinitesimo dell'infinitesimo \(dx\):
+\[f(x_0+dx)=\underbrace{f'(x_0)dx+f(x_0)}_{t(x)}+\epsilon\cdot dx\]
 \end{teorema}
 L'importante conseguenza di questo teorema è che se ci troviamo in 
 difficoltà a calcolare l'incremento infinitesimo di 
 \(f\), possiamo considerare al suo posto l'incremento lungo la 
 tangente, perché l'errore che si commette è una quantità trascurabile anche 
 rispetto a \(dx\).
+
+% TODO Differenziale standard
 
 \subsection{Derivata di funzioni composte}
 \label{subsec:differenziazione_derivatacomposta}
@@ -2140,11 +2190,15 @@ Invece \(g\) è funzione di \(x\), nel senso che i suoi valori sono i valori
 \(f=f(g(x))\). Scritto in forma matematica: 
 \(f(g(x))=\dfrac{[g(x)]^2}{8}=\dfrac{(3x-2)^2}{8}\).
 \end{esempio}
+
+\boxfcompostan
+
+\begin{center}
+\begin{minipage}[]{.48\textwidth}
 \begin{inaccessibleblock}
   [box funzione composta]
- \begin{center}
- \begin{minipage}[]{.48\textwidth}
   \boxfcomposta
+\end{inaccessibleblock}
  \end{minipage} 
  \hfill
  \begin{minipage}[]{.48\textwidth}
@@ -2156,7 +2210,6 @@ Una catena del genere si chiama \emph{funzione di funzione} o
 \emph{funzione composta}: in questo caso \(f(g(x))\).\\
  \end{minipage}
  \end{center}
-\end{inaccessibleblock}
 \label{}
 
 Considerando che i valori \(x\) per arrivare alla trasformazione prevista 
@@ -2166,37 +2219,38 @@ rispetto a \(x\)? La formula sintetica è:
 del differenziale al numeratore.
 
 \begin{esempio}
-  Calcolare \(f'(x)\), con \(f(x)=\sqrt{3-x^2}\).\\
-  \(f(x)\) è composta da due funzioni entrambe derivabili. Si può pensare
-  formata così: \(g(x)=3-x^2\) e \(f(g(x))=\sqrt{g(x)}=\sqrt{3-x^2}\).\\
-  Il differenziale \(df\) si potrebbe calcolare dalla definizione: 
- \(df(g)=f(g+dg)-f(g)\) e questo obbliga poi a sviluppare \(dg\) e inglobarlo 
-nel calcolo. \\
- C'è una via più diretta e semplice: fare riferirmento al Teorema~\ref{teo:inc}.
+Calcolare \(f'(x)\), con \(f(x)=\sqrt{3-x^2}\).\\
+\(f(x)\) è composta da due funzioni entrambe derivabili. Si può pensare
+formata così: \(g(x)=3-x^2\) e \(f(g(x))=\sqrt{g(x)}=\sqrt{3-x^2}\).\\
+Il differenziale \(df\) si potrebbe calcolare dalla definizione: 
+\(df(g)=f(g+dg)-f(g)\) e questo obbliga poi a sviluppare \(dg\) e 
+inglobarlo nel calcolo. \\
+C'è una via più diretta e semplice: fare riferimento al 
+Teorema~\ref{teo:inc}.
 La conseguenza del teorema è che si può calcolare il differenziale della 
 tangente invece di quello della funzione, perché si tralasciano quantità 
 che comunque sono trascurabili rispetto a \(dx\). Quindi:
 \begin{align*}
- &df(g)\sim f'(g)dg\quad \rightarrow\quad 
-d\tonda{\sqrt{g(x)}}\sim\frac{1}{2\sqrt{g(x)}}\cdot dg(x)\quad \rightarrow\quad 
+&df(g)\sim f'(g)dg\quad \rightarrow\quad 
+d\tonda{\sqrt{g(x)}}\sim\frac{1}{2\sqrt{g(x)}}\cdot dg(x)
+\quad \rightarrow\quad 
 RD=\dfrac{df(g(x))}{dg(x)}\sim\dfrac{1}{2\sqrt{g(x)}}.\\
-&dg(x)=d(3-x^2)\sim-2x\cdot dx\quad \rightarrow\quad RD= \dfrac{dg(x)}{dx}\sim
--2x.\\
-&RD=\dfrac{df(g(x))}{dx}\sim\dfrac{1}{2\sqrt{g(x)}}\cdot \dfrac{dg(x)}{dx}\sim
-  \frac{1}{2\sqrt{3-x^2}}\cdot (-2x).
+&dg(x)=d(3-x^2)\sim-2x\cdot dx\quad \rightarrow\quad RD= \dfrac{dg(x)}{dx}
+\sim-2x.\\
+&RD=\dfrac{df(g(x))}{dx}\sim\dfrac{1}{2\sqrt{g(x)}}\cdot \dfrac{dg(x)}{dx}
+\sim \frac{1}{2\sqrt{3-x^2}}\cdot (-2x)
 \end{align*}
 Poiché le funzioni sono derivabili, possiamo scrivere direttamente:
- \[f'(x)=\pst{\dfrac{-2x}{2\sqrt{3-x^2}}}=
-  \dfrac{-x}{\sqrt{3-x^2}}.\]
+\[f'(x)=\pst{\dfrac{-2x}{2\sqrt{3-x^2}}} = \dfrac{-x}{\sqrt{3-x^2}}\]
 \end{esempio}
 
 \begin{teorema}
-  \label{teo:diff01_dericomp}
- Se esistono le derivate \(g'(x)\) e \(f'(g(x))\) per il medesimo valore \(x\),
- la funzione composta \(f(g(x))\) è derivabile e la sua derivata si calcola
- così: \(f'(x)=f'(g(x))=f'(g)\cdot g'(x)\), cioè la derivata di una funzione 
-composta è il prodotto delle derivate delle funzioni componenti, ciascuna 
-rispetto alla propria variabile.
+\label{teo:diff01_dericomp}
+Se esistono le derivate \(g'(x)\) e \(f'(g(x))\) per il medesimo valore 
+\(x\), la funzione composta \(f(g(x))\) è derivabile e la sua derivata si 
+calcola così: \(f'(x)=f'(g(x))=f'(g)\cdot g'(x)\), 
+cioè la derivata di una funzione composta è il prodotto delle derivate 
+delle funzioni componenti, ciascuna rispetto alla propria variabile.
 \end{teorema}
 \noindent Ipotesi: \(f(x)=f(g(x))\), \(f\), \(g\) derivabili .\tab 
 Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\).
@@ -2209,7 +2263,6 @@ Poi, poiché esiste \(f'(g)\), dal teorema dell'incremento si deduce che per
 ogni 
 infinitesimo \(dg\) c'è un infinitesimo \(\epsilon\) tale che 
 \(df(g(x))=f'(g)\cdot dg + \epsilon\cdot dg.\)
-
 
 Così, dividendo per qualsiasi infinitesimo non nullo \(dx\)
 %{\footnotesize
@@ -2251,7 +2304,7 @@ Partiamo dalla funzione \(g\):
 \end{minipage}
 \begin{minipage}{.32\textwidth}
 \begin{center}
-\(g(x)\) ruotata di \(-90\text{°}\):
+poi ruotata di \(-90\text{°}\):
 
 \disegno[5]{
   \begin{scope}[rotate=-90, yscale=-1, red!50!black]
@@ -2297,6 +2350,8 @@ Mettiamo tutto insieme e anche, \(f(x) = f(g(x))\): \\[.5em]
  in gioco sono tre, o più:
  \(\Deriv{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)\).
 \end{osservazione}
+
+\begin{comment}
 
 
 
