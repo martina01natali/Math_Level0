@@ -192,9 +192,13 @@ y_{n+1}-y_n\):
 \end{tabular}
 \end{center}
 
-  Possiamo osservare che l'incremento della successione in un punto 
-\(\Delta y_n\)
-  è uguale al valore della successione in quel punto \(y_n\)
+  Possiamo osservare che l'incremento \(\Delta y_n\) della successione  
+in un punto è uguale al valore \(y_n\) della successione in quel punto. Si 
+tratta di una particolare caratteristica della successione \(2^n\).
+
+Con l'aiuto di una calcolatrice o di un foglio di calcolo non è difficile 
+compilare tabelle analoghe per le successioni \(3^n,\ 4^n,\ 5^n,\ \dots\) e 
+cogliere analogie e differenze rispetto alla tabella data.
 
 \end{enumerate}
 \end{osservazione}
@@ -444,7 +448,7 @@ diverse.]
   \caption{Esponenziali con diverse basi.} \label{fig:diversebasi}
 \end{figure}
 
-\newpage %--------------------------------------------------
+%\newpage %--------------------------------------------------
 
 Possiamo quindi riassumere quanto detto in poche semplici regole: 
 \begin{enumerate*}
@@ -494,6 +498,75 @@ proposto il nome ora in uso.
      {it.wikipedia.org/wiki/E\_(costante\_matematica)}. 
 }
 
+\paragraph{Un esempio per il numero \(e\).}
+
+Fra i tanti esempi che illustrano concretamente l'importanza del numero \(e\), 
+uno dei più comuni è legato al calcolo finanziario.
+
+Immaginiamo che un istituto bancario, assurdamente conveniente, conceda sulle 
+somme depositate un interesse favoloso: il \(100\%\), cioè dopo un 
+anno ci raddoppia il deposito. Se depositiamo \EUR1 oggi, fra un anno avremo una 
+disponibilità di \EUR2: \(1\) per il deposito iniziale ed \(1\) di 
+interesse. 
+Allora decidiamo di ritirare il deposito dopo i primi \(6\) mesi, grazie ai 
+quali avremo accumulato \(1,5\) euro: li reinvestiamo subito e li
+lasciamo in deposito fino a fine anno, per recuperare un interesse maggiore. 
+Infatti, depositando \(1+\dfrac{1}{2}\), dopo gli ultimi 6 mesi otteniamo 
+l'interesse di \(\tonda{1+\dfrac{1}{2}}\dfrac{1}{2}\). Al termine di un anno 
+avremo raggiunto la somma di euro
+\[\tonda{1+\dfrac{1}{2}}+\tonda{1+\dfrac{1}{2}}\dfrac{1}{2}=\tonda{1+\dfrac{1}{2
+}}\tonda{1+\dfrac{1}{2}}=\tonda{1+\dfrac{1}{2}}^2\]
+Sembra promettente. Invece di ritirare e depositare di nuovo ogni 6 mesi, 
+proviamo ogni 4 mesi, cioè ogni terzo di un anno. Depositando \EUR1 il 1 
+Gennaio, al 30 Aprile l'ammontare sarà \( 1+\dfrac{1}{3}\) e ripetendo lo 
+schema per tre volte, in modo da arrivare a fine anno, avremo:
+\[
+ \tonda{1+\dfrac{1}{3}}+\tonda{1+\dfrac{1}{3}}\dfrac{1}{3}+ 
+\quadra{\tonda{1+\dfrac{1}{3}}+\tonda{1+\dfrac{1}{3}}\dfrac{1}{3}}\dfrac{1}{3}=
+\tonda{1+\dfrac{1}{3}}^2\tonda{1+\dfrac{1}{3}}= 
+\tonda{1+\dfrac{1}{3}}^3
+\]
+Infatti, al termine di ogni periodo il totale accumulato si moltiplica per
+\begin{itemize}[nosep, noitemsep]
+ \item [1]che riporta quanto si depositava a inizio periodo
+ \item [+]la frazione di anno corrispondente al periodo.
+\end{itemize}
+Accecati dall'avidità, stiamo già pensando a reinvestire ogni tre mesi (4 
+periodi), o meglio ogni mese, o addirittura ogni settimana \dots 
+
+Insomma sembra vincente l'idea di abbreviare i periodi e moltiplicare il numero 
+di reinvestimenti, in modo da ottenere alla fine dell'anno una somma sempre 
+maggiore. Vediamo concretamente:
+
+\begin{minipage}{0.55\textwidth}
+\begin{center}
+   \begin{tabular}{l|c|l}
+    durata & periodi  & capitale \\
+    \hline
+     1 anno& 1 & \(1+1\cdot1=2\) \\
+     6 mesi  & \(2\) & \((1+1/2)^2=2,25\) \\
+     4 mesi  & \(3\) &  \((1+1/3)^3=2,37037\) \\ 
+     \dots & \dots & \dots \\
+     1 mese  & \(12\) &  \((1+1/12)^{12}=2,61304\) \\
+    \dots & \dots & \dots \\
+     1 giorno &\(365\) &  \((1+1/365)^{365}=2,71418\)\\ 
+     1 ora & \dots & \dots \\
+     \dots & \dots & \dots \\
+     \hline 
+   \end{tabular}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.38\textwidth}
+Puoi completare la tabella arrivando al limite a immaginare reinvestimenti 
+ogni ora, o ogni minuto dell'anno, come potrebbero disporre i manager di 
+grandi società finanziarie dotati di potenti supercomputer. La realtà è che in 
+nessun modo questo schema consente di triplicare l'investimento iniziale, anzi 
+i risultati superano \(2,7\) ma di poco. \\
+\end{minipage}
+
+Si intravvede un numero che può 
+essere meglio definito con l'uso di infiniti e infinitesimi.
 \paragraph{La costante di Eulero può essere definita come:}
 \[e = \pst{\tonda{1+\frac{1}{M}}^M} = 
 \pst{\tonda{1+\delta}^\frac{1}{\delta}} 
