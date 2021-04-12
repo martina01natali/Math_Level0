@@ -26,6 +26,8 @@
 % 
 % \agnesia
 
+% \begin{comment}
+
 \section{Premessa}
 \footnote{Per scrivere questo capitolo mi sono ispirato 
 ai lavori di Giorgio Goldoni ``Il calcolo delle differenze e il calcolo 
@@ -1082,32 +1084,31 @@ poiché il suo valore non dipende dall'infinitesimo considerato:
 %  Infatti \(df(x)=0\).
 % \end{proof}
 
-\begin{comment}
-
-\subsection{Derivata della funzione }
-\label{subsec:differenziazione_}
-Una funzione lineare è :
-\[f: x \mapsto mx +q \quad \text{o} \quad   f(x)=mx +q \quad \text{o} \quad 
-  y = mx +q.\]
-\begin{teorema}
-  La derivata di una funzione lineare è 
-\end{teorema}
-\noindent Ipotesi: \tab Tesi: 
-\begin{proof}
-\begin{align*}
-RD &=\dfrac{df(x)}{dx} =\dfrac{f(x+dx)-f(x)}{dx}=\\
-               &=\dfrac{m(x+dx)+q-\tonda{mx+q}}{dx}=
-                 \dfrac{mx-mdx+q-mx-q}{dx}=
-                 \dfrac{mdx}{dx}=m
-\end{align*}
-Dato che \(RD\) è un numero finito:
-\[f'(x) = \pst{RD}= \pst{m}=m\]
-
-\vspace{-1em} \hspace{20mm} 
-poiché il valore della parte standard non dipende da \(dx\).
-\end{proof}
-
-\end{comment}
+% 
+% \subsection{Derivata della funzione }
+% \label{subsec:differenziazione_}
+% Una funzione lineare è :
+% \[f: x \mapsto mx +q \quad \text{o} \quad   
+% f(x)=mx +q \quad \text{o} \quad 
+%   y = mx +q.\]
+% \begin{teorema}
+%   La derivata di una funzione lineare è 
+% \end{teorema}
+% \noindent Ipotesi: \tab Tesi: 
+% \begin{proof}
+% \begin{align*}
+% RD &=\dfrac{df(x)}{dx} =\dfrac{f(x+dx)-f(x)}{dx}=\\
+%                &=\dfrac{m(x+dx)+q-\tonda{mx+q}}{dx}=
+%                  \dfrac{mx-mdx+q-mx-q}{dx}=
+%                  \dfrac{mdx}{dx}=m
+% \end{align*}
+% Dato che \(RD\) è un numero finito:
+% \[f'(x) = \pst{RD}= \pst{m}=m\]
+% 
+% \vspace{-1em} \hspace{20mm} 
+% poiché il valore della parte standard non dipende da \(dx\).
+% \end{proof}
+% 
 
 \subsection{Derivata della funzione lineare}
 \label{subsec:differenziazione_derivataflineare}
@@ -2175,53 +2176,83 @@ rispetto a \(dx\).
 
 % TODO Differenziale standard
 
+% \end{comment}
+
 \subsection{Derivata di funzioni composte}
 \label{subsec:differenziazione_derivatacomposta}
 
+% TODO: da mettere questo pezzo nel capitolo sulle funzioni???
+
+A volte può essere utile considerare una funzione complessa come la 
+composizione di funzioni più semplici. 
+
 \begin{esempio}
-  Deriva la funzione \(f(g)=\dfrac{g^2}{8}\). 
-  Soluzione: \(f'(g)=\dfrac{1}{8}2g=\dfrac{g}{4}\). \\
-Deriva la funzione \(g(x)=3x-2\). Soluzione: \(g'(x)=3\).\\
-Combiniamo i due esempi: \(f=f(g)\) e \(g=g(x)\), cioè \(f\) è funzione di 
-\(g\), nel senso che facciamo dipendere i suoi valori dai quadrati, divisi per 
-\(8\), dei numeri \(g\).
-Invece \(g\) è funzione di \(x\), nel senso che i suoi valori sono i valori 
-\(x\) triplicati e poi ridotti di \(2\). abbiamo quindi la funzione 
-\(f=f(g(x))\). Scritto in forma matematica: 
-\(f(g(x))=\dfrac{[g(x)]^2}{8}=\dfrac{(3x-2)^2}{8}\).
+Rappresenta la funzione  \(x \mapsto \dfrac{\tonda{3x -2}^2}{8}\)
+come composizione di due funzioni più semplici. 
+
+La funzione \(f\) esegue il quadrato del suo argomento e lo divide per 8:
+\(f:~ x \mapsto \dfrac{x^2}{8}\).
+
+Ma questa volta l'argomento della funzione \(f\) non è una costante, ma,
+a sua volta, è il risultato della funzione \(g:~x \mapsto 3x -2\).
+
+Quindi \(f\) è funzione di \(g\) e \(g\) è funzione di \(x\).
+Lo schema seguente rappresenta la situazione.
+
+\begin{center} \scalebox{1}{\boxfcompostaa} \end{center}
+\label{gra:differenziazione_boxcompostaa}
+
+Si tratta di una macchina che concatena due calcoli successivi. 
+Immettiamo ad esempio il valore \(6\). 
+La macchina \(g\) calcola, al suo interno, \(g(6)=3\cdot 6-2\) e dà come 
+risultato \(16\).
+Questo numero è l'input della macchina \(f\) che calcola 
+\(f(16)=\frac{16^2}{8}\) e dà come risultato \(=32\)
+che è il risultato di \(f(g(x))\).
 \end{esempio}
 
-\boxfcompostan
+Una macchina del genere si chiama \emph{funzione di funzione} o
+\emph{funzione composta} e 
+viene indicata con \(f(g(x))\) o con \(f \circ g\).
 
-\begin{center}
-\begin{minipage}[]{.48\textwidth}
-\begin{inaccessibleblock}
-  [box funzione composta]
-  \boxfcomposta
-\end{inaccessibleblock}
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.48\textwidth}
-Si tratta di una macchina che incatena due calcoli successivi.\\
-Immettiamo ad esempio il valore \(t=6\). La macchina sviluppa al suo interno 
-\(u(6)=3\cdot 6-2=16\) grazie a \(u\) e infine produce 
-\(v(16)=\dfrac{16^2}{8}=32\).
-Una catena del genere si chiama \emph{funzione di funzione} o
-\emph{funzione composta}: in questo caso \(f(g(x))\).\\
- \end{minipage}
- \end{center}
-\label{}
+% \begin{center}
+% \begin{minipage}[]{.48\textwidth}
+% \begin{inaccessibleblock}
+%   [box funzione composta]
+%   \boxfcomposta
+% \end{inaccessibleblock}
+%  \end{minipage} 
+%  \hfill
+%  \begin{minipage}[]{.48\textwidth}
+% Si tratta di una macchina che incatena due calcoli successivi.\\
+% Immettiamo ad esempio il valore \(t=6\). 
+% La macchina sviluppa al suo interno \(u(6)=3\cdot 6-2=16\) grazie a 
+% \(u\) e infine produce \(v(16)=\dfrac{16^2}{8}=32\).
+% Una catena del genere si chiama \emph{funzione di funzione} o
+% \emph{funzione composta}: in questo caso \(f(g(x))\).\\
+%  \end{minipage}
+%  \end{center}
+% \label{}
 
-Considerando che i valori \(x\) per arrivare alla trasformazione prevista 
+\vspace{1em}
+Per quanto riguarda la derivata di una funzione composta, 
+considerando che i valori \(x\) per arrivare alla trasformazione prevista 
 da \(f\) devono prima essere trasformati da \(g\), come deriviamo  \(f\) 
 rispetto a \(x\)? La formula sintetica è: 
 \(f'(g(x))=\pst{\dfrac{df(g(x))}{dx}}\) e il punto da studiare è il calcolo 
 del differenziale al numeratore.
 
 \begin{esempio}
-Calcolare \(f'(x)\), con \(f(x)=\sqrt{3-x^2}\).\\
-\(f(x)\) è composta da due funzioni entrambe derivabili. Si può pensare
-formata così: \(g(x)=3-x^2\) e \(f(g(x))=\sqrt{g(x)}=\sqrt{3-x^2}\).\\
+Calcolare \(f'(x)\), con \(f(x)=\sqrt{3-x^2}\)
+
+\(f(x)\) è composta da due funzioni entrambe derivabili: 
+
+Si può pensare formata così: 
+\(g(x)=3-x^2\) \quad e \quad \(f(g(x))=\sqrt{g(x)}=\sqrt{3-x^2}\).
+
+\begin{center} \scalebox{1}{\boxfcompostab} \end{center}
+\label{gra:differenziazione_boxcompostaa}
+
 Il differenziale \(df\) si potrebbe calcolare dalla definizione: 
 \(df(g)=f(g+dg)-f(g)\) e questo obbliga poi a sviluppare \(dg\) e 
 inglobarlo nel calcolo. \\
@@ -2229,10 +2260,11 @@ C'è una via più diretta e semplice: fare riferimento al
 Teorema~\ref{teo:inc}.
 La conseguenza del teorema è che si può calcolare il differenziale della 
 tangente invece di quello della funzione, perché si tralasciano quantità 
-che comunque sono trascurabili rispetto a \(dx\). Quindi:
+che comunque sono trascurabili rispetto a \(dx\). 
+Quindi:
 \begin{align*}
-&df(g)\sim f'(g)dg\quad \rightarrow\quad 
-d\tonda{\sqrt{g(x)}}\sim\frac{1}{2\sqrt{g(x)}}\cdot dg(x)
+&df(g)\sim f'(g)dg \quad \rightarrow\quad 
+d\tonda{\sqrt{g(x)}} \sim \frac{1}{2 \sqrt{g(x)}} \cdot dg(x)
 \quad \rightarrow\quad 
 RD=\dfrac{df(g(x))}{dg(x)}\sim\dfrac{1}{2\sqrt{g(x)}}.\\
 &dg(x)=d(3-x^2)\sim-2x\cdot dx\quad \rightarrow\quad RD= \dfrac{dg(x)}{dx}
@@ -2241,7 +2273,52 @@ RD=\dfrac{df(g(x))}{dg(x)}\sim\dfrac{1}{2\sqrt{g(x)}}.\\
 \sim \frac{1}{2\sqrt{3-x^2}}\cdot (-2x)
 \end{align*}
 Poiché le funzioni sono derivabili, possiamo scrivere direttamente:
-\[f'(x)=\pst{\dfrac{-2x}{2\sqrt{3-x^2}}} = \dfrac{-x}{\sqrt{3-x^2}}\]
+\[f'(x)=\pst{\dfrac{-2x}{2\sqrt{25-x^2}}} = \dfrac{-x}{\sqrt{25-x^2}}\]
+
+\emph{Primo tentativo di interpretazione:}
+
+Quindi il differenziale della funzione: \(f \circ g\) 
+è indistinguibile da \(f'(g)dg\). 
+
+La derivata di \(f\) rispetto a \(g\) è: 
+\(f'(g) = \pst{\dfrac{df(g(x))}{dg(x)}} = \dfrac{1}{2\sqrt{g(x)}}\)
+
+La derivata di \(f\) rispetto a \(g\) è: 
+\[f'(g) = \pst{\dfrac{df(g(x))}{dx}} = 
+          \pst{\dfrac{f'(g(x)) dg}{dx}} = 
+          \pst{\dfrac{f'(g(x)) g'(x) dx}{dx}} = f'(g(x)) g'(x)\]
+
+\emph{Secondo tentativo di interpretazione:}
+
+Quindi il differenziale della funzione: \(f \circ g\) 
+è indistinguibile da \(f'(g)dg\) e 
+il differenziale della funzione: \(g\) 
+è indistinguibile da \(g'dg\). 
+
+Il rapporto differenziale di \(f\) rispetto a \(x\) è: 
+\[RD(f, x, dx) = \dfrac{df(g(x))}{dx} \sim 
+          \dfrac{f'(g(x)) dg}{dx} \sim 
+          \dfrac{f'(g(x)) g'(x) dx}{dx} = f'(g(x)) g'(x)\]
+Ed essendo \(f\) e \(g\) derivabili, \(f'\) e \(g'\) sono funzioni reali
+e quindi anche il loro prodotto è un numero reale e è quindi la derivata 
+di \(\Deriv{f(g(x))}\).
+
+\affiancati{.5}{.5}{
+Riprendendo le funzioni di partenza:
+\[f'(x)=\pst{\dfrac{-2x}{2\sqrt{25-x^2}}} = \dfrac{-x}{\sqrt{25-x^2}}\]
+
+Se voglio calcolare la pendenza della funzione in \(x = 3\):
+\[f'(3) = \dfrac{-3}{\sqrt{25-3^2}} = 
+          \dfrac{-3}{\sqrt{16}} = -\dfrac{3}{4}\]
+E la tangente quindi sarà:
+\[y = f'(x_0) \tonda{x -x_0} + f(x_0) \srarrow
+  y = -\dfrac{3}{4} \tonda{x -3} + 4 \srarrow
+  y = -\dfrac{3}{4} x +\dfrac{25}{4}\]
+}{
+\derivacompostaa
+}
+
+
 \end{esempio}
 
 \begin{teorema}

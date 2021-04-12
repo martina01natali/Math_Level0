@@ -754,8 +754,8 @@
   \def \intervallo{{+1}}
   \disegno{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{\mix,...,\max}
-    \ordinate{\miy,...,\may}
+%     \ascisse{\mix,...,\max}
+%     \ordinate{\miy,...,\may}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \tkzFct[domain=\mix-0.3:1.9, ultra thick, \fcolor] {\fa}
     \tkzFct[domain=2.1:\max+0.3, ultra thick, \fcolor] {\fa}
@@ -1157,70 +1157,122 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
 %     }
 % }
 
-\newcommand{\boxfcomposta}{% rettangolo 
-  \def \xa{2}
-  \def \ya{0}
-  \def \xb{12}
-  \def \yb{8}
-  \def \xl{\xa/2+\xb/2}
-  \def \lato {3}
-  \def \xp {\xa+1}
-  \def \yp {\ya+2.5}
-  \def \xq {\xa+6}
+% \newcommand{\boxfcomposta}{% rettangolo 
+%   \def \xa{2}
+%   \def \ya{0}
+%   \def \xb{12}
+%   \def \yb{8}
+%   \def \xl{\xa/2+\xb/2}
+%   \def \lato {3}
+%   \def \xp {\xa+1}
+%   \def \yp {\ya+2.5}
+%   \def \xq {\xa+6}
+%   \disegno{
+%     \draw (\xa, \ya) -- (\xb, \ya) -- (\xb, \yb) -- (\xa, \yb) -- cycle
+%           (\xl, \ya) node [below] {\(f(g(x))\)};
+%     \draw (\xp, \yp) -- (\xp+\lato, \yp) -- 
+%           (\xp+\lato, \yp+\lato) -- (\xp, \yp+\lato) --cycle
+%           (\xp+\lato/2, \yp) node [below] {\(g(x)\)}
+%           (\xp+\lato/2, \yp+\lato/2) node {\(3\cdot 6-2\)}
+%           (\xp+\lato/2, \yp+\lato) node [above]{\(3x-2\)};
+%     \draw (\xq, \yp) -- (\xq+\lato, \yp) -- 
+%           (\xq+\lato, \yp+\lato) -- (\xq, \yp+\lato) --cycle
+%           (\xq+\lato/2, \yp) node [below] {\(f(g)\)}
+%           (\xq+\lato/2, \yp+\lato/2) node {\(\dfrac{16^2}{8}\)}
+%           (\xq+\lato/2, \yp+\lato) node [above]{\(\dfrac{g^2}{8}\)}; 
+% %seguono frecce
+%           \draw  [->] (0,\yb/2) --++ (3,0); 
+%           \draw (1.5,\yb/2) node [below] {\(6\)} node [above] {\(x\)};   
+%           \draw  [->] (6,4) --++ (2,0); 
+%           \draw (7,4) node [below] {\(16\)} node [above] {\(g(6)\)};   
+%           \draw  [->] (11,4) --++ (3,0); 
+%           \draw (13,4) node [below] {\(32\)}node [above] {\(f(g(6))\)};   
+%     }
+% }
+
+\newcommand{\boxfcomposta}{% Rappresentazione di una funzione composta
+  % Devono essere assegnate alcune variabili.
+  % Esempio di chiamata:
+%   \def \latox{4}
+%   \def \latoy{2}
+%   \def \lab{\dfrac{\tonda{3x -2}^2}{8}}
+%   \def \labf{\dfrac{x^2}{8}}
+%   \def \labff{\dfrac{\xoo^2}{8}}
+%   \def \xo{6}
+%   \def \ff{\xoo*\xoo / 8}
+%   \def \labg{3x -2}
+%   \def \labgg{3 \cdot \xo -2}
+%   \def \fg{3*\xo -2}
+%   \boxfcomposta
+  \def \slx{\latox/2}
+  \def \sly{\latoy/2}
   \disegno{
-    \draw (\xa, \ya) -- (\xb, \ya) -- (\xb, \yb) -- (\xa, \yb) -- cycle
-          (\xl, \ya) node [below] {\(f(g(x))\)};
-    \draw (\xp, \yp) -- (\xp+\lato, \yp) -- 
-          (\xp+\lato, \yp+\lato) -- (\xp, \yp+\lato) --cycle
-          (\xp+\lato/2, \yp) node [below] {\(g(x)\)}
-          (\xp+\lato/2, \yp+\lato/2) node {\(3\cdot 6-2\)}
-          (\xp+\lato/2, \yp+\lato) node [above]{\(3x-2\)};
-    \draw (\xq, \yp) -- (\xq+\lato, \yp) -- 
-          (\xq+\lato, \yp+\lato) -- (\xq, \yp+\lato) --cycle
-          (\xq+\lato/2, \yp) node [below] {\(f(g)\)}
-          (\xq+\lato/2, \yp+\lato/2) node {\(\dfrac{16^2}{8}\)}
-          (\xq+\lato/2, \yp+\lato) node [above]{\(\dfrac{g^2}{8}\)}; 
-%seguono frecce
-          \draw  [->] (0,\yb/2) --++ (3,0); 
-          \draw (1.5,\yb/2) node [below] {\(6\)} node [above] {\(x\)};   
-          \draw  [->] (6,4) --++ (2,0); 
-          \draw (7,4) node [below] {\(16\)} node [above] {\(g(6)\)};   
-          \draw  [->] (11,4) --++ (3,0); 
-          \draw (13,4) node [below] {\(32\)}node [above] {\(f(g(6))\)};   
-    }
+    \pgfmathparse{round(10*(\fg))/10} \let\xoo\pgfmathresult
+    \pgfmathparse{round(10*(\ff))/10} \let\xooo\pgfmathresult
+    \begin{scope}[-latex, rounded corners=4]
+      \draw (\slx*6, +\sly*3) node [above] {\(f(g(x)):~x \mapsto \lab\)}
+            (\slx*2, -\sly*2) rectangle ++ (\slx*8, \sly*5);
+      \draw (0, 0) -- (\slx*2, 0) node [midway, yshift=6pt] {\(x=\xo\)}; 
+      \draw (\slx*2, 0) -- (\slx*3, 0);
+      \draw (\slx*4, +\sly) node [above] {\(g:~x \mapsto \labg\)}
+            (\slx*3, -\sly) rectangle ++ (\latox, \latoy) 
+            node [midway] {\(\labgg\)};
+      \draw (\slx*5, 0) -- (\slx*7, 0) 
+            node [midway, yshift=6pt] {\(g(\xo) = \xoo\)};
+      \draw (\slx*7, -\sly) rectangle ++ (\latox, \latoy) 
+            node [midway] {\(\labff\)}
+            (\slx*8, +\sly) node [above] {\(f:~x \mapsto \labf\)};
+      \draw (\slx*9, 0) -- (\slx*10, 0); 
+      \draw (\slx*10, 0) -- (\slx*12.5, 0) 
+            node [midway, yshift=6pt] {\(f(g(\xo)) = \xooo\)};
+    \end{scope}
+  }
 }
 
-\newcommand{\boxfcompostan}{% rettangolo 
-  \def \xa{2}
-  \def \ya{0}
-  \def \xb{12}
-  \def \yb{8}
-  \def \xl{\xa/2+\xb/2}
-  \def \lato {3}
-  \def \xp {\xa+1}
-  \def \yp {\ya+2.5}
-  \def \xq {\xa+6}
+\newcommand{\boxfcompostaa}{% Rappresentazione di una funzione composta
+  \def \latox{4}
+  \def \latoy{2}
+  \def \lab{\dfrac{\tonda{3x -2}^2}{8}}
+  \def \labf{\dfrac{x^2}{8}}
+  \def \labff{\dfrac{\xoo^2}{8}}
+  \def \xo{6}
+  \def \ff{\xoo*\xoo / 8}
+  \def \labg{3x -2}
+  \def \labgg{3 \cdot \xo -2}
+  \def \fg{3*\xo -2}
+  \boxfcomposta
+}
+
+\newcommand{\boxfcompostab}{% Rappresentazione di una funzione composta
+  \def \latox{4}
+  \def \latoy{2}
+  \def \lab{\sqrt{25 - x^2}}
+  \def \labf{\sqrt{x}}
+  \def \labff{\sqrt{\xoo}}
+  \def \xo{3}
+  \def \ff{sqrt(\xoo)}
+  \def \labg{25 - x^2}
+  \def \labgg{25 - \xo^2}
+  \def \fg{25 - \xo * \xo}
+  \boxfcomposta
+}
+
+\newcommand{\derivacompostaa}{% Funzione omografica e tangente in 1
+  \def \fa{sqrt(25 -x*x)}
+  \def \fb{-3./4*x+25./4}
+  \def \mix{-6}
+  \def \max{+6}
+  \def \miy{0}
+  \def \may{+7}
   \disegno{
-    \draw (\xa, \ya) -- (\xb, \ya) -- (\xb, \yb) -- (\xa, \yb) -- cycle
-          (\xl, \ya) node [below] {\(f(g(x))\)};
-    \draw (\xp, \yp) -- (\xp+\lato, \yp) -- 
-          (\xp+\lato, \yp+\lato) -- (\xp, \yp+\lato) --cycle
-          (\xp+\lato/2, \yp) node [below] {\(g(x)\)}
-          (\xp+\lato/2, \yp+\lato/2) node {\(3\cdot 6-2\)}
-          (\xp+\lato/2, \yp+\lato) node [above]{\(3x-2\)};
-    \draw (\xq, \yp) -- (\xq+\lato, \yp) -- 
-          (\xq+\lato, \yp+\lato) -- (\xq, \yp+\lato) --cycle
-          (\xq+\lato/2, \yp) node [below] {\(f(g)\)}
-          (\xq+\lato/2, \yp+\lato/2) node {\(\dfrac{16^2}{8}\)}
-          (\xq+\lato/2, \yp+\lato) node [above]{\(\dfrac{g^2}{8}\)}; 
-%seguono frecce
-          \draw  [->] (0,\yb/2) --++ (3,0); 
-          \draw (1.5,\yb/2) node [below] {\(6\)} node [above] {\(x\)};   
-          \draw  [->] (6,4) --++ (2,0); 
-          \draw (7,4) node [below] {\(16\)} node [above] {\(g(6)\)};   
-          \draw  [->] (11,4) --++ (3,0); 
-          \draw (13,4) node [below] {\(32\)}node [above] {\(f(g(6))\)};   
-    }
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \draw [ultra thick, \fcolor] (5, 0) arc(0:180:5);
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+    \filldraw [\fcolor] (3, 4) circle(2pt);
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+           {\fb}
+  }
 }
 
 %--------------------
