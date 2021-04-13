@@ -5,11 +5,11 @@
 
 % -----------------------------------------------
 % % TODO Possibile schema:
-% - definizioni
+% - Definizioni
 % - - introduzione
 % - - pendenza
 % - - funzione derivata
-% - teoremi
+% - Teoremi
 % - - funzioni elementari algebriche (radice?)
 % - - regole di derivazione
 % - - funzioni trascendenti
@@ -26,7 +26,7 @@
 % 
 % \agnesia
 
-% \begin{comment}
+\begin{comment}
 
 \section{Premessa}
 \footnote{Per scrivere questo capitolo mi sono ispirato 
@@ -2242,6 +2242,28 @@ rispetto a \(x\)? La formula sintetica è:
 \(f'(g(x))=\pst{\dfrac{df(g(x))}{dx}}\) e il punto da studiare è il calcolo 
 del differenziale al numeratore.
 
+Il differenziale \(df\) si potrebbe calcolare dalla definizione: 
+\(df(g)=f(g+dg)-f(g)\) e questo obbliga poi a sviluppare \(dg\) e 
+inglobarlo nel calcolo. \\
+C'è una via più diretta e semplice: fare riferimento al 
+Teorema~\ref{teo:inc}.
+La conseguenza del teorema è che si può calcolare il differenziale della 
+tangente invece di quello della funzione, perché si tralasciano quantità 
+che comunque sono trascurabili rispetto a \(dx\). 
+
+Quindi il differenziale della funzione: \(f \circ g\) 
+è indistinguibile da \(f'(g)dg\) e 
+il differenziale della funzione: \(g\) 
+è indistinguibile da \(g'dx\). 
+
+Il rapporto differenziale di \(f\) rispetto a \(x\) è: 
+\[RD(f, x, dx) = \dfrac{df(g(x))}{dx} \sim 
+          \dfrac{f'(g(x)) dg}{dx} \sim 
+          \dfrac{f'(g(x)) g'(x) dx}{dx} = f'(g(x)) g'(x)\]
+Ed essendo \(f\) e \(g\) derivabili, \(f'\) e \(g'\) sono funzioni reali
+e quindi anche il loro prodotto è un numero reale e è quindi la derivata 
+di \(\Deriv{f(g(x))}\).
+
 \begin{esempio}
 Calcolare \(f'(x)\), con \(f(x)=\sqrt{3-x^2}\)
 
@@ -2252,56 +2274,6 @@ Si può pensare formata così:
 
 \begin{center} \scalebox{1}{\boxfcompostab} \end{center}
 \label{gra:differenziazione_boxcompostaa}
-
-Il differenziale \(df\) si potrebbe calcolare dalla definizione: 
-\(df(g)=f(g+dg)-f(g)\) e questo obbliga poi a sviluppare \(dg\) e 
-inglobarlo nel calcolo. \\
-C'è una via più diretta e semplice: fare riferimento al 
-Teorema~\ref{teo:inc}.
-La conseguenza del teorema è che si può calcolare il differenziale della 
-tangente invece di quello della funzione, perché si tralasciano quantità 
-che comunque sono trascurabili rispetto a \(dx\). 
-Quindi:
-\begin{align*}
-&df(g)\sim f'(g)dg \quad \rightarrow\quad 
-d\tonda{\sqrt{g(x)}} \sim \frac{1}{2 \sqrt{g(x)}} \cdot dg(x)
-\quad \rightarrow\quad 
-RD=\dfrac{df(g(x))}{dg(x)}\sim\dfrac{1}{2\sqrt{g(x)}}.\\
-&dg(x)=d(3-x^2)\sim-2x\cdot dx\quad \rightarrow\quad RD= \dfrac{dg(x)}{dx}
-\sim-2x.\\
-&RD=\dfrac{df(g(x))}{dx}\sim\dfrac{1}{2\sqrt{g(x)}}\cdot \dfrac{dg(x)}{dx}
-\sim \frac{1}{2\sqrt{3-x^2}}\cdot (-2x)
-\end{align*}
-Poiché le funzioni sono derivabili, possiamo scrivere direttamente:
-\[f'(x)=\pst{\dfrac{-2x}{2\sqrt{25-x^2}}} = \dfrac{-x}{\sqrt{25-x^2}}\]
-
-\emph{Primo tentativo di interpretazione:}
-
-Quindi il differenziale della funzione: \(f \circ g\) 
-è indistinguibile da \(f'(g)dg\). 
-
-La derivata di \(f\) rispetto a \(g\) è: 
-\(f'(g) = \pst{\dfrac{df(g(x))}{dg(x)}} = \dfrac{1}{2\sqrt{g(x)}}\)
-
-La derivata di \(f\) rispetto a \(g\) è: 
-\[f'(g) = \pst{\dfrac{df(g(x))}{dx}} = 
-          \pst{\dfrac{f'(g(x)) dg}{dx}} = 
-          \pst{\dfrac{f'(g(x)) g'(x) dx}{dx}} = f'(g(x)) g'(x)\]
-
-\emph{Secondo tentativo di interpretazione:}
-
-Quindi il differenziale della funzione: \(f \circ g\) 
-è indistinguibile da \(f'(g)dg\) e 
-il differenziale della funzione: \(g\) 
-è indistinguibile da \(g'dg\). 
-
-Il rapporto differenziale di \(f\) rispetto a \(x\) è: 
-\[RD(f, x, dx) = \dfrac{df(g(x))}{dx} \sim 
-          \dfrac{f'(g(x)) dg}{dx} \sim 
-          \dfrac{f'(g(x)) g'(x) dx}{dx} = f'(g(x)) g'(x)\]
-Ed essendo \(f\) e \(g\) derivabili, \(f'\) e \(g'\) sono funzioni reali
-e quindi anche il loro prodotto è un numero reale e è quindi la derivata 
-di \(\Deriv{f(g(x))}\).
 
 \affiancati{.5}{.5}{
 Riprendendo le funzioni di partenza:
@@ -2317,8 +2289,6 @@ E la tangente quindi sarà:
 }{
 \derivacompostaa
 }
-
-
 \end{esempio}
 
 \begin{teorema}
@@ -2333,7 +2303,6 @@ delle funzioni componenti, ciascuna rispetto alla propria variabile.
 Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\).
 
 \begin{proof}
-
 Anzitutto, poiché esiste \(g'(x)\), \(dg(x)\) è infinitesimo per ogni 
 infinitesimo \(dx \).\\
 Poi, poiché esiste \(f'(g)\), dal teorema dell'incremento si deduce che per 
@@ -2344,12 +2313,11 @@ infinitesimo \(dg\) c'è un infinitesimo \(\epsilon\) tale che
 Così, dividendo per qualsiasi infinitesimo non nullo \(dx\)
 %{\footnotesize
  \begin{align*}
- &\pst{\frac{df(x)}{dx}}
- =\pst{\frac{df(g)}{dx}}=\\
- &=\pst{\frac{f'(g)\cdot dg + \epsilon\cdot dg}{d x}}=
- \pst{\frac{f'(g)\cdot dg}{d x}}+ \pst{\frac{\epsilon\cdot dg}{dx}}=\\
- &= f'(g)\cdot \pst{\frac{dg}{dx}}+ \pst{\epsilon}\cdot\pst{\frac{dg}{dx}}=
- f'(x)\cdot g'(x).
+\Deriv{f(g(x))} &=\pst{\frac{df(x)}{dx}} = \pst{\frac{df(g)}{dx}}=\\
+&=\pst{\frac{f'(g)\cdot dg + \epsilon\cdot dg}{d x}}=
+\pst{\frac{f'(g)\cdot dg}{d x}}+ \pst{\frac{\epsilon\cdot dg}{dx}}=\\
+&= f'(g)\cdot \pst{\frac{dg}{dx}}+ \pst{\epsilon}\cdot\pst{\frac{dg}{dx}}=
+f'(x)\cdot g'(x).
 \end{align*}
 \end{proof}
 
@@ -2413,24 +2381,67 @@ Mettiamo tutto insieme e anche, \(f(x) = f(g(x))\): \\[.5em]
 \end{center}
 \end{minipage}
 
-
-\begin{esempio}
-  Derivare \(f(x)=\tonda{-\dfrac{3}{2}x^3+2x^2-6}^5\).\\
-  Poniamo \(g(x)=-\dfrac{2}{3}x^3+2x^2-6\)\quad e\quad \(f(g)=g^5\). \\
-  Allora: 
-  \(f'(g)= 5g^4\)\quad e\quad \(g'(x)=-2x^2+4x\),\quad quindi: \\
-  \(f'(x)=f'(g)\cdot g'(x)=5g^4(-2x^2+4x)=
-  5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)\).
-\end{esempio}
 \begin{osservazione}
  La regola della funzione composta si estende ai casi in cui le funzioni 
  in gioco sono tre, o più:
  \(\Deriv{f(g(h(x)))}=f'(g)\cdot g'(h)\cdot h'(x)\).
 \end{osservazione}
 
-\begin{comment}
+\begin{esempio}
+Calcola l'equazione della tangente alla funzione 
+\(f:~x \mapsto \sqrt{x^2 -x -2}\) nel punto di ascissa \(x = 3\).
 
+\affiancati{.49}{.49}{
+\vspace*{-40mm}
+Il punto di tangenza ha coordinate:
+\[\punto{3}{\sqrt{3^2 -3 -2}} = \punto{3}{2}\]
 
+Poniamo \(g(x)=x^2 -x -2\)\quad e\quad \(f(g)=\sqrt{g}\). 
+Allora: 
+\begin{align*}
+\Deriv{f \circ g} &= f' \cdot g' = 
+  \frac{1}{2 \sqrt{x^2 -x -2}} \cdot 2x -1= \\
+  &=\frac{2x -1}{2 \tonda{x^2 -x -2}}
+\end{align*}
+}{
+\vspace*{-20mm}
+\hspace{-30mm}\derivacompostab
+}
+
+\vspace*{-40mm}
+\noindent La pendenza in \(P\) è: \tab 
+\(f'(3) = \dfrac{2 \cdot 3 -1}{2 \sqrt{3^2 -3 -2}}= \dfrac{5}{4}\) \\[1em]
+e la tangente avrà equazione: \tab 
+\(y = \dfrac{5}{4} \tonda{x -3} +2 \srarrow 
+  y = \dfrac{5}{4} x -\dfrac{7}{4}\)
+\end{esempio}
+
+\begin{esempio}
+Derivare \(f(x)=\dfrac{1}{\sqrt{2x-3}}\).
+
+\affiancati{.49}{.49}{
+Poniamo: 
+\[h(x)=2x-3, \quad g(h)=\sqrt{h} \quad
+\text{e} \quad f(g)=\dfrac{1}{g}\]
+Allora: 
+\begin{align*}
+f'(g(h)) &= f'(g(f)) \cdot g'(h) \cdot h'(x) = \\
+&= -\dfrac{1}{\sqrt{2x-3}} \cdot \dfrac{1}{2\sqrt{2x-3}} \cdot 2 = \\
+&= -\dfrac{1}{2x-3}
+\end{align*}
+}{
+\funzionecompostaederivata
+}
+\end{esempio}
+
+% \begin{esempio}
+%   Derivare \(f(x)=\tonda{-\dfrac{3}{2}x^3+2x^2-6}^5\).\\
+%   Poniamo \(g(x)=-\dfrac{2}{3}x^3+2x^2-6\)\quad e\quad \(f(g)=g^5\). \\
+%   Allora: 
+%   \(f'(g)= 5g^4\)\quad e\quad \(g'(x)=-2x^2+4x\),\quad quindi: \\
+%   \(f'(x)=f'(g)\cdot g'(x)=5g^4(-2x^2+4x)=
+%   5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)\).
+% \end{esempio}
 
 \subsection{Derivata di funzioni inverse}
 \label{subsec:differenziazione_derivatainverse}
@@ -2588,6 +2599,11 @@ precedenti:\\
   \end{enumerate}
 \end{esempio}
 
+\begin{comment}
+
+
+
+
 % \section{Derivata di funzioni trascendenti}
 % \label{sec:differenziazione_trascendenti}
 % 
@@ -2629,7 +2645,6 @@ precedenti:\\
 % 
 % \subsection{Altre applicazioni}
 % \label{subsec:differenziazione_altreapplicazioni}
-
 
 \section{Derivare funzioni trascendenti}
 \label{sec:diff01_deritrasc}
