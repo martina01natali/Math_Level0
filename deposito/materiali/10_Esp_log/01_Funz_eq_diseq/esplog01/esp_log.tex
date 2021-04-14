@@ -509,14 +509,16 @@ anno ci raddoppia il deposito. Se depositiamo \EUR1 oggi, fra un anno avremo una
 disponibilità di \EUR2: \(1\) per il deposito iniziale ed \(1\) di 
 interesse. 
 Allora decidiamo di ritirare il deposito dopo i primi \(6\) mesi, grazie ai 
-quali avremo accumulato \(1,5\) euro: li reinvestiamo subito e li
+quali avremo accumulato \(1,5\)~\officialeuro: li reinvestiamo subito e li
 lasciamo in deposito fino a fine anno, per recuperare un interesse maggiore. 
 Infatti, depositando \(1+\dfrac{1}{2}\), dopo gli ultimi 6 mesi otteniamo 
 l'interesse di \(\tonda{1+\dfrac{1}{2}}\dfrac{1}{2}\). Al termine di un anno 
 avremo raggiunto la somma di euro
 \[\tonda{1+\dfrac{1}{2}}+\tonda{1+\dfrac{1}{2}}\dfrac{1}{2}=\tonda{1+\dfrac{1}{2
 }}\tonda{1+\dfrac{1}{2}}=\tonda{1+\dfrac{1}{2}}^2\]
-Sembra promettente. Invece di ritirare e depositare di nuovo ogni 6 mesi, 
+che corrisponde a \(2,25\)~\officialeuro. Sembra promettente, forse possiamo 
+puntare a ottenere \(3\)~\officialeuro . Invece di ritirare e depositare di 
+nuovo ogni 6 mesi, 
 proviamo ogni 4 mesi, cioè ogni terzo di un anno. Depositando \EUR1 il 1 
 Gennaio, al 30 Aprile l'ammontare sarà \( 1+\dfrac{1}{3}\) e ripetendo lo 
 schema per tre volte, in modo da arrivare a fine anno, avremo:
@@ -531,7 +533,7 @@ Infatti, al termine di ogni periodo il totale accumulato si moltiplica per
  \item [1]che riporta quanto si depositava a inizio periodo
  \item [+]la frazione di anno corrispondente al periodo.
 \end{itemize}
-Accecati dall'avidità, stiamo già pensando a reinvestire ogni tre mesi (4 
+Accecati dall'avidità, stiamo già pensando di reinvestire ogni tre mesi (4 
 periodi), o meglio ogni mese, o addirittura ogni settimana \dots 
 
 Insomma sembra vincente l'idea di abbreviare i periodi e moltiplicare il numero 
@@ -552,21 +554,68 @@ maggiore. Vediamo concretamente:
      1 giorno &\(365\) &  \((1+1/365)^{365}=2,71418\)\\ 
      1 ora & \dots & \dots \\
      \dots & \dots & \dots \\
-     \hline 
+   %  \hline 
    \end{tabular}
 \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
+\vspace{3mm}
 Puoi completare la tabella arrivando al limite a immaginare reinvestimenti 
 ogni ora, o ogni minuto dell'anno, come potrebbero disporre i manager di 
-grandi società finanziarie dotati di potenti supercomputer. La realtà è che in 
+grandi società finanziarie dotate di potenti supercomputer. La realtà è che in 
 nessun modo questo schema consente di triplicare l'investimento iniziale, anzi 
-i risultati superano \(2,7\) ma di poco. \\
+i risultati superano \(2,7\), ma di poco. 
 \end{minipage}
 
-Si intravvede un numero che può 
-essere meglio definito con l'uso di infiniti e infinitesimi.
+Sempre nell'affannosa ricerca di un guadagno superiore nel più breve tempo 
+possibile, ci rivolgiamo ad una seconda banca, che promette di applicare una 
+formula più favorevole: alla fine di un anno avremo il capitale che ci darebbe 
+la prima banca, aumentato di un ulteriore interesse, come dice la formula: 
+\(\tonda{1+\dfrac{1}{n-1}}^n\). 
+
+\begin{minipage}{.49\textwidth}
+Il confronto fra i due schemi è visibile nella tabella accanto.
+
+Nell'ultima colonna la simulazione dei continui reinvestimenti con la formula 
+della seconda banca.
+Il vantaggio dà subito il capogiro: reinvestendo ogni 6 mesi, 
+invece di \(2,25\)~\officialeuro, maturiamo un capitale di 4~\officialeuro 
+già al termine del primo anno! Purtroppo però con questa banca il 
+reinvestimento compulsivo non appare il metodo ideale.
+
+In sintesi, i risultati con una banca o con l'altra, sono compresi fra il \(2\) 
+e il \(4\) e progressivamente si assestano fra il \(2,71\) e il \(2,72\).
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+\begin{center}
+\begin{tabular}{rrr}
+\(\quad n\) &
+\(\quad \tonda{1+\dfrac{1}{n}}^n\) &
+\(\quad \tonda{1+\dfrac{1}{n-1}}^n\)\\
+\hline
+2 & 2,25 & 4 \\
+3 & 2,37037 & 3,375 \\
+4 & 2,44141 & 3,1604938 \\
+6 & 2,5216264 & 2,9859840 \\
+10 & 2,56,57845 & 2,9102854\\
+12 &  2,5937425 &  2,8679720 \\
+100 &  2,7048138 &  2,7319990 \\
+1000 &  2,7169239 &  2,7196422 \\
+10\,000 &  2,7181459 &  2,7184178 \\
+100\,000 &  2,7182682 &  2,7182954 \\
+1\,000\,000 &  2,7182805 &  2,7182832 \\
+10\,000\,000 &  2,7182817 &  2,7182820 \\
+100\,000\,000 &  2,718281798 &  2,718281859 \\
+\end{tabular}
+\begin{center}Approssimazioni per \(e\)\end{center}
+\label{tab:e}
+\end{center}
+\end{minipage}\\
+
+Si intravvede la possibilità di individuare un numero che può essere meglio 
+definito con l'uso di infiniti e infinitesimi.
 \paragraph{La costante di Eulero può essere definita come:}
 \[e = \pst{\tonda{1+\frac{1}{M}}^M} = 
 \pst{\tonda{1+\delta}^\frac{1}{\delta}} 
@@ -584,9 +633,8 @@ Osservando le due colonne può sorgere legittimamente il dubbio che queste
 due successioni di numeri convergano verso lo stesso valore, 
 infatti alla tredicesima iterazione, la successione 
 basata sulla somma di frazioni si stabilizza verso un valore di 10 cifre 
-esatte, 
-mentre la successione basata sulla potenza ha ancora solo una sola cifra 
-esatta.
+esatte, mentre la successione basata sulla potenza ha ancora solo una sola 
+cifra esatta.
 
 Si può osservare che entrambe le successioni partono da \(2\) e sono 
 crescenti e crescono sempre più lentamente.
@@ -603,52 +651,34 @@ equivalenti.
 \(\quad \tonda{1+\dfrac{1}{n}}^n\) &
 \(\quad \displaystyle \sum_{i=0}^{n}{\frac{1}{i!}} \quad\)\\
 \hline
-0 &        2.0 &           2.0 \\
-1 &       2.25 &           2.5 \\
-2 &  2.3703704 &  2.6666666667 \\
-3 &  2.4414062 &  2.7083333333 \\
-4 &  2.4883200 &  2.7166666667 \\
-5 &  2.5216264 &  2.7180555556 \\
-6 &  2.5464997 &  2.7182539683 \\
-7 &  2.5657845 &  2.7182787698 \\
-8 &  2.5811748 &  2.7182815256 \\
-9 &  2.5937425 &  2.7182818011 \\
-10 & 2.6041990 &  2.7182818262 \\
-11 & 2.6130353 &  2.7182818283 \\
-12 & 2.6206009 &  2.7182818284\\
+0 &        2,0 &           2,0 \\
+1 &       2,25 &           2,5 \\
+2 &  2,3703704 &  2,6666666667 \\
+3 &  2,4414062 &  2,7083333333 \\
+4 &  2,4883200 &  2,7166666667 \\
+5 &  2,5216264 &  2,7180555556 \\
+6 &  2,5464997 &  2,7182539683 \\
+7 &  2,5657845 &  2,7182787698 \\
+8 &  2,5811748 &  2,7182815256 \\
+9 &  2,5937425 &  2,7182818011 \\
+10 & 2,6041990 &  2,7182818262 \\
+11 & 2,6130353 &  2,7182818283 \\
+12 & 2,6206009 &  2,7182818284\\
 \end{tabular}
 \end{center}
 \end{minipage}
-\vspace{1em}
 
-\begin{minipage}{.49\textwidth}
+%\vspace{1em}
 Effettivamente le due formule non sono equivalenti, o meglio, sono 
 equivalenti solo quando \(n\) è un infinito.
 Dal punto di vista del calcolo numerico, la prima successione è 
 inutilizzabile (non solo per la lentezza), mentre la seconda ha una buona 
 efficienza convergendo in poche iterazioni.
 
-La prima successione converge molto lentamente, per poter ottenere otto 
-cifre significative esatte bisogna porre \(n = 10\,000\,000\)!
-\end{minipage}
-\hfill
-\begin{minipage}{.49\textwidth}
-\begin{center}
-\begin{tabular}{rr}
-\(\quad n\) &
-\(\quad \tonda{1+\dfrac{1}{n}}^n\) \\
-\hline
-1 &  2.5937425 \\
-10 &  2.7048138 \\
-100 &  2.7169239 \\
-1000 &  2.7181459 \\
-10\,000 &  2.7182682 \\
-100\,000 &  2.7182805 \\
-1\,000\,000 &  2.7182817 \\
-10\,000\,000 &  2.7182818 \\
-\end{tabular}
-\end{center}
-\end{minipage}\\
+La prima successione converge molto lentamente: come si vede nella  
+tabella di pag.~\pageref{tab:e},  per poter ottenere otto cifre significative 
+esatte bisogna porre 
+\(n = 10\,000\,000\)!
 
 Sono stati sviluppati algoritmi per calcolare \(e\) con grande precisione, 
 ora si conoscono milioni di cifre decimali esatte di questa costante.
