@@ -2176,8 +2176,6 @@ rispetto a \(dx\).
 
 % TODO Differenziale standard
 
-% \end{comment}
-
 \subsection{Derivata di funzioni composte}
 \label{subsec:differenziazione_derivatacomposta}
 
@@ -2443,68 +2441,212 @@ f'(g(h)) &= f'(g(f)) \cdot g'(h) \cdot h'(x) = \\
 %   5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)\).
 % \end{esempio}
 
+% \end{comment}
+
 \subsection{Derivata di funzioni inverse}
 \label{subsec:differenziazione_derivatainverse}
- Cosa si intende per funzioni inverse? \(y=x\cdot k\) e \(x=\frac{y}{k}\), per 
-esempio, sono formule inverse l'una dell'altra, ma non sono funzioni inverse 
-rispetto alla stessa variabile \(x\). Le due diverse espressioni esprimono la 
-stessa iperbole equilatera e lo stesso grafico, quindi hanno le stesse tangenti 
-al grafico e la stessa derivata rispetto a \(x\).\\
+Cosa si intende per funzioni inverse? 
+Quando abbiamo introdotto il calcolo letterale abbiamo imparato a 
+rovesciare alcune espressioni per trovare le formule inverse.
+
+% ---------------------- Esempio con rette ----------------------------
+Ad esempio, \(y = 3x -6\) e \(x = \dfrac{y}{3} +2\) 
+sono formule inverse l'una dell'altra, ma non sono funzioni inverse.
+
+Infatti se:
+\begin{itemize} [noitemsep]
+\item in una tabella forniamo alla prima funzione alcuni valori 
+a \(x\) e calcoliamo i corrispondenti valori di \(y\);
+\item in una tabella forniamo alla seconda funzione alcuni valori 
+a \(y\) e calcoliamo i corrispondenti valori di \(s\);
+\item rappresentiamo in un piano cartesiano le coppie ottenute nelle 
+tabelle.
+\end{itemize}
+Otteniamo punti che appartengono al grafico della stessa funzione. 
+Cioè le due equazioni hanno per soluzioni esattamente le stesse coppie di 
+numeri.
+
+\affiancati{.49}{.49}{
+{
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\begin{center}
+\begin{tabular}{rrcrr}
+\mc{2}{l}{\(y = 3x -6\)} & \qquad & \mc{2}{l}{\(x = \dfrac{y}{3} +2\)}\\
+\mc{1}{r}{\textit{\(x\)}} & \mc{1}{r}{\textit{\(y\)}} & & 
+\mc{1}{r}{\textit{\(y\)}} & \mc{1}{r}{\textit{\(x\)}}\\
+\(0\)  & \(-6\) & & \(-6\) & \(0\)\\
+\(+1\) & \(-3\) & & \(-3\) & \(+1\)\\
+\(+2\) &  \(0\) & & \(0\) & \(+2\)\\
+\(+3\) & \(+3\) & & \(+3\) & \(+3\)\\
+\(+4\) & \(+6\) & & \(+6\) & \(+4\)\\
+\(+5\) & \(+9\) & & \(+9\) & \(+5\)\\
+\(+6\) & \(+12\) & & \(+12\) & \(+6\)
+\end{tabular}
+\end{center}
+}
+}{
+\formulainversaa
+}
+Le due diverse espressioni esprimono la stessa retta, lo stesso grafico:
+la stessa funzione.
+
+Per ottenere la funzione inversa dobbiamo semplicemente scambiare, 
+nell'equazione, la variabile \(x\) con la variabile \(y\).
+
+\affiancati{.54}{.44}{
+Quindi la funzione inversa di \\
+\(y = 3x -6 \sstext{o} f(x) = 3x -6\) \quad è \\
+\(x = 3y -6\) \quad che è uguale a \quad \(y = \dfrac{1}{3}x +2\) \\
+o: \quad \(f^{-1}(x) = \dfrac{1}{3}x +2\).
+
+Possiamo osservare che se componiamo le due funzioni otteniamo:
+\begin{align*}
+y &= f \circ f^{-1} = f(f^{-1}(x)) = 3 \tonda{f^{-1}(x)} -6 = \\
+  &= 3 \tonda{\dfrac{1}{3}x +2} -6 = \dfrac{3}{3}x +6 -6 = x
+\end{align*}
+}{
+\funzinversaa
+}
+
+La composizione delle due funzioni è una funzione il cui 
+risultato è uguale all'argomento \(f(f^{-1}(x)) = x\).
+
+Cosa si intende per funzioni inverse? 
+Quando abbiamo introdotto il calcolo letterale abbiamo imparato a 
+rovesciare alcune espressioni per trovare le formule inverse.
+
+% ---------------------- Esempio con iperboli --------------------------
+Ad esempio, \(y = \dfrac{6}{x} -2\) e \(x = \dfrac{6}{y -2}\) 
+sono formule inverse l'una dell'altra, ma non sono funzioni inverse.
+
+Infatti se:
+\begin{itemize} [noitemsep]
+\item in una tabella forniamo alla prima funzione alcuni valori 
+a \(x\) e calcoliamo i corrispondenti valori di \(y\);
+\item in una tabella forniamo alla seconda funzione alcuni valori 
+a \(y\) e calcoliamo i corrispondenti valori di \(s\);
+\item rappresentiamo in un piano cartesiano le coppie ottenute nelle 
+tabelle.
+\end{itemize}
+Otteniamo punti che appartengono al grafico della stessa funzione. 
+Cioè le due equazioni hanno per soluzioni esattamente le stesse coppie di 
+numeri.
+
+\affiancati{.49}{.49}{
+{
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\begin{center}
+\begin{tabular}{rrcrr}
+\mc{2}{l}{\(y = \dfrac{6}{x} -2\)} & \qquad & 
+\mc{2}{l}{\(x = \dfrac{6}{y +2}\)}\\
+\mc{1}{r}{\textit{\(x\)}} & \mc{1}{r}{\textit{\(y\)}} & & 
+\mc{1}{r}{\textit{\(y\)}} & \mc{1}{r}{\textit{\(x\)}}\\
+\(-6\)  & \(-3\) & & \(-6\) & \(-3/2\)\\
+\(-3\) & \(-4\) & & \(-4\) & \(-3\)\\
+\(-1\) &  \(-6\) & & \(-2\) & \(nd\)\\
+\(0\) & \(nd\) & & \(0\) & \(+3\)\\
+\(+1\) & \(+4\) & & \(+2\) & \(+3/2\)\\
+\(+3\) & \(0\) & & \(+4\) & \(+1\)\\
+\(+6\) & \(-1\) & & \(+6\) & \(+3/4\)
+\end{tabular}
+\end{center}
+}
+}{
+\formulainversab
+}
+
+Le due diverse espressioni esprimono la stessa iperbole, lo 
+stesso grafico: la stessa funzione.
+
+Per ottenere la funzione inversa dobbiamo semplicemente scambiare, 
+nell'equazione, la variabile \(x\) con la variabile \(y\).
+
+\affiancati{.54}{.44}{
+Quindi la funzione inversa di \\
+\(y = \dfrac{6}{x} -2 \sstext{o} f(x) = \dfrac{6}{x} -2\) \quad è \\
+\(x = \dfrac{6}{y} -2\) \quad che è uguale a 
+\quad \(y = \dfrac{6}{x +2}\) \\
+o: \quad \(f^{-1}(x) = \dfrac{6}{x +2}\).
+
+Possiamo osservare che se componiamo le due funzioni otteniamo:
+\begin{align*}
+y &= f \circ f^{-1} = f(f^{-1}(x)) = \dfrac{6}{f^{-1}(x)} -2 = \\
+  &= \dfrac{6}{\dfrac{6}{x +2}} -2 = 6 \cdot \dfrac{x +2}{6} -2 = x
+\end{align*}
+}{
+\funzinversab
+}
+
+La composizione delle due funzioni è una funzione il cui 
+risultato è uguale all'argomento: \(f(f^{-1}(x)) = x\).
+
+Possiamo quindi dare una definizione precisa di funzione inversa:
+
 \begin{definizione}
- Un funzione \(x=g(y)\) si dice inversa di una funzione \(y=f(x)\) se la 
-composizione delle due funzioni \(f(g(y))=x\).
+Un funzione \(y=f^{-1}(x)\) si dice inversa di una funzione \(y=f(x)\) se la 
+composizione delle due funzioni 
+è la funzione identica:
+% dà come risultato l'argomento stesso: 
+\[f(f^{-1}(x))=x\]
 \end{definizione}
 
 \begin{osservazione}
-Data una qualsiasi funzione \(f(x)\), non è scontato che la sua inversa esista 
-\(\forall x\) nel dominio di \(f\). Per questo, quando si cerca l'inversa di 
-una funzione, succede di dover restringere il dominio di questa. Per esempio, 
-\(x=g(y)=\sqrt{y}\) è inversa di \(y=f(x)=x^2\),  perché 
-\(f(g(y))=(g(y))^2=(\sqrt{x})^2=x\), ma la composizione è possibile 
-solo se \(x \ge 0\), mentre \(f\) vale \(\forall x\). In questo caso, quindi, 
-dobbiamo considerare per \(f\) il dominio più ristretto, perchè al di fuori di 
-questo l'inversa non esiste.
+Data una qualsiasi funzione \(f\), non è scontato che la sua inversa 
+esista \(\forall x\) nel dominio di \(f\). 
+Per questo, quando si cerca l'inversa di una funzione, succede di dover 
+restringere il dominio di questa. 
+Per esempio, 
+\(y=g(x)=\sqrt{x}\) è inversa di \(y=f(x)=x^2\),  perché 
+\(f(g(x))=(g(x))^2=(\sqrt{x})^2=x\), ma la composizione è possibile 
+solo se \(x \ge 0\), mentre \(f\) vale \(\forall x\). 
+In questo caso, quindi, dobbiamo considerare per \(f\) il dominio più 
+ristretto, perché al di fuori di questo l'inversa non esiste.
 
-Una buona regola pratica per capire se \(g=f^{-1}\) esiste, è tagliare 
-il grafico di \(f\) con una retta orizzontale: se la
-retta incrocia il grafico di \(f\) in più punti, \(f^{-1}\) non esiste.\\
+Una buona regola pratica per capire se esiste l'inversa di una funzione 
+\(f\), è tagliare il grafico di \(f\) con una retta orizzontale: 
+se la retta incrocia il grafico di \(f\) in più punti, \(f^{-1}\) non esiste.
 \end{osservazione}
+
+SONO ARRIVATO QUA.
+
+FIN QUI ABBIAMO PARLATO DI FUNZIONI E FUNZIONI INVERSE, ORA DOBBIAMO PASSARE 
+ALLA DERIVATA DI UNA FUNZIONE INVERSA.
 
 Considera il caso semplice che segue.
 \begin{esempio}
-  Derivare \(f(x)=\sqrt{x^2}\), con \(x \ge 0\).\\
-  Si dirà: non c'è problema, \(f(x)\) corrisponde algebricamente a 
-  \(f(x)=\sqrt{x^2}=x\), perciò  \(f'(x)=1\).\\
-  Vero. Ma poniamo \(x=g(y)=y^2\) e \(f(x)=f(g(y))=\sqrt{g(y)}\).\\
-  Con la regola delle funzioni composte si ha:\\ 
-  \(f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
-  \dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x=1\).\\
-  Conclusione: 
+Derivare \(f(x)=\sqrt{x^2}\), con \(x \ge 0\).\\
+Si dirà: non c'è problema, \(f(x)\) corrisponde algebricamente a 
+\(f(x)=\sqrt{x^2}=x\), perciò  \(f'(x)=1\).\\
+Vero. Ma poniamo \(x=g(y)=y^2\) e \(f(x)=f(g(y))=\sqrt{g(y)}\).\\
+Con la regola delle funzioni composte si ha:\\ 
+\(f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
+\dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x=1\).\\
+Conclusione: 
 La derivata \(\Deriv{x^2}=\dfrac{1}{\Deriv{\sqrt{x}}}\). 
-In questo calcolo, inoltre, bisogna segnalare che \(g'(x)\) esiste se \(x\ne0\).
+In questo calcolo, inoltre, bisogna segnalare che \(g'(x)\) esiste se 
+\(x\ne0\).
 \end{esempio}
 Si intuisce che: siccome \(f'(g)\cdot g'(x)=1\), allora 
 \(g'(x)=\dfrac{1}{f'(g)}\).
 L'intuizione è corretta ed effettivamente questa regola vale. 
 Occorre però precisare che la regola vale
- \begin{enumerate} [noitemsep]
-  \item se esiste l'inversa della funzione da derivare;
-  \item se entrambe le funzioni sono derivabili;
-  \item se  \(f'(g)\ne 0\).
- \end{enumerate}
-
+\begin{enumerate} [noitemsep]
+\item se esiste l'inversa della funzione da derivare;
+\item se entrambe le funzioni sono derivabili;
+\item se  \(f'(g)\ne 0\).
+\end{enumerate}
 
 \begin{inaccessibleblock}
-  [differenziale funzione inversa]
- \begin{center}
- \begin{minipage}[]{.55\textwidth}
-  \diffinversa
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.42\textwidth}
+[differenziale funzione inversa]
+\begin{center}
+\begin{minipage}[]{.55\textwidth}
+\diffinversa
+\end{minipage} 
+\hfill
+\begin{minipage}[]{.42\textwidth}
 Se valgono tutte le condizioni favorevoli, allora esistono la funzione
-\(f\) e la sua inversa \(g=f^{-1}\). La funzione e la sua inversa, se esiste,
-hanno grafici simmetrici rispetto alla bisettrice \(y=x\).
+\(f\) e la sua inversa \(g=f^{-1}\). La funzione e la sua inversa, 
+se esiste, hanno grafici simmetrici rispetto alla bisettrice \(y=x\).
 
 Ogni punto \(\punto{x}{f^{-1}(x)}\) sulla curva della funzione inversa ha un
 corrispondente \(\punto{y}{f(y)}\) sulla curva \(y=f(x)\), nella simmetria 
@@ -2512,32 +2654,32 @@ rispetto alla bisettrice. Guardiamo come si corrispondono i differenziali:
 \(dx\) e \(dy\) di una curva sono invertiti rispetto ai differenziali 
 dell'altra.
 Quindi le derivate corrispondenti sono reciproche l'una con l'altra.
- \end{minipage}
- \end{center}
+\end{minipage}
+\end{center}
 \end{inaccessibleblock}
 \label{}
 
 \begin{teorema}
 \label{teo:derinversa}
-% In realtà l'ipotesi sarebbe diversa, vedi Ruggero appunti per corso Firenze
-Le derivate di due funzioni \(f\), \(g\), inverse l'una dell'altra, se esistono
- e sono diverse da zero, sono reciproche l'una rispetto all'altra.
+% In realtà l'ipotesi sarebbe diversa, vedi Ruggero appunti per corso 
+% Firenze
+Le derivate di due funzioni \(f\), \(g\), inverse l'una dell'altra, se 
+esistono e sono diverse da zero, sono reciproche l'una rispetto all'altra.
 \end{teorema}
 \noindent Ipotesi: \(y=f(x)\), \(x=g(y)\) \(f\), \(g\) derivabili, con 
-\(f'\ne0\), 
-\(g'\ne 0\).
+\(f'\ne0\), \(g'\ne 0\).
 \hspace{2cm} Tesi: \(f'(x)=\dfrac{1}{g'(y)}\).
 \begin{proof}
-  Grazie alle proprietà della funzione \(\pst{}\), abbiamo:\\
-  \(f'(x)\cdot g'(y)=\pst{\dfrac{dy}{dx}}\cdot\pst{\dfrac{dx}{dy}}=
-  \pst{\dfrac{dy}{dx}\cdot\dfrac{dx}{dy}}=\pst{1}=1\)\\
-  per cui: \(f'(x)=\dfrac{1}{g'(y)}\).
+Grazie alle proprietà della funzione \(\pst{}\), abbiamo:\\
+\(f'(x)\cdot g'(y)=\pst{\dfrac{dy}{dx}}\cdot\pst{\dfrac{dx}{dy}}=
+\pst{\dfrac{dy}{dx}\cdot\dfrac{dx}{dy}}=\pst{1}=1\)\\
+per cui: \(f'(x)=\dfrac{1}{g'(y)}\).
 \end{proof}
 \begin{osservazione}
- Dire che il Rapporto Differenziale \(frac{dy}{dx}\) è reciproco di 
+Dire che il Rapporto Differenziale \(frac{dy}{dx}\) è reciproco di 
 \(frac{dx}{dy}\) non è banale come dire che la frazione \(frac{3}{4}\) è 
 reciproca di \(frac{4}{3}\).
- Una frazione è un rapporto fra numeri e genera un numero, il rapporto 
+Una frazione è un rapporto fra numeri e genera un numero, il rapporto 
 differenziale è un rapporto fra funzioni e genera una funzione. In più,  
 in una frazione come la frazione \(frac{3}{4}\) i numeri \(3\) e \(4\) sono 
 indipendenti, invece il differenziale \(dy\) dipende da \(dx\) nel rapporto
@@ -2545,15 +2687,16 @@ indipendenti, invece il differenziale \(dy\) dipende da \(dx\) nel rapporto
 \end{osservazione}
 
 A proposito della derivata delle funzioni potenza, abbiamo anticipato che la 
-regola \(f'(x)= \alpha x^{\alpha-1}\) vale anche con esponenti razionali. Ora 
-siamo in grado di giustificarlo:
+regola \(f'(x)= \alpha x^{\alpha-1}\) vale anche con esponenti razionali. 
+Ora siamo in grado di giustificarlo:
 \begin{proof}
- Derivare \(y=f(x)=\sqrt[m]{x}\), con \(m\in \N\).\\
- Poiché l'inversa \(g(y)=y^m\) ha derivata \(g'(y)=my^{m-1}\), ricordando il 
+Derivare \(y=f(x)=\sqrt[m]{x}\), con \(m\in \N\).\\
+Poiché l'inversa \(g(y)=y^m\) ha derivata \(g'(y)=my^{m-1}\), ricordando il 
 Teorema~\ref{teo:derinversa} calcoliamo:\\
-\(f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{my^{m-1}}=\dfrac{1}{m(\sqrt[m]{x})^{m-1}}=
-\dfrac {1} {m} x^{-\frac{m-1}{m}}=\dfrac{1}{m} x^{\frac{1}{m}-1}\), con 
-\(x\ne 0\),\\
+\(f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{my^{m-1}}=
+  \dfrac{1}{m(\sqrt[m]{x})^{m-1}}=
+  \dfrac {1} {m} x^{-\frac{m-1}{m}}=\dfrac{1}{m} x^{\frac{1}{m}-1}\), 
+con \(x\ne 0\),\\
 ed è lo stesso risultato che si ottiene scrivendo \(f(x)=x^\frac{1}{m}\) e 
 derivando in base alla regola delle funzioni potenza.
 
@@ -2567,36 +2710,37 @@ pag.~\pageref{teo:funzione_potenza_generica}.
  Derivare \(y=f(x)=\sqrt[3]{x}\).\\
  Poiché l'inversa \(g(y)=y^3\) ha derivata \(g'(y)=3y^2\), per il 
 Teorema~\ref{teo:derinversa}, calcoliamo:\\
-\(f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{3y^2}=\dfrac{1}{3(\sqrt[3]{x})^2}=\dfrac{1}{3
-} x^{-\frac{2}{3}}\), con \(x\ne 0\).\\
+\(f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{3y^2}=
+ \dfrac{1}{3(\sqrt[3]{x})^2}=\dfrac{1}{3} x^{-\frac{2}{3}}\), 
+con \(x\ne 0\).\\
 Se esprimiamo \(f(x)\) come potenza, abbiamo:\\
-\(f(x)=\sqrt[3]{x}=x^\frac{1}{3}\). Applicando la regola \(f'(x)= \alpha 
-x^{\alpha-1}\) 
-risulta: \(f'(x)=\dfrac{1}{3}x^{\frac{1}{3}-1}=\dfrac{1}{3}x^{-\frac{2}{3}}\)
+\(f(x)=\sqrt[3]{x}=x^\frac{1}{3}\). 
+Applicando la regola \(f'(x)= \alpha x^{\alpha-1}\) risulta: 
+\(f'(x)=\dfrac{1}{3}x^{\frac{1}{3}-1}=\dfrac{1}{3}x^{-\frac{2}{3}}\)
 e le due derivazioni danno lo stesso risultato.
 \end{esempio}
 
-Nel prossimo esercizio sfruttiamo sia la regola per la derivata di una funzione 
-composta che la regola per la derivata della funzione inversa.
+Nel prossimo esercizio sfruttiamo sia la regola per la derivata di una 
+funzione composta che la regola per la derivata della funzione inversa.
 \begin{esempio}
-  Trova la derivata di \(f(x)=\dfrac{1}{\sqrt{5-x^2}}\).
-  \begin{enumerate}[noitemsep]
-   \item Usando il teorema \ref{teo:diff01_dericomp} e le regole 
+Trova la derivata di \(f(x)=\dfrac{1}{\sqrt{5-x^2}}\).
+\begin{enumerate}[noitemsep]
+\item Usando il teorema \ref{teo:diff01_dericomp} e le regole 
 precedenti:\\
-   \(f'(x)=\Deriv{\dfrac{1}{\sqrt{5-x}}}=
-   \Deriv{(5-x)^\frac{-1}{2}}=-\dfrac{1}{2}(5-x)
-   ^\frac{-3}{2}(-1) = \dfrac{1}{2(\sqrt{5-x})^3}\).
-   \item Usando la regola del Teorema~\ref{teo:derinversa}:\\
-   Costruiamo la formula inversa con pochi passaggi algebrici: riavremo la 
-   stessa funzione, in cui \(y\) figura come variabile indipendente: 
+\(f'(x)=\Deriv{\dfrac{1}{\sqrt{5-x}}}=
+\Deriv{(5-x)^\frac{-1}{2}}=-\dfrac{1}{2}(5-x)
+^\frac{-3}{2}(-1) = \dfrac{1}{2(\sqrt{5-x})^3}\).
+\item Usando la regola del Teorema~\ref{teo:derinversa}:\\
+Costruiamo la formula inversa con pochi passaggi algebrici: riavremo la 
+stessa funzione, in cui \(y\) figura come variabile indipendente: 
 \(x=f(y)\).\\
-   Quindi deriviamo: \(\Deriv{x}=x'=f'(y)=\pst{\dfrac{dx}{dy}}\).\\
-   \(f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x}\srarrow 
-   y^{-2}=5-x\srarrow x=5-y^{-2}\)  (formula inversa)\\
-   \(x'=\pst{\dfrac{dx}{dy}}=-2y^{-3}\) (derivata della funzione inversa)\\
-   \(\srarrow y'=\pst{\dfrac{dy}{dx}}=\dfrac{y^3}{2}=
-   \dfrac{1}{2(\sqrt{5-x})^3}\).
-  \end{enumerate}
+Quindi deriviamo: \(\Deriv{x}=x'=f'(y)=\pst{\dfrac{dx}{dy}}\).\\
+\(f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x}\srarrow 
+y^{-2}=5-x\srarrow x=5-y^{-2}\)  (formula inversa)\\
+\(x'=\pst{\dfrac{dx}{dy}}=-2y^{-3}\) (derivata della funzione inversa)\\
+\(\srarrow y'=\pst{\dfrac{dy}{dx}}=\dfrac{y^3}{2}=
+\dfrac{1}{2(\sqrt{5-x})^3}\).
+\end{enumerate}
 \end{esempio}
 
 \begin{comment}
