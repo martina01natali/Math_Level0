@@ -15,38 +15,38 @@
   \end{center}
   \end{minipage}
 }
-
-\newcommand{\insiemesoluzione}[3]{% blocco relativo alla soluzione
-  \def \grafica{#1}
-  \def \predicati{#2}
-  \def \parentesi{#3}
- Insieme soluzione\\
- 
-  \noindent\begin{minipage}[t]{.32\textwidth}
-  Forma grafica\\[-.5em]
-  
- \begin{center}
-   \grafica
-  \vspace{.4em}
- \end{center}
-  \end{minipage}
-  \begin{minipage}[t]{.32\textwidth}
-  Espressione con i predicati\\%[-.9em]
-  
- \begin{center}
-  \predicati
-%   \vspace{1em}
- \end{center}
-  \end{minipage}
-  \begin{minipage}[t]{.32\textwidth}
-  Espressione con le parentesi\\%[-.3em]
-  
- \begin{center}
-  \parentesi
-%   \vspace{.8em}
- \end{center}
-  \end{minipage}
-}
+% 
+% \newcommand{\insiemesoluzione}[3]{% blocco relativo alla soluzione
+%   \def \grafica{#1}
+%   \def \predicati{#2}
+%   \def \parentesi{#3}
+%  Insieme soluzione\\
+%  
+%   \noindent\begin{minipage}[t]{.32\textwidth}
+%   Forma grafica\\[-.5em]
+%   
+%  \begin{center}
+%    \grafica
+%   \vspace{.4em}
+%  \end{center}
+%   \end{minipage}
+%   \begin{minipage}[t]{.32\textwidth}
+%   Espressione con i predicati\\%[-.9em]
+%   
+%  \begin{center}
+%   \predicati
+% %   \vspace{1em}
+%  \end{center}
+%   \end{minipage}
+%   \begin{minipage}[t]{.32\textwidth}
+%   Espressione con le parentesi\\%[-.3em]
+%   
+%  \begin{center}
+%   \parentesi
+% %   \vspace{.8em}
+%  \end{center}
+%   \end{minipage}
+% }
 
 \newcommand{\segnofatt}[4]{% Segno di un fattore 
   \def \ea{#1}
@@ -224,80 +224,80 @@
     \draw[fill=\intp] (\posp, 0) circle (2pt) node [above] {\(\labelp\)};
   }
 }
-
-\newcommand{\intid}[7]{% Intervallo ]a; b[ con disegno e asse
-  % \intid{5}{-2}{+2}{a}{b}{white}{black}
-  \disegno{
-    \assex{-#1}{+#1}{0}
-    \inti{0}{#2}{#3}{#4}{#5}{#6}{#7}
-  }
-}
-
-\newcommand{\inted}[7]{%  ]-infty; a[ u ]b; +infty[ con disegno e asse
-  % \inted{5}{-2}{+2}{a}{b}{white}{black}
-  \disegno{
-    \assex{-#1}{+#1}{0}
-    \inte{0}{#1}{#2}{#3}{#4}{#5}{#6}{#7}
-  }
-}
-
-\newcommand{\intiaa}[5]{% Intervallo ]a; b[
-  % \intiaa{5}{-3}{3}{a}{b}
-  \intid{#1}{#2}{#3}{#4}{#5}{white}{white}
-}
-
-\newcommand{\intica}[5]{% Intervallo ]a; b[
-  \intid{#1}{#2}{#3}{#4}{#5}{black}{white}
-}
-
-\newcommand{\intiac}[5]{% Intervallo ]a; b[
-  \intid{#1}{#2}{#3}{#4}{#5}{white}{black}
-}
-
-\newcommand{\inticc}[5]{% Intervallo ]a; b[
-  \intid{#1}{#2}{#3}{#4}{#5}{black}{black}
-}
-
-\newcommand{\inteaa}[5]{% Intervallo ]a; b[
-  % \inteaa{5}{-3}{3}{a}{b}
-  \inted{#1}{#2}{#3}{#4}{#5}{white}{white}
-}
-
-\newcommand{\inteca}[5]{% Intervallo ]a; b[
-  \inted{#1}{#2}{#3}{#4}{#5}{black}{white}
-}
-
-\newcommand{\inteac}[5]{% Intervallo ]a; b[
-  \inted{#1}{#2}{#3}{#4}{#5}{white}{black}
-}
-
-\newcommand{\intecc}[5]{% Intervallo ]a; b[
-  \inted{#1}{#2}{#3}{#4}{#5}{black}{black}
-}
-
-\newcommand{\puntoa}[3]{% Intervallo ]a; b[
-  \intpunto{#1}{#2}{#3}{white}
-}
-
-\newcommand{\puntoc}[3]{% Intervallo [a; a]
-  \intpunto{#1}{#2}{#3}{black}
-}
-
-\newcommand{\intv}[1]{% Intervallo vuoto
-  \def \lung{#1}
-  \disegno{
-    \assex{-\lung / 2}{+\lung / 2}{0}
-  }
-}
-
-\newcommand{\intr}[1]{% Intervallo vuoto
-  \def \lung{#1}
-  \disegno{
-    \assex{-\lung / 2}{+\lung / 2}{0}
-    \draw [blue, thick, decorate, decoration=snake] 
-          (-\lung / 2, 0) -- (+\lung / 2, 0);
-  }
-}
+% 
+% \newcommand{\intid}[7]{% Intervallo ]a; b[ con disegno e asse
+%   % \intid{5}{-2}{+2}{a}{b}{white}{black}
+%   \disegno{
+%     \assex{-#1}{+#1}{0}
+%     \inti{0}{#2}{#3}{#4}{#5}{#6}{#7}
+%   }
+% }
+% 
+% \newcommand{\inted}[7]{%  ]-infty; a[ u ]b; +infty[ con disegno e asse
+%   % \inted{5}{-2}{+2}{a}{b}{white}{black}
+%   \disegno{
+%     \assex{-#1}{+#1}{0}
+%     \inte{0}{#1}{#2}{#3}{#4}{#5}{#6}{#7}
+%   }
+% }
+% 
+% \newcommand{\intiaa}[5]{% Intervallo ]a; b[
+%   % \intiaa{5}{-3}{3}{a}{b}
+%   \intid{#1}{#2}{#3}{#4}{#5}{white}{white}
+% }
+% 
+% \newcommand{\intica}[5]{% Intervallo ]a; b[
+%   \intid{#1}{#2}{#3}{#4}{#5}{black}{white}
+% }
+% 
+% \newcommand{\intiac}[5]{% Intervallo ]a; b[
+%   \intid{#1}{#2}{#3}{#4}{#5}{white}{black}
+% }
+% 
+% \newcommand{\inticc}[5]{% Intervallo ]a; b[
+%   \intid{#1}{#2}{#3}{#4}{#5}{black}{black}
+% }
+% 
+% \newcommand{\inteaa}[5]{% Intervallo ]a; b[
+%   % \inteaa{5}{-3}{3}{a}{b}
+%   \inted{#1}{#2}{#3}{#4}{#5}{white}{white}
+% }
+% 
+% \newcommand{\inteca}[5]{% Intervallo ]a; b[
+%   \inted{#1}{#2}{#3}{#4}{#5}{black}{white}
+% }
+% 
+% \newcommand{\inteac}[5]{% Intervallo ]a; b[
+%   \inted{#1}{#2}{#3}{#4}{#5}{white}{black}
+% }
+% 
+% \newcommand{\intecc}[5]{% Intervallo ]a; b[
+%   \inted{#1}{#2}{#3}{#4}{#5}{black}{black}
+% }
+% 
+% \newcommand{\puntoa}[3]{% Intervallo ]a; b[
+%   \intpunto{#1}{#2}{#3}{white}
+% }
+% 
+% \newcommand{\puntoc}[3]{% Intervallo [a; a]
+%   \intpunto{#1}{#2}{#3}{black}
+% }
+% 
+% \newcommand{\intv}[1]{% Intervallo vuoto
+%   \def \lung{#1}
+%   \disegno{
+%     \assex{-\lung / 2}{+\lung / 2}{0}
+%   }
+% }
+% 
+% \newcommand{\intr}[1]{% Intervallo vuoto
+%   \def \lung{#1}
+%   \disegno{
+%     \assex{-\lung / 2}{+\lung / 2}{0}
+%     \draw [blue, thick, decorate, decoration=snake] 
+%           (-\lung / 2, 0) -- (+\lung / 2, 0);
+%   }
+% }
 
 \newcommand{\segnoprodottoa}{% Segno del prodotto di due funzioni
   \disegno{

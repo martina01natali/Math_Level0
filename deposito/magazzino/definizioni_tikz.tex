@@ -544,6 +544,86 @@ disequazioni
      \draw (\i*\largx-\dimx, 0) -- (\i*\largx-\dimx, -\numassi * \dimy);
 }
 
+%--------------------------
+% Intervalli
+
+% TODO: unificare i vari intervalli
+
+\newcommand{\intid}[7]{% Intervallo ]a; b[ con disegno e asse
+  % \intid{5}{-2}{+2}{a}{b}{white}{black}
+  \disegno{
+    \assex{-#1}{+#1}{0}
+    \inti{0}{#2}{#3}{#4}{#5}{#6}{#7}
+  }
+}
+
+\newcommand{\inted}[7]{%  ]-infty; a[ u ]b; +infty[ con disegno e asse
+  % \inted{5}{-2}{+2}{a}{b}{white}{black}
+  \disegno{
+    \assex{-#1}{+#1}{0}
+    \inte{0}{#1}{#2}{#3}{#4}{#5}{#6}{#7}
+  }
+}
+
+\newcommand{\intiaa}[5]{% Intervallo ]a; b[
+  % \intiaa{5}{-3}{3}{a}{b}
+  \intid{#1}{#2}{#3}{#4}{#5}{white}{white}
+}
+
+\newcommand{\intica}[5]{% Intervallo ]a; b[
+  \intid{#1}{#2}{#3}{#4}{#5}{black}{white}
+}
+
+\newcommand{\intiac}[5]{% Intervallo ]a; b[
+  \intid{#1}{#2}{#3}{#4}{#5}{white}{black}
+}
+
+\newcommand{\inticc}[5]{% Intervallo ]a; b[
+  \intid{#1}{#2}{#3}{#4}{#5}{black}{black}
+}
+
+\newcommand{\inteaa}[5]{% Intervallo ]a; b[
+  % \inteaa{5}{-3}{3}{a}{b}
+  \inted{#1}{#2}{#3}{#4}{#5}{white}{white}
+}
+
+\newcommand{\inteca}[5]{% Intervallo ]a; b[
+  \inted{#1}{#2}{#3}{#4}{#5}{black}{white}
+}
+
+\newcommand{\inteac}[5]{% Intervallo ]a; b[
+  \inted{#1}{#2}{#3}{#4}{#5}{white}{black}
+}
+
+\newcommand{\intecc}[5]{% Intervallo ]a; b[
+  \inted{#1}{#2}{#3}{#4}{#5}{black}{black}
+}
+
+\newcommand{\puntoa}[3]{% Intervallo ]a; b[
+  \intpunto{#1}{#2}{#3}{white}
+}
+
+\newcommand{\puntoc}[3]{% Intervallo [a; a]
+  \intpunto{#1}{#2}{#3}{black}
+}
+
+\newcommand{\intv}[1]{% Intervallo vuoto
+  \def \lung{#1}
+  \disegno{
+    \assex{-\lung / 2}{+\lung / 2}{0}
+    \draw[white] (0, 0) node [above] {\(0\)};
+  }
+}
+
+\newcommand{\intr}[1]{% Intervallo R
+  \def \lung{#1}
+  \disegno{
+    \assex{-\lung / 2}{+\lung / 2}{0}
+    \draw [blue, thick, decorate, decoration=snake] 
+          (-\lung / 2, 0) -- (+\lung / 2, 0);
+  }
+}
+
 \newcommand{\inti}[7]{% Intervallo interno
   % \disegno{\inti{0}{-2}{+2}{a}{b}{white}{black}}
   \def \posy{#1}

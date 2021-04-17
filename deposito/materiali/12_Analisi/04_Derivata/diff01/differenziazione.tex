@@ -2458,7 +2458,7 @@ Infatti se:
 \item in una tabella forniamo alla prima funzione alcuni valori 
 a \(x\) e calcoliamo i corrispondenti valori di \(y\);
 \item in una tabella forniamo alla seconda funzione alcuni valori 
-a \(y\) e calcoliamo i corrispondenti valori di \(s\);
+a \(y\) e calcoliamo i corrispondenti valori di \(x\);
 \item rappresentiamo in un piano cartesiano le coppie ottenute nelle 
 tabelle.
 \end{itemize}
@@ -2617,17 +2617,20 @@ Considera il caso semplice che segue.
 Derivare \(f(x)=\sqrt{x^2}\), con \(x \ge 0\).\\
 Si dirà: non c'è problema, \(f(x)\) corrisponde algebricamente a 
 \(f(x)=\sqrt{x^2}=x\), perciò  \(f'(x)=1\).\\
-Vero. Ma poniamo \(x=g(y)=y^2\) e \(f(x)=f(g(y))=\sqrt{g(y)}\).\\
+Vero. Ma poniamo \(y=g(x)=x^2\) e \(f(x)=f(g(x))=\sqrt{g(x)}\).\\
 Con la regola delle funzioni composte si ha:\\ 
-\(f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g}}\cdot 2x=
-\dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x=1\).\\
-Conclusione: 
-La derivata \(\Deriv{x^2}=\dfrac{1}{\Deriv{\sqrt{x}}}\). 
+\(f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g(x)}}\cdot 2x =
+\dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x = 1\).\\
+Possiamo osservare che \(f'(x)\)  è il reciproco di \(g'(x)\) dato che 
+il loro prodotto è \(1\). 
 In questo calcolo, inoltre, bisogna segnalare che \(g'(x)\) esiste se 
 \(x\ne0\).
 \end{esempio}
-Si intuisce che: siccome \(f'(g)\cdot g'(x)=1\), allora 
-\(g'(x)=\dfrac{1}{f'(g)}\).
+Dato che la composizione di una funzione con la sua inversa dà sempre la 
+funzione identica e la derivata della funzione identica è \(1\), 
+Si intuisce che: \(\Deriv{f(g(x))} = f'(g) \cdot g'(x)=1\), allora 
+\(g'(x) = \dfrac{1}{f'(g)}\).
+
 L'intuizione è corretta ed effettivamente questa regola vale. 
 Occorre però precisare che la regola vale
 \begin{enumerate} [noitemsep]
@@ -2644,7 +2647,7 @@ Occorre però precisare che la regola vale
 \end{minipage} 
 \hfill
 \begin{minipage}[]{.42\textwidth}
-Se valgono tutte le condizioni favorevoli, allora esistono la funzione
+Se valgono tutte le condizioni, allora esistono la funzione
 \(f\) e la sua inversa \(g=f^{-1}\). La funzione e la sua inversa, 
 se esiste, hanno grafici simmetrici rispetto alla bisettrice \(y=x\).
 
@@ -2661,6 +2664,7 @@ Quindi le derivate corrispondenti sono reciproche l'una con l'altra.
 
 \begin{teorema}
 \label{teo:derinversa}
+% TODO: aggiustare le ipotesi.
 % In realtà l'ipotesi sarebbe diversa, vedi Ruggero appunti per corso 
 % Firenze
 Le derivate di due funzioni \(f\), \(g\), inverse l'una dell'altra, se 
@@ -2676,14 +2680,14 @@ Grazie alle proprietà della funzione \(\pst{}\), abbiamo:\\
 per cui: \(f'(x)=\dfrac{1}{g'(y)}\).
 \end{proof}
 \begin{osservazione}
-Dire che il Rapporto Differenziale \(frac{dy}{dx}\) è reciproco di 
-\(frac{dx}{dy}\) non è banale come dire che la frazione \(frac{3}{4}\) è 
-reciproca di \(frac{4}{3}\).
+Dire che il Rapporto Differenziale \(\frac{dy}{dx}\) è reciproco di 
+\(\frac{dx}{dy}\) non è banale come dire che la frazione \(\frac{3}{4}\) è 
+reciproca di \(\frac{4}{3}\).
 Una frazione è un rapporto fra numeri e genera un numero, il rapporto 
 differenziale è un rapporto fra funzioni e genera una funzione. In più,  
-in una frazione come la frazione \(frac{3}{4}\) i numeri \(3\) e \(4\) sono 
+in una frazione come la frazione \(\frac{3}{4}\) i numeri \(3\) e \(4\) sono 
 indipendenti, invece il differenziale \(dy\) dipende da \(dx\) nel rapporto
-\(frac{dy}{dx}\),  e \(dx\) dipende da \(dy\) nel rapporto inverso. \\
+\(\frac{dy}{dx}\),  e \(dx\) dipende da \(dy\) nel rapporto inverso. \\
 \end{osservazione}
 
 A proposito della derivata delle funzioni potenza, abbiamo anticipato che la 
