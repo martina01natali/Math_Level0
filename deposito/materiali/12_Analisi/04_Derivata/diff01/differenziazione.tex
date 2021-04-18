@@ -26,7 +26,7 @@
 % 
 % \agnesia
 
-\begin{comment}
+% \begin{comment}
 
 \section{Premessa}
 \footnote{Per scrivere questo capitolo mi sono ispirato 
@@ -2441,8 +2441,6 @@ f'(g(h)) &= f'(g(f)) \cdot g'(h) \cdot h'(x) = \\
 %   5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)\).
 % \end{esempio}
 
-% \end{comment}
-
 \subsection{Derivata di funzioni inverse}
 \label{subsec:differenziazione_derivatainverse}
 Cosa si intende per funzioni inverse? 
@@ -2607,12 +2605,10 @@ Una buona regola pratica per capire se esiste l'inversa di una funzione
 se la retta incrocia il grafico di \(f\) in più punti, \(f^{-1}\) non esiste.
 \end{osservazione}
 
-SONO ARRIVATO QUA.
+Ora vediamo come calcolare la derivata dell'inversa di una funzione di ci 
+conosciamo la derivata.
 
-FIN QUI ABBIAMO PARLATO DI FUNZIONI E FUNZIONI INVERSE, ORA DOBBIAMO PASSARE 
-ALLA DERIVATA DI UNA FUNZIONE INVERSA.
-
-Considera il caso semplice che segue.
+Consideriamo il caso semplice che segue.
 \begin{esempio}
 Derivare \(f(x)=\sqrt{x^2}\), con \(x \ge 0\).\\
 Si dirà: non c'è problema, \(f(x)\) corrisponde algebricamente a 
@@ -2621,16 +2617,16 @@ Vero. Ma poniamo \(y=g(x)=x^2\) e \(f(x)=f(g(x))=\sqrt{g(x)}\).\\
 Con la regola delle funzioni composte si ha:\\ 
 \(f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g(x)}}\cdot 2x =
 \dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x = 1\).\\
-Possiamo osservare che \(f'(x)\)  è il reciproco di \(g'(x)\) dato che 
+Possiamo osservare che \(f'(g)\)  è il reciproco di \(g'(x)\) dato che 
 il loro prodotto è \(1\). 
-In questo calcolo, inoltre, bisogna segnalare che \(g'(x)\) esiste se 
-\(x\ne0\).
+In questo caso, inoltre, bisogna segnalare che \(g'(x)\) esiste se 
+\(x \ne 0\).
 \end{esempio}
 Dato che la composizione di una funzione con la sua inversa dà sempre la 
 funzione identica e la derivata della funzione identica è \(1\), 
-Si intuisce che: \(\Deriv{f(g(x))} = f'(g) \cdot g'(x)=1\), allora 
+si intuisce che: \(\Deriv{f(g(x))} = f'(g) \cdot g'(x)=1\), allora 
 \(g'(x) = \dfrac{1}{f'(g)}\).
-
+% TODO: uniformare la riga precedente e tutto l'esempio al teorema seguente.
 L'intuizione è corretta ed effettivamente questa regola vale. 
 Occorre però precisare che la regola vale
 \begin{enumerate} [noitemsep]
@@ -2667,6 +2663,8 @@ Quindi le derivate corrispondenti sono reciproche l'una con l'altra.
 % TODO: aggiustare le ipotesi.
 % In realtà l'ipotesi sarebbe diversa, vedi Ruggero appunti per corso 
 % Firenze
+% Forse bisogna parlare di g inversa di f e non di g e f reciprocamente 
+% inverse.
 Le derivate di due funzioni \(f\), \(g\), inverse l'una dell'altra, se 
 esistono e sono diverse da zero, sono reciproche l'una rispetto all'altra.
 \end{teorema}
@@ -2680,21 +2678,24 @@ Grazie alle proprietà della funzione \(\pst{}\), abbiamo:\\
 per cui: \(f'(x)=\dfrac{1}{g'(y)}\).
 \end{proof}
 \begin{osservazione}
-Dire che il Rapporto Differenziale \(\frac{dy}{dx}\) è reciproco di 
-\(\frac{dx}{dy}\) non è banale come dire che la frazione \(\frac{3}{4}\) è 
-reciproca di \(\frac{4}{3}\).
+Dire che il Rapporto Differenziale \(\dfrac{dy}{dx}\) è reciproco di 
+\(\dfrac{dx}{dy}\) non è banale come dire che la frazione \(\dfrac{3}{4}\) 
+è reciproca di \(\dfrac{4}{3}\).
 Una frazione è un rapporto fra numeri e genera un numero, il rapporto 
-differenziale è un rapporto fra funzioni e genera una funzione. In più,  
-in una frazione come la frazione \(\frac{3}{4}\) i numeri \(3\) e \(4\) sono 
-indipendenti, invece il differenziale \(dy\) dipende da \(dx\) nel rapporto
-\(\frac{dy}{dx}\),  e \(dx\) dipende da \(dy\) nel rapporto inverso. \\
+differenziale è un rapporto fra funzioni e genera una funzione. 
+In più, in una frazione come la frazione \(\dfrac{3}{4}\) i numeri \(3\) 
+e \(4\) sono indipendenti, invece il differenziale \(dy\) dipende da 
+\(dx\) nel rapporto \(\dfrac{dy}{dx}\),  e \(dx\) dipende da \(dy\) nel 
+rapporto inverso. \\
 \end{osservazione}
+
+% TODO: esempio di applicazione del teorema
 
 A proposito della derivata delle funzioni potenza, abbiamo anticipato che la 
 regola \(f'(x)= \alpha x^{\alpha-1}\) vale anche con esponenti razionali. 
 Ora siamo in grado di giustificarlo:
 \begin{proof}
-Derivare \(y=f(x)=\sqrt[m]{x}\), con \(m\in \N\).\\
+Derivare \(y=f(x)=\sqrt[m]{x}\), con \(m \in \N\).\\
 Poiché l'inversa \(g(y)=y^m\) ha derivata \(g'(y)=my^{m-1}\), ricordando il 
 Teorema~\ref{teo:derinversa} calcoliamo:\\
 \(f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{my^{m-1}}=
@@ -2732,25 +2733,22 @@ Trova la derivata di \(f(x)=\dfrac{1}{\sqrt{5-x^2}}\).
 \item Usando il teorema \ref{teo:diff01_dericomp} e le regole 
 precedenti:\\
 \(f'(x)=\Deriv{\dfrac{1}{\sqrt{5-x}}}=
-\Deriv{(5-x)^\frac{-1}{2}}=-\dfrac{1}{2}(5-x)
-^\frac{-3}{2}(-1) = \dfrac{1}{2(\sqrt{5-x})^3}\).
+\Deriv{(5-x)^{-\frac{1}{2}}}=
+-\dfrac{1}{2}(5-x)^{-\frac{3}{2}}(-1) = 
+\dfrac{1}{2(\sqrt{5-x})^3}\).
 \item Usando la regola del Teorema~\ref{teo:derinversa}:\\
 Costruiamo la formula inversa con pochi passaggi algebrici: riavremo la 
 stessa funzione, in cui \(y\) figura come variabile indipendente: 
 \(x=f(y)\).\\
 Quindi deriviamo: \(\Deriv{x}=x'=f'(y)=\pst{\dfrac{dx}{dy}}\).\\
-\(f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x}\srarrow 
+\(f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x} \srarrow 
 y^{-2}=5-x\srarrow x=5-y^{-2}\)  (formula inversa)\\
-\(x'=\pst{\dfrac{dx}{dy}}=-2y^{-3}\) (derivata della funzione inversa)\\
+\(x'=\pst{\dfrac{dx}{dy}}=2y^{-3}=\dfrac{2}{y^3}\) 
+(derivata della funzione inversa)\\
 \(\srarrow y'=\pst{\dfrac{dy}{dx}}=\dfrac{y^3}{2}=
 \dfrac{1}{2(\sqrt{5-x})^3}\).
 \end{enumerate}
 \end{esempio}
-
-\begin{comment}
-
-
-
 
 % \section{Derivata di funzioni trascendenti}
 % \label{sec:differenziazione_trascendenti}
@@ -2804,7 +2802,7 @@ questa sezione ci occupiamo della derivata delle funzioni trascendenti.
 Il grafico di una generica funzione esponenziale \(y=a^x\), confrontato con 
 il grafico dell'andamento delle sue pendenze è una sorpresa rispetto ai 
 confronti che abbiamo fatto per altre funzioni. 
-Prendiamo ad esempio la funzione \(f(x) = 2^x\).
+Prendiamo ad esempio la funzione \(f(x) = 1,5^x\).
 Possiamo osservare che:
 \begin{enumerate} [nosep]
 \item dato che la funzione è sempre crescente: 
@@ -2854,65 +2852,133 @@ la sua derivata.\end{center}
 % \begin{center} Il grafico di \(y=a^x\), con alcune sue tangenti, e 
 % la sua derivata.\end{center}
 
-Anche se i due grafici non sono identici, le pendenze delle tangenti sembrano
-avere un andamento anch'esso esponenziale: la derivata della 
-funzione ha un grafico che somiglia molto al grafico della funzione.
-Sviluppiamo matematicamente questa intuizione, ricordando le proprietà
-delle potenze.\\
-Differenziale di \(f(x)=a^x\): \quad
-\(df=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1}\).\\
-\(RD=\dfrac{df(x)}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x\).\\
-Per poter derivare occorre che il rapporto sia finito.
+Anche se i due grafici non sono identici, le pendenze delle tangenti 
+sembrano avere un andamento anch'esso esponenziale: la derivata della 
+funzione ha un grafico che somiglia molto al grafico della funzione. 
+Possiamo dimostrare il seguente teorema:
 
-L'espressione del Rapporto Differenziale contiene sia \(a^x\), che è 
-una funzione esponenziale e per ogni fissato \(x\) genera un numero finito, sia 
-il fattore \(\dfrac{\tonda{a^{dx}-1}}{dx}\) che è da interpretare.\\
-\(\dfrac{\tonda{a^{dx}-1}}{dx}= \dfrac{a^{(0+dx)}-a^0}{dx}=
-\dfrac{d(a^x)}{dx}\bigg |_{x=0}= \dfrac{df(0)}{dx}\).\\
-Il Rapporto Differenziale risulta:\\
-\(RD=\dfrac{df(x)}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x=
-\dfrac{df(0)}{dx}\cdot a^x\).\\
-Perciò il Rapporto Differenziale è un prodotto fra l'esponenziale stesso 
-\(a^x\) e il Rapporto Differenziale di \(a^x)\) calcolato per \(x=0\).
-Dobbiamo presumere che quest'ultimo sia un numero non infinito per proseguire 
-nel ragionamento e in effetti lo potremo verificare fra poco.
-
-Applicando la parte standard e si ottiene:\\
-\(f'(x)= \pst{\dfrac{df(0)}{dx}\cdot a^x}=f'(0)\cdot f(x)\).\\
-\emph{La derivata di una funzione esponenziale è proporzionale alla
-funzione stessa, attraverso un fattore che corrisponde alla derivata 
-calcolata in} \(x=0\).\\
-
-Volevamo calcolare la derivata di \(f(x)=a^x\) e ci ritroviamo con
-un risultato che contiene la derivata stessa \(f'(0)\), insomma non si direbbe 
-che ci siano stati grandi progressi. Ma fingiamo per un attimo che \(f'(0)\) 
-non incida sul risultato, cioè che \(f'(0)=1\). In questo modo la funzione e la
-sua derivata sarebbero proprio identiche e i due grafici sarebbero 
-sovrapponibili.\\
-\(f'(0)=1\srarrow \pst{\dfrac{a^{dx}-1}{dx}}=1\srarrow a^{dx}\sim dx +1
-\srarrow a\sim(dx+1)^\frac{1}{dx}\).\\
-Abbiamo già incontrato un'espressione analoga in passato:
-l'espressione individua il Numero di Nepero \(e=\pst{(dx+1)^\frac{1}{dx}}\).\\
-Conclusione: perché una funzione esponenziale generica \(a^x\) coincida con la
-sua derivata occorre che la base sia \(a=e\). \(f(x)=e^x\) è la funzione 
-esponenziale pura.
 
 
 \begin{teorema}
- La derivata della funzione esponenziale \(f(x)=e^x\) coincide con la funzione 
-stessa: \(\Deriv{e^x}=e^x\)
+La derivata della funzione esponenziale è proporzionale alla funzione 
+stessa:
+\[\Deriv{a^x}=k \cdot a^x\]
+\end{teorema}
+\noindent Ipotesi: \(f(x)=a^x\). \tab \(f'(x)=k \cdot a^x\).
+\begin{proof}
+Calcoliamo il differenziale e il Rapporto Differenziale: 
+\[df=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1} \qquad
+RD=\dfrac{df(x)}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x\]
+Per poter calcolare la derivata il Rapporto Differenziale deve essere 
+finito.
+\begin{itemize}
+\item 
+\(a^x\) è senz'altro finito, dato che è una funzione reale definita per ogni 
+valore di \(x\);
+\item 
+e \(\dfrac{\tonda{a^{dx}-1}}{dx} = \dfrac{\tonda{a^{0+dx}-a^0}}{dx}\) 
+è finito dato che la funzione esponenziale è continua.
+\end{itemize}
+Possiamo quindi calcolare la parte standard:
+\[f'(x)= \pst{\dfrac{df(0)}{dx}\cdot a^x}=f'(0) \cdot f(x)\]
+Quindi \emph{la derivata di una funzione esponenziale è uguale alla
+funzione stessa, moltiplicata per la pendenza della funzione in} \(x=0\).
+\end{proof}
+
+
+
+% 
+% Sviluppiamo matematicamente questa intuizione, ricordando le proprietà
+% delle potenze.\\
+% Differenziale di \(f(x)=a^x\): \quad
+% \(df=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1}\).\\
+% \(RD=\dfrac{df(x)}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x\).\\
+% Per poter derivare occorre che il rapporto sia finito.
+% 
+% L'espressione del Rapporto Differenziale contiene sia \(a^x\), che è una 
+% funzione esponenziale e per ogni fissato \(x\) genera un numero finito, 
+% sia il fattore \(\dfrac{\tonda{a^{dx}-1}}{dx}\) che è da interpretare.\\
+% % \(\dfrac{\tonda{a^{dx}-1}}{dx}= \dfrac{a^{(0+dx)}-a^0}{dx}=
+% % \dfrac{d(a^x)}{dx}\bigg |_{x=0}= \dfrac{df(0)}{dx}\).\\
+% \(\dfrac{\tonda{a^{dx}-1}}{dx}= \dfrac{a^{(0+dx)}-a^0}{dx}=
+% \dfrac{d(a^0)}{dx}= \dfrac{df(0)}{dx}\).\\[3pt]
+% Quindi il Rapporto Differenziale della funzione esponenziale risulta:\\
+% \(RD=\dfrac{df(x)}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x=
+% \dfrac{df(0)}{dx}\cdot a^x\)\\[3pt]
+% cioè il prodotto fra l'esponenziale stesso 
+% \(a^x\) e il Rapporto Differenziale di \(a^x\) calcolato per \(x=0\).
+% % Dobbiamo presumere che quest'ultimo sia un numero non infinito per 
+% % proseguire nel ragionamento e in effetti lo potremo verificare fra poco.
+% Se questo valore è finito, come vedremo tra poco, possiamo continuare 
+% applicando la parte standard e otteniamo:\\[3pt]
+% \(f'(x)= \pst{\dfrac{df(0)}{dx}\cdot a^x}=f'(0)\cdot f(x)\).
+% 
+% % \emph{La derivata di una funzione esponenziale è proporzionale alla
+% % funzione stessa, attraverso un fattore che corrisponde alla derivata 
+% % calcolata in} \(x=0\).
+% \emph{La derivata di una funzione esponenziale è uguale alla
+% funzione stessa, moltiplicata per la pendenza della funzione in} \(x=0\).
+
+% Volevamo calcolare la derivata di \(f(x)=a^x\) e ci ritroviamo con
+% un risultato che contiene la derivata stessa \(f'(0)\), insomma non si 
+% direbbe che ci siano stati grandi progressi. 
+Se esiste una funzione esponenziale che in zero ha pendenza \(1\), 
+allora la derivata della funzione è uguale alla funzione stessa.
+% Ma fingiamo per un attimo che \(f'(0)\) non incida sul risultato, cioè 
+% che \(f'(0)=1\). 
+% In questo modo la funzione e la sua derivata sarebbero proprio identiche 
+% e i due grafici sarebbero sovrapponibili.\\
+
+In conclusione: perché una funzione esponenziale generica \(a^x\) coincida 
+con la sua derivata occorre che la base sia \(a=e\): \(f(x)=e^x\) è la 
+funzione esponenziale pura.
+
+\begin{teorema}
+Esiste una funzione esponenziale la cui derivata coincide con la 
+funzione stessa: \(\Deriv{a^x}=a^x\)
+\end{teorema}
+\noindent Ipotesi: \(f(x)=a^x\). \tab 
+          Tesi: Esiste un \(a\) per cui \(f'(x)=a^x\).
+\begin{proof}
+Dato che \(f'(x) = f'(0) \cdot f(x)\), 
+dobbiamo trovare una base per cui \(f'(0)=1\):
+\[f'(0) = \pst{\dfrac{a^{dx}-1}{dx}} = 1 \srarrow 
+\dfrac{a^{dx}-1}{dx} \approx 1 \srarrow 
+a^{dx}-1 \approx dx \srarrow 
+a^{dx} \approx dx +1 \]
+Elevando entrambi i membri per \(\frac{1}{dx}\):
+\[a \approx (1 +dx)^\frac{1}{dx} \approx \pst{(1 +dx)^\frac{1}{dx}} = e\]
+\end{proof}
+
+% Attraverso l'uso del numero \(e\) siamo finalmente in grado di derivare la 
+% funzione esponenziale generica \(f(x)=a^x\) e così risolvere anche i dubbi 
+% sulla finitezza del Rapporto Differenziale.
+% 
+% \(f'(0)=1 \srarrow \pst{\dfrac{a^{dx}-1}{dx}}=1\srarrow a^{dx}\sim dx +1
+% \srarrow a\sim(1 +dx)^\frac{1}{dx}\).\\[3pt]
+% Questa espressione individua un ben preciso numero, il Numero di Nepero 
+% \(e=\pst{(dx+1)^\frac{1}{dx}}\).
+% 
+% In conclusione: perché una funzione esponenziale generica \(a^x\) coincida 
+% con la sua derivata occorre che la base sia \(a=e\): \(f(x)=e^x\) è la 
+% funzione esponenziale pura.
+
+% Quindi \emph{la funzione  esponenziale pura \(f(x)=e^x\) 
+% coincide con la sua derivata}:
+% \[\Deriv{e^x} = e^x\]
+
+% Quindi arriviamo al seguente teorema
+Conseguenza dei due teoremi precedenti è il seguente
+\begin{teorema}
+La derivata della funzione esponenziale \(f(x)=e^x\) coincide con la 
+funzione stessa: \(\Deriv{e^x}=e^x\)
 \end{teorema}
 \noindent Ipotesi: \(f(x)=e^x\). \tab \(f'(x)=e^x\).
 \begin{proof}
- Non abbiamo dato una vera dimostrazione, abbiamo sviluppato un ragionamento 
-a partire da un'intuizione sull'analogia dei due grafici. Per completarlo, 
-occorrerebbe dimostrare l'unicità della tesi, ma non è essenziale per i nostri 
-scopi. Resta comunque stabilito che  \emph{la funzione
- esponenziale pura \(f(x)=e^x\) coincide con la propria derivata}.
+\[\Deriv{e^x} = \Deriv{e^0} \cdot e^x = 1 \cdot e^x\ = e^x\]
 \end{proof}
-Attraverso l'uso del numero \(e\) siamo finalmente in grado di derivare la 
-funzione esponenziale generica \(f(x)=a^x\) e così risolvere anche i dubbi 
-sulla finitezza del Rapporto Differenziale.
+È stato dimostrato che questa è l'unica funzione che coincide con la sua 
+derivata.
 
 \begin{teorema}
   La derivata della funzione esponenziale generica \(f(x)=a^x\), con 
@@ -2921,97 +2987,127 @@ sulla finitezza del Rapporto Differenziale.
 \end{teorema}
 \noindent Ipotesi: \(f(x)=a^x\); \tab Tesi: \(f'(x)=a^x\ln{a}\).
 \begin{proof}
- Usiamo una trasformazione appresa con lo studio dei logaritmi e applichiamo 
- il teorema a pag.~\pageref{teo:diff01_dericomp}:
- \(f(x)~=~a^x~=~e^{\ln a^x}\). Se poniamo \(g(x)=\ln a^x=x\ln a\), si ottiene:\\
- \(f(g(x))=e^{g(x)}\srarrow f'(g(x))=f'(g)g'(x)= e^{x\ln a}\ln a=
- e^{\ln a^x}\ln a=a^x\ln a\).
+Usiamo una trasformazione appresa con lo studio dei logaritmi e applichiamo 
+il teorema a pag.~\pageref{teo:diff01_dericomp}:
+\(f(x)~=~a^x~=~e^{\ln a^x}\). 
+Se poniamo \(g(x)=\ln a^x=x\ln a\), si ottiene:
+\[f(g(x))=e^{g(x)} \srarrow f'(g(x))=f'(g) \cdot g'(x) = 
+e^{x\ln a} \cdot \ln a = e^{\ln a^x} \cdot \ln a = a^x\ln a\]
 \end{proof}
 \begin{esempio}
-  Calcola la derivata di \(f(x)=3e^{x-1}\).\\
-  Poniamo \(g(x)=x-1\). \(f(x)=3e^{g(x)}\srarrow f'(x)=3e^{g(x)}\cdot g'(x)=
-  3e^{x-1}\cdot 1=3e^{x-1}\).
+Calcola la derivata di \(f(x)=3e^{x-1}\).
+
+Poniamo \(g(x)=x-1\), quindi \(f(x) = 3e^{g(x)}\): 
+\[f'(x) = \Deriv{3e^{g(x)}} \cdot \Deriv{x-1} = 
+          3e^{g(x)} \cdot 1 = 3e^{x-1}\]
 \end{esempio}
 \begin{esempio}
-  Calcola la derivata di \(f(x)=e^{x^2}\).\\
-  Poniamo \(g(x)=x^2\srarrow f(x)=e^{g(x)}\srarrow f'(x)=e^{g(x)}\cdot g'(x)=
-  e^{x^2}\cdot 2x=2xe^{x^2}\).
+Calcola la derivata di \(f(x)=e^{x^2}\).
+
+Poniamo \(g(x)=x^2\), quindi \(f(x)=e^{g(x)}\): 
+\[f'(x) = \Deriv{e^{g(x)}} \cdot \Deriv{x^2} = 
+          e^{g(x)} \cdot 2x = 2xe^{x^2}\]
 \end{esempio}
 
 \begin{esempio}
-  Calcola la derivata di \(f(x)=2^{x^2}\).\\
-  Poniamo \(g(x)=x^2\srarrow f(x)=2^{g(x)}\).\\
-  \(f'(x)=\tonda{2^{g(x)}\ln 2} g'(x)=   2^{x^2}\ln 2\cdot 2x=x2^{x^2+1}\ln 2\).
+Calcola la derivata di \(f(x)=2^{x^2}\).
+
+Poniamo \(g(x)=x^2\), quindi \(f(x)=2^{g(x)}\): 
+\[f'(x) = \Deriv{2^{g(x)}} \cdot \Deriv{x^2} = 
+          \tonda{2^{g(x)} \cdot \ln 2} \cdot 2x = 
+          x \cdot \ln 2 \cdot 2^{x^2} \cdot 2 = 
+          x \ln 2 \cdot 2^{x^2+1}\]
 \end{esempio}
 
 \subsection{Derivata di \(f(x)=\log_a x\)}
 \label{}
+
+Iniziamo con un caso particolare.
 \begin{esempio}
-  Calcola la derivata di \(f(x)=e^{\ln x}\).\\
-  Poniamo \(g(x)=\ln x\srarrow f(x)=e^{g(x)}\srarrow f'(x)=e^{g(x)}\cdot g'(x)=
-  e^{\ln x}\) \dots ???.\\
-  Ragioniamo: dalle proprietà
-  dei logaritmi si ha: \(e^{\ln x} =x\), che è la funzione identica. Quindi
-  \begin{enumerate}[noitemsep]
-    \item \(e^{\ln x} =x\) e anche \(\ln e^x= x\ln e=x\), così come 
-    \(f(f^{-1}(x))=f^{-1}(f(x))=x\): le due funzioni sono una inversa 
-dell'altra,
-    il logaritmo naturale \(g(x)=\ln x\) è la funzione inversa della
-    funzione esponenziale \(f(x)=e^x\);
-    \item 
-\(\Deriv{f^{-1}(x)}=\dfrac{1}{\Deriv{(f^{-1}(x)}}\);
-    \item \(\Deriv{\ln x}=\dfrac{1}{\Deriv{e^{g(x)}}}
-    =\dfrac{1}{e^{\ln x}}=\dfrac{1}{x}\).
-  \end{enumerate}
+Calcola la derivata di \(f(x)=e^{\ln x}\).
+
+Poniamo \(g(x)=\ln x\), quindi \(f(x)=e^{g(x)}\): 
+\[f'(x) = \Deriv{e^{g(x)}} \cdot \Deriv{\ln x} = 
+e^{\ln x} \cdot \dots \stext{???}\]
+Siamo passati dal cercare \(\Deriv{e^{\ln x}}\) al cercare 
+\(\Deriv{\ln x}\) non abbiamo fatto un gran passo avanti!
+Ma rifacendoci alla definizione di logaritmo possiamo osservare che 
+\(e^{\ln x} = x\) che ha quindi come derivata: \(1\).
 \end{esempio}
 
-\begin{inaccessibleblock}
-  [esponenziale e logaritmo]
-  \begin{minipage}[]{.55\textwidth}
-\begin{center} \scalebox{.8}{\esplog} \end{center}
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.42\textwidth}
- \begin{teorema}
-  La derivata della funzione \\
-  logaritmo naturale è: \(\Deriv{\ln x}=
-  \dfrac{1}{x}, \stext{con} x>0\).
+Ma ragioniamo un po' sulle due funzioni: \(g(x)=\ln x\) e \(f(x)=e^x\)
+possiamo osservare che:
+
+Per definizione, \(e^{\ln x} = x\) e, 
+per le proprietà dei logaritmi, \(\ln e^x = x \ln e = x\)
+quindi il logaritmo naturale \(g(x) = \ln x\) e 
+la funzione esponenziale \(f(x) = e^x\) sono due funzioni inverse una 
+dell'altra, dato che la loro composizione dà la funzione identica.
+
+Possiamo quindi usare il teorema della derivata delle funzioni inverse jper 
+dimostrare il seguente
+\begin{teorema}
+La derivata della funzione logaritmo naturale è: 
+\(\Deriv{\ln x} = \dfrac{1}{x}, \stext{con} x>0\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\ln x, \mbox{ con } x>0\).\\
-\noindent Tesi: \(f'(x)=\dfrac{1}{x}\).
-\begin{proof}
-La dimostrazione è nei ragionamenti dell'esempio precedente, ai quali 
-bisogna aggiungere le precauzioni perché le due funzioni siano invertibili e 
-derivabili: poiché \(\ln x\) esiste per \(x>0\), i ragionamenti valgono solo 
-per 
-\(x>0\)
-\end{proof} 
- \end{minipage}
+
+\noindent\begin{minipage}[]{.43\textwidth}
+\begin{inaccessibleblock}
+[esponenziale e logaritmo]
+\begin{center} \scalebox{.9}{\esplog} \end{center}
 \end{inaccessibleblock}
+\end{minipage} 
+\hfill
+\begin{minipage}[]{.55\textwidth}
+\noindent Ipotesi: \(f(x)=\ln x, \mbox{ con } x>0\) \tab
+\noindent Tesi: \(f'(x)=\dfrac{1}{x}\)
+\begin{proof}
+Usando la regola della derivazione delle funzioni inverse, \\
+\[\tonda{\Deriv{f^{-1}(x)} = \dfrac{1}{\Deriv{(f^{-1}(x)}}}
+\quad \text{otteniamo:}\]
+\[\Deriv{\ln x}=\dfrac{1}{\Deriv{e^{g(x)}}} = 
+  \dfrac{1}{e^{\ln x}} = \dfrac{1}{x}\]
+Ovviamente la derivata del logaritmo esiste solo nel suo insieme di 
+definizione.
+% La dimostrazione è nei ragionamenti dell'esempio precedente, ai quali 
+% bisogna aggiungere le precauzioni perché le due funzioni siano 
+% invertibili e derivabili: poiché \(\ln x\) esiste per \(x>0\), 
+% i ragionamenti valgono solo per \(x>0\)
+\end{proof} 
+\end{minipage}
 \label{}
 \\
 
 Vediamo ora il caso generale, quando la base del logaritmo è genericamente 
 \(a>0\).
 \begin{teorema}
-  La derivata della funzione logaritmo in base \(a\) è: 
-  \(\Deriv{\log_a x}= \dfrac{1}{x\ln a}\).
+La derivata della funzione logaritmo in base \(a\) è: 
+\(\Deriv{\log_a x}= \dfrac{1}{x\ln a}\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=\log_a x\). \tab \(f'(x)=\dfrac{1}{x\ln a}\)
 \begin{proof}
 Si ottiene direttamente dalla formula del cambiamento di base:\\
-\(\log_a x=\dfrac{1}{\ln a}\ln x\).
+\[\Deriv{\log_a x} = \Deriv{\dfrac{1}{\ln a}\ln x} = 
+  \dfrac{1}{\ln a} \cdot \Deriv{\ln x} = \dfrac{1}{x \ln a}\]
 \end{proof}
 
 \begin{esempio}
-    Derivare la funzione \(f(x)=Log(x^2+1)^2\).\\
-    \(g(x)=(x^2+1)^2\srarrow f(x)=Log (g(x))\)\\
-    \( f'(x)=\dfrac{1}{\ln 10}
-    \dfrac{1}{g(x)}g'(x)=
-    \dfrac{1}{(\ln 10)(x^2+1)^2}2(x^2+1)2x=\dfrac{4x}{(\ln 10)(x^2+1)}\).\\
-    Nota che \(g(x)=(x^2+1)^2\) è a sua volta una funzione composta del tipo 
-    \(g(x)=\quadra{h(x)}^2\) e quindi è stata applicata la regola della derivata
-    di più funzioni composte.
+Derivare la funzione \(f(x)=Log(x^2+1)^2\).\\
+
+Possiamo vedere la funzione come composta da tre funzioni:
+
+\(h(x)=(x^2+1) \srarrow g(x)=(h(x))^2\srarrow f(x)=Log(g(h((x)))\)
+
+Applichiamo quindi i teoremi precedenti:
+\[f'(x) =
+% f'(g) \cdot g'(h) \cdot h(x) =
+\dfrac{1}{\ln 10}
+\dfrac{1}{g(h)}g'(h) h'(x)=
+\dfrac{1}{(\ln 10)(x^2+1)^2} \cdot 2(x^2+1) \cdot 2x =
+\dfrac{4x}{(\ln 10)(x^2+1)}\]
+% Nota che \(g(x)=(x^2+1)^2\) è a sua volta una funzione composta del tipo 
+% \(g(x)=\quadra{h(x)}^2\) e quindi è stata applicata la regola della 
+% derivata di più funzioni composte.
 \end{esempio}
 
 Abbiamo ora tutti gli strumenti per convalidare l'osservazione al teorema 
@@ -3019,25 +3115,31 @@ Abbiamo ora tutti gli strumenti per convalidare l'osservazione al teorema
 
 \begin{teorema}
 \label{teo:funzione_potenza_generica}
-  La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
-  \(\Deriv{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha\).
+La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
+\(\Deriv{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha in \R\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
 \(\forall \alpha\).
 \begin{proof}
-Combinando alcune delle regole precedenti, si ha:\\
-\(f(x)=x^\alpha=e^{\ln x^\alpha}=e^{\alpha\ln x}\)\\
-\(f'(x)=e^{\alpha\ln x}\alpha\dfrac{1}{x}=x^\alpha\frac{\alpha}{x}=
-\alpha x^{\alpha-1}\).\\
-Poiché non è stata fatta nessuna particolare ipotesi sull'esponente (intero 
-o razionale, positivo o negativo, o irrazionale), allora il teorema vale 
-per qualsiasi esponente.
+Combinando alcune delle regole precedenti, si ha:
+\[f(x) = x^\alpha= e^{\ln x^\alpha}=e^{\alpha\ln x}\]
+\[f'(x)=e^{\alpha\ln x}\alpha\dfrac{1}{x}=x^\alpha\dfrac{\alpha}{x}=
+\alpha x^{\alpha-1}\]
+Il teorema vale per qualsiasi esponente poiché non è stata fatta nessuna 
+particolare ipotesi sull'esponente 
+(intero o razionale, positivo o negativo, o irrazionale).
 \end{proof}
 
 \begin{esempio}
-  Derivare \(f(x)=x^{\sqrt{2}}\).\\
-  \(f'(x)=\sqrt{2}x^{\sqrt{2}-1}\).
+Derivare \(f(x)=x^{\sqrt{2}}\).
+
+\[f'(x)=\sqrt{2}x^{\sqrt{2}-1}\]
 \end{esempio}
+
+
+\begin{comment}
+
+
 
 
 \subsection{Derivata di funzioni circolari}
