@@ -26,7 +26,7 @@
 % 
 % \agnesia
 
-% \begin{comment}
+\begin{comment}
 
 \section{Premessa}
 \footnote{Per scrivere questo capitolo mi sono ispirato 
@@ -3137,87 +3137,162 @@ Derivare \(f(x)=x^{\sqrt{2}}\).
 \end{esempio}
 
 
-\begin{comment}
-
-
-
+\end{comment}
 
 \subsection{Derivata di funzioni circolari}
-\label{}
-Anche per queste funzioni dobbiamo dapprima definire il differenziale. 
-Per una migliore comprensione, ci affidiamo soprattutto al piano cartesiano.
+\label{subsec:differenziazione_circolari}
+
+Prima di affrontare il problema della derivazione delle funzioni 
+circolari, cerchiamo di chiarirci cosa succede al seno e al coseno 
+quando l'arco aumenta di una quantità infinitesima.
+
+\affiancati{.34}{.64}{
+\hspace{-10mm}\scalebox{1}{\dsincos}
+\label{fig:differenziazione_dsincos}
+}{
+Ovviamente alla scala naturale, gli archi (e angoli) \(x\) e \(x +dx\) 
+non sono distinguibili: appaiono sovrapposti.
+Per poterli distinguere dobbiamo operare un ingrandimento infinito nel 
+punto \(A\).
+Nel microscopio non standard ora è visibile \(dx = AB\) quindi i punti 
+\(A\) e \(B\) appaiono distinti. 
+Possiamo tracciare il triangolo rettangolo \(ABC\) con i cateti paralleli 
+agli assi:
+\begin{itemize} [nosep]
+\item \(CB\) rappresenta il differenziale della funzione seno; 
+\item \(AC\) rappresenta il differenziale della funzione coseno. 
+\end{itemize}
+Il triangolo infinitesimo \(ABC\) è simile al triangolo \(AOD\) e
+l'angolo \(\widehat{ABC}\) è uguale a \(x\).
+}
+
 \subsubsection{Derivata di \(f(x)=\sen x\)}
-Abbiamo già visto (pag.~\pageref{limiti:par_f_seno}) che per angoli 
-infinitesimi il seno e l'angolo sono indistinguibili: \(\st\tonda{\frac{\sen 
-\epsilon}{\epsilon}}=1\).
-Dall'analisi del disegno ricaviamo l'espressione del differenziale
-\(df(x)=d(\sen x)= \sen (x+dx) -\sen x\).
-
-\begin{inaccessibleblock}
-  [differenziale del seno]
-  \begin{minipage}[]{.40\textwidth}
-   \dseno 
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.56\textwidth}
-Nell'ingrandimento al microscopio non standard, l'incremento infinitesimo di
-arco \(\overset{\frown}{AB}\) (che corrisponde all'incremento di angolo da \(x\)
-a \(x+dx\)) è racchiuso fra due raggi indistinguibili da segmenti paralleli 
-nei punti \(A\equiv \punto{x}{\sen x}\) e \(B\equiv \punto{x+dx}{\sen(x+dx)}\). 
-L'arco, a sua volta, risulta indistinguibile dal segmento rettilineo \(AB\).
-I segmenti che uniscono \(A\) e \(B\) con le loro proiezioni sull'asse \(X\) 
-sono
-verticali e paralleli, perciò \(ABC\) è un triangolo rettangolo infinitesimo, 
-simile al triangolo \(BOC\). La sua altezza \(BC\) corrisponde a \(d\sen x\). 
- \end{minipage}
-\end{inaccessibleblock}
-\label{fig_diff01dseno}\\
-
-Risolviamo il triangolo rettangolo \(ABC\) rispetto al lato \(BC\):\\
-\(BC=AB\cdot \cos x \srarrow d(\sen x)= dx\cdot cos x\)  
-
 \begin{teorema}
-  La derivata della funzione \(f(x)=\sen x\) è \(\Deriv{\sen 
-x}=\cos x\).
+La derivata della funzione \(f(x)=\sen x\)~~è~~\(f'(x)=\cos x\): \quad 
+\(\Deriv{\sen x} = \cos x\)
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\sen x\). \tab \(f'(x)=\cos x\).
+\noindent Ipotesi: \(f(x)=\sen x\) \tab \(f'(x)=\cos x\)
 \begin{proof}
- Il commento al disegno giustifica la tesi. 
+Poiché l'angolo \(\widehat{ABC}\) è uguale a \(x\), possiamo calcolare 
+il segmento orientato \(CB\) usando la trigonometria: 
+\quad \(BC = AB \cdot \cos x\). 
+Operando le sostituzioni visualizzate in figura, il Rapporto Differenziale 
+risulta:
+\[RD = \dfrac{d \sen x}{dx} = \dfrac{CB}{AB} = 
+       \dfrac{AB \cdot \cos x}{AB} = 
+       \dfrac{dx \cdot \cos x}{dx} = \cos x\]
+Dato che \(\cos x\) è un numero reale, la sua parte standard esiste e 
+coincide con il numero stesso, e questa è la derivata.
 \end{proof}
 
+% Anche per queste funzioni dobbiamo dapprima definire il differenziale. 
+% Per una migliore comprensione, ci affidiamo soprattutto al piano cartesiano.
+% 
+% Abbiamo già visto (pag.~\pageref{limiti:par_f_seno}) che per angoli 
+% infinitesimi il seno e l'angolo sono indistinguibili: \\
+% \(\st\tonda{\frac{\sen \epsilon}{\epsilon}}=1\).
+% Dall'analisi del disegno ricaviamo l'espressione del differenziale della 
+% funzione seno: \\
+% \(df(x)=d(\sen x)= \sen (x+dx) -\sen x\).
+% 
+% \begin{inaccessibleblock}
+%   [differenziale del seno]
+%   \begin{minipage}[]{.40\textwidth}
+%    \dseno 
+%  \end{minipage} 
+%   \hfill
+%  \begin{minipage}[]{.56\textwidth}
+% Nell'ingrandimento al microscopio non standard, l'incremento infinitesimo 
+% di arco \(\overset{\frown}{AB}\) (che corrisponde all'incremento di 
+% angolo da \(x\) a \(x+dx\)) è racchiuso fra due raggi indistinguibili da 
+% segmenti paralleli nei punti \(A\equiv \punto{x}{\sen x}\) e \(B\equiv 
+% \punto{x+dx}{\sen(x+dx)}\). 
+% L'arco, a sua volta, risulta indistinguibile dal segmento rettilineo 
+% \(AB\).
+% I segmenti che uniscono \(A\) e \(B\) con le loro proiezioni sull'asse 
+% \(X\) sono verticali e paralleli, perciò \(ABC\) è un triangolo 
+% rettangolo infinitesimo, simile al triangolo \(BOC\). La sua altezza 
+% \(BC\) corrisponde a \(d\sen x\). 
+%  \end{minipage}
+% \end{inaccessibleblock}
+% \label{fig_diff01dseno}\\
+% 
+% Risolviamo il triangolo rettangolo \(ABC\) rispetto al lato \(BC\):\\
+% \(BC=AB\cdot \cos x \srarrow d(\sen x)= dx\cdot cos x\)  
+% 
+% \begin{teorema}
+%   La derivata della funzione \(f(x)=\sen x\) è \(\Deriv{\sen 
+% x}=\cos x\).
+% \end{teorema}
+% \noindent Ipotesi: \(f(x)=\sen x\). \tab \(f'(x)=\cos x\).
+% \begin{proof}
+%  Il commento al disegno giustifica la tesi. 
+% \end{proof}
+% 
+% \begin{osservazione}
+% Si potrebbe criticare il metodo per la dimostrazione: chi assicura che 
+% negli altri quadranti le relazioni fra le variabili non cambino? 
+% Saremo troppo legati al disegno?\\
+% Ci sono altri modi per dimostrare la tesi, più vincolati al calcolo
+% e meno al disegno.  Per esempio, dalle formule di addizione abbiamo:
+% \(RD=\sen(x+dx)=\sen x \cos dx + \sen dx \cos x\). Allora:\\
+% \(\dfrac{\sen(x+dx)-\sen x}{dx}=\dfrac{\sen x \cos dx + \sen dx \cos x -
+%   \sen x}{dx}=\\
+% =\sen x \dfrac{\cos dx-1}{dx}+ \cos x\dfrac{\sen dx}{dx}\sim
+% \sen x\cdot 0 + \cos x\cdot 1=\cos x\),\\
+% in cui si fa uso delle forme indeterminate discusse a pag. 
+% \pageref{subsubsec:insnum_fseno}. Quando poi, per ottenere la derivata, 
+% si applica la parte standard, gli infinitesimi che vengono sottointesi dal 
+% segno \(\sim\) si eliminano e si ha l'uguaglianza in tutti i passaggi.
+% \end{osservazione}
 
 \begin{osservazione}
-  Si potrebbe criticare il metodo per la dimostrazione: chi assicura che 
-negli
-  altri quadranti le relazioni fra le variabili non cambino? Saremo troppo
-  legati al disegno?\\
-  Ci sono altri modi per dimostrare la tesi, più vincolati al calcolo
-  e meno al disegno.  Per esempio, dalle formule di addizione abbiamo:
-  \(RD=\sen(x+dx)=\sen x \cos dx + \sen dx \cos x\). Allora:\\
-  \(\dfrac{\sen(x+dx)-\sen x}{dx}=\dfrac{\sen x \cos dx + \sen dx \cos x -
-   \sen x}{dx}=\\
-  =\sen x \dfrac{\cos dx-1}{dx}+ \cos x\dfrac{\sen dx}{dx}\sim
-  \sen x\cdot 0 + \cos x\cdot 1=\cos x\),\\
-  in cui si fa uso delle forme indeterminate discusse a pag. 
-  \pageref{subsubsec:insnum_fseno}. Quando poi, per ottenere la derivata, 
-si applica la parte standard, gli infinitesimi che vengono sottointesi dal 
-segno \(\sim\) si eliminano e si ha l'uguaglianza in tutti i passaggi.
+Si può dimostrare lo stesso teorema anche usando la formula di addizione 
+del seno:
+\(\sen(\alpha+\beta) = 
+\sen \alpha \cdot \cos \beta + \sen \beta \cdot \cos \alpha\) e 
+i limiti presentati a pag. \pageref{subsubsec:insnum_fseno}. 
+\begin{align*}
+RD &= \dfrac{\sen(x+dx)-\sen x}{dx} =
+      \dfrac{\sen x \cdot \cos dx + \sen dx \cdot \cos x - \sen x}{dx} = \\
+   &= \sen x \dfrac{\cos dx-1}{dx}+ \cos x\dfrac{\sen dx}{dx}
+\end{align*}
+Il Rapporto differenziale ottenuto è un numero finito per cui possiamo 
+calcolare la parte standard:
+\begin{align*}
+\Deriv{\sin x} &= \pst{RD} = 
+    \pst{\sen x \dfrac{\cos dx-1}{dx} + \cos x\dfrac{\sen dx}{dx}} = \\
+&=  \pst{\sen x} \cdot \pst{\dfrac{\cos dx-1}{dx}} + 
+    \pst{\cos x} \cdot \pst{\dfrac{\sen dx}{dx}} = \\
+&=  \sen x\cdot 0 + \cos x\cdot 1 = \cos x
+\end{align*}
 \end{osservazione}
 
 \begin{osservazione}
-Anche il grafico dell'andamento delle tangenti conferma la tesi
-in modo assai espressivo. \\
+Anche il grafico dell'andamento delle tangenti conferma la tesi\\
 \begin{inaccessibleblock}
-  [differenziale del seno]
-  \begin{minipage}[]{.47\textwidth}
-    \begin{center} \seno \end{center}
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.47\textwidth}
- \begin{center} \tangentiseno \end{center}
- \end{minipage}
+  [esponenziale e pendenze]
+\affiancati{.55}{.43}{
+\hspace*{-10mm} \scalebox{1}{\seno}
+}{
+\vspace*{-2mm} \hspace*{-17mm} \scalebox{1}{\derivataseno}
+}
 \end{inaccessibleblock}
 \label{}
+\begin{center} Il grafico di \(y = \sin x\), con alcune sue tangenti, e 
+la sua derivata.\end{center}
+
+% \begin{inaccessibleblock}
+%   [differenziale del seno]
+%   \begin{minipage}[]{.47\textwidth}
+%     \begin{center} \senov \end{center}
+%  \end{minipage} 
+%   \hfill
+%  \begin{minipage}[]{.47\textwidth}
+%  \begin{center} \tangentiseno \end{center}
+%  \end{minipage}
+% \end{inaccessibleblock}
+% \label{}
 \end{osservazione}
 
 \begin{esempio}
@@ -3227,52 +3302,112 @@ La tangente al grafico nell'origine è la retta \(y=x\).
 \end{esempio}
 
 \begin{esempio}
-Derivare \(f(x)=\sen^2 x\) e \(g(x)= \sen x^2\).\\
-\(f'(x)=2\sen x \cos x\) e \(g'(x)=cos x^2\cdot 2x= 2x \cos x^2\).
+Derivare le funzioni: 
+\(f(x)=\sen 2x; \quad g(x)= \sen x^2; \quad h(x) = \sen^2 x\).
+\begin{itemize}
+\item \(\Deriv{\sen 2x} = \cos 2x \cdot 2 = 2 \cos 2x\)
+\item \(\Deriv{\sen x^2} = \cos x^2 \cdot 2x = 2x \cos x^2\)
+\item \(\Deriv{\sen^2 x} = \tonda{2 \sen x} \cdot \cos x = 
+                           2 \sen x \cdot \cos x\)
+\end{itemize}
 \end{esempio}
 
 \begin{esempio}
-Derivare \(f(x)=\sen^2 x\) e \(g(x)= \sen 2x\).\\
-\(f'(x)=2\sen x \cos x\) e \(g'(x)=cos 2x\cdot 2= 2 \cos 2x\).
+Derivare \(f(x)=x^{\sen x}\).\\
+Si tratta di una funzione di tipo nuovo, un misto fra una funzione potenza
+e una funzione esponenziale. Si risolve con una trasformazione che abbiamo
+già visto:
+\[x^{\sen x}=e^{\ln \tonda{x^{\sen x}}}=e^{\sen x \cdot \ln x}\]
+e con l'uso delle regole della funzione composta e del prodotto.
+\[\Deriv{e^{\sen x \cdot \ln x}}=
+  e^{\sen x \cdot \ln x}\tonda{\cos x \cdot \ln x +\dfrac{\sen x}{x}}=
+  x^{\sen x}\tonda{\cos x \cdot \ln x +\dfrac{\sen x}{x}}\]
 \end{esempio}
 
-\begin{esempio}
-  Derivare \(f(x)=x^{\sen x}\).\\
-  Si tratta di una funzione di tipo nuovo, un misto fra una funzione potenza
-  e una funzione esponenziale. Si risolve con una trasformazione che abbiamo
-  già visto e con l'uso delle regole della funzione composta e del prodotto.\\
-  \(x^{\sen x}=e^{{(\ln x)}^{\sen x}}=e^{\sen x\ln x}\).\\
-  \(f'(x)=e^{\sen x\ln x}(\cos x \ln x +\dfrac{\sen x}{x})=
-  x^{\sen x}(\cos x \ln x +\dfrac{\sen x}{x})\).
-\end{esempio}
-
- \subsubsection{Derivata di \(f(x)=\cos x\)}
+\subsubsection{Derivata di \(f(x)=\cos x\)}
+Anche in questo teorema ci riferiamo alla 
+figura di pag.\pageref{fig:differenziazione_dsincos}
 \begin{teorema}
-  La derivata della funzione \(f(x)=\cos x\) è \(\Deriv{\cos x}=
-  -\sen x\).
+La derivata della funzione \(f(x)=\cos x\)~~è~~ \(f'(x)=-\sen x\): \quad 
+\(\Deriv{\cos x} = -\sen x\)
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\cos x\). \tab \(f'(x)=-\sen x\).
+\noindent Ipotesi: \(f(x)=\cos x\) \tab \(f'(x)=-\sen x\)
 \begin{proof}
-  Il disegno con cui dimostrare la tesi è uguale a quello di pag.
-  \pageref{fig_diff01dseno}. Lo puoi riprodurre, tenendo però l'attenzione
-  concentrata sul segmento \(AC\).\\
-L'unica osservazione importante è che nel passare da \(x\) a \( x+dx\), cioè 
-mentre l'angolo cresce, il valore del coseno decresce. Infatti, al contrario di 
-quanto avviene per il seno, nel primo quadrante si ha: \( \cos(x+dx)<\cos x\). 
-Questa è la ragione del segno meno nel risultato.
+Poiché l'angolo \(\widehat{ABC}\) è uguale a \(x\), possiamo calcolare 
+il segmento orientato \(AC\) usando la trigonometria: 
+\quad \(AC = - AB \cdot \cos x\). 
+Operando le sostituzioni visualizzate in figura, il Rapporto Differenziale 
+risulta:
+\[RD = \dfrac{d \sen x}{dx} = \dfrac{AC}{AB} = 
+       \dfrac{-AB \cdot \sen x}{AB} = 
+       \dfrac{-dx \cdot \sen x}{dx} = -\sen x\]
+Dato che \(-\sen x\) è un numero reale, la sua parte standard esiste e 
+coincide con il numero stesso, e questa è la derivata.
 \end{proof}
 
+\begin{osservazione}
+Si può dimostrare lo stesso teorema anche usando la formula di addizione 
+del coseno:
+\(\cos(\alpha+\beta) = 
+\cos \alpha \cdot \cos \beta - \sen \alpha \cdot \sen \beta\) e 
+i limiti presentati a pag. \pageref{subsubsec:insnum_fseno}. 
+\begin{align*}
+RD &= \dfrac{\cos(x+dx)-\cos x}{dx} =
+      \dfrac{\cos x \cdot \cos dx - \sen x \cdot \sen dx - \cos x}{dx} = \\
+   &= \cos x \dfrac{\cos dx -1}{dx} - \sen x \dfrac{\sen dx}{dx}
+\end{align*}
+Il Rapporto differenziale ottenuto è un numero finito per cui possiamo 
+calcolare la parte standard:
+\begin{align*}
+\Deriv{\cos x} &= \pst{RD} = 
+    \pst{\cos x \dfrac{\cos dx -1}{dx} - \sen x \dfrac{\sen dx}{dx}} = \\
+&=  \pst{\cos x} \cdot \pst{\dfrac{\cos dx-1}{dx}} - 
+    \pst{\sen x} \cdot \pst{\dfrac{\sen dx}{dx}} = \\
+&=  \cos x \cdot 0 - \sen x \cdot 1 = -\sen x
+\end{align*}
+\end{osservazione}
+
+\begin{osservazione}
+Anche il grafico dell'andamento delle tangenti conferma la tesi\\
 \begin{inaccessibleblock}
-  [differenziale del coseno]
-  \begin{minipage}[]{.47\textwidth}
-    \begin{center} \coseno \end{center}
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.47\textwidth}
- \begin{center} \tangenticoseno \end{center}
- \end{minipage}
+  [esponenziale e pendenze]
+\affiancati{.55}{.43}{
+\hspace*{-10mm} \scalebox{1}{\coseno}
+}{
+\vspace*{-2mm} \hspace*{-17mm} \scalebox{1}{\derivatacoseno}
+}
 \end{inaccessibleblock}
 \label{}
+\begin{center} Il grafico di \(y = \cos x\), con alcune sue tangenti, e 
+la sua derivata.\end{center}
+\end{osservazione}
+
+% \begin{teorema}
+% La derivata della funzione \(f(x)=\cos x\) è \(\Deriv{\cos x}=-\sen x\).
+% \end{teorema}
+% \noindent Ipotesi: \(f(x)=\cos x\). \tab \(f'(x)=-\sen x\).
+% \begin{proof}
+% Il disegno con cui dimostrare la tesi è uguale a quello di pag.
+% \pageref{fig_diff01dseno}. Lo puoi riprodurre, tenendo però l'attenzione
+% concentrata sul segmento \(AC\).\\
+% L'unica osservazione importante è che nel passare da \(x\) a \( x+dx\), 
+% cioè mentre l'angolo cresce, il valore del coseno decresce. 
+% Infatti, al contrario di quanto avviene per il seno, nel primo quadrante 
+% si ha: \( \cos(x+dx)<\cos x\). 
+% Questa è la ragione del segno meno nel risultato.
+% \end{proof}
+% 
+% \begin{inaccessibleblock}
+%   [differenziale del coseno]
+%   \begin{minipage}[]{.47\textwidth}
+%     \begin{center} \cosenov \end{center}
+%  \end{minipage} 
+%   \hfill
+%  \begin{minipage}[]{.47\textwidth}
+%  \begin{center} \tangenticoseno \end{center}
+%  \end{minipage}
+% \end{inaccessibleblock}
+% \label{}
 
 \begin{esempio}
 Quale pendenza ha il grafico di \(y=\cos x\) per \(x=0\)?\\
@@ -3281,64 +3416,141 @@ In \(x=0\) la tangente al grafico è orizzontale.
 \end{esempio} 
 
 \begin{esempio}
-Derivare \(f(x)=\cos^2 x\) e \(g(x)= \cos x^2\).\\
-\(f'(x)=2\cos x(-\sen x)=-2\sen x\cos x\) e \(g'(x)=-\sen x^2\cdot 2x=-2x\sen 
-x^2\).
+Derivare le funzioni: 
+\(f(x)=4 \cos \dfrac{x}{2}; \quad h(x) = \cos^2 x; \quad g(x)= \cos x^2\).
+\begin{itemize}
+\item \(\Deriv{4 \cos \dfrac{x}{2}} = 
+                  -4 \sen \dfrac{x}{2} \cdot \dfrac{1}{2} = 
+                  -2 \sen \dfrac{x}{2}\)
+\item \(\Deriv{\cos^2 x} = \tonda{2 \cos x} \cdot \tonda{-\sen x} = 
+                           -2 \sen x \cdot \cos x\)
+\item \(\Deriv{\cos x^2} = -\sen x^2 \cdot 2x = -2x \sen x^2\)
+\end{itemize}
 \end{esempio}
 
 \begin{esempio}
-Derivare \(f(x)=\cos^2 x +\sen^2 x\).\\
-\(f'(x)=-2\sen x\cos x + 2\sen x \cos x = 0\).
+Derivare \(f(x)=\cos^2 x +\sen^2 x\)\\
+\(\Deriv{\cos^2 x +\sen^2 x} = 
+    2 \cos x \cdot \tonda{-\sen x} + 2 \sen x \cdot \cos x = 
+    - 2 \sen x \cdot \cos x + 2 \sen x \cdot \cos x = 0\)
 \end{esempio}
 
 
 \subsubsection{Derivata di \(f(x)=\tg x\)}
+La funzione \(f(x)=\tg x\) non è definita per \(x = k \frac{\pi}{2}\), 
+quindi anche la derivata non è definita per quei valori di \(x\).
 
-\affiancati{.39}{.59}{
-La funzione \(f(x)=\tg x\) è discontinua per \(x= \pm\frac{\pi}{2}\). La 
-derivata quindi non può esistere nei punti corrispondenti, come mostra il 
-grafico.
-}{
-\begin{inaccessibleblock}
-  [differenziale della tangente]
-  \begin{minipage}[]{.49\textwidth}
-    \begin{center} \tangente \end{center}
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.49\textwidth}
- \begin{center} \tangentitangente \end{center}
- \end{minipage}
-\end{inaccessibleblock}
-\label{}
-}
 \begin{teorema}
-   La derivata della funzione \(f(x)=\tg x\) è \(\Deriv{\tg x}=
-   \dfrac{1}{\cos^2 x}=1+tg^2 x\) per \(x\ne \pm\frac{\pi}{2}\).
+La derivata della funzione \(f(x)=\tg x\)~~è~~ 
+\(f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x\) % per \(x\ne \pm\frac{\pi}{2}\): 
+\[\Deriv{\tg x} = \dfrac{1}{\cos^2 x}=1+tg^2 x\]
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\tg x\). \tab \(f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x\),
-per \(x\ne\pm\frac{\pi}{2}\).
+\noindent Ipotesi: \(f(x)=\tg x\) \tab 
+\(f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x\)
 \begin{proof}
-Per calcolare la derivata nei punti in cui la funzione è continua, 
-ricorriamo alla seconda relazione fondamentale: \(\tg x=\frac{\sin x}{\cos x}\) 
-e
-sfruttiamo la regola della derivata di un quoziente (pag. 
-\pageref{sec:diff01_regolederivate}).\\
-\(\Deriv{\tg x}=\Deriv{\dfrac{\sin x}{\cos x}}=
-\dfrac{\Deriv{\sen x}\cdot \cos x-\sen x\cdot 
-  \Deriv{\cos x}} {\cos^2 x}=
-\dfrac{\sen^2 x +\cos^2 x}{\cos^2 x}=\dfrac{1}{\cos^2 x}=\tg^2+1\)
+Usiamo la relazione goniometrica che lega la tangente al seno e al coseno:
+\(\tg x=\frac{\sin x}{\cos x}\) e 
+il teorema della derivata di un rapporto:
+\begin{align*}
+\Deriv{\tg x} &= \Deriv{\dfrac{\sin x}{\cos x}} =
+\dfrac{\Deriv{\sen x}\cdot \cos x-\sen x\cdot \Deriv{\cos x}} {\cos^2 x}=
+\dfrac{\sen^2 x +\cos^2 x}{\cos^2 x} = \dfrac{1}{\cos^2 x}
+\end{align*}
+La seconda espressione della derivata della tangente si ottiene così:
+\[\Deriv{\tg x} = 
+\dfrac{\sen^2 x +\cos^2 x}{\cos^2 x} = 
+\dfrac{\sen^2 x}{\cos^2 x} + \dfrac{\cos^2 x}{\cos^2 x} = \tg^2+1\]
 \end{proof}
 
+\begin{osservazione}
+Si può dimostrare lo stesso teorema anche usando le proprietà geometriche 
+delle funzioni circolari. Nel disegno in è rappresentato un 
+incremento non infinitesimo dell'arco \(x\), osserviamo che:
+
+\affiancati{.29}{.69}{
+\hspace*{-7mm} \scalebox{1}{\dtana}
+}{
+\begin{enumerate}
+\item \(OH\), \(OA\) e \(OB\) sono lunghi \(1\);
+\item nel triangolo rettangolo \(OHC\): l'ipotenusa \(OC\) è lunga 
+\(\dfrac{1}{\cos x}\);
+\item \(OE\) è equivalente a \(OC\); 
+\item i triangoli isosceli \(OAB\) e \(OCE\) sono simili e il rapporto 
+di similitudine è \(\dfrac{1}{\cos x}\), ne consegue che:
+\(EC = AB \dfrac{1}{\cos x}\).
+\end{enumerate}
+}
+
+Se passiamo ad un incremento infinitesimo \(dx\), i lati \(OC\) e \(OD\) 
+sono indistinguibili nella scala dei reali, per poterli separare dobbiamo 
+usare microscopi non standard. Entrambi i microscopi della figura seguente 
+hanno lo stesso ingrandimento infinito.
+
+\affiancati{.49}{.49}{
+Per il principio di transfer, le proprietà geometriche della figura 
+rimangono le stesse anche se i triangoli hanno un angolo infinitesimo.
+\begin{enumerate}
+\item quindi \(CE\) è uguale a \(AB \cdot \dfrac{1}{\cos x}\);
+\item l'arco \(AB\) è l'incremento dell'angolo che, essendo infinitesimo, 
+è indistinguibile dal segmento \(AB\); 
+\item Il triangolo rettangolo \(CED\)  è simile al triangolo \(OLB\) 
+e l'angolo \(ECD\) è \(x\).
+\end{enumerate}
+}{
+\hspace*{-7mm} \scalebox{1}{\dtanb}
+}
+\[d(tg(x)) = CD = CE\dfrac{1}{\cos x} = 
+\dfrac{AB}{\cos x} \cdot \dfrac{1}{\cos x} \sim 
+\dfrac{dx}{\cos^2 x}\]
+Trovato il differenziale, è immediato calcolare il Rapporto Differenziale:
+\[RD = \dfrac{d(tg(x))}{dx} =\dfrac{dx}{dx \cdot \cos^2 x} = 
+       \dfrac{1}{\cos^2 x} \]
+Il Rapporto differenziale ottenuto è la derivata cercata.
+\end{osservazione}
+
+\begin{osservazione}
+Anche il grafico dell'andamento delle tangenti conferma la tesi\\
+\begin{inaccessibleblock}
+  [esponenziale e pendenze]
+\affiancati{.55}{.43}{
+\hspace*{-10mm} \scalebox{1}{\tangente}
+}{
+\vspace*{-2mm} \hspace*{-17mm} \scalebox{1}{\derivatatangente}
+}
+\end{inaccessibleblock}
+\label{}
+\begin{center} Il grafico di \(y = \tg x\), con alcune sue tangenti, e 
+la sua derivata.\end{center}
+\end{osservazione}
+
+% \begin{inaccessibleblock}
+%   [differenziale della tangente]
+%   \begin{minipage}[]{.49\textwidth}
+%     \begin{center} \tangentev \end{center}
+%  \end{minipage} 
+%   \hfill
+%  \begin{minipage}[]{.49\textwidth}
+%  \begin{center} \tangentitangente \end{center}
+%  \end{minipage}
+% \end{inaccessibleblock}
+% \label{}
+
 \begin {esempio}
-Quale è la pendenza del grafico di \(y=\tg x\), per \(x=\dfrac{\pi}{4}\)? E per
-\(x=\dfrac{\pi}{2}\)?\\
+Quale è la pendenza del grafico di \(y=\tg x\), per \(x=\dfrac{\pi}{4}\)? 
+E per \(x=\dfrac{\pi}{2}\)?\\
 \(f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{4})=1+\tg^2\dfrac{\pi}{4}=2\)\\
 \(f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{2})=1+\tg^2\dfrac{\pi}{2}=\) ???\\
-Per \(x\approx\dfrac{\pi}{2}\) il grafico della funzione cresce verticalmente,
-la sua pendenza è un numero infinito e la parte standard di un infinito non
-esiste. D'altra parte, se \(x\) è esattamente uguale a \(\dfrac{\pi}{2}\) ,
-la tangente ha un punto di discontinuità.
+Per \(x\approx\dfrac{\pi}{2}\) il grafico della funzione cresce 
+verticalmente, la sua pendenza è un numero infinito e la parte standard 
+di un infinito non esiste. 
+D'altra parte, se \(x\) è esattamente uguale a \(\dfrac{\pi}{2}\) ,
+la tangente non è definita.
 \end {esempio}
+
+
+\begin{comment}
+
+
 
 
 \section{Applicazioni}

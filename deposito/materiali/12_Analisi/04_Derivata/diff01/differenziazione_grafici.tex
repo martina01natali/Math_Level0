@@ -953,54 +953,54 @@
 %     }
 % }
 
-\newcommand{\funzioneetangenti}[8]{%
-  % Esempio di chiamata:
-  %   \funzioneetangenti{1./x}{1./\xo}{-1/\xo/\xo*(x-\xo)+1/\xo}
-  %                     {-6}{6}{-6}{6}
-  %                     {-2, -1, +1, +2}
-  \def \fa{#1}
-  \def \faa{#2}
-  \def \fb{#3}
-  \def \mix{#4}
-  \def \max{#5}
-  \def \miy{#6}
-  \def \may{#7}
-  \def \intervallo{#8}
-  \disegno{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{\mix,...,\max}
-    \ordinate{\miy,...,\may}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
-    \foreach \xo in \intervallo{
-      \filldraw [\fcolor] (\xo, \faa) circle(2pt);
-      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
-             {\fb}}
-    \foreach \xm/\ym/\lm in {-2/7.5/12, -4/-6.5/3, -3.5/0.5/0, 
-                             +4.5/+6.5/+3, +2.3/-7.5/+12}{
-      \draw (\xm, \ym) node {\footnotesize\(m = \lm\)};}
-  }
-}
-
-\newcommand{\derivataepunti}[6]{% 
-  % Esempio di chiamata:
-  % 
-  \def \fa{#1}
-  \def \mix{#2}
-  \def \max{#3}
-  \def \miy{#4}
-  \def \may{#5}
-  \def \intervallo{#6}
-  \disegno{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{\mix,...,\max}
-    \ordinate{\miy,...,\may}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
-    \foreach \x in \intervallo{
-      \filldraw (\x, \fa) [\dcolor] circle(2pt);}
-  }
-}
+% \newcommand{\funzioneetangenti}[8]{%
+%   % Esempio di chiamata:
+%   %   \funzioneetangenti{1./x}{1./\xo}{-1/\xo/\xo*(x-\xo)+1/\xo}
+%   %                     {-6}{6}{-6}{6}
+%   %                     {-2, -1, +1, +2}
+%   \def \fa{#1}
+%   \def \faa{#2}
+%   \def \fb{#3}
+%   \def \mix{#4}
+%   \def \max{#5}
+%   \def \miy{#6}
+%   \def \may{#7}
+%   \def \intervallo{#8}
+%   \disegno{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{\mix,...,\max}
+%     \ordinate{\miy,...,\may}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+%     \foreach \xo in \intervallo{
+%       \filldraw [\fcolor] (\xo, \faa) circle(2pt);
+%       \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+%              {\fb}}
+%     \foreach \xm/\ym/\lm in {-2/7.5/12, -4/-6.5/3, -3.5/0.5/0, 
+%                              +4.5/+6.5/+3, +2.3/-7.5/+12}{
+%       \draw (\xm, \ym) node {\footnotesize\(m = \lm\)};}
+%   }
+% }
+% 
+% \newcommand{\derivataepunti}[6]{% 
+%   % Esempio di chiamata:
+%   % 
+%   \def \fa{#1}
+%   \def \mix{#2}
+%   \def \max{#3}
+%   \def \miy{#4}
+%   \def \may{#5}
+%   \def \intervallo{#6}
+%   \disegno{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{\mix,...,\max}
+%     \ordinate{\miy,...,\may}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+%     \foreach \x in \intervallo{
+%       \filldraw (\x, \fa) [\dcolor] circle(2pt);}
+%   }
+% }
 
 \newcommand{\recipr}{% Funzione 1/n e alcune tangenti
   \def \fa{1./x}
@@ -1798,80 +1798,367 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   }
 }
 
-\newcommand{\dseno}{%  y=a^x e tangenti
-    \disegnod{4.5}{
-    \draw [fill=white] (0,0) --+(6: 0)   
-      arc [start angle=0, delta angle=90, radius=6];
-     \draw (-6,0) -- (.5, 0)     (-6,0) -- (-6, 6.5)
-           (-6,0) -- (-.5, 2);
-     \begin{scope} [font=\fontsize{7}{7}]
-      \filldraw (-.35, 2) circle (1.2pt) node [right] {\(A\approx B\approx C\)};
-      \draw (-.35, 2) -- (-.35, 0) node [below] {\(A'\approx B'\)}
-            (-4, .3) node [right, rotate = 13] {\(x\approx x+dx\)}
-            (0, 1) node [right] {\(\sen x\approx\sen(x+dx)\)}
-            (-6, 0) node [left] {\(O\)};
-      \microscopio{(-.35, 2)}{1}{90}{-90}{3}{(-3.4, 8)}{\(\times \infty\)}
-      \draw (2, 4.1) -- (.3, 9) (1.5, 5.5) -- (-2.8, 4.2)
-            (.8, 7.5) -- (-3.3, 6.4) 
-            (.8, 7.5) -- (.8, 3.2) (1.5, 5.5) -- (.75, 5.5)
-            (.75, 6.4) node [left]  {\(d\sen x\)}
-            (1, 6.3) node [right]  {\(dx\)}
-            (1, 6.5) node {\(x\)};
-      \filldraw (1.5, 5.5) circle (1.2pt) node [right] {\(A\)}
-                 (.8, 7.5) circle (1.2pt) node [right] {\(B\)}
-                 (.75, 5.5) circle (1.2pt) node [left] {\(C\)};
-     \end{scope}
-     }
-}   
+% \newcommand{\frecciax}[3]{
+%   % example:
+%   % \disegno{}
+%   \def \pp{#1}
+%   \def \pa{#2}
+%   \def \lx{#3}
+%   \draw [-{Latex[length=2mm, width=1mm]}, black] \pp 
+%     node[below]{\footnotesize \(\lx\)} -- \pa; 
+% }
 
-\newcommand{\seno}{ %
-        \disegnod{6}{
-    \rcom{-4}{+6}{-2}{+2}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-4.3, xmax=+6.3, ymin=-4, ymax=+4]
-    \tkzFct[ultra thick, color=Green!60!black, domain=-4.3:+6.3]{sin(x)}
-    \begin{scope}[thick, dashed, color=blue!40!black]
-     \tkzInit[xmin=-4.3, xmax=+6.3, xstep=1, ymin=-2, ymax=2]
-     \foreach \i in {-4, -3.5, -3, -2.5, -2, -1.5, -1, -.5,
-         0, .5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6}
-     \tkzFct[domain=\i-2:\i+2]{cos(\i)*(x-\i)+sin(\i)};    
+\newcommand{\dsincos}{% 
+  \def \ra{1}
+  \def \pma{(1.56, 0.705)}
+  \def \pmb{(1.25, 1.545)}
+  \def \pA{(1.486, 0.9)}
+  \def \pB{(1.34, 1.3)}
+  \def \pmAB{(1.4, 1.1)}
+  \def \pmAC{(1.4, 0.9)}
+  \def \pdcos{(1.4, 0.65)}
+  \disegno[25]{
+    \begin{scope}[font=\fontsize{8}{8}]
+      \rcom{+0.2}{+1}{+0.2}{+1.0}{gray!50, very thin, step=1}
+      \draw [brown!50!black, ultra thick] (\ra, 0) arc(0:90:\ra);
+      \filldraw (20:\ra) [brown!50!black] circle(1.5pt);
+      \draw (0, 0) node [below left] {\(O\)} -- 
+            (20:\ra) node [right] {\(A \approx B \approx C\)}
+            |- node [below] {\(D\)} (0, 0);
+      \draw (10:\ra*.6) node [rotate = 10] {\(x \approx x + dx\)};
+      \microscopio{(20:\ra)}{.25}{70}{-110}{.5}{(.8, 1.5)}
+                  {\(\times \infty\)}
+      \draw [brown!50!black, ultra thick] \pma -- \pmb;
+      \filldraw [brown!50!black] 
+                \pA circle(1.5pt) node [right, black] {\(A\)}
+                \pB circle(1.5pt) node [right, black] {\(B\)};
+      \draw \pmAB node [right] {\(dx\)}
+                  node [left=.05, yshift=-3pt] {\(d \sen x\)}
+                  node [left=-.06, yshift=-2pt] {\(x\)};
+      \draw \pA --++ (200:.665) \pB --++ (200:.68);
+      \draw \pA -| node [left] {\(C\)} \pB --++ (270:.738);
+      \draw [{Latex[length=2mm, width=1mm]}-, black] 
+        \pmAC % ..controls (, ) and , ) .. 
+        -- \pdcos node[below=-3pt]{\(d \cos x\)}; 
     \end{scope}
-   }
+  }
 }
 
-\newcommand{\tangentiseno}{% 
-    % definita in intervallo 0-inf.
-      \disegnod{6}{
-      \rcom{-4}{+6}{-2}{+2}{gray!50, very thin, step=1}
-     \tkzInit[xmin=-4.3, xmax=+6.3, ymin=-4, ymax=4]
-     \tkzFct[ultra thick, color=blue!50!black, domain=-4.3:+6.3]{cos(x)}
-      }
+% \newcommand{\dseno}{%  y=a^x e tangenti
+%     \disegnod{4.5}{
+%     \draw [fill=white] (0,0) --+(6: 0)   
+%       arc [start angle=0, delta angle=90, radius=6];
+%      \draw (-6,0) -- (.5, 0)     (-6,0) -- (-6, 6.5)
+%            (-6,0) -- (-.5, 2);
+%      \begin{scope} [font=\fontsize{7}{7}]
+%       \filldraw (-.35, 2) circle (1.2pt) node [right] {\(A\approx B\approx C\)};
+%       \draw (-.35, 2) -- (-.35, 0) node [below] {\(A'\approx B'\)}
+%             (-4, .3) node [right, rotate = 13] {\(x\approx x+dx\)}
+%             (0, 1) node [right] {\(\sen x\approx\sen(x+dx)\)}
+%             (-6, 0) node [left] {\(O\)};
+%       \microscopio{(-.35, 2)}{1}{90}{-90}{3}{(-3.4, 8)}{\(\times \infty\)}
+%       \draw (2, 4.1) -- (.3, 9) (1.5, 5.5) -- (-2.8, 4.2)
+%             (.8, 7.5) -- (-3.3, 6.4) 
+%             (.8, 7.5) -- (.8, 3.2) (1.5, 5.5) -- (.75, 5.5)
+%             (.75, 6.4) node [left]  {\(d\sen x\)}
+%             (1, 6.3) node [right]  {\(dx\)}
+%             (1, 6.5) node {\(x\)};
+%       \filldraw (1.5, 5.5) circle (1.2pt) node [right] {\(A\)}
+%                  (.8, 7.5) circle (1.2pt) node [right] {\(B\)}
+%                  (.75, 5.5) circle (1.2pt) node [left] {\(C\)};
+%      \end{scope}
+%      }
+% }
+
+% --------------------------
+% 4 funzioni 
+% - 2 per tracciare una funzione e alcune tangenti
+% - 2 per tracciare una funzione e acuni suoi punti
+\newcommand{\pianoetangenti}{
+  % Piano cartesiano e alcune tangenti di una funzione
+  % Lascia alla funzione chiamante l'onere di disegnare la funzione
+  % Prima della chiamata vanno settate alcune variabili
+  % Esempio di chiamata:
+  %
+  % \def \fa{tan(x)}
+  % \def \faa{tan(\xo*180/pi)}
+  % \def \Df{1./cos(\xo*180/pi)/cos(\xo*180/pi)}
+  % \def \mix{-4}
+  % \def \max{+4}
+  % \def \miy{-6}
+  % \def \may{+6}
+  % \def \intervallo{-1.2, -1, 0, 1, 1.2} % TODO cambiare nome variabile
+  % \def \pendenze{-3.5/+1.5/0, -3.5/-2.5/+1, 1.5/-2.5/+0.76, 
+  %                 1/2.5/+1, 5.5/-1.5/0, 4/-2.5/-1}
+  % \disegno{\pianoetangenti
+  %   \tkzFct[domain=\mix-0.3:-1.75, ultra thick, \fcolor] {\fa}
+  %   \tkzFct[domain=-1.5:+1.5, ultra thick, \fcolor] {\fa}
+  %   \tkzFct[domain=+1.75:\max+0.3, ultra thick, \fcolor] {\fa}
+  % }
+  \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+  \ascisse{\mix,...,\max}
+  \ordinate{\miy,...,\may}
+  \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%   \tkzFct[domain=\mix-.3:\max+0.3, ultra thick, \fcolor] {\fa}
+  \foreach \xo in \intervallo{
+    \pgfmathparse{\faa} \let\yo\pgfmathresult
+    \pgfmathparse{\Df} \let\pendenza\pgfmathresult
+    \filldraw [\fcolor] (\xo, \yo) circle(2pt);% node [below] {\pendenza};
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+            {\pendenza*(x-\xo)+\yo}
+  }
+  \foreach \xm/\ym/\lm in \pendenze{
+    \draw (\xm, \ym) node {\footnotesize\(m \simeq \lm\)};}
 }
 
-\newcommand{\coseno}{ %
-        \disegnod{6}{
-    \rcom{-4}{+6}{-2}{+2}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-4.3, xmax=+6.3, ymin=-4, ymax=+4]
-    \tkzFct[ultra thick, color=Green!60!black, domain=-4.3:+6.3]{cos(x)}
-    \begin{scope}[thick, dashed, color=blue!40!black]
-     \tkzInit[xmin=-4.3, xmax=+6.3, xstep=1, ymin=-2, ymax=2]
-     \foreach \i in {-4, -3.5, -3, -2.5, -2, -1.5, -1, -.5,
-         0, .5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6}
-     \tkzFct[domain=\i-2:\i+2]{-sin(\i)*(x-\i)+cos(\i)};    
+\newcommand{\pianoepunti}{% 
+  % Piano cartesiano e alcuni punti di una funzione
+  % Lascia alla funzione chiamante l'onere di disegnare la funzione
+  % Prima della chiamata vanno settate alcune variabili
+  % Esempio di chiamata:
+  %
+  % \def \fa{1./(cos(x))**2}
+  % \def \faa{1./cos(\xo*180/pi)/cos(\xo*180/pi)}
+  % \def \mix{-4}
+  % \def \max{+4}
+  % \def \miy{-3}
+  % \def \may{+9}
+  % \def \intervallo{-1.2, -1, 0, 1, 1.2}
+  % \disegno{\pianoepunti
+  %   \tkzFct[domain=\mix-0.3:-1.75, ultra thick, \dcolor] {\fa}
+  %   \tkzFct[domain=-1.5:+1.5, ultra thick, \dcolor] {\fa}
+  %   \tkzFct[domain=+1.75:\max+0.3, ultra thick, \dcolor] {\fa}
+  % }
+  \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+  \ascisse{\mix,...,\max}
+  \ordinate{\miy,...,\may}
+  \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%   \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+  \foreach \xo in \intervallo{
+    \pgfmathparse{\faa} \let\yo\pgfmathresult
+    \filldraw (\xo, \yo) [\dcolor] circle(2pt);} %node [right] {\(\yo\)};}
+}
+
+\newcommand{\funzioneetangenti}{
+  % Piano funzione e alcune sue tangenti
+  % Prima della chiamata vanno settate alcune variabili
+  % Esempio di chiamata:
+  %
+  % \def \fa{sin(x)}
+  % \def \faa{sin(\xo*180/pi)}
+  % \def \Df{cos(\xo*180/pi)}
+  % \def \mix{-4}
+  % \def \max{+6}
+  % \def \miy{-2}
+  % \def \may{+2}
+  % \def \intervallo{-3.14, -2.0, -1.57, 0, 1.57, 3.14}
+  % \def \pendenze{-3.5/-1.5/0, -1/-2.5/-1, 1.5/-2.5/-0.42, 
+  %                             2.5/2.5/+1, 5.5/1.5/0, 5/-2.5/-1}
+  % \disegno[6]{\funzioneetangenti}
+  \pianoetangenti
+  \tkzFct[domain=\mix-.3:\max+0.3, ultra thick, \fcolor] {\fa}
+}
+
+\newcommand{\derivataepunti}{
+  % Piano funzione e alcuni suoi punti
+  % Prima della chiamata vanno settate alcune variabili
+  % Esempio di chiamata:
+  %
+  % \def \fa{cos(x)}
+  % \def \faa{cos(\xo*180/pi)}
+  % \def \mix{-4}
+  % \def \max{+6}
+  % \def \miy{-2}
+  % \def \may{+2}
+  % \def \intervallo{-3.14, -2.0, -1.57, 0, 1.57, 3.14}
+  % \disegno[6]{\derivataepunti}
+  \pianoepunti
+  \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+}
+
+\newcommand{\seno}{% Funzione sin(x) e alcune tangenti
+  \def \fa{sin(x)}
+  \def \faa{sin(\xo*180/pi)}
+  \def \Df{cos(\xo*180/pi)}
+  \def \mix{-4}
+  \def \max{+6}
+  \def \miy{-2}
+  \def \may{+2}
+  \def \intervallo{-3.14, -2.0, -1.57, 0, 1.57, 3.14}
+  \def \pendenze{-3.5/-1.5/0, -1/-2.5/-1, 1.5/-2.5/-0.42, 
+                             2.5/2.5/+1, 5.5/1.5/0, 5/-2.5/-1}
+  \disegno[6]{\funzioneetangenti}
+}
+
+\newcommand{\derivataseno}{% Derivata della funzione sin(x) con punti
+  \def \fa{cos(x)}
+  \def \faa{cos(\xo*180/pi)}
+  \def \mix{-4}
+  \def \max{+6}
+  \def \miy{-2}
+  \def \may{+2}
+  \def \intervallo{-3.14, -2.0, -1.57, 0, 1.57, 3.14}
+  \disegno[6]{\derivataepunti}
+}
+
+\newcommand{\coseno}{% Funzione sqrt(x) e alcune tangenti
+  \def \fa{cos(x)}
+  \def \faa{cos(\xo*180/pi)}
+  \def \Df{-sin(\xo*180/pi)}
+  \def \mix{-4}
+  \def \max{+6}
+  \def \miy{-2}
+  \def \may{+2}
+  \def \intervallo{-3.14, -1.57, 0, 1.57, 3.14, 4.0}
+  \def \pendenze{-3.5/+1.5/0, -3.5/-2.5/+1, 1.5/-2.5/+0.76, 
+                 1/2.5/+1, 5.5/-1.5/0, 4/-2.5/-1}
+  \disegno[6]{\funzioneetangenti}
+}
+
+\newcommand{\derivatacoseno}{% Derivata della funzione sqrt(x) con punti
+  % Funzione esponenziale con tangenti
+  \def \fa{-sin(x)}
+  \def \faa{-sin(\xo*180/pi)}
+  \def \mix{-4}
+  \def \max{+6}
+  \def \miy{-2}
+  \def \may{+2}
+  \def \intervallo{-3.14, -1.57, 0, 1.57, 3.14, 4}
+  \disegno[6]{\derivataepunti}
+}
+
+
+\newcommand{\dtana}{% 
+  \def \ra{1}
+  \def \aa{20}
+  \def \ab{30}
+  \def \mi{+.2}
+  \def \ma{+.75}
+  \pgfmathparse{(\aa+\ab)/2.} \let\mediaab\pgfmathresult
+  \pgfmathparse{\aa/2.} \let\semia\pgfmathresult
+  \pgfmathparse{tan(\aa)} \let\tana\pgfmathresult
+  \pgfmathparse{tan(\ab)} \let\tanb\pgfmathresult
+  \pgfmathparse{1./cos(\aa)} \let\rc\pgfmathresult
+  \disegno[30]{
+    \begin{scope}[font=\fontsize{8}{8}]
+      \rcom{\mi}{\ma}{\mi}{\ma}{gray!50, very thin, step=1}
+      \draw (0, 0) node [below left=-2pt] {\(O\)}
+            (1, 0) node [below, xshift=3pt] {\(H\)};
+      \draw [brown!50!black, ultra thick] (\ra, 0) arc(0:90:\ra);
+      \draw (0, 0) -- (\aa:\ra*1.3);
+      \draw (0, 0) -- (\ab:\ra*1.3);
+      \draw (\mediaab:\ra*.6) node [rotate = \mediaab] {\(\Delta\)}
+            (\semia:\ra*.3) node [rotate = \semia] {\(x\)};
+      \filldraw [brown!50!black] 
+        (\aa:\ra) coordinate (a)
+        circle(1.5pt) node [below, xshift=-2pt] {\(A\)}
+        (\ab:\ra) circle(1.5pt) node [left] {\(B\)};
+      \draw (a) |- node [below, xshift=-1pt, black] {\(L\)} (0, 0); 
+      \path (\ab:\rc) coordinate(e) (1, \tanb) coordinate(d);
+      \draw [gray, ultra thick] (1, \tana) -- (e) -- (d); 
+      \filldraw [gray] (e) circle(1.5pt) node [above] {\(E\)};
+      \draw [green!50!black, ultra thick] (1, 0) -- (d); 
+      \filldraw [green!50!black] 
+         (d) circle(1.5pt) node [above, xshift=4pt] {\(D\)} 
+         (1, \tana) circle(1.5pt) node [right=-2pt, yshift=-2pt] {\(C\)};
     \end{scope}
-   }
-}
-  
-\newcommand{\tangenticoseno}{% 
-    % definita in intervallo 0-inf.
-      \disegnod{6}{
-      \rcom{-4}{+6}{-2}{+2}{gray!50, very thin, step=1}
-     \tkzInit[xmin=-4.3, xmax=+6.3, ymin=-4, ymax=4]
-     \tkzFct[ultra thick, color=blue!50!black, domain=-4.3:+6.3]{-sin(x)}
-      }
+  }
 }
 
+\newcommand{\dtanb}{% 
+  \def \ra{1}
+  \def \aa{20}
+  \def \ab{20+90}
+  \def \pbma{(.9, 0.75)}
+  \def \pbmb{(1.9, 0.565)}
+  \def \rma{1.}
+  \def \dab{.4}
+  \def \dce{\dab*1.064}
+  \pgfmathparse{\aa/2.} \let\semia\pgfmathresult
+  \pgfmathparse{tan(\aa)} \let\tana\pgfmathresult
+  \disegno[25]{
+    \begin{scope}[font=\fontsize{8}{8}]
+      \rcom{+0.2}{+1}{+0.2}{+1.0}{gray!50, very thin, step=1}
+      \draw [brown!50!black, ultra thick] (\ra, 0) arc(0:90:\ra);
+      \filldraw (\aa:\ra) [brown!50!black] circle(1.5pt);
+      \draw (0, 0) -- (\aa:\ra*1.3)
+            (0, 0) node [below left=-2pt] {\(O\)} 
+            (1, 0) node [below, xshift=3pt] {\(H\)} 
+            (\aa:\ra) coordinate(ab) node [left] {\(A \approx B\)};
+      \draw (ab) |- node [below, xshift=-1pt, black] {\(L\)} (0, 0); 
+      \draw (\semia:\ra*.6) node [rotate = \semia] {\(x \approx x + dx\)};
+      \draw [green!50!black, ultra thick] 
+            (1, 0) -- (1, \tana) coordinate(c); 
+      \filldraw [green!50!black] (c) circle(1.5pt) 
+        node [right, black] {\(C \approx D \approx E\)};
+      \microscopio{(\aa:\ra)}{.40}{100}{-70}{.5}{(.2, 1.6)}
+                  {\(\times \infty\)}
+      \draw [brown!50!black, ultra thick] \pbma --++ (\ab:\rma);
+      \filldraw [brown!50!black] 
+                \pbma ++ (\ab:\rma/3) coordinate(a)
+                  circle(1.5pt) node [below, xshift=-2pt] {\(A\)}
+                (a) ++ (\ab:\dab/2) coordinate(mab)
+                  node [right, xshift=-2pt, black, rotate=\aa] {\(dx\)}
+                (a) ++ (\ab:\dab) coordinate(b)
+                  circle(1.5pt) node [below, xshift=-2pt] {\(B\)};
+      \draw (a) --++ (\aa:.438) (a) --++ (\aa:-.509)
+            (b) --++ (\aa:.4) (b) --++ (\aa:-.45);
+      \microscopio{(c)}{.50}{45}{-140}{.5}{(1.35, 1.5)}
+                  {\(\times \infty\)}
+      \path \pbmb ++ (90:\rma/3.) coordinate(c)
+            (c) ++ (\ab:\dce/2) coordinate(mce)
+            (c) ++ (\ab:\dce) coordinate(e)
+            \pbmb ++ (90:\rma/3.+.45) coordinate(d)
+            \pbmb ++ (90:\rma/3.+.22) coordinate(mcd);
+      \draw [gray, ultra thick] (c) -- (e);
+      \draw [brown!50!black, ultra thick] \pbmb -- (d);
+      \filldraw [gray] (e) circle(1.5pt) node [above, black] {\(E\)};
+      \filldraw [brown!50!black] 
+                (c) circle(1.5pt) node [right, black] {\(C\)}
+                (mce) node [left, black, rotate=\aa] {\(\frac{dx}{\cos x}\)}
+                (e) circle(1.5pt) node [above, black] {\(E\)}
+                (d) circle(1.5pt) node [right, black] {\(D\)}
+                (mcd) node [right, black] {\(d(tg(x))\)};
+      \draw (e) --++ (\aa:.150) (e) --++ (\aa:-.56)
+            (c) --++ (\aa:-.57);
+    \end{scope}
+  }
+}
 
-\newcommand{\tangente}{ %
+\newcommand{\tangente}{% Funzione tan(x) e alcune tangenti
+  \def \fa{tan(x)}
+  \def \faa{tan(\xo*180/pi)}
+  \def \Df{1./cos(\xo*180/pi)/cos(\xo*180/pi)}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-6}
+  \def \may{+6}
+  \def \intervallo{-1.2, -1, 0, 1, 1.2} % TODO cambiare nome variabile
+  \def \pendenze{-1.5/+5.5/7.62, -3.5/-5.5/3.43, -3.5/-3.5/+1, 
+                 3/5.5/3.43, 1.5/-5.5/7.62}
+  \disegno{\pianoetangenti
+    \tkzFct[domain=\mix-0.3:-1.745, ultra thick, \fcolor] {\fa}
+    \tkzFct[domain=-1.5:+1.5, ultra thick, \fcolor] {\fa}
+    \tkzFct[domain=+1.745:\max+0.3, ultra thick, \fcolor] {\fa}
+  }
+}
+
+\newcommand{\derivatatangente}{% Derivata della funzione tan(x) con punti
+  \def \fa{1./(cos(x))**2}
+  \def \faa{1./cos(\xo*180/pi)/cos(\xo*180/pi)}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-3}
+  \def \may{+9}
+  \def \intervallo{-1.2, -1, 0, 1, 1.2}
+  \disegno{\pianoepunti
+    \tkzFct[domain=\mix-0.3:-1.75, ultra thick, \dcolor] {\fa}
+    \tkzFct[domain=-1.5:+1.5, ultra thick, \dcolor] {\fa}
+    \tkzFct[domain=+1.75:\max+0.3, ultra thick, \dcolor] {\fa}
+  }
+}
+
+\newcommand{\tangentev}{ %
     \disegnod{4.5}{
     \rcom{-3.5}{+3.5}{-6}{+6}{gray!50, very thin, step=1}
     \tkzInit[xmin=-3.8, xmax=+3.8, ymin=-6.3, ymax=+6.3]
