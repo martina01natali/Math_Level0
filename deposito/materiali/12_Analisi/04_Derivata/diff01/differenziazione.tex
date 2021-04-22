@@ -26,8 +26,6 @@
 % 
 % \agnesia
 
-\begin{comment}
-
 \section{Premessa}
 \footnote{Per scrivere questo capitolo mi sono ispirato 
 ai lavori di Giorgio Goldoni ``Il calcolo delle differenze e il calcolo 
@@ -3136,9 +3134,6 @@ Derivare \(f(x)=x^{\sqrt{2}}\).
 \[f'(x)=\sqrt{2}x^{\sqrt{2}-1}\]
 \end{esempio}
 
-
-\end{comment}
-
 \subsection{Derivata di funzioni circolari}
 \label{subsec:differenziazione_circolari}
 
@@ -3547,152 +3542,181 @@ D'altra parte, se \(x\) è esattamente uguale a \(\dfrac{\pi}{2}\) ,
 la tangente non è definita.
 \end {esempio}
 
-
-\begin{comment}
-
-
-
-
 \section{Applicazioni}
 \label{sec:diff01_applicazioni}
 Si è tanto parlato delle tangenti ai grafici di funzione e delle loro 
-pendenze,
-senza mai arrivare a definire l'effettiva equazione delle tangenti che
-interessano. Ora cercheremo di colmare questa lacuna.
+pendenze, senza mai arrivare a definire l'effettiva equazione delle 
+tangenti che interessano. 
 
-\subsection{Derivata e tangente}
- Hai già incontrato negli anni scorsi dei problemi in cui si chiedeva di 
- calcolare la tangente ad una parabola in un suo punto. Il metodo di 
-calcolo 
- algebrico che usavi è efficace ma macchinoso e, sfortunatamente, vale solo 
- per le coniche. Il metodo delle derivate, invece, si rivela
- molto più potente e rapido.\\
- Poiché la tangente è una retta, la sua equazione è del tipo 
-\(y-y_0=m(x-x_0)\), 
- dove  \(\punto{x_0}{y_0}\) è il punto di tangenza 
- e \(m\) è la pendenza della retta, sulla quale sappiamo ormai tutto.
- Si ha \(y=m(x-x_0)+y_0\) e poiché \(m=f'(x_0)\), relativo alla funzione 
-\(f(x)\)
- di cui si sta studiando il grafico, l'equazione risolvente è:\\
- \(y=f'(x_0)(x-x_0)+y_0\).
- 
+\begin{definizione}
+La \emph{tangente ad una curva in un punto} \(P\punto{x_P}{y_P}\) 
+è la retta passante per quel punto e che ha la stessa pendenza della 
+funzione in quel punto. Se \(f'(x_P)\) è definito:
+\[y = f'(x_P)\tonda{x - x_P} +y_P\]
+Se il Rapporto Differenziale è un infinito:
+\[x = x_P\]
+\end{definizione}
+
+
+Hai già incontrato negli anni scorsi dei problemi in cui si chiedeva di 
+calcolare la tangente ad una parabola in un suo punto. 
+Il metodo di calcolo algebrico che usavi era macchinoso (sistema tra la 
+funzione e un fascio di rette, trovare i valori del parametro che 
+annullano il discriminante) e, sfortunatamente, vale solo per le coniche. 
+Il metodo delle derivate, invece, si rivela molto più generale e rapido.
+
+Poiché la tangente è una retta, la sua equazione è del tipo 
+\(y-y_P=m(x-x_P)\), dove  \(\punto{x_P}{y_P}\) è il punto di tangenza 
+e \(m\) è la pendenza della retta, 
+La pendenza della tangente è uguale alla pendenza della funzione il quel 
+punto, quindi sarà: \(m=f'(x_P)\).
+Combinando queste due formule otteniamo quanto scritto nella prima parte 
+della definizione. 
+
+Ci sono casi in cui la derivata non è definita perché il Rapporto 
+Differenziale è infinito in questo caso la tangente esiste, ma non può 
+essere scritta come funzione di \(x\), ma con l'equazione delle rette 
+parallele all'asse \(y\). 
+Come si vede nella seconda parte della definizione.
+
 \begin{esempio}
-  Trova le equazioni delle tangenti alla parabola \(f(x)=x^2\) nei suoi punti
-  \(V~\equiv~\punto{0}{f(0)}\) e \(B\equiv\punto{-6}{f(-6)}\).\\
-  Soluzione. Nel punto \(V\): \(f'(0)~=~2\cdot 0~=~0=m\). La tangente è 
-  orizzontale e coincide con l'asse \(X\): \(y=~m(x~-~x_0)~+~y_0~=~0\).\\
-  Nel punto \(B\): \(f'(-6)=2 (-6)=-12\). \(m=-12\), la tangente è inclinata
-  verso il basso:
-  \(y=m(x-x_0)+y_0= -12(x+6)+36\srarrow y=-12x-36\).
- \end{esempio}
+Trova le equazioni delle tangenti alla parabola \(f(x)=x^2\) nei suoi punti
+\(V~\equiv~\punto{0}{f(0)}\) e \(B\equiv\punto{-6}{f(-6)}\).\\
+Soluzione. Nel punto \(V\): \(f'(0)~=~2\cdot 0~=~0=m\). La tangente è 
+orizzontale e coincide con l'asse \(X\): \(y=~m(x~-~x_0)~+~y_0~=~0\).\\
+Nel punto \(B\): \(f'(-6)=2 (-6)=-12\). \(m=-12\), la tangente è inclinata
+verso il basso:
+\(y=m(x-x_0)+y_0= -12(x+6)+36\srarrow y=-12x-36\).
+\end{esempio}
 
- \pagebreak %--------------------------------------------------
+% \pagebreak %--------------------------------------------------
 
 \begin{esempio}
-  Trova i punti di intersezione degli assi con la tangente in 
-\(\punto{2}{f(2)}\)
-  alla curva \(f(x)=2x^3-x\).\\ Soluzione.
-  Ricerca della tangente per \(x=2\): \(f'(x)=6x^2-1\) e \(f'(2)=6\cdot 
-4-1=23\).\\
-  \(y_0=f(2)=2\cdot 2^3-2=14\). La tangente: \(y=23(x-2)+14=23x-32\).
-  Le intersezioni: \\
-  Con l'asse \(X\): \(y=0\srarrow x=\dfrac{32}{23}\srarrow
-  \punto{\dfrac{32}{23}}{0}\).\\
-  Con l'asse \(Y\): \(x=0 \srarrow y=-32\srarrow \punto{0}{-32}\).
+Trova i punti di intersezione con gli assi della tangente
+alla curva \(f(x)=2x^3-x\) nel punto \(\punto{2}{f(2)}\).
+
+\noindent Calcolo del valore della funzione in \(2\): \tab 
+\(f(2) = 2 \cdot 2^3-2 = 14\)\\
+Calcolo della pendenza in \(2\): \tab 
+\(f'(x) = 6x^2-1 \srarrow f'(2) = 6 \cdot 2^2-1= 23\) \\
+Da cui l'equazione della tangente: \tab 
+\(y=23(x-2)+14=23x-32\)\\[5pt]
+L'intersezione con l'asse \(x\): \tab 
+\(y=0 \srarrow x=\dfrac{32}{23} \srarrow \punto{\dfrac{32}{23}}{0}\)\\[2pt]
+con l'asse \(y\): \tab 
+\(x=0 \srarrow y=-32 \srarrow \punto{0}{-32}\)
+
 \end{esempio}
 
 \begin{esempio}
-  In quale punto del suo grafico la parabola \(y=4x^2-3x+6\) è inclinata di 
-  \(45^\circ\)?\\
-  Soluzione. Nel punto che cerchiamo, la parabola avrà un'inclinazione 
-  indistinguibile da quella della tangente.
-  Le rette inclinate di \(45^\circ\) hanno pendenza \(m=1\), come la bisettrice 
-  del primo-terzo quadrante.  Dobbiamo quindi imporre alla derivata il valore 
-  \(1\).\\
-  \(f(x)=4x^2-3x+6\srarrow f'(x)=8x-3\).\\
-  \(8x-3=1\srarrow x=\dfrac{1}{2}\). Il punto è 
-\(\punto{\dfrac{1}{2}}{\dfrac{11}{2}}\).
+In quale punto del suo grafico la parabola \(y=4x^2-3x+6\) è inclinata di 
+\(45^\circ\)?
+
+Nel punto che cerchiamo, la parabola avrà un'inclinazione 
+indistinguibile da quella della tangente.
+Le rette inclinate di \(45^\circ\) hanno pendenza \(m=1\), come la 
+bisettrice del primo-terzo quadrante.  
+Dobbiamo quindi imporre alla derivata il valore \(1\).
+\[\Deriv{4x^2-3x+6} = 8x-3 = 1 \srarrow x =\dfrac{1}{2} 
+\sstext{e il punto è:} 
+\punto{\dfrac{1}{2}}{\dfrac{11}{2}}\]
 \end{esempio}
 
 \begin{esempio}
-  È vero che l'iperbole equilatera di equazione \(xy=16\) ha per vertici i 
-punti 
-  medi del segmento che gli assi staccano sulle tangenti ai vertici? \\
-  Risposta. Consideriamo per comodità solo il ramo destro del grafico.
-  Il vertice sarà un punto \(V\) di coordinate uguali, essendo l'iperbole
-  equilatera. Quindi \(V=V\punto{4}{4}\).\\
-  Poiché la funzione è \(y=\dfrac{16}{x}\), la sua derivata in \(V\) è 
-  \(y'|_{x=4}= -\dfrac{16}{x^2}\bigg|_{x=4}=-1\)
-  e l'equazione della tangente in \(V\) è \(y=-1(x-4)+4=-x+8\).\\
-  La retta \(y=-x+8\) interseca gli assi in \(\punto{8}{0}\) e \(\punto{0}{8}\) 
-ed 
-  è facile verificare che il punto \(V\) è medio fra i due.
-  Per ragioni di simmetria accade lo stesso
-  con il vertice opposto \(\punto{-4}{-4}\).
-  \begin{osservazione}
-   In realtà si tratta di una proprietà generale dell'iperbole equilatera.
-   Qualsiasi retta tangente al grafico stacca sugli assi coordinati dei 
-   segmenti che hanno il punto medio coincidente con il punto di tangenza. 
-   Non è difficile dimostrarlo usando l'equazione generica \(yx=k^2\) e per 
-   punto di tangenza le coordinate \(\punto{a}{\dfrac{k^2}{a}}\).
-  \end{osservazione}
- \end{esempio}
+È vero che l'iperbole equilatera di equazione \(xy=16\) ha per vertici i 
+punti medi del segmento che gli assi staccano sulle tangenti ai vertici? 
+
+Consideriamo per comodità solo il ramo destro del grafico.
+Il vertice sarà un punto \(V\) di coordinate uguali, essendo l'iperbole
+equilatera. \\
+Quindi \(V=V\punto{4}{4}\),
+perché la funzione è \(y=\dfrac{16}{x}\),\\ 
+la sua derivata in \(V\) è \tab 
+\(f'(4)= -\dfrac{16}{4^2}=-1\)\\
+e l'equazione della tangente in \(V\) è \tab \(y=-1(x-4)+4=-x+8\)\\
+La retta \(y=-x+8\) interseca gli assi in: \tab 
+\(\punto{8}{0}\) e \(\punto{0}{8}\) \\
+ed è facile verificare che il punto \(V\) è medio fra i due. \\
+Per ragioni di simmetria accade lo stesso con il vertice opposto 
+\(\punto{-4}{-4}\).
+\begin{osservazione}
+In realtà si tratta di una proprietà generale dell'iperbole equilatera.
+Qualsiasi retta tangente al grafico stacca sugli assi coordinati dei 
+segmenti che hanno il punto medio coincidente con il punto di tangenza. 
+Non è difficile dimostrarlo usando l'equazione generica \(yx=k^2\) e per 
+punto di tangenza le coordinate \(\punto{a}{\dfrac{k^2}{a}}\).
+\end{osservazione}
+\end{esempio}
 
 \begin{esempio}
-  È vero che è inclinato di \(30^\circ\) il raggio  
-  della circonferenza \(x^2+y^2=20\) che unisce l'origine al suo punto di 
-ascissa
-  \(4\)?\\
-  Risposta. No, non è vero. \\
-  Il modo più elementare per verificarlo è calcolare l'ordinata
-  del punto e cercare l'angolo di inclinazione dell'ipotenusa coincidente 
-con 
-  il raggio.\\
-  L'alternativa è calcolare la derivata:
-  \(x^2+y^2=20\srarrow y=\sqrt{20-x^2}\) (data lo posizione del punto,
-  consideriamo solo la semicirconferenza per \(y>0\)).\\
-  \(f'(4)= \dfrac{-2x}{2\sqrt{20-x^2}}\bigg|_{x=4}=\dfrac{-4}{\sqrt{20-16}}=
-  \dfrac{-4}{2}=-2\).\\
-  Dunque la tangente ha una pendenza pari a \(-2\). Poiché il raggio e la 
-  tangente sono perpendicolari, la retta che contiene questo raggio avrà 
-  pendenza \(-\dfrac{1}{-2}=\dfrac{1}{2}\).\\
-  Possiamo controllare la risposta con la calcolatrice.
-  \end{esempio}
+È vero che è inclinato di \(30^\circ\) il raggio  
+della circonferenza \(x^2+y^2=20\) che unisce l'origine al suo punto di 
+ascissa \(4\)?
+
+Risposta: No, non è vero. \\
+Il modo più elementare per verificarlo è calcolare l'ordinata
+del punto e cercare l'angolo di inclinazione dell'ipotenusa coincidente 
+con il raggio.
+
+L'alternativa è calcolare la derivata. Ma noi abbiamo imparato a calcolare 
+la derivata di una funzione, mentre \(x^2+y^2=20\) non è una funzione.
+
+Dato che il punto considerato appartiene al primo quadrante, consideriamo 
+la funzione che rappresenta la semicirconferenza superiore:
+\(x^2+y^2=20 \srarrow y=\sqrt{20-x^2}\). 
+La sua derivata è:
+\[f'(4)= \Deriv{\sqrt{20-x^2}}\bigg|_{x=4} =
+\dfrac{-2x}{2\sqrt{20-x^2}}\bigg|_{x=4}=
+\dfrac{-4}{\sqrt{20-16}}=\dfrac{-4}{2}=-2\]
+Dunque la tangente ha una pendenza pari a \(-2\). Poiché il raggio e la 
+tangente sono perpendicolari, la retta che contiene questo raggio avrà 
+pendenza \(-\dfrac{1}{-2}=\dfrac{1}{2}\).
+
+Se \(\Delta x\) è positiva, l'angolo è uguale a 
+\(\arctan \dfrac{\Delta y}{\Delta x} = 
+  \arctan 0,5 \simeq 26,565 \neq 30\)
+\end{esempio}
  
 \subsection{Derivata e normale}
 \label{}
 Come si vede dall'ultimo esempio, una volta che si sappia come calcolare 
 la tangente ad una curva, il calcolo della normale risulta molto facile.
-Poiché la tangente e la normale, se passano per lo stesso punto, sono rette
-perpendicolari e quindi hanno i coefficienti angolari antireciproci,
-l'equazione di una normale ad una curva \(y=f(x)\) in un punto 
-\(\punto{x_0}{y_0}\)
+Poiché, in ogni punto di una funzione la tangente e la normale 
+sono rette perpendicolari e quindi hanno i coefficienti angolari 
+antireciproci, l'equazione della normale ad una curva \(y=f(x)\) in un punto 
+\(\punto{x_P}{y_P}\)
 sarà:\\
-\(y=\dfrac{-1}{f'(x_0)}(x-x_0)+y_0\),\\
+\(y=\dfrac{-1}{f'(x_P)}(x-x_P)+y_P\),\\
 dove la pendenza della normale \(m_n=\frac{-1}{m_t}\) è appunto 
 l'antireciproco della pendenza della tangente.
 
 \begin{esempio}
 Scrivi l'equazione della tangente e della normale alla curva di equazione
-\(y=\dfrac{x^2-1}{\ln x -1}\) nel suo punto di ascissa \(1\).\\
-Soluzione. \(y'|_{x=1}=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
-{(\ln x -1)^2}\bigg|_{x=1}=\dfrac{2\cdot 1(0-1)-(1-1)\cdot 
-1}{(0-1)^2}=-2\).\\
-La pendenza della tangente è \(m=-2\). Per \(x=1\) la funzione vale:
-\(\dfrac{1^2-1}{\ln 1 -1}=0=y_0\). L'equazione della tangente è quindi:
-\(y=-2(x-1)=-2x+2\). Di conseguenza la normale ha equazione 
-\(y=\dfrac{1}{2}(x-1)=\dfrac{1}{2}x-\dfrac{1}{2}\).
-\end{esempio}
+\(y=\dfrac{x^2-1}{\ln x -1}\) nel suo punto di ascissa \(1\). 
 
+Calcoliamo la pendenza nel punto:
+\[f'(x)|_{x=1}=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
+{(\ln x -1)^2}\bigg|_{x=1}=\dfrac{2\cdot 1(0-1)-(1-1)\cdot 
+1}{(0-1)^2}=-2\]
+Calcoliamo l'ordinata del punto: \tab
+\(\dfrac{1^2-1}{\ln 1 -1}=0=y_0\)\\
+L'equazione della tangente:
+\(y=-2(x-1)=-2x+2\)\\
+L'equazione della normale: 
+\(y=\dfrac{1}{2}(x-1)=\dfrac{1}{2}x-\dfrac{1}{2}\)
+\end{esempio}
 
 \begin{esempio}
 Scrivi l'equazione della tangente e della normale alla curva di equazione
-\(y=\dfrac{x^2+1}{\ln x +1}\) nel suo punto di ascissa \(1\).\\
-Soluzione. \(y'|_{x=1}=\dfrac{2x(\ln x+1)-(x^2+1)\dfrac{1}{x}}
-{(\ln x +1)^2}\bigg|_{x=1}=\dfrac{2\cdot 1(0+1)-(1+1)\cdot 1}{(0+1)^2}=0\).\\
-La tangente è quindi una retta orizzontale. Di conseguenza la normale è 
-verticale, come si vede subito se si prova a calcolare l'antireciproco di 
-\(0\).
+\(f(x) = \dfrac{x^2+1}{\ln x +1}\) nel suo punto di ascissa \(1\).
+
+\(y = f(1) = \dfrac{x^2+1}{\ln x +1} = \dfrac{1^2+1}{\ln 1 +1}= 
+\dfrac{1+1}{0 +1}= 2\)\\
+\(f'(x)|_{x=1}=
+\dfrac{2x(\ln x+1)-(x^2+1)\dfrac{1}{x}}{(\ln x +1)^2}\bigg|_{x=1}=
+\dfrac{2\cdot 1(0+1)-(1+1)\cdot 1}{(0+1)^2}=0\).\\
+La tangente è quindi la retta orizzontale: \(y=2\)\\
+di conseguenza la normale è la retta verticale: \(x=1\).
 \end{esempio}
 
 \subsection{Derivata della derivata}
@@ -3710,37 +3734,55 @@ se ci sono le condizioni, può essere derivata a sua volta.
 \end{definizione}
 Le regole di calcolo della derivata seconda sono le stesse regole che 
 abbiamo già visto, quindi la seconda derivazione, se è possibile, non comporta 
-problemi diversi da quelli conosciuti.\\
+problemi diversi da quelli conosciuti.
+
 Riferendoci a un generico grafico di funzione \(y=f(x)\), la derivata prima 
 \(f'(x)\) ci consente di trovare le pendenze delle tangenti al grafico. La
 derivata seconda \(f''(x)\) descrive con quanta rapidità (o lentezza) variano 
 queste pendenze, perciò ci indica quanto siano aperte o chiuse le concavità 
-che \(y=f(x)\) disegna nel piano cartesiano.\\
+che \(y=f(x)\) disegna nel piano cartesiano.
+
+In particolare vedremo che:
+\begin{itemize}
+\item 
+dove la derivata seconda è positiva la pendenza aumenta sempre di più 
+quindi la concavità è verso l'alto;
+\item 
+dove la derivata seconda è negativa la pendenza diminuisce sempre di più 
+quindi la concavità è verso il basso;
+\end{itemize}
+
 Se le condizioni sono favorevoli, esistono e sono calcolabili anche le 
 derivate terze, quarte, ecc. di una funzione, anche se non sono essenziali 
 per i nostri scopi. Il loro calcolo segue i metodi già visti.
 
 \begin{esempio}
-Calcola \(f''(1)\) di \(f(x)=2x^5-3x^4+x^3+5x^2-6x+9\).\\
-Derivata prima: \(f'(x)=10 x^4-12 x^3+3x^2+10 x-6\).\\
-Derivata seconda per \(x=1\): \((40x^3-36x^2+6x+10)|_{x=1}=40-36+6+10=20\).
+Calcola \(f''(1)\) di \(f(x)=2x^5-3x^4+x^3+5x^2-6x+9\).
+
+Derivata prima: 
+\(f'(x)=10 x^4-12 x^3+3x^2+10 x-6\).\\
+Derivata seconda per \(x=1\): 
+\(f''(x)|_{x=1} = (40x^3-36x^2+6x+10)|_{x=1}=40-36+6+10=20\).
 \end{esempio}
 
 \begin{esempio}
-Calcola \(f''(x)\) di \(f(x)=\ln x\).\\
-\(f'(x)=\dfrac{1}{x}\) e \(f''(x)=-\dfrac{1}{x^2}\).\\
+Calcola \(f''(x)\) di \(f(x)=\ln x\).
+
+\(f'(x)=\dfrac{1}{x}\) e \(f''(x)=-\dfrac{1}{x^2}\)
 \begin{osservazione}
- La funzione \(\ln x\) esiste per \(x>0\). Le derivate prima e seconda 
+La funzione \(\ln x\) esiste per \(x>0\). Le derivate prima e seconda 
 esistono per \(x\ne 0\).
- In generale, l'esistenza di una derivata (prima, seconda, terza \dots) è
- indipendente dall'esistenza della funzione da derivare.
+In generale, l'esistenza di una derivata (prima, seconda, terza \dots) è
+indipendente dall'esistenza della funzione da derivare. 
+% TODO:
+\textbf{?????????????}
 \end{osservazione}
 \end{esempio}
 
 \begin{esempio}
- Calcola le derivate successive di \(f(x)=\sen x\).\\
- \(f'(x)=\cos x\) \hspace{1cm}  \(f''(x)=-\sen x\) \hspace{1cm}
- \(f'''(x)=-\cos x\) \hspace{1cm} \(f^{IV}(x)=\sen x\) \dots
+Calcola le derivate successive di \(f(x)=\sen x\).\\
+\(f'(x)=\cos x\) \hspace{1cm}  \(f''(x)=-\sen x\) \hspace{1cm}
+\(f'''(x)=-\cos x\) \hspace{1cm} \(f^{IV}(x)=\sen x\) \dots
 \end{esempio}
 
 \begin {comment} 
