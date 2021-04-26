@@ -38,7 +38,7 @@ I numeri iperreali ci permettono di affrontare una nuova classe di problemi
 molto importante: è formata da tutti i problemi legati alla pendenza (e 
 quindi alla velocità e all'accelerazione).
 
-I metodi che seguiremo faranno uso del \emph{principio di estensione 
+I metodi che seguiremo faranno uso anche del \emph{principio di estensione 
 naturale}: è possibile estendere agli iperreali tutte le proprietà che 
 sono vere nei numeri reali.
 Per esempio, il concetto di funzione che abbiamo già definito nei Reali, 
@@ -97,85 +97,122 @@ La Torre di Pisa è alta circa \(56m\) e immaginiamo, per semplificare,
 che la distanza percorsa dai due oggetti sia di \(56m\) (ti lascio 
 calcolare il percorso effettivo: tieni presente che al giorno d'oggi 
 l'inclinazione della Torre è di \(4,8^\circ\)).\\
-Oggi sappiamo che un oggetto in caduta libera partendo da fermo ha la 
-seguente legge del moto:
+Oggi sappiamo che un oggetto in caduta libera nel vuoto, 
+partendo da fermo, ha la seguente legge del moto:
 \(s=\dfrac{1}{2}gt^2\). Come al solito, \(s\) è lo spazio in metri, 
 \(t\) è il tempo in secondi, \(g=9,81 m/s^2\) è l'accelerazione di 
 gravità, costante vicino alla superficie terrestre.
 
-\newpage %------------------------------------------
+Per trovare la velocità media, basta dividere lo spazio percorso per il 
+tempo impiegato: ottenendo una velocità di quasi \(17\,m/s\) che 
+corrisponde a circa \(60 km/h\). 
 
-Se cerchiamo la velocità media, basta dividere lo spazio percorso per il 
-tempo impiegato:
-
-\begin{align*}
- s_{tot} &= 56m\\
- s=\frac{1}{2}gt^2 \sRarrow t_{tot} &= \sqrt{\frac{2s_{tot}}{g}}=
- \sqrt{\frac{2\times 56}{9,81}}=3,36 s\\
- v_m &= \frac{s_{tot}}{t_{tot}}=\frac{56 m}{3,36 s}=16,67 m/s
-\end{align*}
-che corrispondono a circa \(60 km/h\).
+% \newpage %------------------------------------------
+% 
+% Se cerchiamo la velocità media, basta dividere lo spazio percorso per il 
+% tempo impiegato:
+% \begin{align*}
+%  s_{tot} &= 56m\\
+%  s=\frac{1}{2}gt^2 \sRarrow t_{tot} &= \sqrt{\frac{2s_{tot}}{g}}=
+%  \sqrt{\frac{2\times 56}{9,81}}=3,36 s\\
+%  v_m &= \frac{s_{tot}}{t_{tot}}=\frac{56 m}{3,36 s}=16,67 m/s
+% \end{align*}
+% che corrisponde a circa \(60 km/h\).
 
 \subsubsection{La velocità istantanea}
 
-Ma gli oggetti partono fermi e arrivano velocissimi: 
-è possibile sapere quale è loro velocità in ogni istante?
+Ma questo non ci dice niente riguardo la velocità che l'oggetto ha in un 
+determinato istante: ad esempio quale sarà la velocità 
+dopo 3 secondi dall'inizio della caduta?
 
-Non è facile definire con precisione un istante di tempo: possiamo 
-immaginare che sia un tempo assolutamente breve, un tempo di durata 
-infinitesima.\\ 
-Considerando valori di tempo istantanei siamo portati naturalmente a 
-passare da valori \(t_1, \ t_2, \ \dots\), nell'insieme dei reali, a valori 
-\(t_1, \ t_1+dt, \ t_1+2dt,\ \dots\ t_2, \ \dots\) nell'insieme degli
-iperreali. 
-È quindi il momento di usare le quantità infinitesime.\\ 
-Chiamiamo \(dt\) 
-% (in questo caso sarà \(dt > 0\)) 
-un intervallo di tempo infinitesimo, fra due istanti successivi \(t\) e 
-\(t+dt\). 
-Lo spazio percorso nella caduta, in quell'intervallo di tempo, 
-applicando la legge del moto, sarà: 
-\[ds=\frac{1}{2}g\tonda{t+dt}^2-\frac{1}{2}gt^2= 
-\frac{1}{2}g\tonda{t^2+2t\cdot 
-dt+(dt)^2}-\frac{1}{2}gt^2= gt\cdot dt+\frac{1}{2}(dt)^2\] 
-Dividendo il tutto per \(dt\) si ottiene la velocità istantanea, 
-che in questo caso cambia istante dopo istante: 
-\[v(t)=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt\] 
-L'espressione \(gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt\) diventa un numero 
-ben preciso per ogni valore di \(t\) e per ogni valore \(dt\), un iperreale
-finito che è la somma di un numero standard e di un numero infinitesimo.\\ 
-Se fissiamo l'attenzione su un certo istante, supponiamo 
-\(\overline{t}= 3s\), la velocità \(v(3)=9,81\cdot 3+\frac{1}{2}dt\) 
-non ha comunque un valore completamente fissato 
-perché dipende ancora dalla durata infinitesima \(dt\). 
-I \(dt\) possibili sono infiniti, ma questo non cambia granché nel 
-risultato, che si attesta sostanzialmente attorno al valore 
-\(9,81\cdot 3=29,43m/s\).\\
-Conosciamo già la funzione che ci consente di ottenere la parte sostanziale 
-di un risultato iperreale, cioè di trascurare la sua variabilità 
-residua dovuta agli infinitesimi: si tratta di applicare la funzione  
-la parte standard.
-\[ \pst{9,81t+\frac{1}{2}dt}=9,81t.\] 
-Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo 
-\(t\), dai secondi che passano a partire dall'istante del lancio.
+Per rispondere a questa domanda possiamo considerare i due istanti: 
+infinitamente vicini \(t_0 = 3 e t_1 = 3 + dt\) dove \(dt\) è un intervallo 
+di tempo infinitesimo.
 
- \begin{minipage}{0.3\textwidth}
+Applicando la legge del moto, possiamo calcolare lo spazio percorso nella 
+caduta: 
+\[ds(3, dt)=\frac{1}{2}g \cdot \tonda{3+dt}^2-\frac{1}{2}g \cdot 3^2= 
+\frac{1}{2}g\tonda{9+6 dt+(dt)^2}-\frac{1}{2}g \cdot 9 = 
+3 g\cdot dt+\frac{1}{2} g (dt)^2 =
+g \cdot dt \tonda{3+ \frac{1}{2} dt}\] 
+Lo spazio percorso in un tempo infinitesimo è ovviamente\dots infinitesimo.
+Ma dividendolo per l'intervallo infinitesimo di tempo, otteniamo:
+\[v(3, dt)=\frac{ds(3)}{dt}=
+  \frac{g \cdot dt \tonda{3+ \frac{1}{2} dt}}{dt}=
+  3g+\frac{1}{2}g dt\] 
+Che non è un valore infinitesimo. 
+Il risultato ottenuto, dipende dall'accelerazione \(g\) che per i nostri 
+scopi possiamo considerare costante, e da \(dt\) che invece può variare. Per 
+ogni valore di \(dt\) avremo una velocità diversa.
+La cosa interessante è che tutti questi diversi valori appartengono alla 
+galassia del numero \(3g\) e quindi hanno la stessa parte standard:
+\[\pst{3g+\frac{1}{2}g dt} = 3g = 29,43m/s\]
+% In pratica il calcolo precedente ci fornisce un insieme infinito di numeri 
+% iperreali, ma un solo numero reale (anzi nei casi pratici noi siamo 
+% interessati a numeri razionali).
+% Dividendo il tutto per \(dt\) si ottiene la velocità istantanea, 
+% che in questo caso cambia istante dopo istante: 
+% \[v(t)=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt\] 
+% L'espressione \(gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt\) diventa un numero 
+% ben preciso per ogni valore di \(t\) e per ogni valore \(dt\), un iperreale
+% finito che è la somma di un numero standard e di un numero infinitesimo.
+
+% Non è facile definire con precisione un istante di tempo: possiamo 
+% immaginare che sia un tempo assolutamente breve, un tempo di durata 
+% infinitesima.\\ 
+% Considerando valori di tempo istantanei siamo portati naturalmente a 
+% passare da valori \(t_1, \ t_2, \ \dots\), nell'insieme dei reali, a valori 
+% \(t_1, \ t_1+dt, \ t_1+2dt,\ \dots\ t_2, \ \dots\) nell'insieme degli
+% iperreali. 
+% È quindi il momento di usare le quantità infinitesime.\\ 
+% Chiamiamo \(dt\) 
+% % (in questo caso sarà \(dt > 0\)) 
+% un intervallo di tempo infinitesimo, fra due istanti successivi \(t\) e 
+% \(t+dt\). 
+% Lo spazio percorso nella caduta, in quell'intervallo di tempo, 
+% applicando la legge del moto, sarà: 
+% \[ds=\frac{1}{2}g\tonda{t+dt}^2-\frac{1}{2}gt^2= 
+% \frac{1}{2}g\tonda{t^2+2t\cdot 
+% dt+(dt)^2}-\frac{1}{2}gt^2= gt\cdot dt+\frac{1}{2}(dt)^2\] 
+% Dividendo il tutto per \(dt\) si ottiene la velocità istantanea, 
+% che in questo caso cambia istante dopo istante: 
+% \[v(t)=\frac{ds}{dt}=\frac{gtdt+\frac{1}{2}dt^2}{dt}=gt+\frac{1}{2}dt\] 
+% L'espressione \(gt+\frac{1}{2}dt=9,81t+\frac{1}{2}dt\) diventa un numero 
+% ben preciso per ogni valore di \(t\) e per ogni valore \(dt\), un iperreale
+% finito che è la somma di un numero standard e di un numero infinitesimo.
+% 
+% Se fissiamo l'attenzione su un certo istante, supponiamo 
+% \(\overline{t}= 3s\), la velocità \(v(3)=9,81\cdot 3+\frac{1}{2}dt\) 
+% non ha comunque un valore completamente fissato 
+% perché dipende ancora dalla durata infinitesima \(dt\). 
+% I \(dt\) possibili sono infiniti, ma questo non cambia granché nel 
+% risultato, che si attesta sostanzialmente attorno al valore 
+% \(9,81\cdot 3=29,43m/s\).\\
+% Conosciamo già la funzione che ci consente di ottenere la parte sostanziale 
+% di un risultato iperreale, cioè di trascurare la sua variabilità 
+% residua dovuta agli infinitesimi: si tratta di applicare la funzione  
+% la parte standard.
+% \[ \pst{9,81t+\frac{1}{2}dt}=9,81t.\] 
+% Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo 
+% \(t\), dai secondi che passano a partire dall'istante del lancio.
+
+\noindent \begin{minipage}{0.35\textwidth}
+Ripetendo i calcoli per diversi valori di \(t\):
  \begin{center}
-\begin{tabular}{cc}\toprule
-\(t\)        & \(v=9,81\times t\)  \\
-(in \(s\))   &   (in \(m/s\)) \\\midrule
-\(0\)        & \(0\)  \\
-\(1\)        & \(9,81\) \\
-\(2\)        & \(19,62\) \\
-\dots        & \dots \\
-\(3,6\)      & \dots  \\\bottomrule
+\begin{tabular}{ccc}\toprule
+\(t (s)\)      & \(s (m)\) & \(v(m/s)\)  \\\midrule
+\(0\)      & \(0\)                 & \(0\)  \\
+\(1\)      & \(4,41\)              & \(9,81\) \\
+\(2\)      & \(19,62\)             & \(19,62\) \\
+\(3\)      & \dots                 & \dots \\
+\(t\)      & \(s=\frac{1}{2}gt^2\) & \(v=9,81 \cdot t\) \\\bottomrule
 \end{tabular}
 \label{tab:diff_velocita}
 \end{center}
  \end{minipage}
   \hfill
- \begin{minipage}{.68 \textwidth}
-\affiancati{.48}{.48}{
+ \begin{minipage}{.63 \textwidth}
+\affiancati{.49}{.49}{
 \begin{inaccessibleblock}[Grafico tempo-spazio della caduta libera]
 \begin{center} \scalebox{1}{\tempospaziocaduta} \end{center}
 \end{inaccessibleblock}
@@ -191,32 +228,32 @@ Questa è la velocità istantanea che cerchiamo: dipende unicamente dal tempo
 Il grafico visualizza la legge oraria del 
 moto di caduta libera sotto due aspetti diversi: il ramo di parabola 
 (tempo/spazio) mostra che intervalli di tempo uguali a partire da istanti 
-diversi corrispondono a spazi progressivamente sempre maggiori. \\
-Infatti la retta (tempo-velocità) mostra che la progressione della 
-velocità è lineare: man mano che il tempo 
-scorre la velocità cresce proporzionalmente, come già si vede dalla tabella.
+diversi corrispondono a spazi progressivamente sempre maggiori. 
+
+Il grafico (tempo-velocità) mostra che la progressione della velocità 
+è lineare: man mano che il tempo scorre la velocità cresce 
+proporzionalmente, come già si vede dalla tabella.
 La formula \(v=9,81\times t\) ci permette il calcolo della velocità per 
 ogni valore reale di \(t\) e questa è la risposta alla domanda iniziale. 
 
 \subsection{La pendenza}
 \label{subsec:differenziazione_pendenza}
-Per studiare i moti in laboratorio, Galileo usava piani inclinati. 
+Per studiare il movimento, Galileo usava piani inclinati. 
 Una sferetta rotola lungo un piano inclinato con accelerazione diversa a 
 seconda dell'inclinazione del piano. 
 Minore è la pendenza del piano, minore è l'accelerazione costante, 
-minore è la velocità che la sferetta sviluppa a partire da ferma. \\
+minore è la velocità che la sferetta sviluppa a partire da ferma. 
+
 La pendenza del piano e la velocità che si sviluppa, da zero al massimo, 
-sono intimamente collegate. 
+sono collegate. 
 Se il piano è orizzontale, la sferetta ferma resta ferma e la velocità è 
 \(v=0\), come la pendenza. 
 Se il piano è verticale, la caduta è libera e la velocità progredisce 
-come in tabella
-% , teoricamente fino all'infinito, dato che la pendenza è infinita
-.
-
-Con il termine \emph{pendenza} intendiamo:
+come abbiamo visto nella tabella precedente. 
+Ma cos'è la pendenza? 
 \begin{definizione}
-Quanto varia l'altezza rispetto alla variazione in orizzontale. 
+Il termine \emph{pendenza} indica quanto varia l'altezza rispetto allo 
+spostamento orizzontale. 
 \end{definizione}
 
 % TODO: disegno di pendenza costante e pendenze variabili
@@ -231,7 +268,7 @@ rispetto alla variazione del suo argomento.
 % \[pendenzamedia = \frac{f(x_1) - f(x_0)}{x_1 - x_0}\]
 % Cioè il rapporto tra la variazione della funzione e la variazione delicate 
 % suo argomento.
-Per variazione intendiamo in cambiamento di valore, da un valore iniziale a 
+Per variazione intendiamo un cambiamento di valore, da un valore iniziale a 
 un valore finale. 
 Molto spesso invece di variazione si usa il termine \emph{incremento}, o 
 differenza.
@@ -305,7 +342,7 @@ cambia valore da \(x_0\) a \(x_0+\Delta\).
   \frac{f(x_0+\Delta)-f(x_0)}{(x_0+\Delta)- x_0}=
   \frac{\Delta f(x_0)}{\Delta}\]
 \end{definizione}
-L'incremento non è sempre lo stesso, dipende: 
+L'incremento della funzione non è sempre lo stesso, dipende: 
 \begin{itemize} [nosep]
 \item dalla funzione \(f\), 
 \item dal punto da cui si calcola \(x_0\), 
@@ -367,10 +404,10 @@ sposta su un rullo di carta tracciando una linea continua.
 In una situazione ideale, non legata a strumenti di misura necessariamente 
 imperfetti, consideriamo una funzione matematica e il suo grafico e andiamo 
 alla ricerca della pendenza della funzione. 
-% in un determinato punto. Questa 
-% volta, operando 
-Operando nell'insieme degli iperreali (\(\IR\)), potremo considerare 
-incrementi infinitamente piccoli. 
+
+Ora siamo interessati alla pendenza puntuale della funzione, non alla 
+pendenza media, per questo opereremo nell'insieme degli iperreali (\(\IR\)), 
+considerando incrementi infinitesimi. 
 Per ragioni storiche questi incrementi infinitesimi si chiamano 
 \emph{differenziali}.
 \begin{definizione}
@@ -381,24 +418,28 @@ che la funzione subisce a causa di una variazione infinitesima
 a partire da un valore fissato \(x_0\):
 \[df(x_0) = f \tonda{x_0 + \epsilon} - f(x_0)\]
 \end{definizione}
+
+\newpage %------------------------------------------
+
 Come già visto per l'incremento \(\Delta f\), anche il differenziale 
-\(df\) dipende 
+\(df\) dipende: 
 \begin{itemize} [nosep]
 \item dalla funzione, 
 \item dal valore \(x_0\) dove inizia la variazione della \(x\),
 \item dal suo incremento infinitesimo~\(\epsilon\).
 \end{itemize}
-Quindi il differenziale di una funzione \(df\) è esso stesso  una funzione:
+Quindi il differenziale di una funzione \(df\) è esso stesso una funzione 
+con \(3\) argomenti:
 \(d(f,~x_0,~\epsilon)\). 
 \begin{osservazione}
 Per segnalare che il simbolo \(df\) (oppure \(dx\), ecc.) non è il prodotto 
 fra due variabili 
-(cioè \(df\ne d \cdot f,\ dx\ne d\cdot x,\ \dots\)) ma indica 
+(cioè \(df \ne d \cdot f,\ dx \ne d\cdot x,\ \dots\)) ma indica 
 una differenza infinitesima, nella lettura si pronunciano:
 \textit{de effe, de ics}.
 \end{osservazione}
 
-\begin{minipage}{.48 \textwidth}
+\noindent \begin{minipage}{.48 \textwidth}
 \begin{esempio}
 Vogliamo calcolare l'incremento della 
 funzione:~\(f(x) = \dfrac{1}{4} x^2 -x -3\)
@@ -453,8 +494,8 @@ e l'incremento infinitesimo di \(x\), quando \(x\) cambia valore da
 \frac{df(x_0)}{\epsilon}\]
 \end{definizione}
 La differenza tra Rapporto Differenziale e Rapporto Incrementale sta nel 
-fatto che nel \(RD\) l'incremento è un numero iperreale infinitesimo, 
-nel \(RI\) l'incremento è un numero non infinitesimo.
+fatto che nel \(RI\) l'incremento è un numero non infinitesimo mentre 
+nel \(RD\) l'incremento è un numero iperreale infinitesimo.
 
 Continuando l'esempio precedente calcoliamo \(RD(f,~7,~\epsilon)\):
 \[RD(f,~7,~\epsilon) =
@@ -467,7 +508,7 @@ Continuando l'esempio precedente calcoliamo \(RD(f,~7,~\epsilon)\):
 %  , \quad \forall \epsilon \ne 0
 \]
 
-Ma il Rapporto Differenziale data una funzione e un punto, dipende 
+Ma il Rapporto Differenziale, data una funzione e un punto, dipende 
 dall'incremento \(\epsilon\) e quindi cambia al cambiare dell'infinitesimo. 
 E questo è un problema. 
 
@@ -499,14 +540,13 @@ infinitesimo, abbiamo ottenuto la pendenza della funzione in quel punto.
 \begin{definizione}
 La pendenza di una funzione \(f\), in un punto \(x_0\) del suo dominio, 
 è la parte standard del Rapporto Differenziale di \(f\) calcolato in 
-\(x_0\), se questa esiste ed è sempre la stessa, qualsiasi sia 
-l'incremento infinitesimo diverso da zero.
+\(x_0\), se questa esiste ed è sempre la stessa qualsiasi sia 
+l'incremento infinitesimo \(\epsilon\) diverso da zero.
 \end{definizione}
 
 La pendenza della funzione \(f\) nel punto \(x_0\) viene indicata con 
 \(f'(x_0)\):
 \[pendenza(f,~x_0) = f'(x_0)\]
-
 
 \begin{esempio}
 Calcoliamo per la stessa funzione la pendenza nel punto del vertice. 
