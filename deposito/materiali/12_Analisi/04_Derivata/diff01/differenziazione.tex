@@ -1262,12 +1262,23 @@ dover fare calcoli ogni volta:
 \]
 \begin{definizione}
 Una funzione per la quale si può calcolare la derivata si dice 
-derivabile.
-Cioè la sua pendenza è calcolabile per ogni valore \(x\) del suo dominio.
+\emph{derivabile}. 
+
+\(f\) può essere:
+\begin{itemize}[nosep, noitemsep]
+ \item derivabile per un particolare \(x_0\), se esiste \(f'(x_0)\);
+ \item derivabile in un sottoinsieme \(S\) del dominio di \(f\), se esiste 
+\(f'(x)\) per ogni \(x\in S\);
+ \item derivabile per ogni \(x\) del dominio di \(f\), nel qual caso si dice 
+brevemente che ``\(f\) è derivabile''
+\end{itemize}
+
+\end{definizione}
+
 % TODO in che senso la frase seguente?
 % Se non si specifica diversamente, si intende che la pendenza della 
 % funzione è calcolabile per ogni \(x\) del suo dominio.
-\end{definizione}
+
 
 Per evitare calcoli laboriosi come quelli dell'Esempio 
 \ref{esempio:esempio_5}, 
@@ -1480,7 +1491,8 @@ Calcola la derivata della funzione \(f(x)=-\dfrac{3}{2}x+5\).
   -\dfrac{3}{2} \cdot 1 + 0 = -\dfrac{3}{2}\]
 \end{esempio}
 
-% TODO: vale la pena inserire qui questo esempio complesso?
+% TODO: vale la pena inserire qui questo esempio complesso? 
+% Io lo lascerei (B)
 \begin{esempio}
  %valore assoluto
 È derivabile la funzione \(f(x)=-\dfrac{1}{2}|x-2|+2\)?
@@ -1531,16 +1543,19 @@ e a destra ha pendenza \(-\dfrac{1}{2}\), possiamo affermare che in \(2\)
 la funzione ha un \emph{punto angoloso}.
 \end{esempio}
 
+\begin{osservazione}
 Si può osservare che:
 \begin{itemize} [nosep]
 \item \(f\) è definita in tutto \(\R\),
 \item \(f\) è continua in tutto \(\R\),
 \item \(f\) non è derivabile in tutto \(\R\).
 \end{itemize}
-
 % TODO forse questo va messo nella zona definizioni
+% sarebbe un teorema, ma mi sembra di appesantire. va bene come 
+% osservazione?(B)
 Perché una funzione sia derivabile deve essere continua, ma non è detto 
 che se è continua sia anche derivabile.
+\end{osservazione}
 
 \subsubsection{Derivata di una funzione potenza con esponente naturale}
 \label{subsubsec:derivata_f_potenza_N}
@@ -1840,32 +1855,9 @@ la tesi è dimostrata.
 % % \end{figure}
 % \begin{center}Grafico di \(f(x)=\frac{1}{x}\) e di \(f'(x)\) \end{center}
 
-Se proseguiamo con gli esempi possiamo ricavare le regole di 
-derivazione per le potenze successive \(f(x)=\dfrac{1}{x^2}\), 
-\(f(x)=\dfrac{1}{x^3}\), e così via, con \(x\ne 0\). Ma ci arriviamo 
-più comodamente come segue.
-
 % TODO Sistemare
-
-\begin{center}\textbf{Da sistemare}\end{center}
-
-\begin{teorema}
-La regola della derivata di una funzione potenza vale anche se 
-l'esponente è un intero negativo, quindi vale anche con esponente 
-\(z\in\Z\).
-\end{teorema}
-
-\begin{proof}
- Riscriviamo: \(f(x)=\frac{1}{x}=x^{-1}\),\quad  \(f(x)=\dfrac{1}{x^2}= 
-x^{-2}\), \dots , \(f(x)=\dfrac{1}{x^n}=x^{-n}\), con \(n\in \N\). 
-Poiché \(n\geqslant 0\), fissiamo \(z=-n\), certamente positivo.
-Possiamo a questo punto riusare la regola delle funzioni potenza:
-\begin{align*}
-f(x)&=x^{-n}=x^z, \quad \text{con }x\ne 0.\quad  \text{Allora esiste la 
-derivata:}\\
-f'(x)&= zx^{z-1}=-nx^{-n-1}.
-\end{align*}
-\end{proof}
+%\begin{center}\textbf{Da sistemare}\end{center}
+% Ho spostato il teorema a dopo la regola del rapporto (B)
 
 \begin{esempio}
  Derivare \(f(x)=\dfrac{1}{x^2}\).\\
@@ -1874,6 +1866,13 @@ f'(x)&= zx^{z-1}=-nx^{-n-1}.
   f'(x)=-2x^{-2-1}=-2x^{-3}=\dfrac{-2}{x^3}.
  \end{align*}
 \end{esempio}
+
+Se proseguiamo con gli esempi possiamo ricavare le regole di 
+derivazione per le potenze successive \(f(x)=\dfrac{1}{x^2}\), 
+\(f(x)=\dfrac{1}{x^3}\), e così via, con \(x\ne 0\). Al termine di un certo 
+numero di calcoli ci troveremmo a confermare la regola già vista per 
+\(f(x)=x^n\). Ma ci arriveremo più comodamente grazie al successivo 
+teorema~\ref{teo:diff01_deri_x_alla_z}.
 
 \subsection{Derivata del quoziente di funzioni}
 \label{subsec:differenziazione_derivataquoziente}
@@ -1958,32 +1957,8 @@ funzioni diventa:
 %  f'(x) &=\dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}.
 % \end{align*}
 \end{proof}
-\begin{esempio}
- Applichiamo la regola alla funzione: 
-\(f(x) = \dfrac{g(x)}{h(x)} = \dfrac{1}{x}\), 
-\[
-f'= \dfrac{g'\cdot h - g \cdot h'}{h^2} =
-    \dfrac{\Deriv{1} \cdot x - 1 \cdot \Deriv{x}}{x^2} =
-    \dfrac{0 \cdot x - 1 \cdot 1}{x^2} = -\dfrac{1}{x^2}.
-\]
-% in cui poniamo \(g(x)=1\) e \(h(x)=x\), per cui 
-% \(g'(x)=0\) e \(h'(x)=1\).
-% \[
-% f'(x)= \dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}=\dfrac{0\cdot 
-% x-1\cdot 1}{x^2}=-\dfrac{1}{x^2}.
-% \]
-\end{esempio}
-
-\begin{esempio}
-Proviamo ora con \(f(x)= \dfrac{1}{x^2}\). 
-\[
-f'(x)= \dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}=
-\dfrac{0\cdot x^2-1\cdot 2x}{x^4}=-\dfrac{2}{x^3}.
-\]
-\end{esempio}
-
-Grazie quest'ultima regola siamo in grado di derivare funzioni 
-come la seguente:
+Ora che sappiamo derivare un rapporto fra funzioni, non avremo 
+problemi nel seguente esercizio.
 \begin{esempio}
  Calcola la pendenza della funzione \(f(x)=\dfrac{x^2}{x-2}\) nel punto 
 di ascissa \(x=1\).
@@ -2009,6 +1984,61 @@ f'(1)&=\dfrac{1^2-4\cdot 1}{(1-2)^2}=\dfrac{-3}{1}=-3
 
 Per \(x = 1\), la curva ha pendenza \(m = -3\).
 }
+
+\paragraph{Esempi sulle funzioni potenza \(f(x)=x^z\), con \(z\) intero 
+negativo (e \(x\ne 0\)).}
+\begin{esempio}
+ Applichiamo la regola del rapporto alla funzione: 
+\(f(x) = \dfrac{g(x)}{h(x)} = \dfrac{1}{x}\), con \(x\ne 0\):
+\[
+f'= \dfrac{g'\cdot h - g \cdot h'}{h^2} =
+    \dfrac{\Deriv{1} \cdot x - 1 \cdot \Deriv{x}}{x^2} =
+    \dfrac{0 \cdot x - 1 \cdot 1}{x^2} = -\dfrac{1}{x^2}.
+\]
+% in cui poniamo \(g(x)=1\) e \(h(x)=x\), per cui 
+% \(g'(x)=0\) e \(h'(x)=1\).
+% \[
+% f'(x)= \dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}=\dfrac{0\cdot 
+% x-1\cdot 1}{x^2}=-\dfrac{1}{x^2}.
+% \]
+\end{esempio}
+
+\begin{esempio}
+Proviamo ora con \(f(x)= \dfrac{1}{x^2}\), con \(x\ne 0\): 
+\[
+f'(x)= \dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}=
+\dfrac{0\cdot x^2-1\cdot 2x}{x^4}=-\dfrac{2}{x^3}.
+\]
+\end{esempio}
+
+\begin{esempio}
+\label{esempio:derivata_x_alla_z}
+Prendiamo ora il caso generale \(f(x)= x^{-n}=\dfrac{1}{x^n}\), 
+con \(n\in \N\) e con \(x\ne 0\).  
+\[
+f'(x)= \dfrac{g'(x)\cdot h(x)-g(x)\cdot h'(x)}{(h(x))^2}=
+\dfrac{0\cdot x^n-1\cdot nx^{n-1}}{x^{2n}}=-nx^{n-1-2n}=-nx^{-n-1}.
+\]
+\end{esempio}
+
+Quest'ultimo esempio è la dimostrazione del teorema che segue.
+\begin{teorema}
+\label{teo:diff01_deri_x_alla_z}
+La regola della derivata di una funzione potenza vale anche se 
+l'esponente è un intero negativo, quindi vale anche con esponente 
+\(z\in\Z\).
+\end{teorema}
+\noindent Ipotesi: \(f(x)=x^z\), con \(z\in \Z\), \(x\ne 0\) .\tab Tesi: 
+\(f'(x)=zx^{z-1}\).
+\begin{proof}
+ Se \(z\geqslant 0\), corrisponde a un numero naturale e quindi la regola è già 
+stata dimostrata. Se invece \(z<0\), basta applicare la regola del rapporto, 
+come nell'esempio~\ref{esempio:derivata_x_alla_z}.
+\end{proof}
+
+
+
+
 % %\begin{figure}[h]
 % \begin{inaccessibleblock}
 %   %\begin{center}
@@ -3499,7 +3529,7 @@ La seconda espressione della derivata della tangente si ottiene così:
 
 \begin{osservazione}
 Si può dimostrare lo stesso teorema anche usando le proprietà geometriche 
-delle funzioni circolari. Nel disegno in è rappresentato un 
+delle funzioni circolari. Nel disegno in è rappresentato un %TODO
 incremento non infinitesimo dell'arco \(x\), osserviamo che:
 
 \affiancati{.29}{.69}{
@@ -3659,7 +3689,7 @@ bisettrice del primo-terzo quadrante.
 Dobbiamo quindi imporre alla derivata il valore \(1\).
 \[\Deriv{4x^2-3x+6} = 8x-3 = 1 \srarrow x =\dfrac{1}{2} 
 \sstext{e il punto è:} 
-\punto{\dfrac{1}{2}}{\dfrac{11}{2}}\]
+\punto{\dfrac{1}{2}}{\dfrac{11}{2}}.\]
 \end{esempio}
 
 \begin{esempio}
@@ -3712,9 +3742,9 @@ Dunque la tangente ha una pendenza pari a \(-2\). Poiché il raggio e la
 tangente sono perpendicolari, la retta che contiene questo raggio avrà 
 pendenza \(-\dfrac{1}{-2}=\dfrac{1}{2}\).
 
-Se \(\Delta x\) è positiva, l'angolo è uguale a 
+Se \(\Delta x\) è positivo, l'angolo è uguale a 
 \(\arctan \dfrac{\Delta y}{\Delta x} = 
-  \arctan 0,5 \simeq 26,565 \neq 30\)
+  \arctan 0,5 \simeq 26,565^\circ \neq 30^\circ\).
 \end{esempio}
  
 \subsection{Derivata e normale}
@@ -3735,15 +3765,15 @@ Scrivi l'equazione della tangente e della normale alla curva di equazione
 \(y=\dfrac{x^2-1}{\ln x -1}\) nel suo punto di ascissa \(1\). 
 
 Calcoliamo la pendenza nel punto:
-\[f'(x)|_{x=1}=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
+\[f'(1)=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
 {(\ln x -1)^2}\bigg|_{x=1}=\dfrac{2\cdot 1(0-1)-(1-1)\cdot 
 1}{(0-1)^2}=-2\]
 Calcoliamo l'ordinata del punto: \tab
 \(\dfrac{1^2-1}{\ln 1 -1}=0=y_0\)\\
 L'equazione della tangente:
-\(y=-2(x-1)=-2x+2\)\\
+\(y=-2(x-1)=-2x+2\).\\
 L'equazione della normale: 
-\(y=\dfrac{1}{2}(x-1)=\dfrac{1}{2}x-\dfrac{1}{2}\)
+\(y=\dfrac{1}{2}(x-1)=\dfrac{1}{2}x-\dfrac{1}{2}\).
 \end{esempio}
 
 \begin{esempio}
@@ -3752,10 +3782,10 @@ Scrivi l'equazione della tangente e della normale alla curva di equazione
 
 \(y = f(1) = \dfrac{x^2+1}{\ln x +1} = \dfrac{1^2+1}{\ln 1 +1}= 
 \dfrac{1+1}{0 +1}= 2\)\\
-\(f'(x)|_{x=1}=
+\(f'(1)=
 \dfrac{2x(\ln x+1)-(x^2+1)\dfrac{1}{x}}{(\ln x +1)^2}\bigg|_{x=1}=
 \dfrac{2\cdot 1(0+1)-(1+1)\cdot 1}{(0+1)^2}=0\).\\
-La tangente è quindi la retta orizzontale: \(y=2\)\\
+La tangente è quindi la retta orizzontale: \(y=2\),
 di conseguenza la normale è la retta verticale: \(x=1\).
 \end{esempio}
 
@@ -3812,10 +3842,9 @@ Calcola \(f''(x)\) di \(f(x)=\ln x\).
 \begin{osservazione}
 La funzione \(\ln x\) esiste per \(x>0\). Le derivate prima e seconda 
 esistono per \(x\ne 0\).
-In generale, l'esistenza di una derivata (prima, seconda, terza \dots) è
-indipendente dall'esistenza della funzione da derivare. 
-% TODO:
-\textbf{?????????????}
+Osserviamo quindi che il campo di esistenza della funzione derivata (prima, 
+seconda, terza \dots) può non coincidere con il campo di esistenza della 
+funzione da derivare. 
 \end{osservazione}
 \end{esempio}
 
