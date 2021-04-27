@@ -2203,11 +2203,52 @@ tangente, perché l'errore che si commette è una quantità trascurabile anche
 rispetto a \(dx\).
 
 % TODO Differenziale standard
+% L'avevo eliminto, mi sembrava una questione troppo fine per gli
+% studenti. L'ho reintrodotta (B)
+
+\begin{osservazione}
+Il termine \emph{differenziale}, che usiamo a proposito di 
+\(df(x)\), corrisponde al concetto di incremento infinitesimo ed è 
+stato recuperato dal matematico A.Robinson in coerenza con l'uso 
+originario dell'epoca di Leibniz. 
+
+Lo stesso termine, tuttavia, viene usato anche in analisi standard, ma con un 
+significato diverso. In analisi standard il differenziale della funzione 
+\(\Delta f(x)\) è il prodotto \(f'(x)\cdot \Delta x= \Delta t(x)\), cioè 
+l'incremento che subisce la tangente \(t\) di \(f\), come se l'incremento lungo 
+la tangente e quello lungo la funzione fossero praticamente identici.
+
+\(\Delta f\) è una differenza espressa in numeri reali, una quantità 
+piccola a piacere, ma finita: non è infinitesima, percò non è trascurabile, 
+anzi può diventare rilevante.
+
+\begin{inaccessibleblock}
+  [differenziale della tangente]
+  \begin{minipage}[]{.4\textwidth}
+    \begin{center} \scalebox{1}{\falsodifferenziale} \end{center}
+ \end{minipage} 
+  \hfill
+ \begin{minipage}[]{.55\textwidth}
+ Allontanandosi da \(x_0\) di una quantità finita \(\Delta x\), le differenze 
+della funzione \(\Delta f(x)\), calcolate a partire da \(x_0\), possono 
+ essere anche molto diverse dalle differenze \(f'(x_0)\Delta x\), calcolate 
+lungo la tangente.
+
+Ai fini pratici l'equazione \(\Delta f= f'(x)\cdot \Delta 
+x\) è comunque utile, soprattutto se si studiano i fenomeni naturali, perché le 
+variazioni che si misurano in questi ambiti sono differenze finite. 
+\end{minipage}
+\end{inaccessibleblock}
+\label{}
+\end{osservazione}
 
 \subsection{Derivata di funzioni composte}
 \label{subsec:differenziazione_derivatacomposta}
 
 % TODO: da mettere questo pezzo nel capitolo sulle funzioni???
+% Direi di sì, ma poi deve essere ripreso qui perché si passa subito
+%al calcolo dei differenziali.
+% Lo stesso vale per le generalità sulla funzione inversa
 
 A volte può essere utile considerare una funzione complessa come la 
 composizione di funzioni più semplici. 
@@ -2632,16 +2673,21 @@ Una buona regola pratica per capire se esiste l'inversa di una funzione
 \(f\), è tagliare il grafico di \(f\) con una retta orizzontale: 
 se la retta incrocia il grafico di \(f\) in più punti, \(f^{-1}\) non esiste.
 \end{osservazione}
+\begin{osservazione}
+Si vede subito fin dai primi disegni che il grafico di \(f\) e il grafico 
+della sua inversa \(f^{-1}\) sono simmetrici. L'asse di simmetria è la retta 
+\(y=x\). 
+\end{osservazione}
 
-Ora vediamo come calcolare la derivata dell'inversa di una funzione di ci 
-conosciamo la derivata.
-
-Consideriamo il caso semplice che segue.
+Ora vediamo come calcolare la derivata dell'inversa di una funzione di cui 
+conosciamo la derivata. Consideriamo il caso semplice che segue.
 \begin{esempio}
 Derivare \(f(x)=\sqrt{x^2}\), con \(x \ge 0\).\\
-Si dirà: non c'è problema, \(f(x)\) corrisponde algebricamente a 
-\(f(x)=\sqrt{x^2}=x\), perciò  \(f'(x)=1\).\\
-Vero. Ma poniamo \(y=g(x)=x^2\) e \(f(x)=f(g(x))=\sqrt{g(x)}\).\\
+Si dirà: non c'è problema, poiché \(\sqrt{x^2}=x\), allora 
+\(\Deriv{\sqrt{x^2}}=\Deriv{x}\), perciò  \(f'(x)=1\).\\
+Vero. Ma poniamo \(g(x)=x^2\), che è la funzione inversa della radice quadrata, 
+allora \(f\) si può riscrivere come la funzione 
+composta \(f(x)=f(g(x))=\sqrt{g(x)}=\sqrt{x^2}\).\\
 Con la regola delle funzioni composte si ha:\\ 
 \(f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g(x)}}\cdot 2x =
 \dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x = 1\).\\
@@ -2693,10 +2739,11 @@ Quindi le derivate corrispondenti sono reciproche l'una con l'altra.
 % Firenze
 % Forse bisogna parlare di g inversa di f e non di g e f reciprocamente 
 % inverse.
+% Ruggero propone due versioni, ho scelto la prima, più semplice (dia 68) -B
 Le derivate di due funzioni \(f\), \(g\), inverse l'una dell'altra, se 
 esistono e sono diverse da zero, sono reciproche l'una rispetto all'altra.
 \end{teorema}
-\noindent Ipotesi: \(y=f(x)\), \(x=g(y)\) \(f\), \(g\) derivabili, con 
+\noindent Ipotesi: \(y=f(x)\), \(x=g(y)\), \(f\) e \(g\) derivabili, con 
 \(f'\ne0\), \(g'\ne 0\).
 \hspace{2cm} Tesi: \(f'(x)=\dfrac{1}{g'(y)}\).
 \begin{proof}
@@ -2718,18 +2765,21 @@ rapporto inverso. \\
 \end{osservazione}
 
 % TODO: esempio di applicazione del teorema
+% OK (B)
 
+\begin {esempio}
 A proposito della derivata delle funzioni potenza, abbiamo anticipato che la 
-regola \(f'(x)= \alpha x^{\alpha-1}\) vale anche con esponenti razionali. 
-Ora siamo in grado di giustificarlo:
+regola \(f'(x)= n x^{n-1}\) vale anche con esponenti razionali. 
+Ora siamo in grado di giustificarlo applicando il teorema precedente.\\
+
+\noindent Ipotesi: \(y=f(x)=\sqrt[m]{x}=x^\frac{1}{m}\), con \(m \in \N\).
+\tab Tesi: \(f'(x)= \dfrac{1}{m} x^{\frac{1}{m}-1}\).
 \begin{proof}
-Derivare \(y=f(x)=\sqrt[m]{x}\), con \(m \in \N\).\\
 Poiché l'inversa \(g(y)=y^m\) ha derivata \(g'(y)=my^{m-1}\), ricordando il 
 Teorema~\ref{teo:derinversa} calcoliamo:\\
 \(f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{my^{m-1}}=
   \dfrac{1}{m(\sqrt[m]{x})^{m-1}}=
-  \dfrac {1} {m} x^{-\frac{m-1}{m}}=\dfrac{1}{m} x^{\frac{1}{m}-1}\), 
-con \(x\ne 0\),\\
+  \dfrac  {x^{-\frac{m-1}{m}}}{m}=\dfrac{x^{\frac{1}{m}-1}}{m}\),\\
 ed è lo stesso risultato che si ottiene scrivendo \(f(x)=x^\frac{1}{m}\) e 
 derivando in base alla regola delle funzioni potenza.
 
@@ -2738,6 +2788,7 @@ analogo, anche avvalendosi del Teorema \ref{teo:diff01_dericomp}.
 Invece la dimostrazione valida per qualsiasi esponente reale è a 
 pag.~\pageref{teo:funzione_potenza_generica}.
 \end{proof}
+\end{esempio}
 
 \begin{esempio}
  Derivare \(y=f(x)=\sqrt[3]{x}\).\\
@@ -2840,7 +2891,7 @@ la \emph{pendenza è molto vicina a zero};
 \item per valori positivi dell'argomento la \emph{pendenza cresce molto 
 rapidamente}.
 \end{enumerate}
-Anche la funzione ha un andamento simile:
+Anche la funzione \(f'\) ha un andamento simile:
 \begin{enumerate} [nosep]
 \item la \emph{funzione è sempre positiva};
 \item per valori negativi (molto piccoli) dell'argomento, 
@@ -3072,7 +3123,7 @@ quindi il logaritmo naturale \(g(x) = \ln x\) e
 la funzione esponenziale \(f(x) = e^x\) sono due funzioni inverse una 
 dell'altra, dato che la loro composizione dà la funzione identica.
 
-Possiamo quindi usare il teorema della derivata delle funzioni inverse jper 
+Possiamo quindi usare il teorema della derivata delle funzioni inverse per 
 dimostrare il seguente
 \begin{teorema}
 La derivata della funzione logaritmo naturale è: 
@@ -3144,7 +3195,7 @@ Abbiamo ora tutti gli strumenti per convalidare l'osservazione al teorema
 \begin{teorema}
 \label{teo:funzione_potenza_generica}
 La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
-\(\Deriv{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha in \R\).
+\(\Deriv{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha \in \R\).
 \end{teorema}
 \noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
 \(\forall \alpha\).
@@ -3489,7 +3540,7 @@ La seconda espressione della derivata della tangente si ottiene così:
 
 \begin{osservazione}
 Si può dimostrare lo stesso teorema anche usando le proprietà geometriche 
-delle funzioni circolari. Nel disegno in è rappresentato un %TODO
+delle funzioni circolari. Nel disegno è rappresentato un %TODO
 incremento non infinitesimo dell'arco \(x\), osserviamo che:
 
 \affiancati{.29}{.69}{
