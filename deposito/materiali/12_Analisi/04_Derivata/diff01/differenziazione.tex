@@ -931,14 +931,18 @@ usando in modo coerente \emph{infinitesimi} e \emph{infiniti}.
 
 Nel grafico di \(f\), le diverse pendenze della curva di solito si colgono a 
 vista. Ma si possono anche disegnare? Se fosse possibile esprimerle con un 
-disegno sarebbe molto più facile confrontarle e interpretarle.\\
-Per provare a rispondere, ricordiamo il grafico \ref{graf:temperaturea}: 
-lì gli incrementi delle temperature, ora per ora, si riflettono nella 
-diversa inclinazione dei segmenti, che siamo abituati a calcolare con la 
-nota formula del coefficiente angolare. 
-È facile vedere che le stesse pendenze si calcolano anche con le 
-regole della procedura \ref{proc:ricetta_pendenza}. 
-Dimostriamolo. 
+disegno sarebbe molto più facile confrontarle e interpretarle.
+
+% Per provare a rispondere, ricordiamo il grafico \ref{graf:temperaturea}: 
+% lì gli incrementi delle temperature, ora per ora, si riflettono nella 
+% diversa inclinazione dei segmenti, che siamo abituati a calcolare con la 
+% nota formula del coefficiente angolare. 
+% È facile vedere che le stesse pendenze si calcolano anche con le 
+% regole della procedura \ref{proc:ricetta_pendenza}. 
+% Dimostriamolo. 
+
+% TODO: spostare nei teoremi
+\begin{comment}
 
 Consideriamo una retta generica, non verticale: \(y=mx+q\) 
 dove \(m\) e \(q\) sono numeri reali 
@@ -977,6 +981,8 @@ poiché il valore della parte standard non dipende da \(\epsilon\) \qed
 Poiché nel risultato non compare \(x_0\), il risultato ottenuto
 vale \(\forall x\): la pendenza di una retta è un valore costante.
 
+\end{comment}
+
 % Si tratta di un risultato molto utile per individuare le pendenze nei 
 % nostri grafici. 
 % 
@@ -992,100 +998,102 @@ vale \(\forall x\): la pendenza di una retta è un valore costante.
 % \end{definizione}
 % 
 
-\begin{esempio}
-Visualizza la pendenza della parabola:
-\(f(x) = -\dfrac{1}{4}x^2+2x +1\) \quad nel suo punto di ascissa:~\(x_P=8\).
-
-Prendiamo sulla curva un punto \(P'\), diverso da \(P\) a 
-distanza infinitesima da \(P\).
-
-L'ascissa di \(P'\) sarà \(x_{P'}=8+\delta\), 
-con \(\delta\) infinitesimo e diverso da zero.
-I nostri due punti sono quindi:
-\(P\punto{8}{f(8)}\) e \(P'\punto{8+\delta}{f(8+\delta})\).
-Per poter distinguere i due punti dovrò usare un microscopio con un 
-opportuno ingrandimento infinito.
-
-Calcoliamo i corrispondenti valori della funzione:
-
-\affiancati{.40}{.58}{
-\parabolaetangentea
-}{
-\begin{align*}
-f(8) &= -\frac{1}{4}8^2 + 2 \cdot 8 + 1 = -16+16+1 = +1\\
-f(8+\delta) &= -\frac{1}{4}\tonda{8+\delta}^2 + 2 \tonda{8+\delta} + 1 = \\
-&= -\frac{1}{4}\tonda{64+16\delta+\delta^2} + 16 + 2\delta + 1 =\\
-&= -16-4\delta-\frac{\delta^2}{4} + 16 + 2\delta + 1 =
-+1 - 2\delta -\frac{\delta^2}{4}
-\end{align*}
-}
-
-Quindi i due punti sono:
-\(P\punto{8}{1}\) e 
-\(P'\punto{8+\delta}{+1 - 2\delta -\dfrac{\delta^2}{4}}\).
-
-\affiancati{.58}{.40}{
-Ora possiamo calcolare la pendenza per questi due punti:
-\begin{align*}
-RD &= \frac{y_{P'} - y_{P}}{x_{P'} - x_{P}}=
-\frac{\cancel{+1} - 2\delta -\dfrac{\delta^2}{4}~ \cancel{-1}}
-     {8 + \delta - 8}= \\
-&=\frac{- 2\delta -\dfrac{\delta^2}{4}}{\delta}= 
-\frac{\delta \tonda{- 2-\dfrac{\delta}{4}}}{\delta}= 
-- 2-\dfrac{\delta}{4}.
-\end{align*}
-}{
-\parabolaetangenteb
-}
-Il Rapporto Differenziale della curva, vicino al punto \(P\)
-è \(-2-\dfrac{\delta}{4}\) 
-e dipende dal valore dell'infinitesimo \(\delta\).
-Quindi questo \(RD\) rappresenta infinite pendenze.
-Ma se trasformiamo ognuna di queste pendenze in un numero reale,
-usando la funzione \emph{parte standard} otteniamo sempre:
-% \(\pst{-2-\dfrac{\delta}{4}} = -2\).
-\[\pst{RD}=\pst{-2-\dfrac{\delta}{4}} = 
-  \pst{-2}-\pst{\dfrac{\delta}{4}} = -2 - 0 = -2\]
-Dato che questo valore non dipende dall'infinitesimo scelto, è proprio la 
-pendenza della funzione \(f\) nel punto di ascissa \(8\) e possiamo 
-rappresentare la pendenza disegnando una retta che passa per il punto 
-\(P\) che ha coefficiente angolare uguale alla pendenza, 
-cioè la sua tangente in \(P\).
-% \(-2-\dfrac{\delta}{4}\) è il Rapporto Differenziale della curva, 
-% calcolato nel tratto infinitesimo fra i punti \(P\) e \(P'\). 
-% Trattandosi di due punti sostanzialmente coincidenti, 
-% il tratto di curva \(PP'\) è sostanzialmente un segmento, che ha il 
-% coefficiente angolare espresso dal Rapporto Differenziale. 
-% Un metodo efficace per visualizzare la pendenza è proprio quello di 
-% disegnare 
-% la retta per \(PP'\). 
+% \begin{esempio}
+% Visualizza la pendenza della parabola:
+% \(f(x) = -\dfrac{1}{4}x^2+2x +1\) \quad nel suo punto di ascissa:~
+% \(x_P=8\).
 % 
-% Quante sono le rette che passano per \(PP'\)?\\
-% Sono infinite, perché il loro coefficiente angolare è 
-% \(-2-\dfrac{\delta}{4}\), 
-% che rappresenta infiniti numeri indistinguibili, sostanzialmente 
-% uguali a \(-2\). 
+% Prendiamo sulla curva un punto \(P'\), diverso da \(P\) a 
+% distanza infinitesima da \(P\).
 % 
-% Isoliamo una di queste rette, in modo che il suo disegno le rappresenti 
-% tutte. 
-% Per fare ciò, calcoliamo \(\pst{-2-\dfrac{\delta}{4}}\).
-% Possiamo farlo, dato che \(-2-\dfrac{\delta}{4}\) è un iperreale finito:
-% \[
-% \pst{RD}=\pst{-2-\dfrac{\delta}{4}} = \pst{-2}-\pst{\dfrac{\delta}{4}} =
-%   -2 - 0 = -2.
-% \]
-% Il risultato non dipende dal valore dell'infinitesimo \(\delta\), così 
-% possiamo concludere che la pendenza che cerchiamo è sostanzialmente 
-% \(-2\), sia per il tratto di curva, sia per la retta che passa per gli 
-% stessi punti.
+% L'ascissa di \(P'\) sarà \(x_{P'}=8+\delta\), 
+% con \(\delta\) infinitesimo e diverso da zero.
+% I nostri due punti sono quindi:
+% \(P\punto{8}{f(8)}\) e \(P'\punto{8+\delta}{f(8+\delta})\).
+% Per poter distinguere i due punti dovrò usare un microscopio con un 
+% opportuno ingrandimento infinito.
 % 
-% Nel piano cartesiano reale, cioè con numeri reali, \(P\) e \(P'\) 
-% coincidono, perciò \(-2\) è la pendenza della retta tangente.
-\end{esempio}
-
-In conclusione, ora abbiamo un metodo per calcolare la pendenza di una 
-curva in un suo punto ed anche un modo di mostrarla nel piano cartesiano: 
-con il disegno della tangente alla curva in quel punto. 
+% Calcoliamo i corrispondenti valori della funzione:
+% 
+% \affiancati{.40}{.58}{
+% \parabolaetangentea
+% }{
+% \begin{align*}
+% f(8) &= -\frac{1}{4}8^2 + 2 \cdot 8 + 1 = -16+16+1 = +1\\
+% f(8+\delta) &= 
+%    -\frac{1}{4}\tonda{8+\delta}^2 + 2 \tonda{8+\delta} + 1 = \\
+% &= -\frac{1}{4}\tonda{64+16\delta+\delta^2} + 16 + 2\delta + 1 =\\
+% &= -16-4\delta-\frac{\delta^2}{4} + 16 + 2\delta + 1 =
+% +1 - 2\delta -\frac{\delta^2}{4}
+% \end{align*}
+% }
+% 
+% Quindi i due punti sono:
+% \(P\punto{8}{1}\) e 
+% \(P'\punto{8+\delta}{+1 - 2\delta -\dfrac{\delta^2}{4}}\).
+% 
+% \affiancati{.58}{.40}{
+% Ora possiamo calcolare la pendenza per questi due punti:
+% \begin{align*}
+% RD &= \frac{y_{P'} - y_{P}}{x_{P'} - x_{P}}=
+% \frac{\cancel{+1} - 2\delta -\dfrac{\delta^2}{4}~ \cancel{-1}}
+%      {8 + \delta - 8}= \\
+% &=\frac{- 2\delta -\dfrac{\delta^2}{4}}{\delta}= 
+% \frac{\delta \tonda{- 2-\dfrac{\delta}{4}}}{\delta}= 
+% - 2-\dfrac{\delta}{4}.
+% \end{align*}
+% }{
+% \parabolaetangenteb
+% }
+% Il Rapporto Differenziale della curva, vicino al punto \(P\)
+% è \(-2-\dfrac{\delta}{4}\) 
+% e dipende dal valore dell'infinitesimo \(\delta\).
+% Quindi questo \(RD\) rappresenta infinite pendenze.
+% Ma se trasformiamo ognuna di queste pendenze in un numero reale,
+% usando la funzione \emph{parte standard} otteniamo sempre:
+% % \(\pst{-2-\dfrac{\delta}{4}} = -2\).
+% \[\pst{RD}=\pst{-2-\dfrac{\delta}{4}} = 
+%   \pst{-2}-\pst{\dfrac{\delta}{4}} = -2 - 0 = -2\]
+% Dato che questo valore non dipende dall'infinitesimo scelto, è proprio la 
+% pendenza della funzione \(f\) nel punto di ascissa \(8\) e possiamo 
+% rappresentare la pendenza disegnando una retta che passa per il punto 
+% \(P\) che ha coefficiente angolare uguale alla pendenza, 
+% cioè la sua tangente in \(P\).
+% % \(-2-\dfrac{\delta}{4}\) è il Rapporto Differenziale della curva, 
+% % calcolato nel tratto infinitesimo fra i punti \(P\) e \(P'\). 
+% % Trattandosi di due punti sostanzialmente coincidenti, 
+% % il tratto di curva \(PP'\) è sostanzialmente un segmento, che ha il 
+% % coefficiente angolare espresso dal Rapporto Differenziale. 
+% % Un metodo efficace per visualizzare la pendenza è proprio quello di 
+% % disegnare 
+% % la retta per \(PP'\). 
+% % 
+% % Quante sono le rette che passano per \(PP'\)?\\
+% % Sono infinite, perché il loro coefficiente angolare è 
+% % \(-2-\dfrac{\delta}{4}\), 
+% % che rappresenta infiniti numeri indistinguibili, sostanzialmente 
+% % uguali a \(-2\). 
+% % 
+% % Isoliamo una di queste rette, in modo che il suo disegno le rappresenti 
+% % tutte. 
+% % Per fare ciò, calcoliamo \(\pst{-2-\dfrac{\delta}{4}}\).
+% % Possiamo farlo, dato che \(-2-\dfrac{\delta}{4}\) è un iperreale finito:
+% % \[
+% % \pst{RD}=\pst{-2-\dfrac{\delta}{4}} = \pst{-2}-\pst{\dfrac{\delta}{4}} =
+% %   -2 - 0 = -2.
+% % \]
+% % Il risultato non dipende dal valore dell'infinitesimo \(\delta\), così 
+% % possiamo concludere che la pendenza che cerchiamo è sostanzialmente 
+% % \(-2\), sia per il tratto di curva, sia per la retta che passa per gli 
+% % stessi punti.
+% % 
+% % Nel piano cartesiano reale, cioè con numeri reali, \(P\) e \(P'\) 
+% % coincidono, perciò \(-2\) è la pendenza della retta tangente.
+% \end{esempio}
+% 
+% In conclusione, ora abbiamo un metodo per calcolare la pendenza di una 
+% curva in un suo punto ed anche un modo di mostrarla nel piano cartesiano: 
+% con il disegno della tangente alla curva in quel punto. 
 
 \subsubsection{Derivata di una funzione}
 \label{subsec:differenziazione_derivatafunzione}
@@ -1098,103 +1106,188 @@ e questa esiste, non dipende dalla particolare scelta dell'infinitesimo
 quindi la pendenza della funzione, se esiste, dipende solo dal punto preso 
 in considerazione: \(x_0\).
 
-Quindi, per ogni funzione \(f\), si può considerare una ulteriore funzione:  
-``pendenza di \(f\)''. \\
-``pendenza di \(f\)'' ha come argomento un numero reale, \(x\), 
-e ha come risultato un altro numero reale, cioè la pendenza della curva che 
-rappresenta \(f\) nel piano cartesiano.
+Quindi, per ogni funzione reale \(f\), si può considerare la funzione: 
+``pendenza di \(f\)'' che associa ad ogni valore di \(x\) la pendenza 
+della funzione \(f\) in quel punto. 
 
-Questa funzione viene chiamata derivata della funzione \(f\) 
+La funzione ``pendenza di \(f\)'' è quindi una funzione reale, 
+viene chiamata derivata della funzione \(f\) 
 e viene indicata con \(f'\).
 
+% QUALE DELLE DUE?
+
 \begin{definizione}
-Chiamiamo \emph{derivata} della funzione \(f\) la funzione \(f'\) che
-ha come argomento \(x\) e come risultato la pendenza della funzione 
-\(f\) nel punto di ascissa \(x\).
+Indichiamo con il termine \emph{derivata} la funzione \(f'(x)\) che, al 
+variare di \(x\) ha come risultato la corrispondente pendenza della 
+funzione \(f(x)\).
+\[f'(x) = \text{pendenza di } f(x)\]
 \end{definizione}
 
-\(f'\) quindi ci dà la formula per calcolare le pendenze 
-di \(f\). Questa formula, ovviamente diversa da funzione a funzione, 
-si applica all'espressione di \(f\) secondo il procedimento in 
-\ref{proc:ricetta_pendenza}, come negli esempi.
+% \begin{definizione}
+% Chiamiamo \emph{derivata} della funzione \(f\) la funzione \(f'\) che
+% ha come argomento \(x\) e come risultato la pendenza della funzione 
+% \(f\) nel punto di ascissa \(x\).
+% \[f'(x) = \text{pendenza di } f(x)\]
+% \end{definizione}
+
+Se conosciamo la funzione \(f'\) derivata di una funzione \(f\) per 
+trovare la pendenza di \(f\) nel punto \(x_0\), no occorre che facciamo 
+tutti i calcoli visti precedentemente ma basta che calcoliamo il valore 
+di \(f'(x_0)\): 
+\[\text{pendenza di } f(x_0) = f'(x_0)\]
+% \(f'\) quindi ci dà la formula per calcolare le pendenze 
+% di \(f\). Questa formula, ovviamente diversa da funzione a funzione, 
+% si applica all'espressione di \(f\) secondo il procedimento in 
+% \ref{proc:ricetta_pendenza}, come negli esempi.
+Trovare un modo semplice per calcolare la derivata può semplificare di 
+molto i calcoli.
+
+Nel seguente esempio cerchiamo di intuire qual è la funzione derivata 
+calcolando le pendenze di una funzione e riportandole sul piano cartesiano.
 
 \begin{esempio}
 \label{esempio:esempio_5}
-Se \(f(x)=\dfrac{1}{3}x^2-2x+5\), quale è l'espressione di \(f'(x)\)?
- 
-Non essendo indicato un particolare valore di \(x_0\), proviamo a inventarne 
-qualcuno. Per esempio, per \(x_0=4\) scriviamo:
-\begin{align*}
- &\forall \delta\ne 0:\quad x_0= 4\quad\quad 
-f(x_0)=f(4)=\frac{1}{3}(4)^2-2\cdot 4+5 = \dfrac{7}{3}\\
-&\pst{\dfrac{f(x_0+\delta)+f(x_0)}{\delta}}=
-\dfrac{\dfrac{1}{3}(4+\delta)^2-2(4+\delta) + 5 - 
-(\dfrac{1}{3}4^2-2\cdot 4+5)}{\delta}=\dots
-\end{align*}
-Al termine di alcuni tentativi, il quadro della situazione è:
+Se \(f(x)=\dfrac{1}{2}x^2+2x+4\), quale è l'espressione di \(f'(x)\)?
 
- \begin{minipage}{0.48\textwidth}
- \begin{center}
+Calcoliamo \(f'(x)\) per alcuni valori di \(x\).
+
+\begin{align*}
+f'(-6) &= \pst{\dfrac{df(-6)}{\epsilon}}=
+   \pst{\dfrac{\dfrac{1}{2}(-6+\epsilon)^2+2(-6 +\epsilon)+4 - 
+              \dfrac{1}{2}(-6)^2-2(-6)-4}
+              {\epsilon}} = \\
+&= \pst{\dfrac{18 - 6\epsilon +\epsilon^2 -12 +2\epsilon +4 - 10}
+              {\epsilon}} = 
+   \pst{\dfrac{-4\epsilon +\epsilon^2}{\epsilon}} = -4 \\
+f'(-5) &= \dots
+\end{align*}
+Al termine di molti calcoli, il quadro della situazione è:
+
+\affiancati{.49}{.49}{
+\begin{center}
 \begin{tabular}{ccc}\toprule
-\(x_0\) & \(f(x_0)=\dfrac{1}{3}x_0^2-2x_0+5\) & \(f'(x_0)=?\) \\\midrule
-\(-2\) & \(31/3\) &  \(-10/3\)\\ 
-\(-1\) & \(22/3\) &  \(-8/3\) \\
-\(0\)  & \(5\)    & \(-2\)  \\
-\(1\)  & \(10/3\) & \(-4/3\) \\
-\(2\)  & \(7/3\)  & \(-2/3\)\\
-\(3\)  & \(2\)    & \(0\)\\
-\(4\)  & \(7/3\)  &\dots \\
-\(5\)  & \(10/3\) \\
-\(6\)  & \dots   \\
+\(x_0\) & \(f(x_0)=\dfrac{1}{2}x_0^2+2x_0+4\) & \(f'(x_0)=?\) \\\midrule
+\(-6\)  & \(+10\)   &  \(-4\)\\ 
+\(-5\)  & \(6+1/2\) &  \(-3\) \\
+\(-4\)  & \(+4\)    & \(-2\)  \\
+\(-3\)  & \(2+1/2\) & \(-1\) \\
+\(-2\)  & \(+2\)    & \(-0\)\\
+\(-1\)  & \(2+1/2\) & \(1\)\\
+\(0\)   & \(+4\)    &\dots \\
+\(+1\)  & \(6+1/2\) & \dots \\
+\(+2\)  & \dots     & \dots  \\
 \(\dots\)  
 \end{tabular}
 \label{tab:derivataa}
 \end{center}
-\end{minipage}
- \hfill
-\begin{minipage}{.48 \textwidth}
-\begin{inaccessibleblock}[Grafico di una funzione e della sua derivata.]
+}{
+\begin{inaccessibleblock}[Grafico di una parabola e della sua derivata.]
 \begin{center} \scalebox{.7}{\funzioneederivata} \end{center}
 \end{inaccessibleblock}
 \label{graf:funzioneederivata}
-\end{minipage}
+}
+Risulta evidente che la derivata della funzione 
+\(f(x)=\dfrac{1}{2}x^2+2x+4\) \quad è \quad 
+\(f'(x) = x +2\).
+
+% Non essendo indicato un particolare valore di \(x_0\), proviamo a inventarne 
+% qualcuno. Per esempio, per \(x_0=4\) scriviamo:
+% \begin{align*}
+%  &\forall \delta\ne 0:\quad x_0= 4\quad\quad 
+% f(x_0)=f(4)=\frac{1}{3}(4)^2-2\cdot 4+5 = \dfrac{7}{3}\\
+% &\pst{\dfrac{f(x_0+\delta)+f(x_0)}{\delta}}=
+% \dfrac{\dfrac{1}{3}(4+\delta)^2-2(4+\delta) + 5 - 
+% (\dfrac{1}{3}4^2-2\cdot 4+5)}{\delta}=\dots
+% \end{align*}
+% Al termine di alcuni tentativi, il quadro della situazione è:
+% 
+% \begin{minipage}{0.48\textwidth}
+% \begin{center}
+% \begin{tabular}{ccc}\toprule
+% \(x_0\) & \(f(x_0)=\dfrac{1}{3}x_0^2-2x_0+5\) & \(f'(x_0)=?\) \\\midrule
+% \(-2\) & \(31/3\) &  \(-10/3\)\\ 
+% \(-1\) & \(22/3\) &  \(-8/3\) \\
+% \(0\)  & \(5\)    & \(-2\)  \\
+% \(1\)  & \(10/3\) & \(-4/3\) \\
+% \(2\)  & \(7/3\)  & \(-2/3\)\\
+% \(3\)  & \(2\)    & \(0\)\\
+% \(4\)  & \(7/3\)  &\dots \\
+% \(5\)  & \(10/3\) \\
+% \(6\)  & \dots   \\
+% \(\dots\)  
+% \end{tabular}
+% \label{tab:derivataa}
+% \end{center}
+% \end{minipage}
+%  \hfill
+% \begin{minipage}{.48 \textwidth}
+% \begin{inaccessibleblock}[Grafico di una funzione e della sua derivata.]
+% \begin{center} \scalebox{.7}{\funzioneederivata} \end{center}
+% \end{inaccessibleblock}
+% \label{graf:funzioneederivata}
+% \end{minipage}
 \end{esempio}
-Per ogni particolare \(x_0\) risulta uno e un solo valore di pendenza, come 
-deve succedere quando due insiemi (quello degli \(x_0\) e quello di 
-\(f'(x_0)\)) si corrispondono secondo una funzione. 
-In questo caso i valori della pendenza si allineano lungo una retta.
+Ma noi stiamo cercando la derivata di una funzione per ridurre il numero 
+di calcoli da fare nell'esempio precedente invece ne abbiamo fatti 
+molti\dots così non è efficiente.
 
-Calcoliamo la pendenza della funzione in un generico punto \(x\).
-Iniziamo calcolando il Rapporto Differenziale:
-\begin{align*}RD = \dfrac{f(x + \epsilon) - f(x)}{\epsilon} &=
-  \dfrac{\dfrac{1}{3}(x+\epsilon)^2-2(x+\epsilon) + 5 - 
-          (\dfrac{1}{3}x^2-2\cdot x+5)}
-        {\epsilon} = \\
-&= \dfrac{\cancel{\dfrac{1}{3}x^2}+\dfrac{2}{3} \epsilon x 
-          +\dfrac{1}{3}\epsilon^2~\cancel{-2x}-2\epsilon~\cancel{+5} - 
-          \cancel{\dfrac{1}{3}x^2}~\cancel{+2x}~\cancel{-5}}
-         {\epsilon}=\\
-&= \dfrac{+\dfrac{2}{3} \epsilon x 
-          +\dfrac{1}{3}\epsilon^2-2\epsilon}
-         {\epsilon}=
-= \dfrac{\cancel{\epsilon} \tonda{+\dfrac{2}{3}x -2+\dfrac{1}{3}\epsilon}}
-        {\cancel{\epsilon}}=
-\dfrac{2}{3}x-2+\dfrac{1}{3}\epsilon
+Proviamo a seguire un'altra strada.
+\begin{esempio}
+Calcola la pendenza di \(f(x)=\dfrac{1}{2}x^2+2x+4\) in un generico 
+punto \(x\).
+
+Questa volta ripetiamo i calcoli dell'esempio precedente, ma senza assegnare 
+ad \(x\) un valore numerico:
+\begin{align*}
+df(x) &= \dfrac{1}{2}(x+\epsilon)^2+2(x +\epsilon)+4 - 
+              \dfrac{1}{2}(x)^2-2(x)-4 = \\
+&= \dfrac{x^2}{2}+x\epsilon+\dfrac{\epsilon^2}{2} +
+               2x+2\epsilon+4 - \dfrac{x^2}{2}-2x-4 = 
+   x\epsilon+\dfrac{\epsilon^2}{2}+2\epsilon \\
+RD &= \dfrac{\cancel{\epsilon} \tonda{x+\dfrac{\epsilon}{2}+2}}
+            {\cancel{\epsilon}} = x+\dfrac{\epsilon}{2}+2\\
+f'(x) &= \pst{x+\dfrac{\epsilon}{2}+2} = x +2
 \end{align*}
-Abbiamo ottenuto una funzione che rappresenta senz'altro un numero finito 
-dato che è la somma algebrica di 3 numeri finiti.
-Possiamo dunque calcolarne la parte standard:
-\[\pst{\dfrac{2}{3}x-2+\dfrac{1}{3}\epsilon}=
-  \pst{\dfrac{2}{3}x}-\pst{2}+\pst{\dfrac{1}{3}\epsilon}=
-  \dfrac{2}{3}x-2\]
-Il valore ottenuto è indipendente dall'infinitesimo \(\epsilon \neq 0\) 
-e quindi rappresenta la pendenza di \(f\) in funzione di \(x\):
-\[f(x) = \dfrac{1}{3}x^2-2x+5 \sRarrow f'(x) = \dfrac{2}{3}x-2\]
+Come sempre dobbiamo controllare che il Rapporto Differenziale sia 
+un numero finito e che la parte standard non dipenda dal particolare 
+infinitesimo \(\epsilon \ne 0\) scelto.
+\end{esempio}
 
-\begin{definizione}
-Indichiamo con il termine \emph{derivata} la funzione che, al variare di 
-\(x\) rappresenta la corrispondente pendenza della funzione \(f\).
-\end{definizione}
+Questa volta, abbiamo trovato la funzione derivata \(f'(x)\) con un unico 
+calcolo\dots\\
+\dots ma la prossima sezione ci permetterà di rendere il calcolo molto più 
+semplice.
+% Per ogni particolare \(x_0\) risulta uno e un solo valore di pendenza, come 
+% deve succedere quando due insiemi (quello degli \(x_0\) e quello di 
+% \(f'(x_0)\)) si corrispondono secondo una funzione. 
+% In questo caso i valori della pendenza si allineano lungo una retta.
+% 
+% Calcoliamo la pendenza della funzione in un generico punto \(x\).
+% Iniziamo calcolando il Rapporto Differenziale:
+% \begin{align*}RD = \dfrac{f(x + \epsilon) - f(x)}{\epsilon} &=
+%   \dfrac{\dfrac{1}{3}(x+\epsilon)^2-2(x+\epsilon) + 5 - 
+%           (\dfrac{1}{3}x^2-2\cdot x+5)}
+%         {\epsilon} = \\
+% &= \dfrac{\cancel{\dfrac{1}{3}x^2}+\dfrac{2}{3} \epsilon x 
+%           +\dfrac{1}{3}\epsilon^2~\cancel{-2x}-2\epsilon~\cancel{+5} - 
+%           \cancel{\dfrac{1}{3}x^2}~\cancel{+2x}~\cancel{-5}}
+%          {\epsilon}=\\
+% &= \dfrac{+\dfrac{2}{3} \epsilon x 
+%           +\dfrac{1}{3}\epsilon^2-2\epsilon}
+%          {\epsilon}=
+% = \dfrac{\cancel{\epsilon} \tonda{+\dfrac{2}{3}x -2+\dfrac{1}{3}\epsilon}}
+%         {\cancel{\epsilon}}=
+% \dfrac{2}{3}x-2+\dfrac{1}{3}\epsilon
+% \end{align*}
+% Abbiamo ottenuto una funzione che rappresenta senz'altro un numero finito 
+% dato che è la somma algebrica di 3 numeri finiti.
+% Possiamo dunque calcolarne la parte standard:
+% \[\pst{\dfrac{2}{3}x-2+\dfrac{1}{3}\epsilon}=
+%   \pst{\dfrac{2}{3}x}-\pst{2}+\pst{\dfrac{1}{3}\epsilon}=
+%   \dfrac{2}{3}x-2\]
+% Il valore ottenuto è indipendente dall'infinitesimo \(\epsilon \neq 0\) 
+% e quindi rappresenta la pendenza di \(f\) in funzione di \(x\):
+% \[f(x) = \dfrac{1}{3}x^2-2x+5 \sRarrow f'(x) = \dfrac{2}{3}x-2\]
 
 \begin{comment}
 
