@@ -779,16 +779,110 @@
 %     }
 % }
 
-\newcommand{\derivamodulouno}{% derivate val ass.
-    \disegnod{4.5}{
-    \rcom{-4}{+4}{-2}{+6}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-4.3, xmax=+6.3, ymin=-4.3, ymax=+4.3]
-     \tkzFct[ultra thick, color=blue!50!black, domain=0:4.0]{x}
-     \tkzFct[ultra thick, color=blue!50!black, domain=-4:0]{-x}
-     %\tkzFct[thick, color=Cyan!50!black, domain=:+2]{-x}
-    % \filldraw (2, 2) circle (1.4pt);
+\newcommand{\pendenzadestra}{% funzione definita solo per x>=0
+  \def \fa{sqrt(x*x*x)+x}
+  \def \fde{x}
+  \def \mix{-1}
+  \def \max{+3}
+  \def \miy{-1}
+  \def \may{+3}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=0:\max+0.3, ultra thick, \fcolor] {\fa}
+    \tkzFct[domain=0:\max+0.3, ultra thick, opacity=.3, \dcolor] {\fde}
+  }
+}
+
+\newcommand{\rdinfinito}{% funzione con flesso verticale
+  \def \faa{-(-x-1)**(1./3)}
+  \def \fab{(x+1)**(1./3)}
+  \def \mix{-2}
+  \def \max{+2}
+  \def \miy{-2}
+  \def \may{+2}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:-1, ultra thick, \fcolor] {\faa}
+    \tkzFct[domain=-1:\max+0.3, ultra thick, \fcolor] {\fab}
+    \draw [ultra thick, opacity=.3, \dcolor] 
+          (-1, \miy-0.3) -- (-1, \may+0.3);
+  }
+}
+
+\newcommand{\derivamodulouno}{% funzione con modulo
+  \def \fa{sqrt(3*x*x)}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-1}
+  \def \may{+6}
+  \disegno[5]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
     }
 }
+
+\newcommand{\funzioneetangente}{% funzione con una sua tangente in un punto
+  \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+  \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+  \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fu}
+  \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+          {\fde}
+  \filldraw \punto [opacity=.7, \fcolor] circle(1.5pt);
+}
+
+\newcommand{\duefunzionietangente}{% f. a tratti con una sua tan. in un pnt.
+  \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+  \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+  \tkzFct[domain=\mix-0.3:\mafua, ultra thick, \fcolor] {\fua}
+  \tkzFct[domain=\mifub:\max+0.3, ultra thick, \fcolor] {\fub}
+  \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+          {\fde}
+  \filldraw \punto [opacity=.7, \fcolor] circle(1.5pt);
+}
+
+\newcommand{\pendenzacubica}{% pendenza di una cubica
+  \def \fu{-\x*\x*\x -2*\x*\x +\x +1}
+  \def \fde{+x +1}
+  \def \punto{(0, 1)}
+  \def \mix{-4}
+  \def \max{+3}
+  \def \miy{-6}
+  \def \may{+6}
+  \disegno{\funzioneetangente}
+}
+
+\newcommand{\pendenzaomografica}{% pendenza di una omografica
+  \def \fua{(2*\x +5)/(2*\x -6)}
+  \def \fub{\fua}
+  \def \mafua{2.8}
+  \def \mifub{3.2}
+  \def \fde{-11./32*x -23./32}
+  \def \punto{(-1, -3./8)}
+  \def \mix{-5}
+  \def \max{+7}
+  \def \miy{-6}
+  \def \may{+8}
+  \disegno[3.5]{\duefunzionietangente}
+}
+
+% \newcommand{\pendenzacubica}{% pendenza di una cubica
+%   \def \fu{-x*x*x -2*x*x +x +1}
+%   \def \fde{+x +1}
+%   \def \mix{-7}
+%   \def \max{+7}
+%   \def \miy{-7}
+%   \def \may{+7}
+%   \disegno{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fu}
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, , opacity=.3, \dcolor] 
+%            {\fde}
+%   }
+% }
 
 \newcommand{\derivamodulodue}{% funzione e derivata val ass.
   \def \fa{-.5*abs(x-2)+2}

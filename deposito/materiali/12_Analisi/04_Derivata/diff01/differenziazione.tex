@@ -76,8 +76,8 @@ Il percorso tipico di soluzione di un problema sarà:
 numero reale.
 \end{enumerate}
 
-\section{Introduzione}
-\label{sec:differenziazione_introduzione}
+\section{Definizioni}
+\label{sec:differenziazione_definizioni}
 Il problema di determinare la velocità istantanea ci ha portati a conoscere 
 i numeri infinitesimi e, attraverso questi, l'insieme dei numeri iperreali.
 Ora siamo in grado di cercare la risposta alla domanda rimasta in sospeso: 
@@ -86,8 +86,8 @@ La risposta, che conosciamo nelle forme moderne da più di 400 anni,
 propone al nostro studio un nuovo potentissimo strumento di calcolo, 
 adatto a risolvere problemi in ogni ambito scientifico: la derivata.
 
-\subsection{Velocità di caduta}
-\label{subsec:differenziazione_velcaduta}
+\subsection{Introduzione}
+\label{subsec:differenziazione_introduzione}
 Nel Settecento fiorirono alcune leggende su Galileo Galilei. Una di queste 
 racconta che per dimostrare che i gravi cadono con la stessa velocità, 
 gettò dalla Torre di Pisa due sfere di peso diverso, ma di uguali 
@@ -120,6 +120,7 @@ corrisponde a circa \(60 km/h\).
 % che corrisponde a circa \(60 km/h\).
 
 \subsubsection{La velocità istantanea}
+\label{subsubsec:differenziazione_velocita_istantanea}
 
 Ma questo non ci dice niente riguardo la velocità che l'oggetto ha in un 
 determinato istante: ad esempio quale sarà la velocità 
@@ -236,7 +237,7 @@ proporzionalmente, come già si vede dalla tabella.
 La formula \(v=9,81\times t\) ci permette il calcolo della velocità per 
 ogni valore reale di \(t\) e questa è la risposta alla domanda iniziale. 
 
-\subsection{La pendenza}
+\subsubsection{Il problema della pendenza}
 \label{subsec:differenziazione_pendenza}
 Per studiare il movimento, Galileo usava piani inclinati. 
 Una sferetta rotola lungo un piano inclinato con accelerazione diversa a 
@@ -256,16 +257,8 @@ Il termine \emph{pendenza} indica quanto varia l'altezza rispetto allo
 spostamento orizzontale. 
 \end{definizione}
 
-% TODO: disegno di pendenza costante e pendenze variabili
-
-Useremo il termine \emph{pendenza} in un suo significato più generale:
-\begin{definizione}
-La \emph{pendenza} è la rapidità con cui varia una certa funzione reale, 
-rispetto alla variazione del suo argomento. 
-\end{definizione}
-
 % La pendenza media di una funzione in un punto \(x_0\) è data da:
-% \[pendenzamedia = \frac{f(x_1) - f(x_0)}{x_1 - x_0}\]
+% \[\text{pendenza}media = \frac{f(x_1) - f(x_0)}{x_1 - x_0}\]
 % Cioè il rapporto tra la variazione della funzione e la variazione delicate 
 % suo argomento.
 Per variazione intendiamo un cambiamento di valore, da un valore iniziale a 
@@ -273,8 +266,8 @@ un valore finale.
 Molto spesso invece di variazione si usa il termine \emph{incremento}, o 
 differenza.
 
-\subsubsection{Il Rapporto Incrementale e la pendenza}
-\label{subsubsec:RI}
+\paragraph{Il Rapporto Incrementale e la pendenza media}
+\label{paragraph:differenziazione_ri}
 \begin{esempio}
 Misurando le temperature in una recente notte invernale, abbiamo registrato:
 
@@ -300,7 +293,7 @@ h (ore) & \(T (^\circ \! C)\) & \(\Delta T\) & \(\Delta h\)
  \hfill
 \begin{minipage}{.48 \textwidth}
 \begin{inaccessibleblock}[Grafico delle temperature per punti distanziati]
-\begin{center} \scalebox{1}{\temperaturea} \end{center}
+\begin{center} \scalebox{.8}{\temperaturea} \end{center}
 \end{inaccessibleblock}
 \label{graf:temperaturea}
 \end{minipage}
@@ -325,11 +318,29 @@ che in effetti forniscono le pendenze dei vari segmenti.
 Vi sono pendenze positive, negative e nulle, in 
 corrispondenza di segmenti crescenti, decrescenti o orizzontali. 
 \end{esempio}
- 
+
+% TODO: disegno di pendenza costante e pendenze variabili
+
+Useremo il termine \emph{pendenza} in un suo significato più generale:
+\begin{definizione}
+La \emph{pendenza} è la rapidità con cui varia una certa funzione reale, 
+rispetto alla variazione del suo argomento. 
+\end{definizione}
+
 % \(\dfrac{\Delta T}{\Delta h}\), il 
-Il rapporto che calcola le pendenze, è il 
-rapporto fra gli incrementi della temperatura e gli incrementi orari. 
-Un rapporto di questo tipo si chiama Rapporto Incrementale.
+La pendenza media di una funzione in un intervallo è il 
+rapporto fra gli incrementi della funzione e gli incrementi del suo argomento. 
+% Questo rapporto si chiama Rapporto Incrementale.
+
+L'incremento della funzione e quindi anche il Rapporto Incrementale 
+dipendono: 
+\begin{multicols}{3}
+\begin{itemize} [nosep]
+\item dalla funzione \(f\), 
+\item dal punto \(x_0\), 
+\item dall'incremento \(\Delta\).
+\end{itemize}
+\end{multicols}
 \begin{definizione}
 Il Rapporto Incrementale (\(RI\)) 
 di una funzione \(f\) 
@@ -342,16 +353,10 @@ cambia valore da \(x_0\) a \(x_0+\Delta\).
   \frac{f(x_0+\Delta)-f(x_0)}{(x_0+\Delta)- x_0}=
   \frac{\Delta f(x_0)}{\Delta}\]
 \end{definizione}
-L'incremento della funzione non è sempre lo stesso, dipende: 
-\begin{itemize} [nosep]
-\item dalla funzione \(f\), 
-\item dal punto da cui si calcola \(x_0\), 
-\item dall'incremento \(\Delta\).
-\end{itemize}
-Di conseguenza anche il Rapporto Incrementale dipende da quei tre 
-parametri: \(RI(f,~x_0,~\Delta)\).
+% Di conseguenza anche il Rapporto Incrementale dipende da quei tre 
+% parametri: \(RI(f,~x_0,~\Delta)\).
 
-\subsubsection{Il Rapporto Differenziale e la pendenza}
+\subsection{Il Rapporto Differenziale e la pendenza in un punto}
 \label{subsubsec:RD}
 
 Immaginiamo ora di avere esigenze scientifiche molto raffinate e di 
@@ -390,13 +395,13 @@ sposta su un rullo di carta tracciando una linea continua.
 \affiancati{.50}{.50}{
 %grafico temperature smussato
 \begin{inaccessibleblock}[Grafico delle temperature con punti molto vicini]
-\begin{center} \scalebox{.9}{\temperatureb} \end{center}
+\begin{center} \scalebox{.8}{\temperatureb} \end{center}
 \end{inaccessibleblock}
 \label{graf:temperatureb}
 }{
 %grafico temperature smussato
 \begin{inaccessibleblock}[Grafico continuo delle temperature]
-\begin{center} \scalebox{.9}{\temperaturec} \end{center}
+\begin{center} \scalebox{.8}{\temperaturec} \end{center}
 \end{inaccessibleblock}
 \label{graf:temperaturec}
 }
@@ -405,8 +410,9 @@ In una situazione ideale, non legata a strumenti di misura necessariamente
 imperfetti, consideriamo una funzione matematica e il suo grafico e andiamo 
 alla ricerca della pendenza della funzione. 
 
-Ora siamo interessati alla pendenza puntuale della funzione, non alla 
-pendenza media, per questo opereremo nell'insieme degli iperreali (\(\IR\)), 
+Ora siamo interessati alla pendenza della funzione in un punto, non alla 
+pendenza media in un intervallo, per questo opereremo nell'insieme degli 
+iperreali (\(\IR\)), 
 considerando incrementi infinitesimi. 
 Per ragioni storiche questi incrementi infinitesimi si chiamano 
 \emph{differenziali}.
@@ -419,18 +425,10 @@ a partire da un valore fissato \(x_0\):
 \[df(x_0) = f \tonda{x_0 + \epsilon} - f(x_0)\]
 \end{definizione}
 
-\newpage %------------------------------------------
+% \newpage %------------------------------------------
 
-Come già visto per l'incremento \(\Delta f\), anche il differenziale 
-\(df\) dipende: 
-\begin{itemize} [nosep]
-\item dalla funzione, 
-\item dal valore \(x_0\) dove inizia la variazione della \(x\),
-\item dal suo incremento infinitesimo~\(\epsilon\).
-\end{itemize}
-Quindi il differenziale di una funzione \(df\) è esso stesso una funzione 
-con \(3\) argomenti:
-\(d(f,~x_0,~\epsilon)\). 
+% \pagebreak[4] %------------------------------------------
+
 \begin{osservazione}
 Per segnalare che il simbolo \(df\) (oppure \(dx\), ecc.) non è il prodotto 
 fra due variabili 
@@ -439,6 +437,17 @@ una differenza infinitesima, nella lettura si pronunciano:
 \textit{de effe, de ics}.
 \end{osservazione}
 
+% Anche il differenziale \(df\) e il Rapporto Differenziale dipendono: 
+% \begin{multicols}{3}
+% \begin{itemize} [nosep]
+% \item dalla funzione \(f\), 
+% \item dal punto \(x_0\), 
+% \item dall'incremento \(\epsilon\).
+% \end{itemize}
+% \end{multicols}
+% Quindi il differenziale di una funzione \(df\) è esso stesso una funzione 
+% con \(3\) argomenti:
+% \(d(f,~x_0,~\epsilon)\). 
 \noindent \begin{minipage}{.48 \textwidth}
 \begin{esempio}
 Vogliamo calcolare l'incremento della 
@@ -483,7 +492,18 @@ somma di due infinitesimi di ordine diverso.
 La pendenza della funzione \(f\) nel punto \(x_0\) è legata al 
 rapporto tra l'incremento della funzione e l'incremento della variabile 
 \(x\) quando questo incremento è infinitesimo. 
-Questo rapporto viene detto \emph{Rapporto Differenziale}:
+Questo rapporto viene detto \emph{Rapporto Differenziale}.
+
+Anche il differenziale \(df\) e il Rapporto Differenziale dipendono: 
+\begin{multicols}{3}
+\begin{itemize} [nosep]
+\item dalla funzione \(f\), 
+\item dal punto \(x_0\), 
+\item dall'incremento \(\epsilon\).
+\end{itemize}
+\end{multicols}
+% Quindi il differenziale di una funzione \(df\) è esso stesso una funzione 
+% con \(3\) argomenti: \(d(f,~x_0,~\epsilon)\). 
 \begin{definizione}
 Il \emph{Rapporto Differenziale} (\(RD\)) di una funzione \(f\) è il 
 quoziente fra l'incremento infinitesimo \(df\) della funzione 
@@ -522,6 +542,7 @@ numero reale.
 Se il numero reale così ottenuto non dipende dal valore dell'incremento 
 infinitesimo, abbiamo ottenuto la pendenza della funzione in quel punto.
 
+\subsubsection{Definizione di pendenza}
 % Le pendenze del grafico di temperature sono numeri reali e  con questi è 
 % facile stabilire se una temperatura è in crescita di più o di meno 
 % rispetto ad un'altra.
@@ -537,7 +558,8 @@ infinitesimo, abbiamo ottenuto la pendenza della funzione in quel punto.
 % Tradotto in termini matematici, questo ragionamento corrisponde al calcolo 
 % della parte standard.
 % \[ \text{pendenza}=\pst{RD}=\pst{2,5 + \frac{\epsilon}{4}}=2,5\]
-\begin{definizione}
+Possiamo tradurre quanto appena detto nella seguente definizione: 
+\begin{definizione}[Pendenza in un punto]
 La pendenza di una funzione \(f\), in un punto \(x_0\) del suo dominio, 
 è la parte standard del Rapporto Differenziale di \(f\) calcolato in 
 \(x_0\), se questa esiste ed è sempre la stessa qualsiasi sia 
@@ -545,13 +567,18 @@ l'incremento infinitesimo \(\epsilon\) diverso da zero.
 \end{definizione}
 
 La pendenza della funzione \(f\) nel punto \(x_0\) viene indicata con 
-\(f'(x_0)\):
-\[pendenza(f,~x_0) = f'(x_0)\]
+\(f'(x_0)\) e viene anche detta \emph{derivata della funzione 
+\(f\) nel punto \(x_0\)}:
+\[\text{pendenza}(f,~x_0) = f'(x_0)\]
+
+\begin{osservazione}
+Mentre il Rapporto Differenziale dipende dal valore dell'infinitesimo 
+\(\epsilon\), la pendenza, se esiste, non dipende da \(\epsilon\).
+\end{osservazione}
 
 \begin{esempio}
-Calcoliamo per la stessa funzione la pendenza nel punto del vertice. 
-Trattandosi dell'unico punto a tangente orizzontale, non potrà che risultare 
-una pendenza uguale a zero.\\
+Calcoliamo per la stessa parabola precedente la pendenza nel vertice. 
+Sappiamo già che dovrà risultare zero.\\
 \begin{align*}
  &f(x) = \dfrac{1}{4} x^2 -x -3 \quad x_0=2;\\
  &RD=\frac{df(2)}{\epsilon}=\frac{f(2+\epsilon) - f(2)}{\epsilon}=
@@ -559,113 +586,187 @@ una pendenza uguale a zero.\\
            \frac{2^2}{4}  +2 +3 =\\
   &= \dfrac{4 +4 \epsilon +\epsilon^2}{4} -5 -\epsilon - 1 +5 =
  +1+ \epsilon +\frac{\epsilon^2}{4} -5 -\epsilon - 1 +5 =
- \frac{\epsilon^2}{4}.
+ \frac{\epsilon^2}{4}
   \end{align*}
-Considerando che il rapporto differenziale esiste per qualsiasi infinitesimo 
-non nullo \(\epsilon\), calcoliamo la sua parte standard.
-\[pendenza(f,~2) = f'(2) = \pst{RD}=\pst{\frac{\epsilon^2}{4}}=0\]
-Il risultato è sempre lo stesso \(\forall \epsilon \ne 0\), abbiamo 
-perciò la conferma: la pendenza è uguale a zero per \(x=2\).
+Dato che il rapporto differenziale esiste e è finito per qualsiasi 
+infinitesimo non nullo \(\epsilon\), calcoliamo la sua parte standard.
+\[\text{pendenza}(f,~2) = f'(2) = 
+  \pst{RD(f, 2, \epsilon)} = \pst{\frac{\epsilon^2}{4}} = 
+  \frac{\pst{\epsilon^2}}{\pst{4}} = \frac{0}{4} = 0\]
+Il risultato è sempre lo stesso per ogni \(\epsilon \ne 0\), abbiamo 
+perciò la conferma: la pendenza in \(x=2\) è uguale a zero.
 \end{esempio}
+
+Per visualizzare la pendenza di una curva in un suo punto 
+possiamo disegnare la retta che passa per quel punto e che ha per 
+coefficiente angolare proprio quella pendenza. 
+Questa retta è chiamata tangente.
+
+\begin{definizione}
+Chiamiamo \emph{tangente} ad una funzione \(f\) in un suo punto \(P\), 
+la retta passante per \(P\) che ha per coefficiente angolare la 
+pendenza della funzione in quel punto.
+\[y = f'(x_P) \tonda{x -x_P} +f(x_P)\]
+\end{definizione}
 
 \subsubsection{Controesempi}
 \label{subsubsec:controesempi}
-Cerchiamo la pendenza \(f'(0)\) per la funzione \(f(x)=\sqrt[3]{x^2}\). Da 
-notare che \(f(0)\) c’è e vale \(0\).
-% TODO Grafico della funzione.
-\begin{align*}
-&f(x)=\sqrt[3]{x^2}\ \quad x_0=0
-&RD=\frac{\sqrt[3]{(0+\epsilon)^2}-\sqrt[3]{0^2}}{\epsilon}=
- \frac{\sqrt[3]{(\epsilon)^2}}{\epsilon}=
- \frac{\cancel{\tonda{\sqrt[3]{\epsilon}}^2}}
- {\tonda{\sqrt[3]{\epsilon}}^{\cancel{3}}}=
- \frac{1}{\sqrt[3]{\epsilon}}
-\end{align*}
-Qualsiasi sia l'infinitesimo \(\epsilon \neq 0\), \(RD\) è un numero
-infinito, non ha dunque parte standard perciò la funzione \(f\) non ha 
-pendenza in \(0\).
-% \(f'(0)\) non c'è. Infatti qualsiasi sia l'infinitesimo 
-% \(\epsilon \neq 0\), 
-% \(\dfrac{1}{\sqrt[3]{\epsilon}}\) è un iperreale infinito e 
-% non esiste la parte standard  di un numero infinito.
-% Quindi la funzione \(f\) non ha pendenza in \(0\).
 
-Anche nel prossimo esempio la pendenza non esiste, anche se la ragione è 
-diversa.
+Prima di procedere con lo studio della pendenza delle funzioni, vediamo 
+i casi in cui non si può applicare la definizione di pendenza:
+\begin{enumerate} [nosep]
+\item se la funzione non è definita per tutti i valori dell'infinitesimo 
+\(\epsilon \ne 0\);
+\item se non è possibile calcolare la parte standard;
+\item se la parte standard cambia al cambiare di \(\epsilon\).
+\end{enumerate}
+
+\paragraph{1.~Funzione non definita per ogni \(\epsilon\)}
+
+Per poter parlare di pendenza in  \(x_0\), la funzione deve essere 
+definita in tutta la monade di \(x_0\).
+Un esempio può chiarire la situazione.
 
 \begin{esempio}
- %valore assoluto
-\label{esempio:diff01_derimodulo}
- Calcola la pendenza di \(f(x)=|x|\) per \(x=0\).\\
- La funzione contiene un valore assoluto: riscriviamola per casi.\\
- 
-% \begin{figure}[h!]
- \begin{minipage}[]{.39 \textwidth}
- \begin{center}
+Calcola la pendenza in \(x_0 = 0\) della funzione \(f(x) = \sqrt{x^3}+x\)
+
+\affiancati{.59}{39}{
+Il differenziale della funzione in zero:
+\begin{align*}
+df(0) &= f(0+\epsilon) -f(0) = f(\epsilon) -f(0) = \\
+      &= \sqrt{\epsilon^3} + \epsilon - \sqrt{0} - 0 = 
+         \sqrt{\epsilon^3} + \epsilon
+\end{align*}
+Ora questa funzione non è definita per ogni valore di \(\epsilon\) ma 
+solo per \(\epsilon \geqslant 0\).
+Quindi la funzione, in zero, non ha una pendenza.\\
+Possiamo però accontentarci di un risultato meno forte di quello di 
+pendenza. 
+Dato che per ogni \(\epsilon \geqslant 0\) il differenziale è definito
+Possiamo calcolare il rapporto differenziale solo per valori non negativi 
+di \(\epsilon\):
+\[RD = \dfrac{\sqrt{\epsilon^3} + \epsilon}{\epsilon} =
+       \dfrac{\cancel{\epsilon} \tonda{\sqrt{\epsilon} + 1}}
+             {\cancel{\epsilon}} = \sqrt{\epsilon} + 1
+\]
+}{
 \begin{inaccessibleblock}
-  [Grafico della funzione valore assoluto di x]
-  \derivamodulouno
+  [Grafico di una funzione definita solo per x>=0]
+  \pendenzadestra
 \end{inaccessibleblock}
-\end{center}
- \end{minipage} 
- \hfill
- \begin{minipage}[]{.59 \textwidth}
-Funzione: 
-\(f(x)=|x|=\begin{cases}
-  -x\quad &\mbox{ per }x<0\\
-  +x\quad &\mbox{ per }x\ge 0
-\end{cases}\)
+}
+E dato che questo valore è senz'altro finito, possiamo applicare la 
+funzione parte standard che ci fornisce un risultato indipendente 
+dall'infinitesimo \(\epsilon \geqslant 0\):
+\[\text{pendenza destra} = \pst{\sqrt{\epsilon} + 1} = 1\]
+In conclusione possiamo affermare che la funzione \(f(x) = \sqrt{x^3}+x\) 
+in \(0\) non ha una pendenza ma solo la pendenza destra che è \(1\).
+\end{esempio}
+
+\paragraph{2.~Non esiste la parte standard del Rapporto Diffderenziale}
+
+Per poter calcolare la parte standard di un numero iperreale, questo 
+deve essere finito. 
+Vediamo un esempio in cui il Rapporto Differenziale è infinito.
+
+\begin{esempio}
+% Calcola la pendenza in \(x_0 = 0\) della funzione \(f(x)=\sqrt[3]{3x}\)
+Calcola la pendenza in \(x_0 = 0\) della funzione \(f(x)=\sqrt[3]{x+1}\)
+
+\affiancati{.39}{.59}{
+\begin{inaccessibleblock}
+  [Grafico di una funzione con un punto a pendenza verticale]
+  \rdinfinito
+\end{inaccessibleblock}
+}{
+\begin{align*}
+RD(f,~-1,~\epsilon) &= 
+   \frac{\sqrt[3]{(-1+\epsilon)+1}-\sqrt[3]{-1+1}}{\epsilon}=\\
+&= \frac{\sqrt[3]{\epsilon}}{\epsilon}=
+   \frac{\cancel{\sqrt[3]{\epsilon}}}
+        {\tonda{\sqrt[3]{\epsilon}}^{\cancel{3}^2}}=
+   \frac{1}{\sqrt[3]{\epsilon^2}}
+\end{align*}
+Qualsiasi sia l'infinitesimo \(\epsilon \neq 0\), \(RD\) è un numero
+infinito, non ha dunque parte standard perciò la funzione \(f(x)\) non 
+ha pendenza in \(0\).
+
+Nonostante questo possiamo vedere che ha una tangente: 
+è la retta \(x=-1\).
+}
+\end{esempio}
+
+\paragraph{3.~La parte standard cambia al cambiare di \(\epsilon\)}
+
+La definizione non produce un risultato quando al variare 
+dell'infinitesimo varia anche la parte standard del 
+Rapporto Differenziale, vediamo un semplice esempio.
+\begin{esempio}
+Calcola la pendenza in \(x_0 = 0\) della funzione \(f(x) = \sqrt{3x^2}\)
+
+Innanzitutto osserviamo che la funzione può essere scritta anche in un altro 
+modo: 
+\[f(x) = \sqrt{3x^2} = \sqrt{3} \abs{x}\]
+\affiancati{.59}{.39}{
+% Funzione: 
+% \(f(x)= \sqrt{3} \abs{x} =\begin{cases}
+%   -\sqrt{3} x \quad & \text{ per } x < 0\\
+%   +\sqrt{3} x \quad & \mbox{ per } x \ge 0
+% \end{cases}\)
 
 \vspace{.5em}
 Differenziale per \(x=0\):
 
 \vspace{.5em}
-\(df(0) = \abs{0+\epsilon} - \abs{0} = \abs{\epsilon}\);
+\(df(0) = \abs{\sqrt{3} \tonda{0+\epsilon}} - \abs{\sqrt{3} \cdot 0} = 
+          \sqrt{3} \abs{\epsilon}\);
 
 \vspace{.5em}
 Rapporto Differenziale:
 
 \vspace{.5em}
-\(\dfrac{df(0)}{\epsilon}=\dfrac{\abs{\epsilon}}{\epsilon}=
-  \begin{cases}
- -1\quad &\mbox{ per } \epsilon < 0\\
- +1\quad &\mbox{ per } \epsilon > 0
- \end{cases}\)
-\end{minipage}
-\label{}
-% \end{figure} 
+\(RD(f,~0,~\epsilon) =
+\dfrac{df(0)}{\epsilon}=\dfrac{\sqrt{3} \abs{\epsilon}}{\epsilon}=
+\begin{cases}
+ -\sqrt{3} \quad &\text{ per } \epsilon < 0\\
+ +\sqrt{3} \quad &\mbox{ per } \epsilon > 0
+\end{cases}\)
+}{
+\begin{inaccessibleblock}
+  [Grafico di una funzione a V]
+  \derivamodulouno
+\end{inaccessibleblock}
+}
+% Il grafico di \(f(x) = \sqrt{3x^2}\) è formato da due semirette che si 
+% uniscono nell'origine. 
+% Per \(x < 0\) la semiretta ha coefficiente angolare \(m = -\sqrt{3}\) 
+% per \(x > 0\) la semiretta ha coefficiente angolare \(m = +\sqrt{3}\). 
 
-Il grafico di \(f(x) = \abs{x}\) è formato da due semirette che si uniscono 
-nell'origine. 
-Per \(x < 0\) la semiretta ha coefficiente angolare \(m = -1\) 
-per \(x > 0\) la semiretta ha coefficiente angolare \(m = +1\). 
-Quale è la pendenza giusta per
-\(x=0\), nel punto cioè dove il grafico cambia pendenza all'improvviso?\\
-Nella monade di \(x=0\) gli infinitesimi \(\epsilon\) positivi causano una 
-variazione infinitesima positiva sull'asse \(y\) e lo stesso avviene per 
-gli \(\epsilon\) negativi. 
-Perciò a seconda del segno di \(\epsilon\), la parte standard del Rapporto 
-Differenziale può essere \(-1\) o \(+1\) e dato che non è la stessa 
-per qualsiasi \(\epsilon \ne 0\) la pendenza di questa funzione in \(0\) 
-non è definita.
+% Qual è la pendenza giusta per \(x=0\), nel punto cioè dove il grafico cambia 
+% pendenza all'improvviso?
+
+A seconda del segno di \(\epsilon\), la parte standard del Rapporto 
+Differenziale può essere \(-\sqrt{3}\) o \(+\sqrt{3}\) e dato che non è la 
+stessa per qualsiasi \(\epsilon \ne 0\) la pendenza di questa funzione non è 
+definita in \(0\).
+
+% Possiamo però accontentarci di un risultato meno forte di quello di 
+% pendenza. Possiamo dire che: 
+% \begin{itemize}
+% \item per ogni \(\epsilon < 0\), cioè a sinistra di \(0\), la funzione ha 
+% pendenza \(-\sqrt{3}\);
+% \item per ogni \(\epsilon > 0\), cioè a destra di \(0\), la funzione ha 
+% pendenza \(+\sqrt{3}\).
+% \end{itemize}
+% Il punto \(0\) è anche detto \emph{punto angoloso} della funzione. 
 \end{esempio}
 
-I due esempi chiariscono perché nella definizione di pendenza si debba 
-specificare: 
-``...\textit{purché essa esista e sia la stessa} 
-\(\forall \epsilon\ne 0\)''.
-
-\bigskip
 Nell'ultimo esempio la funzione presenta un cambio improvviso di pendenza:
 Immediatamente a sinistra di \(x_0\) la funzione ha una pendenza diversa 
 da quella che ha immediatamente a destra. 
 Diremo che la funzione ha un \emph{punto angoloso} in \(x_0\).
 
-% L'ultimo esempio visto ci presenta il caso di una funzione con un 
-% \emph{punto angoloso} un punto nel quale la funzione ha una pendenza a 
-% sinistra diversa dalla pendenza che ha a destra.
-
-\begin{definizione}
+\begin{definizione}[Punto angoloso]
 Diremo che una funzione ha un punto angoloso se: 
 \begin{itemize} [nosep]
 \item 
@@ -696,42 +797,138 @@ Per calcolare la pendenza di una funzione \(f\) nel punto \(x_0\):
 \(f'(x_0) = \pst{RD(f,~x_0,~\epsilon)}\).
 \end{enumerate}
 \end{procedura}
-\begin{osservazione}
-Ai punti 2 e 3 dell'elenco si indicano alcuni controlli importanti.
-Vediamone i motivi.
- \begin{itemize}
-  \item [2:] Può non esistere la parte standard del Rapporto 
-Differenziale? Sì, perché si tratta di un rapporto fra due infinitesimi 
-e non è detto che risulti un numero finito. La parte standard si può 
-calcolare solo se l'argomento è un numero finito.
-\item [3:] La parte standard può dare risultati diversi a seconda 
-dell'infinitesimo che si usa? Sì, per esempio può cambiare di segno, come 
-accade quando si cerca la pendenza di \(f(x)=|x|\) in \(x_0=0\). 
-Vedi esempio \ref{esempio:diff01_derimodulo}.
- \end{itemize}
-\end{osservazione}
+% \begin{osservazione}
+% Ai punti 2 e 3 dell'elenco si indicano alcuni controlli importanti.
+% Vediamone i motivi.
+%  \begin{itemize}
+%   \item [2:] Può non esistere la parte standard del Rapporto 
+% Differenziale? Sì, perché si tratta di un rapporto fra due infinitesimi 
+% e non è detto che risulti un numero finito. La parte standard si può 
+% calcolare solo se l'argomento è un numero finito.
+% \item [3:] La parte standard può dare risultati diversi a seconda 
+% dell'infinitesimo che si usa? Sì, per esempio può cambiare di segno, come 
+% accade quando si cerca la pendenza di \(f(x)=|x|\) in \(x_0=0\). 
+% Vedi esempio \ref{esempio:diff01_derimodulo}.
+%  \end{itemize}
+% \end{osservazione}
+
+\subsubsection{Qualche esempio}
+
+\begin{esempio}
+Calcola la pendenza in \(x_0 = 0\) della funzione 
+\(f(x)=-x^3 -2x^2 +x +1\) e la sua tangente in quel punto.
+\[
+RD(f,~0,~\epsilon) = 
+%    \dfrac{f(\epsilon) -f(0)}{\epsilon} =
+   \frac{-\epsilon^3 -2\epsilon^2 +\epsilon +1 -1}{\epsilon} =
+   \frac{-\epsilon^3 -2\epsilon^2 +\epsilon} {\epsilon} =
+   \frac{\cancel{\epsilon} \tonda{-\epsilon^2 -2\epsilon +1}} 
+        {\cancel{\epsilon}} = -\epsilon^2 -2\epsilon +1
+\]
+
+\affiancati{.39}{.59}{
+\begin{inaccessibleblock}
+  [Grafico di una funzione cubica e tangente in 0]
+  \pendenzacubica
+\end{inaccessibleblock}
+}{
+% \begin{align*}
+% RD(f,~0,~\epsilon) &= 
+%    \frac{-\epsilon^3 -2\epsilon^2 +\epsilon +1  +0^3 +2 \cdot 0^2 -0 -1}
+%         {\epsilon}=\\
+% &= \frac{-\epsilon^3 -2\epsilon^2 +\epsilon} {\epsilon}=
+%    \frac{\cancel{\epsilon} \tonda{-\epsilon^2 -2\epsilon +1}} 
+%         {\cancel{\epsilon}} =\\
+% &= -\epsilon^2 -2\epsilon +1
+% \end{align*}
+Il Rapporto Differenziale è un numero iperreale finito, quindi possiamo 
+applicare la funzione parte standard:
+\begin{align*}
+\pst{DR} &= \pst{-\epsilon^2 -2\epsilon +1} = \\
+&= pst{-\epsilon^2} +\pst{-2\epsilon} +\pst{+1} =
+   0 -0 +1 = +1
+\end{align*}
+% \begin{align*}
+% \pst{DR} &= \pst{-\epsilon^2 -2\epsilon +1} = 
+%    \pst{-\epsilon^2} +\pst{-2\epsilon} +\pst{+1} = \\
+% &= 0 -0 +1 = +1
+% \end{align*}
+E dato che la parte standard non dipende dal valore dell'infinitesimo 
+usato per calcolare il Rapporto Differenziale, la pendenza vale proprio 
+\(+1\).
+
+L'equazione della tangente è: \( y = f'(x_0) \tonda{x - x_0} +f(x_0) \).
+Quindi:
+\[y = +1 \tonda{x - 0} -0^3 -2\cdot 0^2 +0 +1 \srarrow y = x +1\]
+}
+\osservazione
+La tangente trovata è anche secante della funzione.
+\end{esempio}
+
+\begin{esempio}
+Calcola la pendenza in \(x_0 = -1\) della funzione 
+\(f(x)=\dfrac{2x +5}{2x -6}\) \\
+e la sua tangente in quel punto.
+
+\affiancati{.39}{.59}{
+\begin{inaccessibleblock}
+  [Grafico di una funzione omografica e tangente in -1]
+  \pendenzaomografica
+\end{inaccessibleblock}
+}{
+\begin{align*}
+d(f,~-1,~\epsilon) &= 
+   \dfrac{2 \tonda{-1 +\epsilon} +5}{2 \tonda{-1 +\epsilon} -6} - 
+          \dfrac{-2 +5}{-2 -6}=\\
+&= \dfrac{-2  +2 \epsilon +5}{-2 +2 \epsilon -6} + \dfrac{3}{8}=
+   \dfrac{3  +2 \epsilon}{-8 +2 \epsilon} + \dfrac{3}{8} =\\
+&= \dfrac{24  +16 \epsilon -24 +6 \epsilon}{-64 +16 \epsilon}=
+   \dfrac{22 \epsilon}{-64 +16 \epsilon}
+\end{align*}
+Il valore ottenuto è chiaramente un infinitesimo, quindi passiamo a 
+calcolare il Rapporto Differenziale:
+\begin{align*}
+RD(f,~-1,~\epsilon) &= \dfrac{df}{\epsilon}=
+   \dfrac{22 \epsilon}{\epsilon \tonda{-64 +16 \epsilon}}=
+   \dfrac{22}{-64 +16 \epsilon}
+\end{align*}
+}
+Dato che il Rapporto Differenziale è un numero finito, ne calcoliamo la 
+sua parte standard:
+\[\pst{\dfrac{22}{-64 +16 \epsilon}} = -\dfrac{11}{32}\]
+E infine, la tangente:
+\[y = -\dfrac{11}{32} \tonda{x +1} - \dfrac{3}{8} \srarrow 
+  y = -\dfrac{11}{32} x -\dfrac{23}{32}\]
+\end{esempio}
 
 \subsubsection{Brevi note di storia}
 Il calcolo appena descritto fu inventato nel 1600 (Calcolo infinitesimale, o 
 differenziale, o semplicemente Calcolo) con contenuti più ingenui ma 
 sostanzialmente uguali ai nostri. 
 
+% Il Calcolo fiorì con grande successo per 150 anni a partire 
+% dall'epoca di Newton e Leibniz. 
+% Ma suscitava vivaci polemiche fra gli specialisti, perché non si era 
+% in grado di spiegare la regola che permetteva di far sparire gli 
+% infinitesimi al termine dei calcoli, che per noi è il punto 4 dell'elenco.
+
 Il Calcolo fiorì con grande successo per 150 anni a partire 
 dall'epoca di Newton e Leibniz. 
-Ma suscitava vivaci polemiche fra gli specialisti, perché non si era 
-in grado di spiegare la regola che permetteva di far sparire gli 
-infinitesimi al termine dei calcoli, che per noi è il punto 4 dell'elenco.
+Ma suscitava vivaci polemiche fra gli specialisti, perché 
+alcuni non riuscivano a capire come alcune grandezze, gli infinitesimi, 
+in certi momenti contassero, in altri potessero essere trascurati.
 
 A quel tempo non si conosceva la teoria degli insiemi numerici, 
 gli iperreali e la funzione parte standard.
 Oggi i matematici conoscono meglio la materia e quelle critiche 
 sono superate. 
 Siamo quindi in grado di procedere nello studio di questa nuova branca 
-della matematica, che si chiama \emph{Analisi infinitesimale}.
+della matematica, che si chiama \emph{Analisi infinitesimale} 
+usando in modo coerente \emph{infinitesimi} e \emph{infiniti}.
 
-
-\subsection{Pendenze in grafico}
+\subsection{Pendenze in grafico: la funzione derivata}
 \label{subsec:pendenze_grafico}
+
 Nel grafico di \(f\), le diverse pendenze della curva di solito si colgono a 
 vista. Ma si possono anche disegnare? Se fosse possibile esprimerle con un 
 disegno sarebbe molto più facile confrontarle e interpretarle.\\
@@ -771,7 +968,7 @@ RD &=\dfrac{df(x_0)}{\epsilon} =\dfrac{f(x_0+\epsilon)-f(x_0)}{\epsilon}=
     \dfrac{m\epsilon}{\epsilon}=m
 \end{align*}
 Dato che \(RD\) è un numero finito:
-\[pendenza = \pst{RD}= \pst{m}=m\]
+\[\text{pendenza} = \pst{RD}= \pst{m}=m\]
 
 \vspace{-1em} \hspace{25mm} 
 poiché il valore della parte standard non dipende da \(\epsilon\) \qed
@@ -782,18 +979,18 @@ vale \(\forall x\): la pendenza di una retta è un valore costante.
 
 % Si tratta di un risultato molto utile per individuare le pendenze nei 
 % nostri grafici. 
-
-Per visualizzare la pendenza di una curva in un suo punto 
-possiamo disegnare la retta che passa per quel punto e che ha per 
-coefficiente angolare proprio quella pendenza, cioè la sua tangente.
-% come nell'esempio che segue.
-
-\begin{definizione}
-Chiamiamo \emph{tangente} ad una funzione \(f\) in un punto \(P\) la retta 
-passante per \(P\) che ha per coefficiente angolare la pendenza della 
-funzione in quel punto.
-\end{definizione}
-
+% 
+% Per visualizzare la pendenza di una curva in un suo punto 
+% possiamo disegnare la retta che passa per quel punto e che ha per 
+% coefficiente angolare proprio quella pendenza, cioè la sua tangente.
+% % come nell'esempio che segue.
+% 
+% \begin{definizione}
+% Chiamiamo \emph{tangente} ad una funzione \(f\) in un punto \(P\) la retta 
+% passante per \(P\) che ha per coefficiente angolare la pendenza della 
+% funzione in quel punto.
+% \end{definizione}
+% 
 
 \begin{esempio}
 Visualizza la pendenza della parabola:
@@ -890,7 +1087,7 @@ In conclusione, ora abbiamo un metodo per calcolare la pendenza di una
 curva in un suo punto ed anche un modo di mostrarla nel piano cartesiano: 
 con il disegno della tangente alla curva in quel punto. 
 
-\subsection{Derivata di una funzione}
+\subsubsection{Derivata di una funzione}
 \label{subsec:differenziazione_derivatafunzione}
 Abbiamo visto che il Rapporto Differenziale dipende da \(3\) parametri:
 \(RD(f,~x_0,~\epsilon)\). 
@@ -998,6 +1195,8 @@ e quindi rappresenta la pendenza di \(f\) in funzione di \(x\):
 Indichiamo con il termine \emph{derivata} la funzione che, al variare di 
 \(x\) rappresenta la corrispondente pendenza della funzione \(f\).
 \end{definizione}
+
+\begin{comment}
 
 
 \subsubsection{Simboli per la derivata}
@@ -3689,7 +3888,7 @@ bisettrice del primo-terzo quadrante.
 Dobbiamo quindi imporre alla derivata il valore \(1\).
 \[\Deriv{4x^2-3x+6} = 8x-3 = 1 \srarrow x =\dfrac{1}{2} 
 \sstext{e il punto è:} 
-\punto{\dfrac{1}{2}}{\dfrac{11}{2}}.\]
+\punto{\dfrac{1}{2}}{\dfrac{11}{2}}\]
 \end{esempio}
 
 \begin{esempio}
@@ -3765,6 +3964,7 @@ Scrivi l'equazione della tangente e della normale alla curva di equazione
 \(y=\dfrac{x^2-1}{\ln x -1}\) nel suo punto di ascissa \(1\). 
 
 Calcoliamo la pendenza nel punto:
+% \[f'(x)|_{x=1}=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
 \[f'(1)=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
 {(\ln x -1)^2}\bigg|_{x=1}=\dfrac{2\cdot 1(0-1)-(1-1)\cdot 
 1}{(0-1)^2}=-2\]
@@ -3845,6 +4045,7 @@ esistono per \(x\ne 0\).
 Osserviamo quindi che il campo di esistenza della funzione derivata (prima, 
 seconda, terza \dots) può non coincidere con il campo di esistenza della 
 funzione da derivare. 
+% TODO: mi sembra di capire che la derivata esiste anche dove non esiste la f(x).
 \end{osservazione}
 \end{esempio}
 
