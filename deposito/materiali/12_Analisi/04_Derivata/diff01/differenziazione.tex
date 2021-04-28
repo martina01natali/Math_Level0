@@ -951,7 +951,7 @@ e un suo generico punto di ascissa \(x_0\).
 \label{teo:pendenza_retta}
   Per le funzioni lineari la pendenza è il coefficiente angolare.
 \end{teorema}
-\noindent Ipotesi: \(f(x)=mx+q\) \tab Tesi: \(\text{pendenza }=m\)
+% \noindent Ipotesi: \(f(x)=mx+q\) \tab Tesi: \(\text{pendenza }=m\)
 % \begin{proof}
 % Per qualsiasi \(\epsilon\ne 0\):
 % \begin{align*}
@@ -1253,8 +1253,20 @@ un numero finito e che la parte standard non dipenda dal particolare
 infinitesimo \(\epsilon \ne 0\) scelto.
 \end{esempio}
 
-Questa volta, abbiamo trovato la funzione derivata \(f'(x)\) con un unico 
-calcolo\dots\\
+Quindi la dalla funzione \(f: x \mapsto \dfrac{1}{2}x^2+2x+4\) 
+si può derivate un'altra funzione \(f': x \mapsto x +2\) che dà come 
+risultato le pendenze della funzione \(f\) per ogni valore di \(x\). 
+
+\begin{definizione}
+La derivata di una funzione \(f\) è la parte standard del Rapporto 
+Differenziale, se questa esiste e se non cambia valore al variare 
+dell'infinitesimo \(\epsilon \neq 0\):
+\[f'(x) = \pst{\dfrac{f(x +\epsilon) -f(x)}{x +\epsilon -x}}=
+  \pst{\frac{df(x)}{\epsilon}}\]
+\end{definizione}
+
+Nell'ultimo esempio, abbiamo trovato la funzione derivata \(f'\) con un 
+unico calcolo\dots\\
 \dots ma la prossima sezione ci permetterà di rendere il calcolo molto più 
 semplice.
 % Per ogni particolare \(x_0\) risulta uno e un solo valore di pendenza, come 
@@ -1289,36 +1301,34 @@ semplice.
 % e quindi rappresenta la pendenza di \(f\) in funzione di \(x\):
 % \[f(x) = \dfrac{1}{3}x^2-2x+5 \sRarrow f'(x) = \dfrac{2}{3}x-2\]
 
-\begin{comment}
-
-
 \subsubsection{Simboli per la derivata}
 Il nome \emph{derivata} per indicare il calcolo che abbiamo descritto ha 
 origini storiche. Si è diffuso  ovunque (derivative, derivada, dérivée, 
-...) anche se non rende pienamente il significato di ciò che rappresenta. 
+\dots) anche se non rende pienamente il significato di ciò che rappresenta. 
 Se ne potrà intuire la ragione in un capitolo successivo, quando parleremo 
-anche di funzioni primitive.\\
+anche di funzioni primitive.
+
 Sempre per ragioni storiche, si sono diffusi vari simboli che rappresentano 
 l'operazione di derivazione:
 
-Sostituirei questo elenco con la tabella seguente.
-
-\begin{enumerate}[noitemsep]
- \item \(f'(x_0)\) indica la pendenza della funzione \(f\) in \(x_0\);
- \item \(f'(x)\) è il simbolo per il risultato della derivazione di \(f\) 
- per \(x= x_0\): è la pendenza della funzione \(f\) in \(x_0\);
- \item \(\Deriv{f(x)}\) indica la formula della derivazione di 
-\(f\),  per es. 
-\(\Deriv{5x\sqrt[3]{x^2}}=5\sqrt[3]{x^2}+\dfrac{10x}
-  {3\sqrt[3]{x}}\);
- \item \(\dot{f}\) equivale a \(f'\) e si usa in alcuni corsi universitari;
- \item \(\dfrac{d}{dx}f(x)\) è come \(f'(x)\), cioè corrisponde alla parte 
-standard del Rapporto Differenziale;
- \item \(\dfrac{df(x)}{dx}\) si trova spesso nei libri come se il Rapporto
- Differenziale e la derivata fossero la stessa cosa. Se la derivata 
-esiste, quest'uguaglianza si può accettare, trattandosi di quantità 
-indistinguibili. 
-\end{enumerate}
+% Sostituirei questo elenco con la tabella seguente.
+% 
+% \begin{enumerate}[noitemsep]
+%  \item \(f'(x_0)\) indica la pendenza della funzione \(f\) in \(x_0\);
+%  \item \(f'(x)\) è il simbolo per il risultato della derivazione di \(f\) 
+%  per \(x= x_0\): è la pendenza della funzione \(f\) in \(x_0\);
+%  \item \(\Deriv{f(x)}\) indica la formula della derivazione di 
+% \(f\),  per es. 
+% \(\Deriv{5x\sqrt[3]{x^2}}=5\sqrt[3]{x^2}+\dfrac{10x}
+%   {3\sqrt[3]{x}}\);
+%  \item \(\dot{f}\) equivale a \(f'\) e si usa in alcuni corsi universitari;
+%  \item \(\dfrac{d}{dx}f(x)\) è come \(f'(x)\), cioè corrisponde alla parte 
+% standard del Rapporto Differenziale;
+%  \item \(\dfrac{df(x)}{dx}\) si trova spesso nei libri come se il Rapporto
+%  Differenziale e la derivata fossero la stessa cosa. Se la derivata 
+% esiste, quest'uguaglianza si può accettare, trattandosi di quantità 
+% indistinguibili. 
+% \end{enumerate}
 
 \begin{center}
 \begin{tabular}{cc}
@@ -1336,34 +1346,53 @@ derivata di \(f(x)\) & pendenza di \(f\) in \(x_0\) \\
 
 \section{Derivata di alcune funzioni semplici}
 \label{sec:differenziazione_derivatafsemplici}
-A questo punto andiamo alla ricerca di regole semplici che ci permettano 
-di calcolare la derivata di una funzione senza ripetere procedimenti 
-laboriosi, come nell'esempio precedente che in realtà è un caso fra i 
-meno complicati.
+Abbiamo visto come calcolare la pendenza in un punto, 
+poi abbiamo visto come, con la stessa complessità di calcolo si può 
+trovare la pendenza di tutta una funzione cioè calcolare la derivata 
+di una funzione.
 
-Calcoleremo la derivata di alcune funzioni molto comuni, cioè cercheremo 
-la pendenza di queste funzioni non per un particolare \(x_0\), ma per ogni 
-valore \(x\) del suo insieme di definizione.
+Ora vediamo come calcolare la derivata di intere classi di funzioni e 
+come individuare delle regole che permettono di evitare il passaggio 
+attraverso il differenziale e il Rapporto Differenziale.
+
+% A questo punto andiamo alla ricerca di regole semplici che ci permettano 
+% di calcolare la derivata di una funzione senza ripetere procedimenti 
+% laboriosi, come nell'esempio precedente che in realtà è un caso fra i 
+% meno complicati.
+% 
+% Calcoleremo la derivata di alcune funzioni molto comuni, cioè cercheremo 
+% la pendenza di queste funzioni non per un particolare \(x_0\), ma per ogni 
+% valore \(x\) del suo insieme di definizione.
 
 \subsection{Derivata della funzione identica}
 \label{subsec:differenziazione_derivatafidentica}
+
+Partiamo dalla derivata di una delle più semplici funzioni, la funzione 
+che fa corrispondere a un valore quello stesso valore: 
+\(f: x \mapsto x\), detta funzione identica o identità.
 \begin{teorema}
-La derivata della funzione identica \(f(x)=x\) è \(1\):
+La derivata della funzione identica \(f(x)=x\) \quad è \quad \(1\):
 \[\Deriv{f(x)} = \Deriv{x} = 1\]
 \end{teorema}
-\emph{Dimostrazione}
-
-% Deriviamo la funzione identica: \(f(x)=x\).\\
-Innanzitutto dovremmo scrivere il differenziale della funzione e della 
-variabile \(x\): 
-\[df(x)=f(x+\epsilon)-f(x)=x+\epsilon-x=\epsilon \qquad 
-  dx = (x +\epsilon) -x = x +\epsilon -x = \epsilon\] 
-Perciò: 
-\[RD = \dfrac{df(x)}{dx}=\dfrac{\epsilon}{\epsilon}=1, \quad 
+% % \noindent Ipotesi: \(f(x)=x\)\tab Tesi: \(f'(x)=1\)
+\begin{proof}
+% % Deriviamo la funzione identica: \(f(x)=x\).\\
+% Innanzitutto dovremmo scrivere il differenziale della funzione e della 
+% variabile \(x\): 
+% \[df(x)=f(x+\epsilon)-f(x)=x+\epsilon-x=\epsilon \qquad 
+%   dx = (x +\epsilon) -x = x +\epsilon -x = \epsilon\] 
+% Perciò: 
+Prima di tutto calcoliamo il Rapporto Differenziale:
+\[RD = \dfrac{df(x)}{dx}=
+\dfrac{f(x+\epsilon)-f(x)}{(x +\epsilon) -x}=
+\dfrac{x+\epsilon-x}{x +\epsilon -x}=
+\dfrac{\epsilon}{\epsilon}=1, \quad 
 \forall \epsilon \ne 0\]
 Poiché il risultato è un numero finito, la parte standard esiste e 
 poiché il suo valore non dipende dall'infinitesimo considerato:
-\[f'(x)=\pst{\dfrac{df(x)}{dx}}=\pst{1}=1\]
+
+\hspace{40mm} \(f'(x)=\pst{\dfrac{df(x)}{dx}}=\pst{1}=1\)
+\end{proof}
 
 \begin{osservazione}
 Non avendo specificato un particolare \(x_0\), il risultato vale per 
@@ -1377,39 +1406,44 @@ Utilizzando questa osservazione possiamo scrivere il
 Rapporto Differenziale in questo modo: 
 \[RD = \dfrac{f(x +\epsilon) -f(x)}{(x +\epsilon) -x} = 
        \dfrac{f(x +dx) -f(x)}{(x +dx) -x} = 
-       \dfrac{df(x)}{dx}\]
-\begin{definizione}
- La derivata di una funzione \(f\) è la parte standard del Rapporto 
-Differenziale, se questa esiste e se non cambia valore al variare 
-dell'infinitesimo \(dx \neq 0\):
-\[f'(x) = \pst{\dfrac{f(x +dx) -f(x)}{x +dx -x}}=
-  \pst{\frac{df(x)}{dx}}\]
-\end{definizione}
+       \dfrac{df(x)}{dx} \]
+\[f' = \pst{RD} \quad 
+% \text{se la Parte Standard esiste e non dipende da: } dx \ne 0\]
+\text{se la Parte Standard esiste e è la stessa per ogni } dx \ne 0\]
 
 \subsection{Derivata della funzione costante}
 \label{subsec:differenziazione_derivatafcostante}
-Una funzione \(f(x)\) è costante se qualunque sia il valore di \(x\) il 
-risultato è sempre lo stesso. Possiamo indicare questa funzione in diversi 
-modi:
-\[f: x \mapsto k \quad \text{o} \quad f(x)=k \quad \text{o} \quad y = k.\]
+
+Vediamo ora una classe di funzioni: le infinite funzioni del tipo: 
+\(f: x \mapsto k\) dove \(k\) è un qualunque numero reale.
+Una funzione \(f(x)\) si dice costante se qualunque sia il valore di 
+\(x\) il risultato è sempre lo stesso. 
+Possiamo indicare questa funzione in diversi modi:
+\[f: x \mapsto k \quad \text{o} \quad f(x)=k \quad \text{o} \quad y = k\]
 
 \begin{teorema}
-La derivata di una funzione costante \(f(x) = k\) è \(0\):
+La derivata di una funzione costante \(f(x) = k\) \quad è \quad \(0\):
 \[\Deriv{k}=0\]
 \end{teorema}
-\emph{Dimostrazione}
+% % \noindent Ipotesi: \(f(x)=k\)\tab Tesi: \(f'(x)=0\)
+\begin{proof}
 \[RD = \dfrac{df(x)}{dx} = \dfrac{f(x +\epsilon) -f(x)}{dx} =
   \dfrac{k-k}{dx} = \dfrac{0}{dx} = 0\]
 Poiché il risultato è un numero finito, la parte standard esiste e 
 poiché il suo valore non dipende dall'infinitesimo considerato:
-\[f'(x) = \pst{\dfrac{df(x)}{dx}} = \pst{0} = 0\]
+% \[f'(x) = \pst{\dfrac{df(x)}{dx}} = \pst{0} = 0\]
+
+\hspace{45mm} \(f'(x) = \pst{\dfrac{df(x)}{dx}} = \pst{0} = 0\)
+\end{proof}
+
+
 % 
 % Il suo differenziale sarà:
 % \[df(x_0)=f(x_0+\epsilon)-f(x_0)=k-k=0,\quad \forall \epsilon.\]
 % Quindi, se la funzione è costante, il suo differenziale è nullo.
 % Infatti, avendo sempre lo stesso valore per qualsiasi \(x\), la differenza 
 % tra due suoi valori è zero. 
-% \noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f'(x)=0\).
+% % \noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f'(x)=0\).
 % \begin{proof}
 %  Infatti \(df(x)=0\).
 % \end{proof}
@@ -1424,7 +1458,7 @@ poiché il suo valore non dipende dall'infinitesimo considerato:
 % \begin{teorema}
 %   La derivata di una funzione lineare è 
 % \end{teorema}
-% \noindent Ipotesi: \tab Tesi: 
+% % \noindent Ipotesi: \tab Tesi: 
 % \begin{proof}
 % \begin{align*}
 % RD &=\dfrac{df(x)}{dx} =\dfrac{f(x+dx)-f(x)}{dx}=\\
@@ -1442,7 +1476,9 @@ poiché il suo valore non dipende dall'infinitesimo considerato:
 
 \subsection{Derivata della funzione lineare}
 \label{subsec:differenziazione_derivataflineare}
-Una funzione lineare è una funzione espressa da un polinomio di primo grado:
+
+Un'altra classe di funzioni è costituita dalle funzioni lineari, 
+le funzioni cioè espresse da un polinomio di primo grado:
 \[f: x \mapsto mx +q \quad \text{o} \quad   f(x)=mx +q \quad \text{o} \quad 
   y = mx +q.\]
 \begin{teorema}
@@ -1451,7 +1487,7 @@ La derivata di una funzione lineare è il suo coefficiente angolare \(m\):
 %   La derivata di una funzione lineare è il coefficiente angolare \(m\) 
 % della retta che disegna il suo grafico.
 \end{teorema}
-\noindent Ipotesi: \(f(x)=mx+q\)\tab Tesi: \(f'(x)=m\)
+% % \noindent Ipotesi: \(f(x)=mx+q\)\tab Tesi: \(f'(x)=m\)
 \begin{proof}
 \begin{align*}
 RD &=\dfrac{df(x)}{dx} =\dfrac{f(x+dx)-f(x)}{dx}=\\
@@ -1466,6 +1502,11 @@ Dato che \(RD\) è un numero finito:
 poiché il valore della parte standard non dipende da \(dx\).
 \end{proof}
 
+In tutti i casi precedenti, il risultato è abbastanza ovvio dato che 
+le funzioni: costante, identica e lineare, hanno tutte per grafico una retta 
+la cui pendenza è costante e è data proprio dal coefficiente angolare.
+Ora passiamo a qualche funzione un po' più interessante.
+
 \subsection{Derivata della funzione quadratica}
 \label{subsec:differenziazione_derivatafquadratica}
 In alcuni esempi abbiamo già calcolato la pendenza di una funzione 
@@ -1476,7 +1517,7 @@ Concentriamoci sul caso generale e semplice:
 La derivata della funzione quadratica \(f(x)=x^2\) è \(2x\):
 \[\Deriv{x^2}=2x\] 
 \end{teorema}
-\noindent Ipotesi: \(f(x)=x^2\) \tab Tesi: \(f'(x)=2x\).
+% \noindent Ipotesi: \(f(x)=x^2\) \tab Tesi: \(f'(x)=2x\).
 \begin{proof}
 \begin{align*}
 RD &=\dfrac{df(x)}{dx}=\dfrac{(x+dx)^2-x^2}{dx}=
@@ -1537,10 +1578,16 @@ per questo motivo il grafico della derivata è una
 una retta per l'origine.
 
 \begin{osservazione}
-Nota che la funzione derivata di una funzione quadratica è una funzione 
-lineare: la pendenza delle tangenti a una parabola varia come varia la \(y\)
-rispetto alla \(x\) in una retta.
+La funzione derivata di una funzione quadratica è una funzione 
+lineare: 
+a incrementi uguali della della \(x\) corrispondono incrementi uguali
+della pendenza.
+% la pendenza delle tangenti a una parabola varia come varia la \(y\)
+% rispetto alla \(x\) in una retta.
 \end{osservazione}
+
+\begin{comment}
+
 
 \section{Teoremi sulle derivate}
 \label{sec:differenziazione_teoremi}
@@ -1591,8 +1638,8 @@ sommandoli? È quello che stiamo per mostrare con i prossimi teoremi.
 Ovvero: La derivata di una somma è la somma delle derivate.
 \[\Deriv{g + h}=\Deriv{g}+\Deriv{h}\]
 \end{teorema}
-\noindent Ipotesi: \(f = g + h\) e esistono \(g'\) e \(h'\) 
-\tab Tesi: \(f'=g' + h'\)
+% \noindent Ipotesi: \(f = g + h\) e esistono \(g'\) e \(h'\) 
+% \tab Tesi: \(f'=g' + h'\)
 
 \begin{proof}
 Consideriamo il Rapporto Differenziale, calcolato in \(x\), dove \(g\), 
@@ -1944,7 +1991,7 @@ e in generale:
   La derivata della funzione potenza \(f(x)= x^n\), con esponente 
 naturale, è: \(\Deriv{x^n}=~nx^{n-1}\).
   \end{teorema}
-\noindent Ipotesi: \(f(x)=x^n\), con \(n\in \N\) .\tab Tesi: 
+% \noindent Ipotesi: \(f(x)=x^n\), con \(n\in \N\) .\tab Tesi: 
 \(f'(x)=nx^{n-1}\). 
 \begin{proof}
 %  Una funzione potenza è una funzione che dà come risultato la potenza 
@@ -2094,8 +2141,8 @@ Calcola la derivata della funzione
 La derivata della funzione reciproca \(f(x)=\dfrac{1}{x}\) è: \quad
 \(\Deriv{\dfrac{1}{x}}=-\dfrac{1}{x^2}\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\dfrac{1}{x}\) \quad  con \(x \ne 0\)\tab 
-Tesi: \(f'(x)=-\dfrac{1}{x^2}\)
+% \noindent Ipotesi: \(f(x)=\dfrac{1}{x}\) \quad  con \(x \ne 0\)\tab 
+% Tesi: \(f'(x)=-\dfrac{1}{x^2}\)
 \begin{proof}
 \begin{align*}
 %  &f(x)= \dfrac{1}{x}\quad\text{ con } x\ne 0.\quad\text{ Allora, } 
@@ -2320,8 +2367,8 @@ La regola della derivata di una funzione potenza vale anche se
 l'esponente è un intero negativo, quindi vale anche con esponente 
 \(z\in\Z\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=x^z\), con \(z\in \Z\), \(x\ne 0\) .\tab Tesi: 
-\(f'(x)=zx^{z-1}\).
+% \noindent Ipotesi: \(f(x)=x^z\), con \(z\in \Z\), \(x\ne 0\) \tab 
+% Tesi: \(f'(x)=zx^{z-1}\).
 \begin{proof}
  Se \(z\geqslant 0\), corrisponde a un numero naturale e quindi la regola è già 
 stata dimostrata. Se invece \(z<0\), basta applicare la regola del rapporto, 
@@ -2398,8 +2445,8 @@ derivata  del rapporto (\(g \ne 0\)).
   La derivata della funzione \(f(x)=\sqrt{x}\), con \(x \geq 0\), è: 
 \(\Deriv{\dfrac{1}{2\sqrt{x}}}\), con \(x > 0\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\sqrt{x}\), con \(x\geq 0\) .\tab Tesi: 
-    \(f'(x)=\dfrac{1}{2\sqrt{x}}\).
+% \noindent Ipotesi: \(f(x)=\sqrt{x}\), con \(x\geq 0\) \tab 
+% Tesi:     \(f'(x)=\dfrac{1}{2\sqrt{x}}\).
 \begin{proof}
 Calcoliamo separatamente \(df(x)\), che richiede una razionalizzazione 
 del numeratore. 
@@ -2698,8 +2745,8 @@ calcola così: \(f'(x)=f'(g(x))=f'(g)\cdot g'(x)\),
 cioè la derivata di una funzione composta è il prodotto delle derivate 
 delle funzioni componenti, ciascuna rispetto alla propria variabile.
 \end{teorema}
-\noindent Ipotesi: \(f(x)=f(g(x))\), \(f\), \(g\) derivabili .\tab 
-Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\).
+\noindent Ipotesi: \(f(x)=f(g(x))\), \(f\), \(g\) derivabili \tab 
+Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\)
 
 \begin{proof}
 Anzitutto, poiché esiste \(g'(x)\), \(dg(x)\) è infinitesimo per ogni 
@@ -3275,7 +3322,7 @@ La derivata della funzione esponenziale è proporzionale alla funzione
 stessa:
 \[\Deriv{a^x}=k \cdot a^x\]
 \end{teorema}
-\noindent Ipotesi: \(f(x)=a^x\). \tab \(f'(x)=k \cdot a^x\).
+% \noindent Ipotesi: \(f(x)=a^x\). \tab \(f'(x)=k \cdot a^x\).
 \begin{proof}
 Calcoliamo il differenziale e il Rapporto Differenziale: 
 \[df=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1} \qquad
@@ -3348,8 +3395,8 @@ funzione esponenziale pura.
 Esiste una funzione esponenziale la cui derivata coincide con la 
 funzione stessa: \(\Deriv{a^x}=a^x\)
 \end{teorema}
-\noindent Ipotesi: \(f(x)=a^x\). \tab 
-          Tesi: Esiste un \(a\) per cui \(f'(x)=a^x\).
+% \noindent Ipotesi: \(f(x)=a^x\). \tab 
+%           Tesi: Esiste un \(a\) per cui \(f'(x)=a^x\).
 \begin{proof}
 Dato che \(f'(x) = f'(0) \cdot f(x)\), 
 dobbiamo trovare una base per cui \(f'(0)=1\):
@@ -3384,7 +3431,7 @@ Conseguenza dei due teoremi precedenti è il seguente
 La derivata della funzione esponenziale \(f(x)=e^x\) coincide con la 
 funzione stessa: \(\Deriv{e^x}=e^x\)
 \end{teorema}
-\noindent Ipotesi: \(f(x)=e^x\). \tab \(f'(x)=e^x\).
+% \noindent Ipotesi: \(f(x)=e^x\). \tab \(f'(x)=e^x\).
 \begin{proof}
 \[\Deriv{e^x} = \Deriv{e^0} \cdot e^x = 1 \cdot e^x\ = e^x\]
 \end{proof}
@@ -3396,7 +3443,7 @@ derivata.
 \(a>0\), è:\\ 
 \(f'(x)= a^x\ln{a}\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=a^x\); \tab Tesi: \(f'(x)=a^x\ln{a}\).
+% \noindent Ipotesi: \(f(x)=a^x\); \tab Tesi: \(f'(x)=a^x\ln{a}\).
 \begin{proof}
 Usiamo una trasformazione appresa con lo studio dei logaritmi e applichiamo 
 il teorema a pag.~\pageref{teo:diff01_dericomp}:
@@ -3470,8 +3517,8 @@ La derivata della funzione logaritmo naturale è:
 \end{minipage} 
 \hfill
 \begin{minipage}[]{.55\textwidth}
-\noindent Ipotesi: \(f(x)=\ln x, \mbox{ con } x>0\) \tab
-\noindent Tesi: \(f'(x)=\dfrac{1}{x}\)
+% \noindent Ipotesi: \(f(x)=\ln x, \mbox{ con } x>0\) \tab
+% \noindent Tesi: \(f'(x)=\dfrac{1}{x}\)
 \begin{proof}
 Usando la regola della derivazione delle funzioni inverse, \\
 \[\tonda{\Deriv{f^{-1}(x)} = \dfrac{1}{\Deriv{(f^{-1}(x)}}}
@@ -3495,7 +3542,7 @@ Vediamo ora il caso generale, quando la base del logaritmo è genericamente
 La derivata della funzione logaritmo in base \(a\) è: 
 \(\Deriv{\log_a x}= \dfrac{1}{x\ln a}\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\log_a x\). \tab \(f'(x)=\dfrac{1}{x\ln a}\)
+% \noindent Ipotesi: \(f(x)=\log_a x\). \tab \(f'(x)=\dfrac{1}{x\ln a}\)
 \begin{proof}
 Si ottiene direttamente dalla formula del cambiamento di base:\\
 \[\Deriv{\log_a x} = \Deriv{\dfrac{1}{\ln a}\ln x} = 
@@ -3529,7 +3576,7 @@ Abbiamo ora tutti gli strumenti per convalidare l'osservazione al teorema
 La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
 \(\Deriv{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha \in \R\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
+% \noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
 \(\forall \alpha\).
 \begin{proof}
 Combinando alcune delle regole precedenti, si ha:
@@ -3579,7 +3626,7 @@ l'angolo \(\widehat{ABC}\) è uguale a \(x\).
 La derivata della funzione \(f(x)=\sen x\)~~è~~\(f'(x)=\cos x\): \quad 
 \(\Deriv{\sen x} = \cos x\)
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\sen x\) \tab \(f'(x)=\cos x\)
+% \noindent Ipotesi: \(f(x)=\sen x\) \tab \(f'(x)=\cos x\)
 \begin{proof}
 Poiché l'angolo \(\widehat{ABC}\) è uguale a \(x\), possiamo calcolare 
 il segmento orientato \(CB\) usando la trigonometria: 
@@ -3632,7 +3679,7 @@ coincide con il numero stesso, e questa è la derivata.
 %   La derivata della funzione \(f(x)=\sen x\) è \(\Deriv{\sen 
 % x}=\cos x\).
 % \end{teorema}
-% \noindent Ipotesi: \(f(x)=\sen x\). \tab \(f'(x)=\cos x\).
+% % \noindent Ipotesi: \(f(x)=\sen x\). \tab \(f'(x)=\cos x\).
 % \begin{proof}
 %  Il commento al disegno giustifica la tesi. 
 % \end{proof}
@@ -3739,7 +3786,7 @@ figura di pag.\pageref{fig:differenziazione_dsincos}
 La derivata della funzione \(f(x)=\cos x\)~~è~~ \(f'(x)=-\sen x\): \quad 
 \(\Deriv{\cos x} = -\sen x\)
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\cos x\) \tab \(f'(x)=-\sen x\)
+% \noindent Ipotesi: \(f(x)=\cos x\) \tab \(f'(x)=-\sen x\)
 \begin{proof}
 Poiché l'angolo \(\widehat{ABC}\) è uguale a \(x\), possiamo calcolare 
 il segmento orientato \(AC\) usando la trigonometria: 
@@ -3793,7 +3840,7 @@ la sua derivata.\end{center}
 % \begin{teorema}
 % La derivata della funzione \(f(x)=\cos x\) è \(\Deriv{\cos x}=-\sen x\).
 % \end{teorema}
-% \noindent Ipotesi: \(f(x)=\cos x\). \tab \(f'(x)=-\sen x\).
+% % \noindent Ipotesi: \(f(x)=\cos x\). \tab \(f'(x)=-\sen x\).
 % \begin{proof}
 % Il disegno con cui dimostrare la tesi è uguale a quello di pag.
 % \pageref{fig_diff01dseno}. Lo puoi riprodurre, tenendo però l'attenzione
@@ -3853,7 +3900,7 @@ La derivata della funzione \(f(x)=\tg x\)~~è~~
 \(f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x\) % per \(x\ne \pm\frac{\pi}{2}\): 
 \[\Deriv{\tg x} = \dfrac{1}{\cos^2 x}=1+tg^2 x\]
 \end{teorema}
-\noindent Ipotesi: \(f(x)=\tg x\) \tab 
+% \noindent Ipotesi: \(f(x)=\tg x\) \tab 
 \(f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x\)
 \begin{proof}
 Usiamo la relazione goniometrica che lega la tangente al seno e al coseno:
@@ -4189,7 +4236,8 @@ esistono per \(x\ne 0\).
 Osserviamo quindi che il campo di esistenza della funzione derivata (prima, 
 seconda, terza \dots) può non coincidere con il campo di esistenza della 
 funzione da derivare. 
-% TODO: mi sembra di capire che la derivata esiste anche dove non esiste la f(x).
+% TODO: mi sembra di capire che la derivata esiste anche dove non esiste la 
+f(x).
 \end{osservazione}
 \end{esempio}
 
@@ -4539,7 +4587,7 @@ indifferente dal valore di \(x_0\) è come dire che vale per qualsiasi \(x\):
  \(\forall x, \forall dx \in \IR\).
 \end{teorema}
 
-\noindent Ipotesi: \(f(x)=mx+q\) \tab Tesi: \(df(x)=mdx\)
+% \noindent Ipotesi: \(f(x)=mx+q\) \tab Tesi: \(df(x)=mdx\)
 
 \begin{proof}
 \begin{align*}
@@ -4631,7 +4679,7 @@ della variabile indipendente:
 ~\(\forall x\in \IR\).
 \end{teorema}
 
-\noindent Ipotesi: \(f(x)=x^2\).\tab Tesi: \(df(x)=2xdx+(dx)^2\).
+% \noindent Ipotesi: \(f(x)=x^2\).\tab Tesi: \(df(x)=2xdx+(dx)^2\).
 
 \begin{proof}
 \[ df(x_0)= f(x_0+dx)-f(x_0)=(x_0+dx)^2-x_0^2=
@@ -4726,8 +4774,8 @@ Ne hai un esempio nei casi che seguono.
  \(\sim\frac{dx}{2\sqrt{x}}\), \(\forall x\in \IR\), \(x\neq 0\).
 \end{teorema}
 
-\noindent Ipotesi: \(f(x)=\sqrt{x}\).\tab Tesi: 
-\(df(x)\sim\dfrac{dx}{2\sqrt{x}}\).
+% \noindent Ipotesi: \(f(x)=\sqrt{x}\) \tab 
+% Tesi: \(df(x)\sim\dfrac{dx}{2\sqrt{x}}\).
 
 \begin{proof}
 \begin{align*}
@@ -4758,8 +4806,8 @@ risultato con quello ottenuto applicando la regola della funzione potenza:
  è  \[d\tonda{\frac{1}{x}}\sim\frac{dx}{x^2}.\]
 \end{teorema}
 
-\noindent Ipotesi: \(f(x)=\dfrac{1}{x}\)\tab 
-Tesi: \(df(x)\sim-\dfrac{dx}{x^2}.\)
+% \noindent Ipotesi: \(f(x)=\dfrac{1}{x}\)\tab 
+% Tesi: \(df(x)\sim-\dfrac{dx}{x^2}.\)
 
 \begin{proof}
 \[
@@ -4910,7 +4958,7 @@ Ma è meglio non lasciarcele sfuggire.
  Se una funzione è moltiplicata per una costante, anche il suo 
  differenziale risulta moltiplicato per la stessa costante.
 \end{teorema}
-\noindent Ipotesi: \(f(x)=a\cdot g(x)\).\tab Tesi: \(df(x)=a\cdot dg(x)\).
+% \noindent Ipotesi: \(f(x)=a\cdot g(x)\).\tab Tesi: \(df(x)=a\cdot dg(x)\).
 
 \begin{proof}
 \[df(x)=d\quadra{a\cdot g(x)}= a\cdot g(x+dx)-a\cdot 
@@ -4925,8 +4973,8 @@ g(x)=a\cdot\quadra{g(x+dx)-g(x)}
  Se una funzione è la somma (la differenza) di due funzioni, anche il suo 
  differenziale sarà la somma (la differenza) dei due differenziali.
 \end{teorema}
-\noindent Ipotesi: \(f(x)=f_1(x)\pm f_2(x)\).\tab Tesi: \(df(x)=df_1(x)\pm 
-df_2(x)\).
+% \noindent Ipotesi: \(f(x)=f_1(x)\pm f_2(x)\) \tab 
+% Tesi: \(df(x)=df_1(x)\pm df_2(x)\).
 
 \begin{proof}
 \begin{align*}
@@ -4981,8 +5029,9 @@ reagire in modo diverso all'incremento \(dx\).
  prima funzione per la seconda più la prima funzione per il differenziale 
  della seconda più il prodotto dei due differenziali.
 \end{teorema}
-\noindent Ipotesi: \(\mathit{A}(x)=b(x)\cdot h(x)\).\qquad 
-Tesi: \(d\mathit{A}(x)=db(x)\cdot h(x)+b(x)\cdot dh(x)+ db(x)\cdot dh(x)\).
+% \noindent Ipotesi: \(\mathit{A}(x)=b(x)\cdot h(x)\).\qquad 
+% Tesi: 
+% \(d\mathit{A}(x)=db(x)\cdot h(x)+b(x)\cdot dh(x)+ db(x)\cdot dh(x)\).
 
 \begin{figure}[h]
 \begin{inaccessibleblock}
@@ -5034,7 +5083,8 @@ senza gravi danni: \(d\mathit{A}(x)\sim db(x)\cdot h(x)+b(x)\cdot dh(x)\).
  e dividendo il risultato per il quadrato del denominatore.
 \end{teorema}
 \noindent Ipotesi: \(h(x)=\dfrac{\mathit{A}(x)}{b(x)}\), 
-con \(b(x)\neq 0\) \tab 
+con \(b(x)\neq 0\) 
+\tab 
 Tesi: 
 \(dh(x) \sim \dfrac{d\mathit{A}(x) \cdot b(x)-\mathit{A}(x) \cdot db(x)}
              {\tonda{b(x)}^2}\)
@@ -5928,7 +5978,7 @@ definizione di derivata ...deriva direttamente quanto segue.
 \begin{teorema}
   La derivata di una funzione costante è \(0\): \(\Deriv{k}=0\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f'(x)=0\).
+% \noindent Ipotesi: \(f(x)=k\).\tab Tesi: \(f'(x)=0\).
 \begin{proof}
  Infatti \(df(x)=0\).
 \end{proof}
@@ -5936,7 +5986,7 @@ definizione di derivata ...deriva direttamente quanto segue.
 \begin{teorema}
   La derivata della funzione identica è 1: \(\Deriv{x}=1\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=x\).\tab Tesi: \(f'(x)=1\).
+% \noindent Ipotesi: \(f(x)=x\).\tab Tesi: \(f'(x)=1\).
 \begin{proof}
  Infatti \(df(x)=\epsilon=dx\), quindi il rapporto differenziale è \(1\) e così
  anche la sua parte standard.
@@ -5949,7 +5999,7 @@ risaputa.
 \begin{teorema}
   La derivata della funzione quadratica è: \(\Deriv{x^2}=2x\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=x^2\) .\tab Tesi: \(f'(x)=2x\).
+% \noindent Ipotesi: \(f(x)=x^2\) .\tab Tesi: \(f'(x)=2x\).
 \begin{proof}
   Infatti \(df(x)=2xdx+(dx)^2\) e il rapporto differenziale è \(2x+dx\) da cui,
   applicando la definizione di derivata, ...
@@ -5993,7 +6043,7 @@ rispetto alla \(x\) in una retta.
   La derivata della generica  è: \(\Deriv{x^n}=
   nx^{n-1}\).
 \end{teorema}
-\noindent Ipotesi: \(f(x)=x^n\) .\tab Tesi: \(f'(x)=nx^{n-1}\).
+% \noindent Ipotesi: \(f(x)=x^n\) .\tab Tesi: \(f'(x)=nx^{n-1}\).
 \begin{proof}
   Infatti il differenziale è \(df(x)=nx^{n-1}dx+ \delta(x)\) e,
   applicando la definizione di derivata, ...
@@ -6042,8 +6092,8 @@ parabola simmetrica rispetto all'asse \(Y\).
 \(\Deriv{\sqrt{x}}=
     \dfrac{1}{2\sqrt{x}}\), con la restrizione \(x\ne 0\).
 \end{corollario}
-\noindent Ipotesi: \(f(x)=\sqrt{x}\), con \(x\ne 0\) .\tab Tesi: 
-    \(f'(x)=\dfrac{1}{2\sqrt{x}}\).
+% \noindent Ipotesi: \(f(x)=\sqrt{x}\), con \(x\ne 0\) .\tab 
+% Tesi: \(f'(x)=\dfrac{1}{2\sqrt{x}}\).
 
 \pagebreak %-------------------------------------------
 
@@ -6088,7 +6138,7 @@ orizzontalmente.
   La derivata della funzione reciproca è: \(\Deriv{\dfrac{1}{x}}=
     -\dfrac{1}{x^2}\).
 \end{corollario}
-\noindent Ipotesi: \(f(x)=\dfrac{1}{x}\).\tab Tesi: \(f'(x)=-\dfrac{1}{x^2}\).
+% \noindent Ipotesi: \(f(x)=\dfrac{1}{x}\).\tab Tesi: \(f'(x)=-\dfrac{1}{x^2}\).
 \begin{proof}
   Infatti il differenziale è \(df(x)=\dfrac{-dx}{x(x+dx)}\) e,
   applicando la definizione di derivata, si ha:\\
@@ -6354,8 +6404,8 @@ Perciò il prossimo enunciato deve contenere tutti i dettagli.
 composta è il prodotto delle derivate delle funzioni componenti, 
 ciascuna rispetto alla propria variabile.
 \end{teorema}
-\noindent Ipotesi: \(f(x)=f(g(x))\), \(f\), \(g\) derivabili .\tab 
-Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\).
+% \noindent Ipotesi: \(f(x)=f(g(x))\), \(f\), \(g\) derivabili .\tab 
+% Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\).
 % \begin{proof}
 %   Tralasciando di specificare la scomparsa degli infinitesimi di ordine 
 %   superiore e grazie alle proprietà della funzione \(\pst{}\), abbiamo:\\
