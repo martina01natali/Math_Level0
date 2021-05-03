@@ -442,12 +442,14 @@
     (\xa, \yc) node [left] {\(a + \Delta a\)} -- 
     (\xa, \yb) node [left] {\(a\)} -- cycle;
     \draw (\xb, \ya) -- (\xb, \yc) (\xa, \yb) -- (\xc, \yb);
-    \draw (\xb / 2, \yb / 2) node {\(b \cdot a\)};
+    \draw (\xb / 2, \yb / 2) node {\(S = b \cdot a\)};
     \end{scope}
     \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
 	    \draw (\xb / 2, \yb + \dy / 2) node {\(b \cdot \Delta a\)};
-	    \draw (\xb + \dx / 2, \yb / 2) node [rotate=90] {\(\Delta b \cdot a\)};
-	    \draw (\xb + \dx / 2, \yb + \dy / 2) node {\(\Delta b \cdot \Delta a\)};
+	    \draw (\xb + \dx / 2, \yb / 2) node [rotate=90] 
+	          {\(\Delta b \cdot a\)};
+	    \draw (\xb + \dx / 2, \yb + \dy / 2) node 
+	          {\(\Delta b \cdot \Delta a\)};
     \end{scope}
     }
 }
@@ -482,7 +484,7 @@
           (1.126*\xb, 1.6*\yb) -- (1.65*\xb, 1.6*\yb)
           (1.5*\xb, 1.8*\yb) -- (1.5*\xb, 1.2*\yb)
           (1.65*\xb, 1.8*\yb) -- (1.65*\xb, 1.27*\yb);
-    \draw (\xb / 2, \yb / 2) node {\(b \cdot a\)};
+    \draw (\xb / 2, \yb / 2) node {\(S = b \cdot a\)};
     \end{scope}
     \begin{scope}[font=\fontsize{6}{6}] %\scriptsize % \small
 	    \draw (1.35*\xb, 1.7*\yb) node{\(b \cdot d a\)};
@@ -906,7 +908,7 @@
 % }
 
 \newcommand{\derivamodulodue}{% funzione e derivata val ass.
-  \def \fa{-.5*abs(x-2)+2}
+  \def \fa{-.5*abs(x-2)+3}
   \def \fda{+.5}
   \def \fdb{-.5}
   \def \mix{-2}
