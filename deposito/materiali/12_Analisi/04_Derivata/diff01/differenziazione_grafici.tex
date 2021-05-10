@@ -197,7 +197,7 @@
 %   }
 % }
 
-\newcommand{\funzioneederivata}{% 
+\newcommand{\parabolaederivata}{% 
   % Una funzione e la sua derivata.
 %   \def \fun{1./3*\x**2 -2*\x +5} % Questo non va!
   \def \fun{1./2*\x*\x +2*\x +4} % Questo sì!
@@ -218,26 +218,54 @@
   }
 }
 
-% \newcommand{\funzioneederivata}{% 
-%   % Una funzione e la sua derivata.
-% %   \def \fun{1./3*\x**2 -2*\x +5} % Questo non va!
-%   \def \fun{1./3*\x*\x -2*\x +5} % Questo sì!
-%   \def \der{2./3*\x -2}
-%   \def \mix{-3}
-%   \def \max{+8}
+\newcommand{\funzioneederivata}{% 
+  % Una funzione e la sua derivata.
+%   \def \fun{1./3*\x**2 -2*\x +5} % Questo non va!
+%   \def \fun{1./2*\x*\x +2*\x +4} % Questo sì!
+%   \def \der{\x +2}
+%   \def \mix{-8}
+%   \def \max{+4}
 %   \def \miy{-4}
-%   \def \may{12}
+%   \def \may{15}
 %   \disegno{
-%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-%     \tkzFct[ultra thick, color=blue!50!black, domain=-3.3:+8.3]{\fun}
-%     \fpunti{\fun}{blue!50!black}{-2}{8}
-%     \node at (-2.5, 8.5) {\(f(x)\)};
-%     \tkzFct[ultra thick, color=green!50!black, domain=-3.3:+8.3]{\der}
-%     \fpunti{\der}{green!50!black}{-3}{8}
-%     \node at (-2.5, -2.5) {\(f'(x)\)};
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[ultra thick, color=\fcolor, domain=\mix-.3:\max+0.3]{\fun}
+    \node at \flabel {\(f(x)\)};
+    \tkzFct[ultra thick, color=\dcolor, domain=\mix-.3:\max+0.3]{\der}
+    \node at \dlabel {\(f'(x)\)};
 %   }
-% }
+}
+
+\newcommand{\esempiomx}{% Una funzione e la sua derivata.
+%   \def \fun{1./3*\x**2 -2*\x +5} % Questo non va!
+  \def \fun{5*\x} % Questo sì!
+  \def \der{5}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-1}
+  \def \may{+7}
+  \def \flabel{(1, .5)}
+  \def \dlabel{(-3, +5.5)}
+  \disegno{
+    \funzioneederivata
+  }
+}
+
+\newcommand{\esempioquartica}{% Una funzione e la sua derivata.
+%   \def \fun{1./3*\x**2 -2*\x +5} % Questo non va!
+  \def \fun{.25*\x*\x*\x*\x+\x} % Questo sì!
+  \def \der{\x*\x*\x+1}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-3}
+  \def \may{+5}
+  \def \flabel{(-3.2, 4.5)}
+  \def \dlabel{(-2.7, -2.5)}
+  \disegno{
+    \funzioneederivata
+  }
+}
 
 \newcommand{\incremento}{% 
   % definita in intervallo 0-inf.
@@ -775,8 +803,8 @@
   \def \fb{-3*x+2}
   \def \mix{-3}
   \def \max{+5}
-  \def \miy{-5}
-  \def \may{+5}
+  \def \miy{-4}
+  \def \may{+4}
   \def \intervallo{{+1}}
   \disegno{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
@@ -824,7 +852,7 @@
   \def \max{+2}
   \def \miy{-2}
   \def \may{+2}
-  \disegno[10]{
+  \disegno[8]{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \tkzFct[domain=\mix-0.3:-1, ultra thick, \fcolor] {\faa}
@@ -872,7 +900,7 @@
   \def \punto{(0, 1)}
   \def \mix{-4}
   \def \max{+3}
-  \def \miy{-6}
+  \def \miy{-4}
   \def \may{+6}
   \disegno{\funzioneetangente}
 }
@@ -1928,38 +1956,83 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
 %     node[below]{\footnotesize \(\lx\)} -- \pa; 
 % }
 
-\newcommand{\dsincos}{% 
+\newcommand{\basedsincos}{% 
+% Disegno di base per le derivate di sin, cos, arcsin, arccos
   \def \ra{1}
   \def \pma{(1.56, 0.705)}
   \def \pmb{(1.25, 1.545)}
   \def \pA{(1.486, 0.9)}
   \def \pB{(1.34, 1.3)}
+%   \def \pmAB{(1.4, 1.1)}
+%   \def \pmAC{(1.4, 0.9)}
+%   \def \pdcos{(1.4, 0.65)}
+%   \disegno[25]{
+  \begin{scope}[font=\fontsize{8}{8}]
+    \rcom{+0.2}{+1}{+0.2}{+1.0}{gray!50, very thin, step=1}
+    \draw [brown!50!black, ultra thick] (\ra, 0) arc(0:90:\ra);
+    \filldraw (20:\ra) [brown!50!black] circle(1.5pt);
+    \draw (0, 0) node [below left] {\(O\)} -- 
+          (20:\ra) node [right] {\(A \approx B \approx C\)}
+          |- node [below] {\(D\)} (0, 0);
+    \microscopio{(20:\ra)}{.25}{70}{-110}{.5}{(.8, 1.5)}
+                {\(\times \infty\)}
+    \draw [brown!50!black, ultra thick] \pma -- \pmb;
+    \filldraw [brown!50!black] 
+              \pA circle(1.5pt) node [right, black] {\(A\)}
+              \pB circle(1.5pt) node [right, black] {\(B\)};
+    \draw \pA --++ (200:.665) \pB --++ (200:.68);
+    \draw \pA -| node [left] {\(C\)} \pB --++ (270:.738);
+  \end{scope}
+%   }
+}
+
+\newcommand{\dsincos}{% Derivate di sin e cos
   \def \pmAB{(1.4, 1.1)}
   \def \pmAC{(1.4, 0.9)}
-  \def \pdcos{(1.4, 0.65)}
-  \disegno[25]{
+  \def \pdcos{(1.43, 0.65)}
+  \disegno[25]{\basedsincos
     \begin{scope}[font=\fontsize{8}{8}]
-      \rcom{+0.2}{+1}{+0.2}{+1.0}{gray!50, very thin, step=1}
-      \draw [brown!50!black, ultra thick] (\ra, 0) arc(0:90:\ra);
-      \filldraw (20:\ra) [brown!50!black] circle(1.5pt);
-      \draw (0, 0) node [below left] {\(O\)} -- 
-            (20:\ra) node [right] {\(A \approx B \approx C\)}
-            |- node [below] {\(D\)} (0, 0);
       \draw (10:\ra*.6) node [rotate = 10] {\(x \approx x + dx\)};
-      \microscopio{(20:\ra)}{.25}{70}{-110}{.5}{(.8, 1.5)}
-                  {\(\times \infty\)}
-      \draw [brown!50!black, ultra thick] \pma -- \pmb;
-      \filldraw [brown!50!black] 
-                \pA circle(1.5pt) node [right, black] {\(A\)}
-                \pB circle(1.5pt) node [right, black] {\(B\)};
       \draw \pmAB node [right] {\(dx\)}
                   node [left=.05, yshift=-3pt] {\(d \sen x\)}
                   node [left=-.06, yshift=-2pt] {\(x\)};
-      \draw \pA --++ (200:.665) \pB --++ (200:.68);
-      \draw \pA -| node [left] {\(C\)} \pB --++ (270:.738);
       \draw [{Latex[length=2mm, width=1mm]}-, black] 
         \pmAC % ..controls (, ) and , ) .. 
         -- \pdcos node[below=-3pt]{\(d \cos x\)}; 
+    \end{scope}
+  }
+}
+
+\newcommand{\darcsin}{% Derivata di arcsin
+  \def \pmAB{(1.4, 1.1)}
+  \def \pmAC{(1.4, 0.9)}
+  \def \pdcos{(1.43, 0.65)}
+  \disegno[25]{\basedsincos
+    \begin{scope}[font=\fontsize{8}{8}]
+      \draw [{Latex[length=2mm, width=1mm]}-, black] 
+        (.93, .15) -- (1.1, .15) 
+        node [right]{\(x \approx x +dx\)}; 
+      \draw (.5, -.1) node {\(\sqrt{1-x^2}\)}
+            (.5, +.25) node {\(1\)};
+      \draw \pmAB node [right] {\(\text{d arcsin x}\)}
+                  node [left=.05, yshift=-3pt] {\(dx\)};
+    \end{scope}
+  }
+}
+
+\newcommand{\darccos}{% Derivata di arccos
+  \def \pmAB{(1.4, 1.1)}
+  \def \pmAC{(1.4, 0.9)}
+  \def \pdcos{(1.43, 0.75)}
+  \disegno[25]{\basedsincos
+    \begin{scope}[font=\fontsize{8}{8}]
+      \draw (.73, .13) node {\(\sqrt{1-x^2}\)} 
+            (.5, -.1) node {\(x\)}
+            (.5, +.25) node {\(1\)};
+      \draw \pmAB node [right] {\(\text{d arccos x}\)};
+      \draw [{Latex[length=2mm, width=1mm]}-, black] 
+        \pmAC % ..controls (, ) and , ) .. 
+        -- \pdcos node[below=-3pt]{\(dx\)}; 
     \end{scope}
   }
 }
@@ -1994,6 +2067,7 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
 % 4 funzioni 
 % - 2 per tracciare una funzione e alcune tangenti
 % - 2 per tracciare una funzione e acuni suoi punti
+
 \newcommand{\pianoetangenti}{
   % Piano cartesiano e alcune tangenti di una funzione
   % Lascia alla funzione chiamante l'onere di disegnare la funzione
@@ -2278,36 +2352,36 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   }
 }
 
-\newcommand{\tangentev}{ %
-    \disegnod{4.5}{
-    \rcom{-3.5}{+3.5}{-6}{+6}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-3.8, xmax=+3.8, ymin=-6.3, ymax=+6.3]
-    \tkzFct[ultra thick, color=Green!60!black, domain=-3.14:-1.58]{tan(x)}
-    \tkzFct[ultra thick, color=Green!60!black, domain=-1.55:1.55]{tan(x)}
-    \tkzFct[ultra thick, color=Green!60!black, domain= 1.58: 3.14]{tan(x)}
-     \begin{scope}[thick, dashed, color=blue!40!black, xstep=1]
-      \foreach \i in {-3, -2.5, -2, -1.8}
-           \tkzFct[domain=\i-1:\i+1]{(x-\i)/(cos(\i))**2+tan(\i)};
-      \foreach \i in {-1.5, -1, -.5, 0, .5, 1, 1.5}
-           \tkzFct[domain=\i-1:\i+1]{(x-\i)/(cos(\i))**2+tan(\i)};
-      \foreach \i in {1.8, 2.2, 2.7, 3, 3.1}
-           \tkzFct[domain=\i-1:\i+1]{(x-\i)/(cos(\i))**2+tan(\i)};
-     \end{scope}
-   }
-}
-  
-\newcommand{\tangentitangente}{% 
-%    definita in intervallo 0-inf.
-     \disegnod{4.5}{
-     \rcom{-4}{+4}{-1}{+6}{gray!50, very thin, step=1}
-     \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-1, ymax=6.3]
-      \begin{scope}[ultra thick, color=blue!50!black]
-     \tkzFct [domain=-3.1:-1.6]{1/(cos(x))**2}
-      \tkzFct [domain=-1.54:1.54]{1/(cos(x))**2}
-     \tkzFct [domain=1.6:3.1]{1/(cos(x))**2}
-     \end{scope}
-     }
-}
+% \newcommand{\tangentev}{ %
+%     \disegnod{4.5}{
+%     \rcom{-3.5}{+3.5}{-6}{+6}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-3.8, xmax=+3.8, ymin=-6.3, ymax=+6.3]
+%     \tkzFct[ultra thick, color=Green!60!black, domain=-3.14:-1.58]{tan(x)}
+%     \tkzFct[ultra thick, color=Green!60!black, domain=-1.55:1.55]{tan(x)}
+%     \tkzFct[ultra thick, color=Green!60!black, domain= 1.58: 3.14]{tan(x)}
+%      \begin{scope}[thick, dashed, color=blue!40!black, xstep=1]
+%       \foreach \i in {-3, -2.5, -2, -1.8}
+%            \tkzFct[domain=\i-1:\i+1]{(x-\i)/(cos(\i))**2+tan(\i)};
+%       \foreach \i in {-1.5, -1, -.5, 0, .5, 1, 1.5}
+%            \tkzFct[domain=\i-1:\i+1]{(x-\i)/(cos(\i))**2+tan(\i)};
+%       \foreach \i in {1.8, 2.2, 2.7, 3, 3.1}
+%            \tkzFct[domain=\i-1:\i+1]{(x-\i)/(cos(\i))**2+tan(\i)};
+%      \end{scope}
+%    }
+% }
+%   
+% \newcommand{\tangentitangente}{% 
+% %    definita in intervallo 0-inf.
+%      \disegnod{4.5}{
+%      \rcom{-4}{+4}{-1}{+6}{gray!50, very thin, step=1}
+%      \tkzInit[xmin=-4.3, xmax=+4.3, ymin=-1, ymax=6.3]
+%       \begin{scope}[ultra thick, color=blue!50!black]
+%      \tkzFct [domain=-3.1:-1.6]{1/(cos(x))**2}
+%       \tkzFct [domain=-1.54:1.54]{1/(cos(x))**2}
+%      \tkzFct [domain=1.6:3.1]{1/(cos(x))**2}
+%      \end{scope}
+%      }
+% }
 
 % \newcommand{\derivata}{% 
 %     % definita in intervallo 0-inf.
