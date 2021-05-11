@@ -20,9 +20,9 @@
 
 \subsubsection{Applicazioni: cerchio osculatore}
 I grafici delle pagine precedenti ci hanno mostrato alcune rette e tante curve. 
-Calcolando le derivate abbiamo  imparato ad analizzare la forma delle 
+Calcolando le derivate abbiamo iniziato ad analizzare la forma delle 
 curve-grafici delle funzioni regolari. Anche se più avanti renderemo più 
-generali queste nozioni, finora sappiamo che:
+generali queste nozioni, al momento sappiamo che:
 \begin{itemize}[noitemsep, nosep]
  \item con la derivata prima ricaviamo le pendenze di una curva, punto per 
 punto;
@@ -57,7 +57,7 @@ Dal teorema dell'incremento si ha:
 \paragraph{La lunghezza \(ds\):}
 il tratto curvo \(ds\) è indistinguibile da un segmento rettilineo lungo la 
 tangente, con la componente orizzontale che è \(dx\) e quella verticale 
-\(dy\sim f'(x)dx\), per cui:
+che è \(dy\sim f'(x)dx\), per cui:
 \[
 ds=\sqrt{(dx)^2+(dy)^2}\sim\sqrt{(dx)^2+(f'(x)dx)^2}=dx\sqrt{1+(f'(x))^2}
 \]
@@ -101,16 +101,16 @@ curvature risultanti.
 x_A&=0,5 \quad\longrightarrow \quad k(0,5)=\dfrac{2\cdot 
 0,5^2}{\sqrt{(0,5^4+1)^3}}\simeq 0,456\\
 x_B&=1 \quad  \longrightarrow \quad k(1)=\dfrac{2\cdot 
-1^2}{\sqrt{(1^4+1)^3}}=\sqrt{2}\simeq 0,707\\
+1^2}{\sqrt{(1^4+1)^3}}=\dfrac{\sqrt{2}}{2}\simeq 0,707\\
 x_B&=4 \quad  \longrightarrow  \quad k(4)=\dfrac{2\cdot 
 4^2}{\sqrt{(4^4+1)^3}}=\simeq 0,008
 \end{align*}
 Come si vede anche dal disegno, la curvatura è più accentuata nel punto di 
 simmetria della curva, cioè \(x_B\). Allontanandosi da questo punto sia a 
-destra che a sinistra, curvatura diminuisce rapidamente.
+destra che a sinistra, la curvatura diminuisce rapidamente.
 \end{esempio}
 \begin{esempio}
- Che curvatura ha una retta, per esempio \(y=3x-1\)\,? la risposta viene 
+ Che curvatura ha una retta, per esempio \(y=3x-1\)\,? La risposta viene 
 d'istinto, trattandosi di una retta. Calcoliamo:
 \begin{align*}
  f(x) &= 3x-1 \qquad f'(x)=3 \qquad f''(x)=0\\
@@ -123,7 +123,8 @@ retta, anche quelle verticali, anche se in questi casi non possiamo
 applicare la formula.
 \begin{esempio}
  Calcola la curvatura della funzione \(f(x)=\sqrt{9-x^2}\). Si tratta della 
-semicirconferenza di raggio \(r=3\), nel semipiano \(y\geqslant 0\).
+semicirconferenza che ha il centro nell'origine e il raggio \(r=3\), nel 
+semipiano \(y\geqslant 0\).
 \begin{align*}
 f(x) &= \sqrt{9-x^2} \qquad f'(x)=\dfrac{-x}{\sqrt{9-x^2}} 
 \qquad f''(x)=\dfrac{-9}{\sqrt{(9-x^2)^3}}=-9\tonda{9-x^2}^{-\frac{3}{2}}\\
@@ -159,9 +160,8 @@ lunghezza del tratto percorso.
 Nelle circonferenze, se \(\alpha\) si misura in radianti, vale la relazione 
 \(ds=rd\alpha\), per cui il raggio è \(r=\dfrac{ds}{d\alpha}=\dfrac{1}{k}\). Da 
 qui viene l'idea di esprimere la curvatura di un grafico in un suo punto 
-attraverso il raggio del cerchio che in quel punto approssima la curva al meglio 
-(cioè per quanto ci consente derivare fino alla seconda derivata). Tale cerchio 
-è chiamato \emph{cerchio osculatore}.
+attraverso il raggio del cerchio che in quel punto approssima la curva al 
+meglio. Tale cerchio è chiamato \emph{cerchio osculatore}.
 
 Essendo il reciproco di \(k\), il raggio del cerchio osculatore è:
 \[
@@ -170,14 +170,40 @@ Essendo il reciproco di \(k\), il raggio del cerchio osculatore è:
 e il segno che risulterà alla fine del calcolo ci indica se la circonferenza si 
 trova sopra o sotto la curva, come puoi verificare negli ultimi esempi.
 
+Non è difficile trovare il centro \(O\) del cerchio osculatore: 
+se \(P\) è il punto della curva che stiamo esaminando, il raggio \(r=OP\) è un 
+segmento che appartiene alla normale alla curva, passante per \(P\). Il calcolo 
+si svolge nel prossimo esempio..
+
 Quanto alla curvatura di una retta, che risulta \(0\) come abbiamo visto, il 
 raggio del cerchio osculatore risulterà infinito, come è giusto se si 
 immagina una circonferenza che ha il suo centro a distanza infinita dalla 
 retta.
 
-
-
-
+\begin{esempio}
+ Trovare i cerchi osculatori della parabola \(y=x^2\) nel suo vertice 
+\(V(0, 0)\) e nel punto \(P(1, 1)\).
+\begin{center} \(f(x)=x^2\qquad f'(x)= 2x \qquad f''(x)=2\)\end{center}
+Relativamente al vertice \(V\): \quad
+\(r=\dfrac{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}{f''(x)}=
+ \dfrac{\quadra{1+(2\cdot 0)^2}^{\frac{3}{2}}}{2}=\dfrac{1}{2}\).\\
+Dato che in \(V\) la parabola ha tangente orizzontale, il centro del cerchio 
+osculatore si troverà sulla verticale di \(V\), cioè in \(O_V(0, 
+\dfrac{1}{2})\).\\
+Relativamente al punto \(P\): \quad
+\(r=\dfrac{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}{f''(x)}=
+ \dfrac{\quadra{1+2^2}^{\frac{3}{2}}}{2}\simeq 5,59\).\\
+ Dato che \(\alpha\), l'inclinazione della tangente, è 
+\(\alpha=\arctan(f'(1))=\arctan(2)=63,4^\circ\), l'inclinazione della normale 
+passante per \(P\) è \(\beta=\alpha+90^\circ=153,4^\circ\).\\
+Le coordinate del centro \(O_P\) del cerchio osculatore in \(P\) saranno quindi:
+\begin{align*}
+x_{O_P} &= x_P+\cos\beta=x_P+\cos 153,4^\circ=1-0,89=0,11\\
+y_{O_P} &=y_P+\sen\beta=y_P+\sen 153,4\circ=1+0,45=1,45.
+\end{align*}
+Da notare, infine, che le due circonferenze si trovano sopra la curva, dato che 
+la curvatura \(k\) è positiva perché \(f''(x)\geqslant 0\).
+\end{esempio}
 
 
 \begin{comment}
