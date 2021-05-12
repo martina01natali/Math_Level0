@@ -1369,7 +1369,7 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
             node [midway, yshift=6pt] {\(g(\xo) = \xoo\)};
       \draw (\slx*7, -\sly) rectangle ++ (\latox, \latoy) 
             node [midway] {\(\labff\)}
-            (\slx*8, +\sly) node [above] {\(f:~x \mapsto \labf\)};
+            (\slx*8, +\sly) node [above] {\(f:~g(x) \mapsto \labf\)};
       \draw (\slx*9, 0) -- (\slx*10, 0); 
       \draw (\slx*10, 0) -- (\slx*12.5, 0) 
             node [midway, yshift=6pt] {\(f(g(\xo)) = \xooo\)};
@@ -1381,7 +1381,7 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   \def \latox{4}
   \def \latoy{2}
   \def \lab{\dfrac{\tonda{3x -2}^2}{8}}
-  \def \labf{\dfrac{x^2}{8}}
+  \def \labf{\dfrac{\tonda{g(x)}^2}{8}}
   \def \labff{\dfrac{\xoo^2}{8}}
   \def \xo{6}
   \def \ff{\xoo*\xoo / 8}
@@ -1395,7 +1395,7 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   \def \latox{4}
   \def \latoy{2}
   \def \lab{\sqrt{25 - x^2}}
-  \def \labf{\sqrt{x}}
+  \def \labf{\sqrt{g(x)}}
   \def \labff{\sqrt{\xoo}}
   \def \xo{3}
   \def \ff{sqrt(\xoo)}
@@ -1433,8 +1433,10 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   \def \mix{-6}
   \def \max{+6}
   \def \miy{-2}
-  \def \may{+7}
+  \def \may{+6}
   \disegno{
+\begin{scope}
+    \clip(-6.3, -2.3) rectangle (+6.5, +6.5);
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-2.3,xmax=\max+1.6,ymin=\miy-4.3,ymax=\may+2.2]
     \tkzFct[domain=-0.5:\max+0.3, ultra thick, opacity=.3, 
@@ -1444,6 +1446,7 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
     \filldraw [\fcolor, rotate=-67.5] (3, 2) circle(2pt);
 %     \tkzFct[domain=\mix-0.3:\max+2.3, ultra thick, opacity=.3, 
 %             rotate=57.5, \dcolor] {\ft}
+\end{scope}
   }
 }
 
@@ -1624,7 +1627,7 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   % Una funzione e la sua derivata.
 %   \def \fun{1./3*\x**2 -2*\x +5} % Questo non va!
   \def \fun{1./sqrt(2*x-3)} % Questo sì!
-  \def \der{-1./(2*x-3)}
+  \def \der{-1./((2*x-3)*sqrt(2*x-3))}
   \def \mix{0}
   \def \max{+10}
   \def \miy{-5}
@@ -1801,31 +1804,51 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
 % }
 
 \newcommand{\diffinversa}{% parabola e radice per x>=0 
-    \disegnod{4.5}{
-    \rcom{-1}{+10.3}{-1}{+9}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-0.3, xmax=+10.3, ymin=-0.3, ymax=+9.3]
-    \tkzFct[ultra thick, color=blue!50!black, domain=0:+4.3]{x*x/2}
-    \tkzFct[ultra thick, color=Green!50!black, domain=0:+10.3]{sqrt(2*x)}
-    \tkzFct[thick, black, dashed, domain=0:+10.3]{x}
+  \def \fund{sqrt(2*x)}
+  \def \funi{x*x/2}
+  \def \funmd{.25*x -.0}
+  \def \funmi{4*x -16}
+  \def \xmaa{8.5}
+  \def \ymaa{2.10}
+  \def \xmab{11.5}
+  \def \ymab{2.85}
+  \def \xmba{6.1}
+  \def \ymba{8.5}
+  \def \xmbb{6.85}
+  \def \ymbb{11.5}
+  \def \mix{0}
+  \def \max{10}
+  \def \miy{0}
+  \def \may{10}
+  \disegnod{4.5}{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=2}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+2.3,ymin=\miy-0.3,ymax=\may+2.3]
+    \tkzFct[ultra thick, blue!50!black, domain=\mix:\max+0.3]{\fund}
+    \filldraw [blue!50!black] (8, 4) circle(1.5pt);
+    \tkzFct[ultra thick, red!50!black, domain=\mix:\max+0.3]{\funi}
+    \filldraw [red!50!black] (4, 8) circle(1.5pt);
+    \tkzFct[thick, black, dashed, domain=\mix:\max+0.3]{x}
     \draw [thick, dotted] (8, 4) -- (4, 8);
-    \draw [color=Cyan!50!black, thin](8, 0) -- (8, 4) -- (0, 4)
+    \draw [color=cyan!50!black, thin](8, 0) -- (8, 4) -- (0, 4)
          (4, 0) -- (4, 8) -- (0, 8);
-     \draw [black](8, 0) node [below] {\(x\)} (4, 0) node [below] {\(y\)}
-           (0, 8) node [left] {\(x=f(y)\)} (0, 4) node [left] {\(y=f^{-1}(x)\)}
-           (2.5, 6) node [rotate=75]{\(y=f(x)\)} 
-           (5, 2.5) node [rotate=15]{\(y=f^{-1}(x)\)}
-           (8, 7) node [rotate=45]{\(y=x\)};
-     \begin{scope} [black, thick]      
-     \microscopio{(8, 4)}{1}{-60}{150}{2}{(11.5, 4.3)}{\(\times \infty\)} 
-     \draw (8.2, 2.5) -- (12, 3);
-     \fill [Cyan!50] (8.2, 2.45) -- (11.3, 2.45) -- (11.3, 2.9);
-     \draw [font=\fontsize{6}{6}] (10, 2) node {\(dx\)} 
-         (11.7, 2.6) node {\(dy\)};
-     \microscopio{(4, 8)}{1}{60}{-150}{2}{(8.5, 11.5)}{\(\times \infty\)} 
-     \draw (6.1, 7.9) -- (6.6, 11.8);
-     \fill [Cyan!50] (6, 7.9) -- (6.5, 11) -- (6, 11);
-      \draw [font=\fontsize{6}{6}] (6.2, 11.3) node {\(dx\)} 
-          (5.7, 9.5) node {\(dy\)};
+    \draw [black](8, 0) node [below] {\(a\)} (4, 0) node [below] {\(b\)}
+          (0, 8) node [left] {\(a=f^{-1}(b)\)} (0, 4) node [left] {\(b=f(a)\)}
+          (2.5, 6) node [rotate=75]{\(y=f^{-1}(x)\)} 
+          (5, 2.5) node [rotate=15]{\(y=f(x)\)}
+          (8, 7) node [rotate=45]{\(y=x\)};
+    \begin{scope} [black, thick]
+    \microscopio{(8, 4)}{1}{-60}{150}{2}{(11.5, 4.3)}{\(\times \infty\)} 
+    \fill [cyan!50] (\xmaa, \ymaa) -- (\xmab, \ymaa) -- (\xmab, \ymab) 
+          -- cycle;
+    \tkzFct[ultra thick, blue!50!black, domain=8.25:12]{\funmd}
+    \draw [font=\fontsize{6}{6}] 
+          (10.1, 1.8) node {\(dx\)} (11.85, 2.5) node {\(dy\)};
+    \microscopio{(4, 8)}{1}{45}{-135}{2}{(8.5, 11.5)}{\(\times \infty\)} 
+    \fill [cyan!50] (\xmba, \ymba) -- (\xmba, \ymbb) -- (\xmbb, \ymbb) 
+          -- cycle;
+    \tkzFct[ultra thick, red!50!black, domain=6.03:6.98]{\funmi}
+    \draw [font=\fontsize{6}{6}] 
+          (6.4, 11.75) node {\(dx\)} (5.7, 10.1) node {\(dy\)};
      \end{scope}
      }
 }
@@ -2412,7 +2435,7 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
 %      }
 % }
 
-\newcommand{\differenzialens}{% differenziale non standard.
+\newcommand{\differenzialenst}{% differenziale non standard.
   \disegno[6]{
     \rcom{-1}{+6}{-1}{+6}{gray!50, very thin, step=1}
     \tkzInit[xmin=-1.3, xmax=+7.3, ymin=-1, ymax=11]
@@ -2427,49 +2450,77 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
         (-.1, .85) -- (2.5, .85) -- (2.5, -0.1) 
         node [below] {\footnotesize{\(x_0\approx x_0 + d x\)}};
       \draw (2.2, 1.1) node [black]{\(P\)};
-      \microscopio{(2.5, .85)}{1}{90}{-70}{2}{(4.2, 4.5)}{\(\times \infty\)}
+%       \microscopio{(2.5, .85)}{1}{90}{-70}{2}{(4.2, 4.5)}{\(\times \infty\)}
+      \microscopio{(2.5, .85)}{1}{90}{-70}{2}{(4.2, 4.5)}{\(M_1\)}
       \tkzFct[ultra thick, brown!50!black, domain=-.05:3.58]{.473*x+3}
 %       \draw [ultra thick] (-0.05, 3) -- (3.35, 5);
       \draw [black] (.85, 3.4) -- (3, 3.4) 
             (3, 4.4) -- (3, 2.1)  (.85, 3.4) -- (.85, 2)
             (.85, 2.6) node {\(x_0\)} (3.4, 4.1) node {\(d y\)} 
             (1.9, 2.9) node {\(d x\)} (.6, 3.6) node {\(P\)};
-      \microscopio{(.85, 3.4)}{1}{80}{-80}{2}{(-1.2, 8)}{\(\times \infty\)}
+%       \microscopio{(.85, 3.4)}{1}{80}{-80}{2}{(-1.2, 8)}{\(\times \infty\)}
+      \microscopio{(.85, 3.4)}{1}{80}{-80}{2}{(-1.2, 8)}{\(M_2\)}
       \tkzFct[ultra thick, brown!50!black, domain=-1.0:2.5]{.473*x+6}
       \draw (1, 6) node [rotate=25] {\(y=f(x)\)};
       \tkzFct[ultra thick, cyan!50!black, dashed, domain=-1.15:2.42]
              {.473*x+6}
       \draw (.7, 7) node [rotate=25] {\(y=t(x)\)};
-      \microscopio{(3, 4.4)}{2.5}{50}{-100}{2}{(3, 9.8)}
-                  {\(\times \infty\)}
+%       \microscopio{(3, 4.4)}{2.5}{50}{-100}{2}{(3, 9.8)}{\(\times \infty\)}
+      \microscopio{(3, 4.4)}{2.5}{50}{-100}{2}{(3, 9.8)}{\(M_3\)}
       \tkzFct[ultra thick, brown!50!black, domain=3.35:6.91]{.473*x+5.5}
       \draw (5.2, 7.5) node [rotate=25] {\(y=f(x)\)};
       \tkzFct[ultra thick, cyan!50!black, dashed, domain=3.1:6.4]
              {.473*x+6.5}
       \draw (5, 9.3) node [rotate=25] {\(y=t(x)\)};
       \draw [red!70!black, ultra thick] (5, 7.85) -- (5, 8.85) 
-          (5.6, 8.65) node [rotate=25] {\(\epsilon dx\)}; 
+          (5.6, 8.65) node [rotate=25] {\(\delta dx\)}; 
   }
 }
 
-\newcommand{\falsodifferenziale}{% 
-    % definita in intervallo 0-inf.
-      \disegnod{6}{
-      \rcom{-1}{+6}{-1}{+6}{gray!50, very thin, step=1}
-     \tkzInit[xmin=-1.3, xmax=+6.3, ymin=-1.3, ymax=6.3]
-     \tkzFct[ultra thick, color=blue!50!black, domain=.5:4]{3*sin(.5*x)}
-     \tkzFct[ultra thick, color=Cyan!50!black, dashed, domain=.5:4]
-     {1*(x-1.57)+ 2.15}
-     \filldraw (1.57, 3*sin 45) circle (1.4pt);
-     \draw [color=blue!50!black, thick] (1.57, 2.13) -- (4.2, 2.13)
-        (4, 2.13) -- (4, 2.7) 
-        (4, 2.4) node {\(\Delta f(x)\)};
-     \draw [color=Cyan!50!black, thick] (4.2 , 2.13) -- (5.5, 2.13)
-        (5.5, 2.13) -- (5.5, 4.6) --(4, 4.6)
-        (5.5, 3.3) node {\(f'(x)\Delta x\)};
-      \draw [black] (1.57, 2.13) -- (1.57, 0) node [below] {\(x_0\)}
-             (4, 2.7) -- (4, 0) node [below] {\(x_0 + \Delta x\)};
-     }
+\newcommand{\differenzialest}{% Differenziale standard
+  \def \fa{3*sin(.5*x)}
+  \def \ft{1*(x-1.57)+ 2.15}
+  \def \mix{0}
+  \def \max{5.5}
+  \def \miy{0}
+  \def \may{5}
+  \def \xa{1.57}
+  \def \ya{2.13}
+  \def \xb{3.5}
+  \def \yb{2.95}
+  \def \yc{4.07}
+  \def \xqa{4}
+  \def \yqa{3.3}
+  \def \xqb{4.5}
+  \def \yqb{2.4}
+  \disegnod{6}{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, brown!50!black] {\fa}
+    \tkzFct[ultra thick, color=cyan!50!black, dashed, domain=-.3:4] {\ft}
+    \filldraw [black] (\xa, \ya) -- (\xqb, \ya) 
+          (\xb, \yb) -- (\xqb, \yb)
+          (\xb, \yc) -- (\xqa, \yc)
+          (\xa, \ya) -- (\xa, 0) node [below=2pt] {\(x_0\)}
+          (\xb, \yc) -- (\xb, 0) node [below] {\(x_0 + \Delta x\)}
+          (\xb, \ya) circle (1.4pt) 
+            node [below left=-3pt] {\footnotesize \(D\)};
+    \draw [latex - latex, color=cyan!50!black, thick] 
+      (\xqa, \ya) -- (\xqa, \yc);
+    \draw [color=cyan!50!black, thick] 
+      (\xqa, \yqa) node [right] {\footnotesize \(f'(x)\Delta x\)};
+    \draw [latex - latex, color=green!50!black, thick] 
+      (\xqb, \ya) -- (\xqb, \yb);
+    \draw [color=green!50!black, thick] 
+      (\xqb, \yqb4) node [right] {\footnotesize \(\Delta f(x)\)};
+    \filldraw [brown!50!black] 
+      (\xa, \ya) circle (1.4pt) node[above left=-3pt] {\footnotesize 
+\(A\)} 
+      (\xb, \yb) circle (1.4pt) node[below left=-3pt] {\footnotesize \(C\)};
+    \filldraw [cyan!50!black] 
+    (\xb, \yc) circle (1.4pt) node[above left=-3pt] {\footnotesize \(B\)};
+%     \draw (\xa, \ya);
+  }
 }
 
 % funzioni seguenti trasferite in limiticontinuità1_grafici.tex

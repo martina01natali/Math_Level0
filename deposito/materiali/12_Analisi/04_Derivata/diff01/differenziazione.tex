@@ -2613,51 +2613,80 @@ derivata  del rapporto (\(g \ne 0\)).
 Abbiamo visto più volte che il Rapporto Differenziale di una funzione e la 
 sua derivata sono cose diverse: infatti, in una funzione derivabile,
 \(f'(x_0)=\pst{RD}\). Applicando la parte standard si eliminano dal Rapporto 
-Differenziale gli infinitesimi che il rapporto genera, così rimane solo il 
+Differenziale gli infinitesimi presenti, così rimane solo il 
 numero reale che si accetta come valore della pendenza.
 
 Fra \(f'(x_0)\) e \(RD\) c'è solo una differenza di infinitesimi:
-\(RD-f'(x_0)=\epsilon\). Concentrando i nostri ragionamenti su un 
-particolare \(x_0\) e sviluppando le formule, si ha:\\
-\(\dfrac{df(x_0)}{dx}-f'(x_0)=\epsilon\quad \rightarrow\quad
-df(x_0)=f'(x_0)dx+\epsilon\cdot dx\quad \rightarrow\)\\
-\(\rightarrow\quad f(x_0+dx)-f(x_0)=f'(x_0)dx+\epsilon\cdot dx
-\rightarrow\quad f(x_0+dx)=f'(x_0)dx+f(x_0)+\epsilon\cdot dx\).\\
-Se mancasse l'ultimo termine, l'equazione \(f(x_0+dx)=f'(x_0)dx+f(x_0)\) 
-sarebbe quella di una retta: la si ottiene scrivendo \(x-x_0\) invece di 
-\(dx\) e \(m\) invece di \(f'(x_0)\), cioè \(f(x)=m(x-x_0) +f(x_0)\). 
-La retta, che passa per il punto della curva con ascissa \(x_0\) e ha la 
-stessa pendenza della curva, è la sua tangente per quel punto. 
+\(RD-f'(x_0)=\delta\). 
+Concentrando i nostri ragionamenti su un particolare \(x_0\) e sviluppando le 
+formule, si ha:
+\begin{align*}
+RD-f'(x_0)=\dfrac{f(x_0+dx) -f(x_0)}{dx} -f'(x_0) &= \delta \\
+% df(x_0) &= f'(x_0)dx +\delta\cdot dx \\
+f(x_0+dx)-f(x_0) &= f'(x_0)dx +\delta\cdot dx \\
+f(x_0+dx) &= f(x_0) +f'(x_0)dx +\delta\cdot dx
+\end{align*}
+L'espressione ottenuta è formata da un non infinitesimo più un infinitesimo 
+dello stesso ordine di \(dx\) più un infinitesimo di ordine superiore.
 
-La conclusione è che \emph{a distanza \(dx\) dal punto che si vuole 
+Se non consideriamo l'infinitesimo di ordine superiore e se esplicitiamo 
+\(dx = x -x_0\) otteniamo l'equazione di una retta che passa per 
+\(\punto{x_0}{f(x_0)}\) e che ha la stessa pendenza della funzione in quel 
+punto:
+\[y = f'(x_0)(x -x_0) +f(x_0)\]
+cioè la tangente alla funzione in quel punto.
+
+% Se mancasse l'ultimo termine, l'equazione \(f(x_0+dx) = f'(x_0)dx +f(x_0)\) 
+% sarebbe quella di una retta: la si ottiene scrivendo \(x-x_0\) invece di 
+% \(dx\) e \(m\) invece di \(f'(x_0)\), cioè \(f(x) = m(x-x_0) +f(x_0)\). 
+% La retta, che passa per il punto della curva con ascissa \(x_0\) e ha la 
+% stessa pendenza della curva, è la sua tangente per quel punto. 
+
+Possiamo concludere è che \emph{a distanza \(dx\) dal punto che si vuole 
 esaminare, fra la curva e la tangente c'è una differenza pari a 
-\(\epsilon\cdot dx\), un infinitesimo di ordine superiore a \(dx\)}. 
+\(\delta\cdot dx\), un infinitesimo di ordine superiore a \(dx\)}. 
 Questa differenza è \emph{l'incremento infinitesimo della curva rispetto 
 alla tangente}.
 
-\begin{minipage}[]{.47\textwidth}
+\affiancati{.40}{.58}{
 \begin{inaccessibleblock}
   [differenziale della tangente]
-    \begin{center} \differenzialens \end{center}
+    \begin{center} \scalebox{.9}{\differenzialenst} \end{center}
 \end{inaccessibleblock}
-\end{minipage} 
-  \hfill
-\begin{minipage}[]{.47\textwidth} \vspace{2.5em}
+}{
 Nel punto \(\punto{x_0}{f(x_0)}\) il grafico della funzione e la tangente
 sono indistinguibili. 
-Il campo visivo del primo microscopio mostra \({x_0}\) e \(dx\), 
-perché l'ingrandimento è infinito. A questo livello 
-microscopico la curvatura del grafico non esiste,  per cui la curva e 
-la tangente sono sovrapposte. 
-Nemmeno un secondo microscopio non standard puntato 
-nel primo microscopio su \(x_0\), per cui 
-l'ingrandimento complessivo diventa \(\infty^2\), può distinguere i due 
-grafici. 
-Ma un microscopio non standard, centrato nel primo microscopio a 
-distanza infinitesima da \(x_0\), mostra la tangente e 
+
+Per capire meglio la situazione, utilizziamo alcuni microscopi non standard 
+con ingrandimenti infiniti.
+
+Il campo visivo di \(M_1\) riesce a separare \(x_0\) e \(x_0 +dx\). 
+A questo livello microscopico la curvatura del grafico non esiste, 
+per cui la curva e la tangente sono sovrapposte. 
+
+Nemmeno il microscopio non standard \(M_2\) puntato, nel primo microscopio, 
+su \(\punto{x_0}{f(x_0)}\), per cui l'ingrandimento complessivo diventa 
+\(\infty^2\), può distinguere i due grafici. 
+
+Ma un microscopio non standard \(M_3\), puntato nel primo microscopio a 
+distanza \(dx\) da \(x_0\), mostra la tangente e 
 la curva come rette parallele, che distano fra loro 
-\(\epsilon \cdot dx\), cioè un infinitesimo di un infinitesimo.
-\end{minipage}
+\(\delta \cdot dx\), cioè un infinitesimo di un infinitesimo.
+% Nel punto \(\punto{x_0}{f(x_0)}\) il grafico della funzione e la tangente
+% sono indistinguibili. 
+% Il campo visivo del primo microscopio mostra \({x_0}\) e \(dx\), 
+% perché l'ingrandimento è infinito. A questo livello 
+% microscopico la curvatura del grafico non esiste,  per cui la curva e 
+% la tangente sono sovrapposte. 
+% Nemmeno un secondo microscopio non standard puntato 
+% nel primo microscopio su \(x_0\), per cui 
+% l'ingrandimento complessivo diventa \(\infty^2\), può distinguere i due 
+% grafici. 
+% Ma un microscopio non standard, centrato nel primo microscopio a 
+% distanza infinitesima da \(x_0\), mostra la tangente e 
+% la curva come rette parallele, che distano fra loro 
+% \(\delta \cdot dx\), cioè un infinitesimo di un infinitesimo.
+}
 \label{}
 
 \begin{teorema}
@@ -2666,17 +2695,13 @@ la curva come rette parallele, che distano fra loro
 ascissa \(x_0\), la funzione derivabile \(f(x)\) ha un valore che è la 
 somma fra il valore della sua tangente \(t(x)\) passante per 
 \(\punto{x_0}{f(x_0)}\) e un infinitesimo dell'infinitesimo \(dx\):
-\[f(x_0+dx)=\underbrace{f'(x_0)dx+f(x_0)}_{t(x)}+\epsilon\cdot dx\]
+\[f(x_0+dx)=\underbrace{f'(x_0)dx+f(x_0)}_{t(x)}+\delta\cdot dx\]
 \end{teorema}
 L'importante conseguenza di questo teorema è che se ci troviamo in 
 difficoltà a calcolare l'incremento infinitesimo di 
 \(f\), possiamo considerare al suo posto l'incremento lungo la 
-tangente, perché l'errore che si commette è una quantità trascurabile anche 
-rispetto a \(dx\).
-
-% TODO Differenziale standard
-% L'avevo eliminto, mi sembrava una questione troppo fine per gli
-% studenti. L'ho reintrodotta (B)
+tangente, tenendo presente che si commette un errore, ma questo errore 
+è una quantità trascurabile anche rispetto a \(dx\).
 
 \begin{osservazione}
 Il termine \emph{differenziale}, che usiamo a proposito di 
@@ -2685,22 +2710,23 @@ stato recuperato dal matematico A.Robinson in coerenza con l'uso
 originario dell'epoca di Leibniz. 
 
 Lo stesso termine, tuttavia, viene usato anche in analisi standard, ma con un 
-significato diverso. In analisi standard il differenziale della funzione 
-\(\Delta f(x)\) è il prodotto \(f'(x)\cdot \Delta x= \Delta t(x)\), cioè 
-l'incremento che subisce la tangente \(t\) di \(f\), come se l'incremento lungo 
-la tangente e quello lungo la funzione fossero praticamente identici.
+significato diverso. 
+In analisi standard il differenziale della funzione \(\Delta f(x)\) 
+è l'incremento che subisce la tangente \(t\) di \(f\): \(\Delta t(x)\)
+cioè il prodotto \(f'(x) \cdot \Delta x\).
 
-\(\Delta f\) è una differenza espressa in numeri reali, una quantità 
-piccola a piacere, ma finita: non è infinitesima, percò non è trascurabile, 
-anzi può diventare rilevante.
+Teniamo presente che \(\Delta f\) è una differenza espressa in numeri reali, 
+una quantità piccola a piacere, ma non è infinitesima, perciò non è sempre 
+trascurabile.
 
+
+\affiancati{.40}{.58}{
 \begin{inaccessibleblock}
-  [differenziale della tangente]
-  \begin{minipage}[]{.4\textwidth}
-    \begin{center} \scalebox{1}{\falsodifferenziale} \end{center}
- \end{minipage} 
-  \hfill
- \begin{minipage}[]{.55\textwidth}
+  [differenziale standard]
+% \begin{center} \scalebox{.9}{\differenzialest} \end{center}
+\scalebox{.9}{\differenzialest} 
+\end{inaccessibleblock}
+}{
  Allontanandosi da \(x_0\) di una quantità finita \(\Delta x\), le differenze 
 della funzione \(\Delta f(x)\), calcolate a partire da \(x_0\), possono 
  essere anche molto diverse dalle differenze \(f'(x_0)\Delta x\), calcolate 
@@ -2709,9 +2735,17 @@ lungo la tangente.
 Ai fini pratici l'equazione \(\Delta f= f'(x)\cdot \Delta 
 x\) è comunque utile, soprattutto se si studiano i fenomeni naturali, perché le 
 variazioni che si misurano in questi ambiti sono differenze finite. 
-\end{minipage}
-\end{inaccessibleblock}
+Riassumendo: 
+}
 \label{}
+
+\begin{itemize} [nosep]
+\item Analisi Non Standard: \(df(x_0) = DC = f(x_0 + dx) - f(x_0)\) 
+con \(dx\) infinitesimo non nullo;
+\item Analisi Standard: \(df(x_0) = DB = f'(x_0) \cdot \Delta x\) 
+con \(\Delta x\) piccolo a piacere.
+\end{itemize}
+
 \end{osservazione}
 
 \subsection{Derivata di funzioni composte}
@@ -2791,8 +2825,9 @@ tangente invece di quello della funzione, perché si tralasciano quantità
 che comunque sono trascurabili rispetto a \(dx\). 
 
 Quindi il differenziale della funzione: \(f \circ g\) 
-è indistinguibile da \(f'(g)dg\) e 
-il differenziale della funzione: \(g\) 
+è indistinguibile da \(f'(g)dg\) 
+dove \(f'(g)\) indica la derivata di \(f(x)\) rispetto a \(g(x)\) 
+e il differenziale della funzione: \(g\) 
 è indistinguibile da \(g'dx\). 
 
 Il rapporto differenziale di \(f\) rispetto a \(x\) è: 
@@ -2804,30 +2839,34 @@ e quindi anche il loro prodotto è un numero reale e è quindi la derivata
 di \(\Deriv{f(g(x))}\).
 
 \begin{esempio}
-Calcolare \(f'(x)\), con \(f(x)=\sqrt{3-x^2}\)
+Calcolare \(f'(x)\), con \(f(x)=\sqrt{3-x^2}\) e la tangente in \(x = 3\).
 
-\(f(x)\) è composta da due funzioni entrambe derivabili: 
-
-Si può pensare formata così: 
+\(f(x)\) è composta da due funzioni entrambe derivabili: \\
+si può pensare formata così: 
 \(g(x)=3-x^2\) \quad e \quad \(f(g(x))=\sqrt{g(x)}=\sqrt{3-x^2}\).
 
 \begin{center} \scalebox{1}{\boxfcompostab} \end{center}
 \label{gra:differenziazione_boxcompostaa}
 
-\affiancati{.5}{.5}{
 Riprendendo le funzioni di partenza:
-\[f'(x)=\pst{\dfrac{-2x}{2\sqrt{25-x^2}}} = \dfrac{-x}{\sqrt{25-x^2}}\]
+
+\affiancati{.5}{.5}{
+\begin{align*}
+f'(x) &= f'(g(x)) \cdot g'(x) = \\
+&= \pst{\dfrac{1}{2\sqrt{25-x^2}} \cdot \tonda{-2x}} = 
+\dfrac{-x}{\sqrt{25-x^2}}
+\end{align*}
 
 Se voglio calcolare la pendenza della funzione in \(x = 3\):
 \[f'(3) = \dfrac{-3}{\sqrt{25-3^2}} = 
           \dfrac{-3}{\sqrt{16}} = -\dfrac{3}{4}\]
 E la tangente quindi sarà:
-\[y = f'(x_0) \tonda{x -x_0} + f(x_0) \srarrow
-  y = -\dfrac{3}{4} \tonda{x -3} + 4 \srarrow
-  y = -\dfrac{3}{4} x +\dfrac{25}{4}\]
 }{
 \derivacompostaa
 }
+\[y = f'(x_0) \tonda{x -x_0} + f(x_0) \srarrow
+  y = -\dfrac{3}{4} \tonda{x -3} + 4 \srarrow
+  y = -\dfrac{3}{4} x +\dfrac{25}{4}\]
 \end{esempio}
 
 \begin{teorema}
@@ -2837,27 +2876,35 @@ Se esistono le derivate \(g'(x)\) e \(f'(g(x))\) per il medesimo valore
 calcola così: \(f'(x)=f'(g(x))=f'(g)\cdot g'(x)\), 
 cioè la derivata di una funzione composta è il prodotto delle derivate 
 delle funzioni componenti, ciascuna rispetto alla propria variabile.
+\[f'(x) = \Deriv{f(g(x))} = f'(g(x)) \cdot g'(x)\]
 \end{teorema}
-\noindent Ipotesi: \(f(x)=f(g(x))\), \(f\), \(g\) derivabili \tab 
-Tesi: \(f'(x)=f'(g(x))=f'(g(x))\cdot g'(x)\)
+\noindent Ipotesi: \(f(x) = f(g(x))\), con \(f\) e \(g\) derivabili \tab 
+Tesi: \(f'(x) = f'(g(x)) \cdot g'(x)\)
 
 \begin{proof}
-Anzitutto, poiché esiste \(g'(x)\), \(dg(x)\) è infinitesimo per ogni 
-infinitesimo \(dx \).\\
+Anzitutto, se esiste \(g'(x)\) allora \(dg(x)\) è infinitesimo per ogni 
+infinitesimo \(dx\).\\
 Poi, poiché esiste \(f'(g)\), dal teorema dell'incremento si deduce che per 
-ogni 
-infinitesimo \(dg\) c'è un infinitesimo \(\epsilon\) tale che 
-\(df(g(x))=f'(g)\cdot dg + \epsilon\cdot dg.\)
+ogni infinitesimo \(dg\) c'è un infinitesimo \(\epsilon\) tale che 
+\(df(g(x))=f'(g) \cdot dg + \epsilon \cdot dg.\)
 
-Così, dividendo per qualsiasi infinitesimo non nullo \(dx\)
-%{\footnotesize
- \begin{align*}
-\Deriv{f(g(x))} &=\pst{\frac{df(x)}{dx}} = \pst{\frac{df(g)}{dx}}=\\
-&=\pst{\frac{f'(g)\cdot dg + \epsilon\cdot dg}{d x}}=
-\pst{\frac{f'(g)\cdot dg}{d x}}+ \pst{\frac{\epsilon\cdot dg}{dx}}=\\
-&= f'(g)\cdot \pst{\frac{dg}{dx}}+ \pst{\epsilon}\cdot\pst{\frac{dg}{dx}}=
-f'(x)\cdot g'(x).
-\end{align*}
+Così, dividendo per qualsiasi infinitesimo non nullo \(dx\)\\[.5em]
+\hspace*{15mm}
+\(\Deriv{f(g(x))} =\pst{\dfrac{df(x)}{dx}} = \pst{\dfrac{df(g)}{dx}}=\)\\[.5em]
+\hspace*{32mm}
+\(=\pst{\dfrac{f'(g)\cdot dg + \epsilon\cdot dg}{d x}}=
+   \pst{\dfrac{f'(g)\cdot dg}{d x}}+ 
+   \pst{\dfrac{\epsilon\cdot dg}{dx}}=\)\\[.5em]
+\hspace*{32mm}
+\(= f'(g)\cdot \pst{\dfrac{dg}{dx}}+ \pst{\epsilon}\cdot\pst{\dfrac{dg}{dx}}=
+    f'(x)\cdot g'(x)\)
+%  \begin{align*}
+% \Deriv{f(g(x))} &=\pst{\frac{df(x)}{dx}} = \pst{\frac{df(g)}{dx}}=\\
+% &=\pst{\frac{f'(g)\cdot dg + \epsilon\cdot dg}{d x}}=
+% \pst{\frac{f'(g)\cdot dg}{d x}}+ \pst{\frac{\epsilon\cdot dg}{dx}}=\\
+% &= f'(g)\cdot \pst{\frac{dg}{dx}}+ \pst{\epsilon}\cdot\pst{\frac{dg}{dx}}=
+% f'(x)\cdot g'(x).
+% \end{align*}
 \end{proof}
 
 Vogliamo rappresentare nella stessa immagine le funzioni 
@@ -2930,33 +2977,34 @@ Mettiamo tutto insieme e anche, \(f(x) = f(g(x))\): \\[.5em]
 Calcola l'equazione della tangente alla funzione 
 \(f:~x \mapsto \sqrt{x^2 -x -2}\) nel punto di ascissa \(x = 3\).
 
-\affiancati{.49}{.49}{
-\vspace*{-40mm}
 Il punto di tangenza ha coordinate:
-\[\punto{3}{\sqrt{3^2 -3 -2}} = \punto{3}{2}\]
+\(\punto{3}{\sqrt{3^2 -3 -2}} = \punto{3}{2}\)
 
-Poniamo \(g(x)=x^2 -x -2\)\quad e\quad \(f(g)=\sqrt{g}\). 
+\affiancati{.52}{.46}{
+% \vspace*{-40mm}
+Poniamo \(g(x)=x^2 -x -2\)\quad e\quad \(f(g(x))=\sqrt{g(x)}\). 
 Allora: 
 \begin{align*}
 \Deriv{f \circ g} &= f' \cdot g' = 
   \frac{1}{2 \sqrt{x^2 -x -2}} \cdot 2x -1= \\
   &=\frac{2x -1}{2 \tonda{x^2 -x -2}}
 \end{align*}
+La pendenza in \(P\) è: \quad 
+\(f'(3) = \dfrac{2 \cdot 3 -1}{2 \sqrt{3^2 -3 -2}}= \dfrac{5}{4}\) 
 }{
-\vspace*{-20mm}
-\hspace{-30mm}\derivacompostab
+% \vspace*{-20mm}
+% \hspace{-30mm} 
+\scalebox{1}{\derivacompostab}
 }
 
-\vspace*{-40mm}
-\noindent La pendenza in \(P\) è: \tab 
-\(f'(3) = \dfrac{2 \cdot 3 -1}{2 \sqrt{3^2 -3 -2}}= \dfrac{5}{4}\) \\[1em]
-e la tangente avrà equazione: \tab 
+% \vspace*{-40mm}
+e la tangente avrà equazione: \quad 
 \(y = \dfrac{5}{4} \tonda{x -3} +2 \srarrow 
   y = \dfrac{5}{4} x -\dfrac{7}{4}\)
 \end{esempio}
 
 \begin{esempio}
-Derivare \(f(x)=\dfrac{1}{\sqrt{2x-3}}\).
+Calcola la derivata di: \quad \(f(x)=\dfrac{1}{\sqrt{2x-3}}\).
 
 \affiancati{.49}{.49}{
 Poniamo: 
@@ -2966,7 +3014,7 @@ Allora:
 \begin{align*}
 f'(g(h)) &= f'(g(f)) \cdot g'(h) \cdot h'(x) = \\
 &= -\dfrac{1}{\sqrt{2x-3}} \cdot \dfrac{1}{2\sqrt{2x-3}} \cdot 2 = \\
-&= -\dfrac{1}{2x-3}
+&= -\dfrac{1}{\tonda{2x-3} \cdot \sqrt{2x-3}}
 \end{align*}
 }{
 \funzionecompostaederivata
@@ -2982,18 +3030,14 @@ f'(g(h)) &= f'(g(f)) \cdot g'(h) \cdot h'(x) = \\
 %   5\tonda{-\dfrac{2}{3}x^3+2x^2-6}^4(-2x^2+4x)\).
 % \end{esempio}
 
-
-\begin{comment}
-
-
-
 \subsection{Derivata di funzioni inverse}
 \label{subsec:differenziazione_derivatainverse}
-% Cosa si intende per funzioni inverse? 
-% Quando abbiamo introdotto il calcolo letterale abbiamo imparato a 
-% rovesciare alcune espressioni per trovare le formule inverse.
-% 
+Cosa intendiamo per funzione inversa? 
+Quando abbiamo introdotto il calcolo letterale abbiamo imparato a 
+rovesciare alcune espressioni per trovare le formule inverse.
+
 % % ---------------------- Esempio con rette ----------------------------
+
 % Ad esempio, \(y = 3x -6\) e \(x = \dfrac{y}{3} +2\) 
 % sono formule inverse l'una dell'altra, ma non sono funzioni inverse.
 % 
@@ -3051,16 +3095,12 @@ f'(g(h)) &= f'(g(f)) \cdot g'(h) \cdot h'(x) = \\
 % }{
 % \funzinversaa
 % }
-% 
-% La composizione delle due funzioni è una funzione il cui 
-% risultato è uguale all'argomento \(f(f^{-1}(x)) = x\).
 
-Cosa si intende per funzioni inverse? 
-Quando abbiamo introdotto il calcolo letterale abbiamo imparato a 
-rovesciare alcune espressioni per trovare le formule inverse.
+% ---------------------- fine rette --------------------------
 
 % ---------------------- Esempio con iperboli --------------------------
-Ad esempio, \(y = \dfrac{6}{x} -2\) e \(x = \dfrac{6}{y -2}\) 
+
+Ad esempio, \(y = \dfrac{6}{x} -2\) e \(x = \dfrac{6}{y +2}\) 
 sono formule inverse l'una dell'altra, ma non sono funzioni inverse.
 
 Infatti se:
@@ -3102,13 +3142,13 @@ numeri.
 Le due diverse espressioni esprimono la stessa iperbole, lo 
 stesso grafico: la stessa funzione.
 
-Per ottenere la funzione inversa dobbiamo semplicemente scambiare, 
-nell'equazione, la variabile \(x\) con la variabile \(y\).
+Per ottenere una funzione inversa dobbiamo semplicemente scambiare 
+la variabile \(x\) con la variabile \(y\).
 
 \affiancati{.54}{.44}{
 Quindi la funzione inversa di \\
 \(y = \dfrac{6}{x} -2 \sstext{o} f(x) = \dfrac{6}{x} -2\) \quad è \\
-\(x = \dfrac{6}{y} -2\) \quad che è uguale a 
+\(x = \dfrac{6}{y} -2\) \quad che è equivalente a 
 \quad \(y = \dfrac{6}{x +2}\) \\
 o: \quad \(f^{-1}(x) = \dfrac{6}{x +2}\).
 
@@ -3121,69 +3161,112 @@ y &= f \circ f^{-1} = f(f^{-1}(x)) = \dfrac{6}{f^{-1}(x)} -2 = \\
 \funzinversab
 }
 
+% ---------------------- fine iperboli --------------------------
+
 La composizione delle due funzioni è una funzione il cui 
-risultato è uguale all'argomento: \(f(f^{-1}(x)) = x\).
+risultato è uguale all'argomento: \(f(f^{-1}(x)) = x\), la funzione identica.
 
 Possiamo quindi dare una definizione precisa di funzione inversa:
 
 \begin{definizione}
-Un funzione \(y=f^{-1}(x)\) si dice inversa di una funzione \(y=f(x)\) se la 
-composizione delle due funzioni 
-è la funzione identica:
-% dà come risultato l'argomento stesso: 
+Un funzione \(y=f^{-1}(x)\) si dice inversa di una funzione \(y=f(x)\) 
+se la composizione delle due funzioni è la funzione identica:
 \[f(f^{-1}(x))=x\]
 \end{definizione}
 
-\begin{osservazione}
+Prima di proseguire conviene che esplicitiamo alcune osservazioni. 
+\begin{itemize} [nosep]
+\item 
 Data una qualsiasi funzione \(f\), non è scontato che la sua inversa 
-esista \(\forall x\) nel dominio di \(f\). 
-Per questo, quando si cerca l'inversa di una funzione, succede di dover 
-restringere il dominio di questa. 
+esista nello stesso insieme di definizione. 
 Per esempio, 
 \(y=g(x)=\sqrt{x}\) è inversa di \(y=f(x)=x^2\),  perché 
 \(f(g(x))=(g(x))^2=(\sqrt{x})^2=x\), ma la composizione è possibile 
 solo se \(x \ge 0\), mentre \(f\) vale \(\forall x\). 
-In questo caso, quindi, dobbiamo considerare per \(f\) il dominio più 
-ristretto, perché al di fuori di questo l'inversa non esiste.
+In questo esempio mentre \(f\) è definita in tutto \(\R\), \(f^{-1}\)
+è definita per \(x \geqslant 0\).
+\item 
+Si vede che il grafico di \(f\) e il grafico 
+della sua inversa \(f^{-1}\) sono simmetrici rispetto alla bisettrice del 
+primo e terzo quadrante: \(y=x\). Infatti questa simmetria si ottiene 
+proprio scambiando \(x\) con \(y\). 
+\item 
+Data una funzione \(y = f(x)\) se conosciamo la sua inversa, 
+\(y = f^{-1}(x)\), è immediato trovare la formula inversa che restituisce 
+\(x\) conoscendo \(y\): \(x = f^{-1}(y)\).
+\end{itemize}
 
-Una buona regola pratica per capire se esiste l'inversa di una funzione 
-\(f\), è tagliare il grafico di \(f\) con una retta orizzontale: 
-se la retta incrocia il grafico di \(f\) in più punti, \(f^{-1}\) non esiste.
-\end{osservazione}
-\begin{osservazione}
-Si vede subito fin dai primi disegni che il grafico di \(f\) e il grafico 
-della sua inversa \(f^{-1}\) sono simmetrici. L'asse di simmetria è la retta 
-\(y=x\). 
-\end{osservazione}
 
-Ora vediamo come calcolare la derivata dell'inversa di una funzione di cui 
-conosciamo la derivata. Consideriamo il caso semplice che segue.
+% \begin{osservazione}
+% 
+% Data una qualsiasi funzione \(f\), non è scontato che la sua inversa 
+% esista nello stesso insieme di definizione. 
+% % Per questo, quando si cerca l'inversa di una funzione, succede di dover 
+% % restringere il dominio di questa. 
+% Per esempio, 
+% \(y=g(x)=\sqrt{x}\) è inversa di \(y=f(x)=x^2\),  perché 
+% \(f(g(x))=(g(x))^2=(\sqrt{x})^2=x\), ma la composizione è possibile 
+% solo se \(x \ge 0\), mentre \(f\) vale \(\forall x\). 
+% In questo esempio mentre \(f\) è definita in tutto \(\R\), \(f^{-1}\)
+% è definita per \(x \geqslant 0\).
+% In questo caso, quindi, dobbiamo considerare per \(f\) il dominio più 
+% ristretto, perché al di fuori di questo l'inversa non esiste.
+% %%% La seguente affermazione è smentita dall'esempio precedente.
+% %%% Altro controesempio arcsin
+% %%% Mentre in arctan l'ID è più ampio che in tan.
+% % Una buona regola pratica per capire se esiste l'inversa di una funzione 
+% % \(f\), è tagliare il grafico di \(f\) con una retta orizzontale: 
+% % se la retta incrocia il grafico di \(f\) in più punti, \(f^{-1}\) non esiste.
+% \end{osservazione}
+% \begin{osservazione}
+% Si vede che il grafico di \(f\) e il grafico 
+% della sua inversa \(f^{-1}\) sono simmetrici rispetto alla bisettrice del primo 
+% e terzo quadrante: \(y=x\). Infatti questa simmetria si ottiene proprio 
+% scambiando \(x\) con \(y\). 
+% \end{osservazione}
+% 
+% Ora vediamo come calcolare la derivata dell'inversa di una funzione di cui 
+% conosciamo la derivata. Consideriamo il caso semplice che segue.
+
+% \bigskip
+\vspace{1em}
+Riprendiamo la derivata di una funzione composta ma componendo proprio una 
+funzione con la sua inversa.
+
 \begin{esempio}
-Derivare \(f(x)=\sqrt{x^2}\), con \(x \ge 0\).\\
+Derivare \(f(x)=\sqrt{x^2}\), con \(x \ge 0\).
+
 Si dirà: non c'è problema, poiché \(\sqrt{x^2}=x\), allora 
-\(\Deriv{\sqrt{x^2}}=\Deriv{x}\), perciò  \(f'(x)=1\).\\
+\(\Deriv{\sqrt{x^2}}=\Deriv{x}\), perciò  \(f'(x)=1\).
+
 Vero. Ma poniamo \(g(x)=x^2\), che è la funzione inversa della radice quadrata, 
 allora \(f\) si può riscrivere come la funzione 
-composta \(f(x)=f(g(x))=\sqrt{g(x)}=\sqrt{x^2}\).\\
-Con la regola delle funzioni composte si ha:\\ 
-\(f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g(x)}}\cdot 2x =
-\dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x = 1\).\\
-Possiamo osservare che \(f'(g)\)  è il reciproco di \(g'(x)\) dato che 
+composta \(f(x)=f(g(x))=\sqrt{g(x)}=\sqrt{x^2}\).
+
+Con la regola delle funzioni composte si ha: 
+\[f'(x)=f'(g)\cdot g'(x)= \dfrac{1}{2\sqrt{g(x)}}\cdot 2x =
+\dfrac{1}{2\sqrt{x^2}}\cdot 2x=\dfrac{1}{2x}\cdot 2x = 1\]
+Possiamo osservare che \(f'(g)\) è il reciproco di \(g'(x)\) dato che 
 il loro prodotto è \(1\). 
 In questo caso, inoltre, bisogna segnalare che \(g'(x)\) esiste se 
 \(x \ne 0\).
 \end{esempio}
-Dato che la composizione di una funzione con la sua inversa dà sempre la 
-funzione identica e la derivata della funzione identica è \(1\), 
-si intuisce che: \(\Deriv{f(g(x))} = f'(g) \cdot g'(x)=1\), allora 
-\(g'(x) = \dfrac{1}{f'(g)}\).
-% TODO: uniformare la riga precedente e tutto l'esempio al teorema seguente.
-L'intuizione è corretta ed effettivamente questa regola vale. 
-Occorre però precisare che la regola vale
+
+Possiamo pensare di generalizzare la conclusione dell'esempio precedente. 
+% Dato che la composizione di una funzione con la sua inversa dà sempre la 
+% funzione identica e la derivata della funzione identica è \(1\), 
+% dato che: \(\Deriv{f(g(x))} = f'(g) \cdot g'(x) = 1\), allora:
+% \[\Deriv{f(f^{-1}(x))} = \Deriv{f(f^{-1})} \cdot \Deriv{f^{-1}(x)} = 1 
+% \srarrow \Deriv{f^{-1}(x)} = \dfrac{1}{\Deriv{f(f^{-1})}}\]
+% % \[\Deriv{f(f^{-1}(x))} = \Deriv{f(f^{-1})} \cdot \Deriv{f^{-1}(x)} = 1 \srarrow
+% % \Deriv{f^{-1}(x)} = \dfrac{1}{\Deriv{f(f^{-1})}}\]
+% L'intuizione è corretta ed effettivamente questa regola vale. 
+% Occorre però precisare che la regola vale
+Si devono però precisare alcune condizioni:
 \begin{enumerate} [noitemsep]
-\item se esiste l'inversa della funzione da derivare;
-\item se entrambe le funzioni sono derivabili;
-\item se  \(f'(g)\ne 0\).
+\item esiste l'inversa della funzione da derivare;
+\item entrambe le funzioni sono derivabili;
+\item \(f'(g) \ne 0\).
 \end{enumerate}
 
 \begin{inaccessibleblock}
@@ -3194,40 +3277,74 @@ Occorre però precisare che la regola vale
 \end{minipage} 
 \hfill
 \begin{minipage}[]{.42\textwidth}
-Se valgono tutte le condizioni, allora esistono la funzione
-\(f\) e la sua inversa \(g=f^{-1}\). La funzione e la sua inversa, 
-se esiste, hanno grafici simmetrici rispetto alla bisettrice \(y=x\).
+% Se valgono tutte le condizioni, allora esistono la funzione
+% \(f\) e la sua inversa \(g=f^{-1}\). 
+La funzione e la sua inversa hanno grafici simmetrici rispetto alla 
+bisettrice \(y=x\).
 
-Ogni punto \(\punto{x}{f^{-1}(x)}\) sulla curva della funzione inversa ha un
-corrispondente \(\punto{y}{f(y)}\) sulla curva \(y=f(x)\), nella simmetria 
-rispetto alla bisettrice. Guardiamo come si corrispondono i differenziali:
-\(dx\) e \(dy\) di una curva sono invertiti rispetto ai differenziali 
-dell'altra.
-Quindi le derivate corrispondenti sono reciproche l'una con l'altra.
+Ad ogni punto \(\punto{a}{f(a)}\) 
+sulla curva \(y=f(x)\) 
+corrisponde un \(\punto{b}{f^{-1}(b)}\) 
+sulla curva della funzione inversa, 
+questi punti sono simmetrici rispetto alla bisettrice. \\
+I differenziali \(dx\) e \(dy\) di una curva sono invertiti rispetto ai 
+differenziali dell'altra.
+Quindi la derivata di \(f(x)\) calcolata in \(a\) è il reciproco 
+della derivata di \(f^{-1}(x)\) calcolata in \(b = f(a)\).
+% Ogni punto \(\punto{x}{f(x)}\) 
+% sulla curva \(y=f(x)\) 
+% ha un corrispondente \(\punto{y}{f^{-1}(y)}\) 
+% sulla curva della funzione inversa, 
+% nella simmetria rispetto alla bisettrice. 
+% Guardiamo come si corrispondono i differenziali:
+% \(dx\) e \(dy\) di una curva sono invertiti rispetto ai differenziali 
+% dell'altra.
+% Quindi la derivata di \(f(x)\) calcolata in \(x\) è il reciproco 
+% della derivata di \(f^{-1}(x)\) calcolata in \(y\).
 \end{minipage}
 \end{center}
 \end{inaccessibleblock}
 \label{}
 
+% \begin{teorema}
+% \label{teo:derinversa}
+% % TODO: aggiustare le ipotesi.
+% % In realtà l'ipotesi sarebbe diversa, vedi Ruggero appunti per corso 
+% % Firenze
+% % Forse bisogna parlare di g inversa di f e non di g e f reciprocamente 
+% % inverse.
+% % Ruggero propone due versioni, ho scelto la prima, più semplice (dia 68) -B
+% Le derivate di due funzioni \(f\), \(g\), inverse l'una dell'altra, se 
+% esistono e sono diverse da zero, sono reciproche l'una rispetto all'altra.
+% \end{teorema}
+% \noindent Ipotesi: \(y=f(x)\), \(x=g(y)\), \(f\) e \(g\) derivabili, con 
+% \(f'\ne0\), \(g'\ne 0\)
+% \tab Tesi: \(f'(x)=\dfrac{1}{g'(y)}\)
+% \begin{proof}
+% Grazie alle proprietà della funzione \(\pst{}\), abbiamo:\\
+% \(f'(x)\cdot g'(y)=\pst{\dfrac{dy}{dx}}\cdot\pst{\dfrac{dx}{dy}}=
+% \pst{\dfrac{dy}{dx}\cdot\dfrac{dx}{dy}}=\pst{1}=1\)\\
+% per cui: \(f'(x)=\dfrac{1}{g'(y)}\).
+% \end{proof}
+
 \begin{teorema}
 \label{teo:derinversa}
-% TODO: aggiustare le ipotesi.
-% In realtà l'ipotesi sarebbe diversa, vedi Ruggero appunti per corso 
-% Firenze
-% Forse bisogna parlare di g inversa di f e non di g e f reciprocamente 
-% inverse.
-% Ruggero propone due versioni, ho scelto la prima, più semplice (dia 68) -B
-Le derivate di due funzioni \(f\), \(g\), inverse l'una dell'altra, se 
-esistono e sono diverse da zero, sono reciproche l'una rispetto all'altra.
+La derivata di una funzione \(f(x)\) è il reciproco della derivata della sua 
+inversa calcolata rispetto a \(y = f(x)\), se quest'ultima esiste e è diversa 
+da zero.
 \end{teorema}
-\noindent Ipotesi: \(y=f(x)\), \(x=g(y)\), \(f\) e \(g\) derivabili, con 
-\(f'\ne0\), \(g'\ne 0\).
-\hspace{2cm} Tesi: \(f'(x)=\dfrac{1}{g'(y)}\).
+\noindent Ipotesi: esiste \(\Deriv{f^{-1}}\) e \(\Deriv{f^{-1}(x) \ne 0}\) 
+\tab Tesi: \(f'(x)=\dfrac{1}{\Deriv{f^{-1}(y)}}\)
 \begin{proof}
-Grazie alle proprietà della funzione \(\pst{}\), abbiamo:\\
-\(f'(x)\cdot g'(y)=\pst{\dfrac{dy}{dx}}\cdot\pst{\dfrac{dx}{dy}}=
-\pst{\dfrac{dy}{dx}\cdot\dfrac{dx}{dy}}=\pst{1}=1\)\\
-per cui: \(f'(x)=\dfrac{1}{g'(y)}\).
+Ricordiamo che:
+\begin{itemize}
+\item se \quad \(y = f(x)\) \quad  allora \quad \(x = f^{-1}(y)\), 
+\item la composizione di una funzione con lasua inversa dà per risultato la 
+funzione identica che ha quindi derivata \(1\).
+\end{itemize}
+\hspace{20mm}
+\(\Deriv{f^{-1}(f(x))} = \Deriv{f^{-1}(y)} \cdot \Deriv{f(x)} = 1 \srarrow 
+  \Deriv{f(x)} = \dfrac{1}{\Deriv{f^{-1}(y)}} \)
 \end{proof}
 \begin{osservazione}
 Dire che il Rapporto Differenziale \(\dfrac{dy}{dx}\) è reciproco di 
@@ -3238,115 +3355,149 @@ differenziale è un rapporto fra funzioni e genera una funzione.
 In più, in una frazione come la frazione \(\dfrac{3}{4}\) i numeri \(3\) 
 e \(4\) sono indipendenti, invece il differenziale \(dy\) dipende da 
 \(dx\) nel rapporto \(\dfrac{dy}{dx}\),  e \(dx\) dipende da \(dy\) nel 
-rapporto inverso. \\
+rapporto inverso. 
 \end{osservazione}
 
-% TODO: esempio di applicazione del teorema
-% OK (B)
+\begin{osservazione}
+Dato che dobbiamo calcolare la derivata di \(f^{-1}(x)\), 
+ma mettendo \(y\) al posto di \(x\), in pratica dobbiamo calcolare la derivata 
+della formula inversa della funzione di partenza: 
+\(y = f(x) \sLRarrow x = f^{-1}(y)\).
+\end{osservazione}
 
-\begin {esempio}
-A proposito della derivata delle funzioni potenza, abbiamo anticipato che la 
-regola \(f'(x)= n x^{n-1}\) vale anche con esponenti razionali. 
-Ora siamo in grado di giustificarlo applicando il teorema precedente.\\
 
-\noindent Ipotesi: \(y=f(x)=\sqrt[m]{x}=x^\frac{1}{m}\), con \(m \in \N\).
-\tab Tesi: \(f'(x)= \dfrac{1}{m} x^{\frac{1}{m}-1}\).
-\begin{proof}
-Poiché l'inversa \(g(y)=y^m\) ha derivata \(g'(y)=my^{m-1}\), ricordando il 
-Teorema~\ref{teo:derinversa} calcoliamo:\\
-\(f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{my^{m-1}}=
-  \dfrac{1}{m(\sqrt[m]{x})^{m-1}}=
-  \dfrac  {x^{-\frac{m-1}{m}}}{m}=\dfrac{x^{\frac{1}{m}-1}}{m}\),\\
-ed è lo stesso risultato che si ottiene scrivendo \(f(x)=x^\frac{1}{m}\) e 
-derivando in base alla regola delle funzioni potenza.
+\begin{procedura}
+\label{proc:derinversa}
+Per calcolare la derivata di una funzione \(f\), di cui esiste una funzione 
+inversa derivabile, possiamo:
+\begin{enumerate} [nosep]
+\item ricavare la formula inversa: \(x = f^{-1}(y)\);
+\item calcolare \(\dfrac{1}{\Deriv{f^{-1}(y)}}\) 
+derivando la formula inversa rispetto a \(y\);
+\item sostituire \(y\) con \(f(x)\).
+\end{enumerate}
+\end{procedura}
 
-Il caso in cui \(y=f(x)=\sqrt[m]{x^n}=x^\frac{m}{n}\) si  dimostra in modo 
-analogo, anche avvalendosi del Teorema \ref{teo:diff01_dericomp}.
-Invece la dimostrazione valida per qualsiasi esponente reale è a 
-pag.~\pageref{teo:funzione_potenza_generica}.
-\end{proof}
-\end{esempio}
 
 \begin{esempio}
- Derivare \(y=f(x)=\sqrt[3]{x}\).\\
- Poiché l'inversa \(g(y)=y^3\) ha derivata \(g'(y)=3y^2\), per il 
-Teorema~\ref{teo:derinversa}, calcoliamo:\\
-\(f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{3y^2}=
- \dfrac{1}{3(\sqrt[3]{x})^2}=\dfrac{1}{3} x^{-\frac{2}{3}}\), 
-con \(x\ne 0\).\\
-Se esprimiamo \(f(x)\) come potenza, abbiamo:\\
+Calcola la derivata di \(y=f(x)=\sqrt[3]{x}\).
+
+L'inversa della funzione è \(f^{-1}(x) = x^3\) 
+e la formula inversa è \(x = f^{-1}y) = y^3\) 
+Sappiamo calcolare la sua derivata e possiamo applicare il teorema 
+appena visto~\ref{teo:derinversa} (o la conseguente procedura 
+\ref{proc:derinversa}. 
+\[\Deriv{f(x)} = \dfrac{1}{\Deriv{f^{-1}(y)}} = 
+  \dfrac{1}{\Deriv{y^3}} = \dfrac{1}{3y^2} = 
+  \dfrac{1}{3 \tonda{\sqrt[3]{x}}^2} =
+  \dfrac{1}{3} x^{-\frac{2}{3}} \sstext{con} x \ne 0\]
+% \[f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{3y^2}=
+% \dfrac{1}{3(\sqrt[3]{x})^2}=\dfrac{1}{3} x^{-\frac{2}{3}}\], 
+% con \(x\ne 0\).\\
+\end{esempio}
+\begin{osservazione}
+Se esprimiamo \(f(x)\) come potenza, abbiamo:
 \(f(x)=\sqrt[3]{x}=x^\frac{1}{3}\). 
-Applicando la regola \(f'(x)= \alpha x^{\alpha-1}\) risulta: 
-\(f'(x)=\dfrac{1}{3}x^{\frac{1}{3}-1}=\dfrac{1}{3}x^{-\frac{2}{3}}\)
-e le due derivazioni danno lo stesso risultato.
-\end{esempio}
+Applicando la regola \(f'(x)= q x^{q -1}\) risulta: 
+\(f'(x) = \dfrac{1}{3}x^{\frac{1}{3} -1} = \dfrac{1}{3}x^{-\frac{2}{3}}\)
+e i due procedimenti danno lo stesso risultato.
+\end{osservazione}
 
-Nel prossimo esercizio sfruttiamo sia la regola per la derivata di una 
-funzione composta che la regola per la derivata della funzione inversa.
+\begin{teorema}
+\label{teo:diff01_deri_x_alla_1_su_m}
+La derivata della funzione radice \(f(x)=\sqrt[m]{x}=x^\frac{1}{m}\), 
+con \(x > 0\),
+si ottiene con la stessa regola delle potenze con esponente intero.
+\[\Deriv{\sqrt[m]{x}} = \Deriv{x^\frac{1}{m}} = 
+  \frac{1}{m}x^{\frac{1}{m}-1}\]
+\end{teorema}
+\noindent Ipotesi: \(y = f(x) = \sqrt[m]{x} = x^\frac{1}{m}\), con 
+                   \(m \in \N\) 
+\tab Tesi: \(f'(x) = \dfrac{1}{m} x^{\frac{1}{m}-1}\) 
+\begin{proof}
+L'inversa della funzione è \(f^{-1}(x) = x^m\) usiamo il metodo seguito
+nell'esempio precedente
+\[\Deriv{x^\frac{1}{m}} = \dfrac{1}{\Deriv{f^{-1}(y)}} = 
+  \dfrac{1}{\Deriv{y^m}} = \dfrac{1}{my^{m-1}} = 
+  \dfrac{1}{m \tonda{\sqrt[m]{x}}^{m-1}} =
+  \dfrac{1}{m} x^{-\frac{m-1}{m}} =
+  \dfrac{1}{m} x^{\frac{1}{m} -1}\]
+Lo stesso risultato che si ottiene scrivendo \(f(x)=x^\frac{1}{m}\) e 
+derivando in base alla regola delle funzioni potenza con esponente naturale.
+% 
+% Il caso in cui \(y=f(x)=\sqrt[m]{x^n}=x^\frac{m}{n}\) si  dimostra in modo 
+% analogo, anche avvalendosi del Teorema \ref{teo:diff01_dericomp}.
+% Invece la dimostrazione valida per qualsiasi esponente reale è a 
+% pag.~\pageref{teo:funzione_potenza_generica}.
+\end{proof}
+
+% \begin{teorema}
+% \label{teo:derpotq}
+% %TODO Sistemare
+% A proposito della derivata delle funzioni potenza, abbiamo anticipato che la 
+% regola \(f'(x)= n x^{n-1}\) vale anche con esponenti razionali. 
+% Ora siamo in grado di giustificarlo applicando il teorema precedente.\\
+% \end{teorema}
+% 
+% \begin{proof}
+% Poiché l'inversa \(g(y)=y^m\) ha derivata \(g'(y)=my^{m-1}\), ricordando il 
+% Teorema~\ref{teo:derinversa} calcoliamo:\\
+% \(f'(x)=\dfrac{1}{g'(y)}=\dfrac{1}{my^{m-1}}=
+%   \dfrac{1}{m(\sqrt[m]{x})^{m-1}}=
+%   \dfrac  {x^{-\frac{m-1}{m}}}{m}=\dfrac{x^{\frac{1}{m}-1}}{m}\),\\
+% ed è lo stesso risultato che si ottiene scrivendo \(f(x)=x^\frac{1}{m}\) e 
+% derivando in base alla regola delle funzioni potenza.
+% 
+% Il caso in cui \(y=f(x)=\sqrt[m]{x^n}=x^\frac{m}{n}\) si  dimostra in modo 
+% analogo, anche avvalendosi del Teorema \ref{teo:diff01_dericomp}.
+% Invece la dimostrazione valida per qualsiasi esponente reale è a 
+% pag.~\pageref{teo:funzione_potenza_generica}.
+% \end{proof}
+
+% Nel prossimo esercizio sfruttiamo sia la regola per la derivata di una 
+% funzione composta che la regola per la derivata della funzione inversa.
+
 \begin{esempio}
-Trova la derivata di \(f(x)=\dfrac{1}{\sqrt{5-x^2}}\).
-\begin{enumerate}[noitemsep]
-\item Usando il teorema \ref{teo:diff01_dericomp} e le regole 
-precedenti:\\
-\(f'(x)=\Deriv{\dfrac{1}{\sqrt{5-x}}}=
-\Deriv{(5-x)^{-\frac{1}{2}}}=
--\dfrac{1}{2}(5-x)^{-\frac{3}{2}}(-1) = 
-\dfrac{1}{2(\sqrt{5-x})^3}\).
-\item Usando la regola del Teorema~\ref{teo:derinversa}:\\
-Costruiamo la formula inversa con pochi passaggi algebrici: riavremo la 
-stessa funzione, in cui \(y\) figura come variabile indipendente: 
-\(x=f(y)\).\\
-Quindi deriviamo: \(\Deriv{x}=x'=f'(y)=\pst{\dfrac{dx}{dy}}\).\\
-\(f(x)=y=\dfrac{1}{\sqrt{5-x}}\srarrow y^2=\dfrac{1}{5-x} \srarrow 
-y^{-2}=5-x\srarrow x=5-y^{-2}\)  (formula inversa)\\
-\(x'=\pst{\dfrac{dx}{dy}}=2y^{-3}=\dfrac{2}{y^3}\) 
-(derivata della funzione inversa)\\
-\(\srarrow y'=\pst{\dfrac{dy}{dx}}=\dfrac{y^3}{2}=
-\dfrac{1}{2(\sqrt{5-x})^3}\).
+Calcola la derivata di \(f(x)=\dfrac{1}{\sqrt{5-x}}\)
+usando diverse strategie.
+
+\begin{enumerate} %[noitemsep]
+\item Usando il teorema \ref{teo:diff01_dericomp} della derivata delle 
+funzioni composte.
+
+Possiamo vedere la funzione \(f\) come la composizione delle funzioni: 
+
+\(a(x) = \dfrac{1}{b(x)}\), \quad \(b(x) = \sqrt{c(x)}\), \quad 
+\(c(x) = 5 -x\): \quad \(f(x) = a(b(c(x)))\), 
+
+\[f'(x) = a'(b) \cdot b'(c) \cdot c'(x) = 
+  - \dfrac{1}{\tonda{\sqrt{5-x}}} \cdot \dfrac{1}{\sqrt{5-x}} \cdot (-1) =
+  \dfrac{1}{2 \tonda{\sqrt{5-x}}^3}\] 
+\item Usando il teorema \ref{teo:diff01_deri_x_alla_1_su_m} delle potenze con 
+esponente razionale (e della composizione di funzioni).
+
+\[f'(x)=\Deriv{\dfrac{1}{\sqrt{5-x}}}=
+  \Deriv{(5-x)^{-\frac{1}{2}}}=
+  -\dfrac{1}{2}(5-x)^{-\frac{3}{2}}(-1) = 
+  \dfrac{1}{2 \tonda{\sqrt{5-x}}^3}\]
+\item Usando il teorema~\ref{teo:derinversa} delle funzioni inverse 
+(o la conseguente procedura \ref{proc:derinversa}).
+
+Costruiamo la formula inversa con pochi passaggi algebrici, riavremo la 
+stessa funzione, in cui \(y\) figura come variabile indipendente: \(x=f(y)\).
+\[y = \dfrac{1}{\sqrt{5-x}} \quad \srarrow \quad 
+  y^2 = \dfrac{1}{5-x} \quad \srarrow \quad 
+  y^{-2} = 5-x \quad \srarrow \quad x = 5-y^{-2}\]
+Quindi deriviamo: 
+\[f'(x) = \dfrac{1}{\Deriv{f^{-1}(y)}} = \dfrac{1}{\Deriv{5-y^{-2}}} = 
+  \dfrac{1}{2y^{-3}} = \dfrac{y^3}{2} = \dfrac{1}{2 \tonda{\sqrt{5-x}}^3}\]
 \end{enumerate}
 \end{esempio}
 
-% \section{Derivata di funzioni trascendenti}
-% \label{sec:differenziazione_trascendenti}
-% 
-% \subsection{Derivata della funzione esponenziale}
-% \label{subsec:differenziazione_derivatafesponenziale}
-% 
-% \subsection{Derivata della funzione logaritmo}
-% \label{subsec:differenziazione_derivataflogaritmo}
-% 
-% \subsection{Derivata della funzione seno}
-% \label{subsec:differenziazione_derivatafseno}
-% 
-% \subsection{Derivata della funzione coseno}
-% \label{subsec:differenziazione_derivatafcoseno}
-% 
-% \subsection{Derivata della funzione tangente}
-% \label{subsec:differenziazione_derivataftangente}
-% 
-% \section{Riassunto}
-% \label{sec:differenziazione_sunto}
-% 
-% \subsection{Differenziale}
-% \label{subsec:differenziazione_differenziale}
-% 
-% \subsection{Schema riassuntivo}
-% \label{subsec:differenziazione_schemaderivate}
-% 
-% \section{Applicazioni delle derivate}
-% \label{sec:differenziazione_applicazioni}
-% 
-% \subsection{Derivata e tangente}
-% \label{subsec:differenziazione_derivataetangente}
-% 
-% \subsection{Derivata e normale}
-% \label{subsec:differenziazione_derivataenormale}
-% 
-% \subsection{Derivata della derivata}
-% \label{subsec:differenziazione_derivataseconda}
-% 
-% \subsection{Altre applicazioni}
-% \label{subsec:differenziazione_altreapplicazioni}
+
+\begin{comment}
+
+
 
 \section{Derivare funzioni trascendenti}
 \label{sec:diff01_deritrasc}
