@@ -155,7 +155,7 @@ Ma dividendolo per l'intervallo infinitesimo di tempo, otteniamo:
 \[v(3,~dt)=\frac{ds(3,~dt)}{dt}=
   \frac{g \cdot \cancel{dt} \tonda{3+ \frac{1}{2} dt}}{\cancel{dt}}=
   3g+\frac{1}{2}g dt\] 
-Che non è un valore infinitesimo. 
+che non è un valore infinitesimo. 
 Il risultato ottenuto, dipende dall'accelerazione \(g\) che per i nostri 
 scopi possiamo considerare costante, e da \(dt\) che invece può variare. Per 
 ogni valore di \(dt\) avremo una velocità diversa.
@@ -346,7 +346,10 @@ rispetto alla variazione del suo argomento.
 
 % \(\dfrac{\Delta T}{\Delta h}\), il 
 La pendenza media di una funzione in un intervallo è il 
-rapporto fra gli incrementi della funzione e gli incrementi del suo argomento. 
+rapporto fra la differenza dei valori della funzione agli estremi di un 
+intervallo e l'ampiezza dell'intervallo. 
+% La pendenza media di una funzione in un intervallo è il 
+% rapporto fra gli incrementi della funzione e gli incrementi del suo argomento. 
 % Questo rapporto si chiama Rapporto Incrementale.
 
 L'incremento della funzione e quindi anche il Rapporto Incrementale 
@@ -526,11 +529,14 @@ Mentre il Rapporto Differenziale dipende dal valore dell'infinitesimo
 \end{osservazione}
 
 \begin{esempio}
-Calcoliamo per la stessa parabola precedente la pendenza nel vertice. 
-Sappiamo già che dovrà risultare zero. \quad 
-\(f(x) = \dfrac{1}{4} x^2 -x -3 \quad 
-x_v=-\frac{b}{2a}= -2 \cdot \tonda{-1} = 2\)
+Calcoliamo la pendenza nel vertice della parabola precedente. 
+
+Sappiamo già che dovrà risultare zero: 
+% \[f(x) = \dfrac{1}{4} x^2 -x -3 \quad 
+% x_v=-\frac{b}{2a}= -2 \cdot \tonda{-1} = 2\]
 \begin{align*}
+f(x) &= \dfrac{1}{4} x^2 -x -3 \quad 
+x_v=-\frac{b}{2a}= -2 \cdot \tonda{-1} = 2 \\
 df &= f(2+\epsilon) - f(2) =
       \dfrac{1}{4}\tonda{2 +\epsilon}^2  -\tonda{2 +\epsilon} -3 - 
           \frac{2^2}{4}  +2 +3 =\\
@@ -541,7 +547,7 @@ df &= f(2+\epsilon) - f(2) =
 RD &= 
 \dfrac{df(2)}{\epsilon}=\dfrac{\epsilon^2}{4\epsilon}=\dfrac{\epsilon}{4}
   \end{align*}
-Dato che il rapporto differenziale esiste e è finito per qualsiasi 
+Dato che il Rapporto Differenziale esiste e è finito per qualsiasi 
 infinitesimo non nullo \(\epsilon\), calcoliamo la sua parte standard.
 \[\text{pendenza}(f,~2) = f'(2) = 
   \pst{RD(f, 2, \epsilon)} = \pst{\frac{\epsilon}{4}} = 
@@ -570,9 +576,9 @@ La \emph{tangente ad una curva in un punto}
 è la retta passante per quel punto e che ha la stessa pendenza 
 della funzione in quel punto. 
 \begin{itemize} [nosep]
-\item Se \(f'(x_P)\) è definito la tangente a \(f\) in \(P\) è: \quad 
+\item Se \(f'(x_P)\) è definita la tangente a \(f\) in \(P\) è: \quad 
 \(y = f'(x_P)\tonda{x - x_P} +y_P\)
-\item se il Rapporto Differenziale è un infinito è: \quad 
+\item se il Rapporto Differenziale è un infinito, la tangente è: \quad 
 \(x = x_P\)
 \end{itemize}
 \end{definizione}
@@ -581,7 +587,6 @@ Hai già incontrato negli anni scorsi dei problemi in cui si chiedeva di
 calcolare la tangente ad una parabola in un suo punto. 
 Il metodo di calcolo algebrico che usavi era macchinoso (sistema tra la 
 funzione e un fascio di rette, trovare l'equazione risolutiva del sistema, 
-
 calcolare i valori del parametro che annullano il discriminante) e, 
 sfortunatamente, vale solo per le coniche. 
 Il metodo delle derivate, invece, si rivela molto più generale e rapido.
@@ -792,7 +797,7 @@ definita in \(0\).
 \end{esempio}
 
 Nell'ultimo esempio la funzione presenta un cambio improvviso di pendenza:
-Immediatamente a sinistra di \(x_0\) la funzione ha una pendenza diversa 
+immediatamente a sinistra di \(x_0\) la funzione ha una pendenza diversa 
 da quella che ha immediatamente a destra. 
 Diremo che la funzione ha un \emph{punto angoloso} in \(x_0\).
 
@@ -888,7 +893,7 @@ RD(f,~-1,~\epsilon) &= \dfrac{df}{\epsilon}=
 \end{align*}
 }
 Dato che il Rapporto Differenziale è un numero finito, ne calcoliamo la 
-sua parte standard:
+parte standard:
 \[\pst{\dfrac{22}{-64 +16 \epsilon}} = -\dfrac{22}{64} = -\dfrac{11}{32}\]
 E infine, la tangente:
 \[y = -\dfrac{11}{32} \tonda{x +1} - \dfrac{3}{8} \srarrow 
@@ -1092,8 +1097,8 @@ Abbiamo visto che il Rapporto Differenziale dipende da \(3\) parametri:
 Se nel problema che stiamo risolvendo \(f\) è fissata, allora il Rapporto 
 Differenziale dipende solo da \(x_0\) e da \(\epsilon)\). 
 Se poi siamo interessati alla pendenza della funzione \(f\), 
-e questa esiste, non dipende dalla particolare scelta dell'infinitesimo 
-quindi la pendenza della funzione, se esiste, dipende solo dal punto preso 
+e questa esiste, non dipende dalla particolare scelta dell'infinitesimo. 
+La pendenza della funzione, se esiste, dipende solo dal punto preso 
 in considerazione: \(x_0\).
 
 Quindi, per ogni funzione reale \(f\), si può considerare la funzione: 
@@ -1446,8 +1451,8 @@ di una funzione.
 
 Ora vediamo come calcolare la derivata di intere classi di funzioni e 
 come individuare delle regole che permettano di evitare il passaggio 
-attraverso il differenziale e il Rapporto Differenziale che spesso sono calcoli 
-assai complicati.
+attraverso il differenziale e il Rapporto Differenziale che spesso 
+comportano calcoli assai complicati.
 
 \subsection{Derivata di alcune funzioni algebriche elementari}
 \label{subsec:differenziazione_derivatafsemplici}
@@ -1551,7 +1556,7 @@ una retta per l'origine.
 
 \begin{osservazione}
 La funzione derivata di una funzione quadratica è una funzione lineare: 
-a incrementi uguali della della \(x\) corrispondono incrementi uguali
+a incrementi uguali della variabile \(x\) corrispondono incrementi uguali
 della pendenza nel punto.
 % la pendenza delle tangenti a una parabola varia come varia la \(y\)
 % rispetto alla \(x\) in una retta.
@@ -2642,7 +2647,7 @@ cioè la tangente alla funzione in quel punto.
 % La retta, che passa per il punto della curva con ascissa \(x_0\) e ha la 
 % stessa pendenza della curva, è la sua tangente per quel punto. 
 
-Possiamo concludere è che \emph{a distanza \(dx\) dal punto che si vuole 
+Possiamo concludere che \emph{a distanza \(dx\) dal punto che si vuole 
 esaminare, fra la curva e la tangente c'è una differenza pari a 
 \(\delta\cdot dx\), un infinitesimo di ordine superiore a \(dx\)}. 
 Questa differenza è \emph{l'incremento infinitesimo della curva rispetto 
@@ -2660,7 +2665,7 @@ sono indistinguibili.
 Per capire meglio la situazione, utilizziamo alcuni microscopi non standard 
 con ingrandimenti infiniti.
 
-Il campo visivo di \(M_1\) riesce a separare \(x_0\) e \(x_0 +dx\). 
+L'ingrandimento infinito di \(M_1\) riesce a separare \(x_0\) e \(x_0 +dx\). 
 A questo livello microscopico la curvatura del grafico non esiste, 
 per cui la curva e la tangente sono sovrapposte. 
 
@@ -3339,7 +3344,7 @@ da zero.
 Ricordiamo che:
 \begin{itemize}
 \item se \quad \(y = f(x)\) \quad  allora \quad \(x = f^{-1}(y)\), 
-\item la composizione di una funzione con lasua inversa dà per risultato la 
+\item la composizione di una funzione con la sua inversa dà per risultato la 
 funzione identica che ha quindi derivata \(1\).
 \end{itemize}
 \hspace{20mm}
@@ -3378,12 +3383,11 @@ derivando la formula inversa rispetto a \(y\);
 \end{enumerate}
 \end{procedura}
 
-
 \begin{esempio}
 Calcola la derivata di \(y=f(x)=\sqrt[3]{x}\).
 
 L'inversa della funzione è \(f^{-1}(x) = x^3\) 
-e la formula inversa è \(x = f^{-1}y) = y^3\) 
+e la formula inversa è \(x = f^{-1}(y) = y^3\). \\
 Sappiamo calcolare la sua derivata e possiamo applicare il teorema 
 appena visto~\ref{teo:derinversa} (o la conseguente procedura 
 \ref{proc:derinversa}. 
@@ -3494,11 +3498,6 @@ Quindi deriviamo:
 \end{enumerate}
 \end{esempio}
 
-
-\begin{comment}
-
-
-
 \section{Derivare funzioni trascendenti}
 \label{sec:diff01_deritrasc}
 Finora abbiamo imparato a derivare le funzioni algebriche. In 
@@ -3528,7 +3527,7 @@ la \emph{funzione è molto vicina a zero};
 rapidamente}.
 \end{enumerate}
 
-La funzione e la sua derivata si assomigliano, sono funzioni della stessa 
+La funzione e la sua derivata si assomigliano, sembrano funzioni della stessa 
 ``famiglia''.
 % I due grafici praticamente si accompagnano: 
 % rivelano uguali pendenze in coppie di punti di uguale ordinata.
@@ -3574,8 +3573,10 @@ stessa:
 % \noindent Ipotesi: \(f(x)=a^x\). \tab \(f'(x)=k \cdot a^x\).
 \begin{proof}
 Calcoliamo il differenziale e il Rapporto Differenziale: 
-\[df=a^{x+dx}-a^x=a^xa^{dx}-a^x=a^x\tonda{a^{dx}-1} \qquad
-RD=\dfrac{df(x)}{dx}=\dfrac{\tonda{a^{dx}-1}}{dx}a^x\]
+\[RD = \dfrac{df}{dx} = \dfrac{f(x + dx) - f(x)}{dx} = 
+       \dfrac{a^{x+dx}-a^x}{dx} = 
+       \dfrac{a^xa^{dx}-a^x}{dx} = 
+       \dfrac{a^{dx}-1}{dx} a^x\]
 Per poter calcolare la derivata il Rapporto Differenziale deve essere 
 finito.
 \begin{itemize}
@@ -3583,13 +3584,18 @@ finito.
 \(a^x\) è senz'altro finito, dato che è una funzione reale definita per ogni 
 valore di \(x\);
 \item 
-e \(\dfrac{\tonda{a^{dx}-1}}{dx} = \dfrac{\tonda{a^{0+dx}-a^0}}{dx}\) 
-è finito dato che la funzione esponenziale è continua.
+come visto in un esempio sui limiti (vedi \ref{esempio:limiti_esp})
+\(\pst{\dfrac{a^\epsilon-1}{\epsilon}}=\ln{a}\) quindi 
+\(\dfrac{\tonda{a^{dx}-1}}{dx}\) è un numero finito.
 \end{itemize}
 Possiamo quindi calcolare la parte standard:
 \[f'(x)= \pst{\dfrac{df(0)}{dx}\cdot a^x}=f'(0) \cdot f(x)\]
 Quindi \emph{la derivata di una funzione esponenziale è uguale alla
-funzione stessa, moltiplicata per la pendenza della funzione in} \(x=0\).
+funzione stessa, moltiplicata per una costante}.
+
+Questa costante è 
+\(\pst{\dfrac{a^{dx}-1}{dx}} = \pst{\dfrac{a^{0+dx}-a^0}{dx}} = f'(0)\)
+cioè \emph{la pendenza della funzione in} \(x=0\).
 \end{proof}
 
 
@@ -3636,13 +3642,10 @@ allora la derivata della funzione è uguale alla funzione stessa.
 % In questo modo la funzione e la sua derivata sarebbero proprio identiche 
 % e i due grafici sarebbero sovrapponibili.\\
 
-In conclusione: perché una funzione esponenziale generica \(a^x\) coincida 
-con la sua derivata occorre che la base sia \(a=e\): \(f(x)=e^x\) è la 
-funzione esponenziale pura.
-
 \begin{teorema}
 Esiste una funzione esponenziale la cui derivata coincide con la 
-funzione stessa: \(\Deriv{a^x}=a^x\)
+funzione stessa: 
+\[\Deriv{a^x}=a^x\]
 \end{teorema}
 % \noindent Ipotesi: \(f(x)=a^x\). \tab 
 %           Tesi: Esiste un \(a\) per cui \(f'(x)=a^x\).
@@ -3654,8 +3657,14 @@ dobbiamo trovare una base per cui \(f'(0)=1\):
 a^{dx}-1 \approx dx \srarrow 
 a^{dx} \approx dx +1 \]
 Elevando entrambi i membri per \(\frac{1}{dx}\):
-\[a \approx (1 +dx)^\frac{1}{dx} \approx \pst{(1 +dx)^\frac{1}{dx}} = e\]
+
+\hspace{35mm}
+\(a \approx (1 +dx)^\frac{1}{dx} \approx \pst{(1 +dx)^\frac{1}{dx}} = e\)
 \end{proof}
+
+In conclusione: perché una funzione esponenziale generica \(a^x\) coincida 
+con la sua derivata occorre che la base sia \(a=e\): \(f(x)=e^x\) è la 
+funzione esponenziale pura.
 
 % Attraverso l'uso del numero \(e\) siamo finalmente in grado di derivare la 
 % funzione esponenziale generica \(f(x)=a^x\) e così risolvere anche i dubbi 
@@ -3678,11 +3687,14 @@ Elevando entrambi i membri per \(\frac{1}{dx}\):
 Conseguenza dei due teoremi precedenti è il seguente
 \begin{teorema}
 La derivata della funzione esponenziale \(f(x)=e^x\) coincide con la 
-funzione stessa: \(\Deriv{e^x}=e^x\)
+funzione stessa: 
+\[\Deriv{e^x}=e^x\]
 \end{teorema}
 % \noindent Ipotesi: \(f(x)=e^x\). \tab \(f'(x)=e^x\).
 \begin{proof}
-\[\Deriv{e^x} = \Deriv{e^0} \cdot e^x = 1 \cdot e^x\ = e^x\]
+
+\hspace{20mm}
+\(\Deriv{e^x} = \Deriv{e^0} \cdot e^x = 1 \cdot e^x\ = e^x\)
 \end{proof}
 È stato dimostrato che questa è l'unica funzione che coincide con la sua 
 derivata.
@@ -3690,16 +3702,19 @@ derivata.
 \begin{teorema}
   La derivata della funzione esponenziale generica \(f(x)=a^x\), con 
 \(a>0\), è:\\ 
-\(f'(x)= a^x\ln{a}\).
+\[f'(x)= a^x\ln{a}\]
 \end{teorema}
 % \noindent Ipotesi: \(f(x)=a^x\); \tab Tesi: \(f'(x)=a^x\ln{a}\).
 \begin{proof}
 Usiamo una trasformazione appresa con lo studio dei logaritmi e applichiamo 
-il teorema a pag.~\pageref{teo:diff01_dericomp}:
-\(f(x)~=~a^x~=~e^{\ln a^x}\). 
-Se poniamo \(g(x)=\ln a^x=x\ln a\), si ottiene:
-\[f(g(x))=e^{g(x)} \srarrow f'(g(x))=f'(g) \cdot g'(x) = 
-e^{x\ln a} \cdot \ln a = e^{\ln a^x} \cdot \ln a = a^x\ln a\]
+il teorema a pag.~\pageref{teo:diff01_dericomp} sulla derivata delle funzioni 
+composte:
+\(f(x)~=~a^x~=~e^{\ln a^x}\). \\
+Se poniamo \(g(x)=\ln a^x=x\ln a\), otteniamo:
+
+% \hspace*{5mm}
+\(f(g(x))=e^{g(x)} \srarrow f'(g(x))=f'(g) \cdot g'(x) = 
+e^{x\ln a} \cdot \ln a = \ln a \cdot e^{\ln a^x} = \ln a \cdot a^x\)
 \end{proof}
 \begin{esempio}
 Calcola la derivata di \(f(x)=3e^{x-1}\).
@@ -3742,14 +3757,12 @@ Ma rifacendoci alla definizione di logaritmo possiamo osservare che
 \(e^{\ln x} = x\) che ha quindi come derivata: \(1\).
 \end{esempio}
 
-Ma ragioniamo un po' sulle due funzioni: \(g(x)=\ln x\) e \(f(x)=e^x\)
+Ma ragioniamo un po' sulle due funzioni:~~ \(g(x)=\ln x\)~~ e~~ \(f(x)=e^x\)
 possiamo osservare che:
-
-Per definizione, \(e^{\ln x} = x\) e, 
-per le proprietà dei logaritmi, \(\ln e^x = x \ln e = x\)
-quindi il logaritmo naturale \(g(x) = \ln x\) e 
-la funzione esponenziale \(f(x) = e^x\) sono due funzioni inverse una 
-dell'altra, dato che la loro composizione dà la funzione identica.
+per definizione,~~ \(e^{\ln x} = x\)~~ e, per le proprietà dei logaritmi,~~ 
+\(\ln e^x = x \ln e = x\)~~ quindi il logaritmo naturale e la funzione 
+esponenziale sono due funzioni inverse una dell'altra, dato che la loro 
+composizione dà la funzione identica.
 
 Possiamo quindi usare il teorema della derivata delle funzioni inverse per 
 dimostrare il seguente
@@ -3758,18 +3771,16 @@ La derivata della funzione logaritmo naturale è:
 \(\Deriv{\ln x} = \dfrac{1}{x}, \stext{con} x>0\).
 \end{teorema}
 
-\noindent\begin{minipage}[]{.43\textwidth}
+\affiancati{.49}{.49}{
 \begin{inaccessibleblock}
 [esponenziale e logaritmo]
 \begin{center} \scalebox{.9}{\esplog} \end{center}
 \end{inaccessibleblock}
-\end{minipage} 
-\hfill
-\begin{minipage}[]{.55\textwidth}
+}{
 % \noindent Ipotesi: \(f(x)=\ln x, \mbox{ con } x>0\) \tab
 % \noindent Tesi: \(f'(x)=\dfrac{1}{x}\)
 \begin{proof}
-Usando la regola della derivazione delle funzioni inverse, \\
+Usando la regola della derivazione delle funzioni inverse, 
 \[\tonda{\Deriv{f^{-1}(x)} = \dfrac{1}{\Deriv{(f^{-1}(x)}}}
 \quad \text{otteniamo:}\]
 \[\Deriv{\ln x}=\dfrac{1}{\Deriv{e^{g(x)}}} = 
@@ -3781,30 +3792,29 @@ definizione.
 % invertibili e derivabili: poiché \(\ln x\) esiste per \(x>0\), 
 % i ragionamenti valgono solo per \(x>0\)
 \end{proof} 
-\end{minipage}
+}
 \label{}
-\\
 
 Vediamo ora il caso generale, quando la base del logaritmo è genericamente 
 \(a>0\).
 \begin{teorema}
-La derivata della funzione logaritmo in base \(a\) è: 
+La derivata della funzione logaritmo in base \(a\) è: \qquad
 \(\Deriv{\log_a x}= \dfrac{1}{x\ln a}\).
 \end{teorema}
 % \noindent Ipotesi: \(f(x)=\log_a x\). \tab \(f'(x)=\dfrac{1}{x\ln a}\)
 \begin{proof}
-Si ottiene direttamente dalla formula del cambiamento di base:\\
-\[\Deriv{\log_a x} = \Deriv{\dfrac{1}{\ln a}\ln x} = 
-  \dfrac{1}{\ln a} \cdot \Deriv{\ln x} = \dfrac{1}{x \ln a}\]
+Si ottiene direttamente dalla formula del cambiamento di base:
+
+\hspace{20mm}
+\(\Deriv{\log_a x} = \Deriv{\dfrac{1}{\ln a}\ln x} = 
+  \dfrac{1}{\ln a} \cdot \Deriv{\ln x} = \dfrac{1}{x \ln a}\)
 \end{proof}
 
 \begin{esempio}
 Derivare la funzione \(f(x)=Log(x^2+1)^2\).\\
 
 Possiamo vedere la funzione come composta da tre funzioni:
-
-\(h(x)=(x^2+1) \srarrow g(x)=(h(x))^2\srarrow f(x)=Log(g(h((x)))\)
-
+\[h(x)=(x^2+1) \srarrow g(x)=(h(x))^2\srarrow f(x)=Log(g(h((x)))\]
 Applichiamo quindi i teoremi precedenti:
 \[f'(x) =
 % f'(g) \cdot g'(h) \cdot h(x) =
@@ -3820,8 +3830,8 @@ Applichiamo quindi i teoremi precedenti:
 % Abbiamo ora tutti gli strumenti per convalidare l'osservazione al teorema 
 % \ref{diff01_teoderpotenza}, a proposito delle funzioni potenza.
 
-Con un procedimento che richiede delle conoscenze che non abbiamo ancora si 
-può dimostrare che la precedente regola vale per esponenti qualunque.
+Possiamo ora generalizzare il teorema della derivata della funzione potenza 
+a qualunque esponente reale.
 
 \begin{teorema}
 \label{teo:diff01_deri_x_alla_r}
@@ -3830,17 +3840,17 @@ reale, è:
 \[\Deriv{x^r}=~rx^{r-1}\]
 \end{teorema}
 
-\begin{teorema}
-\label{teo:funzione_potenza_generica}
-La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
-\(\Deriv{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha \in \R\).
-\end{teorema}
-% \noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
-\(\forall \alpha\).
+% \begin{teorema}
+% \label{teo:funzione_potenza_generica}
+% La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
+% \(\Deriv{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha \in \R\).
+% \end{teorema}
+% % \noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
+% % \(\forall \alpha\).
 \begin{proof}
-Combinando alcune delle regole precedenti, si ha:
-\[f(x) = x^\alpha= e^{\ln x^\alpha}=e^{\alpha\ln x}\]
-\[f'(x)=e^{\alpha\ln x}\alpha\dfrac{1}{x}=x^\alpha\dfrac{\alpha}{x}=
+Utilizzando i teoremi precedenti, si ha:
+\[f(x) = x^\alpha= e^{\ln x^\alpha}=e^{\alpha\ln x} \quad \srarrow \quad 
+f'(x)=e^{\alpha\ln x}\alpha\dfrac{1}{x}=x^\alpha\dfrac{\alpha}{x}=
 \alpha x^{\alpha-1}\]
 Il teorema vale per qualsiasi esponente poiché non è stata fatta nessuna 
 particolare ipotesi sull'esponente 
@@ -3852,6 +3862,11 @@ Derivare \(f(x)=x^{\sqrt{2}}\).
 
 \[f'(x)=\sqrt{2}x^{\sqrt{2}-1}\]
 \end{esempio}
+
+
+\begin{comment}
+
+
 
 \subsection{Derivata di funzioni circolari}
 \label{subsec:differenziazione_circolari}
@@ -4417,6 +4432,193 @@ Scrivi l'equazione della tangente e della normale alla curva di equazione
 \dfrac{2\cdot 1(0+1)-(1+1)\cdot 1}{(0+1)^2}=0\).\\
 La tangente è quindi la retta orizzontale: \(y=2\),
 di conseguenza la normale è la retta verticale: \(x=1\).
+\end{esempio}
+
+\subsubsection{Applicazioni: cerchio osculatore}
+I grafici delle pagine precedenti ci hanno mostrato alcune rette e tante curve. 
+Calcolando le derivate abbiamo iniziato ad analizzare la forma delle 
+curve-grafici delle funzioni regolari. Anche se più avanti renderemo più 
+generali queste nozioni, al momento sappiamo che:
+\begin{itemize}[noitemsep, nosep]
+ \item con la derivata prima ricaviamo le pendenze di una curva, punto per 
+punto;
+\item con la derivata seconda mostriamo come variano le pendenze, perciò 
+sappiamo dire se in un certo intervallo la curva mostra una concavità (le 
+pendenze crescono quando \(x\) aumenta) oppure una convessità (il caso 
+contrario).
+\end{itemize}
+La maggior parte dei grafici ha una forma curvilinea, per questo ora 
+concentriamo lo studio sulla curvatura di un grafico. 
+
+Immagina di essere in 
+bicicletta lungo la curva, come un un puntino mobile su una mappa del 
+navigatore: se c'è una forte curvatura il cambio di direzione è forte in un 
+tratto breve, mentre avviene il contrario nei tratti a curvatura lieve. 
+Quindi è importante considerare 
+\begin{itemize}[nosep, noitemsep]
+ \item l'angolo \(d\alpha\) fra due direzioni successive, le direzioni del 
+movimento che si hanno percorrendo la curva;
+\item la lunghezza \(ds\) del tratto di curva che si considera.
+\end{itemize}
+ \paragraph{Le direzioni: } sappiamo già esprimere una direzione lungo la 
+curva: geometricamente è la pendenza, il coefficiente angolare della tangente 
+alla curva nel punto considerato. Conoscendo l'angolo \(\alpha\), la pendenza 
+\(f'(x)\) in quel punto è \(f'(x)=\tg(\alpha)\) e quindi 
+\(\alpha=\arctan(f'(x))\).\\
+Dal teorema dell'incremento si ha:
+\[
+ d\alpha \sim \Deriv{\arctan(f'(x))}dx=\dfrac{f''(x)}{1+(f'(x))^2}dx
+\]
+
+\paragraph{La lunghezza \(ds\):}
+il tratto curvo \(ds\) è indistinguibile da un segmento rettilineo lungo la 
+tangente, con la componente orizzontale che è \(dx\) e quella verticale 
+che è \(dy\sim f'(x)dx\), per cui:
+\[
+ds=\sqrt{(dx)^2+(dy)^2}\sim\sqrt{(dx)^2+(f'(x)dx)^2}=dx\sqrt{1+(f'(x))^2}
+\]
+%TODO   disegno tipo p.396, magari in una semicirconf come un grafico già pronto
+\begin{center}  disegno\end{center}
+
+
+Dove il grafico mette in evidenza una forte curvatura, lì abbiamo un 
+forte cambio di direzione in un tratto breve. Al contrario dove la curvatura è 
+minore, il cambio di direzione è minore oppure avviene lungo un percorso più 
+lungo. C'è quindi una proporzionalità inversa fra la curvatura \(k\) e la 
+lunghezza \(ds\), a parità di angolo \(d\alpha\), e c'è una proporzionalità 
+diretta fra \(k \) e \(d\alpha\), a parità di \(ds\): possiamo scrivere
+\(k\propto\frac{d\alpha}{ds}\), quindi 
+\[
+ k\propto\frac{d\alpha}{ds}=\dfrac{\dfrac{f''(x)}{1+(f'(x))^2}dx}
+{\sqrt{1+(f'(x))^2}dx} =
+ \dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}
+\]
+
+Calcolando le derivate prima e seconda possiamo quindi ricavare 
+una misura della curvatura di un grafico in ogni suo punto. 
+\begin{esempio}
+Analizziamo la curvatura del grafico della funzione \(f(x)=\dfrac{1}{x}\), che 
+abbiamo già visto molte volte. Limitiamoci all'intervallo \(x>0\). Il grafico 
+non ha quasi curvatura agli estremi dell'intervallo mentre ne ha una molto 
+accentuata per \(y=x\). Vediamo l'espressione di \(k\), che essendo diversa da 
+punto a punto, sarà \(k=k(x)\).
+\begin{align*}
+ f(x) &= \dfrac{1}{x}\quad \text{ con } x>0 \qquad f'(x)=\dfrac{-1}{x^2}\qquad 
+f''(x)=\dfrac{2}{x^3}\\
+k(x)&=\dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}=
+\dfrac{\dfrac{2}{x^3}}{\quadra{1+\tonda{\dfrac{-1}{x^2}}^2}^{\frac{3}{2}}}=
+\dfrac{\dfrac{2}{x^3}}{\quadra{1+\dfrac{1}{x^4}}^{\frac{3}{2}}}=
+\dfrac{\dfrac{2}{x^3}}{\dfrac{[x^4+1]^\frac{3}{2}}{x^6}}=
+\dfrac{2x^2}{[x^4+1]^\frac{3}{2}}
+\end{align*}
+Per fare dei confronti, prendiamo tre punti sulla curva e confrontiamo le 
+curvature risultanti.
+\begin{align*}
+x_A&=0,5 \quad\longrightarrow \quad k(0,5)=\dfrac{2\cdot 
+0,5^2}{\sqrt{(0,5^4+1)^3}}\simeq 0,456\\
+x_B&=1 \quad  \longrightarrow \quad k(1)=\dfrac{2\cdot 
+1^2}{\sqrt{(1^4+1)^3}}=\dfrac{\sqrt{2}}{2}\simeq 0,707\\
+x_B&=4 \quad  \longrightarrow  \quad k(4)=\dfrac{2\cdot 
+4^2}{\sqrt{(4^4+1)^3}}=\simeq 0,008
+\end{align*}
+Come si vede anche dal disegno, la curvatura è più accentuata nel punto di 
+simmetria della curva, cioè \(x_B\). Allontanandosi da questo punto sia a 
+destra che a sinistra, la curvatura diminuisce rapidamente.
+\end{esempio}
+\begin{esempio}
+ Che curvatura ha una retta, per esempio \(y=3x-1\)\,? La risposta viene 
+d'istinto, trattandosi di una retta. Calcoliamo:
+\begin{align*}
+ f(x) &= 3x-1 \qquad f'(x)=3 \qquad f''(x)=0\\
+ k(x)&=\dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}=
+\dfrac{0}{\quadra{1+3^2}^\frac{3}{2}}=0
+ \end{align*}
+\end{esempio}
+La retta non ha curvatura in alcun punto, è banale. Ovviamente vale per ogni 
+retta, anche quelle verticali, anche se in questi casi non possiamo 
+applicare la formula.
+\begin{esempio}
+ Calcola la curvatura della funzione \(f(x)=\sqrt{9-x^2}\). Si tratta della 
+semicirconferenza che ha il centro nell'origine e il raggio \(r=3\), nel 
+semipiano \(y\geqslant 0\).
+\begin{align*}
+f(x) &= \sqrt{9-x^2} \qquad f'(x)=\dfrac{-x}{\sqrt{9-x^2}} 
+\qquad f''(x)=\dfrac{-9}{\sqrt{(9-x^2)^3}}=-9\tonda{9-x^2}^{-\frac{3}{2}}\\
+k(x)&=\dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}=
+\dfrac{-9\tonda{9-x^2}^{-\frac{3}{2}}}
+{\quadra{1+\tonda{\dfrac{-x}{\sqrt{9-x^2}}}^2}^\frac{3}{2}}=
+\dfrac{-9\tonda{9-x^2}^{-\frac{3}{2}}}
+{\quadra{\dfrac{9-x^2+x^2}{9-x^2}}^\frac{3}{2}}=\\
+&=\dfrac{-9\tonda{9-x^2}^{-\frac{3}{2}}}
+{9^\frac{3}{2}\tonda{9-x^2}^{-\frac{3}{2}}}=
+-9\cdot9^{-\frac{3}{2}}=- 9^{1-\frac{3}{2}}=-9^{-\frac{1}{2}}=-\dfrac{1}{3}
+\end{align*}
+Da notare tre cose importanti:
+\begin{itemize}[noitemsep, nosep]
+\item il segno negativo è dato dal numeratore, 
+che è una derivata seconda: 
+indica che la curva rivolge la sua concavità verso il basso;
+ \item \(k\) è costante, non dipende da \(x\), come giustamente deve essere 
+per un arco di circonferenza;
+\item il numero 3 che risulta al denominatore è proprio il raggio 
+della circonferenza.
+\end{itemize}
+\end{esempio}
+
+
+\paragraph{Il cerchio osculatore}
+C'è un secondo modo, molto espressivo, di indicare la curvatura. Come si vede 
+dall'ultimo esempio, se non consideriamo il segno, il risultato è il reciproco 
+del raggio della circonferenza. Infatti abbiamo definito la curvatura \(k\) 
+come \(k=\dfrac{d\alpha}{ds}\), il rapporto fra il cambio di direzione e la 
+lunghezza del tratto percorso.
+
+Nelle circonferenze, se \(\alpha\) si misura in radianti, vale la relazione 
+\(ds=rd\alpha\), per cui il raggio è \(r=\dfrac{ds}{d\alpha}=\dfrac{1}{k}\). Da 
+qui viene l'idea di esprimere la curvatura di un grafico in un suo punto 
+attraverso il raggio del cerchio che in quel punto approssima la curva al 
+meglio. Tale cerchio è chiamato \emph{cerchio osculatore}.
+
+Essendo il reciproco di \(k\), il raggio del cerchio osculatore è:
+\[
+ r=\dfrac{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}{f''(x)}
+\]
+e il segno che risulterà alla fine del calcolo ci indica se la circonferenza si 
+trova sopra o sotto la curva, come puoi verificare negli ultimi esempi.
+
+Non è difficile trovare il centro \(O\) del cerchio osculatore: 
+se \(P\) è il punto della curva che stiamo esaminando, il raggio \(r=OP\) è un 
+segmento che appartiene alla normale alla curva, passante per \(P\). Il calcolo 
+si svolge nel prossimo esempio..
+
+Quanto alla curvatura di una retta, che risulta \(0\) come abbiamo visto, il 
+raggio del cerchio osculatore risulterà infinito, come è giusto se si 
+immagina una circonferenza che ha il suo centro a distanza infinita dalla 
+retta.
+
+\begin{esempio}
+ Trovare i cerchi osculatori della parabola \(y=x^2\) nel suo vertice 
+\(V(0, 0)\) e nel punto \(P(1, 1)\).
+\begin{center} \(f(x)=x^2\qquad f'(x)= 2x \qquad f''(x)=2\)\end{center}
+Relativamente al vertice \(V\): \quad
+\(r=\dfrac{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}{f''(x)}=
+ \dfrac{\quadra{1+(2\cdot 0)^2}^{\frac{3}{2}}}{2}=\dfrac{1}{2}\).\\
+Dato che in \(V\) la parabola ha tangente orizzontale, il centro del cerchio 
+osculatore si troverà sulla verticale di \(V\), cioè in \(O_V(0, 
+\dfrac{1}{2})\).\\
+Relativamente al punto \(P\): \quad
+\(r=\dfrac{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}{f''(x)}=
+ \dfrac{\quadra{1+2^2}^{\frac{3}{2}}}{2}\simeq 5,59\).\\
+ Dato che \(\alpha\), l'inclinazione della tangente, è 
+\(\alpha=\arctan(f'(1))=\arctan(2)=63,4^\circ\), l'inclinazione della normale 
+passante per \(P\) è \(\beta=\alpha+90^\circ=153,4^\circ\).\\
+Le coordinate del centro \(O_P\) del cerchio osculatore in \(P\) saranno quindi:
+\begin{align*}
+x_{O_P} &= x_P+\cos\beta=x_P+\cos 153,4^\circ=1-0,89=0,11\\
+y_{O_P} &=y_P+\sen\beta=y_P+\sen 153,4\circ=1+0,45=1,45.
+\end{align*}
+Da notare, infine, che le due circonferenze si trovano sopra la curva, dato che 
+la curvatura \(k\) è positiva perché \(f''(x)\geqslant 0\).
 \end{esempio}
 
 \subsection{Derivata della derivata}
