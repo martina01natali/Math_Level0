@@ -3584,13 +3584,18 @@ finito.
 \(a^x\) è senz'altro finito, dato che è una funzione reale definita per ogni 
 valore di \(x\);
 \item 
-e \(\dfrac{\tonda{a^{dx}-1}}{dx} = \dfrac{\tonda{a^{0+dx}-a^0}}{dx}\) 
-è finito dato che la funzione esponenziale è continua.
+come visto in un esempio sui limiti (vedi \ref{esempio:limiti_esp})
+\(\pst{\dfrac{a^\epsilon-1}{\epsilon}}=\ln{a}\) quindi 
+\(\dfrac{\tonda{a^{dx}-1}}{dx}\) è un numero finito.
 \end{itemize}
 Possiamo quindi calcolare la parte standard:
 \[f'(x)= \pst{\dfrac{df(0)}{dx}\cdot a^x}=f'(0) \cdot f(x)\]
 Quindi \emph{la derivata di una funzione esponenziale è uguale alla
-funzione stessa, moltiplicata per la pendenza della funzione in} \(x=0\).
+funzione stessa, moltiplicata per una costante}.
+
+Questa costante è 
+\(\pst{\dfrac{a^{dx}-1}{dx}} = \pst{\dfrac{a^{0+dx}-a^0}{dx}} = f'(0)\)
+cioè \emph{la pendenza della funzione in} \(x=0\).
 \end{proof}
 
 
@@ -3637,13 +3642,10 @@ allora la derivata della funzione è uguale alla funzione stessa.
 % In questo modo la funzione e la sua derivata sarebbero proprio identiche 
 % e i due grafici sarebbero sovrapponibili.\\
 
-In conclusione: perché una funzione esponenziale generica \(a^x\) coincida 
-con la sua derivata occorre che la base sia \(a=e\): \(f(x)=e^x\) è la 
-funzione esponenziale pura.
-
 \begin{teorema}
 Esiste una funzione esponenziale la cui derivata coincide con la 
-funzione stessa: \(\Deriv{a^x}=a^x\)
+funzione stessa: 
+\[\Deriv{a^x}=a^x\]
 \end{teorema}
 % \noindent Ipotesi: \(f(x)=a^x\). \tab 
 %           Tesi: Esiste un \(a\) per cui \(f'(x)=a^x\).
@@ -3655,8 +3657,14 @@ dobbiamo trovare una base per cui \(f'(0)=1\):
 a^{dx}-1 \approx dx \srarrow 
 a^{dx} \approx dx +1 \]
 Elevando entrambi i membri per \(\frac{1}{dx}\):
-\[a \approx (1 +dx)^\frac{1}{dx} \approx \pst{(1 +dx)^\frac{1}{dx}} = e\]
+
+\hspace{35mm}
+\(a \approx (1 +dx)^\frac{1}{dx} \approx \pst{(1 +dx)^\frac{1}{dx}} = e\)
 \end{proof}
+
+In conclusione: perché una funzione esponenziale generica \(a^x\) coincida 
+con la sua derivata occorre che la base sia \(a=e\): \(f(x)=e^x\) è la 
+funzione esponenziale pura.
 
 % Attraverso l'uso del numero \(e\) siamo finalmente in grado di derivare la 
 % funzione esponenziale generica \(f(x)=a^x\) e così risolvere anche i dubbi 
@@ -3679,11 +3687,14 @@ Elevando entrambi i membri per \(\frac{1}{dx}\):
 Conseguenza dei due teoremi precedenti è il seguente
 \begin{teorema}
 La derivata della funzione esponenziale \(f(x)=e^x\) coincide con la 
-funzione stessa: \(\Deriv{e^x}=e^x\)
+funzione stessa: 
+\[\Deriv{e^x}=e^x\]
 \end{teorema}
 % \noindent Ipotesi: \(f(x)=e^x\). \tab \(f'(x)=e^x\).
 \begin{proof}
-\[\Deriv{e^x} = \Deriv{e^0} \cdot e^x = 1 \cdot e^x\ = e^x\]
+
+\hspace{20mm}
+\(\Deriv{e^x} = \Deriv{e^0} \cdot e^x = 1 \cdot e^x\ = e^x\)
 \end{proof}
 È stato dimostrato che questa è l'unica funzione che coincide con la sua 
 derivata.
@@ -3691,16 +3702,19 @@ derivata.
 \begin{teorema}
   La derivata della funzione esponenziale generica \(f(x)=a^x\), con 
 \(a>0\), è:\\ 
-\(f'(x)= a^x\ln{a}\).
+\[f'(x)= a^x\ln{a}\]
 \end{teorema}
 % \noindent Ipotesi: \(f(x)=a^x\); \tab Tesi: \(f'(x)=a^x\ln{a}\).
 \begin{proof}
 Usiamo una trasformazione appresa con lo studio dei logaritmi e applichiamo 
-il teorema a pag.~\pageref{teo:diff01_dericomp}:
-\(f(x)~=~a^x~=~e^{\ln a^x}\). 
-Se poniamo \(g(x)=\ln a^x=x\ln a\), si ottiene:
-\[f(g(x))=e^{g(x)} \srarrow f'(g(x))=f'(g) \cdot g'(x) = 
-e^{x\ln a} \cdot \ln a = e^{\ln a^x} \cdot \ln a = a^x\ln a\]
+il teorema a pag.~\pageref{teo:diff01_dericomp} sulla derivata delle funzioni 
+composte:
+\(f(x)~=~a^x~=~e^{\ln a^x}\). \\
+Se poniamo \(g(x)=\ln a^x=x\ln a\), otteniamo:
+
+% \hspace*{5mm}
+\(f(g(x))=e^{g(x)} \srarrow f'(g(x))=f'(g) \cdot g'(x) = 
+e^{x\ln a} \cdot \ln a = \ln a \cdot e^{\ln a^x} = \ln a \cdot a^x\)
 \end{proof}
 \begin{esempio}
 Calcola la derivata di \(f(x)=3e^{x-1}\).
@@ -3743,14 +3757,12 @@ Ma rifacendoci alla definizione di logaritmo possiamo osservare che
 \(e^{\ln x} = x\) che ha quindi come derivata: \(1\).
 \end{esempio}
 
-Ma ragioniamo un po' sulle due funzioni: \(g(x)=\ln x\) e \(f(x)=e^x\)
+Ma ragioniamo un po' sulle due funzioni:~~ \(g(x)=\ln x\)~~ e~~ \(f(x)=e^x\)
 possiamo osservare che:
-
-Per definizione, \(e^{\ln x} = x\) e, 
-per le proprietà dei logaritmi, \(\ln e^x = x \ln e = x\)
-quindi il logaritmo naturale \(g(x) = \ln x\) e 
-la funzione esponenziale \(f(x) = e^x\) sono due funzioni inverse una 
-dell'altra, dato che la loro composizione dà la funzione identica.
+per definizione,~~ \(e^{\ln x} = x\)~~ e, per le proprietà dei logaritmi,~~ 
+\(\ln e^x = x \ln e = x\)~~ quindi il logaritmo naturale e la funzione 
+esponenziale sono due funzioni inverse una dell'altra, dato che la loro 
+composizione dà la funzione identica.
 
 Possiamo quindi usare il teorema della derivata delle funzioni inverse per 
 dimostrare il seguente
@@ -3759,18 +3771,16 @@ La derivata della funzione logaritmo naturale è:
 \(\Deriv{\ln x} = \dfrac{1}{x}, \stext{con} x>0\).
 \end{teorema}
 
-\noindent\begin{minipage}[]{.43\textwidth}
+\affiancati{.49}{.49}{
 \begin{inaccessibleblock}
 [esponenziale e logaritmo]
 \begin{center} \scalebox{.9}{\esplog} \end{center}
 \end{inaccessibleblock}
-\end{minipage} 
-\hfill
-\begin{minipage}[]{.55\textwidth}
+}{
 % \noindent Ipotesi: \(f(x)=\ln x, \mbox{ con } x>0\) \tab
 % \noindent Tesi: \(f'(x)=\dfrac{1}{x}\)
 \begin{proof}
-Usando la regola della derivazione delle funzioni inverse, \\
+Usando la regola della derivazione delle funzioni inverse, 
 \[\tonda{\Deriv{f^{-1}(x)} = \dfrac{1}{\Deriv{(f^{-1}(x)}}}
 \quad \text{otteniamo:}\]
 \[\Deriv{\ln x}=\dfrac{1}{\Deriv{e^{g(x)}}} = 
@@ -3782,30 +3792,29 @@ definizione.
 % invertibili e derivabili: poiché \(\ln x\) esiste per \(x>0\), 
 % i ragionamenti valgono solo per \(x>0\)
 \end{proof} 
-\end{minipage}
+}
 \label{}
-\\
 
 Vediamo ora il caso generale, quando la base del logaritmo è genericamente 
 \(a>0\).
 \begin{teorema}
-La derivata della funzione logaritmo in base \(a\) è: 
+La derivata della funzione logaritmo in base \(a\) è: \qquad
 \(\Deriv{\log_a x}= \dfrac{1}{x\ln a}\).
 \end{teorema}
 % \noindent Ipotesi: \(f(x)=\log_a x\). \tab \(f'(x)=\dfrac{1}{x\ln a}\)
 \begin{proof}
-Si ottiene direttamente dalla formula del cambiamento di base:\\
-\[\Deriv{\log_a x} = \Deriv{\dfrac{1}{\ln a}\ln x} = 
-  \dfrac{1}{\ln a} \cdot \Deriv{\ln x} = \dfrac{1}{x \ln a}\]
+Si ottiene direttamente dalla formula del cambiamento di base:
+
+\hspace{20mm}
+\(\Deriv{\log_a x} = \Deriv{\dfrac{1}{\ln a}\ln x} = 
+  \dfrac{1}{\ln a} \cdot \Deriv{\ln x} = \dfrac{1}{x \ln a}\)
 \end{proof}
 
 \begin{esempio}
 Derivare la funzione \(f(x)=Log(x^2+1)^2\).\\
 
 Possiamo vedere la funzione come composta da tre funzioni:
-
-\(h(x)=(x^2+1) \srarrow g(x)=(h(x))^2\srarrow f(x)=Log(g(h((x)))\)
-
+\[h(x)=(x^2+1) \srarrow g(x)=(h(x))^2\srarrow f(x)=Log(g(h((x)))\]
 Applichiamo quindi i teoremi precedenti:
 \[f'(x) =
 % f'(g) \cdot g'(h) \cdot h(x) =
@@ -3821,8 +3830,8 @@ Applichiamo quindi i teoremi precedenti:
 % Abbiamo ora tutti gli strumenti per convalidare l'osservazione al teorema 
 % \ref{diff01_teoderpotenza}, a proposito delle funzioni potenza.
 
-Con un procedimento che richiede delle conoscenze che non abbiamo ancora si 
-può dimostrare che la precedente regola vale per esponenti qualunque.
+Possiamo ora generalizzare il teorema della derivata della funzione potenza 
+a qualunque esponente reale.
 
 \begin{teorema}
 \label{teo:diff01_deri_x_alla_r}
@@ -3831,17 +3840,17 @@ reale, è:
 \[\Deriv{x^r}=~rx^{r-1}\]
 \end{teorema}
 
-\begin{teorema}
-\label{teo:funzione_potenza_generica}
-La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
-\(\Deriv{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha \in \R\).
-\end{teorema}
-% \noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
-\(\forall \alpha\).
+% \begin{teorema}
+% \label{teo:funzione_potenza_generica}
+% La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
+% \(\Deriv{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha \in \R\).
+% \end{teorema}
+% % \noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
+% % \(\forall \alpha\).
 \begin{proof}
-Combinando alcune delle regole precedenti, si ha:
-\[f(x) = x^\alpha= e^{\ln x^\alpha}=e^{\alpha\ln x}\]
-\[f'(x)=e^{\alpha\ln x}\alpha\dfrac{1}{x}=x^\alpha\dfrac{\alpha}{x}=
+Utilizzando i teoremi precedenti, si ha:
+\[f(x) = x^\alpha= e^{\ln x^\alpha}=e^{\alpha\ln x} \quad \srarrow \quad 
+f'(x)=e^{\alpha\ln x}\alpha\dfrac{1}{x}=x^\alpha\dfrac{\alpha}{x}=
 \alpha x^{\alpha-1}\]
 Il teorema vale per qualsiasi esponente poiché non è stata fatta nessuna 
 particolare ipotesi sull'esponente 
