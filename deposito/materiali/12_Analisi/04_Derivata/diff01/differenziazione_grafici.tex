@@ -1996,7 +1996,8 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
     \filldraw (20:\ra) [brown!50!black] circle(1.5pt);
     \draw (0, 0) node [below left] {\(O\)} -- 
           (20:\ra) node [right] {\(A \approx B \approx C\)}
-          |- node [below] {\(D\)} (0, 0);
+          |- node [below, xshift=-3pt] {\(D\)} (0, 0)
+          (1, 0) node [below, xshift=3pt] {\(H\)};
     \microscopio{(20:\ra)}{.25}{70}{-110}{.5}{(.8, 1.5)}
                 {\(\times \infty\)}
     \draw [brown!50!black, ultra thick] \pma -- \pmb;
@@ -2282,6 +2283,67 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   }
 }
 
+\newcommand{\dtanbase}{% 
+%   \def \ra{1}
+%   \def \aa{20}
+%   \def \ab{20+90}
+%   \def \pbma{(.9, 0.75)}
+%   \def \pbmb{(1.9, 0.565)}
+%   \def \rma{1.}
+%   \def \dab{.4}
+%   \def \dce{\dab*1.064}
+%   \pgfmathparse{\aa/2.} \let\semia\pgfmathresult
+%   \pgfmathparse{tan(\aa)} \let\tana\pgfmathresult
+%   \disegno[25]{
+    \begin{scope}[font=\fontsize{8}{8}]
+      \rcom{+0.2}{+1}{+0.2}{+1.0}{gray!50, very thin, step=1}
+      \draw [brown!50!black, ultra thick] (\ra, 0) arc(0:90:\ra);
+      \filldraw (\aa:\ra) [brown!50!black] circle(1.5pt);
+      \draw (0, 0) -- (\aa:\ra*1.3)
+            (0, 0) node [below left=-2pt] {\(O\)} 
+            (1, 0) node [below, xshift=3pt] {\(H\)} 
+            (\aa:\ra) coordinate(ab) node [left] {\(A \approx B\)};
+      \draw (ab) |- node [below, xshift=-1pt, black] {\(L\)} (0, 0); 
+%       \draw (\semia:\ra*.6) node [rotate = \semia] {\(x \approx x + dx\)};
+      \draw [green!50!black, ultra thick] 
+            (1, 0) -- (1, \tana) coordinate(c); 
+      \filldraw [green!50!black] (c) circle(1.5pt) 
+        node [right, black] {\(C \approx D \approx E\)};
+      \microscopio{(\aa:\ra)}{.40}{100}{-70}{.5}{(.2, 1.6)}
+                  {\(\times \infty\)}
+      \draw [brown!50!black, ultra thick] \pbma --++ (\ab:\rma);
+      \filldraw [brown!50!black] 
+                \pbma ++ (\ab:\rma/3) coordinate(a)
+                  circle(1.5pt) node [below, xshift=-2pt] {\(A\)}
+                (a) ++ (\ab:\dab/2) coordinate(mab)
+%                   node [right, xshift=-2pt, black, rotate=\aa] {\(dx\)}
+                (a) ++ (\ab:\dab) coordinate(b)
+                  circle(1.5pt) node [below, xshift=-2pt] {\(B\)};
+      \draw (a) --++ (\aa:.438) (a) --++ (\aa:-.509)
+            (b) --++ (\aa:.4) (b) --++ (\aa:-.45);
+      \microscopio{(c)}{.50}{45}{-140}{.5}{(1.5, 1.55)}
+                  {\(\times \infty\)}
+      \path \pbmb ++ (90:\rma/3.) coordinate(c)
+            (c) ++ (\ab:\dce/2) coordinate(mce)
+            (c) ++ (\ab:\dce) coordinate(e)
+            \pbmb ++ (90:\rma/3.+.45) coordinate(d)
+            \pbmb ++ (90:\rma/3.+.22) coordinate(mcd);
+      \draw [gray, ultra thick] (c) -- (e);
+      \draw [brown!50!black, ultra thick] \pbmb -- (d);
+      \filldraw [gray] (e) circle(1.5pt) node [above, black] {\(E\)};
+      \filldraw [brown!50!black] 
+                (c) circle(1.5pt) node [right, black] {\(C\)}
+%                 (mce) node [left, black, rotate=\aa] {\(\frac{dx}{\cos x}\)}
+                (e) circle(1.5pt) node [above, black] {\(E\)}
+                (d) circle(1.5pt) node [right, black] {\(D\)}
+%                 (mcd) node [right, black] {\(d(tg(x))\)}
+                ;
+      \draw (e) --++ (\aa:.150) (e) --++ (\aa:-.56)
+            (c) --++ (\aa:-.57);
+    \end{scope}
+%   }
+}
+
 \newcommand{\dtanb}{% 
   \def \ra{1}
   \def \aa{20}
@@ -2294,50 +2356,36 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   \pgfmathparse{\aa/2.} \let\semia\pgfmathresult
   \pgfmathparse{tan(\aa)} \let\tana\pgfmathresult
   \disegno[25]{
+    \dtanbase
     \begin{scope}[font=\fontsize{8}{8}]
-      \rcom{+0.2}{+1}{+0.2}{+1.0}{gray!50, very thin, step=1}
-      \draw [brown!50!black, ultra thick] (\ra, 0) arc(0:90:\ra);
-      \filldraw (\aa:\ra) [brown!50!black] circle(1.5pt);
-      \draw (0, 0) -- (\aa:\ra*1.3)
-            (0, 0) node [below left=-2pt] {\(O\)} 
-            (1, 0) node [below, xshift=3pt] {\(H\)} 
-            (\aa:\ra) coordinate(ab) node [left] {\(A \approx B\)};
-      \draw (ab) |- node [below, xshift=-1pt, black] {\(L\)} (0, 0); 
       \draw (\semia:\ra*.6) node [rotate = \semia] {\(x \approx x + dx\)};
-      \draw [green!50!black, ultra thick] 
-            (1, 0) -- (1, \tana) coordinate(c); 
-      \filldraw [green!50!black] (c) circle(1.5pt) 
-        node [right, black] {\(C \approx D \approx E\)};
-      \microscopio{(\aa:\ra)}{.40}{100}{-70}{.5}{(.2, 1.6)}
-                  {\(\times \infty\)}
-      \draw [brown!50!black, ultra thick] \pbma --++ (\ab:\rma);
-      \filldraw [brown!50!black] 
-                \pbma ++ (\ab:\rma/3) coordinate(a)
-                  circle(1.5pt) node [below, xshift=-2pt] {\(A\)}
-                (a) ++ (\ab:\dab/2) coordinate(mab)
-                  node [right, xshift=-2pt, black, rotate=\aa] {\(dx\)}
-                (a) ++ (\ab:\dab) coordinate(b)
-                  circle(1.5pt) node [below, xshift=-2pt] {\(B\)};
-      \draw (a) --++ (\aa:.438) (a) --++ (\aa:-.509)
-            (b) --++ (\aa:.4) (b) --++ (\aa:-.45);
-      \microscopio{(c)}{.50}{45}{-140}{.5}{(1.35, 1.5)}
-                  {\(\times \infty\)}
-      \path \pbmb ++ (90:\rma/3.) coordinate(c)
-            (c) ++ (\ab:\dce/2) coordinate(mce)
-            (c) ++ (\ab:\dce) coordinate(e)
-            \pbmb ++ (90:\rma/3.+.45) coordinate(d)
-            \pbmb ++ (90:\rma/3.+.22) coordinate(mcd);
-      \draw [gray, ultra thick] (c) -- (e);
-      \draw [brown!50!black, ultra thick] \pbmb -- (d);
-      \filldraw [gray] (e) circle(1.5pt) node [above, black] {\(E\)};
-      \filldraw [brown!50!black] 
-                (c) circle(1.5pt) node [right, black] {\(C\)}
-                (mce) node [left, black, rotate=\aa] {\(\frac{dx}{\cos x}\)}
-                (e) circle(1.5pt) node [above, black] {\(E\)}
-                (d) circle(1.5pt) node [right, black] {\(D\)}
-                (mcd) node [right, black] {\(d(tg(x))\)};
-      \draw (e) --++ (\aa:.150) (e) --++ (\aa:-.56)
-            (c) --++ (\aa:-.57);
+      \draw (mab) node [right, xshift=-2pt, black, rotate=\aa] {\(dx\)};
+      \draw (mce) node [left, black, rotate=\aa] {\(\frac{dx}{\cos x}\)}
+            (mcd) node [right, black] {\(d(tg(x))\)};
+    \end{scope}
+  }
+}
+
+\newcommand{\darctan}{% 
+  \def \ra{1}
+  \def \aa{20}
+  \def \ab{20+90}
+  \def \pbma{(.9, 0.75)}
+  \def \pbmb{(1.9, 0.565)}
+  \def \rma{1.}
+  \def \dab{.4}
+  \def \dce{\dab*1.064}
+  \pgfmathparse{\aa/2.} \let\semia\pgfmathresult
+  \pgfmathparse{tan(\aa)} \let\tana\pgfmathresult
+  \disegno[25]{
+    \dtanbase
+    \begin{scope}[font=\fontsize{8}{8}]
+      \draw (\semia:\ra*1.1) node {\(x\)};
+      \draw (mab) node [right, xshift=-2pt, black, rotate=\aa] 
+      {\(d(\arctan x)\)};
+      \draw (mce) node [left, black, rotate=\aa] 
+                       {\(\frac{d(\arctan x)}{\sqrt{1-x^2}}\)}
+            (mcd) node [right, black] {\(dx\)};
     \end{scope}
   }
 }
@@ -2514,8 +2562,7 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
     \draw [color=green!50!black, thick] 
       (\xqb, \yqb4) node [right] {\footnotesize \(\Delta f(x)\)};
     \filldraw [brown!50!black] 
-      (\xa, \ya) circle (1.4pt) node[above left=-3pt] {\footnotesize 
-\(A\)} 
+      (\xa, \ya) circle (1.4pt) node[above left=-3pt] {\footnotesize \(A\)} 
       (\xb, \yb) circle (1.4pt) node[below left=-3pt] {\footnotesize \(C\)};
     \filldraw [cyan!50!black] 
     (\xb, \yc) circle (1.4pt) node[above left=-3pt] {\footnotesize \(B\)};

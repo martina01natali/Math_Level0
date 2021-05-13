@@ -3840,13 +3840,6 @@ reale, è:
 \[\Deriv{x^r}=~rx^{r-1}\]
 \end{teorema}
 
-% \begin{teorema}
-% \label{teo:funzione_potenza_generica}
-% La derivata della funzione potenza \(f(x)=x^\alpha\) è: \hspace{5mm}
-% \(\Deriv{x^\alpha}=(\alpha-1)x^\alpha\), \(\forall\alpha \in \R\).
-% \end{teorema}
-% % \noindent Ipotesi: \(f(x)=x^\alpha\). \tab \(f'(x)=(\alpha-1)x^\alpha\), 
-% % \(\forall \alpha\).
 \begin{proof}
 Utilizzando i teoremi precedenti, si ha:
 \[f(x) = x^\alpha= e^{\ln x^\alpha}=e^{\alpha\ln x} \quad \srarrow \quad 
@@ -3862,11 +3855,6 @@ Derivare \(f(x)=x^{\sqrt{2}}\).
 
 \[f'(x)=\sqrt{2}x^{\sqrt{2}-1}\]
 \end{esempio}
-
-
-\begin{comment}
-
-
 
 \subsection{Derivata di funzioni circolari}
 \label{subsec:differenziazione_circolari}
@@ -3899,8 +3887,10 @@ l'angolo \(\widehat{ABC}\) è uguale a \(x\).
 
 \subsubsection{Derivata di \(f(x)=\sen x\)}
 \begin{teorema}
-La derivata della funzione \(f(x)=\sen x\)~~è~~\(f'(x)=\cos x\): \quad 
-\(\Deriv{\sen x} = \cos x\)
+% La derivata della funzione \(f(x)=\sen x\)~~è~~\(f'(x)=\cos x\): \quad 
+% \(\Deriv{\sen x} = \cos x\)
+La derivata del seno di \(x\)~~è~~il coseno di \(x\): \quad 
+\(\Deriv{\sen x} = \cos x\).
 \end{teorema}
 % \noindent Ipotesi: \(f(x)=\sen x\) \tab \(f'(x)=\cos x\)
 \begin{proof}
@@ -3982,7 +3972,9 @@ Si può dimostrare lo stesso teorema anche usando la formula di addizione
 del seno:
 \(\sen(\alpha+\beta) = 
 \sen \alpha \cdot \cos \beta + \sen \beta \cdot \cos \alpha\) e 
-i limiti presentati a pag. \pageref{subsubsec:insnum_fseno}. 
+i limiti notevoli delle funzioni circolari.
+% presentati a pag. \pageref{subsubsec:insnum_fseno}.
+\begin{proof}
 \begin{align*}
 RD &= \dfrac{\sen(x+dx)-\sen x}{dx} =
       \dfrac{\sen x \cdot \cos dx + \sen dx \cdot \cos x - \sen x}{dx} = \\
@@ -3997,6 +3989,7 @@ calcolare la parte standard:
     \pst{\cos x} \cdot \pst{\dfrac{\sen dx}{dx}} = \\
 &=  \sen x\cdot 0 + \cos x\cdot 1 = \cos x
 \end{align*}
+\end{proof}
 \end{osservazione}
 
 \begin{osservazione}
@@ -4012,18 +4005,6 @@ Anche il grafico dell'andamento delle tangenti conferma la tesi\\
 \label{}
 \begin{center} Il grafico di \(y = \sin x\), con alcune sue tangenti, e 
 la sua derivata.\end{center}
-
-% \begin{inaccessibleblock}
-%   [differenziale del seno]
-%   \begin{minipage}[]{.47\textwidth}
-%     \begin{center} \senov \end{center}
-%  \end{minipage} 
-%   \hfill
-%  \begin{minipage}[]{.47\textwidth}
-%  \begin{center} \tangentiseno \end{center}
-%  \end{minipage}
-% \end{inaccessibleblock}
-% \label{}
 \end{osservazione}
 
 \begin{esempio}
@@ -4059,8 +4040,10 @@ e con l'uso delle regole della funzione composta e del prodotto.
 Anche in questo teorema ci riferiamo alla 
 figura di pag.\pageref{fig:differenziazione_dsincos}
 \begin{teorema}
-La derivata della funzione \(f(x)=\cos x\)~~è~~ \(f'(x)=-\sen x\): \quad 
-\(\Deriv{\cos x} = -\sen x\)
+% La derivata della funzione \(f(x)=\cos x\)~~è~~ \(f'(x)=-\sen x\): \quad 
+% \(\Deriv{\cos x} = -\sen x\)
+La derivata del coseno di \(x\)~~è~~l'opposto del seno di \(x\): \quad 
+\(\Deriv{\sen x} = \cos x\).
 \end{teorema}
 % \noindent Ipotesi: \(f(x)=\cos x\) \tab \(f'(x)=-\sen x\)
 \begin{proof}
@@ -4081,7 +4064,9 @@ Si può dimostrare lo stesso teorema anche usando la formula di addizione
 del coseno:
 \(\cos(\alpha+\beta) = 
 \cos \alpha \cdot \cos \beta - \sen \alpha \cdot \sen \beta\) e 
-i limiti presentati a pag. \pageref{subsubsec:insnum_fseno}. 
+i limiti notevoli delle funzioni circolari.
+% presentati a pag. \pageref{subsubsec:insnum_fseno}.
+\begin{proof}
 \begin{align*}
 RD &= \dfrac{\cos(x+dx)-\cos x}{dx} =
       \dfrac{\cos x \cdot \cos dx - \sen x \cdot \sen dx - \cos x}{dx} = \\
@@ -4096,6 +4081,28 @@ calcolare la parte standard:
     \pst{\sen x} \cdot \pst{\dfrac{\sen dx}{dx}} = \\
 &=  \cos x \cdot 0 - \sen x \cdot 1 = -\sen x
 \end{align*}
+\end{proof}
+% 
+% \begin{osservazione}
+% Si può dimostrare lo stesso teorema anche usando la formula di addizione 
+% del coseno:
+% \(\cos(\alpha+\beta) = 
+% \cos \alpha \cdot \cos \beta - \sen \alpha \cdot \sen \beta\) e 
+% i limiti presentati a pag. \pageref{subsubsec:insnum_fseno}. 
+% \begin{align*}
+% RD &= \dfrac{\cos(x+dx)-\cos x}{dx} =
+%       \dfrac{\cos x \cdot \cos dx - \sen x \cdot \sen dx - \cos x}{dx} = \\
+%    &= \cos x \dfrac{\cos dx -1}{dx} - \sen x \dfrac{\sen dx}{dx}
+% \end{align*}
+% Il Rapporto differenziale ottenuto è un numero finito per cui possiamo 
+% calcolare la parte standard:
+% \begin{align*}
+% \Deriv{\cos x} &= \pst{RD} = 
+%     \pst{\cos x \dfrac{\cos dx -1}{dx} - \sen x \dfrac{\sen dx}{dx}} = \\
+% &=  \pst{\cos x} \cdot \pst{\dfrac{\cos dx-1}{dx}} - 
+%     \pst{\sen x} \cdot \pst{\dfrac{\sen dx}{dx}} = \\
+% &=  \cos x \cdot 0 - \sen x \cdot 1 = -\sen x
+% \end{align*}
 \end{osservazione}
 
 \begin{osservazione}
@@ -4168,42 +4175,47 @@ Derivare \(f(x)=\cos^2 x +\sen^2 x\)\\
 
 
 \subsubsection{Derivata di \(f(x)=\tg x\)}
-La funzione \(f(x)=\tg x\) non è definita per \(x = k \frac{\pi}{2}\), 
+La funzione \(f(x)=\tg x\) non è definita per \(x = k \dfrac{\pi}{2}\), 
 quindi anche la derivata non è definita per quei valori di \(x\).
 
 \begin{teorema}
-La derivata della funzione \(f(x)=\tg x\)~~è~~ 
-\(f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x\) % per \(x\ne \pm\frac{\pi}{2}\): 
-\[\Deriv{\tg x} = \dfrac{1}{\cos^2 x}=1+tg^2 x\]
+La derivata di \(\tg x\)~~è~~ 
+\(\dfrac{1}{\cos^2 x} \stext{ o } 1+\tg^2 x\): % per \(x\ne \pm\frac{\pi}{2}\): 
+\qquad \(\Deriv{\tg x} = \dfrac{1}{\cos^2 x} = 1+tg^2 x\)
 \end{teorema}
 % \noindent Ipotesi: \(f(x)=\tg x\) \tab 
-\(f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x\)
+% \(f'(x)=\dfrac{1}{\cos^2 x}=1+tg^2 x\)
 \begin{proof}
 Usiamo la relazione goniometrica che lega la tangente al seno e al coseno:
-\(\tg x=\frac{\sin x}{\cos x}\) e 
+\(\tg x=\dfrac{\sin x}{\cos x}\) e 
 il teorema della derivata di un rapporto:
 \begin{align*}
 \Deriv{\tg x} &= \Deriv{\dfrac{\sin x}{\cos x}} =
 \dfrac{\Deriv{\sen x}\cdot \cos x-\sen x\cdot \Deriv{\cos x}} {\cos^2 x}=
-\dfrac{\sen^2 x +\cos^2 x}{\cos^2 x} = \dfrac{1}{\cos^2 x}
+\dfrac{\cos^2 x +\sen^2 x}{\cos^2 x} = \dfrac{1}{\cos^2 x}
 \end{align*}
 La seconda espressione della derivata della tangente si ottiene così:
-\[\Deriv{\tg x} = 
-\dfrac{\sen^2 x +\cos^2 x}{\cos^2 x} = 
-\dfrac{\sen^2 x}{\cos^2 x} + \dfrac{\cos^2 x}{\cos^2 x} = \tg^2+1\]
+
+\hspace{10mm}
+\(\Deriv{\tg x} = 
+\dfrac{\cos^2 x +\sen^2 x}{\cos^2 x} = 
+\dfrac{\cos^2 x}{\cos^2 x} + \dfrac{\sen^2 x}{\cos^2 x} = 1 +\tg^2 x\)
 \end{proof}
 
 \begin{osservazione}
 Si può dimostrare lo stesso teorema anche usando le proprietà geometriche 
-delle funzioni circolari. Nel disegno è rappresentato un %TODO
-incremento non infinitesimo dell'arco \(x\), osserviamo che:
+delle funzioni circolari. 
+L'incremento \(AB\) dell'arco \(x\) non è infinitesimo.
+% Nel disegno è rappresentato un 
+% incremento non infinitesimo dell'arco \(x\).
+% Osserviamo che:
 
 \affiancati{.29}{.69}{
 \hspace*{-7mm} \scalebox{1}{\dtana}
 }{
 \begin{enumerate}
 \item \(OH\), \(OA\) e \(OB\) sono lunghi \(1\);
-\item nel triangolo rettangolo \(OHC\): l'ipotenusa \(OC\) è lunga 
+\item nel triangolo \(OHC\): l'ipotenusa \(OC\) è lunga 
 \(\dfrac{1}{\cos x}\);
 \item \(OE\) è equivalente a \(OC\); 
 \item i triangoli isosceli \(OAB\) e \(OCE\) sono simili e il rapporto 
@@ -4212,10 +4224,13 @@ di similitudine è \(\dfrac{1}{\cos x}\), ne consegue che:
 \end{enumerate}
 }
 
+\vspace{-.5em}
+\begin{proof}
 Se passiamo ad un incremento infinitesimo \(dx\), i lati \(OC\) e \(OD\) 
 sono indistinguibili nella scala dei reali, per poterli separare dobbiamo 
-usare microscopi non standard. Entrambi i microscopi della figura seguente 
-hanno lo stesso ingrandimento infinito.
+usare microscopi non standard. 
+% Entrambi i microscopi della figura seguente hanno lo stesso ingrandimento 
+% infinito.
 
 \affiancati{.49}{.49}{
 Per il principio di transfer, le proprietà geometriche della figura 
@@ -4233,10 +4248,13 @@ e l'angolo \(ECD\) è \(x\).
 \[d(tg(x)) = CD = CE\dfrac{1}{\cos x} = 
 \dfrac{AB}{\cos x} \cdot \dfrac{1}{\cos x} \sim 
 \dfrac{dx}{\cos^2 x}\]
-Trovato il differenziale, è immediato calcolare il Rapporto Differenziale:
-\[RD = \dfrac{d(tg(x))}{dx} =\dfrac{dx}{dx \cdot \cos^2 x} = 
-       \dfrac{1}{\cos^2 x} \]
-Il Rapporto differenziale ottenuto è la derivata cercata.
+% Trovato il differenziale, è immediato calcolare il Rapporto Differenziale:
+% \[RD = \dfrac{d(tg(x))}{dx} =\dfrac{dx}{dx \cdot \cos^2 x} = 
+%        \dfrac{1}{\cos^2 x} \]
+Il Rapporto differenziale ottenuto è un numero reale e quindi è la derivata 
+cercata.
+\end{proof}
+
 \end{osservazione}
 
 \begin{osservazione}
@@ -4254,35 +4272,150 @@ Anche il grafico dell'andamento delle tangenti conferma la tesi\\
 la sua derivata.\end{center}
 \end{osservazione}
 
-% \begin{inaccessibleblock}
-%   [differenziale della tangente]
-%   \begin{minipage}[]{.49\textwidth}
-%     \begin{center} \tangentev \end{center}
-%  \end{minipage} 
-%   \hfill
-%  \begin{minipage}[]{.49\textwidth}
-%  \begin{center} \tangentitangente \end{center}
-%  \end{minipage}
-% \end{inaccessibleblock}
-% \label{}
-
 \begin {esempio}
 Quale è la pendenza del grafico di \(y=\tg x\), per \(x=\dfrac{\pi}{4}\)? 
 E per \(x=\dfrac{\pi}{2}\)?\\
-\(f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{4})=1+\tg^2\dfrac{\pi}{4}=2\)\\
-\(f'(x)=1+tg^2 x\srarrow f'(\dfrac{\pi}{2})=1+\tg^2\dfrac{\pi}{2}=\) ???\\
-Per \(x\approx\dfrac{\pi}{2}\) il grafico della funzione cresce 
-verticalmente, la sua pendenza è un numero infinito e la parte standard 
-di un infinito non esiste. 
-D'altra parte, se \(x\) è esattamente uguale a \(\dfrac{\pi}{2}\) ,
-la tangente non è definita.
+\(f'(x)=1+tg^2 x\srarrow f'\tonda{\dfrac{\pi}{4}}=1+\tg^2\dfrac{\pi}{4}=2\)\\
+\(f'(x)=1+tg^2 x\srarrow f'\tonda{\dfrac{\pi}{2}}=1+\tg^2\dfrac{\pi}{2}=\)???
 \end {esempio}
+
+
+\subsection{Derivata delle inverse  delle funzioni circolari}
+\label{subsec:differenziazione_circolari_inverse}
+
+% TODO: grafici delle funzioni con tangenti e della derivata.
+
+\subsubsection{Derivata di \(f(x)=\arcsin x\)}
+
+\affiancati{.39}{.59}{
+\hspace{-5mm}\scalebox{1}{\darcsin}
+% \hspace{-5mm}\scalebox{1}{\darccos}
+\label{fig:differenziazione_darcsin}
+}{
+Alla scala naturale, l'incremento del seno, \(dx\), non è visibile.
+Per poterlo vedere dobbiamo operare un ingrandimento infinito nel punto \(A\).
+
+Nel microscopio non standard ora è visibile  il triangolo \(ABC\) che è 
+simile al triangolo \(AOD\). 
+
+\(DA\) è il seno dell'angolo e per il teorema di Pitagora \(OD\) vale:
+\(\sqrt{1-x^2}\)
 % 
-% 
-% 
-% \begin{comment}
-% 
-% 
+% \(AB\) è il differenziale della funzione \(\arcsin x\).
+\begin{itemize} [nosep]
+\item \(AB\) è il differenziale della funzione \(\arcsin x\); 
+\item \(CB\) è il differenziale del seno. 
+\end{itemize}
+}
+
+\begin{teorema}
+% La derivata della funzione \(f(x)=\sen x\)~~è~~\(f'(x)=\cos x\): \quad 
+% \(\Deriv{\sen x} = \cos x\)
+La derivata dell'arcoseno di \(x\)~~è~~\(\dfrac{1}{\sqrt{1-x^2}}\): \quad 
+\(\Deriv{\arcsin x} = \dfrac{1}{\sqrt{1-x^2}}\).
+\end{teorema}
+% \noindent Ipotesi: \(f(x)=\sen x\) \tab \(f'(x)=\cos x\)
+\begin{proof}
+Per la similitudine dei triangoli \(ABC\) e \(AOD\), possiamo 
+calcolare agevolmente il Rapporto Differenziale:
+
+\hspace{30mm}
+\(RD = \dfrac{d (\arcsin x)}{dx} = \dfrac{AB}{BC} = 
+       \dfrac{AO}{OD} = 
+       \dfrac{1}{\sqrt{1-x^2}}\)
+\end{proof}
+
+\subsubsection{Derivata di \(f(x)=\arccos x\)}
+
+\begin{teorema}
+La derivata dell'arcocoseno di \(x\)~~è~~\(-\dfrac{1}{\sqrt{1-x^2}}\): \quad 
+\(\Deriv{\arccos x} = -\dfrac{1}{\sqrt{1-x^2}}\).
+\end{teorema}
+\affiancati{.39}{.59}{
+\hspace{-5mm}\scalebox{1}{\darccos}
+\label{fig:differenziazione_darccos}
+}{
+\begin{proof}
+Questa volta
+\begin{itemize} [nosep]
+\item la variabile indipendente è \(OD\);
+\item la variabile dipendente è l'arco \(HA\);
+\item \(AB\) è il differenziale della funzione \(\arccos x\); 
+\item \(CA\) è il differenziale del coseno. 
+\end{itemize}
+
+Per la similitudine dei triangoli \(ABC\) e \(AOD\), possiamo 
+calcolare agevolmente il Rapporto Differenziale:\\
+
+\hspace{5mm}
+\(RD = \dfrac{d (\arccos x)}{dx} = \dfrac{AB}{AC} = 
+       \dfrac{AO}{-AD} = 
+       -\dfrac{1}{\sqrt{1-x^2}}\)
+\end{proof}
+}
+
+\subsubsection{Derivata di \(f(x)=\arctan x\)}
+
+\begin{teorema}
+La derivata dell'arcocotangente di \(x\)~~è~~\(\dfrac{1}{1+x^2}\): 
+\quad 
+\(\Deriv{\arctan x} = \dfrac{1}{1+x^2}\).
+\end{teorema}
+\affiancati{.49}{.49}{
+\hspace{-9mm}\scalebox{1}{\darctan}
+\label{fig:differenziazione_darccos}
+}{
+Osserviamo che: 
+\begin{itemize} [nosep]
+\item \(OA = OH = 1\);
+\item \(OC = \sqrt{1 +x^2}\);
+\item \(AOB \sim COE\); 
+\item \(CDE \sim OCH\). 
+\end{itemize}
+}
+
+\begin{proof}
+~
+
+Dalla similitudine 
+\(AOB \sim COE\) si ricava che \quad \(\dfrac{AB}{CE} = \dfrac{OA}{OC}\) 
+\quad e poiché 
+
+\(OA = 1; \quad AB = d(\arctan x); \sstext{e} OC = \sqrt{1 +x^2}\) \quad 
+si ottiene:
+\[d(\arctan x) = AB = 
+  \dfrac{CE}{\sqrt{1 +x^2}} = CE \dfrac{1}{\sqrt{1 +x^2}}\] 
+
+Dalla similitudine 
+\(CDE \sim OCH\) si ricava che \quad \(\dfrac{CE}{OH} = \dfrac{CD}{OC}\) 
+\quad e poiché 
+
+\(OH = 1; \quad CD = dx; \sstext{e} OC = \sqrt{1 +x^2}\) \quad 
+si ottiene:
+\[CE = \dfrac{dx}{\sqrt{1 +x^2}}\] 
+
+Sostituendo \(CE\) nell'espressione che fornisce \(AB\) 
+si ottiene:
+\[d(\arctan x) = \dfrac{dx}{\sqrt{1 +x^2}} \cdot \dfrac{1}{\sqrt{1 +x^2}} =
+\dfrac{dx}{1 +x^2}\]
+Il Rapporto Differenziale è:
+\[RD = \dfrac{d(\arctan x)}{dx} = d(\arctan x) \dfrac{1}{dx} = 
+  \dfrac{\cancel{dx}}{1 +x^2} \cdot \dfrac{1}{\cancel{dx}} = 
+  \dfrac{1}{1 +x^2}\]
+Che, essendo un valore reale, è anche la derivata cercata.
+\end{proof}
+
+\begin{osservazione}
+Ovviamente avendo delle funzioni inverse di cui conosciamo la derivata, è 
+possibile calcolare la derivata di queste funzioni applicando il teorema della 
+derivata della funzione inversa 
+(\ref{subsec:differenziazione_derivatainverse}).
+\end{osservazione}
+
+
+\begin{comment}
+
+
 
 \section{Applicazioni}
 \label{sec:diff01_applicazioni}
