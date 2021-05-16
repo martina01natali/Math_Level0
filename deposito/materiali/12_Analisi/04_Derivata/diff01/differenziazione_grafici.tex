@@ -954,50 +954,50 @@
           (4.5, -.95) node [\dcolor] {\(f'\)};
   }
 }
-
-\newcommand{\parabola}{%
-  % Funzione esponenziale con tangenti
-  \def \fa{x**2}
-  \def \fb{(2*\xo)*(x-\xo)+\xo*\xo}
-  \def \mix{-5}
-  \def \max{+5}
-  \def \miy{0}
-  \def \may{+11}
-  \disegnod{6}{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{-5,...,+5}
-    \ordinate{1,...,\may}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
-    \foreach \xo in {-3, ..., +3}{
-      \filldraw [\fcolor] (\xo, \xo*\xo) circle(2pt);
-      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
-             {\fb}}
-    \foreach \xm/\ym/\lm in {-2.7/.5/-6, -4.5/10.5/-4, -4/4.5/-2, 
-                              0/0.7/0,
-                             +2.7/.5/+6, +4.5/10.5/+4, +4/4.5/+2}{
-      \draw (\xm, \ym) node {\footnotesize\(m = \lm\)};
-    }
-  }
-}
-
-\newcommand{\derivataparabola}{% 
-  % Funzione esponenziale con tangenti
-  \def \fa{2*x}
-  \def \mix{-5}
-  \def \max{+5}
-  \def \miy{-5}
-  \def \may{+6}
-  \disegnod{6}{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{-5,...,+5}
-    \ordinate{-5,...,+5}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
-    \foreach \xp in {-2, ..., +3}{
-      \filldraw (\xp, 2*\xp) [\dcolor] circle(2pt);}
-  }
-}
+% 
+% \newcommand{\parabola}{%
+%   % Funzione esponenziale con tangenti
+%   \def \fa{x**2}
+%   \def \fb{(2*\xo)*(x-\xo)+\xo*\xo}
+%   \def \mix{-5}
+%   \def \max{+5}
+%   \def \miy{0}
+%   \def \may{+11}
+%   \disegnod{6}{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{-5,...,+5}
+%     \ordinate{1,...,\may}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+%     \foreach \xo in {-3, ..., +3}{
+%       \filldraw [\fcolor] (\xo, \xo*\xo) circle(2pt);
+%       \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+%              {\fb}}
+%     \foreach \xm/\ym/\lm in {-2.7/.5/-6, -4.5/10.5/-4, -4/4.5/-2, 
+%                               0/0.7/0,
+%                              +2.7/.5/+6, +4.5/10.5/+4, +4/4.5/+2}{
+%       \draw (\xm, \ym) node {\footnotesize\(m = \lm\)};
+%     }
+%   }
+% }
+% 
+% \newcommand{\derivataparabola}{% 
+%   % Funzione esponenziale con tangenti
+%   \def \fa{2*x}
+%   \def \mix{-5}
+%   \def \max{+5}
+%   \def \miy{-5}
+%   \def \may{+6}
+%   \disegnod{6}{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{-5,...,+5}
+%     \ordinate{-5,...,+5}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+%     \foreach \xp in {-2, ..., +3}{
+%       \filldraw (\xp, 2*\xp) [\dcolor] circle(2pt);}
+%   }
+% }
 
 % \newcommand{\parabola}{%  y=x^2 e tangenti
 %     \disegnod{4.5}{
@@ -1026,50 +1026,50 @@
 %      \tkzFct[ultra thick, color=blue!50!black, domain=-4.3:+4.3]{2*x}
 %     }
 % }
-
-\newcommand{\cubica}{%
-  % Funzione cubica con tangenti
-  \def \fa{x*x*x}
-  \def \faa{\xo*\xo*\xo}
-  \def \fb{(3*\xo*\xo)*(x-\xo)+\xo*\xo*\xo}
-  \def \mix{-5}
-  \def \max{+5}
-  \def \miy{-8}
-  \def \may{+8}
-  \disegnod{6}{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{\mix,...,\max}
-    \ordinate{\miy,...,\may}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
-    \foreach \xo in {-2, ..., +2}{
-      \filldraw [\fcolor] (\xo, \faa) circle(2pt);
-      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
-             {\fb}}
-    \foreach \xm/\ym/\lm in {-2/7.5/12, -4/-6.5/3, -3.5/0.5/0, 
-                             +4.5/+6.5/+3, +2.3/-7.5/+12}{
-      \draw (\xm, \ym) node {\footnotesize\(m = \lm\)};
-    }
-  }
-}
-
-\newcommand{\derivatacubica}{% 
-  % Funzione esponenziale con tangenti
-  \def \fa{3*\x*\x}
-  \def \mix{-5}
-  \def \max{+5}
-  \def \miy{0}
-  \def \may{+16}
-  \disegnod{6}{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{\mix,...,\max}
-    \ordinate{\miy,...,\may}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
-    \foreach \x in {-2, ..., +2}{
-      \filldraw (\x, \fa) [\dcolor] circle(2pt);}
-  }
-}
+% 
+% \newcommand{\cubica}{%
+%   % Funzione cubica con tangenti
+%   \def \fa{x*x*x}
+%   \def \faa{\xo*\xo*\xo}
+%   \def \fb{(3*\xo*\xo)*(x-\xo)+\xo*\xo*\xo}
+%   \def \mix{-5}
+%   \def \max{+5}
+%   \def \miy{-8}
+%   \def \may{+8}
+%   \disegnod{6}{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{\mix,...,\max}
+%     \ordinate{\miy,...,\may}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+%     \foreach \xo in {-2, ..., +2}{
+%       \filldraw [\fcolor] (\xo, \faa) circle(2pt);
+%       \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+%              {\fb}}
+%     \foreach \xm/\ym/\lm in {-2/7.5/12, -4/-6.5/3, -3.5/0.5/0, 
+%                              +4.5/+6.5/+3, +2.3/-7.5/+12}{
+%       \draw (\xm, \ym) node {\footnotesize\(m = \lm\)};
+%     }
+%   }
+% }
+% 
+% \newcommand{\derivatacubica}{% 
+%   % Funzione esponenziale con tangenti
+%   \def \fa{3*\x*\x}
+%   \def \mix{-5}
+%   \def \max{+5}
+%   \def \miy{0}
+%   \def \may{+16}
+%   \disegnod{6}{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{\mix,...,\max}
+%     \ordinate{\miy,...,\may}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+%     \foreach \x in {-2, ..., +2}{
+%       \filldraw (\x, \fa) [\dcolor] circle(2pt);}
+%   }
+% }
 
 % \newcommand{\cubica}{%  y=x^3 e tangenti
 %     \disegnod{4.5}{
@@ -1149,129 +1149,129 @@
 %       \filldraw (\x, \fa) [\dcolor] circle(2pt);}
 %   }
 % }
-
-\newcommand{\recipr}{% Funzione 1/n e alcune tangenti
-  \def \fa{1./x}
-  \def \faa{1./\xo}
-  \def \fb{-1/\xo/\xo*(x-\xo)+1/\xo}
-  \def \mix{-6}
-  \def \max{+6}
-  \def \miy{-6}
-  \def \may{+6}
-  \def \intervallo{-2., -1, -0.5, +0.5, +1, +2.}
-  \disegno{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{\mix,...,\max}
-    \ordinate{\miy,...,\may}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:-0.1, ultra thick, \fcolor] {\fa}
-    \tkzFct[domain=+0.1:\max+0.3, ultra thick, \fcolor] {\fa}
-    \foreach \xo in \intervallo{
-      \filldraw [\fcolor] (\xo, \faa) circle(2pt);
-      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
-             {\fb}}
-    \foreach \xm/\ym/\lm in {-6/1/-0.25, -6/4.5/-1, -2/6.5/4, 
-                             +6/-1/-0.25, +6/-4.5/-1, +2/-6.5/4}{
-      \draw (\xm, \ym) node {\footnotesize\(m = \lm\)};
-    }
-  }
-}
-
-\newcommand{\derivatarecipr}{% Derivata della funzione 1/x con punti
-  % Funzione esponenziale con tangenti
-  \def \fa{-1./\x/\x}
-%   \def \faa{-1./\xo/\xo}
-  \def \mix{-6}
-  \def \max{+6}
-  \def \miy{-10}
-  \def \may{+2}
-  \def \intervallo{+0.5, +1., +2.}
-  \disegno{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{\mix,...,\max}
-    \ordinate{\miy,...,\may}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
-    \foreach \x in \intervallo{
-      \filldraw (\x, \fa) [\dcolor] circle(2pt);
-      \filldraw (-\x, \fa) [\dcolor] circle(2pt);}
-  }
-}
-
-\newcommand{\radquadn}{% Funzione sqrt(x) e alcune tangenti
-  \def \fa{sqrt(x)}
-  \def \faa{sqrt(\xo)}
-  \def \Df{1./2/sqrt(\xo)}
-  \def \mix{0}
-  \def \max{+10}
-  \def \miy{0}
-  \def \may{+5}
-  \def \intervallo{.25, .5, +2, 4}
-%   \def \fb{\pendenza*(x-\xo)+\yo}
-  \disegno{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{\mix,...,\max}
-    \ordinate{\miy,...,\may}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=+0:\max+0.3, ultra thick, \fcolor] {\fa}
-    \foreach \xo in \intervallo{
-      \pgfmathparse{\faa} \let\yo\pgfmathresult
-      \pgfmathparse{\Df} \let\pendenza\pgfmathresult
-      \filldraw [\fcolor] (\xo, \yo) circle(2pt);% node [below] {\pendenza};
-      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
-             {\pendenza*(x-\xo)+\yo}
-    }
-    \foreach \xm/\ym/\lm in {3.5/4.5/1, 7/4.5/.71, 11.3/4.5/.35, 
-                             11.3/3.5/.25}{
-      \draw (\xm, \ym) node {\footnotesize\(m \simeq \lm\)};}
-  }
-}
-
-\newcommand{\derivataradquad}{% Derivata della funzione sqrt(x) con punti
-  % Funzione esponenziale con tangenti
-  \def \fa{1./2/sqrt(\x)}
+% 
+% \newcommand{\recipr}{% Funzione 1/n e alcune tangenti
+%   \def \fa{1./x}
+%   \def \faa{1./\xo}
+%   \def \fb{-1/\xo/\xo*(x-\xo)+1/\xo}
+%   \def \mix{-6}
+%   \def \max{+6}
+%   \def \miy{-6}
+%   \def \may{+6}
+%   \def \intervallo{-2., -1, -0.5, +0.5, +1, +2.}
+%   \disegno{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{\mix,...,\max}
+%     \ordinate{\miy,...,\may}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:-0.1, ultra thick, \fcolor] {\fa}
+%     \tkzFct[domain=+0.1:\max+0.3, ultra thick, \fcolor] {\fa}
+%     \foreach \xo in \intervallo{
+%       \filldraw [\fcolor] (\xo, \faa) circle(2pt);
+%       \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+%              {\fb}}
+%     \foreach \xm/\ym/\lm in {-6/1/-0.25, -6/4.5/-1, -2/6.5/4, 
+%                              +6/-1/-0.25, +6/-4.5/-1, +2/-6.5/4}{
+%       \draw (\xm, \ym) node {\footnotesize\(m = \lm\)};
+%     }
+%   }
+% }
+% 
+% \newcommand{\derivatarecipr}{% Derivata della funzione 1/x con punti
+%   % Funzione esponenziale con tangenti
+%   \def \fa{-1./\x/\x}
+% %   \def \faa{-1./\xo/\xo}
+%   \def \mix{-6}
+%   \def \max{+6}
+%   \def \miy{-10}
+%   \def \may{+2}
+%   \def \intervallo{+0.5, +1., +2.}
+%   \disegno{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{\mix,...,\max}
+%     \ordinate{\miy,...,\may}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+%     \foreach \x in \intervallo{
+%       \filldraw (\x, \fa) [\dcolor] circle(2pt);
+%       \filldraw (-\x, \fa) [\dcolor] circle(2pt);}
+%   }
+% }
+% 
+% \newcommand{\radquad}{% Funzione sqrt(x) e alcune tangenti
+%   \def \fa{sqrt(x)}
 %   \def \faa{sqrt(\xo)}
-  \def \mix{0}
-  \def \max{+10}
-  \def \miy{0}
-  \def \may{+5}
-  \def \intervallo{.25, .5, +2, 4}
-  \disegno{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{\mix,...,\max}
-    \ordinate{\miy,...,\may}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=0.01:\max+0.3, ultra thick, \dcolor] {\fa}
-    \foreach \x in \intervallo{
-      \pgfmathparse{\fa} \let\yo\pgfmathresult
-      \filldraw (\x, \yo) [\dcolor] circle(2pt);}
-  }
-}
+%   \def \Df{1./2/sqrt(\xo)}
+%   \def \mix{0}
+%   \def \max{+10}
+%   \def \miy{0}
+%   \def \may{+5}
+%   \def \intervallo{.25, .5, +2, 4}
+% %   \def \fb{\pendenza*(x-\xo)+\yo}
+%   \disegno{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{\mix,...,\max}
+%     \ordinate{\miy,...,\may}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=+0:\max+0.3, ultra thick, \fcolor] {\fa}
+%     \foreach \xo in \intervallo{
+%       \pgfmathparse{\faa} \let\yo\pgfmathresult
+%       \pgfmathparse{\Df} \let\pendenza\pgfmathresult
+%       \filldraw [\fcolor] (\xo, \yo) circle(2pt);% node [below] {\pendenza};
+%       \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+%              {\pendenza*(x-\xo)+\yo}
+%     }
+%     \foreach \xm/\ym/\lm in {3.5/4.5/1, 7/4.5/.71, 11.3/4.5/.35, 
+%                              11.3/3.5/.25}{
+%       \draw (\xm, \ym) node {\footnotesize\(m \simeq \lm\)};}
+%   }
+% }
+% 
+% \newcommand{\derivataradquad}{% Derivata della funzione sqrt(x) con punti
+%   % Funzione esponenziale con tangenti
+%   \def \fa{1./2/sqrt(\x)}
+% %   \def \faa{sqrt(\xo)}
+%   \def \mix{0}
+%   \def \max{+10}
+%   \def \miy{0}
+%   \def \may{+5}
+%   \def \intervallo{.25, .5, +2, 4}
+%   \disegno{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{\mix,...,\max}
+%     \ordinate{\miy,...,\may}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=0.01:\max+0.3, ultra thick, \dcolor] {\fa}
+%     \foreach \x in \intervallo{
+%       \pgfmathparse{\fa} \let\yo\pgfmathresult
+%       \filldraw (\x, \yo) [\dcolor] circle(2pt);}
+%   }
+% }
 
-\newcommand{\radquad}{%  y=sqrt{x} e tangenti
-    \disegnod{4.5}{
-    \rcom{-1}{+12}{-1}{+4}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-1.3, xmax=+12.3, ymin=-1.3, ymax=+7.3]
-    \tkzFct[ultra thick, color=Green!60!black, domain=0:+12.3]{sqrt(x)}
-    \begin{scope}[thick, dotted, color=blue!40!black]
-     \tkzInit[xmin=-1., xmax=+12.3, xstep=1., ymin=-1,ymax=4.3]
-     \tkzFct[domain=-1:+6]{x-.25+.5}    
-     \tkzFct[domain=-1:+6]{.5*(x-1)+1}
-     \tkzFct[domain=-0:+9]{.29*(x-3)+1.73}
-     \tkzFct[domain=1:+12.3]{.19*(x-7)+2.65} 
-    \end{scope}
-   }
-}
-   
-\newcommand{\tangentiradquad}{% 
-    % definita in intervallo 0-inf.
-     \disegnod{4.5}{
-     \rcom{-1}{+12}{-1}{+8}{gray!50, very thin, step=1}
-     \tkzInit[xmin=0, xmax=+12.3, ymin=-1.3, ymax=+8.3]
-     \tkzFct[ultra thick, color=blue!50!black, 
-domain=-.3:+12.3]{1/(2*sqrt(x))}
-    }
-}
+% \newcommand{\radquad}{%  y=sqrt{x} e tangenti
+%     \disegnod{4.5}{
+%     \rcom{-1}{+12}{-1}{+4}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-1.3, xmax=+12.3, ymin=-1.3, ymax=+7.3]
+%     \tkzFct[ultra thick, color=Green!60!black, domain=0:+12.3]{sqrt(x)}
+%     \begin{scope}[thick, dotted, color=blue!40!black]
+%      \tkzInit[xmin=-1., xmax=+12.3, xstep=1., ymin=-1,ymax=4.3]
+%      \tkzFct[domain=-1:+6]{x-.25+.5}    
+%      \tkzFct[domain=-1:+6]{.5*(x-1)+1}
+%      \tkzFct[domain=-0:+9]{.29*(x-3)+1.73}
+%      \tkzFct[domain=1:+12.3]{.19*(x-7)+2.65} 
+%     \end{scope}
+%    }
+% }
+%    
+% \newcommand{\tangentiradquad}{% 
+%     % definita in intervallo 0-inf.
+%      \disegnod{4.5}{
+%      \rcom{-1}{+12}{-1}{+8}{gray!50, very thin, step=1}
+%      \tkzInit[xmin=0, xmax=+12.3, ymin=-1.3, ymax=+8.3]
+%      \tkzFct[ultra thick, color=blue!50!black, 
+% domain=-.3:+12.3]{1/(2*sqrt(x))}
+%     }
+% }
 
 % \newcommand{\recip}{%  y=sqrt{x} e tangenti
 %     \disegnod{4.5}{
@@ -1906,56 +1906,56 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   \foreach \yp in \valori {
     \draw (0, \yp) node [left, black] {\footnotesize\(\yp\)};}
 }
-
-\newcommand{\esp}{%
-  % Funzione esponenziale con tangenti
-  \def \base{1.5}
-  \def \fa{\base**x}
-  \def \fb{(\base**\xo)*(log(\base)*(x-\xo)+1)}
-  \def \mix{-4}
-  \def \max{+6}
-  \def \miy{0}
-  \def \may{+11}
-  \disegnod{6}{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{-4,...,+5}
-    \ordinate{1,...,\may}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
-    \foreach \xo/\yo in {-4/0.1975309, -3/0.2962963, -2/0.4444444, 
-                         -1/0.6666667, 0/1, +1/1.5, 
-                         +2/2.25, +3/3.375, +4/5.0625, +5/7.59375}{
-      \filldraw [\fcolor] (\xo, \yo) circle(2pt);
-      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
-             {\fb}}
-    \foreach \ym/\lm in {1/0.08, 1.5/0.12, 2.0/0.18, 
-                         2.7/0.27, 3.6/0.41, 4.8/0.61, 
-                         6.2/0.91, 7.9/1.37, 9.8/2.05, 
-                         11.3/3.08}{
-      \draw (6.2, \ym) node [right, black] {\footnotesize\(m \simeq \lm\)};
-    }
-  }
-}
-
-\newcommand{\derivataesp}{% 
-  % Funzione esponenziale con tangenti
-  \def \base{1.5}
-  \def \fa{0.4054651081081644*\base**x}
-  \def \mix{-4}
-  \def \max{+6}
-  \def \miy{0}
-  \def \may{+11}
-  \disegnod{6}{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \ascisse{-4,...,+5}
-    \ordinate{1,...,+11}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
-    \foreach \xp/\yp in {-4/0.08, -3/0.12, -2/0.18, -1/0.27, 0/0.41, 
-                         +1/0.61, +2/0.91, +3/1.37, +4/2.05, +5/3.08}{
-      \filldraw (\xp, \yp) [\dcolor] circle(2pt);}
-  }
-}
+% 
+% \newcommand{\esp}{%
+%   % Funzione esponenziale con tangenti
+%   \def \base{1.5}
+%   \def \fa{\base**x}
+%   \def \fb{(\base**\xo)*(log(\base)*(x-\xo)+1)}
+%   \def \mix{-4}
+%   \def \max{+6}
+%   \def \miy{0}
+%   \def \may{+11}
+%   \disegnod{6}{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{-4,...,+5}
+%     \ordinate{1,...,\may}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+%     \foreach \xo/\yo in {-4/0.1975309, -3/0.2962963, -2/0.4444444, 
+%                          -1/0.6666667, 0/1, +1/1.5, 
+%                          +2/2.25, +3/3.375, +4/5.0625, +5/7.59375}{
+%       \filldraw [\fcolor] (\xo, \yo) circle(2pt);
+%       \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+%              {\fb}}
+%     \foreach \ym/\lm in {1/0.08, 1.5/0.12, 2.0/0.18, 
+%                          2.7/0.27, 3.6/0.41, 4.8/0.61, 
+%                          6.2/0.91, 7.9/1.37, 9.8/2.05, 
+%                          11.3/3.08}{
+%       \draw (6.2, \ym) node [right, black] {\footnotesize\(m \simeq \lm\)};
+%     }
+%   }
+% }
+% 
+% \newcommand{\derivataesp}{% 
+%   % Funzione esponenziale con tangenti
+%   \def \base{1.5}
+%   \def \fa{0.4054651081081644*\base**x}
+%   \def \mix{-4}
+%   \def \max{+6}
+%   \def \miy{0}
+%   \def \may{+11}
+%   \disegnod{6}{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \ascisse{-4,...,+5}
+%     \ordinate{1,...,+11}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+%     \foreach \xp/\yp in {-4/0.08, -3/0.12, -2/0.18, -1/0.27, 0/0.41, 
+%                          +1/0.61, +2/0.91, +3/1.37, +4/2.05, +5/3.08}{
+%       \filldraw (\xp, \yp) [\dcolor] circle(2pt);}
+%   }
+% }
 
 \newcommand{\esplog}{%  y=e^x e ln x
   \disegnod{5}{
@@ -2061,32 +2061,6 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   }
 }
 
-% \newcommand{\dseno}{%  y=a^x e tangenti
-%     \disegnod{4.5}{
-%     \draw [fill=white] (0,0) --+(6: 0)   
-%       arc [start angle=0, delta angle=90, radius=6];
-%      \draw (-6,0) -- (.5, 0)     (-6,0) -- (-6, 6.5)
-%            (-6,0) -- (-.5, 2);
-%      \begin{scope} [font=\fontsize{7}{7}]
-%       \filldraw (-.35, 2) circle (1.2pt) node [right] {\(A\approx B\approx C\)};
-%       \draw (-.35, 2) -- (-.35, 0) node [below] {\(A'\approx B'\)}
-%             (-4, .3) node [right, rotate = 13] {\(x\approx x+dx\)}
-%             (0, 1) node [right] {\(\sen x\approx\sen(x+dx)\)}
-%             (-6, 0) node [left] {\(O\)};
-%       \microscopio{(-.35, 2)}{1}{90}{-90}{3}{(-3.4, 8)}{\(\times \infty\)}
-%       \draw (2, 4.1) -- (.3, 9) (1.5, 5.5) -- (-2.8, 4.2)
-%             (.8, 7.5) -- (-3.3, 6.4) 
-%             (.8, 7.5) -- (.8, 3.2) (1.5, 5.5) -- (.75, 5.5)
-%             (.75, 6.4) node [left]  {\(d\sen x\)}
-%             (1, 6.3) node [right]  {\(dx\)}
-%             (1, 6.5) node {\(x\)};
-%       \filldraw (1.5, 5.5) circle (1.2pt) node [right] {\(A\)}
-%                  (.8, 7.5) circle (1.2pt) node [right] {\(B\)}
-%                  (.75, 5.5) circle (1.2pt) node [left] {\(C\)};
-%      \end{scope}
-%      }
-% }
-
 % --------------------------
 % 4 funzioni 
 % - 2 per tracciare una funzione e alcune tangenti
@@ -2154,7 +2128,7 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
 %   \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
   \foreach \xo in \intervallo{
     \pgfmathparse{\faa} \let\yo\pgfmathresult
-    \filldraw (\xo, \yo) [\dcolor] circle(2pt);} %node [right] {\(\yo\)};}
+    \filldraw (\xo, \yo) [\dcolor] circle(2pt);}% node [below] {\(\yo\)};}
 }
 
 \newcommand{\funzioneetangenti}{
@@ -2193,6 +2167,201 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   \pianoepunti
   \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
 }
+
+\newcommand{\parabola}{% Funzione x^2 e alcune tangenti
+  \def \fa{x*x}
+  \def \faa{\xo*\xo}
+  \def \Df{2*\xo}
+  \def \mix{-5}
+  \def \max{+5}
+  \def \miy{0}
+  \def \may{+11}
+  \def \intervallo{-3, ..., +3}
+  \def \pendenze{-2.7/.5/-6, -4.5/10.5/-4, -4/4.5/-2, 0/0.7/0,
+                 +2.7/.5/+6, +4.5/10.5/+4, +4/4.5/+2}
+  \disegno[6]{\funzioneetangenti}
+}
+
+\newcommand{\derivataparabola}{% Derivata della funzione x^2 con punti
+  \def \fa{2*x}
+  \def \faa{2*\xo}
+  \def \mix{-5}
+  \def \max{+5}
+  \def \miy{-5}
+  \def \may{+6}
+  \def \intervallo{-2, ..., +3}
+  \disegno[6]{\derivataepunti}
+}
+
+\newcommand{\recipr}{% Funzione 1/n e alcune tangenti
+  \def \fa{1./x}
+  \def \faa{1./\xo}
+  \def \Df{-1./(\xo*\xo)}
+  \def \mix{-6}
+  \def \max{+6}
+  \def \miy{-6}
+  \def \may{+6}
+  \def \intervallo{-2., -1, -0.5, +0.5, +1, +2.}
+  \def \pendenze{-6/1/-0.25, -6/4.5/-1, -2/6.5/4, 
+                             +6/-1/-0.25, +6/-4.5/-1, +2/-6.5/4}
+  \disegno[6]{\pianoetangenti
+    \tkzFct[domain=\mix-0.3:-0.1, ultra thick, \fcolor] {\fa}
+    \tkzFct[domain=+0.1:\max+0.3, ultra thick, \fcolor] {\fa}
+  }
+}
+
+\newcommand{\derivatarecipr}{% Derivata della funzione 1/x con punti
+  \def \fa{-1./(x*x)}
+  \def \faa{-1./(\xo*\xo)}
+  \def \mix{-6}
+  \def \max{+6}
+  \def \miy{-10}
+  \def \may{+2}
+  \def \intervallo{-2., -1., -0.5, +0.5, +1., +2.}
+  \disegno[6]{\pianoepunti
+    \tkzFct[domain=\mix-0.3:-0.1, ultra thick, \dcolor] {\fa}
+    \tkzFct[domain=+0.1:\max+0.3, ultra thick, \dcolor] {\fa}
+  }
+}
+
+\newcommand{\radquad}{% Funzione sqrt(x) e alcune tangenti
+  \def \fa{sqrt(x)}
+  \def \faa{sqrt(\xo)}
+  \def \Df{1./2/sqrt(\xo)}
+  \def \mix{0}
+  \def \max{+10}
+  \def \miy{0}
+  \def \may{+5}
+  \def \intervallo{.25, .5, +2, 4}
+  \def \pendenze{3.5/4.5/1, 7/4.5/.71, 11.3/4.5/.35, 11.3/3.5/.25}
+  \disegno{\funzioneetangenti}
+}
+
+\newcommand{\derivataradquad}{% Derivata della funzione sqrt(x) con punti
+  \def \fa{1./2/sqrt(x)}
+  \def \faa{1./2/sqrt(\xo)}
+  \def \mix{0}
+  \def \max{+10}
+  \def \miy{0}
+  \def \may{+5}
+  \def \intervallo{.25, .5, +2, 4}
+  \disegno{\pianoepunti
+    \tkzFct[domain=+0.01:\max+0.3, ultra thick, \dcolor] {\fa}
+  }
+}
+
+\newcommand{\cubica}{% Funzione cubica con tangenti
+  \def \fa{x*x*x}
+  \def \faa{\xo*\xo*\xo}
+  \def \Df{3*\xo*\xo}
+  \def \mix{-5}
+  \def \max{+5}
+  \def \miy{-8}
+  \def \may{+8}
+  \def \intervallo{-2, ..., +2}
+  \def \pendenze{-2/7.5/12, -4/-6.5/3, -3.5/0.5/0, 
+                 +4.5/+6.5/+3, +2.3/-7.5/+12}
+  \disegno[6]{\funzioneetangenti}
+}
+
+\newcommand{\derivatacubica}{% Derivata della funzione cubica con punti
+  \def \fa{3*x*x}
+  \def \faa{3*\xo*\xo}
+  \def \mix{-5}
+  \def \max{+5}
+  \def \miy{0}
+  \def \may{+16}
+  \def \intervallo{-2, ..., +2}
+  \disegno[6]{\derivataepunti}
+}
+
+\newcommand{\esp}{%
+  % Funzione esponenziale con tangenti
+  \def \base{1.5}
+  \def \fa{\base**x}
+  \def \fb{(\base**\xo)*(log(\base)*(x-\xo)+1)}
+  \def \mix{-4}
+  \def \max{+6}
+  \def \miy{0}
+  \def \may{+11}
+  \disegnod{6}{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{-4,...,+5}
+    \ordinate{1,...,\may}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+    \foreach \xo/\yo in {-4/0.1975309, -3/0.2962963, -2/0.4444444, 
+                         -1/0.6666667, 0/1, +1/1.5, 
+                         +2/2.25, +3/3.375, +4/5.0625, +5/7.59375}{
+      \filldraw [\fcolor] (\xo, \yo) circle(2pt);
+      \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.3, \dcolor] 
+             {\fb}}
+    \foreach \ym/\lm in {1/0.08, 1.5/0.12, 2.0/0.18, 
+                         2.7/0.27, 3.6/0.41, 4.8/0.61, 
+                         6.2/0.91, 7.9/1.37, 9.8/2.05, 
+                         11.3/3.08}{
+      \draw (6.2, \ym) node [right, black] {\footnotesize\(m \simeq \lm\)};
+    }
+  }
+}
+
+\newcommand{\derivataesp}{% 
+  % Funzione esponenziale con tangenti
+  \def \base{1.5}
+  \def \fa{0.4054651081081644*\base**x}
+  \def \mix{-4}
+  \def \max{+6}
+  \def \miy{0}
+  \def \may{+11}
+  \disegnod{6}{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \ascisse{-4,...,+5}
+    \ordinate{1,...,+11}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \dcolor] {\fa}
+    \foreach \xp/\yp in {-4/0.08, -3/0.12, -2/0.18, -1/0.27, 0/0.41, 
+                         +1/0.61, +2/0.91, +3/1.37, +4/2.05, +5/3.08}{
+      \filldraw (\xp, \yp) [\dcolor] circle(2pt);}
+  }
+}
+
+% %--------------------------------------------------???????
+% % Non cè verso di riuscire a far funzionare le due procedure seguenti
+% \newcommand{\esp}{% Funzione esponenziale con tangenti
+%   \def \base{1.5}
+%   \def \fa{\base**x}
+%   \def \faa{exp(\xo*log(\base))}
+%   \def \Df{log(\base)*exp(\xo)}
+% %   \def \faa{\base**(\xo)}
+% %   \def \Df{log(\base)*\base**(\xo)}
+% %   \def \Df{0.4054651081081644*\base**\xo}
+%   \def \mix{-4}
+%   \def \max{+6}
+%   \def \miy{0}
+%   \def \may{+11}
+% %   \def \intervallo{}            % va
+%   \def \intervallo{-4, ..., +2} % non va 
+% %   \def \pendenze{}              % va
+%   \def \pendenze{6.2/1/0.08, 6.2/1.5/0.12, 6.2/2.0/0.18, 6.2/2.7/0.27, 
+%                  6.2/3.6/0.41, 6.2/4.8/0.61, 6.2/6.2/0.91, 6.2/7.9/1.37, 
+%                  6.2/9.8/2.05, 6.2/11.3/3.08}
+%   \disegno[6]{\funzioneetangenti}
+% }
+% 
+% \newcommand{\derivataesp}{% Derivata della funzione cubica con punti
+%   \def \base{1.5}
+%   \def \fa{log(\base)*\base**x}
+%   \def \faa{log(\base)*\base**\xo}
+% %   \def \fa{0.4054651081081644*\base**x}
+% %   \def \faa{0.4054651081081644*\base**\xo}
+%   \def \mix{-4}
+%   \def \max{+6}
+%   \def \miy{0}
+%   \def \may{+11}
+%   \def \intervallo{-4, ..., +5}
+%   \disegno[6]{\derivataepunti}
+% }
+
 
 \newcommand{\seno}{% Funzione sin(x) e alcune tangenti
   \def \fa{sin(x)}
@@ -2245,8 +2414,129 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
   \disegno[6]{\derivataepunti}
 }
 
+\newcommand{\tangente}{% Funzione tan(x) e alcune tangenti
+  \def \fa{tan(x)}
+  \def \faa{tan(\xo*180/pi)}
+  \def \Df{1./cos(\xo*180/pi)/cos(\xo*180/pi)}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-6}
+  \def \may{+6}
+  \def \intervallo{-1.2, -1, 0, 1, 1.2} % TODO cambiare nome variabile
+  \def \pendenze{-1.5/+5.5/7.62, -3.5/-5.5/3.43, -3.5/-3.5/+1, 
+                 3/5.5/3.43, 1.5/-5.5/7.62}
+  \disegno{\pianoetangenti
+    \tkzFct[domain=\mix-0.3:-1.745, ultra thick, \fcolor] {\fa}
+    \tkzFct[domain=-1.5:+1.5, ultra thick, \fcolor] {\fa}
+    \tkzFct[domain=+1.745:\max+0.3, ultra thick, \fcolor] {\fa}
+  }
+}
 
-\newcommand{\dtana}{% 
+\newcommand{\parabolaapplicazioni}{% Parabola esempio con alcune tangenti
+  \def \fa{-.25*x*x-2*x +3}
+  \def \faa{-.25*\xo*\xo-2*\xo +3}
+  \def \Df{-.5*\xo-2}
+  \def \mix{-7}
+  \def \max{+3}
+  \def \miy{-3}
+  \def \may{+8}
+  \def \intervallo{-4, -2, 0, +2}
+  \def \pendenze{}
+  \disegno[6]{\funzioneetangenti}
+}
+
+\newcommand{\derivatatangente}{% Derivata della funzione tan(x) con punti
+  \def \fa{1./(cos(x))**2}
+  \def \faa{1./cos(\xo*180/pi)/cos(\xo*180/pi)}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-3}
+  \def \may{+9}
+  \def \intervallo{-1.2, -1, 0, 1, 1.2}
+  \disegno{\pianoepunti
+    \tkzFct[domain=\mix-0.3:-1.75, ultra thick, \dcolor] {\fa}
+    \tkzFct[domain=-1.5:+1.5, ultra thick, \dcolor] {\fa}
+    \tkzFct[domain=+1.75:\max+0.3, ultra thick, \dcolor] {\fa}
+  }
+}
+
+\newcommand{\arcoseno}{% Funzione arcsin(x) e alcune tangenti
+  \def \fa{asin(x)}
+  \def \faa{asin(\xo)/180*pi}
+  \def \Df{1./(sqrt(1-\xo*\xo))}
+  \def \mix{-1}
+  \def \max{+1}
+  \def \miy{-2}
+  \def \may{+2}
+  \def \intervallo{-.95, -.9, -.5, 0}
+  \def \pendenze{-.8/1.4/+3.20, 1/2.4/+2.29, 1.9/1.7/+1.15, 1.8/1.3/+1}
+  \disegno[12]{\funzioneetangenti}
+}
+
+\newcommand{\derivataarcoseno}{% Derivata della funzione arcsin(x) con punti
+  % Funzione esponenziale con tangenti
+  \def \fa{1./(sqrt(1-x*x))}
+  \def \faa{1./(sqrt(1-\xo*\xo))}
+  \def \mix{-1}
+  \def \max{+1}
+  \def \miy{0}
+  \def \may{+4}
+  \def \intervallo{-.95, -.9, -.5, 0, +.5, +.9, +.95}
+  \disegno[12]{\derivataepunti}
+}
+
+\newcommand{\arcocoseno}{% Funzione arccos(x) e alcune tangenti
+  \def \fa{acos(x)}
+  \def \faa{acos(\xo)/180*pi}
+  \def \Df{-1./(sqrt(1-\xo*\xo))}
+  \def \mix{-1}
+  \def \max{+1}
+  \def \miy{0}
+  \def \may{+4}
+  \def \intervallo{-.95, -.9, -.5, 0}
+  \def \pendenze{-1/0.4/-3.20, +.5/-.5/-2.29, 1.9/.1/-1.15, 1.8/.5/-1}
+  \disegno[12]{\funzioneetangenti}
+}
+
+\newcommand{\derivataarcocoseno}{% Derivata della f. arccos(x) con punti
+  % Funzione esponenziale con tangenti
+  \def \fa{-1./(sqrt(1-x*x))}
+  \def \faa{-1./(sqrt(1-\xo*\xo))}
+  \def \mix{-1}
+  \def \max{+1}
+  \def \miy{-4}
+  \def \may{0}
+  \def \intervallo{-.95, -.9, -.5, 0, +.5, +.9, +.95}
+  \disegno[12]{\derivataepunti}
+}
+
+\newcommand{\arcotangente}{% Funzione arctan(x) e alcune tangenti
+  \def \fa{atan(x)}
+  \def \faa{atan(\xo)/180*pi}
+  \def \Df{1./(1+\xo*\xo)}
+  \def \mix{-10}
+  \def \max{+10}
+  \def \miy{-2}
+  \def \may{+1.5}
+  \def \intervallo{-4, -2, -1, 0}
+  \def \pendenze{8/-.9/0.06, 8/.5/0.2, 2.5/.5/0.5, 1.5/1.5/+1}
+  \disegno[6]{\funzioneetangenti}
+}
+
+\newcommand{\derivataarcotangente}{% Derivata della f. arctan(x) con punti
+  % Funzione esponenziale con tangenti
+  \def \fa{1./(1+x*x)}
+  \def \faa{1./(1+\xo*\xo)}
+  \def \mix{-10}
+  \def \max{+10}
+  \def \miy{0}
+  \def \may{+1.5}
+  \def \intervallo{-4, -2, -1, 0, 1, 2, 4}
+  \disegno[6]{\derivataepunti}
+}
+
+\newcommand{\dtana}{
+% Disegno per la derivata della tangente con \Delta NON infinitesimo
   \def \ra{1}
   \def \aa{20}
   \def \ab{30}
@@ -2284,64 +2574,49 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
 }
 
 \newcommand{\dtanbase}{% 
-%   \def \ra{1}
-%   \def \aa{20}
-%   \def \ab{20+90}
-%   \def \pbma{(.9, 0.75)}
-%   \def \pbmb{(1.9, 0.565)}
-%   \def \rma{1.}
-%   \def \dab{.4}
-%   \def \dce{\dab*1.064}
-%   \pgfmathparse{\aa/2.} \let\semia\pgfmathresult
-%   \pgfmathparse{tan(\aa)} \let\tana\pgfmathresult
-%   \disegno[25]{
-    \begin{scope}[font=\fontsize{8}{8}]
-      \rcom{+0.2}{+1}{+0.2}{+1.0}{gray!50, very thin, step=1}
-      \draw [brown!50!black, ultra thick] (\ra, 0) arc(0:90:\ra);
-      \filldraw (\aa:\ra) [brown!50!black] circle(1.5pt);
-      \draw (0, 0) -- (\aa:\ra*1.3)
-            (0, 0) node [below left=-2pt] {\(O\)} 
-            (1, 0) node [below, xshift=3pt] {\(H\)} 
-            (\aa:\ra) coordinate(ab) node [left] {\(A \approx B\)};
-      \draw (ab) |- node [below, xshift=-1pt, black] {\(L\)} (0, 0); 
-%       \draw (\semia:\ra*.6) node [rotate = \semia] {\(x \approx x + dx\)};
-      \draw [green!50!black, ultra thick] 
-            (1, 0) -- (1, \tana) coordinate(c); 
-      \filldraw [green!50!black] (c) circle(1.5pt) 
-        node [right, black] {\(C \approx D \approx E\)};
-      \microscopio{(\aa:\ra)}{.40}{100}{-70}{.5}{(.2, 1.6)}
-                  {\(\times \infty\)}
-      \draw [brown!50!black, ultra thick] \pbma --++ (\ab:\rma);
-      \filldraw [brown!50!black] 
-                \pbma ++ (\ab:\rma/3) coordinate(a)
-                  circle(1.5pt) node [below, xshift=-2pt] {\(A\)}
-                (a) ++ (\ab:\dab/2) coordinate(mab)
-%                   node [right, xshift=-2pt, black, rotate=\aa] {\(dx\)}
-                (a) ++ (\ab:\dab) coordinate(b)
-                  circle(1.5pt) node [below, xshift=-2pt] {\(B\)};
-      \draw (a) --++ (\aa:.438) (a) --++ (\aa:-.509)
-            (b) --++ (\aa:.4) (b) --++ (\aa:-.45);
-      \microscopio{(c)}{.50}{45}{-140}{.5}{(1.5, 1.55)}
-                  {\(\times \infty\)}
-      \path \pbmb ++ (90:\rma/3.) coordinate(c)
-            (c) ++ (\ab:\dce/2) coordinate(mce)
-            (c) ++ (\ab:\dce) coordinate(e)
-            \pbmb ++ (90:\rma/3.+.45) coordinate(d)
-            \pbmb ++ (90:\rma/3.+.22) coordinate(mcd);
-      \draw [gray, ultra thick] (c) -- (e);
-      \draw [brown!50!black, ultra thick] \pbmb -- (d);
-      \filldraw [gray] (e) circle(1.5pt) node [above, black] {\(E\)};
-      \filldraw [brown!50!black] 
-                (c) circle(1.5pt) node [right, black] {\(C\)}
-%                 (mce) node [left, black, rotate=\aa] {\(\frac{dx}{\cos x}\)}
-                (e) circle(1.5pt) node [above, black] {\(E\)}
-                (d) circle(1.5pt) node [right, black] {\(D\)}
-%                 (mcd) node [right, black] {\(d(tg(x))\)}
-                ;
-      \draw (e) --++ (\aa:.150) (e) --++ (\aa:-.56)
-            (c) --++ (\aa:-.57);
-    \end{scope}
-%   }
+% Disegno per la derivata della tangente con \Delta infinitesimo
+% usato in: \dtanb e \darctan
+  \begin{scope}[font=\fontsize{8}{8}]
+    \rcom{+0.2}{+1}{+0.2}{+1.0}{gray!50, very thin, step=1}
+    \draw [brown!50!black, ultra thick] (\ra, 0) arc(0:90:\ra);
+    \filldraw (\aa:\ra) [brown!50!black] circle(1.5pt);
+    \draw (0, 0) -- (\aa:\ra*1.3)
+          (0, 0) node [below left=-2pt] {\(O\)} 
+          (1, 0) node [below, xshift=3pt] {\(H\)} 
+          (\aa:\ra) coordinate(ab) node [left] {\(A \approx B\)};
+    \draw (ab) |- node [below, xshift=-1pt, black] {\(L\)} (0, 0); 
+    \draw [green!50!black, ultra thick] 
+          (1, 0) -- (1, \tana) coordinate(c); 
+    \filldraw [green!50!black] (c) circle(1.5pt) 
+      node [right, black] {\(C \approx D \approx E\)};
+    \microscopio{(\aa:\ra)}{.40}{100}{-70}{.5}{(.2, 1.6)}
+                {\(\times \infty\)}
+    \draw [brown!50!black, ultra thick] \pbma --++ (\ab:\rma);
+    \filldraw [brown!50!black] 
+              \pbma ++ (\ab:\rma/3) coordinate(a)
+                circle(1.5pt) node [below, xshift=-2pt] {\(A\)}
+              (a) ++ (\ab:\dab/2) coordinate(mab)
+              (a) ++ (\ab:\dab) coordinate(b)
+                circle(1.5pt) node [below, xshift=-2pt] {\(B\)};
+    \draw (a) --++ (\aa:.438) (a) --++ (\aa:-.509)
+          (b) --++ (\aa:.4) (b) --++ (\aa:-.45);
+    \microscopio{(c)}{.50}{45}{-140}{.5}{(1.5, 1.55)}
+                {\(\times \infty\)}
+    \path \pbmb ++ (90:\rma/3.) coordinate(c)
+          (c) ++ (\ab:\dce/2) coordinate(mce)
+          (c) ++ (\ab:\dce) coordinate(e)
+          \pbmb ++ (90:\rma/3.+.45) coordinate(d)
+          \pbmb ++ (90:\rma/3.+.22) coordinate(mcd);
+    \draw [gray, ultra thick] (c) -- (e);
+    \draw [brown!50!black, ultra thick] \pbmb -- (d);
+    \filldraw [gray] (e) circle(1.5pt) node [above, black] {\(E\)};
+    \filldraw [brown!50!black] 
+              (c) circle(1.5pt) node [right, black] {\(C\)}
+              (e) circle(1.5pt) node [above, black] {\(E\)}
+              (d) circle(1.5pt) node [right, black] {\(D\)};
+    \draw (e) --++ (\aa:.150) (e) --++ (\aa:-.56)
+          (c) --++ (\aa:-.57);
+  \end{scope}
 }
 
 \newcommand{\dtanb}{% 
@@ -2387,39 +2662,6 @@ domain=-.3:+12.3]{1/(2*sqrt(x))}
                        {\(\frac{d(\arctan x)}{\sqrt{1-x^2}}\)}
             (mcd) node [right, black] {\(dx\)};
     \end{scope}
-  }
-}
-
-\newcommand{\tangente}{% Funzione tan(x) e alcune tangenti
-  \def \fa{tan(x)}
-  \def \faa{tan(\xo*180/pi)}
-  \def \Df{1./cos(\xo*180/pi)/cos(\xo*180/pi)}
-  \def \mix{-4}
-  \def \max{+4}
-  \def \miy{-6}
-  \def \may{+6}
-  \def \intervallo{-1.2, -1, 0, 1, 1.2} % TODO cambiare nome variabile
-  \def \pendenze{-1.5/+5.5/7.62, -3.5/-5.5/3.43, -3.5/-3.5/+1, 
-                 3/5.5/3.43, 1.5/-5.5/7.62}
-  \disegno{\pianoetangenti
-    \tkzFct[domain=\mix-0.3:-1.745, ultra thick, \fcolor] {\fa}
-    \tkzFct[domain=-1.5:+1.5, ultra thick, \fcolor] {\fa}
-    \tkzFct[domain=+1.745:\max+0.3, ultra thick, \fcolor] {\fa}
-  }
-}
-
-\newcommand{\derivatatangente}{% Derivata della funzione tan(x) con punti
-  \def \fa{1./(cos(x))**2}
-  \def \faa{1./cos(\xo*180/pi)/cos(\xo*180/pi)}
-  \def \mix{-4}
-  \def \max{+4}
-  \def \miy{-3}
-  \def \may{+9}
-  \def \intervallo{-1.2, -1, 0, 1, 1.2}
-  \disegno{\pianoepunti
-    \tkzFct[domain=\mix-0.3:-1.75, ultra thick, \dcolor] {\fa}
-    \tkzFct[domain=-1.5:+1.5, ultra thick, \dcolor] {\fa}
-    \tkzFct[domain=+1.75:\max+0.3, ultra thick, \dcolor] {\fa}
   }
 }
 
