@@ -7,6 +7,8 @@
 
 \def \fcolor{green!50!black} % colore della funzione
 \def \dcolor{blue!50!black} % colore della derivata
+\def \tcolor{violet!50!black} % colore della tangente: opacity=.50 
+\def \ncolor{orange!50!black} % colore della normale: opacity=.50 
 
 \begin{comment}
 \begin{tikzpicture}[thick]
@@ -2421,7 +2423,7 @@
   \def \mix{-4}
   \def \max{+4}
   \def \miy{-6}
-  \def \may{+6}
+  \def \may{+6.3}
   \def \intervallo{-1.2, -1, 0, 1, 1.2} % TODO cambiare nome variabile
   \def \pendenze{-1.5/+5.5/7.62, -3.5/-5.5/3.43, -3.5/-3.5/+1, 
                  3/5.5/3.43, 1.5/-5.5/7.62}
@@ -2432,17 +2434,59 @@
   }
 }
 
-\newcommand{\parabolaapplicazioni}{% Parabola esempio con alcune tangenti
+\newcommand{\parabolaapplicazionia}{% Parabola esempio con alcune tangenti
   \def \fa{-.25*x*x-2*x +3}
   \def \faa{-.25*\xo*\xo-2*\xo +3}
   \def \Df{-.5*\xo-2}
   \def \mix{-7}
   \def \max{+3}
   \def \miy{-3}
-  \def \may{+8}
+  \def \may{+8.3}
   \def \intervallo{-4, -2, 0, +2}
   \def \pendenze{}
   \disegno[6]{\funzioneetangenti}
+}
+
+\newcommand{\cubicaapplicazioni}{% Cubica esempio con alcune tangenti
+  \def \fa{-2*x*x*x+x}
+  \def \faa{-2*\xo*\xo*\xo+\xo}
+  \def \Df{-6*\xo*\xo+1}
+  \def \mix{-3}
+  \def \max{+3}
+  \def \miy{-5}
+  \def \may{+4.3}
+  \def \intervallo{-1}
+  \def \pendenze{}
+  \disegno[6]{\funzioneetangenti}
+}
+
+\newcommand{\parabolaapplicazionib}{% Parabola esempio con alcune tangenti
+  \def \fa{4*x*x-3*x +2}
+  \def \faa{4*\xo*\xo-3*\xo +2}
+  \def \Df{8*\xo-3}
+  \def \mix{-3}
+  \def \max{+3}
+  \def \miy{-1}
+  \def \may{+7.3}
+  \def \intervallo{.5}
+  \def \pendenze{}
+  \disegno[6]{\funzioneetangenti}
+}
+
+\newcommand{\iperboleapplicazioni}{% Derivata della funzione tan(x) con punti
+  \def \fa{4./x}
+  \def \faa{4./\xo}
+  \def \Df{-4./\xo/\xo}
+  \def \mix{0}
+  \def \max{+8}
+  \def \miy{0}
+  \def \may{+8}
+  \def \intervallo{2}
+  \def \pendenze{}
+  \disegno{\pianoetangenti
+%     \tkzFct[domain=\mix-0.3:-.1, ultra thick, \fcolor] {\fa}
+    \tkzFct[domain=+.1:\max+0.3, ultra thick, \fcolor] {\fa}
+  }
 }
 
 \newcommand{\derivatatangente}{% Derivata della funzione tan(x) con punti
@@ -2812,60 +2856,189 @@
   }
 }
 
-% funzioni seguenti trasferite in limiticontinuità1_grafici.tex
-\begin{comment}
-\newcommand{\polregincirc}[2]{% 
-  % Poligono regolare inscritto e circoscritto.
-  \def \ra{#1}
-  \def \nlati{#2}
-  \pgfmathparse{\ra / cos(deg(pi / \nlati))} \let\rb\pgfmathresult
-  \pgfmathparse{360. / \nlati} \let\ang\pgfmathresult
-  \draw [thick, orange!50!black] circle(\ra);
-%   \draw (0:\ra) \foreach \x in {60,120,...,359} {-- (\x:\ra)} -- cycle;
-  \draw [thick, blue!50!black] 
-    (0:\ra) \foreach \x in {1,...,\nlati} {-- (\x*\ang:\ra)} -- cycle;
-  \draw [thick, green!50!black] 
-    (0:\rb) \foreach \x in {1,...,\nlati} {-- (\x*\ang:\rb)} -- cycle;
-}
-
-% \newcommand{\pigrecoa}{% 
-%   % Approsimazioni di pigreco esagono e dodecagono.
-%   \disegno{\polregincirc{5}{6}}
-% }
-% 
-% \newcommand{\pigrecob}{% 
-%   % Approsimazioni di pigreco esagono e dodecagono.
-%   \disegno{\polregincirc{5}{12}}
-% }
-
-\newcommand{\agnesia}{% 
-  % Approsimazioni di pigreco esagono e dodecagono.
-  \def \ra{15}
-  \def \ang{25}
-  \def \rang{2}
+\newcommand{\inclinazioneraggio}{% Applicazioni: inclinazione del raggio
+  \def \raggio{4.472136}
+  \def \fa{-2*x+10}
+  \def \mix{-6}
+  \def \max{+6}
+  \def \miy{-6}
+  \def \may{+6}
   \disegno{
-    \rcom{-16}{+16}{-1}{+16}{gray!50, very thin, step=20}
-    \pgfmathparse{\ra * cos(\ang)} \let\cosang\pgfmathresult
-    \pgfmathparse{\ra * sin(\ang)} \let\sinang\pgfmathresult
-    \pgfmathparse{\ra * tan(\ang)} \let\tanang\pgfmathresult
-    \begin{scope}[thick]
-      \draw (\ra, 0) arc(0:180:\ra);
-      \draw (\rang, 0) arc(0:\ang:\rang);
-      \node at (\ang/2:\rang) [right] {\(\alpha\)};
-      \path[draw] (0, 0) coordinate [label=below left:\(A\)] (A)
-        (180:\ra) coordinate [label=below:\(G\)] (G)
-        -- (0:\ra) coordinate [label=below:\(C\)] (C)
-        -- (\ang:\ra) coordinate [label=above:\(D\)] (D)
-        -- cycle
-        (0, 0) -- (D);
-      \begin{scope} [dashed]
-      \path[draw]
-        (D) -- (\cosang, 0) coordinate [label=below:\(B\)] (B)
-        (D) -- (\ra, \sinang) coordinate [label=right:\(F\)] (B)
-        (D) -- (\ra, \tanang) coordinate [label=above right:\(E\)] (E)
-        (E) -- (C);
-      \end{scope}
-    \end{scope}
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+  %   \draw [ultra thick, \fcolor] circle(\raggio);
+    \draw (\raggio, 0) [ultra thick, \fcolor] arc(0:180:\raggio);
+    \draw (-\raggio, 0) [thick, \fcolor] arc(180:360:\raggio);
+    \filldraw [\fcolor] (4, 2) circle(1.5pt) node [above] {\(P\)}
+                        (4, -2) circle(1.pt);
+    \draw [ultra thick, gray] (0, 0) -- (4, 2);
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, gray] {\fa}
   }
 }
-\end{comment}
+
+\newcommand{\tangenteenormale}{% Applicazioni: tangente e normale
+  \pgfmathparse{\faa} \let\yo\pgfmathresult
+  \pgfmathparse{\Df} \let\pendenza\pgfmathresult
+  \filldraw [\fcolor] (\xo, \yo) circle(2pt);% node [below] {\pendenza};
+  \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.5, \tcolor] 
+          {\pendenza*(x-\xo)+\yo}
+  \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, opacity=.5, \ncolor] 
+          {-(x-\xo)/\pendenza+\yo}
+}
+
+\newcommand{\tangenteenormalea}{% Applicazioni: tangente e normale
+  \def \fa{(x*x-1)/(log(x) -1)}
+  \def \faa{(\xo*\xo-1)/(ln(\xo) -1)}
+  \def \Df{(2*\xo*(ln(\xo) -1) -(\xo*\xo -1)/\xo)/((ln(\xo) -1)*(ln(\xo) -1))}
+  \def \xo{1}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-5}
+  \def \may{+5}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-.3:2.5, ultra thick, \fcolor] {\fa}
+    \tkzFct[domain=3:\max+0.3, ultra thick, \fcolor] {\fa}
+    \tangenteenormale
+  }
+}
+
+\newcommand{\tangenteenormaleb}{% Applicazioni: tangente e normale
+  \def \fa{(x*x+1)/(log(x) +1)}
+  \def \faa{(\xo*\xo+1)/(ln(\xo) +1)}
+  \def \Df{(2*\xo*(ln(\xo) +1) -(\xo*\xo +1)/\xo)/((ln(\xo) +1)*(ln(\xo) +1))}
+  \def \xo{1}
+  \def \mix{-4}
+  \def \max{+4}
+  \def \miy{-5}
+  \def \may{+5}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-.3:0.35, ultra thick, \fcolor] {\fa}
+    \tkzFct[domain=0.40:\max+0.3, ultra thick, \fcolor] {\fa}
+    \tangenteenormale
+    \draw [ultra thick, opacity=.5, \ncolor] (1, \miy-.3) -- (1, \may+.3);
+  }
+}
+
+\newcommand{\curvaturads}{% Applicazioni: curvatura ds
+  \def \fa{9./x}
+  \def \faa{9./\xo}
+  \def \Df{-9./(\xo*\xo)}
+  \def \DDf{18./(\xo*\xo*\xo)}
+  \def \xo{1.5}
+  \def \mix{0}
+  \def \max{10}
+  \def \miy{0}
+  \def \may{10}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=0.2:\max+0.3, ultra thick, \fcolor] {\fa}
+    \pgfmathparse{\faa} \let\yo\pgfmathresult
+    \filldraw [\fcolor] (\xo, \yo) circle(1.5pt);
+  }
+}
+
+\newcommand{\curvaturadalpha}{% Applicazioni: curvatura d\alpha
+  \def \fa{9./x}
+  \def \faa{9./\xo}
+  \def \Df{-9./(\xo*\xo)}
+  \def \DDf{18./(\xo*\xo*\xo)}
+  \def \xo{1.5}
+  \def \mix{0}
+  \def \max{10}
+  \def \miy{0}
+  \def \may{10}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=0.2:\max+0.3, ultra thick, \fcolor] {\fa}
+    \pgfmathparse{\faa} \let\yo\pgfmathresult
+    \filldraw [\fcolor] (\xo, \yo) circle(1.5pt);
+  }
+}
+
+\newcommand{\curvaturaesea}{% Applicazioni: curvatura y=1/x
+  \def \fa{1./x}
+  \def \faa{1./\xo}
+  \def \Df{-1./(\xo*\xo)}
+  \def \DDf{2./(\xo*\xo*\xo)}
+  \def \punti{.5, 1, 4}
+  \def \mix{0}
+  \def \max{5}
+  \def \miy{0}
+  \def \may{5}
+  \disegno[10]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=0.05:\max+0.3, ultra thick, \fcolor] {\fa}
+    \foreach \xo in \punti{
+      \pgfmathparse{\faa} \let\yo\pgfmathresult
+      \filldraw [\fcolor] (\xo, \yo) circle(1.5pt);
+    }
+  }
+}
+
+\newcommand{\curvaturaeseb}{% Applicazioni: curvatura y=3x-1
+  \def \fa{3*x-1}
+  \def \faa{3*\xo-1}
+  \def \Df{3}
+  \def \DDf{0}
+  \def \xo{1}
+  \def \mix{-3}
+  \def \max{+3}
+  \def \miy{-5}
+  \def \may{5}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+  }
+}
+
+\newcommand{\curvaturaesec}{% Applicazioni: curvatura y=\sqrt{9-x^2}
+  \def \raggio{3}
+%   \def \fa{sqrt(9-x*x)}
+%   \def \faa{sqrt(9-\xo*\xo)}
+%   \def \Df{-\xo/sqrt(9-\xo*\xo)}
+%   \def \DDf{-9/sqrt((9-\xo*\xo)*(9-\xo*\xo)*(9-\xo*\xo))}
+  \def \mix{-4}
+  \def \max{4}
+  \def \miy{0}
+  \def \may{4}
+  \disegno[6]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \draw (\raggio, 0) [ultra thick, \fcolor] arc(0:180:\raggio);
+  }
+}
+
+\newcommand{\osculatoreesea}{% Applicazioni: cerchio osculatore y=x^2
+  \def \fa{x*x}
+  \def \faa{\xo*\xo}
+  \def \Df{2*\xo}
+  \def \DDf{2}
+  \def \circonferenze{{(0, .5)}/.5/{(0, 0)}, {(-3.98, 3.52)}/5.59/{(1, 1)}}
+%   \def \centroa{(0, .5)}
+%   \def \raggioa{.5}
+%   \def \centrob{(-3.98, 3.52)}
+%   \def \raggiob{5.59}
+  \def \mix{-5}
+  \def \max{+5}
+  \def \miy{0}
+  \def \may{10}
+  \disegno{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] {\fa}
+    \foreach \centro/\raggio/\pt in \circonferenze{
+      \draw \centro [thick, \tcolor] circle(\raggio);
+      \filldraw \centro [thick, \tcolor] circle(1.5pt);
+      \filldraw \pt [thick, \fcolor] circle(1.5pt);
+    }
+  }
+}
+

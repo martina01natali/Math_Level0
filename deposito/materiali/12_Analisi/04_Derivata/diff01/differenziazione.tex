@@ -121,8 +121,11 @@ Per trovare la velocità media, basta dividere lo spazio percorso per il
 tempo impiegato: ottenendo una velocità di quasi \(17\,m/s\) che 
 corrisponde a circa \(60 km/h\). 
 
+
 % \newpage %------------------------------------------
-% 
+
+\begin{comment}
+
 % Se cerchiamo la velocità media, basta dividere lo spazio percorso per il 
 % tempo impiegato:
 % \begin{align*}
@@ -4450,8 +4453,15 @@ della derivata della funzione inversa
 (\ref{subsec:differenziazione_derivatainverse}).
 \end{osservazione}
 
+\end{comment}
+
+\newpage
+
 \section{Applicazioni}
 \label{sec:diff01_applicazioni}
+
+\subsection{Derivata e tangente}
+\label{subsec:differenziazione_tangente}
 
 Riprendiamo ora qualche esempio di esercizio con le tangenti, 
 vedi definizione \ref{def:differenziazione_tangente}.
@@ -4484,7 +4494,7 @@ Calcoliamo la derivata della funzione: \quad
 }{
 \begin{inaccessibleblock}
   [Parabola con alcune tangenti]
-\begin{center} \scalebox{.8}{\parabolaapplicazioni} \end{center}
+\begin{center} \scalebox{.8}{\parabolaapplicazionia} \end{center}
 \end{inaccessibleblock}
 }
 \end{esempio}
@@ -4492,55 +4502,77 @@ Calcoliamo la derivata della funzione: \quad
 % \pagebreak %--------------------------------------------------
 
 \begin{esempio}
-Trova i punti di intersezione con gli assi della tangente
-alla curva \(f(x)=2x^3-x\) nel punto \(\punto{2}{f(2)}\).
+Trova i punti di intersezione con gli assi, della tangente
+alla curva\\ 
+\(f(x) = -2x^3 +x\) \quad nel punto di ascissa \quad \(x_0 = -1\).
+
+\affiancati{.39}{.59}{
 \begin{inaccessibleblock}
-  [Parabola con alcune tangenti]
-\begin{center} \scalebox{.8}{\parabolaapplicazioni} \end{center}
+  [Cubica e tangente in x=-1]
+\begin{center} \scalebox{.8}{\cubicaapplicazioni} \end{center}
 \end{inaccessibleblock}
-\noindent Calcolo del valore della funzione in \(2\): \tab 
-\(f(2) = 2 \cdot 2^3-2 = 14\)\\
-Calcolo della pendenza in \(2\): \tab 
-\(f'(x) = 6x^2-1 \srarrow f'(2) = 6 \cdot 2^2-1= 23\) \\
-Da cui l'equazione della tangente: \tab 
-\(y=23(x-2)+14=23x-32\)\\[5pt]
-L'intersezione con l'asse \(x\): \tab 
-\(y=0 \srarrow x=\dfrac{32}{23} \srarrow \punto{\dfrac{32}{23}}{0}\)\\[2pt]
-con l'asse \(y\): \tab 
-\(x=0 \srarrow y=-32 \srarrow \punto{0}{-32}\)
+}{
+\noindent Calcolo del valore della funzione in \(-1\): \\ 
+\(f(-1) = -2 \cdot \tonda{-1}^3+\tonda{-1} = +2 -1 = +1\)\\
+Calcolo della pendenza in \(-1\): \\ 
+\(f'(x) = -6x^2+1 \srarrow f'(-1) = -6 \cdot \tonda{-1}^2+1 = -5\) \\
+Da cui l'equazione della tangente: \\ 
+\(y = -5(x+1)+1 = -5x-5+1 = -5x-4\)\\
+L'intersezione con l'asse \(y\): \\ 
+\(x=0 \srarrow y=-4 \srarrow \punto{0}{-4}\)
+con l'asse \(x\): \\ [5pt]
+\(y=0 \srarrow 5x = -4 \srarrow \punto{-\dfrac{4}{5}}{0}\)
+}
 \end{esempio}
 
 \begin{esempio}
-In quale punto del suo grafico la parabola \(y=4x^2-3x+6\) è inclinata di 
+In quale punto del suo grafico la parabola \(y=4x^2-3x+2\) è inclinata di 
 \(45^\circ\)?
 
+\affiancati{.59}{.39}{
 Nel punto che cerchiamo, la parabola avrà un'inclinazione 
 indistinguibile da quella della tangente.
-Le rette inclinate di \(45^\circ\) hanno pendenza \(m=1\), come la 
+Le rette inclinate di \(45^\circ\) hanno pendenza \(m = 1\), come la 
 bisettrice del primo-terzo quadrante.  
-Dobbiamo quindi imporre alla derivata il valore \(1\).
-\[\Deriv{4x^2-3x+6} = 8x-3 = 1 \srarrow x =\dfrac{1}{2} 
-\sstext{e il punto è:} 
-\punto{\dfrac{1}{2}}{\dfrac{11}{2}}\]
+Dobbiamo quindi imporre alla derivata il valore \(1\): \(f'(x) = 1\).
+
+\(\Deriv{4x^2-3x+2} = 8x-3 = 1 \srarrow x =\dfrac{1}{2}\)
+
+e il punto è: \quad
+\(\punto{\dfrac{1}{2}}{\dfrac{3}{2}}\)
+}{
+\begin{inaccessibleblock}
+  [Cubica e tangente in x=-1]
+\begin{center} \scalebox{.8}{\parabolaapplicazionib} \end{center}
+\end{inaccessibleblock}
+}
 \end{esempio}
 
 \begin{esempio}
-È vero che l'iperbole equilatera di equazione \(xy=16\) ha per vertici i 
+È vero che l'iperbole equilatera di equazione \(xy = 4\) ha per vertici i 
 punti medi del segmento che gli assi staccano sulle tangenti ai vertici? 
 
+\affiancati{.59}{.39}{
 Consideriamo per comodità solo il ramo destro del grafico.
 Il vertice sarà un punto \(V\) di coordinate uguali, essendo l'iperbole
 equilatera. \\
-Quindi \(V=V\punto{4}{4}\),
-perché la funzione è \(y=\dfrac{16}{x}\),\\ 
+Quindi \(V = V\punto{2}{2}\),
+perché la funzione è \(y=\dfrac{4}{x}\),\\ 
 la sua derivata in \(V\) è \tab 
-\(f'(4)= -\dfrac{16}{4^2}=-1\)\\
-e l'equazione della tangente in \(V\) è \tab \(y=-1(x-4)+4=-x+8\)\\
-La retta \(y=-x+8\) interseca gli assi in: \tab 
-\(\punto{8}{0}\) e \(\punto{0}{8}\) \\
+\(f'(2)= -\dfrac{4}{4^2}=-1\)\\
+e l'equazione della tangente in \(V\) è \tab \(y=-1(x-2)+2=-x+4\)\\
+La retta \(y=-x+4\) interseca gli assi in: \tab 
+\(\punto{4}{0}\) e \(\punto{0}{4}\) \\
 ed è facile verificare che il punto \(V\) è medio fra i due. \\
 Per ragioni di simmetria accade lo stesso con il vertice opposto 
-\(\punto{-4}{-4}\).
+\(\punto{-2}{-2}\).
+}{
+\begin{inaccessibleblock}
+  [Iperbole equilatera e tangente nel vertice]
+\begin{center} \scalebox{.8}{\iperboleapplicazioni} \end{center}
+\end{inaccessibleblock}
+}
+
 \begin{osservazione}
 In realtà si tratta di una proprietà generale dell'iperbole equilatera.
 Qualsiasi retta tangente al grafico stacca sugli assi coordinati dei 
@@ -4550,8 +4582,13 @@ punto di tangenza le coordinate \(\punto{a}{\dfrac{k^2}{a}}\).
 \end{osservazione}
 \end{esempio}
 
+\subsection{Derivata e normale}
+\label{subsec:differenziazione_normale}
+
+Iniziamo con un problema.
+
 \begin{esempio}
-È vero che è inclinato di \(30^\circ\) il raggio  
+È vero che è inclinato di \(30^\circ\) il raggio 
 della circonferenza \(x^2+y^2=20\) che unisce l'origine al suo punto di 
 ascissa \(4\)?
 
@@ -4559,13 +4596,36 @@ Risposta: No, non è vero. \\
 Il modo più elementare per verificarlo è calcolare l'ordinata
 del punto e cercare l'angolo di inclinazione dell'ipotenusa coincidente 
 con il raggio.
+\[x^2+y^2=20 \srarrow 4^2+y^2=20 \srarrow y^2=20 -16 \srarrow y = \mp 2\]
+\affiancati{.49}{.49}{
+Incontriamo un primo problema: non abbiamo una sola ordinata, ma due; 
+infatti \(x^2+y^2=20\) non rappresenta una funzione. 
+Scegliamo \(+2\) infatti possiamo già valutare a occhio che il segmento 
+che unisce l'origine con il punto \(\punto{4}{-2}\) non può essere inclinato 
+di \(30^\circ\) rispetto all'asse \(x\), forse \(330^\circ\) o \(-30^\circ\). 
+L'inclinazione del segmento è data da 
+\[\dfrac{\Delta y}{\Delta x} = \dfrac{y_P - y_O}{x_P - x_O} = 
+  \dfrac{2}{4} = \dfrac{1}{2}\]
+L'angolo si ottiene calcolando l'arcotangente della pendenza: 
+\[\alpha = \arctan{\dfrac{1}{2}} \simeq 26,56505118\]
+}{
+\begin{inaccessibleblock}
+  [Circonferenza con tangente e raggio nel punto di tangenza]
+\begin{center} \scalebox{1}{\inclinazioneraggio} \end{center}
+\end{inaccessibleblock}
+}
+Sappiamo che nelle circonferenze il raggio per il punto di tangenza è 
+perpendicolare alla tangente stessa. 
+Applichiamo questa idea al problema precedente.
 
-L'alternativa è calcolare la derivata. Ma noi abbiamo imparato a calcolare 
+Ma noi abbiamo imparato a calcolare 
 la derivata di una funzione, mentre \(x^2+y^2=20\) non è una funzione.
 
 Dato che il punto considerato appartiene al primo quadrante, consideriamo 
 la funzione che rappresenta la semicirconferenza superiore:
-\(x^2+y^2=20 \srarrow y=\sqrt{20-x^2}\). 
+\(x^2+y^2 = 20 \srarrow y = \sqrt{20-x^2}\). 
+% rac{-1}{m_t}\) è appunto 
+% l'antireciproco della pendenza della
 La sua derivata è:
 \[f'(4)= \Deriv{\sqrt{20-x^2}}\bigg|_{x=4} =
 \dfrac{-2x}{2\sqrt{20-x^2}}\bigg|_{x=4}=
@@ -4579,66 +4639,179 @@ Se \(\Delta x\) è positivo, l'angolo è uguale a
   \arctan 0,5 \simeq 26,565^\circ \neq 30^\circ\).
 \end{esempio}
 
+Mentre solo per la circonferenza (e la sfera) possiamo parlare di raggio e di 
+centro, possiamo estendere l'idea di perpendicolare o di normale a tutte le 
+funzioni e definire come perpendicolare ad una funzione in un punto la retta 
+che è perpendicolare alla tangente in quel punto.
 
-\begin{comment}
+\begin{definizione}
+\label{def:differenziazione_normale}
+La \emph{retta perpendicolare (o normale) ad una curva in un punto} 
+\(P\punto{x_P}{y_P}\) 
+è la retta passante per quel punto e che è perpendicolare alla tangente 
+per quel punto. 
+\begin{itemize} [nosep]
+\item Se \(f'(x_P) = 0\), la normale è: \quad 
+\(x = x_P\)
+\item Se \(f'(x_P)\) è definita, la normale a \(f\) in \(P\) è: \quad 
+\(y = -\dfrac{1}{f'(x_P)}\tonda{x - x_P} +y_P\)
+\item se il Rapporto Differenziale è un infinito, la normale è: \quad 
+\(y = y_P\)
+\end{itemize}
+\end{definizione}
 
-
-
-\subsection{Derivata e normale}
-\label{}
-Come si vede dall'ultimo esempio, una volta che si sappia come calcolare 
-la tangente ad una curva, il calcolo della normale risulta molto facile.
-Poiché, in ogni punto di una funzione la tangente e la normale 
-sono rette perpendicolari e quindi hanno i coefficienti angolari 
-antireciproci, l'equazione della normale ad una curva \(y=f(x)\) in un punto 
-\(\punto{x_P}{y_P}\)
-sarà:\\
-\(y=\dfrac{-1}{f'(x_P)}(x-x_P)+y_P\),\\
-dove la pendenza della normale \(m_n=\frac{-1}{m_t}\) è appunto 
-l'antireciproco della pendenza della tangente.
+Una volta che si sappia come calcolare la tangente ad una curva, il calcolo 
+della normale risulta molto facile perché, in ogni punto di una funzione la 
+tangente e la normale per quel punto sono rette perpendicolari e quindi 
+hanno i coefficienti angolari antireciproci.
+% la pendenza della normale \(m_n = \frac{-1}{m_t}\) è appunto 
+% l'antireciproco della pendenza della tangente.
 
 \begin{esempio}
-Scrivi l'equazione della tangente e della normale alla curva di equazione
-\(y=\dfrac{x^2-1}{\ln x -1}\) nel suo punto di ascissa \(1\). 
+Scrivi l'equazione della tangente e della normale alla curva di equazione \\
+\(y = f(x) = \dfrac{x^2-1}{\ln x -1}\) nel suo punto di ascissa \quad \(1\). 
 
-Calcoliamo la pendenza nel punto:
-% \[f'(x)|_{x=1}=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
-\[f'(1)=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
-{(\ln x -1)^2}\bigg|_{x=1}=\dfrac{2\cdot 1(0-1)-(1-1)\cdot 
-1}{(0-1)^2}=-2\]
-Calcoliamo l'ordinata del punto: \tab
-\(\dfrac{1^2-1}{\ln 1 -1}=0=y_0\)\\
-L'equazione della tangente:
-\(y=-2(x-1)=-2x+2\).\\
-L'equazione della normale: 
-\(y=\dfrac{1}{2}(x-1)=\dfrac{1}{2}x-\dfrac{1}{2}\).
+
+% % \[f'(x)|_{x=1}=\dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}
+% \[f'(1) = \dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}{(\ln x -1)^2}\bigg|_{x=1}
+%         = \dfrac{2\cdot 1(0-1)-(1-1)\cdot 1}{(0-1)^2} = -2\]
+\affiancati{.59}{.39}{
+Pendenza della funzione nel punto:
+\begin{align*}
+f'(1) &= \dfrac{2x(\ln x-1)-(x^2-1)\dfrac{1}{x}}{(\ln x -1)^2}\bigg|_{x=1}=\\
+      &= \dfrac{2\cdot 1(0-1)-(1-1)\cdot 1}{(0-1)^2} = -2
+\end{align*}
+Ordinata del punto: \quad 
+\(y_P = \dfrac{1^2-1}{\ln 1 -1} = 0\)\\[4pt]
+Equazione della tangente: \quad 
+\(y = -2(x-1) = -2x+2\)\\
+Equazione della normale: \quad 
+\(y = \dfrac{1}{2}(x-1) = \dfrac{1}{2}x-\dfrac{1}{2}\).
+}{
+\begin{inaccessibleblock}
+  [Iperbole equilatera e tangente nel vertice]
+\scalebox{1}{\tangenteenormalea}
+\end{inaccessibleblock}
+}
 \end{esempio}
 
 \begin{esempio}
-Scrivi l'equazione della tangente e della normale alla curva di equazione
-\(f(x) = \dfrac{x^2+1}{\ln x +1}\) nel suo punto di ascissa \(1\).
+Scrivi l'equazione della tangente e della normale alla curva di equazione \\
+\(y = f(x) = \dfrac{x^2+1}{\ln x +1}\) nel suo punto di ascissa \quad \(1\). 
 
-\(y = f(1) = \dfrac{x^2+1}{\ln x +1} = \dfrac{1^2+1}{\ln 1 +1}= 
-\dfrac{1+1}{0 +1}= 2\)\\
-\(f'(1)=
-\dfrac{2x(\ln x+1)-(x^2+1)\dfrac{1}{x}}{(\ln x +1)^2}\bigg|_{x=1}=
-\dfrac{2\cdot 1(0+1)-(1+1)\cdot 1}{(0+1)^2}=0\).\\
-La tangente è quindi la retta orizzontale: \(y=2\),
-di conseguenza la normale è la retta verticale: \(x=1\).
+\affiancati{.39}{.59}{
+\begin{inaccessibleblock}
+  [Iperbole equilatera e tangente nel vertice]
+\scalebox{1}{\tangenteenormaleb}
+\end{inaccessibleblock}
+}{
+Pendenza della funzione nel punto:
+\begin{align*}
+f'(1) &= \dfrac{2x(\ln x+1)-(x^2+1)\dfrac{1}{x}}{(\ln x +1)^2}\bigg|_{x=1}=\\
+      &= \dfrac{2\cdot 1(0+1)-(1+1)\cdot 1}{(0+1)^2} = 0
+\end{align*}
+Ordinata del punto: \quad 
+\(y_P = \dfrac{1^2+1}{\ln 1 +1}= \dfrac{1+1}{0 +1} = 2\)\\[4pt]
+Equazione della tangente: \quad 
+\(y = 0(x-1)  +2 = +2\)\\
+Equazione della normale: \quad 
+\(x = x_P \srarrow x = 1\).
+}
 \end{esempio}
 
-\subsubsection{Applicazioni: cerchio osculatore}
+\subsection{Derivata della derivata}
+\label{subsec: differenziazione_derivata_seconda}
+Abbiamo già notato che la derivata  di una funzione dipende dal punto in 
+cui si 
+calcola e che, una volta stabilito questo punto, ha un unico risultato,
+se esiste.
+Quindi la derivata di una funzione è a sua volta una funzione e,
+se ci sono le condizioni, può essere derivata a sua volta.
+\begin{definizione}
+ Se una funzione \(f(x)\) è derivabile, la sua derivata è la funzione \(f'(x)\).
+ Se anche \(f'(x)\) è derivabile, allora esiste la funzione \(f''(x)\) ed è
+ chiamata \emph{derivata seconda di \(f(x)\)}. E così via.
+\end{definizione}
+Le regole di calcolo della derivata seconda sono le stesse regole che 
+abbiamo già visto, quindi la seconda derivazione, se è possibile, non comporta 
+problemi diversi da quelli conosciuti.
+
+Riferendoci a un generico grafico di funzione \(y=f(x)\), la derivata prima 
+\(f'(x)\) ci consente di trovare le pendenze delle tangenti al grafico. La
+derivata seconda \(f''(x)\) descrive con quanta rapidità (o lentezza) variano 
+queste pendenze, perciò ci indica quanto siano aperte o chiuse le concavità 
+che \(y=f(x)\) disegna nel piano cartesiano.
+
+In particolare vedremo che:
+\begin{itemize} [nosep]
+\item 
+dove la derivata seconda è positiva la pendenza aumenta sempre di più 
+quindi la concavità è verso l'alto;
+\item 
+dove la derivata seconda è negativa la pendenza diminuisce sempre di più 
+quindi la concavità è verso il basso;
+\end{itemize}
+
+Se le condizioni sono favorevoli, esistono e sono calcolabili anche le 
+derivate terze, quarte, ecc. di una funzione, anche se non sono essenziali 
+per i nostri scopi. Il loro calcolo segue i metodi già visti.
+
+\begin{esempio}
+Calcola \(f''(1)\) di \(f(x)=2x^5-3x^4+x^3+5x^2-6x+9\).
+
+\noindent Derivata prima: \quad 
+\(f'(x)=10 x^4-12 x^3+3x^2+10 x-6\).\\
+Derivata seconda per \(x=1\): \quad 
+\(f''(x)|_{x=1} = (40x^3-36x^2+6x+10)|_{x=1}=40-36+6+10=20\).
+\end{esempio}
+
+\begin{esempio}
+Calcola la derivata seconda di \(f(x)=\ln x\).
+
+\(f'(x)=\dfrac{1}{x}\) \quad e \quad \(f''(x)=-\dfrac{1}{x^2}\)
+\begin{osservazione}
+La funzione \(\ln x\) esiste per \(x>0\), le funzioni:
+\(g(x)=\dfrac{1}{x}\) e \(h=-\dfrac{1}{x^2}\) esistono per \(x\ne 0\).
+
+Per poter interpretare \(g(x)\) e \(f(x)\) come derivate della funzione 
+\(\ln(x)\) dobbiamo restringere il dominio a \(x > 0\). 
+Quindi:
+
+\(f'(x)=\dfrac{1}{x} \) con \(x > 0\) \quad e \quad 
+\(f''(x)=-\dfrac{1}{x^2}\) con \(x > 0\) 
+\end{osservazione}
+\end{esempio}
+
+\begin{esempio}
+Calcola le derivate successive di \(f(x)=\sen x\).\\
+\(f'(x)=\cos x\) \hspace{1cm}  \(f''(x)=-\sen x\) \hspace{1cm}
+\(f'''(x)=-\cos x\) \hspace{1cm} \(f^{IV}(x)=\sen x\) \dots
+\end{esempio}
+
+\begin{esempio}
+Calcola le derivate successive di \(f(x)=x^4 -x^3 +3x^2 -2x +5\).\\
+\(f'(x) = 4x^3 -3x^2 +6x -2\) \quad 
+\(f''(x) = 12x^2 -6x +6\) \quad 
+\(f'''(x) = 24x -6\) \\ 
+\(f^{IV}(x) = 24\) \quad 
+\(f^{V}(x) = 0\) \dots
+\end{esempio}
+
+
+
+\subsection{Curvatura di una linea}
+% \subsubsection{Applicazioni: cerchio osculatore}
 I grafici delle pagine precedenti ci hanno mostrato alcune rette e tante curve. 
 Calcolando le derivate abbiamo iniziato ad analizzare la forma delle 
 curve-grafici delle funzioni regolari. Anche se più avanti renderemo più 
 generali queste nozioni, al momento sappiamo che:
-\begin{itemize}[noitemsep, nosep]
+\begin{itemize}[nosep]
  \item con la derivata prima ricaviamo le pendenze di una curva, punto per 
 punto;
 \item con la derivata seconda mostriamo come variano le pendenze, perciò 
-sappiamo dire se in un certo intervallo la curva mostra una concavità (le 
-pendenze crescono quando \(x\) aumenta) oppure una convessità (il caso 
-contrario).
+sappiamo dire se in un certo intervallo la curva mostra una concavità 
+verso l'alto (le pendenze crescono quando \(x\) aumenta) oppure una 
+concavità verso il basso (le pendenze diminuiscono quando \(x\) aumenta).
 \end{itemize}
 La maggior parte dei grafici ha una forma curvilinea, per questo ora 
 concentriamo lo studio sulla curvatura di un grafico. 
@@ -4647,21 +4820,15 @@ Immagina di essere in
 bicicletta lungo la curva, come un un puntino mobile su una mappa del 
 navigatore: se c'è una forte curvatura il cambio di direzione è forte in un 
 tratto breve, mentre avviene il contrario nei tratti a curvatura lieve. 
-Quindi è importante considerare 
-\begin{itemize}[nosep, noitemsep]
+Come abbiamo fatto per la pendenza, anche per la curvatura siamo interessati 
+alla curvatura in un punto e non alla curvatura media. Consideriamo quindi 
+spostamenti infinitesimi.
+% Quindi è importante considerare 
+\begin{itemize}[nosep]
+\item la lunghezza \(ds\) del tratto di curva che si considera;
  \item l'angolo \(d\alpha\) fra due direzioni successive, le direzioni del 
-movimento che si hanno percorrendo la curva;
-\item la lunghezza \(ds\) del tratto di curva che si considera.
+movimento che si hanno percorrendo la curva.
 \end{itemize}
- \paragraph{Le direzioni: } sappiamo già esprimere una direzione lungo la 
-curva: geometricamente è la pendenza, il coefficiente angolare della tangente 
-alla curva nel punto considerato. Conoscendo l'angolo \(\alpha\), la pendenza 
-\(f'(x)\) in quel punto è \(f'(x)=\tg(\alpha)\) e quindi 
-\(\alpha=\arctan(f'(x))\).\\
-Dal teorema dell'incremento si ha:
-\[
- d\alpha \sim \Deriv{\arctan(f'(x))}dx=\dfrac{f''(x)}{1+(f'(x))^2}dx
-\]
 
 \paragraph{La lunghezza \(ds\):}
 il tratto curvo \(ds\) è indistinguibile da un segmento rettilineo lungo la 
@@ -4671,7 +4838,18 @@ che è \(dy\sim f'(x)dx\), per cui:
 ds=\sqrt{(dx)^2+(dy)^2}\sim\sqrt{(dx)^2+(f'(x)dx)^2}=dx\sqrt{1+(f'(x))^2}
 \]
 %TODO   disegno tipo p.396, magari in una semicirconf come un grafico già pronto
-\begin{center}  disegno\end{center}
+\begin{center}  \scalebox{1}{\curvaturads} \end{center}
+
+ \paragraph{Le direzioni:} sappiamo già esprimere una direzione lungo la 
+curva: geometricamente è la pendenza, il coefficiente angolare della tangente 
+alla curva nel punto considerato. Conoscendo l'angolo \(\alpha\), la pendenza 
+\(f'(x)\) in quel punto è \(f'(x)=\tg(\alpha)\) e quindi 
+\(\alpha=\arctan(f'(x))\).\\
+\begin{center}  \scalebox{1}{\curvaturadalpha} \end{center}
+Dal teorema dell'incremento si ha:
+\[
+ d\alpha \sim \Deriv{\arctan(f'(x))}dx=\dfrac{f''(x)}{1+(f'(x))^2}dx
+\]
 
 
 Dove il grafico mette in evidenza una forte curvatura, lì abbiamo un 
@@ -4682,8 +4860,11 @@ lunghezza \(ds\), a parità di angolo \(d\alpha\), e c'è una proporzionalità
 diretta fra \(k \) e \(d\alpha\), a parità di \(ds\): possiamo scrivere
 \(k\propto\frac{d\alpha}{ds}\), quindi 
 \[
- k\propto\frac{d\alpha}{ds}=\dfrac{\dfrac{f''(x)}{1+(f'(x))^2}dx}
-{\sqrt{1+(f'(x))^2}dx} =
+ k\propto\frac{d\alpha}{ds} = 
+ \dfrac{\dfrac{f''(x)}{1+(f'(x))^2} \cancel{dx}} 
+       {\sqrt{1+(f'(x))^2} \cancel{dx}} = 
+ \dfrac{f''(x)} 
+       {\tonda{1+(f'(x))^2}\tonda{1+(f'(x))^2}^{\frac{1}{2}}} = 
  \dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}
 \]
 
@@ -4698,6 +4879,228 @@ punto a punto, sarà \(k=k(x)\).
 \begin{align*}
  f(x) &= \dfrac{1}{x}\quad \text{ con } x>0 \qquad f'(x)=\dfrac{-1}{x^2}\qquad 
 f''(x)=\dfrac{2}{x^3}\\
+k(x)&=\dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}=
+\dfrac{\dfrac{2}{x^3}}{\quadra{1+\tonda{\dfrac{-1}{x^2}}^2}^{\frac{3}{2}}}=
+\dfrac{\dfrac{2}{x^3}}{\quadra{1+\dfrac{1}{x^4}}^{\frac{3}{2}}}=
+\dfrac{\dfrac{2}{x^3}}{\dfrac{[x^4+1]^\frac{3}{2}}{x^6}}=
+\dfrac{2x^2}{[x^4+1]^\frac{3}{2}}
+\end{align*}
+Per fare dei confronti, prendiamo tre punti sulla curva e confrontiamo le 
+curvature risultanti.
+\begin{center}  \scalebox{1}{\curvaturaesea} \end{center}
+
+%  Valori calcolati da me:
+% {0.5: 0.22826882356360753, 1: 0.7071067811865475, 4: 0.03106778454421443}
+\begin{align*}
+x_A&=0,5 \quad\longrightarrow \quad k(0,5)=\dfrac{2\cdot 
+0,5^2}{\sqrt{(0,5^4+1)^3}}\simeq 0,456\\
+x_B&=1 \quad  \longrightarrow \quad k(1)=\dfrac{2\cdot 
+1^2}{\sqrt{(1^4+1)^3}}=\dfrac{\sqrt{2}}{2}\simeq 0,707\\
+x_B&=4 \quad  \longrightarrow  \quad k(4)=\dfrac{2\cdot 
+4^2}{\sqrt{(4^4+1)^3}}=\simeq 0,008
+\end{align*}
+Come si vede anche dal disegno, la curvatura è più accentuata nel punto di 
+simmetria della curva, cioè \(x_B\). Allontanandosi da questo punto sia a 
+destra che a sinistra, la curvatura diminuisce rapidamente.
+\end{esempio}
+\begin{esempio}
+ Che curvatura ha una retta, per esempio \(y=3x-1\)\,? La risposta viene 
+d'istinto, trattandosi di una retta. Calcoliamo:
+\begin{align*}
+ f(x) &= 3x-1 \qquad f'(x)=3 \qquad f''(x)=0\\
+ k(x)&=\dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}=
+\dfrac{0}{\quadra{1+3^2}^\frac{3}{2}}=0
+ \end{align*}
+\begin{center}  \scalebox{1}{\curvaturaeseb} \end{center}
+\end{esempio}
+La retta non ha curvatura in alcun punto, è banale. Ovviamente vale per ogni 
+retta, anche quelle verticali, anche se in questi casi non possiamo 
+applicare la formula.
+\begin{esempio}
+ Calcola la curvatura della funzione \(f(x)=\sqrt{9-x^2}\). Si tratta della 
+semicirconferenza che ha il centro nell'origine e il raggio \(r=3\), nel 
+semipiano \(y\geqslant 0\).
+\begin{align*}
+f(x) &= \sqrt{9-x^2} \qquad f'(x)=\dfrac{-x}{\sqrt{9-x^2}} 
+\qquad f''(x)=\dfrac{-9}{\sqrt{(9-x^2)^3}}=-9\tonda{9-x^2}^{-\frac{3}{2}}\\
+k(x)&=\dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}=
+\dfrac{-9\tonda{9-x^2}^{-\frac{3}{2}}}
+{\quadra{1+\tonda{\dfrac{-x}{\sqrt{9-x^2}}}^2}^\frac{3}{2}}=
+\dfrac{-9\tonda{9-x^2}^{-\frac{3}{2}}}
+{\quadra{\dfrac{9-x^2+x^2}{9-x^2}}^\frac{3}{2}}=\\
+&=\dfrac{-9\tonda{9-x^2}^{-\frac{3}{2}}}
+{9^\frac{3}{2}\tonda{9-x^2}^{-\frac{3}{2}}}=
+-9\cdot9^{-\frac{3}{2}}=- 9^{1-\frac{3}{2}}=-9^{-\frac{1}{2}}=-\dfrac{1}{3}
+\end{align*}
+\begin{center}  \scalebox{1}{\curvaturaesec} \end{center}
+Da notare tre cose importanti:
+\begin{itemize}[noitemsep, nosep]
+\item il segno negativo è dato dal numeratore, 
+che è una derivata seconda: 
+indica che la curva rivolge la sua concavità verso il basso;
+ \item \(k\) è costante, non dipende da \(x\), come giustamente deve essere 
+per un arco di circonferenza;
+\item il numero 3 che risulta al denominatore è proprio il raggio 
+della circonferenza.
+\end{itemize}
+\end{esempio}
+
+
+\subsection{Il cerchio osculatore}
+C'è un secondo modo, molto espressivo, di indicare la curvatura. Come si vede 
+dall'ultimo esempio, se non consideriamo il segno, il risultato è il reciproco 
+del raggio della circonferenza. Infatti abbiamo definito la curvatura \(k\) 
+come \(k=\dfrac{d\alpha}{ds}\), il rapporto fra il cambio di direzione e la 
+lunghezza del tratto percorso.
+
+Nelle circonferenze, se \(\alpha\) si misura in radianti, vale la relazione 
+\(ds=rd\alpha\), per cui il raggio è \(r=\dfrac{ds}{d\alpha}=\dfrac{1}{k}\). Da 
+qui viene l'idea di esprimere la curvatura di un grafico in un suo punto 
+attraverso il raggio del cerchio che in quel punto approssima la curva al 
+meglio. Tale cerchio è chiamato \emph{cerchio osculatore}.
+
+Essendo il reciproco di \(k\), il raggio del cerchio osculatore è:
+\[
+ r=\dfrac{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}{f''(x)}
+\]
+e il segno che risulterà alla fine del calcolo ci indica se la circonferenza si 
+trova sopra o sotto la curva, come puoi verificare negli ultimi esempi.
+
+Non è difficile trovare il centro \(O\) del cerchio osculatore: 
+se \(P\) è il punto della curva che stiamo esaminando, il raggio \(r=OP\) è un 
+segmento che appartiene alla normale alla curva, passante per \(P\). Il calcolo 
+si svolge nel prossimo esempio.
+
+Quanto alla curvatura di una retta, che risulta \(0\) come abbiamo visto, il 
+raggio del cerchio osculatore risulterà infinito, come è giusto se si 
+immagina una circonferenza che ha il suo centro a distanza infinita dalla 
+retta.
+
+\begin{esempio}
+ Trovare i cerchi osculatori della parabola \(y=x^2\) nel suo vertice 
+\(V(0, 0)\) e nel punto \(P(1, 1)\).
+\[f(x)=x^2\qquad f'(x)= 2x \qquad f''(x)=2\]
+\[r(x) = \dfrac{\quadra{1 +(f'(x))^2}^{\frac{3}{2}}}{f''(x)} = 
+         \dfrac{\quadra{1 +(2x)^2}^{\frac{3}{2}}}{2} = 
+         \dfrac{\quadra{1 +4x^2}^{\frac{3}{2}}}{2}\]
+Relativamente al vertice \(V \punto{0}{0}\): \quad
+\(r(0) = \dfrac{\quadra{1 +4x^2}^{\frac{3}{2}}}{2} =
+         \dfrac{\quadra{1 +4 \cdot 0^2}^{\frac{3}{2}}}{2} =\dfrac{1}{2}\).\\
+% \(r(0) = \dfrac{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}{f''(x)} =
+%  \dfrac{\quadra{1+(2\cdot 0)^2}^{\frac{3}{2}}}{2}=\dfrac{1}{2}\).\\
+Dato che in \(V\) la parabola ha tangente orizzontale, il centro del cerchio 
+osculatore si troverà sulla verticale di \(V\), cioè in \(O_V(0, 
+\dfrac{1}{2})\).\\
+Relativamente al punto \(P \punto{1}{1}\): \quad
+\(r(1) = \dfrac{\quadra{1 +4x^2}^{\frac{3}{2}}}{2} =
+         \dfrac{\quadra{1 +4 \cdot 1^2}^{\frac{3}{2}}}{2} =
+         \dfrac{\quadra{5}^{\frac{3}{2}}}{2} \simeq 5,59\).\\
+% \(r=\dfrac{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}{f''(x)}=
+%  \dfrac{\quadra{1+2^2}^{\frac{3}{2}}}{2}\simeq 5,59\).\\
+ Dato che \(\alpha\), l'inclinazione della tangente, è 
+\(\alpha=\arctan(f'(1))=\arctan(2)=63,4^\circ\), l'inclinazione della normale 
+passante per \(P\) è \(\beta=\alpha+90^\circ=153,4^\circ\).\\
+Le coordinate del centro \(O_P\) del cerchio osculatore in \(P\) saranno 
+quindi:
+% \begin{align*}
+% x_{O_P} &= x_P+\cos\beta=x_P+\cos 153,4^\circ=1-0,89=0,11\\
+% y_{O_P} &=y_P+\sen\beta=y_P+\sen 153,4^\circ=1+0,45=1,45.
+% \end{align*}
+% Penso che vada:
+\begin{align*}
+x_{O_P} & = x_P +r \cos\beta = x_P +5,59 \cos 153,4^\circ = 
+            1 -5,59 \cdot 0,89 \simeq -3.98\\
+y_{O_P} & = y_P +r \sen\beta = y_P +5,59 \sen 153,4^\circ =
+            1 +5,59 \cdot 0,45 \simeq 3.52
+\end{align*}
+\begin{center}  \scalebox{1}{\osculatoreesea} \end{center}
+Da notare, infine, che le due circonferenze si trovano sopra la curva, dato che 
+la curvatura \(k\) è positiva perché \(f''(x) > 0\).
+\end{esempio}
+
+
+
+
+\begin {comment} 
+
+
+\subsection{Curvatura di una linea}
+I grafici delle pagine precedenti ci hanno mostrato alcune rette e tante 
+curve. 
+Calcolando le derivate abbiamo iniziato ad analizzare la forma delle 
+curve-grafici delle funzioni regolari. Anche se più avanti renderemo più 
+generali queste nozioni, al momento sappiamo che:
+\begin{itemize}[nosep]
+ \item con la derivata prima ricaviamo le pendenze di una curva, punto per 
+punto;
+\item con la derivata seconda mostriamo come variano le pendenze, perciò 
+sappiamo dire se in un certo intervallo la curva mostra una concavità 
+verso l'alto (le pendenze crescono quando \(x\) aumenta) 
+oppure una concavità verso il basso (le pendenze diminuiscono quando \(x\) 
+aumenta).
+\end{itemize}
+La maggior parte dei grafici ha una forma curvilinea, per questo ora 
+concentriamo lo studio sulla curvatura di un grafico. 
+
+Immagina di essere in 
+bicicletta lungo la curva, come un un puntino mobile su una mappa del 
+navigatore: se c'è una forte curvatura il cambio di direzione è forte in un 
+tratto breve, mentre avviene il contrario nei tratti a curvatura lieve. 
+Quindi è importante considerare 
+\begin{itemize}[nosep]
+ \item l'angolo \(d\alpha\) fra due direzioni successive, le direzioni del 
+movimento che si hanno percorrendo la curva;
+\item la lunghezza \(ds\) del tratto di curva che si considera.
+\end{itemize}
+
+ \paragraph{Le direzioni: } sappiamo già esprimere una direzione lungo la 
+curva: geometricamente è la pendenza, che corrisponde al coefficiente 
+angolare della tangente alla curva nel punto considerato. 
+Conoscendo l'angolo \(\alpha\), la pendenza 
+\(f'(x)\) in quel punto è \(f'(x)=\tg(\alpha)\) e quindi 
+\(\alpha=\arctan(f'(x))\).\\
+Dal teorema dell'incremento si ha:
+\[
+ d\alpha \sim \Deriv{\arctan(f'(x))}dx=\dfrac{f''(x)}{1+(f'(x))^2}dx
+\]
+
+\paragraph{La lunghezza \(ds\):}
+il tratto curvo \(ds\) è indistinguibile da un segmento rettilineo lungo la 
+tangente, con la componente orizzontale che è \(dx\) e quella verticale 
+che è \(dy\sim f'(x)dx\), per cui:
+\[
+ds=\sqrt{(dx)^2+(dy)^2}\sim\sqrt{(dx)^2+(f'(x)dx)^2}=dx\sqrt{1+(f'(x))^2}
+\]
+%TODO   disegno tipo p.396, magari in una semicirconf come un grafico già 
+% pronto
+\begin{center}  disegno\end{center}
+
+
+Dove il grafico mette in evidenza una forte curvatura, lì abbiamo un 
+forte cambio di direzione in un tratto breve. Al contrario dove la curvatura 
+è minore, il cambio di direzione è minore oppure avviene lungo un percorso 
+più lungo. C'è quindi una proporzionalità inversa fra la curvatura \(k\) e la 
+lunghezza \(ds\), a parità di angolo \(d\alpha\), e c'è una proporzionalità 
+diretta fra \(k \) e \(d\alpha\), a parità di \(ds\): possiamo scrivere
+\(k\propto\frac{d\alpha}{ds}\), quindi 
+\[
+ k\propto\frac{d\alpha}{ds}=\dfrac{\dfrac{f''(x)}{1+(f'(x))^2}dx}
+{\sqrt{1+(f'(x))^2}dx} =
+ \dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}
+\]
+
+Calcolando le derivate prima e seconda possiamo quindi ricavare 
+una misura della curvatura di un grafico in ogni suo punto. 
+\begin{esempio}
+Analizziamo la curvatura del grafico della funzione \(f(x)=\dfrac{1}{x}\), 
+che abbiamo già visto molte volte. Limitiamoci all'intervallo \(x>0\). 
+Il grafico non ha quasi curvatura agli estremi dell'intervallo mentre ne ha 
+una molto accentuata per \(y=x\). 
+Vediamo l'espressione di \(k\), che essendo diversa da punto a punto, sarà 
+\(k=k(x)\).
+\begin{align*}
+ f(x) &= \dfrac{1}{x}\quad \text{ con } x>0 
+ \qquad f'(x)=\dfrac{-1}{x^2}\qquad f''(x)=\dfrac{2}{x^3}\\
 k(x)&=\dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}=
 \dfrac{\dfrac{2}{x^3}}{\quadra{1+\tonda{\dfrac{-1}{x^2}}^2}^{\frac{3}{2}}}=
 \dfrac{\dfrac{2}{x^3}}{\quadra{1+\dfrac{1}{x^4}}^{\frac{3}{2}}}=
@@ -4758,17 +5161,17 @@ della circonferenza.
 \end{itemize}
 \end{esempio}
 
+\subsection{Il cerchio osculatore}
 
-\paragraph{Il cerchio osculatore}
-C'è un secondo modo, molto espressivo, di indicare la curvatura. Come si vede 
-dall'ultimo esempio, se non consideriamo il segno, il risultato è il reciproco 
-del raggio della circonferenza. Infatti abbiamo definito la curvatura \(k\) 
-come \(k=\dfrac{d\alpha}{ds}\), il rapporto fra il cambio di direzione e la 
-lunghezza del tratto percorso.
+C'è un secondo modo, molto espressivo, di indicare la curvatura. 
+Come si vede dall'ultimo esempio, se non consideriamo il segno, il risultato 
+è il reciproco del raggio della circonferenza. 
+Infatti abbiamo definito la curvatura \(k\) come \(k=\dfrac{d\alpha}{ds}\), 
+il rapporto fra il cambio di direzione e la lunghezza del tratto percorso.
 
 Nelle circonferenze, se \(\alpha\) si misura in radianti, vale la relazione 
-\(ds=rd\alpha\), per cui il raggio è \(r=\dfrac{ds}{d\alpha}=\dfrac{1}{k}\). Da 
-qui viene l'idea di esprimere la curvatura di un grafico in un suo punto 
+\(ds=rd\alpha\), per cui il raggio è \(r=\dfrac{ds}{d\alpha}=\dfrac{1}{k}\). 
+Da qui viene l'idea di esprimere la curvatura di un grafico in un suo punto 
 attraverso il raggio del cerchio che in quel punto approssima la curva al 
 meglio. Tale cerchio è chiamato \emph{cerchio osculatore}.
 
@@ -4776,16 +5179,16 @@ Essendo il reciproco di \(k\), il raggio del cerchio osculatore è:
 \[
  r=\dfrac{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}{f''(x)}
 \]
-e il segno che risulterà alla fine del calcolo ci indica se la circonferenza si 
-trova sopra o sotto la curva, come puoi verificare negli ultimi esempi.
+e il segno che risulterà alla fine del calcolo ci indica se la circonferenza 
+si trova sopra o sotto la curva, come puoi verificare negli ultimi esempi.
 
 Non è difficile trovare il centro \(O\) del cerchio osculatore: 
-se \(P\) è il punto della curva che stiamo esaminando, il raggio \(r=OP\) è un 
-segmento che appartiene alla normale alla curva, passante per \(P\). Il calcolo 
-si svolge nel prossimo esempio..
+se \(P\) è il punto della curva che stiamo esaminando, il raggio \(r=OP\) è 
+un segmento che appartiene alla normale alla curva, passante per \(P\). 
+Il calcolo si svolge nel prossimo esempio.
 
-Quanto alla curvatura di una retta, che risulta \(0\) come abbiamo visto, il 
-raggio del cerchio osculatore risulterà infinito, come è giusto se si 
+Quanto alla curvatura di una retta, che risulta \(0\) come abbiamo visto, 
+il raggio del cerchio osculatore risulterà infinito, come è giusto se si 
 immagina una circonferenza che ha il suo centro a distanza infinita dalla 
 retta.
 
@@ -4803,82 +5206,16 @@ Relativamente al punto \(P\): \quad
 \(r=\dfrac{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}{f''(x)}=
  \dfrac{\quadra{1+2^2}^{\frac{3}{2}}}{2}\simeq 5,59\).\\
  Dato che \(\alpha\), l'inclinazione della tangente, è 
-\(\alpha=\arctan(f'(1))=\arctan(2)=63,4^\circ\), l'inclinazione della normale 
-passante per \(P\) è \(\beta=\alpha+90^\circ=153,4^\circ\).\\
-Le coordinate del centro \(O_P\) del cerchio osculatore in \(P\) saranno quindi:
+\(\alpha=\arctan(f'(1))=\arctan(2)=63,4^\circ\), l'inclinazione della 
+normale passante per \(P\) è \(\beta=\alpha+90^\circ=153,4^\circ\).\\
+Le coordinate del centro \(O_P\) del cerchio osculatore in \(P\) saranno 
+quindi:
 \begin{align*}
 x_{O_P} &= x_P+\cos\beta=x_P+\cos 153,4^\circ=1-0,89=0,11\\
 y_{O_P} &=y_P+\sen\beta=y_P+\sen 153,4\circ=1+0,45=1,45.
 \end{align*}
-Da notare, infine, che le due circonferenze si trovano sopra la curva, dato che 
-la curvatura \(k\) è positiva perché \(f''(x)\geqslant 0\).
-\end{esempio}
-
-\subsection{Derivata della derivata}
-\label{}
-Abbiamo già notato che la derivata  di una funzione dipende dal punto in 
-cui si 
-calcola e che, una volta stabilito questo punto, ha un unico risultato,
-se esiste.
-Quindi la derivata di una funzione è a sua volta una funzione e,
-se ci sono le condizioni, può essere derivata a sua volta.
-\begin{definizione}
- Se una funzione \(f(x)\) è derivabile, la sua derivata è la funzione \(f'(x)\).
- Se anche \(f'(x)\) è derivabile, allora esiste la funzione \(f''(x)\) ed è
- chiamata \emph{derivata seconda di \(f(x)\)}.
-\end{definizione}
-Le regole di calcolo della derivata seconda sono le stesse regole che 
-abbiamo già visto, quindi la seconda derivazione, se è possibile, non comporta 
-problemi diversi da quelli conosciuti.
-
-Riferendoci a un generico grafico di funzione \(y=f(x)\), la derivata prima 
-\(f'(x)\) ci consente di trovare le pendenze delle tangenti al grafico. La
-derivata seconda \(f''(x)\) descrive con quanta rapidità (o lentezza) variano 
-queste pendenze, perciò ci indica quanto siano aperte o chiuse le concavità 
-che \(y=f(x)\) disegna nel piano cartesiano.
-
-In particolare vedremo che:
-\begin{itemize}
-\item 
-dove la derivata seconda è positiva la pendenza aumenta sempre di più 
-quindi la concavità è verso l'alto;
-\item 
-dove la derivata seconda è negativa la pendenza diminuisce sempre di più 
-quindi la concavità è verso il basso;
-\end{itemize}
-
-Se le condizioni sono favorevoli, esistono e sono calcolabili anche le 
-derivate terze, quarte, ecc. di una funzione, anche se non sono essenziali 
-per i nostri scopi. Il loro calcolo segue i metodi già visti.
-
-\begin{esempio}
-Calcola \(f''(1)\) di \(f(x)=2x^5-3x^4+x^3+5x^2-6x+9\).
-
-Derivata prima: 
-\(f'(x)=10 x^4-12 x^3+3x^2+10 x-6\).\\
-Derivata seconda per \(x=1\): 
-\(f''(x)|_{x=1} = (40x^3-36x^2+6x+10)|_{x=1}=40-36+6+10=20\).
-\end{esempio}
-
-\begin{esempio}
-Calcola \(f''(x)\) di \(f(x)=\ln x\).
-
-\(f'(x)=\dfrac{1}{x}\) e \(f''(x)=-\dfrac{1}{x^2}\)
-\begin{osservazione}
-La funzione \(\ln x\) esiste per \(x>0\). Le derivate prima e seconda 
-esistono per \(x\ne 0\).
-Osserviamo quindi che il campo di esistenza della funzione derivata (prima, 
-seconda, terza \dots) può non coincidere con il campo di esistenza della 
-funzione da derivare. 
-% TODO: mi sembra di capire che la derivata esiste anche dove non esiste la 
-% f(x).
-\end{osservazione}
-\end{esempio}
-
-\begin{esempio}
-Calcola le derivate successive di \(f(x)=\sen x\).\\
-\(f'(x)=\cos x\) \hspace{1cm}  \(f''(x)=-\sen x\) \hspace{1cm}
-\(f'''(x)=-\cos x\) \hspace{1cm} \(f^{IV}(x)=\sen x\) \dots
+Da notare, infine, che le due circonferenze si trovano sopra la curva, dato 
+che la curvatura \(k\) è positiva perché \(f''(x)\geqslant 0\).
 \end{esempio}
 
 \begin {comment} 
