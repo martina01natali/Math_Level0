@@ -124,8 +124,6 @@ corrisponde a circa \(60 km/h\).
 
 % \newpage %------------------------------------------
 
-\begin{comment}
-
 % Se cerchiamo la velocità media, basta dividere lo spazio percorso per il 
 % tempo impiegato:
 % \begin{align*}
@@ -4453,9 +4451,7 @@ della derivata della funzione inversa
 (\ref{subsec:differenziazione_derivatainverse}).
 \end{osservazione}
 
-\end{comment}
-
-\newpage
+% \newpage % ------------------------------------------------
 
 \section{Applicazioni}
 \label{sec:diff01_applicazioni}
@@ -4466,6 +4462,7 @@ della derivata della funzione inversa
 Riprendiamo ora qualche esempio di esercizio con le tangenti, 
 vedi definizione \ref{def:differenziazione_tangente}.
 
+\affiancati{.49}{.49}{
 \begin{esempio}
 Trova le equazioni delle tangenti alla parabola \quad 
 \(f(x) = -\dfrac{1}{4}x^2 -2x +3\) nei suoi punti di ascissa: \quad
@@ -4474,7 +4471,6 @@ Trova le equazioni delle tangenti alla parabola \quad
 Calcoliamo la derivata della funzione: \quad 
 \(f'(x) = -\dfrac{1}{2}x -2\)
 
-\affiancati{.49}{.49}{
 {%
 \newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
 \begin{center}
@@ -4491,13 +4487,13 @@ Calcoliamo la derivata della funzione: \quad
 \end{tabular}
 \end{center}
 }%
+\end{esempio}
 }{
 \begin{inaccessibleblock}
   [Parabola con alcune tangenti]
 \begin{center} \scalebox{.8}{\parabolaapplicazionia} \end{center}
 \end{inaccessibleblock}
 }
-\end{esempio}
 
 % \pagebreak %--------------------------------------------------
 
@@ -4547,6 +4543,8 @@ e il punto è: \quad
 \end{inaccessibleblock}
 }
 \end{esempio}
+
+\pagebreak %------------------------------------------
 
 \begin{esempio}
 È vero che l'iperbole equilatera di equazione \(xy = 4\) ha per vertici i 
@@ -4772,24 +4770,22 @@ Calcola la derivata seconda di \(f(x)=\ln x\).
 \begin{osservazione}
 La funzione \(\ln x\) esiste per \(x>0\), le funzioni:
 \(g(x)=\dfrac{1}{x}\) e \(h=-\dfrac{1}{x^2}\) esistono per \(x\ne 0\).
-
 Per poter interpretare \(g(x)\) e \(f(x)\) come derivate della funzione 
 \(\ln(x)\) dobbiamo restringere il dominio a \(x > 0\). 
-Quindi:
-
+Quindi:\\
 \(f'(x)=\dfrac{1}{x} \) con \(x > 0\) \quad e \quad 
 \(f''(x)=-\dfrac{1}{x^2}\) con \(x > 0\) 
 \end{osservazione}
 \end{esempio}
 
 \begin{esempio}
-Calcola le derivate successive di \(f(x)=\sen x\).\\
+Calcola le derivate successive di \(f(x)=\sen x\).\\[4pt]
 \(f'(x)=\cos x\) \hspace{1cm}  \(f''(x)=-\sen x\) \hspace{1cm}
 \(f'''(x)=-\cos x\) \hspace{1cm} \(f^{IV}(x)=\sen x\) \dots
 \end{esempio}
 
 \begin{esempio}
-Calcola le derivate successive di \(f(x)=x^4 -x^3 +3x^2 -2x +5\).\\
+Calcola le derivate successive di \(f(x)=x^4 -x^3 +3x^2 -2x +5\).\\[4pt]
 \(f'(x) = 4x^3 -3x^2 +6x -2\) \quad 
 \(f''(x) = 12x^2 -6x +6\) \quad 
 \(f'''(x) = 24x -6\) \\ 
@@ -4830,27 +4826,34 @@ spostamenti infinitesimi.
 movimento che si hanno percorrendo la curva.
 \end{itemize}
 
+\affiancati{.49}{.49}{
 \paragraph{La lunghezza \(ds\):}
 il tratto curvo \(ds\) è indistinguibile da un segmento rettilineo lungo la 
 tangente, con la componente orizzontale che è \(dx\) e quella verticale 
 che è \(dy\sim f'(x)dx\), per cui:
-\[
-ds=\sqrt{(dx)^2+(dy)^2}\sim\sqrt{(dx)^2+(f'(x)dx)^2}=dx\sqrt{1+(f'(x))^2}
-\]
+\begin{align*}
+ds &= \sqrt{(dx)^2+(dy)^2}\sim \\
+   &\sim \sqrt{(dx)^2+(f'(x)dx)^2}=dx\sqrt{1+(f'(x))^2}
+\end{align*}
+}{
 %TODO   disegno tipo p.396, magari in una semicirconf come un grafico già pronto
 \begin{center}  \scalebox{1}{\curvaturads} \end{center}
+}
 
- \paragraph{Le direzioni:} sappiamo già esprimere una direzione lungo la 
+\affiancati{.49}{.49}{
+\paragraph{Le direzioni:} sappiamo già esprimere una direzione lungo la 
 curva: geometricamente è la pendenza, il coefficiente angolare della tangente 
 alla curva nel punto considerato. Conoscendo l'angolo \(\alpha\), la pendenza 
 \(f'(x)\) in quel punto è \(f'(x)=\tg(\alpha)\) e quindi 
 \(\alpha=\arctan(f'(x))\).\\
-\begin{center}  \scalebox{1}{\curvaturadalpha} \end{center}
 Dal teorema dell'incremento si ha:
-\[
- d\alpha \sim \Deriv{\arctan(f'(x))}dx=\dfrac{f''(x)}{1+(f'(x))^2}dx
-\]
-
+\begin{align*}
+d\alpha \sim \Deriv{\arctan(f'(x))}dx=\dfrac{f''(x)}{1+(f'(x))^2}dx
+\end{align*}
+}{
+%TODO   disegno tipo p.396, magari in una semicirconf come un grafico già pronto
+\begin{center}  \scalebox{1}{\curvaturadalpha} \end{center}
+}
 
 Dove il grafico mette in evidenza una forte curvatura, lì abbiamo un 
 forte cambio di direzione in un tratto breve. Al contrario dove la curvatura è 
@@ -4885,9 +4888,10 @@ k(x)&=\dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}=
 \dfrac{\dfrac{2}{x^3}}{\dfrac{[x^4+1]^\frac{3}{2}}{x^6}}=
 \dfrac{2x^2}{[x^4+1]^\frac{3}{2}}
 \end{align*}
+
+\affiancati{.49}{.49}{
 Per fare dei confronti, prendiamo tre punti sulla curva e confrontiamo le 
 curvature risultanti.
-\begin{center}  \scalebox{1}{\curvaturaesea} \end{center}
 
 %  Valori calcolati da me:
 % {0.5: 0.22826882356360753, 1: 0.7071067811865475, 4: 0.03106778454421443}
@@ -4897,25 +4901,34 @@ x_A&=0,5 \quad\longrightarrow \quad k(0,5)=\dfrac{2\cdot
 x_B&=1 \quad  \longrightarrow \quad k(1)=\dfrac{2\cdot 
 1^2}{\sqrt{(1^4+1)^3}}=\dfrac{\sqrt{2}}{2}\simeq 0,707\\
 x_B&=4 \quad  \longrightarrow  \quad k(4)=\dfrac{2\cdot 
-4^2}{\sqrt{(4^4+1)^3}}=\simeq 0,008
+4^2}{\sqrt{(4^4+1)^3}}=\simeq 0,031
 \end{align*}
+}{
+\begin{center}  \scalebox{1}{\curvaturaesea} \end{center}
+}
 Come si vede anche dal disegno, la curvatura è più accentuata nel punto di 
 simmetria della curva, cioè \(x_B\). Allontanandosi da questo punto sia a 
 destra che a sinistra, la curvatura diminuisce rapidamente.
 \end{esempio}
+
+\affiancati{.49}{.49}{
 \begin{esempio}
- Che curvatura ha una retta, per esempio \(y=3x-1\)\,? La risposta viene 
-d'istinto, trattandosi di una retta. Calcoliamo:
+Che curvatura ha una retta, per esempio \(y=3x-1\)\,? 
+
+La risposta viene d'istinto, trattandosi di una retta. Calcoliamo:
 \begin{align*}
- f(x) &= 3x-1 \qquad f'(x)=3 \qquad f''(x)=0\\
- k(x)&=\dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}=
+f(x) &= 3x-1 \qquad f'(x)=3 \qquad f''(x)=0\\
+k(x)&=\dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}=
 \dfrac{0}{\quadra{1+3^2}^\frac{3}{2}}=0
- \end{align*}
-\begin{center}  \scalebox{1}{\curvaturaeseb} \end{center}
-\end{esempio}
+\end{align*}
 La retta non ha curvatura in alcun punto, è banale. Ovviamente vale per ogni 
-retta, anche quelle verticali, anche se in questi casi non possiamo 
+retta, anche quelle verticali, anche se in questo caso non possiamo 
 applicare la formula.
+\end{esempio}
+}{
+\begin{center}  \scalebox{1}{\curvaturaeseb} \end{center}
+}
+
 \begin{esempio}
  Calcola la curvatura della funzione \(f(x)=\sqrt{9-x^2}\). Si tratta della 
 semicirconferenza che ha il centro nell'origine e il raggio \(r=3\), nel 
@@ -4932,8 +4945,9 @@ k(x)&=\dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}=
 {9^\frac{3}{2}\tonda{9-x^2}^{-\frac{3}{2}}}=
 -9\cdot9^{-\frac{3}{2}}=- 9^{1-\frac{3}{2}}=-9^{-\frac{1}{2}}=-\dfrac{1}{3}
 \end{align*}
-\begin{center}  \scalebox{1}{\curvaturaesec} \end{center}
 Da notare tre cose importanti:
+
+\affiancati{.49}{.49}{
 \begin{itemize}[noitemsep, nosep]
 \item il segno negativo è dato dal numeratore, 
 che è una derivata seconda: 
@@ -4943,8 +4957,12 @@ per un arco di circonferenza;
 \item il numero 3 che risulta al denominatore è proprio il raggio 
 della circonferenza.
 \end{itemize}
+}{
+\begin{center}  \scalebox{1}{\curvaturaesec} \end{center}
+}
 \end{esempio}
 
+\pagebreak %-----------------------------------------------------
 
 \subsection{Il cerchio osculatore}
 C'è un secondo modo, molto espressivo, di indicare la curvatura. Come si vede 
@@ -4997,9 +5015,12 @@ Relativamente al punto \(P \punto{1}{1}\): \quad
          \dfrac{\quadra{5}^{\frac{3}{2}}}{2} \simeq 5,59\).\\
 % \(r=\dfrac{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}{f''(x)}=
 %  \dfrac{\quadra{1+2^2}^{\frac{3}{2}}}{2}\simeq 5,59\).\\
- Dato che \(\alpha\), l'inclinazione della tangente, è 
+
+Dato che \(\alpha\), l'inclinazione della tangente, è 
 \(\alpha=\arctan(f'(1))=\arctan(2)=63,4^\circ\), l'inclinazione della normale 
-passante per \(P\) è \(\beta=\alpha+90^\circ=153,4^\circ\).\\
+passante per \(P\) è \(\beta=\alpha+90^\circ=153,4^\circ\).
+
+\affiancati{.39}{.59}{
 Le coordinate del centro \(O_P\) del cerchio osculatore in \(P\) saranno 
 quindi:
 % \begin{align*}
@@ -5008,16 +5029,19 @@ quindi:
 % \end{align*}
 % Penso che vada:
 \begin{align*}
-x_{O_P} & = x_P +r \cos\beta = x_P +5,59 \cos 153,4^\circ = 
-            1 -5,59 \cdot 0,89 \simeq -3.98\\
-y_{O_P} & = y_P +r \sen\beta = y_P +5,59 \sen 153,4^\circ =
-            1 +5,59 \cdot 0,45 \simeq 3.52
+x_{O_P} &= x_P +r \cos\beta = \\
+        &= x_P +5,59 \cos 153,4^\circ = \\
+        &= 1 -5,59 \cdot 0,89 \simeq -3.98\\ \\
+y_{O_P} &= y_P +r \sen\beta = \\
+        &= y_P +5,59 \sen 153,4^\circ = \\
+        &= 1 +5,59 \cdot 0,45 \simeq 3.52
 \end{align*}
-\begin{center}  \scalebox{1}{\osculatoreesea} \end{center}
+}{
+\hspace{-5mm}\scalebox{1}{\osculatoreesea}
+}
 Da notare, infine, che le due circonferenze si trovano sopra la curva, dato che 
 la curvatura \(k\) è positiva perché \(f''(x) > 0\).
 \end{esempio}
-
 
 
 

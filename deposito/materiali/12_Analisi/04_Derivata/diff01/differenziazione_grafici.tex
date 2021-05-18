@@ -1971,16 +1971,6 @@
   }
 }
 
-% \newcommand{\frecciax}[3]{
-%   % example:
-%   % \disegno{}
-%   \def \pp{#1}
-%   \def \pa{#2}
-%   \def \lx{#3}
-%   \draw [-{Latex[length=2mm, width=1mm]}, black] \pp 
-%     node[below]{\footnotesize \(\lx\)} -- \pa; 
-% }
-
 \newcommand{\basedsincos}{% 
 % Disegno di base per le derivate di sin, cos, arcsin, arccos
   \def \ra{1}
@@ -2930,9 +2920,9 @@
   \def \DDf{18./(\xo*\xo*\xo)}
   \def \xo{1.5}
   \def \mix{0}
-  \def \max{10}
+  \def \max{9}
   \def \miy{0}
-  \def \may{10}
+  \def \may{9}
   \disegno{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
@@ -2949,9 +2939,9 @@
   \def \DDf{18./(\xo*\xo*\xo)}
   \def \xo{1.5}
   \def \mix{0}
-  \def \max{10}
+  \def \max{9}
   \def \miy{0}
-  \def \may{10}
+  \def \may{9}
   \disegno{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
@@ -2961,23 +2951,33 @@
   }
 }
 
+\newcommand{\freccia}[4]{
+  \def \pp{#1}
+  \def \pa{#2}
+  \def \poslabel{#3}
+  \def \value{#4}
+  \draw [-{Latex[length=2mm, width=1mm]}, black] \pp 
+    node[\poslabel]{\footnotesize \(\value\)} -- \pa; 
+}
+
 \newcommand{\curvaturaesea}{% Applicazioni: curvatura y=1/x
   \def \fa{1./x}
   \def \faa{1./\xo}
   \def \Df{-1./(\xo*\xo)}
   \def \DDf{2./(\xo*\xo*\xo)}
-  \def \punti{.5, 1, 4}
+  \def \punti{.5/{0,456}, 1/{0,707}, 4/{0,031}}
   \def \mix{0}
   \def \max{5}
   \def \miy{0}
   \def \may{5}
-  \disegno[10]{
+  \disegno[8]{
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \tkzFct[domain=0.05:\max+0.3, ultra thick, \fcolor] {\fa}
-    \foreach \xo in \punti{
+    \foreach \xo/\lab in \punti{
       \pgfmathparse{\faa} \let\yo\pgfmathresult
       \filldraw [\fcolor] (\xo, \yo) circle(1.5pt);
+      \freccia{(\xo+1, \yo+1)}{(\xo, \yo)}{above}{\lab}
     }
   }
 }
