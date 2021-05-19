@@ -2918,7 +2918,8 @@
   \def \faa{9./\xo}
   \def \Df{-9./(\xo*\xo)}
   \def \DDf{18./(\xo*\xo*\xo)}
-  \def \xo{1.5}
+  \def \xa{1.5}
+  \def \xb{3}
   \def \mix{0}
   \def \max{9}
   \def \miy{0}
@@ -2927,8 +2928,14 @@
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \tkzFct[domain=0.2:\max+0.3, ultra thick, \fcolor] {\fa}
-    \pgfmathparse{\faa} \let\yo\pgfmathresult
-    \filldraw [\fcolor] (\xo, \yo) circle(1.5pt);
+    \def \xo {\xa} \pgfmathparse{\faa} \let\ya\pgfmathresult
+    \def \xo {\xb} \pgfmathparse{\faa} \let\yb\pgfmathresult
+    \filldraw [\fcolor] (\xa, \ya) circle(1.5pt) node [left] {\(A\)}
+                        (\xb, \yb) circle(1.5pt) node [left] {\(B\)};
+    \draw (\xa, \ya) -- 
+          (\xb, \ya) node [midway, above, black] {\(\Delta x\)} -- 
+          (\xb, \yb) node [midway, right, black] {\(\Delta y\)} -- 
+          cycle node [midway, left, black] {\(\Delta s\)};
   }
 }
 
@@ -2937,7 +2944,10 @@
   \def \faa{9./\xo}
   \def \Df{-9./(\xo*\xo)}
   \def \DDf{18./(\xo*\xo*\xo)}
-  \def \xo{1.5}
+  \def \xa{1.5}
+  \def \xb{3}
+  \def \moda{.9}
+  \def \modb{3}
   \def \mix{0}
   \def \max{9}
   \def \miy{0}
@@ -2946,8 +2956,19 @@
     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
     \tkzFct[domain=0.2:\max+0.3, ultra thick, \fcolor] {\fa}
-    \pgfmathparse{\faa} \let\yo\pgfmathresult
-    \filldraw [\fcolor] (\xo, \yo) circle(1.5pt);
+    \def \xo {\xa} \pgfmathparse{\faa} \let\ya\pgfmathresult
+    \pgfmathparse{\Df} \let\ma\pgfmathresult
+    \def \xo {\xb} \pgfmathparse{\faa} \let\yb\pgfmathresult
+    \pgfmathparse{\Df} \let\mb\pgfmathresult
+    \filldraw [\fcolor] (\xa, \ya) circle(1.5pt) node [left] {\(A\)}
+                        (\xb, \yb) circle(1.5pt) node [right] {\(B\)};
+    \begin{scope} [-{Latex[length=3mm, width=1.5mm]}, ultra thick, \dcolor] 
+       \draw (\xa, \ya) -- (\xa+\moda, \ya+\moda*\ma); 
+       \draw (\xb, \yb) -- (\xb+\modb, \yb+\modb*\mb); 
+    \end{scope}
+    \draw (\xa, \ya) -- (\xa+\moda*1.5, \ya+\moda*1.5*\ma); 
+    \draw (\xb, \yb) -- (\xb-\modb*.3, \yb-\modb*.3*\mb); 
+    \node at (3.5, 1.5) [\dcolor] {\(\Delta \alpha\)};
   }
 }
 
