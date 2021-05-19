@@ -248,8 +248,10 @@ a partire da istanti diversi corrispondono a spazi percorsi diversi.
 Il grafico \emph{tempo-velocità} mostra che la progressione della velocità 
 è lineare: man mano che il tempo scorre la velocità cresce 
 proporzionalmente, come già si vede dalla tabella.
-La formula \(v=9,81\times t\) ci permette il calcolo della velocità per 
-ogni valore reale di \(t\) e questa è la risposta alla domanda iniziale. 
+
+La formula \quad \(v=9,81\times t\) \quad ci permette il calcolo della 
+velocità per ogni valore reale di \(t\) e questa è la risposta alla domanda 
+iniziale. 
 
 % Il grafico visualizza la legge oraria del 
 % moto di caduta libera sotto due aspetti diversi: il ramo di parabola 
@@ -3026,7 +3028,8 @@ Allora:
 \begin{align*}
 f'(g(h)) &= f'(g(f)) \cdot g'(h) \cdot h'(x) = \\
 &= -\dfrac{1}{\sqrt{2x-3}} \cdot \dfrac{1}{2\sqrt{2x-3}} \cdot 2 = \\
-&= -\dfrac{1}{\tonda{2x-3} \cdot \sqrt{2x-3}}
+&= -\dfrac{1}{\tonda{2x-3} \cdot \sqrt{2x-3}} = 
+   - \tonda{2x-3}^{-\frac{3}{2}}
 \end{align*}
 }{
 \funzionecompostaederivata
@@ -5046,6 +5049,197 @@ y_{O_P} &= y_P +r \sen\beta = \\
 Da notare, infine, che le due circonferenze si trovano sopra la curva, dato che 
 la curvatura \(k\) è positiva perché \(f''(x) > 0\).
 \end{esempio}
+
+\subsection{Applicazioni non solo matematiche}
+Il calcolo della derivata è entrato da protagonista nella descrizione 
+matematica dei fenomeni naturali da almeno \(300\) anni e più recentemente
+anche nello studio delle scienze umane e sociali. 
+Gli esempi che seguono si servono di questo calcolo in due modi:
+\begin{itemize}[nosep]
+\item per trovare il tasso di variazione:
+data una funzione, si deve cercare quanto rapidamente essa varia rispetto
+alla sua variabile;
+\item attraverso l'equazione alle differenze, 
+nella forma diretta \(\Delta f(x)\cong f'(x_0)\Delta x\), o nella forma
+inversa \(\Delta x \cong \dfrac{\Delta f(x)}{f'(x_0)}\).
+\end{itemize}
+L' utilità dell'equazione alle differenze viene dal
+fatto che si tratta di un'equazione di primo grado in \(\Delta x\), perché i 
+termini infinitesimi di grado superiore sono trascurati. Le soluzioni che 
+così si ottengono sono approssimate, ma in genere il grado di imprecisione è 
+sopportabile.
+
+\begin{esempio}
+Se lanci verso l'alto una palla alla velocità iniziale \(v=20\) m/s, questa 
+viene  frenata dalla forza di gravità e la sua legge del moto risulta 
+all'incirca  \(h(t)=20t-5t^2\). Trova a quale altezza \(h\) la palla si ferma.
+
+Ricordiamo che la velocità è la derivata sella posizione rispetto al tempo:
+\(v(t) = s'(t)\) e che se la palla si ferma, la sua velocità è nulla, quindi:
+\[v(t) = h'(t) = 20-10t = 0 \srarrow t = 2s \srarrow 
+  h(2) = 20 \cdot 2-5 \cdot 2^2 = 20 m\]
+\end{esempio}
+
+\begin{esempio}
+L'aereo A parte da Milano a mezzogiorno e vola in direzione Ovest 
+mediamente a 
+\(800\) km/h, mentre l'aereo B parte due ore dopo e si dirige a Sud a \(800\) 
+km/h. Se volano alla stessa quota, con quale velocità si allontanano l'uno 
+dall'altro dopo 4 ore?\\
+Soluzione. Le due equazioni del moto sono \(s_A=800t\) e \(s_B=800(t-2)\). 
+Calcoliamo prima la distanza fra i due, poi la loro velocità relativa.
+Si tratta di direzioni perpendicolari e possiamo applicare il teorema di 
+Pitagora.\\
+\(s_{AB}=\sqrt{s_A^2+s_B^2}=\sqrt{(800t)^2+[(800(t-2)]^2}=
+800\sqrt{t^2+t^2-2t+4}=800\sqrt{2t^2-2t+4}\).\\
+\(v_{AB}|_{t=4}=\pst{\dfrac{ds_{AB}}{dt}}\bigg|_{t=4}=\dfrac{800(4t-2)}{2\sqrt{
+2t
+^2-2t+4}}\bigg|_{t=4}\cong 907\) km/h.
+\end{esempio}
+
+\begin{esempio}
+Un circuito è percorso da corrente variabile. Infatti la carica che 
+attraversa il conduttore ad un certo istante \(t\) è data da \(q(t)=t^3-24t\).
+È possibile che in qualche istante le cariche siano ferme?\\
+Risposta. Se le cariche sono ferme, la corrente è nulla.\\ 
+\(i(t)=q'(t)=3t^2-24=0\srarrow t_1=\sqrt{8}\cong 2,8
+\mbox{  e } t_2=-\sqrt{8} \cong -2,8\) s.\\
+La corrente è nulla \(2,8\) s prima e dopo l'istante \(t\).
+\end{esempio}
+
+\begin{esempio}
+Il biologo Jacques Monod mostrò che lo sviluppo di una colonia di batteri 
+di Escherichia Coli segue una crescita esponenziale, se sufficientemente 
+nutrita. Ogni microrganismo si scinde in due dopo circa \(20\) minuti, per cui 
+la popolazione al tempo \(t\), misurato in ore, conta 
+\(N(t)=N_0e^{\frac{t}{3}}\)
+individui. Dopo quante ore il numero di batteri passa da \(10^6\) a \(10^9\)?\\
+Soluzione: \(\Delta N\cong N'(t)\Delta t=\dfrac{N_0}{3}e^{\frac{t}{3}}\Delta t
+\srarrow \Delta t\cong\dfrac{3\Delta N}{N_0e^{\frac{t}{3}}}=\dfrac{3\Delta N}
+{N(t)}\).\\
+Il numero iniziale di batteri è \(10^6=N(0)=N_0e^0\). Perciò:
+\(\Delta t\cong\dfrac{3(10^9-10^6)}{10^9}\), che, calcolato in ore,  
+corrisponde 
+a 
+3 ore meno \(11\) secondi circa.
+
+\begin{osservazione}
+Dunque, la risposta è che in quasi \(3\) ore il numero di batteri passa da un 
+milione a un miliardo, che è \(1000\) volte tanto. Possiamo pensare che 
+occorra lo stesso tempo per passare da \(1\) individuo a \(1000\), oppure da 
+\(1000\) individui a \(1\) milione?
+\end{osservazione}
+\begin{osservazione}
+Come mai in un caso del genere l'uso delle derivate non è indispensabile? 
+Perché la funzione esponenziale è l'unica funzione che ha per derivata...
+\end{osservazione}
+\begin{osservazione}
+Si tratta di un problema tipico sulla crescita esponenziale, di quelli già 
+risolti quando ancora non conoscevi l'esistenza delle derivate, riguardanti
+per esempio l'interesse composto o il decadimento radiattivo.
+\end{osservazione}
+
+\end{esempio}
+
+\begin{esempio}
+Il costo marginale è l'aumento di costo che si ha quando si vuole produrre 
+un'unità in più di un certo bene.\\
+Supponi che per produrre un certo numero \(n\) di aghi il costo in euro sia
+\(y=\sqrt{n}\). Calcola il costo marginale per produrne più di \(10.000\).\\
+Soluzione: \(y=\sqrt{n}\srarrow y'=\dfrac{1}{2\sqrt{n}}\).
+Se \(n=10000\), \(\Delta y \cong\dfrac{1}{2\sqrt{10000}}\Delta n=\dfrac{\Delta 
+n}{200}\).
+Il costo marginale, cioè per unità in più, è quindi dello \(0,5\%\).
+\begin{osservazione}
+Anche in questo caso concreto, non è possibile pensare che \(\Delta n\) sia 
+un infinitesimo, dato che non ha senso calcolare il costo per frazioni 
+infinitesime di un ago.
+\end{osservazione}
+\end{esempio}
+
+\begin{esempio}
+Una barra metallica è lunga \(10\) m a \(T=0 ^\circ C\) e al crescere della 
+temperatura si dilata secondo la legge \(l(T)=10(1+0,000024T)\). Di quanti 
+gradi 
+occorre aumentare la temperatura perché aumenti la sua lunghezza di \(5\) 
+cm?\\
+La risposta è la stessa in ogni caso, oppure dipende dal valore iniziale 
+di 
+\(T\)?\\
+Risposta. \(\Delta T = \dfrac{\Delta l(T)}{l'(T)}=\dfrac{0,05}
+{10\cdot 0,000024}=208,3 ^\circ C\).\\
+Nella formula risolutiva non compare il simbolo \(T\), quindi la risposta 
+non 
+dipende dalla temperatura iniziale. Ovviamente tutto questo deve avvenire 
+nei 
+limiti del fenomeno, cioè finché non si raggiunge la temperatura di 
+fusione.
+\begin{osservazione}
+Si tratta di un semplice esercizio di fisica: la legge coinvolta si chiama
+legge della dilatazione lineare, perché il suo grafico nel piano 
+cartesiano è una retta. Poiché la legge è espressa da un polinomio di 
+primo grado, la soluzione non contiene la variabile \(T\) e l'equazione alle 
+differenze è
+esatta: non ci sono infinitesimi da trascurare.\\
+Non è indispensabile coinvolgere il calcolo infintesimale per un problema 
+di
+primo grado come questo: avresti potuto risolverlo anche in terza media.
+\end{osservazione}
+\end{esempio}
+
+\section{Sintesi}
+\label{subsec:diff01_derisintesi}
+Nel seguente schema riassumiamo le derivate immediate e le regole di 
+derivazione:
+
+\vspace{1em}
+\begin{minipage}[c]{.48\textwidth}
+\begin{center}
+\emph{Derivate immediate}
+
+\vspace{.5em}
+\begin{tabular}{cc} 
+\toprule
+\(f(x)\) & \(f'(x)\)\\ 
+\midrule 
+\(k\)  & 0 \\ [6pt]
+\(x\) & 1 \\ [6pt]
+\(x^\alpha\) & \(\alpha x^{\alpha-1}\) \\ [6pt]
+\(e^x\) & \(e^x\)\\ [6pt]
+\(a^x\) & \(a^x\ln a\)\\[6pt]
+\(\ln x\) & \(\dfrac{1}{x}\)\\[6pt]
+\(\log_a x\) & \(\dfrac{1}{x\ln a}\)\\[6pt]
+\(\sen x\) & \(\cos x\) \\ [6pt]
+\(\cos x\) & \(-\sen x\) \\ [6pt]
+\(\tg x\) & \(\dfrac{1}{cos^2 x}=\tg^2 x +1\) \\[6pt]
+\(\arcsin x\) & \(\dfrac{1}{\sqrt{1 -x^2}}\)\\[6pt]
+\(\arccos x\) & \(-\dfrac{1}{\sqrt{1 -x^2}}\)\\[6pt]
+\(\arctan x\) & \(\dfrac{1}{1 +x^2}\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.48\textwidth}
+\begin{center}
+\emph{Regole di derivazione}
+
+\vspace{.5em}
+\begin{tabular}{l}
+\toprule
+\(\Deriv{f(x)+g(x)} = f'(x)+g'(x)\)\\[8pt]
+\(\Deriv{kf(x)} = kf'(x)\)\\[8pt]
+\(\Deriv{f(x)\cdot g(x)} = f'(x)\cdot g(x)+f(x)\cdot g'(x)\)\\[8pt]
+\(\Deriv{\dfrac{1}{f(x)}} = -\dfrac{f'(x)}{f^2(x)}\)\\[8pt]
+\(\Deriv{\dfrac{f(x)}{g(x)}} = \dfrac{f'(x)\cdot g(x)-f(x)
+                               \cdot g'(x)}{g^2(x)}\)\\[8pt]
+\(\Deriv{f(g(x)) = f'(g(x))\cdot g'(x)}\) \\[8pt]
+\(\Deriv{f(x)} = \dfrac{1}{\Deriv{f^{-1}(y)}}\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+% \vspace{20mm}
+\end{minipage}
 
 
 
