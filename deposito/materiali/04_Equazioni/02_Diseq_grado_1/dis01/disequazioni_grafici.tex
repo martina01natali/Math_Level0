@@ -105,26 +105,26 @@
     \the\@tempcnta
 }
 \makeatother
-
-\newcommand{\trespolosegnidis}[6]{% Grafo calcolo del segno con tre assi
-  % Esempio di chiamata:
-  %% \trespolosegni{5}{1.2}{3}{f(x), g(x), f(x)\cdot g(x)}{2}{2, 5}
-  \def \dimx{#1}
-  \def \dimy{#2}
-  \def \numassi{#3}
-  \def \labassi{#4}
-  \def \numpunti{#5}
-  \def \labpunti{#6}
-  \foreach \li [count = \i] in \labassi{
-    \assex{-\dimx}{\dimx}{-\i*\dimy}
-    \node at (-\dimx, -\i*\dimy) (posy) [above left=-.2] {\(\li\)};
-  }
-  \pgfmathparse{\dimx*2 / (\numpunti+1)} \let\largx\pgfmathresult
-  \foreach \li [count = \i] in \labpunti{
-    \draw (\i*\largx-\dimx, -\numassi * \dimy) -- (\i*\largx-\dimx, 0)
-          node [above] {\(\li\)};
-  }
-}
+% 
+% \newcommand{\trespolosegnidis}[6]{% Grafo calcolo del segno con tre assi
+%   % Esempio di chiamata:
+%   %% \trespolosegni{5}{1.2}{3}{f(x), g(x), f(x)\cdot g(x)}{2}{2, 5}
+%   \def \dimx{#1}
+%   \def \dimy{#2}
+%   \def \numassi{#3}
+%   \def \labassi{#4}
+%   \def \numpunti{#5}
+%   \def \labpunti{#6}
+%   \foreach \li [count = \i] in \labassi{
+%     \assex{-\dimx}{\dimx}{-\i*\dimy}
+%     \node at (-\dimx, -\i*\dimy) (posy) [above left=-.2] {\(\li\)};
+%   }
+%   \pgfmathparse{\dimx*2 / (\numpunti+1)} \let\largx\pgfmathresult
+%   \foreach \li [count = \i] in \labpunti{
+%     \draw (\i*\largx-\dimx, -\numassi * \dimy) -- (\i*\largx-\dimx, 0)
+%           node [above] {\(\li\)};
+%   }
+% }
 
 \newcommand{\segniprodottoa}{% Segno del prodotto di due funzioni
   \foreach \x/\y in {+1.67/-.6, -1.67/-1.7, -1.67/-2.8, +1.67/-2.8}

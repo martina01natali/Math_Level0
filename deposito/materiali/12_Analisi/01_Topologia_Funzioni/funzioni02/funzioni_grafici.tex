@@ -3,51 +3,212 @@
 % Tutti i grafici per il capitolo relativo alle funzioni_new
 % 
 
-\newcommand{\deffunzione}[4]{% 
-  % Definizione di funzione
-  \def \nomea{#1}
-  \def \nomeb{#2}
-  \def \nomec{#3}
-  \def \nomed{#4}
+\def \fdcolor{red!50!black} % colore della funzione diretta
+\def \ficolor{blue!50!black} % colore della funzione inversa
+
+\newcommand{\insiemeesottoinsieme}[9]{% Insieme e suo sottoinsieme
+  \def \centro{#1}
+  \def \raggioia{#2}
+  \def \raggioib{#3}
+  \def \tcolori{#4}
+  \def \bcolori{#5}
+  \def \raggiosa{#6}
+  \def \raggiosb{#7}
+  \def \angolos{#8}
+  \def \colors{#9}
+  \shadedraw [opacity=.5, very thick]
+    \centro circle [x radius=\raggiosa, y radius=\raggiosb, 
+                    ball color=\colors, rotate=\angolos];
+  \shadedraw[
+    top color=\tcolori,
+    bottom color=\bcolori, very thick,
+    shading angle={45},
+    opacity=.3,
+    x radius=\raggioia, y radius=\raggioib] \centro circle; 
+}
+
+\newcommand{\insiemeesottoinsiemi}[9]{% Insieme e due sottoinsiemi
+  \def \centro{#1}
+  \def \raggioia{#2}
+  \def \raggioib{#3}
+  \def \tcolori{#4}
+  \def \bcolori{#5}
+  \def \raggiosa{#6}
+  \def \raggiosb{#7}
+  \def \angolos{#8}
+  \def \colors{#9}
+  \shadedraw[
+    top color=\tcolori,
+    bottom color=\bcolori, very thick,
+    shading angle={45},
+    opacity=.3,
+    x radius=\raggioia, y radius=\raggioib] \centro circle; 
+  \shadedraw [opacity=.3, very thick]
+    \centro circle [x radius=\raggiosa, y radius=\raggiosb, xshift=-2mm, 
+                    ball color=\colors, opacity=.3, rotate=\angolos];
+  \shadedraw [opacity=.3, very thick]
+    \centro circle [x radius=\raggiosa, y radius=\raggiosb, xshift=+2mm, 
+                    ball color=\colors, opacity=.3, rotate=-\angolos];
+}
+
+\newcommand{\scritta}[5]{% etichetta curva
+  \def \testo{#1}
+  \def \inizio{#2}
+  \def \controla{#3}
+  \def \controlb{#4}
+  \def \fine{#5}
+  \draw [red!0, dashed]
+        [postaction={decoration={text along path, text={\testo},
+          text align={align=center}}, decorate}]
+        \inizio .. controls \controla and \controlb .. \fine;
+}
+
+\newcommand{\frecce}[9]{% Frecce che uniscono due insiemi
+  \def \centroa{#1}
+  \def \centrob{#2}
+  \def \etichetta{#3}
+  \def \angout{#4}
+  \def \angin{#5}
+  \def \daa{#6}
+  \def \finoa{#7}
+  \def \dab{#8}
+  \def \finob{#9}
+  \begin{scope}[out=\angout, in=\angin]
+    \draw [|->, very thick] \centroa to 
+      [edge node={node [sloped, above] {\(\etichetta\)}}] 
+      #2; % errore con \centrob
+%     \draw \daa to \finoa \dab to \finob; % stesso errore
+    \draw [dotted, thick] #6 to #7 #8 to #9;               % questo va!???
+  \end{scope}
+}
+
+\newcommand{\deffunzione}[4]{% Definizione di funzione
+  \def \insa{#1}
+  \def \sinsa{#2}
+  \def \insb{#3}
+  \def \sinsb{#4}
   \disegno{
-    \shadedraw [shading=ball]
-      (0,0) circle [x radius=2, y radius=3, ball color=red!20, rotate=+20];
-    \draw [red!0, dashed]
-          [postaction={decoration={text along path, text={\nomeb},
-           text align={align=center}}, decorate}]
-          (-2.5,1) .. controls (-2,4) and (1,4) .. (2,1);
-    \shadedraw[
-      top color=yellow!70,
-      bottom color=red!70,
-      shading angle={45},
-      opacity=.5,
-      x radius=4, y radius=5] (0, 0) circle; 
-    \draw [red!0, dashed]
-          [postaction={decoration={text along path, text={\nomea},
-           text align={align=center}}, decorate}]
-      (-3.5,3) .. controls (-2,6) and (2,6) .. (3.5,3);
-    \shadedraw [shading=ball] (12,0) circle [x radius=1.6, y radius=2.4,
-                                           ball color=red!20, rotate=-20];
-    \draw [red!0, dashed]
-          [postaction={decoration={text along path, text={\nomed},
-           text align={align=center}}, decorate}]
-          (10.2,.5) .. controls (11,3.5) and (14,3.5) .. (14,.5);
-    \shadedraw[
-      top color=yellow!70,
-      bottom color=blue!70,
-      shading angle={45},
-      opacity=.5,
-      x radius=4, y radius=5] (12, 0) circle;
-    \draw [red!0, dashed]
-          [postaction={decoration={text along path, text={\nomec},
-           text align={align=center}}, decorate}]
-      (8.5,3) .. controls (10,6) and (14,6) .. (15.5,3);
-    \draw [|->, very thick] (0, 0) to [out=20, in=160,
-       edge node={node [sloped,above] {\(f\)}}] (12, 0);
-    \draw (-1, 2.824) to [out=20, in=160] (12.8, 2.26);
-    \draw (+1.1,-2.8) to [out=20, in=160] (11.2,-2.27);
+    \insiemeesottoinsieme{(0, 0)}{4}{5}{yellow!70}{red!70}
+                         {2}{3}{+20}{blue!20}
+    \scritta{\insa}{(-3.5, 3)}{(-2, 6)}{(2, 6)}{(3.5, 3)}
+    \scritta{\sinsa}{(-2.5, 1)}{(-2, 4)}{(1, 4)}{(2, 1)}
+    \insiemeesottoinsieme{(12, 0)}{4}{5}{yellow!70}{blue!70}
+                         {1.6}{2.4}{-20}{red!20}
+    \scritta{\insb}{(+8.5, 3)}{(10, 6)}{(14, 6)}{(15.5, 3)}
+    \scritta{\sinsb}{(10.2, .5)}{(11, 3.5)}{(14, 3.5)}{(14, .5)}
+    \frecce{(0, 0)}{(12, 0)}{f}{20}{160}
+           {(-1, 2.824)}{(12.8, 2.26)}{(+1.1,-2.8)}{(11.2,-2.27)}
   }
 }
+
+\newcommand{\deffunzionecomposta}[7]{% Definizione di funzione composta
+  \def \insa{#1}
+  \def \sinsa{#2}
+  \def \insb{#3}
+  \def \sinsb{#4}
+  \def \ssinsb{#5}
+  \def \insc{#6}
+  \def \sinsc{#7}
+  \disegno{
+    \insiemeesottoinsieme{(0, 0)}{4}{5}{yellow!70}{red!70}
+                         {2}{3}{+20}{blue!50}
+    \scritta{\insa}{(-3.5, 3)}{(-2, 6)}{(2, 6)}{(3.5, 3)}
+    \scritta{\sinsa}{(-2.5, 1)}{(-2, 4)}{(1, 4)}{(2, 1)}
+    \insiemeesottoinsiemi{(7, 7)}{3}{4}{red!70}{green!70}
+                         {1.6}{2.4}{+20}{red!10}
+    \scritta{\insb}{(+3.5, 7.7)}{(+5, 12.5)}{(9, 12.5)}{(10.5, 7.7)}
+    \freccia{(3, 9.5)}{(5.8, 8.8)}{left}{\sinsb}
+    \freccia{(11, 9.5)}{(8.2, 8.8)}{right}{\ssinsb}
+    \frecce{(0, .4)}{(6.8, 7)}{h}{60}{200}
+           {(-1, 2.824)}{(5.8, 9.26)}{(+1.1,-2.8)}{(7.0,+4.7)}
+    \insiemeesottoinsieme{(14, 0)}{4}{5}{yellow!70}{blue!70}
+                         {1.6}{2.4}{-20}{red!20}
+    \scritta{\insc}{(+10.5, 3)}{(12, 6)}{(16, 6)}{(17.5, 3)}
+    \scritta{\sinsc}{(12.2, .5)}{(13, 3.5)}{(16, 3.5)}{(16, .5)}
+    \frecce{(7.2, 7)}{(14, .3)}{g}{-20}{120}
+           {(7, 9.)}{(14.8, 2.26)}{(7.0,+4.7)}{(13.2,-2.27)}
+    \frecce{(0, 0)}{(14, 0)}{f = g \circ h}{20}{160}
+           {(-1, 2.824)}{(14.8, 2.26)}{(+1.1,-2.8)}{(13.2,-2.27)}
+  }
+}
+
+%   {Dominio}{{I.D. di \(f\)}}{{I.I. di \(f^{-1}\)}}
+%   {Codominio}{{I.I. di \(f\)}}{{I.D. di \(f^{-1}\)}}
+
+\newcommand{\deffunzioneinversa}[6]{% Definizione di funzione inversa
+  \def \insa{#1}
+  \def \sinsaa{#2}
+  \def \sinsab{#3}
+  \def \insb{#4}
+  \def \sinsba{#5}
+  \def \sinsbb{#6}
+  \disegno{
+    \insiemeesottoinsieme{(0, 0)}{4}{5}{yellow!70}{red!70}
+                         {2}{3}{+20}{blue!20}
+    \scritta{\insa}{(-3.5, 3)}{(-2, 6)}{(2, 6)}{(3.5, 3)}
+%     \scritta{}{(-2.5, 1)}{(-2, 4)}{(1, 4)}{(2, 1)}
+    \insiemeesottoinsieme{(12, 0)}{4}{5}{yellow!70}{blue!70}
+                         {1.6}{2.4}{-20}{red!20}
+    \scritta{\insb}{(+8.5, 3)}{(10, 6)}{(14, 6)}{(15.5, 3)}
+%     \scritta{}{(10.2, .5)}{(11, 3.5)}{(14, 3.5)}{(14, .5)}
+    \frecce{(0, 1)}{(12, 1)}{f}{20}{160}
+           {(-1, 2.824)}{(12.8, 2.26)}{(+1.1,-2.8)}{(11.2,-2.27)}
+  \begin{scope}[out=200, in=340]
+    \draw [|->, very thick] (12, -.5) to 
+      [edge node={node [sloped, below] {\(f^{-1}\)}}] (0, -.5);
+  \end{scope}
+    \freccia{(-4, +3)}{(-1, +2)}{left}{\sinsaa}
+    \freccia{(16, +3)}{(12.5, +1.5)}{right}{\sinsba}
+    \freccia{(-4, -3)}{(0, -2)}{left}{\sinsab}
+    \freccia{(16, -3)}{(12, -1.5)}{right}{\sinsbb}
+  }
+}
+
+% \newcommand{\deffunzione}[4]{% 
+%   % Definizione di funzione
+%   \def \nomea{#1}
+%   \def \nomeb{#2}
+%   \def \nomec{#3}
+%   \def \nomed{#4}
+%   \disegno{
+%     \shadedraw [shading=ball]
+%       (0,0) circle [x radius=2, y radius=3, ball color=red!20, rotate=+20];
+%     \draw [red!0, dashed]
+%           [postaction={decoration={text along path, text={\nomeb},
+%            text align={align=center}}, decorate}]
+%           (-2.5,1) .. controls (-2,4) and (1,4) .. (2,1);
+%     \shadedraw[
+%       top color=yellow!70,
+%       bottom color=red!70,
+%       shading angle={45},
+%       opacity=.5,
+%       x radius=4, y radius=5] (0, 0) circle; 
+%     \draw [red!0, dashed]
+%           [postaction={decoration={text along path, text={\nomea},
+%            text align={align=center}}, decorate}]
+%       (-3.5,3) .. controls (-2,6) and (2,6) .. (3.5,3);
+%     \shadedraw [shading=ball] (12,0) circle [x radius=1.6, y radius=2.4,
+%                                            ball color=red!20, rotate=-20];
+%     \draw [red!0, dashed]
+%           [postaction={decoration={text along path, text={\nomed},
+%            text align={align=center}}, decorate}]
+%           (10.2,.5) .. controls (11,3.5) and (14,3.5) .. (14,.5);
+%     \shadedraw[
+%       top color=yellow!70,
+%       bottom color=blue!70,
+%       shading angle={45},
+%       opacity=.5,
+%       x radius=4, y radius=5] (12, 0) circle;
+%     \draw [red!0, dashed]
+%           [postaction={decoration={text along path, text={\nomec},
+%            text align={align=center}}, decorate}]
+%       (8.5,3) .. controls (10,6) and (14,6) .. (15.5,3);
+%     \draw [|->, very thick] (0, 0) to 
+%       [out=20, in=160, edge node={node [sloped,above] {\(f\)}}] (12, 0);
+%     \draw (-1, 2.824) to [out=20, in=160] (12.8, 2.26);
+%     \draw (+1.1,-2.8) to [out=20, in=160] (11.2,-2.27);
+%   }
+% }
 
 \newcommand{\dueassivuoti}{% 
   % Disegno di due assi paralleli
@@ -82,7 +243,7 @@
   % di una funzione.
   \def \argomento{#1} \def \risultato{#2}
   \disegno{
-    \rcomvar{-7}{+7}{-3}{+10}{gray!50, very thin, step=1}
+    \rcomvar{-5}{+6}{-3}{+8}{gray!50, very thin, step=1}
             {argomento}{risultato}
     \draw [dashed, red!50!black] (\argomento, \risultato) --
       (0, \risultato) node [left, blue!50!black] {\(f(x)\)};
@@ -113,171 +274,676 @@
 \newcommand{\graficob}{% Grafico di una funzione con punti evidenziati.
   \def \fun{-2*\x+3}
   \disegno{
-    \graficoxy{-5}{+7}{-10}{+10}{brown!50!black}{\fun}
-    \fpunti{\fun}{brown!50!black}{-3}{+6}
+    \graficoxy{-5}{+7}{-8}{+9}{brown!50!black}{\fun}
+    \fpunti{\fun}{brown!50!black}{-3}{+5}
   }
 }
 
+\newcommand{\insdefa}{% insieme di definizione 1
+  \disegno{
+    \graficoxy{-5}{+5}{-5}{+5}{brown!50!black}{x+sin(3*x)}
+    \evidenzia{(-5.3, 0)}{(+5.3, 0)}
+  }
+}
+
+\newcommand{\insdefb}{% insieme di definizione 2
+  \disegno{
+  \graficospezzato{-5}{+5}{-5}{+5}{brown!50!black}{(x*x -5)/(x*x +x -12)}
+                  {-5.3/-4.1, -3.9/+2.95, +3.1/+5.3}
+    \evidenzia{(-5.3, 0)}{(-4, 0)}
+    \evidenzia{(+3, 0)}{(+5.3, 0)}
+    \evidenziadafino{(-4, 0)}{(+3, 0)}{white}{white}
+  }
+}
+
+\newcommand{\insdefc}{% insieme di definizione 3
+  \disegno{
+    \graficoxy{-5}{+5}{-5}{+5}{brown!50!black}{sqrt(2*x+5)}
+    \evidenziada{(-2.5, 0)}{(+5.3, 0)}{blue}
+  }
+}
+
+\newcommand{\insdefd}{% insieme di definizione 4
+  \disegno{
+    \graficospezzato{-5}{+5}{-5}{+5}{brown!50!black}{tan(x -2)/2}
+                    {-5.3/-2.8, -2.65/+0.35, +0.45/+3.5, +3.65/+5.3}
+    \evidenziameno{(-5.3, 0)}{(+5.3, 0)}{(-2.71, 0), (0.43, 0), (3.57, 0)}
+  }
+}
+
+\newcommand{\insdefe}{% insieme di definizione 5
+  \disegno{
+    \graficospezzato{-5}{+5}{-5}{+5}{brown!50!black}{sqrt(5./(x-2)+2)}
+                    {-5.3/+1.9, +2.1/+5.3}
+    \evidenziafino{(-5.3, 0)}{(-.5, 0)}{blue}
+    \evidenziada{(+2, 0)}{(+5.3, 0)}{white}
+  }
+}
+
+\newcommand{\segnifratta}{% Segni del quoziente di due funzioni
+  \foreach \x/\y in {-1.67/-.6, -1.67/-2.8}
+    \cerchietto{\x}{\y}
+  \foreach \x/\y in {+1.67/-1.7, +1.67/-2.8}
+    \crocetta{\x}{\y}
+  \foreach \x/\s in {-3.5/-, 0/+, 3.5/+}
+    \node at (\x, -1.1) [above] {\(\s\)};
+  \foreach \x/\s in {-3.5/-, 0/-, 3.5/+}
+    \node at (\x, -2.2) [above] {\(\s\)};
+  \foreach \x/\s in {-3.5/+, 0/-, 3.5/+}
+    \node at (\x, -3.3) [above] {\(\s\)};
+}
+
+\newcommand{\soluzionefratta}{% Trespolo con soluzione di una dis. fratta
+  \disegno{
+    \trespolosegnidis{5}{1.1}
+                     {3}{2x+1, x-2, f(x)}
+                     {2}{-\frac{1}{2}, +2}
+    \segnifratta
+    \rayl{-3.3}{5}{-1.67}{}{blue}
+    \rayr{-3.3}{5}{+1.67}{}{white}
+  }
+}
+
+\newcommand{\funpari}{% Funzione pari.
+  \disegno{
+    \graficospezzato{-5}{+5}{-5}{+5}{brown!50!black}
+                    {(x**3 -3*x)/(-2*x**3+5*x)}
+                    {-5.3/-1.59, -1.57/+1.57, +1.59/+5.3}
+    \evidenziameno{(-5.3, 0)}{(+5.3, 0)}{(-1.58, 0), (0, 0), (+1.58, 0)}
+  }
+}
+
+\newcommand{\fundispari}{% Funzione pari.
+  \disegno{
+  \graficoxy{-5}{+5}{-5}{+5}{brown!50!black}{(x**3 -6*x)/(x**2+4)}
+    \evidenzia{(-5.3, 0)}{(+5.3, 0)}
+  }
+}
+
+\newcommand{\funnoparidispari}{% Funzione pari.
+  \disegno{
+  \graficoxy{-5}{+5}{-5}{+5}{brown!50!black}{(-x**3+2)/(x**2+1)}
+    \evidenzia{(-5.3, 0)}{(+5.3, 0)}
+  }
+}
+
+\newcommand{\funperiodica}{% Funzione periodica.
+  \disegno{
+    \graficoxy{-10}{+15}{-3}{+3}{brown!50!black}{sin(x)+2*sin(2*x)}
+    \begin{scope} [green!50!black, opacity=.2] 
+    \filldraw (0, -3.3) rectangle (2*3.14159, +3.3);
+    \foreach \xp in {-1, ..., 2}{
+      \draw [ultra thick] (\xp*2*3.14159, -3.3) -- (\xp*2*3.14159, +3.3);}
+    \end{scope}
+  }
+}
+
+\newcommand{\funzeri}{% Zeri di una funzione.
+  \disegno{
+    \graficoxy{-3}{+3}{-3}{+6}{brown!50!black}{x**4 -5*x**2 +4}
+    \foreach \xp/\posl/\lab in {-2/left/-2, -1/right/-1, 
+                                +1/left/+1, +2/right/+2}{
+    \filldraw [red!50!black] 
+      (\xp, 0) circle(1.5pt) node [below, black] {\footnotesize\(\lab\)};
+    }
+  }
+}
+
+\newcommand{\limitatezzaa}{% Funzione illimitata
+  \disegno{
+    \graficoxy{-1}{+9}{-5}{+5}{brown!50!black}{log(x)}
+    \evidenzia{(0, -5.3)}{(0, +5.3)}
+  }
+}
+
+\newcommand{\limitatezzab}{% Funzione limitata inferiormente
+  \disegno{
+    \graficoxy{-5}{+5}{-1}{+9}{brown!50!black}{exp(x)}
+    \evidenziada{(0, 0)}{(0, 9.3)}{white}
+  }
+}
+
+\newcommand{\limitatezzac}{% Funzione limitata
+  \disegno{
+    \graficoxy{-5}{+5}{-5}{+5}{brown!50!black}{sin(x)}
+    \evidenziadafino{(0, -1)}{(0, +1)}{blue}{blue}
+  }
+}
+
+\newcommand{\limitatezzad}{% Funzione limitata inferiormente
+  \disegno{
+    \graficoxy{-5}{+5}{-5}{+5}{brown!50!black}{-x*x+2*x+3}
+    \evidenziafino{(0, -5.3)}{(0, +4)}{blue}
+  }
+}
 
 \newcommand{\intervallimonotonia}{% Interv. di monotonia di una funzione.
-  \disegno{
-    \graficoxy{-10}{+10}{-10}{+10}{brown!50!black}{.03*x**3-.2*x**2-x}
-    \draw [brown!50!black] (-1.8, 1) -- (-1.8, 0) node [below] {\(a\)};
-    \draw [brown!50!black] (6.25, -6.8) -- (6.25, 0) node [above] {\(b\)};
+  \disegno[4.5]{
+    \graficoxy{-5}{+9}{-4}{+4}{brown!50!black}{.03*x**3-.1*x**2-x}
+    \draw [brown!50!black] (-2.403, 1.41) -- (-2.403, 0) node [below] {\(a\)};
+    \draw [brown!50!black] (+4.625, -3.796) -- (+4.625, 0) node [above] {\(b\)};
   }
 }
 
-\newcommand{\graficoincipita}{% Grafico di una funzione per l'incipit.
-  \disegno{
-    \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{.75*x-2}
-  }
+\newcommand{\boxfunzionecompostaa}{% Box della prima funzione composta
+  \def \latox{4}
+  \def \latoy{2}
+  \def \lab{f(x):~ x \mapsto \dfrac{\tonda{x -2}^2}{8}}
+  \def \labf{g(x):~ x \mapsto \dfrac{x^2}{2}}
+  \def \labff{\dfrac{\xoo^2}{2}}
+  \def \xo{5}
+  \def \ff{\xoo*\xoo / 2}
+  \def \labg{h(x):~  x \mapsto x -2}
+  \def \labgg{\xo -2}
+  \def \labfa{h}
+  \def \fg{\xo -2}
+  \def \labfg{g(h(\xo))}
+  \boxfcomposta
 }
 
-\newcommand{\graficoincipitb}{% Grafico di una funzione per l'incipit.
+\newcommand{\funzcompostaa}{% Rappresentazione della prima funzione composta
   \disegno{
-    \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{-.5*x**2-2*x+3}
-  }
-}
-
-\newcommand{\graficoincipitc}{% Grafico di una funzione per l'incipit.
-  \disegno{
-    \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{2**x}
-  }
-}
-
-\newcommand{\graficoincipitd}{% Grafico di una funzione per l'incipit.
-  \disegno{
-    \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{log(x)}
-  }
-}
-
-\newcommand{\modelloquadratico}{% Modello quadratico per l'incipit.
-  \disegno{
-    \graficoxy{-2}{+12}{-2}{+10}{brown!50!black}{.1*x**2-.9*x+3}
-    \foreach \pi in {
-    (1, 2), (2, 1.6), (3, 1.5), (6, 1.2), (7, 1.7), (8, 2), (9, 3.1)
+    \graficixy{0}{7}{0}{7}{{x-2}/blue, {x*x/2.}/red, {(x-2)**2/2.}/violet}
+    \foreach \px/\py/\col in {5/3/blue, 3/4.5/red, 5/4.5/violet}{
+      \filldraw (\px, \py) [\col] circle(1.5pt);
     }
-    \filldraw [brown!50!black] \pi circle (2.5pt);
-   
+    \draw [dashed] (0, 4.5) node [left] {\footnotesize \(f(5)=g(h(5))=4,5\)} 
+                   -- (5, 4.5) -- (5, 0) node [below] {\footnotesize \(5\)}
+                   (5, 3) -- (0, 3) node [left] {\footnotesize \(h(5)=3\)}
+                   (3, 4.5) -- (3, 0) node [below] {\footnotesize \(3\)}
+                   (0, 3) arc(90:360:3);
+    \draw (6.5, 5.4) node [blue] {\(h(x)\)}
+          (2.8, 6.5) node [red] {\(g(x)\)}
+          (4.9, 6.5) node [violet] {\(f(x)\)};
   }
 }
 
-\newcommand{\funzionediscontinua}{% Modello quadratico per l'incipit.
+\newcommand{\boxfunzionecompostab}{% Box della seconda funzione composta
+  \def \latox{5}
+  \def \latoy{2}
+  \def \lab{f:~x \mapsto 2^{-x^2+2x+4}}
+  \def \labf{g:~x \mapsto 2^x}
+  \def \labff{2^{\xoo}}
+  \def \xo{3}
+  \def \ff{pow(2, \xoo)}  % questo: 2**(\xoo) non funziona!
+  \def \labg{h:~x \mapsto -x^2 +2x +4}
+  \def \labgg{-\xo^2 +2 \cdot \xo +4}
+  \def \labfa{h}
+  \def \fg{-\xo*\xo +2*\xo +4}
+  \def \labfg{g(h(\xo))}
+  \boxfcomposta
+}
+
+\newcommand{\funzcompostab}{% Rappresentazione della seconda funzione composta
   \disegno{
-    \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
-    \tkzFct[domain=-10.3:+2, ultra thick, color=brown!50!black]
-           {.1*x**3-.5*x**2-2*x+6}
-    \tkzFct[domain=+2:+10.3, ultra thick, color=brown!50!black]
-           {.1*x**3-.5*x**2-2*x+3}
-    \filldraw [brown!50!black] (2, +0.8) circle (2.5pt);
+    \graficixy{0}{7}{0}{7}
+              {{-x*x+2*x+4}/blue, {2**x}/red, {2**(-x*x+2*x+4)}/violet}
+%     \graficixy{0}{5}{0}{5}
+%               {{-.25*x*x+5}/blue, {2**x}/red, {2**(-.25*x*x+5)}/violet}
+%     \graficixy{0}{5}{0}{5}
+%               {{-.25*x*x+2}/blue, {exp(x)}/red, {exp(-.25*x*x+2)}/violet}
+    \foreach \px/\py/\col in {3/1/blue, 1/2/red, 3/2/violet}{
+      \filldraw (\px, \py) [\col] circle(1.5pt);
+    }
+    \draw [dashed] (0, 2) node [left] {\footnotesize \(f(3)=g(h(3))=2\)} 
+                   -- (3, 2) -- (3, 0) node [below] {\footnotesize \(3\)}
+                   (3, 1) -- (0, 1) node [left] {\footnotesize \(h(3)=1\)}
+                   (1, 4.5) -- (1, 0) node [below] {\footnotesize \(1\)}
+                   (0, 1) arc(90:360:1);
+    \draw (1, 5.5) node [blue] {\(h(x)\)}
+          (3.6, 6.7) node [red] {\(g(x)\)}
+          (1.7, 6.7) node [violet] {\(f(x)\)};
   }
 }
 
-\newcommand{\incipitgraficoa}{% Grafico di funzione.
+\newcommand{\funzcompostac}{% Rappresentazione della terza funzione composta
   \disegno{
-    \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
-    \tkzFct[domain=-10.3:+10.3, ultra thick, color=brown!50!black]
-           {(2*x**2 + x + 1) / (x**2 + x + .5)}
+    \graficixy{-3}{+6}{0}{7}
+              {{sqrt(x)}/blue, {x+2}/red, {sqrt(x) + 2}/violet,
+              {sqrt(x + 2)}/purple}
+    \draw (5, 1.5) node [blue] {\(f(x)\)}
+          (3.6, 6.6) node [red] {\(g(x)\)}
+          (5, 4.8) node [violet] {\(g \circ f\)}
+          (5, 3.2) node [purple] {\(f \circ g\)};
   }
 }
 
-\newcommand{\incipitgraficob}{% Grafico di funzione.
-  \def \funzione{(3*(x - 5)*(x + 1)) / ((x - 6)*(x + 2))}
-  \disegno{
-    \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
-    \tkzFct[domain=-10.3:-2, ultra thick, color=brown!50!black]
-           {\funzione}
-    \tkzFct[domain=-2:+6, ultra thick, color=brown!50!black]
-           {\funzione}
-    \tkzFct[domain=+6:+10.3, ultra thick, color=brown!50!black]
-           {\funzione}
+\newcommand{\formulainversaa}{% 
+  % Una funzione e alcuni suoi punti con indicati ascisse e ordinate.
+  \def \fun{3*x -6}
+  \def \mix{-2}
+  \def \max{+7}
+  \def \miy{-6}
+  \def \may{+12}
+  \disegno[4]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[ultra thick, blue!50!red, domain=\mix-0.3:\max+0.3]{\fun}
+    \foreach \xp/\yp in {0/-6, 1/-3, 2/0, 3/{+3}, 
+                         4/{+6}, 5/{+9}, 6/{+12}}{
+      \gnominonum{\xp}{\yp}{white!30!black}{blue!50!red}{0}}
   }
 }
 
-\newcommand{\incipitsecanticurva}{% 
-  % Secanti ad una parabola nel punto (5; 4).
-  \def \raggio{2pt}
+\newcommand{\funzinversaa}{% Bisettrice e due funzioni.
+  \disegno[4]{
+  \graficixy{-7}{+7}{-7}{+7}
+            {x/gray, {3*x -6}/blue!50!black, {1./3*x +2}/red!50!black}
+    \node at (-6.0, -5.0) [gray, rotate=45] {\(y = x\)};
+    \node at (+2.5, -6.5) [blue!50!black]{\(y = 3x -6\)};
+    \node at (-5.5, +2.0) [red!50!black]{\(y = \dfrac{1}{3}x +2\)};
+  }
+}
+
+\newcommand{\esponenzialeIDeII}{% Espnenziale e insiemi D. e I.
   \disegno{
-  \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
-  \begin{scope}[ultra thick, color=brown!50!black]
-    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-0.3,ymax=+10.3]
-    \tkzFct[domain=-10:+10]{0.2*x*(x+2)-x+2}
+    \graficoxy{-5}{+5}{-1}{+9}{brown!50!black}{exp(x)}
+    \evidenziada[blue]{(0, 0)}{(0, 9.3)}{white}
+    \evidenzia[red]{(-5.3, 0)}{(+5.3, 0)}
+    \draw (4, -.6) node [red] {I.D.}
+          (-.6, 7.5) node [blue, rotate=90] {I.I.}
+          (3.4, 8.5) node [brown!50!black] {\(y = e^x\)};
+  }
+}
+
+\newcommand{\logaritmoIDeII}{% Logaritmica e insiemi D. e I.
+  \disegno{
+    \graficoxy{-1}{+9}{-5}{+5}{brown!50!black}{log(x)}
+    \evidenziada[red]{(0, 0)}{(9.3, 0)}{white}
+    \evidenzia[blue]{(0, -5.3)}{(0, +5.3)}
+    \draw (7.5, -.6) node [red] {I.D.}
+          (-.6, 4) node [blue, rotate=90] {I.I.}
+          (7., 2.4) node [brown!50!black] {\(y = \ln x\)};
+  }
+}
+
+\newcommand{\radiceIDeII}{% Radice e insiemi D. e I.
+  \disegno{
+    \graficoxy{-1}{+5}{-1}{+5}{brown!50!black}{sqrt(x)}
+    \evidenziada[blue]{(0, 0)}{(0, 5.3)}{blue}
+    \evidenziada[red]{(0, 0)}{(+5.3, 0)}{red}
+    \draw (4, -.6) node [red] {I.D.}
+          (-.6, 4.5) node [blue, rotate=90] {I.I.}
+          (4, 2.6) node [brown!50!black] {\(y = \sqrt{x}\)};
+  }
+}
+
+\newcommand{\semiquadratoIDeII}{% Semiparabola positiva e insiemi D. e I.
+  \disegno{
+    \graficospezzato{-1}{+5}{-1}{+5}{brown!50!black}{x*x}{0/5.3}
+    \evidenziada[blue]{(0, 0)}{(0, 5.3)}{blue}
+    \evidenziada[red]{(0, 0)}{(+5.3, 0)}{red}
+    \draw (4, -.6) node [red] {I.D.}
+          (-.6, 4.5) node [blue, rotate=90] {I.I.}
+          (3.3, 4.5) node [brown!50!black] {\(y = x^2\)};
+  }
+}
+
+\newcommand{\sinIDeII}{% Seno e insiemi D. e I.
+  \disegno[8]{
+    \graficoxy{-2}{+2}{-2}{+2}{brown!50!black}{sin(x)}
+    \filldraw [green!50!black, opacity=.2] 
+              (-1.57, -2.3) rectangle (3.14159/2, +2.3);
+    \evidenziadafino[blue]{(0, -1)}{(0, +1)}{blue}{blue}
+    \evidenziadafino[red]{(-3.14159/2, 0)}{(+3.14159/2, 0)}{red}{red}
+    \draw (0, -2) node [brown!50!black] {\(y = \sin{x}\)};
+  }
+}
+
+\newcommand{\arcsinIDeII}{% Arcoseno e insiemi D. e I.
+  \disegno[8]{
+    \graficospezzato{-2}{+2}{-2}{+2}{brown!50!black}{asin(x)}{-1/+1}
+    \evidenziadafino[blue]{(0, -3.14159/2)}{(0, +3.14159/2)}{blue}{blue}
+    \evidenziadafino[red]{(-1, 0)}{(+1, 0)}{red}{red}
+    \draw (0, -2) node [brown!50!black] {\(y = \arcsin{x}\)};
+  }
+}
+
+\newcommand{\cosIDeII}{% Coseno e insiemi D. e I.
+  \disegno[8]{
+    \graficoxy{-0}{+4}{-2}{+2}{brown!50!black}{cos(x)}
+    \filldraw [green!50!black, opacity=.2] 
+              (0, -2.3) rectangle (3.14159, +2.3);
+    \evidenziadafino[blue]{(0, -1)}{(0, +1)}{blue}{blue}
+    \evidenziadafino[red]{(0, 0)}{(+3.14159, 0)}{red}{red}
+    \draw (1, 1.8) node [brown!50!black] {\(y = \cos{x}\)};
+  }
+}
+
+\newcommand{\arccosIDeII}{% Arcocoseno positiva e insiemi D. e I.
+  \disegno[8]{
+    \graficospezzato{-2}{+2}{-0}{+4}{brown!50!black}{acos(x)}{-1/+1}
+    \evidenziadafino[blue]{(0, 0)}{(0, +3.14159)}{blue}{blue}
+    \evidenziadafino[red]{(-1, 0)}{(+1, 0)}{red}{red}
+    \draw (0, 3.8) node [brown!50!black] {\(y = \arccos{x}\)};
+  }
+}
+
+\newcommand{\tanIDeII}{% Tangente e insiemi D. e I.
+  \disegno[8]{
+    \graficospezzato{-3}{+3}{-4}{+4}{brown!50!black}{tan(x)}
+                    {-3.3/-1.59, -1.56/+1.56, +1.59/+3.3}
+    \filldraw [green!50!black, opacity=.2] 
+              (-1.57, -4.3) rectangle (3.14159/2, +4.3);
+    \evidenzia[blue]{(0, -4.3)}{(0, +4.3)}
+    \evidenziadafino[red]{(-3.14159/2, 0)}{(+3.14159/2, 0)}{red}{red}
+    \draw (0.3, -3.8) node [brown!50!black] {\(y = \tan{x}\)};
+  }
+}
+
+\newcommand{\arctanIDeII}{% Arcotangente positiva e insiemi D. e I.
+  \disegno[8]{
+    \graficoxy{-4.5}{+4.5}{-1.8}{+1.8}{brown!50!black}{atan(x)}
+    \evidenziadafino[blue]{(0, -3.14159/2)}{(0, +3.14159/2)}{blue}{blue}
+    \evidenzia[red]{(-4.8, 0)}{(+4.8, 0)}
+    \draw (3, 1.6) node [brown!50!black] {\(y = \arctan{x}\)};
+  }
+}
+
+\newcommand{\esempioinva}{% Esempio 1 funzione inversa.
+  \disegno[4]{
+  \graficixy{-7}{+7}{-7}{+7}
+            {x/gray, {3*x +2}/\fdcolor, {(x-2)/3.}/\ficolor}
+    \node at (-6.0, -5.0) [gray, rotate=45] {\(y = x\)};
+    \node at (-1.0, +6.5) [\fdcolor]{\(y = 3x +2\)};
+    \node at (-5.5, -1.0) [\ficolor]{\(y = \dfrac{x-2}{3}\)};
+  }
+}
+
+\newcommand{\finversa}[2]{% Disegna l'inversa della funzione data in argomento
+% Esempio d'uso
+% \disegno{
+%   \rcom{-7}{+7}{-7}{+7}{gray!50, very thin, step=1}
+%   \finversa{ultra thick, blue!50!black, domain=-7.3:7.3}{(x+1)**3}
+% }
+    \begin{scope} [xscale=-1, rotate=90]
+    \tkzFct[#1]{#2}
+    \end{scope}
+}
+
+\newcommand{\esempioinvb}{% Esempio 2 funzione inversa.
+  \disegno[4]{
+    \graficoxy{-7}{+7}{-7}{+7}{gray}{x}
+    \finversa{ultra thick, \fdcolor, domain=-7.3:7.3}{(x+1)**3}
+    \tkzFct[ultra thick, \ficolor, domain=-7.3:7.3]{(x+1)**3}
+    \node at (-6.0, -5.0) [gray, rotate=45] {\(y = x\)};
+    \node at (-5.5, -1.5) [\fdcolor]{\(y = \sqrt[3]{x}-1\)};
+    \node at (-1.5, +6.5) [\ficolor]{\(y = \tonda{x +1}^3\)};
+  }
+}
+
+\newcommand{\esempioinvc}{% Esempio 3 funzione inversa.
+  \disegno[4]{
+    \graficoxy{-7}{+7}{-7}{+7}{gray}{x}
+    \tkzFct[ultra thick, \fdcolor, domain=-7.3:2]{exp(x+1)-1}
+    \finversa{ultra thick, \ficolor, domain=-7.3:2}{exp(x+1)-1}
+    \tkzFct[ultra thick, blue!50!black, domain=-1.198:+7.3]{log(x+1)-1}
+    \node at (-6.0, -5.0) [gray, rotate=45] {\(y = x\)};
+    \node at (-1.0, +6.5) [\fdcolor]{\(y = 3x +2\)};
+    \node at (-5.5, -1.0) [\ficolor]{\(y = \dfrac{x-2}{3}\)};
+  }
+}
+
+\newcommand{\esempioinvd}{% Esempio 4 funzione inversa.
+  \disegno[4]{
+    \graficoxy{-5}{+9}{-5}{+9}{gray}{x}
+    \tkzFct[ultra thick, \fdcolor, domain=-2:7.3]{-x*x-4*x+3}
+    \finversa{ultra thick, \ficolor, domain=-2:7.3}{-x*x-4*x+3}
+    \node at (-4.0, -3.0) [gray, rotate=45] {\(y = x\)};
+    \node at (-2.0, +7.5) [\fdcolor]{\(y = -x^2-4x +5\)};
+    \node at (6.0, -2.7) [\ficolor]{\(y = -2 +\sqrt{7 -x}\)};
+  }
+}
+
+\newcommand{\relvennins}[5]{% Insieme con elementi.
+  \def \nome{#1}
+  \def \spostamento{#2}
+  \def \colore{#3}
+  \def \punti{#4}
+  \def \pos {#5}
+  \begin{scope}[xshift=\spostamento]
+    \draw (0, 0) circle (10mm) node[above=10mm, \colore] {\(\nome\)};
+%     \node[circle, minimum height=2cm, draw] (A) at (0,0) {};
+%     \node[above] (A1) at (A.north) {\(\nome\)};
+    \foreach \pnt/\lab/\nome in \punti{
+      \filldraw [fill=\colore] \pnt 
+        circle (2pt) node (\nome) [\pos] {$\lab$};}
   \end{scope}
-  \begin{scope}[color=Black]
-    \filldraw (5, 4) circle (2pt) node [above left] {A};
-    \foreach \p/\n in {(4, 2.8)/\(P_7\), 
-                      (3, 2)/\(P_6\), (1.5, 1.55)/\(P_5\)}
-      \filldraw \p circle (\raggio) node [below, yshift=-1mm] {\n};
-    \foreach \p/\n in {(0, 2)/\(P_4\), (-1.19, 3)/\(P_3\), 
-                      (-2.5, 4.75)/\(P_2\), (-4, 7.6)/\(P_1\)}
-      \filldraw \p circle (\raggio) node [below left, yshift=-1mm] {\n}; 
+}
+
+\newcommand{\relvennfrecce}{% Frecce di una relazione tra due insiemi.
+  \begin{scope}[-latex, smooth, thick, violet]
+    \draw (a1.east) .. controls +(10:1.0cm) and +(150:1cm) .. (b1.west);
+    \draw (a1.east) .. controls +(-10:1.5cm) and +(170:1cm) .. (b3.west);
+    \draw (a2.east) .. controls +(00:0.5cm) and +(200:1cm) .. (b1.west);
+    \draw (a3.east) .. controls +(10:0.5cm) and +(170:2cm) .. (b4.west);
   \end{scope}
-  \begin{scope}[thick, color=Cyan!50!black]
-    \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-1.3,ymax=+10.3]   
-    \tkzFct{1.2*x-2}   % per AB
-    \tkzFct{x-1}       % per AC
-    \tkzFct{0.7*x+.5}   % per AD
-    \tkzFct{0.4*x+2}   % per AE
-    \tkzFct{0.162*x+3.19}     % per AF
-    \tkzFct{-0.1*x+4.5}  % per AG
-    \tkzFct{-0.4*x+6}  % per AH  
+}
+
+\newcommand{\relvenn}{% Rappresentazione di una relazione con frecce
+  \disegno[10]{
+    \relvennins{A}{0}{magenta}
+      {(0,.6)/a/a1, (.5,.1)/b/a2, (-.4,-.5)/c/a3, (.4,-.7)/d/a4}{left}
+    \relvennins{B}{2.3cm}{cyan}
+      {(-.1,.6)/1/b1, (-.2,.2)/2/b2, (.2,-.7)/3/b3, (.5,-.2)/4/b4}{right}
+    \relvennfrecce
+  }
+}
+
+\newcommand{\funzvennfrecce}{% Frecce di una funzione tra due insiemi.
+  \begin{scope}[-latex, smooth, thick, violet]
+    \draw (a1.east) .. controls +(10:1.0cm) and +(150:1cm) .. (b2.west);
+    \draw (a2.east) .. controls +(00:0.5cm) and +(200:1cm) .. (b1.west);
+    \draw (a3.east) .. controls +(-10:0.5cm) and +(200:2cm) .. (b2.west);
   \end{scope}
+}
+
+\newcommand{\funzvenn}{% Rappresentazione di una funzione con Venn
+  \disegno[10]{
+    \relvennins{A}{0}{magenta}
+      {(0,.6)/a/a1, (.5,.1)/b/a2, (-.4,-.5)/c/a3, (.4,-.7)/d/a4}{left}
+    \relvennins{B}{2.3cm}{cyan}
+      {(-.1,.6)/1/b1, (-.2,.2)/2/b2, (.2,-.7)/3/b3, (.5,-.2)/4/b4}{right}
+    \funzvennfrecce
   }
 }
 
-\newcommand{\rollea}{% teorema di Rolle.
-  \disegno{
-    \rcom{-2}{+10}{-2}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-2.3,xmax=+10.3,ymin=-2.3,ymax=+10.3]
-    \tkzFct[domain=-10.3:+10.3, ultra thick, color=brown!50!black]
-           {.05*x**3-0.73*x**2+3*x+4}
-    \draw [thick, color=Green!50!black](1.1, 6.5) -- (1.2, 0) 
-          node [thick, below] {a};
-    \draw [thick, color=Green!50!black](6, 6.5) -- (6, 0) 
-          node [thick, below] {b};
-  }
-}
 
-\newcommand{\rolleb}{% teorema di Rolle.
-  \disegno{
-    \rcom{-2}{+10}{-2}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-2.3,xmax=+10.3,ymin=-2.3,ymax=+10.3]
-    \tkzFct[domain=-10.3:+10.3, ultra thick, color=brown!50!black]
-           {.1*x**3-1.1*x**2+3*x+4}
-    \draw [thick, color=Green!50!black](1, 6) -- (1, 0) 
-          node [thick, below] {a};
-    \draw [thick, color=Green!50!black](7.25, 6) -- (7.25, 0) 
-          node [thick, below] {b};
-  }
-}
+\begin{comment}
 
-\newcommand{\graficoint}[6]{  % Grafico di una funzione.
-% NON vanno gli intervalli!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  % Esempio di chiamata:
-  % \disegno{\graficoint{-7}{+7}{-11}{+10}{2*x+3}{{-7.3/-.9}, {+.9/+7.3}}
-  \def \grxmi{#1}
-  \def \grxma{#2}
-  \def \grymi{#3}
-  \def \gryma{#4}
-  \def \funzione{#5}
-  \def \intervals{#6}
-  \pgfmathparse{\grxmi-.3)} \let\grxxmi\pgfmathresult
-  \pgfmathparse{\grxma+.3)} \let\grxxma\pgfmathresult
-  \pgfmathparse{\grymi-.3)} \let\gryymi\pgfmathresult
-  \pgfmathparse{\gryma+.3)} \let\gryyma\pgfmathresult
-    \rcom{\grxmi}{\grxma}{\grymi}{\gryma}{gray!50, very thin, step=1}
-    \tkzInit[xmin=\grxxmi,xmax=\grxxma,ymin=\gryymi,ymax=\gryyma]
-    foreach \xmi/\xma in #6 {
-    \tkzFct[domain=\xmi:\xma, ultra thick, color=brown!50!black]
-           {\funzione}}
-%     \tkzFct[domain=-7.3:-1, ultra thick, color=brown!50!black]
+    \node[circle, minimum height=2cm,draw] (A) at (0,0) {};
+    \node[above] (A1) at (A.north) {$A$};
+
+    \begin{scope}[fill=CornflowerBlue]
+      \filldraw (0,.5) circle (2pt) node (a) {};
+      \node[left] at (0,.5) {$a$};
+      \filldraw (.8,.2) circle (2pt) node (b) {};
+      \node[left] at (.8,.2) {$b$};
+      \filldraw (-.4,-.5) circle (2pt) node (c) {};
+      \node[left] at (-.4,-.5)  {$c$};
+      \filldraw (.4,-.5) circle (2pt) node (d) {};
+      \node[left] at (.4,-.5)  {$d$};
+    \end{scope}
+    
+    \node[anchor=south]  at (1.2,-1.5) {d};
+    
+    \begin{scope}[xshift=2.3cm]
+    \node[circle, minimum height=2cm,draw] (B) at (0,0) {};
+    \node[above] (B1) at (B.north) {$B$};
+
+      \begin{scope}[fill=LimeGreen]
+      \filldraw (-.1,.6) circle (2pt) node (a1) {};
+      \filldraw (-.2,.2) circle (2pt)node (b1) {};
+      \filldraw (.2,-.7) circle (2pt) node (c1) {};
+      \filldraw(.5,-.2) circle (2pt) node(d1){};
+
+      \node[right]  at (-.1,.6) {$1$};
+      \node[right] at (-.2,.2) {$2$};
+      \node[right]  at (.2,-.7) {$3$};
+      \node[right] at (.5,-.2) {$4$};
+      \end{scope}
+    \end{scope}
+
+    \begin{scope}[->,smooth,thick]
+      \draw[Maroon] (a) .. controls +(30:1cm) and +(150:.5cm) .. (b1);
+      \draw[purple] (d) .. controls +(30:.5cm) and +(180:0.5cm) .. (a1);
+      \draw[orange] (c) .. controls +(90:1cm) and +(180:1cm) .. (a1);
+    \end{scope}
+
+
+\end{comment}
+
+% 
+% \newcommand{\graficoincipita}{% Grafico di una funzione per l'incipit.
+%   \disegno{
+%     \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{.75*x-2}
+%   }
+% }
+% 
+% \newcommand{\graficoincipitb}{% Grafico di una funzione per l'incipit.
+%   \disegno{
+%     \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{-.5*x**2-2*x+3}
+%   }
+% }
+% 
+% \newcommand{\graficoincipitc}{% Grafico di una funzione per l'incipit.
+%   \disegno{
+%     \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{2**x}
+%   }
+% }
+% 
+% \newcommand{\graficoincipitd}{% Grafico di una funzione per l'incipit.
+%   \disegno{
+%     \graficoxy{-5}{+5}{-6}{+6}{brown!50!black}{log(x)}
+%   }
+% }
+% 
+% \newcommand{\modelloquadratico}{% Modello quadratico per l'incipit.
+%   \disegno{
+%     \graficoxy{-2}{+12}{-2}{+10}{brown!50!black}{.1*x**2-.9*x+3}
+%     \foreach \pi in {
+%     (1, 2), (2, 1.6), (3, 1.5), (6, 1.2), (7, 1.7), (8, 2), (9, 3.1)
+%     }
+%     \filldraw [brown!50!black] \pi circle (2.5pt);
+%   }
+% }
+% 
+% \newcommand{\funzionediscontinua}{% Modello quadratico per l'incipit.
+%   \disegno{
+%     \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
+%     \tkzFct[domain=-10.3:+2, ultra thick, color=brown!50!black]
+%            {.1*x**3-.5*x**2-2*x+6}
+%     \tkzFct[domain=+2:+10.3, ultra thick, color=brown!50!black]
+%            {.1*x**3-.5*x**2-2*x+3}
+%     \filldraw [brown!50!black] (2, +0.8) circle (2.5pt);
+%   }
+% }
+% 
+% \newcommand{\incipitgraficoa}{% Grafico di funzione.
+%   \disegno{
+%     \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
+%     \tkzFct[domain=-10.3:+10.3, ultra thick, color=brown!50!black]
+%            {(2*x**2 + x + 1) / (x**2 + x + .5)}
+%   }
+% }
+% 
+% \newcommand{\incipitgraficob}{% Grafico di funzione.
+%   \def \funzione{(3*(x - 5)*(x + 1)) / ((x - 6)*(x + 2))}
+%   \disegno{
+%     \rcom{-10}{+10}{-10}{+10}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-10.3,ymax=+10.3]
+%     \tkzFct[domain=-10.3:-2, ultra thick, color=brown!50!black]
 %            {\funzione}
-%     \tkzFct[domain=+1:+7.3, ultra thick, color=brown!50!black]
+%     \tkzFct[domain=-2:+6, ultra thick, color=brown!50!black]
 %            {\funzione}
-}
+%     \tkzFct[domain=+6:+10.3, ultra thick, color=brown!50!black]
+%            {\funzione}
+%   }
+% }
+% 
+% \newcommand{\incipitsecanticurva}{% 
+%   % Secanti ad una parabola nel punto (5; 4).
+%   \def \raggio{2pt}
+%   \disegno{
+%   \rcom{-10}{+10}{-1}{10}{gray!50, very thin, step=1}
+%   \begin{scope}[ultra thick, color=brown!50!black]
+%     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-0.3,ymax=+10.3]
+%     \tkzFct[domain=-10:+10]{0.2*x*(x+2)-x+2}
+%   \end{scope}
+%   \begin{scope}[color=Black]
+%     \filldraw (5, 4) circle (2pt) node [above left] {A};
+%     \foreach \p/\n in {(4, 2.8)/\(P_7\), 
+%                       (3, 2)/\(P_6\), (1.5, 1.55)/\(P_5\)}
+%       \filldraw \p circle (\raggio) node [below, yshift=-1mm] {\n};
+%     \foreach \p/\n in {(0, 2)/\(P_4\), (-1.19, 3)/\(P_3\), 
+%                       (-2.5, 4.75)/\(P_2\), (-4, 7.6)/\(P_1\)}
+%       \filldraw \p circle (\raggio) node [below left, yshift=-1mm] {\n}; 
+%   \end{scope}
+%   \begin{scope}[thick, color=Cyan!50!black]
+%     \tkzInit[xmin=-10.3,xmax=+10.3,ymin=-1.3,ymax=+10.3]   
+%     \tkzFct{1.2*x-2}   % per AB
+%     \tkzFct{x-1}       % per AC
+%     \tkzFct{0.7*x+.5}   % per AD
+%     \tkzFct{0.4*x+2}   % per AE
+%     \tkzFct{0.162*x+3.19}     % per AF
+%     \tkzFct{-0.1*x+4.5}  % per AG
+%     \tkzFct{-0.4*x+6}  % per AH  
+%   \end{scope}
+%   }
+% }
+% 
+% \newcommand{\rollea}{% teorema di Rolle.
+%   \disegno{
+%     \rcom{-2}{+10}{-2}{+10}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-2.3,xmax=+10.3,ymin=-2.3,ymax=+10.3]
+%     \tkzFct[domain=-10.3:+10.3, ultra thick, color=brown!50!black]
+%            {.05*x**3-0.73*x**2+3*x+4}
+%     \draw [thick, color=Green!50!black](1.1, 6.5) -- (1.2, 0) 
+%           node [thick, below] {a};
+%     \draw [thick, color=Green!50!black](6, 6.5) -- (6, 0) 
+%           node [thick, below] {b};
+%   }
+% }
+% 
+% \newcommand{\rolleb}{% teorema di Rolle.
+%   \disegno{
+%     \rcom{-2}{+10}{-2}{+10}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=-2.3,xmax=+10.3,ymin=-2.3,ymax=+10.3]
+%     \tkzFct[domain=-10.3:+10.3, ultra thick, color=brown!50!black]
+%            {.1*x**3-1.1*x**2+3*x+4}
+%     \draw [thick, color=Green!50!black](1, 6) -- (1, 0) 
+%           node [thick, below] {a};
+%     \draw [thick, color=Green!50!black](7.25, 6) -- (7.25, 0) 
+%           node [thick, below] {b};
+%   }
+% }
+% 
+% \newcommand{\graficoint}[6]{  % Grafico di una funzione.
+% % NON vanno gli intervalli!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%   % Esempio di chiamata:
+%   % \disegno{\graficoint{-7}{+7}{-11}{+10}{2*x+3}{{-7.3/-.9}, {+.9/+7.3}}
+%   \def \grxmi{#1}
+%   \def \grxma{#2}
+%   \def \grymi{#3}
+%   \def \gryma{#4}
+%   \def \funzione{#5}
+%   \def \intervals{#6}
+%   \pgfmathparse{\grxmi-.3)} \let\grxxmi\pgfmathresult
+%   \pgfmathparse{\grxma+.3)} \let\grxxma\pgfmathresult
+%   \pgfmathparse{\grymi-.3)} \let\gryymi\pgfmathresult
+%   \pgfmathparse{\gryma+.3)} \let\gryyma\pgfmathresult
+%     \rcom{\grxmi}{\grxma}{\grymi}{\gryma}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=\grxxmi,xmax=\grxxma,ymin=\gryymi,ymax=\gryyma]
+%     foreach \xmi/\xma in #6 {
+%     \tkzFct[domain=\xmi:\xma, ultra thick, color=brown!50!black]
+%            {\funzione}}
+% %     \tkzFct[domain=-7.3:-1, ultra thick, color=brown!50!black]
+% %            {\funzione}
+% %     \tkzFct[domain=+1:+7.3, ultra thick, color=brown!50!black]
+% %            {\funzione}
+% }
 
 % \newcommand{\graficoxy}[5]{  % Grafico di una funzione.
 %   % Esempio di chiamata:

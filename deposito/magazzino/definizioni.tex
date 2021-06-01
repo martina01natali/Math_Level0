@@ -52,6 +52,7 @@
 \newenvironment{inaccessibleblock}[1][]{}{}
 
 \newcommand{\affiancati}[4]{% 2 minipage affiancate
+% Esempio di chiamata:
 % \affiancati{.48}{.48}{testo1}{testo2}
   \def \larga{#1}
   \def \largb{#2}
@@ -63,6 +64,22 @@
   \hfill
   \begin{minipage}{\largb\textwidth}
     #4
+  \end{minipage}
+}
+
+\newcommand{\affiancatic}[4]{% 2 minipage affiancate con il contenuto centrato
+% Esempio di chiamata:
+% \affiancati{.48}{.48}{testo1}{testo2}
+  \def \larga{#1}
+  \def \largb{#2}
+  \def \contenutoa{#3}
+  \def \contenutob{#4}
+  \noindent \begin{minipage}{\larga\textwidth}
+    \begin{center} \contenutoa \end{center}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{\largb\textwidth}
+    \begin{center} \contenutob \end{center}
   \end{minipage}
 }
 
@@ -119,12 +136,16 @@
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Rz}{\mathbb{R}^0}
+\newcommand{\Rp}{\mathbb{R}^+}
 \newcommand{\IR}{{}^*\hspace{-.12em}\mathbb{R}} % Iperreali
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\IC}{{}^*\hspace{-.12em}\mathbb{C}} % Ipercomplessi
 \newcommand{\K}{\mathbb{K}}
 \newcommand{\effestar}{{}^*\hspace{-.15em}f}
 \newcommand{\fstar}[1][f]{{}^*\!#1}
+
+% \newcommand{\ID}{I.D.}
+\newcommand{\II}{I.I.}
 
 %--------------------------
 % varianti di lettere greche:
@@ -164,6 +185,8 @@
 % simboli con l'aggiunta di uno spazio prima e dopo:
 \newcommand{\sand}{~ \wedge ~}
 \newcommand{\sor}{~ \vee ~}
+\newcommand{\scap}{~ \cap ~}
+\newcommand{\scup}{~ \cup ~}
 \newcommand{\sLarrow}{~ \Leftarrow ~}
 \newcommand{\sLRarrow}{~ \Leftrightarrow ~}
 \newcommand{\sRarrow}{~ \Rightarrow ~}

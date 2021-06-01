@@ -60,6 +60,15 @@
   \draw [#5] [->] (\inizio) -- (\fine);
 }
 
+\newcommand{\freccia}[4]{
+  \def \pp{#1}
+  \def \pa{#2}
+  \def \poslabel{#3}
+  \def \value{#4}
+  \draw [-{Latex[length=2mm, width=1mm]}, black] \pp 
+    node[\poslabel]{\footnotesize \(\value\)} -- \pa; 
+}
+
 %--------------------------
 % Assi e piano cartesiano
 \newcommand{\assev}[4]{% Asse.
@@ -177,6 +186,19 @@
   \rcomvar{#1}{#2}{#3}{#4}{#5}{\(x\)}{\(y\)}
 }
 
+% \newcommand{\pianoxy}[4]{  % Grafico di una funzione.
+%   % Esempio di chiamata:
+%   %% \disegno{\pianoxy{-7}{+7}{-11}{+10}}
+%   \def \mix{#1}
+%   \def \max{#2}
+%   \def \miy{#3}
+%   \def \may{#4}
+%   \def \colore{#5}
+%   \def \funzione{#6}
+%   \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%   \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+% }
+
 \newcommand{\graficoxy}[6]{  % Grafico di una funzione.
   % Esempio di chiamata:
   %% \disegno{\graficoxy{-7}{+7}{-11}{+10}{blue!50!black}{2*x+3}}
@@ -190,6 +212,55 @@
   \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
   \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, color=\colore]
          {\funzione}
+}
+
+\newcommand{\graficixy}[5]{  % Grafico di più funzioni funzione.
+  % Esempio di chiamata:
+  %% \disegno{
+  %%   \graficixy{0}{7}{0}{7}{{x-2}/blue, {x*x/2.}/red, {(x-2)**2/2.}/violet}
+  %% }
+  \def \mix{#1}
+  \def \max{#2}
+  \def \miy{#3}
+  \def \may{#4}
+  \def \funzcol{#5}
+  \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+  \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+  \foreach \funzione/\colore in \funzcol{
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, color=\colore]{\funzione}
+  }
+}
+
+\newcommand{\graficospezzato}[7]{  % Grafico di una funzione.
+  % Esempio di chiamata:
+  %% \disegno{\graficoxy{-7}{+7}{-11}{+10}{blue!50!black}{2*x+3}}
+  \def \mix{#1}
+  \def \max{#2}
+  \def \miy{#3}
+  \def \may{#4}
+  \def \colore{#5}
+  \def \funzione{#6}
+  \def \pezzi{#7}
+  \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+  \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+  \foreach \mii/\mai in \pezzi{
+    \tkzFct[domain=\mii:\mai, ultra thick, color=\colore]{\funzione}}
+}
+
+\newcommand{\gnominonum}[5]{
+  % example:
+  % \disegno{\gnomino{0.7}{1.5}{gray!50}{blue!50!black}}
+  \def \xgno{#1}
+  \def \ygno{#2}
+  \def \colorline{#3}
+  \def \colorpoint{#4}
+  \def \shift{#5}
+  \draw [thin, dashed, \colorline] 
+        (\xgno, 0) 
+        node [below=\shift, \colorpoint] {\fontsize{5pt}{5pt}\(\xgno\)} -- 
+        (\xgno, \ygno) -- (0, \ygno) 
+        node [left, \colorpoint] {\fontsize{5pt}{5pt}\(\ygno\)};
+  \filldraw (\xgno, \ygno) [\colorpoint] circle(1.5pt);
 }
 
 % \newcommand{\graficoxy}[6]{  % Grafico di una funzione.
@@ -247,6 +318,47 @@
   \tkzFct[#1]{\function}  % Questo va!
     \foreach \x in {\pfrom,...,\pto}
       \filldraw [\pcolor] (\x, \function) circle (2pt);
+}
+
+\newcommand{\boxfcomposta}{% Rappresentazione di una funzione composta
+  % Devono essere assegnate alcune variabili.
+  % Esempio di chiamata:
+%   \def \latox{4}
+%   \def \latoy{2}
+%   \def \lab{\dfrac{\tonda{3x -2}^2}{8}}
+%   \def \labf{\dfrac{x^2}{8}}
+%   \def \labff{\dfrac{\xoo^2}{8}}
+%   \def \xo{6}
+%   \def \ff{\xoo*\xoo / 8}
+%   \def \labg{3x -2}
+%   \def \labgg{3 \cdot \xo -2}
+%   \def \labfa{g}
+%   \def \fg{3*\xo -2}
+%   \def \labfg{f(g(\xo))}
+%   \boxfcomposta
+  \def \slx{\latox/2}
+  \def \sly{\latoy/2}
+  \disegno{
+    \pgfmathparse{round(10*(\fg))/10} \let\xoo\pgfmathresult
+    \pgfmathparse{round(10*(\ff))/10} \let\xooo\pgfmathresult
+    \begin{scope}[-latex, rounded corners=4]
+      \draw (\slx*6, +\sly*3) node [above] {\(\lab\)}
+            (\slx*2, -\sly*2) rectangle ++ (\slx*8, \sly*5);
+      \draw (0, 0) -- (\slx*2, 0) node [midway, yshift=6pt] {\(x=\xo\)}; 
+      \draw (\slx*2, 0) -- (\slx*3, 0);
+      \draw (\slx*4, +\sly) node [above] {\(\labg\)}
+            (\slx*3, -\sly) rectangle ++ (\latox, \latoy) 
+            node [midway] {\(\labgg\)};
+      \draw (\slx*5, 0) -- (\slx*7, 0) 
+            node [midway, yshift=6pt] {\(\labfa(\xo) = \xoo\)};
+      \draw (\slx*7, -\sly) rectangle ++ (\latox, \latoy) 
+            node [midway] {\(\labff\)}
+            (\slx*8, +\sly) node [above] {\(\labf\)};
+      \draw (\slx*9, 0) -- (\slx*10, 0); 
+      \draw (\slx*10, 0) -- (\slx*12.5, 0) 
+            node [midway, yshift=6pt] {\(\labfg = \xooo\)};
+    \end{scope}
+  }
 }
 
 % \newcommand{\rcom}[5]{% Riferimento Cartesiano Ortogonale Monometrico: x-y.
@@ -469,6 +581,26 @@
      \draw (\i*\largx-\dimx, 0) -- (\i*\largx-\dimx, -\numassi * \dimy);
 }
 
+\newcommand{\trespolosegnidis}[6]{% Grafo calcolo del segno con tre assi
+  % Esempio di chiamata:
+  %% \trespolosegni{5}{1.2}{3}{f(x), g(x), f(x)\cdot g(x)}{2}{2, 5}
+  \def \dimx{#1}
+  \def \dimy{#2}
+  \def \numassi{#3}
+  \def \labassi{#4}
+  \def \numpunti{#5}
+  \def \labpunti{#6}
+  \foreach \li [count = \i] in \labassi{
+    \assex{-\dimx}{\dimx}{-\i*\dimy}
+    \node at (-\dimx, -\i*\dimy) (posy) [above left=-.2] {\(\li\)};
+  }
+  \pgfmathparse{\dimx*2 / (\numpunti+1)} \let\largx\pgfmathresult
+  \foreach \li [count = \i] in \labpunti{
+    \draw (\i*\largx-\dimx, -\numassi * \dimy) -- (\i*\largx-\dimx, 0)
+          node [above] {\(\li\)};
+  }
+}
+
 \newcommand{\segnitreassiduepunti}[7]{% Grafo calcolo del segno con tre assi
   % Esempio di chiamata:
   %% \segnitreassiduepunti{5}{1.2}
@@ -549,6 +681,67 @@ disequazioni
 
 % TODO: unificare i vari intervalli
 
+\newcommand{\evidenzia}[3][blue]{% evidenziazione di un segmento
+  % \disegno{\evidenzia[green]{(0, -2)}{(+2, +5)}}
+  \def \colore{#1}
+  \def \a{#2}
+  \def \b{#3}
+  \draw [\colore, thick, decorate, decoration=snake] \a -- \b;
+}
+
+\newcommand{\evidenziameno}[4][blue]{
+  % Evidenzia un intervallo meno alcuni punti
+  % \disegno{\evidenziameno[orange]{(-5.3, 7)}{(+5.3, +7)}
+  %                                {(-4, 7), (-2, 7), (+3, 7)}}
+  \evidenzia[#1]{#2}{#3}
+  \foreach \pos in {#4}{
+    \draw [#1, fill=white] \pos circle (3pt);}
+}
+
+\newcommand{\evidenziada}[4][blue]{% Evidenzia fino ad un punto
+  % \disegno{\evidenziada[red]{(0, -2)}{(+2, +5)}{blue}}
+  \evidenzia[#1]{#2}{#3}
+  \draw [#1, fill=#4] #2 circle (3pt);
+}
+
+\newcommand{\evidenziafino}[4][blue]{% Evidenzia fino ad un punto
+  % \disegno{\evidenziafino{(0, -2)}{(+2, +5)}{white}}
+  \evidenzia[#1]{#2}{#3}
+  \draw [#1, fill=#4] #3 circle (3pt);
+}
+
+\newcommand{\evidenziadafino}[5][blue]{% Evidenzia fino ad un punto
+  % \disegno{\evidenziafino{(0, -2)}{(+2, +5)}{white}{blue}}
+  \evidenzia[#1]{#2}{#3}
+  \draw [#1, fill=#4] #2 circle (3pt);
+  \draw [#1, fill=#5] #3 circle (3pt);
+}
+
+% \newcommand{\evidenziatuttomeno}[4][blue]{
+% % Evidenzia un intervallo meno alcuni punti
+%   % \disegno{\evidenziatuttomeno[red]{(-5, 0)}{(+5, 0)}{-3/0, -2/0, 0/0, 4/0}}
+%   \evidenzia[#1]{#2}{#3}
+%   \foreach \xp/\yp in {#4}{
+%     \draw [#1, fill=white] (\xp, \yp) circle (3pt);}
+% }
+
+\newcommand{\inti}[7]{% Intervallo interno orizzontale
+  % \disegno{\inti{0}{-2}{+2}{a}{b}{white}{black}}
+  \def \posy{#1}
+  \def \posa{#2}
+  \def \posb{#3}
+  \def \labela{#4}
+  \def \labelb{#5}
+  \def \inta{#6}
+  \def \intb{#7}
+  \coordinate (a) at (\posa, \posy);
+  \coordinate (b) at (\posb, \posy);
+  \evidenzia{\a}{\b}
+%   \draw [blue, thick, decorate, decoration=snake] (a) -- (b);
+  \draw[fill=\inta] (a) circle (3pt) node [above] {\(\labela\)};
+  \draw[fill=\intb] (b) circle (3pt) node [above] {\(\labelb\)};
+}
+
 \newcommand{\intid}[7]{% Intervallo ]a; b[ con disegno e asse
   % \intid{5}{-2}{+2}{a}{b}{white}{black}
   \disegno{
@@ -622,22 +815,6 @@ disequazioni
     \draw [blue, thick, decorate, decoration=snake] 
           (-\lung / 2, 0) -- (+\lung / 2, 0);
   }
-}
-
-\newcommand{\inti}[7]{% Intervallo interno
-  % \disegno{\inti{0}{-2}{+2}{a}{b}{white}{black}}
-  \def \posy{#1}
-  \def \posa{#2}
-  \def \posb{#3}
-  \def \labela{#4}
-  \def \labelb{#5}
-  \def \inta{#6}
-  \def \intb{#7}
-  \coordinate (a) at (\posa, \posy);
-  \coordinate (b) at (\posb, \posy);
-  \draw [blue, thick, decorate, decoration=snake] (a) -- (b);
-  \draw[fill=\inta] (a) circle (3pt) node [above] {\(\labela\)};
-  \draw[fill=\intb] (b) circle (3pt) node [above] {\(\labelb\)};
 }
 
 \newcommand{\rayl}[5]{% semiretta sinistra

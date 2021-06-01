@@ -1339,71 +1339,75 @@
 %           \draw (13,4) node [below] {\(32\)}node [above] {\(f(g(6))\)};   
 %     }
 % }
-
-\newcommand{\boxfcomposta}{% Rappresentazione di una funzione composta
-  % Devono essere assegnate alcune variabili.
-  % Esempio di chiamata:
-%   \def \latox{4}
-%   \def \latoy{2}
-%   \def \lab{\dfrac{\tonda{3x -2}^2}{8}}
-%   \def \labf{\dfrac{x^2}{8}}
-%   \def \labff{\dfrac{\xoo^2}{8}}
-%   \def \xo{6}
-%   \def \ff{\xoo*\xoo / 8}
-%   \def \labg{3x -2}
-%   \def \labgg{3 \cdot \xo -2}
-%   \def \fg{3*\xo -2}
-%   \boxfcomposta
-  \def \slx{\latox/2}
-  \def \sly{\latoy/2}
-  \disegno{
-    \pgfmathparse{round(10*(\fg))/10} \let\xoo\pgfmathresult
-    \pgfmathparse{round(10*(\ff))/10} \let\xooo\pgfmathresult
-    \begin{scope}[-latex, rounded corners=4]
-      \draw (\slx*6, +\sly*3) node [above] {\(f(g(x)):~x \mapsto \lab\)}
-            (\slx*2, -\sly*2) rectangle ++ (\slx*8, \sly*5);
-      \draw (0, 0) -- (\slx*2, 0) node [midway, yshift=6pt] {\(x=\xo\)}; 
-      \draw (\slx*2, 0) -- (\slx*3, 0);
-      \draw (\slx*4, +\sly) node [above] {\(g:~x \mapsto \labg\)}
-            (\slx*3, -\sly) rectangle ++ (\latox, \latoy) 
-            node [midway] {\(\labgg\)};
-      \draw (\slx*5, 0) -- (\slx*7, 0) 
-            node [midway, yshift=6pt] {\(g(\xo) = \xoo\)};
-      \draw (\slx*7, -\sly) rectangle ++ (\latox, \latoy) 
-            node [midway] {\(\labff\)}
-            (\slx*8, +\sly) node [above] {\(f:~g(x) \mapsto \labf\)};
-      \draw (\slx*9, 0) -- (\slx*10, 0); 
-      \draw (\slx*10, 0) -- (\slx*12.5, 0) 
-            node [midway, yshift=6pt] {\(f(g(\xo)) = \xooo\)};
-    \end{scope}
-  }
-}
+% 
+% \newcommand{\boxfcomposta}{% Rappresentazione di una funzione composta
+%   % Devono essere assegnate alcune variabili.
+%   % Esempio di chiamata:
+% %   \def \latox{4}
+% %   \def \latoy{2}
+% %   \def \lab{\dfrac{\tonda{3x -2}^2}{8}}
+% %   \def \labf{\dfrac{x^2}{8}}
+% %   \def \labff{\dfrac{\xoo^2}{8}}
+% %   \def \xo{6}
+% %   \def \ff{\xoo*\xoo / 8}
+% %   \def \labg{3x -2}
+% %   \def \labgg{3 \cdot \xo -2}
+% %   \def \fg{3*\xo -2}
+% %   \boxfcomposta
+%   \def \slx{\latox/2}
+%   \def \sly{\latoy/2}
+%   \disegno{
+%     \pgfmathparse{round(10*(\fg))/10} \let\xoo\pgfmathresult
+%     \pgfmathparse{round(10*(\ff))/10} \let\xooo\pgfmathresult
+%     \begin{scope}[-latex, rounded corners=4]
+%       \draw (\slx*6, +\sly*3) node [above] {\(f(g(x)):~x \mapsto \lab\)}
+%             (\slx*2, -\sly*2) rectangle ++ (\slx*8, \sly*5);
+%       \draw (0, 0) -- (\slx*2, 0) node [midway, yshift=6pt] {\(x=\xo\)}; 
+%       \draw (\slx*2, 0) -- (\slx*3, 0);
+%       \draw (\slx*4, +\sly) node [above] {\(g:~x \mapsto \labg\)}
+%             (\slx*3, -\sly) rectangle ++ (\latox, \latoy) 
+%             node [midway] {\(\labgg\)};
+%       \draw (\slx*5, 0) -- (\slx*7, 0) 
+%             node [midway, yshift=6pt] {\(g(\xo) = \xoo\)};
+%       \draw (\slx*7, -\sly) rectangle ++ (\latox, \latoy) 
+%             node [midway] {\(\labff\)}
+%             (\slx*8, +\sly) node [above] {\(f:~g(x) \mapsto \labf\)};
+%       \draw (\slx*9, 0) -- (\slx*10, 0); 
+%       \draw (\slx*10, 0) -- (\slx*12.5, 0) 
+%             node [midway, yshift=6pt] {\(f(g(\xo)) = \xooo\)};
+%     \end{scope}
+%   }
+% }
 
 \newcommand{\boxfcompostaa}{% Rappresentazione di una funzione composta
   \def \latox{4}
   \def \latoy{2}
-  \def \lab{\dfrac{\tonda{3x -2}^2}{8}}
-  \def \labf{\dfrac{\tonda{g(x)}^2}{8}}
+  \def \lab{f(g(x)):~ x \mapsto \dfrac{\tonda{3x -2}^2}{8}}
+  \def \labf{f(x):~g(x) \mapsto \dfrac{\tonda{g(x)}^2}{8}}
   \def \labff{\dfrac{\xoo^2}{8}}
   \def \xo{6}
   \def \ff{\xoo*\xoo / 8}
-  \def \labg{3x -2}
+  \def \labg{g(x):~x \mapsto 3x -2}
   \def \labgg{3 \cdot \xo -2}
+  \def \labfa{g}
   \def \fg{3*\xo -2}
+  \def \labfg{f(g(\xo))}
   \boxfcomposta
 }
 
 \newcommand{\boxfcompostab}{% Rappresentazione di una funzione composta
   \def \latox{4}
   \def \latoy{2}
-  \def \lab{\sqrt{25 - x^2}}
-  \def \labf{\sqrt{g(x)}}
+  \def \lab{f(g(x)):~ x \mapsto \sqrt{25 - x^2}}
+  \def \labf{f(x):~g(x) \mapsto \sqrt{g(x)}}
   \def \labff{\sqrt{\xoo}}
   \def \xo{3}
   \def \ff{sqrt(\xoo)}
-  \def \labg{25 - x^2}
+  \def \labg{g(x):~x \mapsto 25 - x^2}
   \def \labgg{25 - \xo^2}
+  \def \labfa{g}
   \def \fg{25 - \xo * \xo}
+  \def \labfg{f(g(\xo))}
   \boxfcomposta
 }
 
@@ -1643,39 +1647,59 @@
     \node at (2.5, -4.5) {\(f'(x)\)};
   }
 }
-
-\newcommand{\gnominonum}[5]{
-  % example:
-  % \disegno{\gnomino{0.7}{1.5}{gray!50}{blue!50!black}}
-  \def \xgno{#1}
-  \def \ygno{#2}
-  \def \colorline{#3}
-  \def \colorpoint{#4}
-  \def \shift{#5}
-  \draw [thin, dashed, \colorline] 
-        (\xgno, 0) 
-        node [below=\shift, \colorpoint] {\fontsize{5pt}{5pt}\(\xgno\)} -- 
-        (\xgno, \ygno) -- (0, \ygno) 
-        node [left, \colorpoint] {\fontsize{5pt}{5pt}\(\ygno\)};
-  \filldraw (\xgno, \ygno) [\colorpoint] circle(1.5pt);
-}
-
-\newcommand{\formulainversaa}{% 
-  % Una funzione e alcuni suoi punti con indicati ascisse e ordinate.
-  \def \fun{3*x -6}
-  \def \mix{0}
-  \def \max{+7}
-  \def \miy{-6}
-  \def \may{+12}
-  \disegno[4]{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[ultra thick, blue!50!red, domain=\mix-0.3:\max+0.3]{\fun}
-    \foreach \xp/\yp in {0/-6, 1/-3, 2/0, 3/{+3}, 
-                         4/{+6}, 5/{+9}, 6/{+12}}{
-      \gnominonum{\xp}{\yp}{white!30!black}{blue!50!red}{0}}
-  }
-}
+% 
+% \newcommand{\gnominonum}[5]{
+%   % example:
+%   % \disegno{\gnomino{0.7}{1.5}{gray!50}{blue!50!black}}
+%   \def \xgno{#1}
+%   \def \ygno{#2}
+%   \def \colorline{#3}
+%   \def \colorpoint{#4}
+%   \def \shift{#5}
+%   \draw [thin, dashed, \colorline] 
+%         (\xgno, 0) 
+%         node [below=\shift, \colorpoint] {\fontsize{5pt}{5pt}\(\xgno\)} -- 
+%         (\xgno, \ygno) -- (0, \ygno) 
+%         node [left, \colorpoint] {\fontsize{5pt}{5pt}\(\ygno\)};
+%   \filldraw (\xgno, \ygno) [\colorpoint] circle(1.5pt);
+% }
+% 
+% \newcommand{\formulainversaa}{% 
+%   % Una funzione e alcuni suoi punti con indicati ascisse e ordinate.
+%   \def \fun{3*x -6}
+%   \def \mix{0}
+%   \def \max{+7}
+%   \def \miy{-6}
+%   \def \may{+12}
+%   \disegno[4]{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[ultra thick, blue!50!red, domain=\mix-0.3:\max+0.3]{\fun}
+%     \foreach \xp/\yp in {0/-6, 1/-3, 2/0, 3/{+3}, 
+%                          4/{+6}, 5/{+9}, 6/{+12}}{
+%       \gnominonum{\xp}{\yp}{white!30!black}{blue!50!red}{0}}
+%   }
+% }
+% 
+% \newcommand{\funzinversaa}{% 
+%   % Una funzione e alcuni suoi punti con indicati ascisse e ordinate.
+%   \def \fund{3*x -6}
+%   \def \funi{1./3*x +2}
+%   \def \mix{-7}
+%   \def \max{+7}
+%   \def \miy{-7}
+%   \def \may{+7}
+%   \disegno[4]{
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[ultra thick, gray, domain=\mix-0.3:\max+0.3]{x}
+%     \node at (-6.0, -5.0) [rotate=45] {\(y = x\)};
+%     \tkzFct[ultra thick, blue!50!black, domain=\mix-0.3:\max+0.3]{\fund}
+%     \node at (+2.5, -6.5) {\(y = 3x -6\)};
+%     \tkzFct[ultra thick, red!50!black, domain=\mix-0.3:\max+0.3]{\funi}
+%     \node at (-5.5, +2.0) {\(y = \dfrac{1}{3}x +2\)};
+%   }
+% }
 
 \newcommand{\formulainversab}{% 
   % Una funzione e alcuni suoi punti con indicati ascisse e ordinate.
@@ -1696,26 +1720,6 @@
     \foreach \xp/\yp in {{-1.5}/{-6}, {1.5}/{+2}, 
                          {0.75}/{+6}}{
       \gnominonum{\xp}{\yp}{white!30!black}{red!50!black}{5pt}}
-  }
-}
-
-\newcommand{\funzinversaa}{% 
-  % Una funzione e alcuni suoi punti con indicati ascisse e ordinate.
-  \def \fund{3*x -6}
-  \def \funi{1./3*x +2}
-  \def \mix{-7}
-  \def \max{+7}
-  \def \miy{-7}
-  \def \may{+7}
-  \disegno[4]{
-    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
-    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-    \tkzFct[ultra thick, gray, domain=\mix-0.3:\max+0.3]{x}
-    \node at (-6.0, -5.0) [rotate=45] {\(y = x\)};
-    \tkzFct[ultra thick, blue!50!black, domain=\mix-0.3:\max+0.3]{\fund}
-    \node at (+2.5, -6.5) {\(y = 3x -6\)};
-    \tkzFct[ultra thick, red!50!black, domain=\mix-0.3:\max+0.3]{\funi}
-    \node at (-5.5, +2.0) {\(y = \dfrac{1}{3}x +2\)};
   }
 }
 
@@ -2971,15 +2975,15 @@
     \node at (3.5, 1.5) [\dcolor] {\(\Delta \alpha\)};
   }
 }
-
-\newcommand{\freccia}[4]{
-  \def \pp{#1}
-  \def \pa{#2}
-  \def \poslabel{#3}
-  \def \value{#4}
-  \draw [-{Latex[length=2mm, width=1mm]}, black] \pp 
-    node[\poslabel]{\footnotesize \(\value\)} -- \pa; 
-}
+% 
+% \newcommand{\freccia}[4]{
+%   \def \pp{#1}
+%   \def \pa{#2}
+%   \def \poslabel{#3}
+%   \def \value{#4}
+%   \draw [-{Latex[length=2mm, width=1mm]}, black] \pp 
+%     node[\poslabel]{\footnotesize \(\value\)} -- \pa; 
+% }
 
 \newcommand{\curvaturaesea}{% Applicazioni: curvatura y=1/x
   \def \fa{1./x}

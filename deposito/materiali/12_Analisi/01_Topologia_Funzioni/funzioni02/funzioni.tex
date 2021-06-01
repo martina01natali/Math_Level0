@@ -1,27 +1,47 @@
 % (c) 2018 Daniele Zambelli
 
+% 2 + 2 = 22
+% https://www.youtube.com/watch?v=Zh3Yz3PiXZw&t=80s
+
 \input{\folder funzioni_grafici.tex}
 
-\chapter{Introduzione alle funzioni}
+\chapter{Le funzioni}
 
 \section{Cos'è una funzione}
 \label{sec:funzioni2_cose}
 
-In italiano la parola  ``funzione'' ha una decina di significati diversi: 
+\footnote{~In questo capitolo verrà fatto largo uso del linguaggio di 
+programmazione Python. 
+Non deve spaventare chi non è pratico di informatica: i pezzi di codice 
+forniti possono essere visti come ulteriori esempi. 
+Lo si può seguire in diversi modi: 
+\begin{itemize} [nosep]
+\item leggere semplicemente gli esempi di codice senza eseguirli;
+\item installare Python nel proprio dispositivo, scrivere e eseguire 
+gli esempi usando un editor come IDLE;
+\item scrivere e eseguire gli esempi in un notebbook come Jupyter: 
+\href{https://jupyter.org/}{jupyter.org}
+\item usare l'ambiente Colaboratory fornito da Google, aprire il notebook:
+\href{
+https://colab.research.google.com/drive/1sP4GdFmKI1sLam09tvcXuPHA8XM3muWM}
+e salvare una copia nel proprio Drive.
+\end{itemize}
+}In italiano la parola  ``funzione'' ha una decina di significati 
+diversi: 
 controllate su un buon vocabolario. Deriva dal latino:  ``functum'' che 
 significa  ``eseguito''.
 Possiamo pensare a una funzione come a un meccanismo che è in grado di 
 eseguire un compito e dare quindi un risultato.
 
 \begin{definizione}
- Chiameremo \textbf{funzione} la descrizione di un qualunque 
- \emph{processo} che dia un \emph{risultato}.
+Chiameremo \textbf{funzione} la descrizione di un qualunque 
+\emph{processo} che dà un \emph{risultato}.
 \end{definizione}
 
 \begin{itemize} [noitemsep]
- \item Con \emph{processo} intendiamo un qualsiasi \emph{meccanismo} o 
+\item Con \emph{processo} intendiamo un qualsiasi \emph{meccanismo} o 
 \emph{procedimento} o \emph{algoritmo} o \emph{formula}...
- \item Con \emph{risultato} intendiamo un qualunque \emph{oggetto} prodotto 
+\item Con \emph{risultato} intendiamo un qualunque \emph{oggetto} prodotto 
 dal \emph{processo}.
 \end{itemize}
 
@@ -31,12 +51,12 @@ Il risultato viene anche chiamato \emph{output} della funzione.
 Vediamo qualche esempio che possa chiarire le idee \dots o confonderle 
 ulteriormente.
 \begin{itemize} [noitemsep]
- \item Una \emph{moka} è un meccanismo che produce una bevanda scura e 
+\item Una \emph{moka} è un meccanismo che produce una bevanda scura e 
 molto calda.
- \item Un \emph{calcolo} è un meccanismo che produce un risultato numerico.
- \item Un \emph{bollitore} è uno strumento che produce acqua bollente.
- \item La \emph{media}  di più numeri è un meccanismo che produce un numero.
- \item Una \emph{stampante} è uno strumento che produce fogli scritti.
+\item Un \emph{calcolo} è un meccanismo che produce un risultato numerico.
+\item Un \emph{bollitore} è uno strumento che produce acqua bollente.
+\item La \emph{media}  di più numeri è un meccanismo che produce un numero.
+\item Una \emph{stampante} è uno strumento che produce fogli scritti.
 \end{itemize}
 \end{esempio}
 
@@ -46,18 +66,17 @@ molto calda.
 Una \emph{moka}, per quanto sofisticata sia, non ha la possibilità di 
 produrre del caffè se non le vengono forniti dei  ``materiali":
 \begin{itemize} [noitemsep]
- \item acqua,
- \item caffè tostato e macinato,
- \item calore.
+\item acqua,
+\item caffè tostato e macinato,
+\item calore.
 \end{itemize}
 
- Questi  ``oggetti'' che la funzione usa e trasforma per dare il risultato 
+Questi  ``oggetti'' che la funzione usa e trasforma per dare il risultato 
 vengono chiamati \emph{argomenti} della funzione.
- 
-Diamo quindi la seguente:
+Diamo quindi la seguente definizione.
 
 \begin{definizione}
- Chiamiamo \textbf{argomenti} gli oggetti che vengono passati ad 
+Chiamiamo \textbf{argomenti} gli oggetti che vengono passati ad 
 una funzione e che la funzione può adoperare per dare un risultato.
 \end{definizione}
 
@@ -66,20 +85,20 @@ Gli argomenti sono anche detti \emph{input} della funzione.
 \paragraph{Riassumendo}
 
 \begin{enumerate} [noitemsep]
- \item Una \emph{funzione} è un qualsiasi meccanismo che dà un 
+\item Una \emph{funzione} è un qualsiasi meccanismo che dà un 
 \emph{risultato}.
- \item Il risultato è anche detto \emph{output} della funzione.
- \item Una funzione può essere chiamata passandole degli \emph{argomenti}.
- \item Gli argomenti di una funzione sono anche detti gli \emph{input} 
+\item Il risultato è anche detto \emph{output} della funzione.
+\item Una funzione può essere chiamata passandole degli \emph{argomenti}.
+\item Gli argomenti di una funzione sono anche detti gli \emph{input} 
 della funzione.
- \item Quindi, in generale, una funzione riceve degli \emph{oggetti} detti 
+\item Quindi, in generale, una funzione riceve degli \emph{oggetti} detti 
 argomenti (o input) e produce un oggetto detto risultato (o output).
 \end{enumerate}
 
-\section{Costruiamo funzioni}
+\subsection{Costruiamo funzioni}
 \label{sec:funzioni2_costruiamo}
 
-Pr poter fare molti esperimenti e realizzare funzioni in modo economico e 
+Per poter fare molti esperimenti e realizzare funzioni in modo economico e 
 sicuro, in questo capitolo creeremo funzioni che lavorano su *simboli* cioè 
 funzioni che prendono come argomenti dei simboli e producono come risultato 
 dei simboli.
@@ -93,53 +112,54 @@ computer.
 Vediamo ora come realizzare alcune funzioni Python:
 
 \begin{esempio}
- Scrivi la funzione che dia come risultato la stringa  ``ciao''.
+ Scrivi la funzione che dà come risultato la stringa  ``ciao''.
  
 \lstinputlisting{\folder src/01_saluto.py} %[firstline=2, lastline=5]
 \end{esempio}
 
 \begin{osservazione}
- \begin{enumerate} [nosep]
-  \item Per definire una funzione, in Python,  dobbiamo usare:
-  \begin{enumerate} [noitemsep]
-   \item la parola riservata  ``def'', seguita dal
-   \item nome della funzione (in questo caso  ``saluto'', ma avremmo potuto 
-anche usare la parola  ``arggh"), seguito da una
-   \item coppia di parentesi, seguite da
-   \item il simbolo \emph{duepunti} ('':``), poi, a capo e rientrato
-   \item un blocco di istruzioni, che termina con
-   \item il comando  ``return'', seguito da
-   \item il risultato della funzione.
-  \end{enumerate}
+\begin{enumerate} [nosep]
+\item Per definire una funzione, in Python,  dobbiamo usare:
+\begin{enumerate} [noitemsep]
+\item la parola riservata  ``def'', seguita dal
+\item nome della funzione (in questo caso  ``saluto'', ma avremmo potuto 
+anche usare la parola  ``arggh"), seguito da
+\item una coppia di parentesi, seguite da
+\item il simbolo \emph{duepunti} ('':``), poi, a capo e rientrato 
+(\emph{indentato})
+\item un blocco di istruzioni, che termina con
+\item il comando  ``return'', seguito da
+\item il risultato della funzione.
+\end{enumerate}
 
-  È più difficile da descrivere che da fare!
-  Con i simboli possiamo riassumere la sintassi della definizione di una 
+È più difficile da descrivere che da fare!
+Con i simboli possiamo riassumere la sintassi della definizione di una 
 funzione in questo modo:
 \begin{lstlisting}
   def <nome_funzione>():
-       """<docstring>"""
+      """<docstring>"""
       [<istruzioni>]
       return <risultato>
 \end{lstlisting}
 
-  \item Il testo posto come prima istruzione della funzione si chiama 
+\item Il testo posto come prima istruzione della funzione si chiama 
 \emph{docstring} e descrive in modo sintetico cosa fa la funzione.
-  \item Per eseguire una funzione dobbiamo chiamare il nome della funzione 
+\item Per eseguire una funzione dobbiamo chiamare il nome della funzione 
 seguita da una coppia di parentesi.
 \begin{lstlisting}
-  <nomefunzione>()
+<nomefunzione>()
 \end{lstlisting}
-  \item Nella descrizione della sintassi:
-  \begin{enumerate} [nosep]
-   \item le parti tra parentesi angolari (``<'' e  ``>'') vanno sostituite 
+\item Nella descrizione della sintassi:
+\begin{enumerate} [nosep]
+\item le parti tra parentesi angolari (``<'' e  ``>'') vanno sostituite 
 con qualcosa di sensato;
-   \item le parti tra parentesi quadrate (``['' e  ``]'') sono opzionali.
-  \end{enumerate}
- \end{enumerate}
+\item le parti tra parentesi quadrate (``['' e  ``]'') sono opzionali.
+\end{enumerate}
+\end{enumerate}
 \end{osservazione}
 
 \begin{esempio}
- Scrivi la funzione che dia come risultato la media di due numeri.
+ Scrivi la funzione che dà come risultato la media di due numeri.
 
 Questa volta, la funzione deve ricevere due argomenti per poter dare il suo 
 risultato. Vediamo come realizzarla.
@@ -148,41 +168,42 @@ risultato. Vediamo come realizzarla.
 \end{esempio}
 
 \begin{osservazione}
- \begin{enumerate} [nosep]
-  \item La coppia di parentesi che segue il nome della funzione nella 
+\begin{enumerate} [nosep]
+\item La coppia di parentesi che segue il nome della funzione nella 
 definizione contiene due nomi. Questi nomi vengono detti \emph{parametri} 
 della funzione.
-  \item La funzione precedente non aveva parametri, questa funzione ha 2 
+\item La funzione precedente non aveva parametri, questa funzione ha 2 
 parametri.
-  \item La sintassi completa di una funzione è:
+\item La sintassi completa di una funzione è:
 \begin{lstlisting}
   def <nome_funzione>([<parametri>]):
-       """<docstring>"""
+      """<docstring>"""
       [<istruzioni>]
       return <risultato>
 \end{lstlisting}
-  \item Se la funzione ha 2 parametri, per eseguirla dovrò fornirle 2 
+\item Se la funzione ha 2 parametri, per eseguirla dovrò fornirle 2 
 argomenti. 
 Quindi per eseguirla, dovrò mettere tra parentesi due oggetti che verranno 
 collegati ai due parametri:
 \begin{lstlisting}
   <nomefunzione>([<argomenti>])
 \end{lstlisting}
- \end{enumerate}
+\end{enumerate}
 \end{osservazione}
 
 Prova a eseguire la precedente funzione passandole diversi argomenti.
 \lstinputlisting[firstline=7]{\folder src/02_media.py} %[, lastline=5]
 
 \begin{osservazione}
-Osservate la differenza tra la media dei due numeri 34 e 56 e la media 
-tra 0.34 e 0.56. La cosa risulta strana, ma dipende dal fatto che molti 
+Osservate la differenza tra la media dei due numeri 34 e 56 (45.0) e 
+la media tra 0.34 e 0.56 (0.45000000000000007). 
+La cosa risulta strana, ma dipende dal fatto che molti 
 numeri che per noi sono decimali limitati, per il computer sono decimali 
 periodici e quindi sono \emph{sempre} approssimati.
 \end{osservazione}
 
 \begin{esempio}
-Scrivi la funzione che dia come risultato la lunghezza di una stringa.
+Scrivi la funzione che dà come risultato la lunghezza di una stringa.
 
 \begin{osservazione}
 Intendiamo con \emph{stringa} una sequenza di caratteri cioè una parola o 
@@ -195,7 +216,7 @@ Prova a eseguire la precedente funzione passandole diversi argomenti.
 \end{esempio}
 
 \begin{esempio}
-Scrivi la funzione che dia come risultato il terzo carattere di una 
+Scrivi la funzione che dà come risultato il terzo carattere di una 
 stringa.
 
 \lstinputlisting{\folder src/04_terzocarattere.py} %[, lastline=5]
@@ -204,7 +225,7 @@ Prova a eseguire la precedente funzione passandole diversi argomenti.
 \end{esempio}
 
 \begin{osservazione}
- A tutte le persone normali potrà sembrare strano che per ottenere il 
+A tutte le persone normali potrà sembrare strano che per ottenere il 
 terzo carattere si debba mettere tra le parentesi quadre il numero 2. 
 La cosa si spiega considerando che in Python (e non solo in Python) le 
 sequenze iniziano dal numero zero. Quindi il primo carattere è quello che 
@@ -213,7 +234,7 @@ ha posizione 2.
 \end{osservazione}
 
 \begin{esempio}
-Scrivi la funzione che dia come risultato \emph{vero} se un numero è pari e 
+Scrivi la funzione che dà come risultato \emph{vero} se un numero è pari e 
 \emph{falso} se un numero è dispari.
 
 \lstinputlisting{\folder src/05_pari.py} %[, lastline=5]
@@ -222,21 +243,20 @@ Prova a eseguire la precedente funzione passandole diversi argomenti.
 \end{esempio}
 
 \begin{osservazione}
- \begin{enumerate} [nosep]
-  \item Il simbolo ``\%'' rappresenta l'operazione che dà come risultato il 
+\begin{enumerate} [nosep]
+\item Il simbolo ``\%'' rappresenta l'operazione che dà come risultato il 
 resto della divisione tra i suoi operandi.
-  \item Il simbolo ``=='' rappresenta l'operazione di confronto 
-dell'uguaglianza: 
+\item Il simbolo ``=='' rappresenta un'operazione di confronto: 
 dà come risultato \emph{True} se i suoi operandi sono uguali, \emph{False} 
 in caso contrario.
-  \item Un numero è pari se il resto della divisione per 2 è zero.
-  \item L'argomento della funzione deve essere un numero.
-  \item Il risultato è un elemento dell'\emph{insieme bouleano}: {False, 
+\item Un numero è pari se il resto della divisione per 2 è zero.
+\item L'argomento della funzione deve essere un numero.
+\item Il risultato è un elemento dell'\emph{insieme bouleano}: {False, 
 True}.
- \end{enumerate}
+\end{enumerate}
 \end{osservazione}
 
-\section{Argomenti, Dominio e Insieme di Definizione}
+\subsection{Argomenti: Dominio e Insieme di Definizione}
 \label{sec:funzioni2_dominio}
 
 Se nel fare gli esperimenti con le funzioni definite precedentemente siete 
@@ -308,7 +328,8 @@ definita sono solo quelle con almeno 3 caratteri
 
 \begin{definizione}
 Chiameremo \textbf{insieme di definizione}  di una funzione, il 
-sottoinsieme del \emph{dominio} formato dagli elementi che permettono di 
+sottoinsieme del \emph{dominio} formato \emph{solo} dagli elementi che 
+permettono di 
 calcolare un risultato.
 \end{definizione}
 
@@ -316,7 +337,7 @@ L'\emph{insieme di definizione} o \emph{insieme di esistenza} di una
 funzione è il sottoinsieme degli elementi del dominio che non danno un 
 errore quando vengono usati come argomento della funzione.
 
-\section{Risultato, Codominio e Insieme Immagine}
+\subsection{Risultato: Codominio e Insieme Immagine}
 \label{sec:funzioni2_codominio}
 
 \begin{definizione}
@@ -332,7 +353,7 @@ elementi otteniamo un sottoinsieme del codominio:
 
 \begin{definizione}
 Chiamiamo \textbf{insieme immagine} di una funzione il sottoinsieme del 
-codominio che contiene solo i risultati di una funzione.
+codominio che contiene \emph{solo} i risultati di una funzione.
 \end{definizione}
 
 \begin{esempio}
@@ -345,15 +366,14 @@ formato dall'insieme delle stringhe; l'Insieme Immagine è il sottoinsieme
 delle stringhe di lunghezza~1.
 \end{esempio}
 
-\begin{osservazione}
 \paragraph{``Unicità'' del risultato}
 
 In generale ci aspettiamo che una funzione dia un risultato ben preciso:
 \begin{itemize} [nosep]
- \item la metà di 13 è 6,5;
- \item la media tra 20 e 30 è 25;
- \item l'ultima lettera della parola  ``Mah'' è  ``h";
- \item \dots
+\item la metà di 13 è 6,5;
+\item la media tra 20 e 30 è 25;
+\item l'ultima lettera della parola  ``Mah'' è  ``h";
+\item \dots
 \end{itemize}
 
 Non ci aspettiamo che la metà di 13 sia a volte un numero, a volte un altro 
@@ -364,23 +384,21 @@ potrebbe restituire un intervallo di numeri o un insieme di numeri o di
 oggetti.
 
 Non è neppure detto che una funzione debba restituire sempre lo stesso 
-numero, ad esempio una funzione che dia come risultato un numero casuale 
+numero, ad esempio una funzione che dà come risultato un numero casuale 
 restituirà alle volte un numero, altre volte un altro numero.
-
 Comunque, ogni volta che usiamo una certa funzione, otteniamo un preciso 
 risultato che tutti siamo d'accordo di accettare.
-\end{osservazione}
 
 \subsection{Altre convenzioni}
 
-È importante notare che altri testi, la maggioranza in verità, non usano 
+Altri testi, la maggioranza in verità, non usano 
 questa convenzione ma un'altra:
 
 \begin{itemize} [nosep]
  \item quello che noi chiamiamo ``Dominio'' viene spesso chiamato  
-``insieme A'' o in qualche altro modo;
+``insieme A'';
  \item quello che chiamiamo ``Codominio'' a volte viene chiamato  ``insieme 
-B'' o in qualche altro modo;
+B'';
  \item quello che chiamiamo ``Insieme di Definizione'' viene spesso 
 chiamato ``Dominio'';
  \item quello che chiamiamo ``Insieme Immagine'' a volte viene chiamato 
@@ -398,7 +416,7 @@ Spesso bisogna capire dal contesto il significato dei termini, ad esempio,
 se viene chiesto di ``trovare il dominio di una funzione reale'', ci viene 
 chiesto di trovare quello che noi chiamiamo ``insieme di definizione''.
 
-\section{Rappresentazione di una generica funzione}
+\subsection{Rappresentazione di una generica funzione}
 \label{sec:funzioni2_rappresentazione}
 
 \subsection{Diagrammi}
@@ -409,29 +427,25 @@ Eulero-Venn e la regola che collega gli elementi dell'insieme di definizione
 con gli elementi dell'insieme immagine è indicata con una freccia.
 
 \begin{center}
+\scalebox{.8}{
 \deffunzione{Dominio}{Insieme di Definizione}{Codominio}{Insieme Immagine}
+}
 \end{center}
 
 \subsection{Notazioni matematiche}
 
-Possiamo indicare che \(y\) è il risultato di una funzione con la seguente 
-espressione matematica:
+Possiamo indicare che \(y\) è il risultato di una funzione con l'espressione:
+\quad \(y=f(x)\); \quad
+ad esempio se la funzione restituisce la metà del quadrato di un numero la 
+funzione può essere scritta: \quad 
+\(y=\dfrac{1}{2}x^2\)
 
-\[y=f(x)\]
+Altra notazione per indicare una funzione è: \quad
+\(f: x \mapsto f(x)\); \quad 
+esempio: \quad
+\(f: x \mapsto \dfrac{1}{2}x^2\).
 
-Ad esempio se la funzione restituisce la metà del quadrato di un numero la 
-funzione può essere scritta:
-
-\[y=\frac{1}{2}x^2\]
-
-Altra notazione per indicare una funzione è:
-
-\[f: x \mapsto f(x)\]
-
-Usando sempre l'esempio precedente:
-
-\[f: x \mapsto \frac{1}{2}x^2\]
-
+\bigskip
 In Python la funzione \(f\) può essere creata usando il costrutto 
 ``\texttt{def \dots return \dots}'' o la funzione ``\texttt{lambda}``.
 Le seguenti istruzioni Python sono equivalenti:
@@ -444,10 +458,9 @@ f = lambda x: 1/2*x**2
 \end{lstlisting}
 
 \begin{osservazione}
-La lettera \(f\) viene usata per indicare una generica funzione. 
-Quando dobbiamo, nello stesso discorso, indicare altre generiche funzioni, 
-di solito vengono usate altre lettere dell'alfabeto vicine alla effe: \(g\), 
-\(h\), ...
+La lettera \(f\) viene spesso usata per indicare una funzione. 
+Se dobbiamo indicare altre funzioni, 
+vengono usate altre lettere come \(g\), \(h\), \dots
 
 Invece, \(k\) di solito viene usata per indicare una funzione costante, cioè 
 una funzione che dà sempre lo stesso risultato qualunque sia l'argomento.
@@ -486,14 +499,14 @@ rispetto ad altri numeri e perché hanno un semplice modello facile da
 realizzare: 
 la \emph{retta reale} (un asse cartesiano).
 
-Chiameremo queste le \emph{funzioni reali} o 
-\emph{funzioni reali di variabili reali}.
-
 \begin{definizione}
 Chiamiamo \emph{funzione reale di variabile reale} o, più 
 semplicemente, \emph{funzione reale} ogni funzione che ha per Dominio e 
 per Codominio l'insieme dei numeri reali.
 \end{definizione}
+
+\emph{Nel resto del capitolo, quando non diversamente specificato, 
+considereremo funzioni reali.}
 
 \begin{esempio}
 Come esempio potremmo scrivere la funzione che dà come risultato la metà di 
@@ -528,12 +541,19 @@ argomenti e sotto i corrispondenti risultati della funzione:
 
 \begin{osservazione}
 Per capire le funzioni matematiche, non è importante capire 
-la funzione \texttt{tabella} o la funzione \texttt{tabella\_o}.
+la funzione \quad \texttt{tabella} \quad o la funzione \quad 
+\texttt{tabella\_o}.\\
 Chi è curioso puoi cercare di capirle, altrimenti si possono usare senza 
 porsi tanti problemi.
 \end{osservazione}
 
-Osservando la tabella precedente possiamo formulare alcune congetture:
+L'esecuzione dell'ultimo programma produce:
+\begin{lstlisting}
+x:	-6	-5	-4	-3	-2	-1	0	1	2	3	4	5	6	
+f(x):	0.0	0.5	1.0	1.5	2.0	2.5	3.0	3.5	4.0	4.5	5.0	5.5	6.0
+\end{lstlisting}
+
+Osservando la tabella possiamo formulare alcune congetture:
 
 \begin{enumerate} [nosep]
 \item Ogni volta che \(x\) aumenta di 1, \(f_0(x)\) aumenta di \(\frac{1}{2}\).
@@ -544,10 +564,10 @@ Osservando la tabella precedente possiamo formulare alcune congetture:
 \subsection{Scrittura matematica}
 
 In matematica la funzione precedente viene scritta in uno di questi modi:
-
 \[f_0(x) = \frac{1}{2}x +3 \quad \text{ o } \quad 
-y= \frac{1}{2}x +3 \quad \text{ o } \quad 
-f: x \mapsto \frac{1}{2}x +3\]
+f: x \mapsto \frac{1}{2}x +3 \quad \text{ o } \quad 
+y= \frac{1}{2}x +3\]
+Dove \(y\) rappresenta il risultato della funzione.
 
 \subsection{Visualizzazione su due assi}
 
@@ -576,19 +596,19 @@ Collegando i punti corrispondenti nel grafico con due assi otteniamo:
 \dueassi{-13}{10}{\x+3}
 \end{esempio}
 
-
 \begin{osservazione}
-\begin{enumerate}
+\begin{enumerate} [nosep]
 \item La funzione è definita anche per valori diversi da quelli per i quali 
 abbiamo fatto stampare la tabella.
 \item È definita anche per valori diversi da quelli che abbiamo 
 rappresentato nel grafico.
-\item Solo per motivi di pigrizia abbiamo usato come argomenti numeri 
-interi, ma la funzione è definita anche per qualunque altro numero reale.
+\item Solo per motivi grafici (e di pigrizia), abbiamo usato, come argomenti, 
+numeri interi, ma la funzione è definita anche per qualunque altro numero 
+reale.
 \end{enumerate}
 \end{osservazione}
 
-\section{Rappresentazione cartesiana}
+\subsection{Rappresentazione cartesiana}
 \label{sec:funzioni2_rcartesiana}
 
 La visualizzazione su due assi ha il pregio di mettere bene in evidenza il 
@@ -599,10 +619,12 @@ certo a rendere il significato di una funzione a colpo d'occhio.
 
 La trovata geniale è stata quella di ruotare di 90 gradi l'asse delle \(y\) e 
 di indicare la relazione tra l'\emph{argomento} e il \emph{risultato} con 
-un \emph{punto}:
+un \emph{punto} invece che con una freccia:
 
+\vspace{1em}
+\affiancati{.49}{.49}{
 \puntonelpc{2}{5}
-
+}{
 \begin{osservazione}
 \begin{enumerate} [nosep]
 \item Per pigrizia, al posto di  ``argomento'' e di  ``risultato'', 
@@ -616,68 +638,70 @@ solitamente infiniti.
 quella che si ritiene più significativa.
 \end{enumerate}
 \end{osservazione}
-
+}
 \subsection{Grafico di una funzione}
 
 Riportiamo nel piano cartesiano i punti che hanno per coordinate gli 
-argomenti e risultati della funzione: 
-\[f_6: x \mapsto -2x+3\] 
+argomenti e risultati della funzione: \quad \(f_6: x \mapsto -2x+3\) 
+
+\vspace{1em}
+\begin{minipage}{.49\textwidth}
 Ci facciamo calcolare alcuni valori della funzione:
 
-\begin{minipage}{.49\textwidth}
 \begin{lstlisting}
-tabella(lambda x:-2*x+3,range(-4,+7))
+tabella(lambda x:-2*x+3,range(-3,+5))
+
+
+x:    -3  -2  -1   0   1   2   3   4
+f(x):  9   7   5   3   1  -1  -3  -5
 \end{lstlisting}
 \begin{center}
-\begin{tabular}{c|c}
-x & y\\\hline
--3 & +9\\
--2 & +7\\
--1 & +5\\
-0 & +3\\
-+1 & +1\\
-+2 & -1\\
-+3 & -3\\
-+4 & -5\\
-+5 & -7\\
-+6 & -9
-\end{tabular}
-\scalebox{.5}{\dueassi{-3}{+6}{-2*\x+3}}
+% \begin{tabular}{rr}
+% x & y\\\hline
+% \(-3\) & \(+9\)\\
+% \(-2\) & \(+7\)\\
+% \(-1\) & \(+5\)\\
+% \(0\) & \(+3\)\\
+% \(+1\) & \(+1\)\\
+% \(+2\) & \(-1\)\\
+% \(+3\) & \(-3\)\\
+% \(+4\) & \(-5\)\\
+% \(+5\) & \(-7\)
+% % \\
+% % +6 & -9
+% \end{tabular}
+\scalebox{.6}{\dueassi{-3}{+6}{-2*\x+3}}
 \end{center}
 \end{minipage}
 \begin{minipage}{.49\textwidth}
-\begin{center} \scalebox{.7}{\graficoa} \end{center}
+\begin{center} \scalebox{.6}{\graficoa} \end{center}
 \end{minipage}
 
-\begin{minipage}{.49\textwidth}
-\begin{osservazione}
-\begin{enumerate}
-\item Nel grafico vengono disegnati alcuni punti che hanno per coordinate 
+Nel grafico vengono disegnati alcuni punti che hanno per coordinate 
 l'argomento e il risultato della funzione.
-\item Se calcoliamo la funzione nei valori intermedi a quelli rappresentati 
-vedremo che i punti ottenuti si disporranno tra quelli già rappresentati. 
-\end{enumerate}
-\end{osservazione}
 
-Ad es. 
+Se calcoliamo la funzione nei valori intermedi a quelli rappresentati 
+vedremo che i punti ottenuti si disporranno tra quelli già rappresentati. 
+
 \(f(0,25)=2,5\);~\(f(0,5)=2\);~\(f(0,75)=1,5\);~  ...
 
 Possiamo aggiungere facilmente i punti intermedi, anzi possiamo aggiungere 
 facilmente \emph{infiniti} punti semplicemente collegando quelli già 
 disegnati con una linea. In questo caso una linea retta:
-\end{minipage}
-\begin{minipage}{.49\textwidth}
-\begin{center} \scalebox{.7}{\graficob} \end{center}
-\end{minipage}
 
-\begin{osservazione}
+\begin{minipage}{.49\textwidth}
 Questa rappresentazione fa emergere una caratteristica che finora non 
 potevamo sospettare: la funzione ha una sua forma. In questo caso, la 
 funzione ha la forma di una retta decrescente che taglia l'asse y nel punto 
 \(3\).
 
-La forma della funzione viene chiamata: \emph{grafico della funzione}.
-\end{osservazione}
+La figura ottenuta in questo modo viene chiamata: 
+\emph{grafico della funzione}.
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\begin{center} \scalebox{.6}{\graficob} \end{center}
+\end{minipage}
+
 
 \subsection{Disegnare grafici con Python}
 
@@ -688,11 +712,10 @@ come argomento.
 
 \begin{minipage}{.39\textwidth}
 \begin{center}
-\disegno{\graficoxy{-5}{+5}{-2}{+5}{brown!50!black}{-x**2+4}}
+\disegno{\graficoxy{-4}{+5}{-2}{+4}{brown!50!black}{-x**2+4}}
 \end{center}
 \end{minipage}
 \begin{minipage}{.59\textwidth}
-\begin{osservazione}
 Anche in questo caso la funzione che disegna il grafico appare piuttosto 
 complicata, non è necessario capire come funziona.
 L'ultima riga della cella precedente indica come chiamarla, questa è la 
@@ -700,7 +723,6 @@ parte importante.
 
 Per studiare invece il funzionamento della funzione ``grafico`` la strada 
 più semplice è quella di fare delle modifiche e vederne l'effetto.
-\end{osservazione}
 \end{minipage}
 
 \paragraph{Riassumendo}
@@ -717,7 +739,7 @@ più semplice è quella di fare delle modifiche e vederne l'effetto.
 una forma ben precisa.
 \end{enumerate}
 
-\begin{comment}
+% \begin{comment}
 
 \section{Proprietà delle funzioni}
 \label{sec:funzioni2_proprieta}
@@ -740,6 +762,8 @@ può essere prodotto da diversi \(x\).
 \begin{center}
 \disegno{\graficoxy{-5}{+5}{-1}{+10}{brown!50!black}{2**(x+1)}}
 \end{center}
+
+% \vspace{1mm}
 \end{minipage}
 \hfill
 \begin{minipage}{.45\textwidth}
@@ -801,15 +825,25 @@ generato da uno e un solo valore di \(x\).
 \end{esempio}
 \begin{esempio}Controesempio
 
-Tutti gli esempi precedenti.
+Come controesempio possiamo considerare tutti gli esempi precedenti.
 \end{esempio}
 \end{minipage}
 \hfill
 \begin{minipage}{.49\textwidth}
 \begin{center}
-\disegno{\graficoxy{-5}{+5}{-3}{+4}{brown!50!black}{.1*x**3+1}}
+\disegno{\graficoxy{-5}{+5}{-4}{+5}{brown!50!black}{.1*x**3+1}}
 \end{center}
 \end{minipage}
+
+\paragraph{Riassumendo}
+
+Una funzione può essere:
+\begin{enumerate} [nosep]
+\item Iniettiva quando ogni elemento dell'Insieme Immagine deriva da un unico 
+elemento dell'Insieme di Definizione.
+\item Suriettiva quando l'Insieme Immagine coincide con il Codominio.
+\item Biiettiva quando è sia Iniettiva che Suriettiva.
+\end{enumerate}
 
 \section{Caratteristiche di una funzione}
 \label{sec:funzioni2_caratteristiche}
@@ -818,424 +852,1789 @@ Data una funzione in forma matematica è possibile determinare alcune sue
 proprietà in modo abbastanza semplice, per altre servono degli strumenti 
 matematici che ancora non conosciamo.
 
+\subsection{Insieme di Definizione}
+
+Una funzione reale non è detto che sia definita in tutto \(\R\), risulta 
+importante trovare l'insieme di definizione di ogni funzione.
+Alcune operazioni non sono definite in tutto \(\R\) quindi anche le funzioni 
+che le contengono non è detto che siano definite in tutto \(\R\). 
+
+Se in una funzione sono presenti solo funzioni che sono definite per ogni 
+numero reale allora la funzione stessa è definita in tutto \(\R\). 
+Addizioni, moltiplicazioni, potenze con esponente intero, seno, coseno, 
+esponenziali, sono definite per ogni numero reale quindi anche le loro 
+combinazioni lo saranno.
+Ad esempio le funzioni polinomiali sono definite in tutto \(\R\). 
+
+Le operazioni che non sono sempre definite sono: \quad 
+la divisione, la radice con indice pari, il logaritmo e la tangente 
+goniometrica.
+
+Se in una funzione è presente:
+\begin{enumerate} [noitemsep]
+\item la \textbf{divisione}, il divisore (il denominatore) deve essere diverso 
+da zero;
+\item la \textbf{radice con indice pari}, il radicando (il contenuto della 
+radice) deve essere maggiore o uguale a zero;
+\item il \textbf{logaritmo}, l'argomento (l'espressione a cui si applica il 
+logaritmo) deve essere maggiore di zero;
+\item la \textbf{tangente}, l'argomento (l'espressione a cui si applica la 
+tangente) deve essere diversa da \(\pi/2\).
+\end{enumerate}
+Vediamo qualche esempio.
+
+\affiancati{.59}{.39}{
+\begin{esempio}
+\label{esempio:funzioni_id1}
+Calcola l'insieme di definizione della funzione: \quad 
+\(f(x) = x +sin(3x)\)
+
+\(x\) è un numero reale, \(\sin x\) è un numero reale per ogni \(x \in \R\),
+la somma di numeri reali è un numero reale. 
+
+Quindi: \qquad
+\(\ID = \R\)
+\end{esempio}
+}{
+\begin{center}
+\scalebox{.7}{\insdefa}
+\end{center}
+}
+
+\begin{esempio}
+\label{esempio:funzioni_id2}
+Calcola l'insieme di definizione della funzione: \quad 
+\(f(x) = \dfrac{x^2 -5}{x^2 +x -12}\)
+
+\affiancati{.59}{.39}{
+Il numeratore e il denominatore sono numeri reali,
+ma il rapporto tra due numeri reali si può calcolare solo se il divisore è
+diverso da zero.
+
+Quindi la funzione è definita solo se 
+
+\(x^2 +x -12 \ne 0 \srarrow \tonda{x +4}\tonda{x -3} \ne 0\)
+
+\(\srarrow x \ne -4 \stext{e} x \ne +3\)
+
+Quindi: \qquad
+\(\ID = %\R \setminus \graffa{-4;~+3} = 
+\intervaa{-\infty}{-4} \scup \intervaa{-4}{+3} \scup \intervaa{+3}{+\infty}\)
+}{
+\begin{center}
+\scalebox{.7}{\insdefb}
+\end{center}
+}
+\end{esempio}
+
+\begin{esempio}
+\label{esempio:funzioni_id3}
+Calcola l'insieme di definizione della funzione: \quad 
+\(f(x) = \sqrt{2x+5}\)
+
+\affiancati{.59}{.39}{
+Nella funzione è presente una radice quadrata, il radicando deve 
+essere maggiore o uguale a zero:
+
+\(2x+5 \geqslant 0 \srarrow x \geqslant -\dfrac{5}{2}\)
+
+Quindi: \qquad
+\(\ID = \intervca{-\dfrac{5}{2}}{+\infty}\)
+}{
+\begin{center}
+\scalebox{.7}{\insdefc}
+\end{center}
+}
+\end{esempio}
+
+\begin{esempio}
+\label{esempio:funzioni_id4}
+Calcola l'insieme di definizione della funzione: \quad 
+\(f(x) = \dfrac{\tan(x -2)}{2}\)
+
+\affiancati{.59}{.39}{
+La tangente non è definita se il suo argomento è uno dei valori: \quad 
+\(\dfrac{\pi}{2} + k \cdot \pi\) 
+
+perciò: 
+\(x -2 \ne \dfrac{\pi}{2} + k \cdot \pi \srarrow 
+  x \ne \dfrac{\pi}{2} +2 +k \cdot \pi\) 
+
+Alcuni valori approssimati:
+\begin{center}
+\begin{tabular}{llllll}
+\toprule
+\(k\) & 
+\(-3\)    & \(-2\)    & \(-1\)    & \(0\)     & \(+1\) \\
+\midrule 
+\(\dfrac{\pi}{2} +2 +k \cdot \pi\) &
+\(-5.85\) & \(-2.71\) & \(+0.43\) & \(+3.57\) & \(+6.71\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+% \begin{center}
+% \begin{tabular}{rl}
+% \toprule
+% \(k\) & \(\dfrac{\pi}{2} +2 +k \cdot \pi\)\\
+% \midrule \\
+% \(-3\) & \(-5.85\) \\
+% \(-2\) & \(-2.71\) \\
+% \(-1\) & \(+0.43\) \\
+% \(0\) & \(+3.57\) \\
+% \(+1\) & \(+6.71\) \\
+% \bottomrule
+% \end{tabular}
+% \end{center}
+
+Quindi: \qquad
+\(\ID = 
+  \R \setminus 
+  \graffa{\dfrac{\pi}{2} +2 +k \cdot \pi \quad \forall~ k \in \Z}\)
+}{
+\begin{center}
+\scalebox{.7}{\insdefd}
+\end{center}
+}
+\end{esempio}
+
+Ovviamente, in una stessa funzione possono esserci più condizioni come nel 
+prossimo esempio.
+
+\begin{esempio}
+\label{esempio:funzioni_id5}
+Calcola l'insieme di definizione della funzione: \quad 
+\(f(x) = \sqrt{\dfrac{5}{x-2}+2}\)
+
+\affiancati{.59}{.39}{
+Nella funzione è presente una radice quadrata e una divisione, 
+abbiamo da rispettare due condizioni:
+\(\sistema{x -2 \ne 0 \\ \dfrac{5}{x-2}+2 \geqslant 0} \srarrow
+  \sistema{x \ne +2 \\ \dfrac{2x +1}{x-2} \geqslant 0}\)
+
+\soluzionefratta
+
+Quindi: \qquad
+\(\ID = \intervac{-\infty}{-\dfrac{1}{2}} \scup \intervaa{+2}{+\infty}\)
+}{
+\begin{center}
+\scalebox{.7}{\insdefe}
+\end{center}
+}
+\end{esempio}
+
+\pagebreak %------------------------------------------
+
+\subsection{Parità}
+
+La \emph{parità} riguarda la simmetria della funzione rispetto all'asse 
+\(y\) o rispetto all'origine.
+
+\paragraph{Funzioni pari}
+Diremo che una funzione è pari se è simmetrica rispetto all'asse \(y\), 
+cioè a distanza uguale dall'asse ha valori uguali:
+
+\begin{definizione}
+Una funzione è \textbf{pari} se a valori opposti dell'argomento 
+corrispondono valori uguali del risultato: \quad 
+\(f(-x) = f(x)\)
+\end{definizione}
+
+\paragraph{Funzioni dispari}
+Diremo che una funzione è dispari se è simmetrica rispetto all'origine \(O\), 
+cioè ogni segmento che ha un estremo in un punto della funzione e il punto 
+medio nell'origine degli assi, avrà l'altro estremo in un punto della funzione:
+
+\begin{definizione}
+Una funzione è \textbf{dispari} se a valori opposti dell'argomento 
+corrispondono risultati opposti: \quad 
+\(f(-x) = -f(x)\)
+\end{definizione}
+
+I termini ``pari'' e ``dispari'' derivano dal fatto che:
+\begin{itemize} [nosep]
+\item 
+le funzioni polinomiali che hanno solo esponenti \emph{pari} della 
+variabile \(x\) sono simmetriche rispetto all'asse \(y\);
+\item 
+le funzioni polinomiali che hanno solo esponenti \emph{dispari} della 
+variabile \(x\) sono simmetriche rispetto all'origine \(O\).
+\end{itemize}
+
+\begin{osservazione}
+La maggior parte delle funzioni non è né pari né dispari.
+\end{osservazione}
+
+\begin{procedura}
+Per determinare se una funzione è pari, dispari o né pari né dispari
+\begin{enumerate} [nosep]
+\item Si calcola \(f(-x)\);
+\item Si confronta \(f(-x)\) con \(f(x)\):
+\begin{enumerate} [nosep]
+\item se \(f(-x) = f(x)\) la funzione è pari;
+\item se \(f(-x) = -f(x)\) la funzione è dispari;
+\item altrimenti la funzione non è né pari né dispari.
+\end{enumerate}
+\end{enumerate}
+\end{procedura}
+
+\begin{esempio}
+\label{esempio:funzioni_parita1}
+Studia \(\ID\) e parità della funzione 
+\(f(x): x \mapsto \dfrac{x^3 -3x}{-2x^3+5x}\).
+
+\begin{description}
+\item [\(\ID\):] \(-2x^3+5x \ne 0 \srarrow x \tonda{-2x^2+5} \ne 0\) 
+
+\(\ID = 
+\intervaa{-\infty}{-\sqrt{2.5}} \scup \intervaa{-\sqrt{2.5}}{0} \scup 
+\intervaa{0}{+\sqrt{2.5}} \scup \intervaa{+\sqrt{2.5}}{+\infty}\)
+\item [Parità:] ~
+
+\affiancati{.49}{.49}{
+\begin{align*}
+f(-x) &= \dfrac{(-x)^3 -3(-x)}{-2(-x)^3+5(-x)} =
+         \dfrac{-x^3 +3x}{+2x^3-5x} = \\
+      &= \dfrac{-\tonda{x^3 -3x}}{-\tonda{-2x^3+5x}} =
+         \dfrac{x^3 -3x}{-2x^3+5x} = f(x)
+\end{align*}
+Poiché \(f(-x) = f(x)\) la funzione è \textbf{pari}.
+}{
+\vspace{-5mm}
+\begin{center}
+\scalebox{.8}{\funpari}
+\end{center}
+}
+\end{description}
+\end{esempio}
+
+% 
+% \begin{description}
+% \item [\(\ID\):] \(\) 
+% 
+% \(\ID = \)
+% \item [Parità:] ~
+% 
+% \affiancati{.49}{.49}{
+% \begin{align*}
+% \end{align*}
+% Poiché \(f(-x) = f(x)\) la funzione è \textbf{pari}.
+% }{
+% \scalebox{1}{\funpari}
+% }
+% \end{description}
+
+\begin{osservazione}
+Possiamo osservare che sia il numeratore sia il denominatore sono funzioni 
+dispari: dispari fratto dispari uguale pari e
+dispari per dispari uguale pari. 
+\end{osservazione}
+
+\begin{esempio}
+\label{esempio:funzioni_parita2}
+Studia la parità della funzione \(f(x): x \mapsto \dfrac{x^3 -6x}{x^2+4}\).
+
+\begin{description}
+\item [\(\ID\):] \(x^2 +4 \ne 0\) \quad affermazione sempre vera.
+
+\(\ID = \R\)
+\item [Parità:] ~
+
+\affiancati{.49}{.49}{
+\begin{align*}
+f(-x) &= \dfrac{(-x)^3 -6(-x)}{(-x)^2+4} =
+         \dfrac{-x^3 +6x}{+x^2+4} = \\
+      &= \dfrac{-\tonda{x^3 -6x}}{x^2+4} =
+         -\dfrac{x^3 -6x}{x^2+4} = -f(x) 
+\end{align*}
+Poiché \(f(-x) = -f(x)\) la funzione è \textbf{dispari}.
+}{
+\vspace{-10mm}
+\begin{center}
+\scalebox{.8}{\fundispari}
+\end{center}
+}
+\end{description}
+\end{esempio}
+
+\begin{osservazione}
+Possiamo osservare che il numeratore è dispari e il denominatore è pari: 
+dispari fratto pari uguale dispari e dispari per pari uguale dispari. 
+\end{osservazione}
+
+\begin{esempio}
+\label{esempio:funzioni_parita3}
+Studia la parità della funzione \(f(x): x \mapsto \dfrac{-x^3 +2}{x^2 +1}\).
+
+\begin{description}
+\item [\(\ID\):] \(x^2 +1 \ne 0\) \quad affermazione sempre vera.
+
+\(\ID = \R\)
+\item [Parità:] ~
+
+\affiancati{.49}{.49}{
+\begin{align*}
+f(-x) &= \dfrac{(-x)^3 +2(-x)}{(-x)^2+1} =
+         \dfrac{-x^3 +2}{+x^2+1} = \\
+      &= \dfrac{-\tonda{x^3 -2}}{x^2+1} =
+         -\dfrac{x^3 -2}{x^2+1} 
+\end{align*}
+Poiché \(f(-x) \ne f(x) \sstext{e} f(-x) \ne -f(x)\), la funzione non è 
+né \textbf{pari} né \textbf{dispari}.
+}{
+\vspace{-10mm}
+\begin{center}
+\scalebox{.8}{\funnoparidispari}
+\end{center}
+}
+\end{description}
+\end{esempio}
+
+\begin{osservazione}
+Se una funzione è \emph{pari} o se è \emph{dispari}, basterà studiarla 
+solo per i valori positivi del suo Insieme di Definizione, 
+perché è facile ricostruire la sua forma nell'altro semipiano.
+\end{osservazione}
+
+\begin{esempio}
+Riprendiamo le funzioni presentate nella sezione precedente e studiamone la 
+parità.
+\begin{enumerate}
+\item \(f(x) = x +sin(3x)\) \quad (Esempio: \ref{esempio:funzioni_id1})
+
+\(f(-x) = -x +sin(-3x) = -x -sin(3x) = -f(x)\)
+
+La funzione è \emph{dispari} (somma di due funzioni dispari).
+
+\item \(f(x) = \dfrac{x^2 -5}{x^2 +x -12}\) \quad 
+(Esempio: \ref{esempio:funzioni_id2})
+
+Condizione necessaria perché una funzione sia \emph{pari} o \emph{dispari} 
+è che l'Insieme di Definizione sia simmetrico rispetto all'origine. 
+
+La funzione non è né \emph{pari} né \emph{dispari}.
+
+Lo stesso vale per le tre funzioni seguenti.
+
+\item \(f(x) = \sqrt{2x +5}\) \quad 
+(Esempio: \ref{esempio:funzioni_id3}) \quad né \emph{pari} né \emph{dispari}.
+
+\item \(f(x) = \dfrac{\tan(x -2)}{2}\) \quad 
+(Esempio: \ref{esempio:funzioni_id4}) \quad né \emph{pari} né \emph{dispari}.
+
+\item \(f(x) = \sqrt{\dfrac{5}{x-2}+2}\) \quad 
+(Esempio: \ref{esempio:funzioni_id5}) \quad né \emph{pari} né \emph{dispari}.
+\end{enumerate}
+
+\end{esempio}
+
+
+% %### Esercizi
+% 
+% **Esempi**
+% 
+% 1\. Verifica la parità di: 
+% \(\quad f: x \mapsto \dfrac{3x}{2x^2-4}\)
+% 
+% Sostituendo otteniamo:
+% 
+% \[ f(-x) = \frac{3(-x)}{2(-x)^2-4} =
+%               \frac{-3x}{2x^2-4} =
+%               -\frac{3x}{2x^2-4} = -f(x)\]
+%               
+% Poiché \(f(-x)=-f(x)\) (effe di meno x è uguale a meno effe di x), la funzione 
+% è dispari.
+% 
+% 2\. Verifica la parità di: 
+% \(\quad f: x \mapsto \dfrac{4x^4-3x^2}{2x^2-5}\)
+% 
+% Sostituendo otteniamo:
+% 
+% \[ f(-x) = \dfrac{4x^4-3x^2}{2x^2-5} =
+%               \dfrac{4(-x)^4-3(-x)^2}{2(-x)^2-5} =
+%               \dfrac{4x^4-3x^2}{2x^2-5} =
+%               f(x)\]
+%               
+% Poiché f(-x)=f(x) (effe di meno x è uguale a meno effe di x), la funzione 
+% è 
+% pari.
+% 
+% 3\. Verifica la parità di: 
+% \(\quad f: x \mapsto 4x^4-3x^2+5x\)
+% 
+% Sostituendo otteniamo:
+% 
+% \[ f(-x) = 4(-x)^4-3(-x)^2+5(-x) =
+%               4x^4-3x^2-5x \]
+%               
+% Osservando attentamente i segni possiamo concludere che:
+% \[f(-x) \ne f(x) \quad \text{e} \quad f(-x) \ne -f(x)\] 
+%               
+% Quindi \(f(-x)\) non è né pari né dispari.
+% 
+% Tra le seguenti funzioni individua quali sono pari, quali dispari e quali 
+% né 
+% pari né dispari.
+% 
+% \item \(f_0: x \mapsto - x^4 +3x^2 -2\)
+% \item \(f_1: x \mapsto x^3-2x\)
+% \item \(f_2: x \mapsto x^4 - x^3\)
+% \item \(f_3: x \mapsto - \dfrac{6}{5} x\)
+% \item \(f_4: x \mapsto \dfrac{6}{x}\)
+% \item \(f_5: x \mapsto - \dfrac{5}{4} x -2\)
+% \item \(f_6: x \mapsto x^2\)
+% \item \(f_7: x \mapsto -x^2 + 7\)
+% \item \(f_8: x \mapsto - \dfrac{1}{2} x^2 -2x\)
+% \item \(f_9: x \mapsto - \dfrac{x-2}{3x+4}\)
+
+
+\subsection{Periodicità}
+
+\noindent Diremo che una funzione è periodica se, a intervalli regolari, si 
+ripete sempre allo stesso modo.
+
+\begin{definizione}
+Una funzione è \textbf{periodica} se a distanza di un certo intervallo produce 
+gli stessi valori.
+Chiamando \(i\) l'ampiezza dell'intervallo: \quad  
+%di periodicità \(\mathbb{I}\):
+\(\forall x \in \ID \quad  f(x + i) = f(x)\)
+\end{definizione}
+
+Se una funzione è periodica, basta studiare solo un intervallo di 
+periodicità: \(\intervca{x_0}{x_0 +i}\).
+
+\begin{esempio}
+\label{esempio:funzioni_periodicita1}
+Studia la periodicità della funzione: \(y = \sin x + 2 \sin 2x\).
+
+\begin{description}
+\item [\(\ID\):] \quad 
+la funzione è definita per ogni numero reale \quad \(\ID = \R\)
+\item [Parità:] \quad 
+\(f(-x) = \sin (-x) + 2 \sin (-2x) = -\sin x - 2 \sin 2x = -f(x)\) \quad 
+La funzione è dispari.
+\item [Periodicità:] \quad 
+Dato che la funzione seno è periodica con periodo \(2 \pi\):
+\begin{align*}
+f(x +2\pi) &= \sin (x +2\pi) + 2 \sin 2(x +2\pi) = 
+  \sin (x +2\pi) + 2 \sin (2x +4\pi)= \\
+&= \sin x \cdot \cos 2\pi + \cos x \cdot \sin 2\pi + 
+   2 \tonda{\sin 2x \cdot \cos 4\pi + \cos 2x \cdot \sin 4\pi} = \\
+&= \sin x \cdot 1 + \cos x \cdot 0 + 
+   2 \tonda{\sin 2x \cdot 1 + \cos 2x \cdot 0} = 
+  \sin x + 2 \sin 2x = f(x)
+\end{align*}
+anche \(f(x)\) è una funzione periodica con periodo \(2 \pi\). 
+\begin{center}
+\scalebox{.9}{\funperiodica}
+\end{center}
+Dato che la funzione si ripete con un 
+periodo che è uguale a \(2\pi\), si può restringere lo studio 
+all'intervallo: \(\intervca{0}{2\pi}\).
+\end{description}
+\end{esempio}
+
+\begin{esempio}
+Tra gli esempi precedenti l'unica che può essere periodica è 
+\(f(x) = \dfrac{\tan(x -2)}{2}\) \quad 
+(Esempio: \ref{esempio:funzioni_id4}) 
+dato che la funzione tangente è periodica con periodo \(\pi\):
+\begin{align*}
+f(x +\pi) &= \dfrac{\tan(x+\pi -2)}{2} = 
+   \dfrac{\tan((x -2) +\pi)}{2} = 
+   \dfrac{\dfrac{\tan(x -2) +\tan{(\pi)}}{1 - \tan(x -2) \tan{(\pi)}}}{2} = \\
+&= \dfrac{\dfrac{\tan(x -2) +0}{1 - \tan(x -2) \cdot 0}}{2} = 
+   \dfrac{\dfrac{\tan(x -2)}{1}}{2} = 
+   \dfrac{\tan(x -2)}{2} = f(x)
+\end{align*}
+\end{esempio}
+
+
+\subsection{Zeri di una funzione}
+
+Si dicono \emph{zeri di una funzione} i valori dell'argomento che producono 
+\(0\) come risultato.
+
+\begin{definizione}
+Diremo che \(z\) è uno \textbf{zero} della funzione se \(f(z) = 0\).
+\end{definizione}
+
+Gli zeri di una funzione si trovano risolvendo l'equazione: \(f(x) = 0\)
+
+Dato che l'asse \(x\) ha equazione \(y = 0\), gli zeri della funzione 
+indicano i punti in cui il grafico della funzione interseca l'asse \(x\).
+
+\begin{esempio}
+\label{esempio:funzioni_zeri}
+Calcola gli zeri della funzione: \(y = f(x) = x^4 -5x^2 +4\)
+
+\begin{description}
+\item [\(\ID\):] la funzione è definita per ogni numero reale \quad 
+\(\ID = \R\)
+\item [Parità:] 
+\(f(-x) = (-x)^4 -5(-x)^2 +4 = x^4 -5x^2 +4 = f(x)\)
+
+La funzione è pari.
+\item [Periodicità:] 
+La funzione non è periodica.
+\item [Zeri]~
+
+\affiancati{.69}{.29}{
+
+\(\sistema{y = 0 \\ y = x^4 -5x^2 +4} \srarrow 
+  x^4 -5x^2 +4=0 \srarrow \)\\[.5em]
+\(\srarrow \tonda{x^2-4} \tonda{x^2-1}=0 \srarrow 
+  x^2 = 4 \stext{ o } x^2 = 1 \srarrow \)\\[.5em]
+\(\srarrow x_{0,~1} = \mp 2 \stext{ o } x_{2,~3} = \mp 1\)\\[.5em]
+Il grafico di questa funzione interseca l'asse \(x\) nei punti: \\
+\(-2;~-1;~+1;~+2\). 
+
+L'insieme degli zeri della funzione è: 
+\[\text{zeri} = \graffa{-2;~-1;~+1;~+2}\]
+}{
+\funzeri
+}
+\end{description}
+\end{esempio}
+
+\begin{esempio}
+Calcoliamo gli zeri delle funzioni presentate negli esempi precedenti.
+\begin{enumerate}
+\item \(f(x) = x +sin(3x)\) \quad (Esempio: \ref{esempio:funzioni_id1})
+
+\(x +sin(3x) = 0 \srarrow x = 0\) che è l'unico zero della funzione.
+
+\item \(f(x) = \dfrac{x^2 -5}{x^2 +x -12}\) \quad 
+(Esempio: \ref{esempio:funzioni_id2})
+
+\(\dfrac{x^2 -5}{x^2 +x -12} = 0\) perché una frazione valga zero deve 
+essere definita e deve valere zero il numeratore.
+
+\(x^2 -5 = 0 \srarrow x = \mp \sqrt{5}\)
+questi due valori appartengono all'Insieme di Definizione quindi sono gli 
+zeri della funzione.
+
+\item \(f(x) = \sqrt{2x +5}\) \quad 
+(Esempio: \ref{esempio:funzioni_id3}) 
+
+\(\sqrt{2x +5} = 0 \srarrow 2x +5 = 0 \srarrow x = \dfrac{-5}{2}\)
+che appartiene all'Insieme di Definizione quindi è lo zero della funzione.
+
+\item \(f(x) = \dfrac{\tan(x -2)}{2}\) \quad 
+(Esempio: \ref{esempio:funzioni_id4}) 
+
+\(\dfrac{\tan(x -2)}{2} = 0 \srarrow \tan(x -2) = 0 \srarrow 
+  x -2 = k \pi \srarrow 
+  \text{zeri} = \graffa{k \pi +2 \quad \forall k \in \Z}\) 
+
+\item \(f(x) = \sqrt{\dfrac{5}{x-2}+2}\) \quad 
+(Esempio: \ref{esempio:funzioni_id5})
+
+\(\sqrt{\dfrac{5}{x-2}+2} = 0 \srarrow \dfrac{5}{x-2}+2 = 0 \srarrow
+\dfrac{2x +1}{x-2} = 0 \srarrow 2x +1 = 0 \srarrow x = -\dfrac{1}{2}\)
+
+\item  \quad \(f(x): x \mapsto \dfrac{x^3 -3x}{-2x^3+5x}\)
+(Esempio: \ref{esempio:funzioni_parita1})
+
+\(\dfrac{x^3 -3x}{-2x^3+5x} = 0\)
+
+\item  \quad \(f(x): x \mapsto \dfrac{x^3 -6x}{x^2+4}\)
+(Esempio: \ref{esempio:funzioni_parita2})
+
+\(\dfrac{x^3 -6x}{x^2+4} = 0 \srarrow x^3 -6x = 0 \srarrow 
+  x\tonda{x^2 -6} = 0 
+\text{zeri} = \graffa{-\sqrt{6};~0;~+\sqrt{6}}\)
+
+\item  \quad \(f(x): x \mapsto \dfrac{-x^3 +2}{x^2 +1}\)
+(Esempio: \ref{esempio:funzioni_parita3})
+
+\(\dfrac{-x^3 +2}{x^2 +1} = 0 \srarrow -x^3 +2 = 0 \srarrow x^3 = 2 \srarrow 
+\text{zeri} = \graffa{-\sqrt[3]{2}}\)
+
+\item  \quad \(y = \sin x + 2 \sin 2x\)
+(Esempio: \ref{esempio:funzioni_periodicita1})
+
+\(\sin x + 2 \sin 2x = 0 \srarrow 
+\sin x + 2 \sin x \cdot \cos x = 0 \srarrow 
+\sin x \tonda{1 + 2 \cos x} = 0 \srarrow \)
+
+\(\sistema{\sin x = 0 \\ \cos x = - \dfrac{1}{2}} \srarrow 
+  \sistema{x = 0 +k \pi\\ \cos x = \mp \dfrac{2}{3}\pi + 2 k \pi}\)
+
+\end{enumerate}
+
+\end{esempio}
+
 \subsection{Monotonia}
 
-Con il termine  ``monotòna'' (diversa da  ``monòtona") intendiamo una 
+Con il termine  ``monotòna'' (diverso da  ``monòtona") intendiamo una 
 funzione che ha lo stesso andamento, cioè che è o sempre crescente o sempre
 decrescente.
 
 \subsubsection{Crescente}
 
-Una funzione è crescente se all'aumentare dell'argomento (\(x\)) aumenta 
-anche 
-il risultato (\(y\)). Se questo è vero per tutte le \(x\) dell'insieme di 
+Una funzione è \emph{crescente} se all'aumentare dell'argomento (\(x\)) 
+aumenta anche il risultato (\(y\)). 
+Se questo è vero per tutte le \(x\) dell'insieme di 
 definizione allora diremo che la funzione è monotòna crescente.
 
 \begin{definizione}
 Una funzione si dice \textbf{monotona crescente} se ad argomenti più grandi 
 corrispondono risultati più grandi 
 (se all'aumentare di \(x\) aumenta anche \(f(x)\)):
-\[\forall x_0, x_1 \in \mathbb{IE} ~\land~ x_1 > x_0 ~\Rightarrow~ 
+\[\forall x_0, x_1 \in \ID ~\land~ x_1 > x_0 ~\Rightarrow~ 
 f(x_1) > f(x_0)\]
+Una funzione si dice \textbf{monotona non decrescente} se ad argomenti più 
+grandi corrispondono risultati o più grandi o uguali: \quad 
+\(\forall x_0, x_1 \in \ID ~\land~ x_1 > x_0 ~\Rightarrow~ 
+f(x_1) \geqslant f(x_0)\)
 \end{definizione}
 
-\begin{osservazione}
  È del tutto equivalente dire che una funzione è \emph{crescente} se ad 
 \emph{argomenti più piccoli} corrispondono \emph{risultati più piccoli}.
-\end{osservazione}
 
-\begin{minipage}{.54\textwidth}
-\begin{esempio}
-
-Esempio di funzione crescente:\\
-\(y=\log_{2}{x}\)
-\end{esempio}
 \begin{osservazione}
- Se abbiamo fatto disegnare il grafico a Python, otteniamo una strana 
-scritta prima che ci venga visualizzato il grafico: 
-Python ci avvisa che ha incontrato dei valori non validi nell'eseguire  
-``log2''. Sapresti dare una spiegazione di questo avviso?
+Queste definizioni presentano un problema: dire 
+''per ogni coppia di punti\dots`` rende la definizione \emph{non operativa},
+è impossibile infatti verificare in un tempo finito, infinite coppie di punti.
+
+Per poter verificare la monotonia di una funzione, dovremo mettere a punto 
+strumenti più sofisticati e in particolare definire il concetto di pendenza 
+e di derivata.
+
+Nel frattempo ci accontentiamo di affrontare questo aspetto delle funzioni in 
+modo intuitivo basandoci sull'osservazione dei grafici.
 \end{osservazione}
-\end{minipage}
-\hfill
-\begin{minipage}{.44\textwidth}
+
+\begin{esempio}
+Esempio di funzione crescente: 
+\(y=\log_{2}{x}\)
+
+Facciamo stampare  la tabella di alcune coppie argomento-risultato per la 
+funzione ``log2''.
+
+\begin{lstlisting}
+tabella(lambda x: np.log2(x), [x/2 for x in range(-2, 10)])
+grafico(lambda x: np.log2(x))
+\end{lstlisting}
+
+\affiancati{.54}{.44}{
+\begin{center}
+\begin{tabular}{rl}
+\(x\) & \(f(x)\)\\\hline
+% \(-1.0\) & nan\\
+\(-.5\) & nan\\
+\(0.0\) & -inf\\
+\(+0.5\) & \(-1.0\)\\
+\(+1.0\) & \(0.0\)\\
+\(+1.5\) & \(0.5849625007211562\)\\
+\(+2.0\) & \(1.0\)\\
+\(+2.5\) & \(1.3219280948873624\)\\
+\(+3.0\) & \(1.584962500721156\)\\
+\(+3.5\) & \(1.8073549220576042\)\\
+\(+4.0\) & \(2.0\)\\
+\(+4.5\) & \(2.169925001442312\)
+\end{tabular}
+\end{center}
+% \begin{osservazione}
+% Se abbiamo fatto disegnare il grafico a Python, otteniamo una strana 
+% scritta prima che ci venga visualizzato il grafico: 
+% Python ci avvisa che ha incontrato dei valori non validi nell'eseguire  
+% ``log2''. Sapresti dare una spiegazione di questo avviso?
+% \end{osservazione}
+}{
 \begin{center}
 \disegno{\graficoxy{-1}{+9}{-4}{+4}{brown!50!black}{log(x)/log(2)}}
 \end{center}
-\end{minipage}
+}
 
-\begin{comment}
-Facciamo stampare  la tabella di alcune coppie argomento-risultato per la 
-funzione *log2*.
-"""
+\end{esempio}
+% \affiancati{.38}{.58}{
+% }{
+Se abbiamo utilizzato Python abbiamo ottenuto degli strani messaggi e, 
+tra i risultati, otteniamo delle scritte che non sono un numeri\dots 
 
-tabella(lambda x: np.log2(x), [x/2 for x in range(-10, 10)])
+Se ripensiamo al significato di \emph{logaritmo} vediamo che l'espressione 
+``\(\log_2{0}\)'' equivale a cercare l'esponente da dare a \(2\) per 
+ottenere \(0\) cosa impossibile. 
 
-"""Otteniamo ancora strani messaggi e, tra i risultati, otteniamo delle 
-scritte che non sono un numeri...  
+E ``\(\log_2{(-4)}\)'' equivale a cercare l'esponente da dare a \(2\) per 
+ottenere \(-4\) cosa altrettanto impossibile.
 
-Se ripensiamo al significato di *logaritmo* vediamo che l'espressione 
-"log2(0)'' equivale a cercare l'esponente da dare a 2 per ottenere 0 cosa 
-impossibile. E  ``log2(-4)'' equivale a cercare l'esponente da dare a 2 per 
-ottenere -4 cosa altrettanto impossibile.
-
-Ritornando al nostro problema:
-
-### Esercizio
-
+\begin{esempio}
 Verifica per almeno 3 coppie di valori di \(x\) che se \(x_1\) è maggiore di 
-\(x_0\) allora anche  \(f(x_1)\) è maggiore di \(f(x_0)\)  e per altre 3 coppie 
-di 
-valori di \(x\) che se \(x_1\) è miore di \(x_0\) allora anche  \(f(x_1)\) è miore 
-di \(f(x_0)\).
+\(x_0\) allora anche  \(f(x_1)\) è maggiore di \(f(x_0)\) 
+e per altre 3 coppie di valori di \(x\) che se \(x_1\) è minore di \(x_0\) 
+allora anche  \(f(x_1)\) è minore di \(f(x_0)\).
+\begin{center}
+\begin{tabular}{rrrccrcr}
+\hline
+\(x\)    & \(+0.5\) & \(<\) & \(+1.5\)  & \(<\) & \(+3.0\) \\
+\(f(x)\) & \(-1.0\) & \(<\) & \(0.585\) & \(<\) & \(1.585\) \\
+\hline
+\end{tabular}
+\hspace{15mm}
+\begin{tabular}{rrrccrcr}
+\hline
+\(x\)    & \(+3.5\)  & \(>\) & \(+2.5\)  & \(>\) & \(+1.0\) \\
+\(f(x)\) & \(1.807\) & \(>\) & \(1.322\) & \(>\) & \(0.0\) \\
+\hline
+\end{tabular}
+\end{center}
+\end{esempio}
+% }
 
-### Decrescente 
+\subsubsection{Decrescente}
 
-Una funzione è *decrescente* se all'aumentare dell'argomento (\(x\)) 
+Una funzione è \emph{decrescente} se all'aumentare dell'argomento (\(x\)) 
 diminuisce il risultato (\(y\)). Se questo è vero per tutte le \(x\) 
 dell'insieme di definizione allora diremo che la funzione è monotòna 
 decrescente.
 
----
-**Definizione**
-Una funzione si dice *monotona decrescente* se ad argomenti più grandi 
+\begin{definizione}
+Una funzione si dice \textbf{monotona decrescente} se ad argomenti più grandi 
 corrispondono risultati più piccoli (se all'aumentare di \(x\) diminuisce 
 \(f(x)\)):
+\[\forall x_0, x_1 \in \ID ~\land~ x_1 > x_0 \srarrow f(x_1) < f(x_0)\]
 
-\[\forall x_0, x_1 \in \mathbb{IE} ~\land~ x_1 > x_0 ~\Rightarrow~ 
-f(x_1) < f(x_0)\]
+Una funzione si dice \textbf{monotona non crescente} se ad argomenti più 
+grandi corrispondono risultati o più piccoli o uguali: \quad 
+\(\forall x_0, x_1 \in \ID ~\land~ x_1 > x_0 \srarrow 
+f(x_1) \leqslant f(x_0)\)
+\end{definizione}
 
----
+È del tutto equivalente dire che una funzione è \emph{decrescente} se ad 
+\emph{argomenti più piccoli} corrispondono \emph{risultati più grandi}.
 
-**Osservazione**
-
-È del tutto equivalente dire che una funzione è decrescente se ad argomenti 
-più piccoli corrispondono risultati più grandi.
-
----
-
-Grafico di una funzione decrescente:
-"""
-
+\vspace{1em}
+% % Questo non va:
+% \affiancati{.54}{.44}{
+% \begin{esempio}
+% Esempio di funzione decrescente:\\
+% \(y=-\dfrac{1}{2}x +2\)
+% \end{esempio}
+% Per ogni coppia di punti 
+% \(P_0 \punto{x_0}{y_0} \stext{e} P_1 \punto{x_1}{y_1}\) \\
+% con \(x_1 > x_0 \stext{abbiamo che} y_1 < y_0\).
+% \begin{lstlisting}
+% grafico(lambda x: -.5*x+2)
+% \end{lstlisting}
+% }{
+% \begin{center}
+% \disegno{\graficoxy{-3}{+8}{-2}{+5}{brown!50!black}{-.5*x+2}}
+% \end{center}
+% }
+% 
+% % Questo sì!!!???
+\noindent \begin{minipage}{.48\textwidth}
+\begin{esempio}
+Esempio di funzione decrescente: \quad 
+\(y=-\dfrac{1}{2}x +2\)
+\end{esempio}
+Per ogni coppia di punti \\
+\(P_0 \punto{x_0}{y_0} \stext{e} P_1 \punto{x_1}{y_1}\)\\
+\(\text{con} \quad x_1 > x_0 \sstext{abbiamo che} y_1 < y_0\)
+\begin{lstlisting}
 grafico(lambda x: -.5*x+2)
-
-"""### Intervalli di monotonia
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{.48\textwidth}
+\begin{center}
+\disegno{\graficoxy{-3}{+8}{-2}{+4}{brown!50!black}{-.5*x+2}}
+\end{center}
+\end{minipage}
 
 Una funzione può essere crescente in certi intervalli di \(x\) e decrescente 
 in altri.
+% Uno dei problemi da risolvere quando ci sarà chiesto di studiare una 
+% funzione sarà quella di individuare gli intervalli di monotonia, cioè per 
+% quali valori di \(x\) la funzione è crescente e per quali è decrescente.
 
-Uno dei problemi da risolvere quando ci sarà chiesto di studiare una 
-funzione sarà quella di individuare gli intervalli di monotonia, cioè per 
-quali valori di \(x\) la funzione è crescente e per quali è decrescente.
-
----
-**Esempio**
-
+\affiancati{.48}{.48}{
+\intervallimonotonia
+}{
+\begin{esempio}
 Individua gli intervalli di monotonia della funzione che ha il seguente 
 grafico.
-
-![Intervalli di 
-monotonia]
-(https://drive.google.com/uc?export=view&id=1w8Og5HxVbNz9tFL3-OcgZuzdpq2G8yG
-L)
 
 Possiamo immaginare che la funzione che ha questo grafico cresca fino a che 
 \(x\) vale \(a\), decresca da \(a\) a \(b\), poi torni a crescere.
 
-In \(a\) e \(b\) la funzione ha due *punti stazionari* e precisamente in \(a\) la 
-funzione ha un *massimo relativo* e in \(b\) un *minimo relativo*.
+In \(a\) e \(b\) la funzione ha due \emph{punti stazionari} e precisamente 
+in \(a\) la funzione ha un \emph{massimo relativo} e 
+in \(b\) un \emph{minimo relativo}.
+\end{esempio}
+}
 
-**Osservazione**
-
-È chiaro che possiamo dire qualcosa di abbastanza sicuro solo sulla parte 
-del grafico che vediamo. In questo caso, su cosa faccia la funzione quando 
-\(x\) è più piccolo di \(-6,5\) o più grande di \(10\) possiamo fare solo delle 
-ipotesi.
-
----
-
-### Esercizi
-
-Tra le seguenti funzioni individua quali sono crescenti, quali decrescenti 
-e 
-quali hanno dei tratti crescenti e dei tratti decrescenti.
-
-\item \(f_0: x \mapsto - \dfrac{8}{7} x\)
-\item \(f_1: x \mapsto \dfrac{12}{x}\)
-\item \(f_2: x \mapsto  \dfrac{2}{5} x -2\)
-\item \(f_3: x \mapsto \dfrac{1}{2}x^2\)
-\item \(f_4: x \mapsto - \dfrac{4}{3} x^2 -2\)
-\item \(f_5: x \mapsto - \dfrac{3x-2}{2x+4}\)
+\begin{osservazione}
+È chiaro che, quando analizziamo un grafico, possiamo dire qualcosa di 
+abbastanza sicuro solo sulla parte del grafico che vediamo. 
+In questo caso, su cosa faccia la funzione quando 
+\(x\) è più piccolo di \(-5\) o più grande di \(+9\) possiamo fare solo 
+delle ipotesi.
+\end{osservazione}
 
 
-\end{comment}
 
-\begin{comment}
-%--------------------------------------------------------------------
-% Per inserire codice
+% 
+% %--------------------------------------------------------------------
+% 
+% 
+% % \href{http://www.yahoo.com/}{\nolinkurl{www.yahoo.com}}
+% 
+% % %### Esercizi
+% % 
+% % Tra le seguenti funzioni individua quali sono crescenti, quali decrescenti 
+% % e quali hanno dei tratti crescenti e dei tratti decrescenti.
+% % 
+% % \item \(f_0: x \mapsto - \dfrac{8}{7} x\)
+% % \item \(f_1: x \mapsto \dfrac{12}{x}\)
+% % \item \(f_2: x \mapsto  \dfrac{2}{5} x -2\)
+% % \item \(f_3: x \mapsto \dfrac{1}{2}x^2\)
+% % \item \(f_4: x \mapsto - \dfrac{4}{3} x^2 -2\)
+% % \item \(f_5: x \mapsto - \dfrac{3x-2}{2x+4}\)
+% 
+% 
+% % 
+% %--------------------------------------------------------------------
+% % Per inserire codice
+% 
+% \basection{}
+% \label{sec:funzioni2_}
+% 
+% \basubsection{}
+% 
+% \begin{definizione}
+% \end{definizione}
+% 
+% \begin{esempio}
+% \end{esempio}
+% 
+% 
+% \label{sec:funzioni2_dominio}
+% 
+% \lstinputlisting[firstline=2, lastline=5]{\folder src/.py} %]
+% 
+% \begin{lstlisting}
+% \end{lstlisting}
+% 
+% \begin{osservazione}
+% \end{osservazione}
+% 
+% \begin{minipage}{.49\textwidth}
+% \end{minipage}
+% \begin{minipage}{.49\textwidth}
+% \end{minipage}
+% 
+% %--------------------------------------------------------------------
 
-\section{}
-\label{sec:funzioni2_}
 
-\subsection{}
+
+\subsection{Limitatezza}
+
+Il fatto di essere limitata riguarda i risultati della funzione, cioè 
+il suo Insieme Immagine.
 
 \begin{definizione}
+Una funzione si dice \textbf{limitata} se il suo insieme immagine ha un 
+valore massimo \textbf{e} un valore minimo.
+
+Si dice \textbf{illimitata} se il suo insieme immagine non ha un massimo 
+\textbf{o} non ha un minimo.
+\end{definizione}
+
+Possiamo distinguere diversi casi di una funzione \(f\) definita in un 
+intervallo \(\mathbb{I}\):
+
+\begin{enumerate} [nosep]
+\item \emph{Limitata superiormente} se la sua immagine ha un 
+\emph{estremo superiore}:
+\[\exists k \in \mathbb{R} ~|~ \forall x \in \mathbb{I}, \quad f(x) \le k\]
+\item \emph{Limitata inferiormente} se la sua immagine ha un 
+\emph{estremo inferiore}:
+\[\exists k \in \mathbb{R} ~|~ \forall x \in \mathbb{I}, \quad f(x) \ge k\]
+\item \emph{Limitata} se la sua immagine ha un 
+\emph{estremo inferiore} e un \emph{estremo superiore}: 
+\[\exists h, k \in \mathbb{R} ~|~ \forall x \in \mathbb{I}, \quad h \le 
+f(x) \le k \]
+\end{enumerate}
+
+Da queste si possono ricavare altre definizioni:
+\begin{enumerate} [nosep]
+\item \emph{Illimitata superiormente} se \emph{non} è limitata superiormente.
+\item \emph{Illimitata inferiormente} se \emph{non} è limitata inferiormente.
+\item \emph{Illimitata} se \emph{non} è limitata superiormente o inferiormente.
+\end{enumerate}
+
+\begin{esempio}
+Guardando i grafici e tenendo presenti definizioni, possiamo affermare che:
+
+\vspace{1em}
+\affiancatic{.49}{.49}{
+\(f: x \mapsto \ln{x}\)
+
+\scalebox{.5}{\limitatezzaa}
+
+è illimitata sia inferiormente \\
+sia superiormente.
+}{
+\(f: x \mapsto e^x\)
+
+\scalebox{.5}{\limitatezzab}
+
+è limitata inferiormente e \\ 
+illimitata superiormente.
+}
+
+\vspace{1.5em}
+\affiancatic{.49}{.49}{
+\(f: x \mapsto \sin{x}\)
+
+\scalebox{.5}{\limitatezzac}
+
+è limitata sia inferiormente \\
+sia superiormente.
+}{
+\(f: x \mapsto -x^2+2x +3\)
+
+\scalebox{.5}{\limitatezzad}
+
+è limitata superiormente e \\
+illimitata inferiormente.
+}
+\end{esempio}
+
+\begin{osservazione}
+Anche per trovare in modo sicuro se una funzione è limitata o illimitata, 
+abbiamo bisogno strumenti che impareremo a usare più avanti.
+\end{osservazione}
+
+% \begin{osservazione}
+% Anche per trovare in modo sicuro se una funzione è limitata o illimitata, 
+% abbiamo bisogno di precisare il concetto di pendenza e di valutare il valore di 
+% una funzione quando l'argomento è un numero infinito o quando è infinitamente 
+% vicino ad un estremo dell'Insieme di Definizione.
+% \end{osservazione}
+
+\section{Composizione di funzioni}
+
+\subsection{Funzione composta}
+
+A volte può essere utile vedere una funzione complessa come la 
+composizione di funzioni più semplici. 
+
+Se abbiamo tre insiemi \(A\), \(B\) e \(C\) e abbiamo una funzione \(h\) 
+definita su \(A\) con immagine in \(B\) e una funzione \(g\) definita su 
+\(B\) con immagine in \(C\), possiamo costruire la funzione 
+\(f: a \mapsto c\) in modo tale che sia: 
+\(c=g(h(a))\) o \(f: a \mapsto g(h(a))\).
+
+\begin{center}
+\scalebox{.8}{
+\deffunzionecomposta{{\(A\)}}{Insieme di Definizione}
+                    {{\(B\)}}{\text{I.I. di } h}{\text{I.D. di } g}
+                    {{\(C\)}}{Insieme Immagine}
+}
+\end{center}
+
+Questa funzione si dice anche funzione composta di \(g\) e \(h\) e si scrive:
+\[f = g \circ h \sstext{oppure} f(x) = g \tonda{h(x)}\]
+Che si leggono, rispettivamente: ``effe uguale a gi composto acca''
+e ``effe di x uguale a gi di acca di x''.
+
+\begin{esempio}
+Rappresenta la funzione  \(f: x \mapsto \dfrac{\tonda{3x -2}^2}{8}\)
+come funzione composta. 
+
+La funzione \(f\) è composta dalle due funzioni 
+\(h: x \mapsto 3x -2 \sstext{e} g: x \mapsto \dfrac{x^2}{8}\). \quad 
+La funzione 
+\(h\) toglie \(2\) al triplo del suo argomento, mentre la funzione 
+\(g\) esegue il quadrato del suo argomento e lo divide per \(8\).
+Quindi \(f\) applica prima la funzione \(h\) al proprio argomento, poi la 
+funzione \(g\) al risultato di \(h\).
+Lo schema seguente rappresenta la situazione.
+
+\hspace{5mm}\scalebox{.8}{\boxfunzionecompostaa} 
+\label{gra:differenziazione_boxcompostaa}
+
+Si tratta di una macchina che concatena due calcoli successivi. 
+Immettiamo ad esempio il valore \(6\). 
+La macchina \(h\) calcola, al suo interno, \(h(6)=3\cdot 6-2\) e dà come 
+risultato \(16\).
+Questo numero è l'input della macchina \(g\) che calcola 
+\(g(16)=\frac{16^2}{8}\) e dà come risultato \(32\)
+che è il risultato di \(f(x) = g(h(x))\).
+
+Possiamo disegnare su un piano cartesiano le tre funzioni: 
+\(h(x),~g(x) \stext{e} f(x)\), e provare a seguire le trasformazioni che 
+portano \(x\) in \(f(x)\).
+
+\affiancati{.49}{.49}{
+Nella figura a fianco sono riportati i grafici delle 3 funzioni 
+\(h(x);~g(x) \stext{e} f(x)\).
+
+La funzione \(h\) riceve in input il valore \(5\) e produce in output 
+il valore \(3\): \quad \(h(5) = 3\). 
+
+Questo valore viene riportato sull'asse delle \(x\) e diventa l'input 
+della funzione \(g\) che dà come output il valore \(4,5\): \quad 
+\(g(3) = 4,5\).
+
+Il risultato della composizione delle due funzioni è: \quad 
+\(f(5) = g(h(5)) = g(3) = 4,5\)
+}{
+\scalebox{1}{\funzcompostaa}
+}
+\end{esempio}
+
+\begin{esempio}
+Rappresenta la funzione  \(f:~x \mapsto 2^{-x^2+2x+4}\)
+come composizione di due funzioni più semplici. 
+
+La funzione \(f\) può essere vista come la composizione di due funzioni 
+\(h:~x \mapsto -x^2+2x+4 \sstext{e} g:~x \mapsto 2^x\) 
+
+Quindi \(f\) applica prima la funzione \(h\) al proprio argomento, poi la 
+funzione \(g\) al risultato di \(h\).
+Lo schema seguente rappresenta la situazione.
+
+\hspace{-7mm}\scalebox{.8}{\boxfunzionecompostab}
+% \begin{center}\scalebox{.8}{\boxfunzionecompostab}\end{center}
+\label{gra:differenziazione_boxcompostaa}
+
+Si tratta di una macchina che concatena due calcoli successivi. 
+Immettiamo ad esempio il valore \(3\). 
+La macchina \(h\) calcola, al suo interno, \(h(3)=-3^2+2\cdot 3+4\) e dà 
+come risultato \(1\).
+Questo numero è l'input della macchina \(g\) che calcola 
+\(g(16)=2^1\) e dà come risultato \(2\)
+che è il risultato di \(f(3) = g(h(3))\).
+
+Possiamo disegnare su un piano cartesiano le tre funzioni: 
+\(h(x),~g(x) \stext{e} f(x)\), e provare a seguire le trasformazioni che 
+portano \(x\) in \(f(x)\).
+
+\affiancati{.49}{.49}{
+Nel figura a fianco sono riportati i grafici delle 3 funzioni 
+\(h(x);~g(x) \stext{e} f(x)\).
+
+La funzione \(h\) riceve in input il valore \(3\) e produce in output 
+il valore \(1\): \quad \(h(3) = 1\). 
+
+Questo valore viene riportato sull'asse delle \(x\) e diventa l'input 
+della funzione \(g\) che dà come output il valore \(2\): \quad \(g(3) = 2\).
+
+Il risultato della composizione delle due funzioni è: \quad 
+\(f(3) = g(h(3)) = g(1) = 2\)
+}{
+\scalebox{1}{\funzcompostab}
+}
+\end{esempio}
+
+\begin{esempio} 
+Date le due funzioni \(f(x)=\sqrt{x}\) e \(g(x)= x+2\), determiniamo le 
+funzioni composte \(g \circ f\) e \(f\circ g\).
+
+\affiancati{.59}{.39}{
+\(g \circ f=g(f(x))=g(\sqrt{x})=\sqrt{x}+2\)\\
+il suo dominio è \(x \geq 0\). \\[.5em]
+\(f \circ g=f(g(x))=f(x+2)=\sqrt{x+2}\) \\
+e il suo dominio è \(x \geq -2\). \\[.5em] 
+La diversità delle due funzioni ottenute indica che l'operazione di 
+composizione \textbf{non è commutativa}.
+}{
+\scalebox{1}{\funzcompostac}
+}
+\end{esempio}
+
+\subsection{Funzione inversa}
+
+Prima di affrontare le funzioni inverse vediamo una particolare unzione che,
+nella sua semplicità ha una grande importanza.
+
+\paragraph{Funzione identica}
+
+La funzione \emph{identica} è la particolare funzione che dà come risultato 
+il suo argomento senza operare trasformazioni. 
+
+\begin{definizione}
+Si dice \textbf{funzione identica} la funzione che dà come risultato il 
+suo argomento.
+Può essere espressa in vari modi:
+\[I: x \mapsto x; \qquad y = x; \qquad f(x) = x\]
+\end{definizione}
+
+Vediamo ora di affrontare il concetto delle funzione inversa.
+Quando abbiamo introdotto il calcolo letterale abbiamo imparato a 
+rovesciare alcune espressioni per trovare le formule inverse.
+
+Ad esempio, \(y = 3x -6\) e \(x = \dfrac{y}{3} +2\) 
+sono formule inverse l'una dell'altra, ma non sono funzioni inverse.
+
+% Infatti se:
+% \begin{itemize} [noitemsep]
+% \item in una tabella forniamo alla prima funzione alcuni valori 
+% a \(x\) e calcoliamo i corrispondenti valori di \(y\);
+% \item in una tabella forniamo alla seconda funzione alcuni valori 
+% a \(y\) e calcoliamo i corrispondenti valori di \(x\);
+% \item rappresentiamo in un piano cartesiano le coppie ottenute nelle 
+% tabelle.
+% \end{itemize}
+% Otteniamo punti che appartengono al grafico della stessa funzione. 
+% Cioè le due equazioni hanno per soluzioni esattamente le stesse coppie di 
+% numeri.
+
+\affiancati{.59}{.39}{
+{Infatti possiamo osservare che ogni coppia di numeri \(\punto{x}{y}\) 
+che sono soluzione della prima equazione sono soluzione anche della 
+seconda.
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\begin{center}
+\begin{tabular}{rrcrr}
+\mc{2}{l}{\(y = 3x -6\)} & \qquad & \mc{2}{l}{\(x = \dfrac{y}{3} +2\)}\\
+\mc{1}{r}{\textit{\(x\)}} & \mc{1}{r}{\textit{\(y\)}} & & 
+\mc{1}{r}{\textit{\(y\)}} & \mc{1}{r}{\textit{\(x\)}}\\
+\(0\)  & \(-6\) & & \(-6\) & \(0\)\\
+\(+1\) & \(-3\) & & \(-3\) & \(+1\)\\
+\(+2\) &  \(0\) & & \(0\) & \(+2\)\\
+\(+3\) & \(+3\) & & \(+3\) & \(+3\)\\
+\(+4\) & \(+6\) & & \(+6\) & \(+4\)\\
+\(+5\) & \(+9\) & & \(+9\) & \(+5\)\\
+\(+6\) & \(+12\) & & \(+12\) & \(+6\)
+\end{tabular}
+\end{center}
+Le due diverse espressioni esprimono la stessa retta, lo stesso grafico:
+la stessa funzione.
+
+}
+}{
+\scalebox{.8}{\formulainversaa}
+}
+Per ottenere la funzione inversa dobbiamo semplicemente scambiare, 
+nell'equazione, la variabile \(x\) con la variabile \(y\) e poi esplicitare 
+la variabile \(y\).
+
+\affiancati{.54}{.44}{
+Quindi la funzione inversa di \\
+\(y = 3x -6 \sstext{o} f(x) = 3x -6\) \quad è \\
+\(x = 3y -6\) \quad che è uguale a \quad \(y = \dfrac{1}{3}x +2\) \\
+o: \quad \(f^{-1}(x) = \dfrac{1}{3}x +2\).
+
+Possiamo osservare che se componiamo le due funzioni otteniamo:
+\begin{align*}
+y &= f \circ f^{-1} = f(f^{-1}(x)) = 3 \tonda{f^{-1}(x)} -6 = \\
+  &= 3 \tonda{\dfrac{1}{3}x +2} -6 = \dfrac{3}{3}x +6 -6 = x
+\end{align*}
+}{
+\scalebox{.8}{\funzinversaa}
+}
+
+La composizione delle due funzioni è una funzione il cui 
+risultato è uguale all'argomento: \(f(f^{-1}(x)) = x\): la funzione identica.
+
+Possiamo quindi dare una definizione precisa di funzione inversa:
+
+% \begin{center}
+% \deffunzioneinversa
+%   {Dominio}{{I.D. di \(f\)}}{{I.I. di \(f^{-1}\)}}
+%   {Codominio}{{I.I. di \(f^{-1}\)}}{{I.D. di \(f\)}}
+% \end{center}
+
+\begin{center}
+\scalebox{.8}{
+\deffunzioneinversa
+  {Dominio}{{I.D. \stext{di} f}}{{I.I. \stext{di} f^{-1}}}
+  {Codominio}{{I.I. \stext{di} f}}{{I.D. \stext{di} f^{-1}}}
+}
+\end{center}
+
+\begin{definizione}
+Un funzione \(y=f^{-1}(x)\) si dice \textbf{inversa} di una funzione \(y=f(x)\) 
+se la composizione delle due funzioni è la funzione identica:
+\[f(f^{-1}(x))=x\]
+\end{definizione}
+
+Possiamo effettuare alcune osservazioni. 
+\begin{enumerate} [nosep]
+\item
+Di solito, nei libri, la funzione inversa di \(f\) è indicata con 
+\(f^{-1}\). 
+In questo contesto \(f^{-1}\)  non significa \(\frac{1}{f}\), ma: \quad
+\emph{funzione inversa di \(f\)}
+%  (quella che noi abbiamo chiamato \(f_i\)).
+\item 
+Si vede che il grafico di \(f\) e il grafico 
+della sua inversa \(f^{-1}\) sono simmetrici rispetto alla bisettrice del 
+primo e terzo quadrante: \(y=x\). Infatti questa simmetria si ottiene 
+proprio scambiando \(x\) con \(y\). 
+\item 
+Data una funzione \(y = f(x)\) se conosciamo la sua inversa, 
+\(y = f^{-1}(x)\), è immediato trovare la formula inversa che restituisce 
+\(x\) conoscendo \(y\): \(x = f^{-1}(y)\).
+\item 
+Se la funzione \(f\) ammette l'inversa \(f^{-1}\), 
+l'\emph{Insieme di Definizione} di \(f\) è l'\emph{Insieme Immagine} 
+di \(f^{-1}\) e 
+l'\emph{Insieme di Definizione} di \(f^{-1}\) è l'\emph{Insieme Immagine} 
+di \(f\). 
+\end{enumerate}
+
+Per calcolare l'inversa di una funzione possiamo eseguire questa procedura.
+\begin{procedura}
+Determinare l'inversa di una funzione \(f\):
+\begin{enumerate} [nosep]
+\item Se \(f\) non è iniettiva la si deve restringere ad un intervallo in 
+cui sia iniettiva;
+\item si scambiano i simboli \(x\) e \(y\).
+\item Si esplicita la \(f\) rispetto a \(y\);
+\end{enumerate}
+\end{procedura}
+
+Vediamo alcuni esempi che possono risultare utili per chiarire quanto 
+detto sopra.
+
+Data una qualsiasi funzione \(f\), non è scontato che la sua inversa 
+abbia lo stesso insieme di definizione. 
+
+\begin{esempio}
+Disegna la funzione \(e^x\) evidenziando Insieme di Definizione e Insieme 
+Immagine. Disegna la funzione inversa \(\ln x\) evidenziando anche qui gli 
+insiemi di Definizione e Immagine.
+
+\affiancati{.59}{.39}{
+\esponenzialeIDeII
+}{
+\begin{center}
+\logaritmoIDeII
+\end{center}
+}
+Si può osservare come l'Insieme di Definizione di \(f(x) = e^x\) che è 
+\(\R\) sia uguale 
+all'Insieme Immagine di \(f^{-1}(x) = \ln x\) e l'Insieme Immagine di 
+\((f(x) = e^x\) che è \(\Rp\)
+sia uguale all'Insieme di Definizione di \(f^{-1}(x) = \ln x\) 
+\end{esempio}
+
+Si possono invertire solo le funzioni \emph{iniettive}.
+
+\begin{esempio}
+Disegna la funzione \(f(x) = \sqrt{x}\) evidenziando 
+Insieme di Definizione e Insieme Immagine. 
+Disegna la sua funzione inversa evidenziando gli insiemi 
+di Definizione e Immagine.
+
+\affiancati{.39}{.59}{
+Possiamo osservare che l'Insieme Immagine della funzione \(f\) è \(\Rp\) 
+mentre la funzione \(g(x) = x^2\) è definita in tutto \(\R\).
+
+La funzione inversa di \(f\) non è quindi la funzione reale \(g(x) = x^2\) 
+ma la funzione \(\overline{g}(x) = x^2\) definita in \(\Rp\).
+}{
+\affiancati{.29}{.29}{
+  \radiceIDeII
+  }{
+  \hspace*{-13mm}\semiquadratoIDeII
+  }
+}
+\end{esempio}
+
+Si possono invertire anche le funzioni \emph{non iniettive} ma restringendo il 
+dominio ad un opportuno intervallo.
+
+Un importante gruppo di funzioni \emph{non iniettive} di cui usiamo 
+la funzione inversa è costituito dalle funzioni circolari.
+Vediamo alcuni esempi.
+
+\pagebreak %-------------------------------------------------------
+
+\begin{esempio}
+Disegna la funzione \(f(x) = \sin{x}\)  e la sua funzione inversa 
+evidenziando Insieme di Definizione e Insieme Immagine.
+
+\affiancati{.39}{.59}{
+La funzione \(f(x) = \sin{x}\) è definita in tutto \(\R\), 
+ma non è iniettiva.
+
+Se noi restringiamo il suo dominio a 
+\(-\dfrac{\pi}{2} \leqslant x \leqslant +\dfrac{\pi}{2}\) diventa iniettiva 
+e quindi possiamo calcolarne l'inversa: \quad
+\(f^{-1} = \arcsin x\). \\
+Questa avrà: \\ [.5em]
+dominio 
+\(= \graffa{x \in \R \sand -1 \leqslant x \leqslant +1}\)
+}{
+\affiancati{.29}{.29}{
+  \sinIDeII
+  }{
+  \hspace*{-14mm}\arcsinIDeII
+  }
+}
+Insieme Immagine 
+\(= \graffa{x \in \R \sand 
+  -\dfrac{\pi}{2} \leqslant x \leqslant +\dfrac{\pi}{2}}\)
+\end{esempio}
+
+\begin{esempio}
+Disegna la funzione \(f(x) = \cos{x}\)  e la sua funzione inversa 
+evidenziando Insieme di Definizione e Insieme Immagine.
+
+\affiancati{.39}{.59}{
+Nel caso della funzione \(f(x) = \cos{x}\) è definita in tutto \(\R\), 
+si è preferito restringere il suo dominio a 
+\(0 \leqslant x \leqslant +\pi\).
+Questa funzione ``ristretta'' è iniettiva 
+e quindi possiamo calcolarne l'inversa: \quad
+\(f^{-1} = \arccos x\). \\
+Questa avrà: \\ [.5em]
+dominio 
+\(= \graffa{x \in \R \sand -1 \leqslant x \leqslant +1}\)
+}{
+\affiancati{.29}{.29}{
+  \cosIDeII
+  }{
+  \hspace*{-14mm}\arccosIDeII
+  }
+}
+Insieme Immagine  
+\(= \graffa{x \in \R \sand 
+  0 \leqslant x \leqslant +\pi}\)
+\end{esempio}
+
+\begin{esempio}
+Disegna la funzione \(f(x) = \tan{x}\)  e la sua funzione inversa. 
+% evidenziando Insieme di Definizione e Insieme Immagine.
+
+\affiancati{.59}{.39}{
+\(f(x) = \tan{x}\) non è iniettiva, ma restringendo il suo dominio a 
+\(-\dfrac{\pi}{2} \leqslant x \leqslant +\dfrac{\pi}{2}\) diventa iniettiva.
+
+Possiamo osservate che l'Insieme Immagine è tutto \(\R\).
+
+L'inversa sarà: \quad
+\(f^{-1} = \arctan x\). \\
+Questa avrà: dominio 
+\(= \R\) \\ 
+Insieme Immagine 
+\(= \graffa{x \in \R \sand 
+  -\dfrac{\pi}{2} \leqslant x \leqslant +\dfrac{\pi}{2}}\)
+  
+% \vspace{1em}
+\arctanIDeII
+}{
+\tanIDeII
+
+% \vspace{5mm}
+}
+\end{esempio}
+
+\begin{esempio} 
+Nei seguenti casi, data la funzione \(f\) verifica se è invertibile, calcola 
+l'inversa eventualmente restringendo il dominio e disegna sia \(f\) sia 
+\(f^{-1}\).
+
+\begin{enumerate}
+
+\item \(y=3x+2\)
+
+\affiancati{.59}{.39}{
+% \vspace{1em}
+\(y=3x+2\) è iniettiva perché strettamente crescente in tutto 
+il suo Insieme di Definizione. \\[.5em]
+Scambiamo le variabili \(x\) e \(y\): \\[.5em]
+\(x = 3y +2\)  \\[.5em]
+Esplicitiamo la variabile \(y\): \\[.5em]
+\(3y = x -2 \srarrow y = f^{-1}(x) = \dfrac{x-2}{3}\)\\[1em]
+Sia \(f\) che \(f^{-1}\) hanno I.D e I.I uguali a \(\R\).
+}{
+\scalebox{.8}{\esempioinva}
+}
+
+\item \(y = \sqrt[3]{x}-1\)
+
+\affiancati{.59}{.39}{
+% \vspace{1em}
+\(y = \sqrt[3]{x}-1\) è iniettiva perché strettamente crescente in tutto 
+il suo Insieme di Definizione. \\[.5em]
+Scambiamo le variabili \(x\) e \(y\): \\[.5em]
+\(x = \sqrt[3]{y}-1\) \\[.5em]
+Esplicitiamo la variabile \(y\):\\[.5em]
+\(y = f^{-1}(x) = \tonda{x +1}^3\)\\[1em]
+Sia \(f\) che \(f^{-1}\) hanno I.D e I.I uguali a \(\R\).
+}{
+\scalebox{.8}{\esempioinvb}
+}
+
+\item \(y = f(x) = e^{x+1} -1\)
+
+\affiancati{.59}{.39}{
+% \vspace{1em}
+\(y = e^{x+1} -1\) è iniettiva perché strettamente crescente in tutto 
+il suo Insieme di Definizione. \\[.5em]
+Scambiamo le variabili \(x\) e \(y\): \\[.5em]
+\(x = e^{y+1} -1\) \\[.5em]
+Esplicitiamo la variabile \(y\):\\[.5em]
+\(e^{y+1} = x +1 \srarrow y+1 = \ln\tonda{x+1} \srarrow\) \\[.5em]
+\(y=\ln \tonda{x+1} -1\)   \\[1em]
+\(f\) \quad ha \quad 
+\(\ID = \R\) \quad e \quad \(\II = \intervaa{-1}{\infty}\) \\[.5em]
+\(f^{-1}\) \quad ha \quad 
+\(\ID = \intervaa{-1}{\infty}\) \quad e \quad \(\II = \R\).
+}{
+\scalebox{.8}{\esempioinvc}
+}
+
+\pagebreak %-------------------------------------------
+
+\item \(y = f(x) = -x^2-4x+3\)
+
+La funzione reale
+\(y=-x^2-4x+3\) non è iniettiva, ma trovando il suo vertice possiamo 
+restringere il Dominio in modo da ottenere una funzione invertibile. \\[.5em]
+\( x_V = -\dfrac{b}{2a} = -\dfrac{-4}{-2} = -2\) \\[.5em]
+La funzione:  \quad 
+\(y=-x^2-4x+5 \sand x \geqslant -2\) \quad
+è iniettiva. \\[.5em]
+Scambiamo \(x\) con \(y\) otteniamo: \quad 
+\(x = -y^2-4y+3\) 
+Per esplicitare la variabile \(y\) spostiamo tutti i termini allo stesso 
+membro:
+\(y^2+4y-3 +x = 0\)
+
+\affiancati{.59}{.39}{
+poi applichiamo la formula risolutiva delle equazioni di secondo grado, in 
+questo caso possiamo usare la formula ridotta: \\[.5em]
+\(y_{1,2} = -2 \mp \sqrt{4+3-x} = -2 \mp \sqrt{7-x}\) \\[.5em]
+Quello che abbiamo ottenuto non è una funzione \emph{reale} dato che per ogni 
+valore di \(x\) si ottengono due risultati, ma scegliendone opportunamente uno 
+dei due otteniamo la funzione inversa cercata: \\[.5em]
+\(y = f^{-1}(x) = -2 + \sqrt{7-x}\) 
+}{
+\scalebox{.8}{\esempioinvd}
+}
+
+\end{enumerate}
+\end{esempio}
+
+\subsection{Funzioni uguali}
+
+A volte due espressioni matematiche diverse definiscono la stessa funzione.
+
+\begin{definizione}
+Due funzioni \(f\) e \(g\) si dicono uguali se hanno lo stesso dominio \(D\) 
+e risulta \[f(x)=g(x)\] \(\forall x\in D\).\\
 \end{definizione}
 
 \begin{esempio}
+Le seguenti funzioni reali sono uguali?
+\[f(x)=\frac{\sqrt{x}}{\sqrt{x^2+4}} \qquad g(x)=\sqrt{\frac{x}{x^2+4}}\]
+Sono uguali perché:
+\begin{itemize}[nosep]
+\item hanno lo stesso Insieme di Definizione: 
+\(\ID =\graffa{x \in \R \sand x \geq 0}\);
+\item 
+\(\dfrac{\sqrt{x}}{\sqrt{x^2+4}} = \sqrt{\dfrac{x}{x^2+4}} \quad 
+  \forall x \in \ID\)
+\end{itemize}
 \end{esempio}
 
-
-\label{sec:funzioni2_dominio}
-
-\lstinputlisting[firstline=2, lastline=5]{\folder src/.py} %]
-
-\begin{lstlisting}
-\end{lstlisting}
-
-\begin{osservazione}
-\end{osservazione}
-
-\begin{minipage}{.49\textwidth}
-\end{minipage}
-\begin{minipage}{.49\textwidth}
-\end{minipage}
-
-%--------------------------------------------------------------------
-
-## Parità
-
-La *parità* riguarda la simmetria della funzione rispetto all'asse \(y\) o 
-rispetto all'origine.
-
-### Funzioni pari
-
-Diremo che una funzione è pari se è simmetrica rispetto all'asse \(y\), cioè 
-a 
-distanza uguale dall'asse ha valori uguali:
-
----
-**Definizione**
-
-Una funzione è *pari* se a valori opposti dell'argomento corrisponde lo 
-stesso risultato:
-
-\[f(-x) = f(x)\]
-
----
-
-![Funzione pari](https://drive.google.com/uc?export=view&id=)
-"""
-
-grafico(lambda x: (x**3 -3*x)/(-2*x**3 +5*x))
-
-tabella(lambda x: (x**3 -3*x)/(-2*x**3 +5*x), range(-10, 0))
-tabella(lambda x: (x**3 -3*x)/(-2*x**3 +5*x), range(1, 11))
-
-"""### Funzioni dispari
-
-Diremo che una funzione è dispari se è simmetrica rispetto all'origine, 
-cioè 
-a distanza uguale dall'asse ha valori opposti:
-
----
-**Definizione**
-
-Una funzione è *dispari* se a valori opposti dell'argomento corrispondono 
-risultati opposti:
-
-\[f(-x) = -f(x)\]
-
----
-
-![Funzione dispari](https://drive.google.com/uc?export=view&id=)
-"""
-
-grafico(lambda x: (x**3 - 6*x)/(x**2 + 4))
-
-tabella(lambda x: (x**3 - 6*x)/(x**2 + 4), range(-10, 11))
-
-"""Per verificare se una funzione è pari o dispari basta sostituire la 
-variabile \(x\) con il suo opposto: \(-x\) e vedere se si ottiene una funzione 
-equivalente a quella di partenza o al suo opposto:
-
-**Esempi**
-
-1\. Verifica la parità di: 
-\(\quad f: x \mapsto \dfrac{3x}{2x^2-4}\)
-
-Sostituendo otteniamo:
-
-\[ f(-x) = \frac{3(-x)}{2(-x)^2-4} =
-              \frac{-3x}{2x^2-4} =
-              -\frac{3x}{2x^2-4} = -f(x)\]
-              
-Poiché \(f(-x)=-f(x) (effe di meno x è uguale a meno effe di x), la funzione 
-è dispari.
-
-2\. Verifica la parità di: 
-\)\quad f: x \mapsto \dfrac{4x^4-3x^2}{2x^2-5}\(
-
-Sostituendo otteniamo:
-
-\[ f(-x) = \dfrac{4x^4-3x^2}{2x^2-5} =
-              \dfrac{4(-x)^4-3(-x)^2}{2(-x)^2-5} =
-              \dfrac{4x^4-3x^2}{2x^2-5} =
-              f(x)\]
-              
-Poiché \)f(-x)=f(x) (effe di meno x è uguale a meno effe di x), la funzione 
-è 
-pari.
-
-3\. Verifica la parità di: 
-\(\quad f: x \mapsto 4x^4-3x^2+5x\)
-
-Sostituendo otteniamo:
-
-\[ f(-x) = 4(-x)^4-3(-x)^2+5(-x) =
-              4x^4-3x^2-5x \]
-              
-Osservando attentamente i segni possiamo concludere che:
-\[f(-x) \ne f(x) \quad \text{e} \quad f(-x) \ne -f(x)\] 
-              
-Quindi \(f(-x)\) non è né pari né dispari.
-
----
-**Osservazioni**
-
-\item Se una funzione è *pari*, basta studiarla solo per i valori positivi 
-del 
-suo Insieme di definizione.
-\item *Mutatis mutandis* lo stesso vale per le funzioni *dispari*.
-
----
-
-### Esercizi
-
-Tra le seguenti funzioni individua quali sono pari, quali dispari e quali 
-né 
-pari né dispari.
-
-\item \(f_0: x \mapsto - x^4 +3x^2 -2\)
-\item \(f_1: x \mapsto x^3-2x\)
-\item \(f_2: x \mapsto x^4 - x^3\)
-\item \(f_3: x \mapsto - \dfrac{6}{5} x\)
-\item \(f_4: x \mapsto \dfrac{6}{x}\)
-\item \(f_5: x \mapsto - \dfrac{5}{4} x -2\)
-\item \(f_6: x \mapsto x^2\)
-\item \(f_7: x \mapsto -x^2 + 7\)
-\item \(f_8: x \mapsto - \dfrac{1}{2} x^2 -2x\)
-\item \(f_9: x \mapsto - \dfrac{x-2}{3x+4}\)
-
-## Periodicità
-
-Diremo che una funzione è periodica se, a intervalli regolari, si ripete 
-sempre allo stesso modo:
-
----
-**Definizione**
-
-Una funzione è *periodica* se a distanza di un certo intervallo produce gli 
-stessi valori.
-
-Chiamando \(i\) l'ampiezza dell'intervallo di periodicità \(\mathbb{I}\):
-
-\[\forall x \in \mathbb{I} \quad  f(x + i) = f(x)\]
-
----
-**Osservazione**
-
-Se una funzione è periodica, basta studiare solo un intervallo di 
-periodicità.
-
----
-"""
-
-grafico(lambda x: np.sin(x)+2*np.sin(2*x))
-
-"""Si può osservare che la funzione si ripete con un periodo che è 
-leggeremente superiore a \(6\), precisamente il periodo della funzione è: 
-\(2\pi\).
-
-### Esercizi
-
-## Zeri di una funzione
-
-Si dicono *zeri di una funzione* i valori dell'argomento che producono \(0\) 
-come risultato.
-
----
-**Definizione**
-
-Diremo che \(z\) è uno *zero* della funzione se \(f(z) = 0\).
-
----
-
-**Osservazioni**
-
-\item Gli zeri di una funzione si trovano risolvendo l'equazione: \(f(x) = 0\)
-\item Dato che l'asse \(x\) ha equazione \(y = 0\), gli zeri della funzione 
-indicano i punti in cui il grafico della funzione interseca l'asse \(x\).
-
----
-**Esempio**
-
-Calcola gli zeri della funzione: \(f(x) = x^2 -3x - 10\)
-
-\(x^2 -3x - 10=0 \quad \Rightarrow \quad \left(x-5 \right) 
-\left(x+2\right)=0 
-\quad \Rightarrow \quad x_0=-2 \text{ e }x_1=5\)
-
-Il grafico di questa funzione interseca l'asse \(x\) nei punti: \(-2\) e \(5\).
-
----
-
-### Esercizi
-
-## Limitatezza
-
-**Definizione**
-
-Una funzione si dice **limitata** se la sua immagine ha un valore massimo e 
-un valore minimo.
-
-Si dice **illimitata** se la sua immagine non ha un massimo o non ha un 
-minimo.
-
-Possimo distinguere diversi casi di una funzione \(f\) definita in un 
-intervallo \(\mathbb{I}\):
-
-* **Limitata superiormente** se la sua immagine ha un estremo superiore:
-\[\exists k \in \mathbb{R} ~|~ \forall x \in \mathbb{I}, \quad f(x) \le k\]
-* **Limitata inferiormente** se la sua immagine ha un estremo inferiore:
-\[\exists k \in \mathbb{R} ~|~ \forall x \in \mathbb{I}, \quad f(x) \ge k\]
-* **Limitata** se la sua immagine ha un estremo inferiore:
-\[\exists h, k \in \mathbb{R} ~|~ \forall x \in \mathbb{I}, \quad h \le 
-f(x) 
-\le k \]
-
-Da queste si possono ricavare altre definizioni:
-
-* **Illimitata superiormente** se *non* è limitata superiormente.
-* **Illimitata inferiormente** se *non* è limitata inferiormente.
-* **Illimitata** se *non* è limitata superiormente o inferiormente.
-
----
-*Esempi*
-
-\item \(f: x \mapsto \ln{x} \quad\) è illimitata sia inferiormente sia 
-superiormente.
-
-\item \(f: x \mapsto e^{x} \quad\) è limitata inferiormente e illimitata 
-superiormente.
-
-\item \(f: x \mapsto \sin{x} \quad\) è limitata (sia inferiormente sia 
-superiormente).
-
-\item \(f: x \mapsto -x^2+2x +5 \quad\) è limitata superiormente e illimitata 
-inferiormente.
-
-### Esercizi
+\begin{esempio}
+Le seguenti funzioni reali sono uguali?
+\[f(x)=\frac{\sqrt{x}}{\sqrt{x+4}} \qquad g(x)=\sqrt{\frac{x}{x+4}}\]
+Pur avendo risultati uguali, non sono uguali perché:
+\begin{itemize}[nosep]
+\item \(f\) ha 
+\(\ID =\graffa{x \in \R \sand x \geq 0}\);
+\item \(g\) 
+\(\ID =\graffa{x \in \R \sand \tonda{x < -4 \lor x \geq 0}}\);
+\end{itemize}
+\end{esempio}
+
+\section{Classificazione delle funzioni}
+
+Le funzioni reali possono essere classificate in base alle operazioni che 
+contengono.
+L'elenco seguente riporta i nomi e alcuni esempi.
+
+\begin{enumerate}
+\item Algebriche
+  \begin{enumerate}[label*=\arabic*.]
+  \item Razionali
+    \begin{enumerate}[label*=\arabic*.]
+    \item Intere (Polinomiali): \quad 
+    \(y = x^5 +\sqrt{2}x^4 -x^3-6x^2 +\sqrt{5}\) \qquad 
+    \(y = \dfrac{x^3-6x^2 +4}{5}\) 
+    \item Fratte: \quad
+    \(y = \dfrac{x -3}{3x+5}\) \qquad 
+    \(y = \dfrac{x^3-6x^2 +4x}{x}\) 
+    \end{enumerate}
+  \item Irrazionali
+    \begin{enumerate}[label*=\arabic*.]
+    \item Intere: \quad 
+    \(y = \sqrt{x^2 +4}\) \qquad 
+    \(y = \dfrac{\sqrt{5x-7}}{3}\) 
+    \item Fratte: \quad
+    \(y = \dfrac{3}{\sqrt{5x-7}}\) \qquad 
+    \(y = \dfrac{\sqrt{x-2}}{\sqrt{x^2 +4x}}\) 
+    \end{enumerate}
+  \end{enumerate}
+\item Trascendenti
+  \begin{enumerate}[label*=\arabic*.]
+  \item Goniometriche: \quad
+  \(y = 4 \sin(2 x)\) \qquad
+  \(y = \cos\tonda{\dfrac{4}{x}}\) \qquad
+  \(y = \tan(x^2 -3x +1)\) 
+  \item Goniometriche inverse: \quad
+  \(y = \arcsin(5 x^2)\) \quad
+  \(y = \arccos(x^3-2)\) \quad
+  \(y = \arctan\tonda{\dfrac{1}{x}}\) 
+  \item Esponenziali: \quad
+  \(y = e^{\frac{3}{x^2}}\) \qquad
+  \(y = 2^{x^2-2x+5}\) \qquad
+  \item Logaritmiche: \quad
+  \(y = \ln{x^5-2x}\) \qquad
+  \(y = \Log{\dfrac{1}{x}}\) \qquad
+  \(y = \log_2{\dfrac{3x+1}{x-2}}\) \qquad
+  \end{enumerate}
+\end{enumerate}
+
+\begin{esempio}
+Classifichiamo le seguenti funzioni: 
+\begin{enumerate}
+\item \(f(x) = \frac{\sqrt{(x+5)}}{3}\) è una funzione 
+irrazionale intera, infatti pur avendo un denominatore, questo non contiene 
+la variabile indipendente \(x\);
+\item \(g(x) = e^{\frac{x}{x-1}}\) è una funzione 
+trascendente di tipo esponenziale;
+\item \(h(x) = \sqrt{2}x+4x\) è una funzione razionale 
+intera, in quanto c'è sì una radice, ma non contiene la variabile 
+indipendente \(x\).
+\end{enumerate}
+\end{esempio}
+
+\newpage %-----------------------------------------
+
+\section{Un'altra definizione di funzione}
+
+Abbiamo parlato di funzione per riferirci ad un ``meccanismo'' in grado di 
+associare ad un elemento di un insieme un altro elemento di un insieme.
+
+In matematica il collegamento tra gli elementi di due insiemi è detto 
+\emph{relazione}
+
+\begin{definizione}
+Viene detta \textbf{relazione} una qualunque \emph{legge} che collega gli 
+elementi di due insiemi.
+\end{definizione}
+
+Ci sono molti modi per rappresentare una relazione tra due insiemi dati:
+\begin{enumerate}
+\item disegnare gli insiemi con i diagrammi di Eulero-Venn e la relazione 
+con delle frecce che collegano fra di loro gli elementi che si corrispondono; 
+\item elencare tutte le coppie di elementi collegati tra di loro; 
+\item dare una descrizione, a parole o con simboli, che permetta di individuare 
+precisamente tutti e solo gli elementi collegati tra di loro. 
+\end{enumerate}
+
+\begin{esempio}
+Rappresenta una relazione nei tre modi.\\
+
+\affiancati{.33}{.66}{
+1. \emph{Eulero-Venn}\\
+\relvenn
+}{
+\affiancati{.4}{.4}{
+2. \emph{Insieme di coppie}\\[8.3mm]
+\(\graffa{\punto{a}{1};~\punto{a}{3};~\punto{b}{1};~\punto{c}{4}}\)\\[8.3mm]
+}{
+3. \emph{Descrizione}\\[3.9mm]
+a è associato a 1 e a 3,\\ 
+b è associato a 1,\\ 
+c è associato a 4.\\[3.9mm]
+}
+}
+\end{esempio}
+
+\vspace{.5em}
+Una funzione è una relazione tra gli elementi di due insiemi, ma se 
+tutte le funzioni sono relazioni, non tutte le relazioni sono funzioni.
+Nell'esempio precedente all'elemento \(a\) dell'insieme \(A\) sono associati
+due elementi dell'insieme \(b\): \(1\) e \(2\).
+Ma abbiamo visto che una funzione deve dare un solo risultato (magari formato 
+da una coppia di numeri), non può dare risultati diversi.
+
+Perché una relazione sia una funzione bisogna che ogni elemento del primo 
+insieme sia associato al massimo a un elemento del secondo insieme.
+
+\begin{definizione}
+Dati due insiemi, chiamiamo \textbf{funzione} una relazione che associa agli 
+elementi del primo insieme, \emph{al massimo un elemento} del secondo insieme.
+\end{definizione}
+
+Perché una funzione sia ben definita bisogna che siano dati:
+\begin{itemize} [nosep]
+\item l'insieme di partenza;
+\item l'insieme di arrivo;
+\item la relazione.
+\end{itemize}
+
+Nel caso della rappresentazione come coppie di elementi, perché una relazione 
+sia una funzione bisogna che non ci siano coppie diverse con i primi elementi 
+uguali.
+
+\pagebreak %-----------------------------------------------
+
+\begin{esempio}
+Rappresenta una funzione nei tre modi.\\
+
+\affiancati{.33}{.66}{
+1. \emph{Eulero-Venn}\\
+\funzvenn
+}{
+\affiancati{.4}{.4}{
+2. \emph{Insieme di coppie}\\[8.3mm]
+\(\graffa{\punto{a}{2};~\punto{b}{1};~\punto{c}{2}}\)\\[8.3mm]
+}{
+3. \emph{Descrizione}\\[3.9mm]
+a è associato a 2,\\ 
+b è associato a 1,\\ 
+c è associato a 2.\\[3.9mm]
+}
+}
+\end{esempio}
+
+Noi abbiamo chiamato \emph{Dominio} l'insieme di partenza 
+(altri testi lo chiamano insieme \emph{A})
+e \emph{Codominio} l'insieme di arrivo delle frecce.
+
+Non è detto che tutti gli elementi del \emph{Dominio} (o insieme \emph{A}) 
+siano collegati con un elemento del \emph{Codominio}.
+\begin{itemize}[nosep]
+\item il sottoinsieme del \emph{Dominio} formato dagli elementi da cui parte 
+una freccia lo abbiamo chiamato\emph{Insieme di Definizione} 
+(altri testi lo chiamano \emph{Dominio});
+\item il sottoinsieme del \emph{Codominio} formato dagli elementi a cui 
+arriva una freccia viene chiamato\emph{Insieme Immagine}.
+\end{itemize}
+
+Dato che un insieme formato da tutte le coppie ordinate il cui primo elemento 
+appartiene all'insieme \(A\) e il secondo all'insieme \(B\), viene detto 
+prodotto cartesiano, \(A \times B\),
+possiamo dare un'ulteriore definizione di funzione.
+
+\begin{definizione}
+Dati due insiemi, chiamiamo \textbf{funzione} 
+un sottoinsieme del prodotto cartesiano tra i due insiemi nel quale non sono 
+presenti più coppie che hanno lo stesso primo elemento.
+\end{definizione}
+
+
+\begin{comment}
+
+\section{Definizione di funzione}
+%label{}
+\begin{definizione}
+  Dati due insiemi \(A\) e \(B\) non vuoti definiti in \(\mathbb{R}\) è detta 
+\(f\), \textsc{funzione reale di variabile reale}, una qualsiasi legge, 
+applicazione o corrispondenza che associa a ogni elemento di \(A\) uno e un 
+solo elemento di \(B\).
+\end{definizione}
+
+% \begin{figure}[htpb!]
+%   \centering
+%   \includegraphics[width=0.55\textwidth]{img/1_funz.png}
+%   %%\caption{}
+%   %%\label{fig:1_1}
+% \end{figure}
+
+Una funzione viene indicata:\\
+
+\(f: A\to B  \)  tra insiemi   \(f: x\mapsto y\)   tra elementi  con \(x\in A 
+\)  e \(y\in B\)\\
+
+Dobbiamo pensare che \(x\) mediante la corrispondenza \(f\) diventa \(y\), 
+l'elemento \(y\) è dunque l'\textsc{immagine} di \(x\) mediante la 
+trasformazione 
+\(f\); altrettanto e viceversa possiamo chiamare \(x\) \textsc{controimmagine} 
+di 
+\(y\).\\
+
+L'elemento \(x\) viene dunque proiettato mediante una sua trasformazione che 
+chiamiamo \(f\) nell'elemento \(y\) di \(B\), \(y\) risulta così dipendente da 
+\(x\) 
+perché determinata proprio in funzione di \(x\), variabile indipendente.\\
+
+L'immagine \(y\) risulta propriamente in funzione di \(x\) e possiamo scrivere 
+\(f(x)=y\) e la precedente espressione tra elementi diventa \(f: x\mapsto 
+f(x)=y\).\\
+
+Definiamo \(D\) \textsc{dominio} l'insieme \(A\) delle \(x\) e \(C\) 
+\textsc{codominio} il sottoinsieme di \(B\) di tutte le immagini di \(x\), cioè 
+di tutte e sole le \(y\) generate dalla trasformazione \(f\).\\
+
+% \begin{figure}[htpb!]
+%   \centering
+%   \includegraphics[width=0.55\textwidth]{img/2_funz.png}
+%   %\caption{}
+%   %\label{fig:1_2}
+% \end{figure}
+%
+Notiamo, nella figura precedente che mentre il dominio coincide con 
+l'insieme 
+di partenza il codominio è un sottoinsieme dell'insieme di arrivo.\\
+
+%
+%
+%
+\begin{esempio}
+  Visualizziamo dominio e codominio della funzione \(f(x)=x^2\)
+%   \begin{figure}[htpb!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{img/2a_funz.png}
+%   %\caption{}
+%   %\label{fig:1_2}
+%   \end{figure}
+\end{esempio}
+
+\begin{esempio}
+  Visualizziamo dominio e codominio della funzione \(f(x)=\log{x}\)
+%   \begin{figure}[htpb!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{img/2b_funz.png}
+%   %\caption{}
+%   %\label{fig:1_2}
+%   \end{figure}
+\end{esempio}
+
+\begin{esempio}
+  Visualizziamo dominio e codominio della funzione \(f(x)=\frac{9}{x}\)
+%   \begin{figure}[htpb!]
+%   \centering
+%   \includegraphics[width=0.55\textwidth]{img/2c_funz.png}
+%   %\caption{}
+%   %\label{fig:1_2}
+%   \end{figure}
+\end{esempio}
+
+\begin{definizione}
+Due funzioni \(f\) e \(g\) si dicono uguali se hanno lo stesso dominio \(D\) e 
+risulta \[f(x)=g(x)\] \(\forall x\in D\).\\
+\end{definizione}
+
+\begin{esempio}
+Vediamo un esempio di funzioni uguali e non uguali. Le due funzioni
+\[f(x)=\frac{\sqrt{x}}{\sqrt{x^2+4}}\] e \[g(x)=\sqrt{\frac{x}{x^2+4}}\]
+sono uguali perchè hanno lo stesso dominio (\(x\geq0\)) e risulta:
+\[\frac{\sqrt{x}}{\sqrt{x^2+4}}=\sqrt{\frac{x}{x^2+4}}\] per ogni \(x\geq0\).
+Vediamo un contoesempio di funzioni uguali. Le due funzioni
+\[f(x)=\frac{\sqrt{x}}{\sqrt{x+4}}\] e \[g(x)=\sqrt{\frac{x}{x+4}}\]
+non sono uguali perché hanno dominio diverso: la funzione \(f\) è definita per 
+\(x\geq0\), mentre la funzione \(g\) è definita per \(x<-4\lor x\geq 0\).
+\[\frac{\sqrt{x}}{\sqrt{x^2+4}}=\sqrt{\frac{x}{x^2+4}}\] per ogni \(x\geq0\).
+\end{esempio}
+
+\begin{comment}
 
 # Complementi
 
@@ -1263,7 +2662,7 @@ goniometriche o esponenziali o logaritmiche
 funzioni che operano su altre funzioni. Di seguito vedremo alcuni semplici 
 casi.
 
-### Funzione identica
+%### Funzione identica
 
 **Definizione**
 Diremo che una funzione è l'**identità** se il risultato è uguale 
@@ -1272,7 +2671,7 @@ all'argomento:
    f(x) = x \quad \text{o} \quad 
    y = x\]
 
-### Funzione inversa
+%### Funzione inversa
 
 Se abbiamo una funzione, \(f\) che collega gli elementi dell'insieme \(X\) con 
 elementi dell'insieme \(Y\) in modo che ad elementi divesi di \(X\) 
@@ -1317,32 +2716,6 @@ def duegrafici(f_0, f_1):
   
 duegrafici(lambda x: np.exp(x), lambda x: np.log(x))
 
-"""### Funzione composta
-
-Se abbiamo tre insiemi \(A\), \(B\) e \(C\) e abbiamo una funzione \(h\) definita 
-su 
-\(A\) con immagine in \(B\) e una funzione \(g\) definita su \(B\) con immagine in 
-\(C\), possiamo costruire la funzione 
-\(f: a \mapsto c\) in modo tale che sia: 
-\(c=g(h(x))\).
-
-Questa funzione si dice anche funzione composta di \(g\) e \(h\) e si scrive:
-
-\[f =g \circ h\]
-(effe uguale a gi composto acca)
-o
-\[f(x)=g\left(h(x)\right)\]
-(effe di x uguale a gi di acca di x)
-
-**Esempio**
-
-Se \(\quad g: x \mapsto 5e^x \quad \text{ e } \quad h: x \mapsto -x^2 \quad\) 
-allora \(\quad f(x)=g\left(h(x)\right) = 5e^{-x^2}\)
-"""
-
-grafico(lambda x: 5*np.exp(-x**2))
-
-"""---
 **Osservazione**
 
 Componendo una funzione con la sua inversa ottengo l'identità per tutti gli 
@@ -1383,7 +2756,7 @@ grafico(lambda x: np.log(np.exp(x)))
 .. controls +(\angle:1cm) and +(-1,0) .. (2.5,0);
 \end{tikzpicture}
 
-\section{Altro}
+\basection{Altro}
 
 % 136
 \begin{tikzpicture}
@@ -1497,7 +2870,7 @@ edge (c);
 % style sheet=vary hue]
 % data group {function classes};
 
-\end{comment}
+% \end{comment}
 
 %--------------------------------------------------------------------
 % Vecchia versione

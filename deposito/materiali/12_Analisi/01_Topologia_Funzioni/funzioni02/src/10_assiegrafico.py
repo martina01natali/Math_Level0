@@ -3,11 +3,11 @@ import numpy as np
 
 def assi():
   """Traccia un piano cartesiano."""
-  ax = plt.axes()
+  ax = plt.axes(frame_on=False)
   ax.set(xlim=[-10.3,10.3],ylim=[-10.3,10.3], facecolor='white',
          xticks=range(-10, 11),yticks=range(-10, 11),
          xticklabels=[], yticklabels=[], aspect='equal')
-  ax.grid(True, color='40')
+  ax.grid(True, color='gray')
   plt.arrow(-10.3,0,21,0, fc='w', ec='k', lw = .5, 
              head_width=.5, head_length=.5, overhang = .3, 
              length_includes_head = True, clip_on = False)

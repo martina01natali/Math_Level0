@@ -2770,7 +2770,7 @@ con \(\Delta x\) piccolo a piacere.
 %al calcolo dei differenziali.
 % Lo stesso vale per le generalità sulla funzione inversa
 
-A volte può essere utile considerare una funzione complessa come la 
+A volte può essere utile vedere una funzione complessa come la 
 composizione di funzioni più semplici. 
 
 \begin{esempio}
@@ -4831,35 +4831,49 @@ spostamenti infinitesimi.
 movimento che si hanno percorrendo la curva.
 \end{itemize}
 
-\affiancati{.49}{.49}{
+\affiancati{.55}{.43}{
 \paragraph{La lunghezza \(ds\):}
+Il segmento \(AB\) si ottiene applicando il teorema di Pitagora al triangolo 
+\(ABC\): 
+\[AB = \Delta s = \sqrt{\tonda{\Delta x}^2 + \tonda{\Delta x}^2}\] 
+Passando a incrementi infinitesimi, 
 il tratto curvo \(ds\) è indistinguibile da un segmento rettilineo lungo la 
 tangente, con la componente orizzontale che è \(dx\) e quella verticale 
-che è \(dy\sim f'(x)dx\), per cui:
-\begin{align*}
-ds &= \sqrt{(dx)^2+(dy)^2}\sim \\
-   &\sim \sqrt{(dx)^2+(f'(x)dx)^2}=dx\sqrt{1+(f'(x))^2}
-\end{align*}
+che è \(dy \sim f'(x)dx\), ma per il principio di transfer le proprietà 
+geometriche si mantengono:
+% \begin{align*}
+% ds &= \sqrt{(dx)^2+(dy)^2}\sim \\
+%    &\sim \sqrt{(dx)^2+(f'(x)dx)^2}=dx\sqrt{1+(f'(x))^2}
+% \end{align*}
 }{
 %TODO   disegno tipo p.396, magari in una semicirconf come un grafico già pronto
 \begin{center}  \scalebox{1}{\curvaturads} \end{center}
 }
-Nei disegni gli incrementi non sono infinitesimi, ma per transfer le 
-proprietà si mantengono anche per incrementi infinitesimi.
+\[ds = \sqrt{(dx)^2+(dy)^2} \sim 
+       \sqrt{(dx)^2+(f'(x)dx)^2} = dx\sqrt{1+(f'(x))^2}\]
+% Nei disegni gli incrementi non sono infinitesimi, ma per transfer le 
+% proprietà si mantengono anche per incrementi infinitesimi.
 
-\affiancati{.49}{.49}{
-\paragraph{Le direzioni:} sappiamo già esprimere una direzione lungo la 
-curva: geometricamente è la pendenza, il coefficiente angolare della tangente 
-alla curva nel punto considerato. Conoscendo l'angolo \(\alpha\), la pendenza 
+\affiancati{.55}{.43}{
+\paragraph{Le direzioni:} la direzione lungo una curva è la sua la pendenza, 
+che corrisponde al coefficiente angolare della tangente alla curva nel punto 
+considerato. 
+
+Conoscendo l'angolo \(\alpha\), la pendenza 
 \(f'(x)\) in quel punto è \(f'(x)=\tg(\alpha)\) e quindi 
-\(\alpha=\arctan(f'(x))\).\\
-Dal teorema dell'incremento si ha:
-\begin{align*}
-d\alpha \sim \Deriv{\arctan(f'(x))}dx=\dfrac{f''(x)}{1+(f'(x))^2}dx
-\end{align*}
+\(\alpha=\arctan(f'(x))\).
+% Quanto vale nei reali, vale anche passando agli iperreali quindi, 
+% dal teorema dell'incremento si ha:
+Lo stesso vale anche per incrementi infinitesimi:\\
+\(d\alpha \sim \Deriv{\arctan(f'(x))}dx=\dfrac{f''(x)}{1+(f'(x))^2}dx\)
+% \begin{align*}
+% d\alpha \sim \Deriv{\arctan(f'(x))}dx=\dfrac{f''(x)}{1+(f'(x))^2}dx
+% \end{align*}
 }{
 %TODO   disegno tipo p.396, magari in una semicirconf come un grafico già pronto
-\begin{center}  \scalebox{1}{\curvaturadalpha} \end{center}
+% \begin{center} 
+\scalebox{1}{\curvaturadalpha} 
+% \end{center}
 }
 
 Dove il grafico mette in evidenza una forte curvatura, lì abbiamo un 
@@ -4868,7 +4882,8 @@ minore, il cambio di direzione è minore oppure avviene lungo un percorso più
 lungo. C'è quindi una proporzionalità inversa fra la curvatura \(k\) e la 
 lunghezza \(ds\), a parità di angolo \(d\alpha\), e c'è una proporzionalità 
 diretta fra \(k \) e \(d\alpha\), a parità di \(ds\): possiamo scrivere
-\(k\propto\frac{d\alpha}{ds}\), quindi 
+\(k\propto\frac{d\alpha}{ds}\) e considerare questo valore come una misura 
+della curvatura del grafico. 
 \[
  k\propto\frac{d\alpha}{ds} = 
  \dfrac{\dfrac{f''(x)}{1+(f'(x))^2} \cancel{dx}} 
@@ -4877,9 +4892,8 @@ diretta fra \(k \) e \(d\alpha\), a parità di \(ds\): possiamo scrivere
        {\tonda{1+(f'(x))^2}\tonda{1+(f'(x))^2}^{\frac{1}{2}}} = 
  \dfrac{f''(x)}{\quadra{1+(f'(x))^2}^{\frac{3}{2}}}
 \]
-
-Calcolando le derivate prima e seconda possiamo quindi ricavare 
-una misura della curvatura di un grafico in ogni suo punto. 
+% Calcolando le derivate prima e seconda possiamo quindi ricavare 
+% una misura della curvatura di un grafico in ogni suo punto. 
 \begin{esempio}
 Analizziamo la curvatura del grafico della funzione \(f(x)=\dfrac{1}{x}\), che 
 abbiamo già visto molte volte. Limitiamoci all'intervallo \(x>0\). Il grafico 
@@ -4913,6 +4927,8 @@ x_B&=4 \quad  \longrightarrow  \quad k(4)=\dfrac{2\cdot
 }{
 \begin{center}  \scalebox{1}{\curvaturaesea} \end{center}
 }
+% \pagebreak %--------------------------------------
+
 Come si vede anche dal disegno, la curvatura è più accentuata nel punto di 
 simmetria della curva, cioè \(x_B\). Allontanandosi da questo punto sia a 
 destra che a sinistra, la curvatura diminuisce rapidamente.
