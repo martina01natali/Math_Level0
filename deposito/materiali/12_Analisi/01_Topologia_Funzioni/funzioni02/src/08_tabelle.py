@@ -19,4 +19,4 @@ def tabella_o(f, argomenti):
     print(f(x), end="\t")
   print()
    
-tabella_o(lambda x: x / 2 + 3, range(-6, +7))
+tabella_o(lambda x: x / 2 + 3, range(-6, +6))

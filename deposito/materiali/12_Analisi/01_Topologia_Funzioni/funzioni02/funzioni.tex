@@ -297,7 +297,7 @@ Quindi, riferendoci alle funzioni definite precedentemente:
 \begin{enumerate} [noitemsep]
 \item Il dominio della funzione \texttt{lunghezza} è l'insieme delle 
 stringhe; cioè la funzione \texttt{lunghezza} può essere applicata agli 
-oggetti ti tipo stringa.
+oggetti tipo stringa.
 \item Il dominio della funzione \texttt{triplo} è l'insieme dei numeri.
 \item Il dominio della funzione \texttt{media} è l'insieme delle coppie di 
 numeri.
@@ -383,9 +383,12 @@ Non è detto che una funzione debba per forza restituire un solo numero,
 potrebbe restituire un intervallo di numeri o un insieme di numeri o di 
 oggetti.
 
+% TODO da tenere presente:
+% Ho dubbi sull'opportunità di questa parte, che potrebbe dare
+% confusione allo studente e irritazione al docente.
 Non è neppure detto che una funzione debba restituire sempre lo stesso 
 numero, ad esempio una funzione che dà come risultato un numero casuale 
-restituirà alle volte un numero, altre volte un altro numero.
+restituirà a volte un numero, altre volte un altro numero.
 Comunque, ogni volta che usiamo una certa funzione, otteniamo un preciso 
 risultato che tutti siamo d'accordo di accettare.
 
@@ -516,10 +519,15 @@ un numero aumentata di 3:
 
 \end{esempio}
 
-Andando avanti, dovremmo scrivere molte funzioni, non sempre potremmo 
+Andando avanti, dovremo scrivere molte funzioni e non sempre potremo 
 scrivere un nome che rispecchi esattamente quello che fa la funzione stessa 
-per cui sarà il caso che usiamo dei nomi più generici e semplici. 
+per cui spesso useremo nomi più generici e semplici. 
 La funzione precedente può essere scritta così:
+
+% Andando avanti, dovremmo scrivere molte funzioni, non sempre potremmo 
+% scrivere un nome che rispecchi esattamente quello che fa la funzione stessa 
+% per cui sarà il caso che usiamo dei nomi più generici e semplici. 
+% La funzione precedente può essere scritta così:
 
 \lstinputlisting[firstline=9]{\folder src/07_metapiutre.py} %]
 
@@ -527,9 +535,9 @@ La funzione precedente può essere scritta così:
 
 Negli esempi precedenti ci siamo fatti stampare il valore restituito dalla 
 funzione per alcuni valori del suo argomento ma se avessimo bisogno di più 
-valori, il metodo precedente sarebbe piuttosto scomodo. Possiamo scrivere 
-una funzione che non dà risultato, ma, data una funzione e un insieme di 
-numeri, stampa ognuno dei numeri seguito dal risultato della funzione 
+valori, il metodo precedente sarebbe piuttosto scomodo. 
+Possiamo scrivere un programma che, data una funzione e un insieme di numeri, 
+stampa ognuno dei numeri seguito dal risultato della funzione 
 applicata a quel numero:
 
 \lstinputlisting[lastline=9]{\folder src/08_tabelle.py} %]
@@ -549,8 +557,8 @@ porsi tanti problemi.
 
 L'esecuzione dell'ultimo programma produce:
 \begin{lstlisting}
-x:	-6	-5	-4	-3	-2	-1	0	1	2	3	4	5	6	
-f(x):	0.0	0.5	1.0	1.5	2.0	2.5	3.0	3.5	4.0	4.5	5.0	5.5	6.0
+x:     -6    -5    -4    -3    -2    -1     0     1     2     3     4     5 
+f(x): 0.0   0.5   1.0   1.5   2.0   2.5   3.0   3.5   4.0   4.5   5.0   5.5 
 \end{lstlisting}
 
 Osservando la tabella possiamo formulare alcune congetture:
@@ -598,8 +606,8 @@ Collegando i punti corrispondenti nel grafico con due assi otteniamo:
 
 \begin{osservazione}
 \begin{enumerate} [nosep]
-\item La funzione è definita anche per valori diversi da quelli per i quali 
-abbiamo fatto stampare la tabella.
+\item La funzione è definita anche per valori diversi da quelli che abbiamo 
+calcolato.
 \item È definita anche per valori diversi da quelli che abbiamo 
 rappresentato nel grafico.
 \item Solo per motivi grafici (e di pigrizia), abbiamo usato, come argomenti, 
@@ -747,7 +755,7 @@ una forma ben precisa.
 \subsection{Iniettiva}
 
 \begin{definizione}
-Una funzione si dice \textbf{iniettiva} se a elementi di versi dell'insieme 
+Una funzione si dice \textbf{iniettiva} se a elementi diversi dell'insieme 
 di definizione corrispondono elementi diversi dell'insieme immagine.
 \[\forall x_1, x_2, \quad \text{se} \quad x_1 \ne x_2 
 \quad \text{allora} \quad f(x_1) \ne f(x_2)\]
@@ -825,7 +833,8 @@ generato da uno e un solo valore di \(x\).
 \end{esempio}
 \begin{esempio}Controesempio
 
-Come controesempio possiamo considerare tutti gli esempi precedenti.
+Come controesempio possiamo considerare gli esempi precedenti di questa 
+sezione.
 \end{esempio}
 \end{minipage}
 \hfill
@@ -866,7 +875,7 @@ esponenziali, sono definite per ogni numero reale quindi anche le loro
 combinazioni lo saranno.
 Ad esempio le funzioni polinomiali sono definite in tutto \(\R\). 
 
-Le operazioni che non sono sempre definite sono: \quad 
+Le operazioni che non sono sempre definite sono: 
 la divisione, la radice con indice pari, il logaritmo e la tangente 
 goniometrica.
 
@@ -874,8 +883,8 @@ Se in una funzione è presente:
 \begin{enumerate} [noitemsep]
 \item la \textbf{divisione}, il divisore (il denominatore) deve essere diverso 
 da zero;
-\item la \textbf{radice con indice pari}, il radicando (il contenuto della 
-radice) deve essere maggiore o uguale a zero;
+\item la \textbf{radice con indice pari}, il radicando (l'espressione a cui 
+si applica la radice) deve essere maggiore o uguale a zero;
 \item il \textbf{logaritmo}, l'argomento (l'espressione a cui si applica il 
 logaritmo) deve essere maggiore di zero;
 \item la \textbf{tangente}, l'argomento (l'espressione a cui si applica la 
@@ -1007,7 +1016,7 @@ Calcola l'insieme di definizione della funzione: \quad
 
 \affiancati{.59}{.39}{
 Nella funzione è presente una radice quadrata e una divisione, 
-abbiamo da rispettare due condizioni:
+dobbiamo rispettare due condizioni:
 \(\sistema{x -2 \ne 0 \\ \dfrac{5}{x-2}+2 \geqslant 0} \srarrow
   \sistema{x \ne +2 \\ \dfrac{2x +1}{x-2} \geqslant 0}\)
 
@@ -1173,10 +1182,8 @@ Studia la parità della funzione \(f(x): x \mapsto \dfrac{-x^3 +2}{x^2 +1}\).
 
 \affiancati{.49}{.49}{
 \begin{align*}
-f(-x) &= \dfrac{(-x)^3 +2(-x)}{(-x)^2+1} =
-         \dfrac{-x^3 +2}{+x^2+1} = \\
-      &= \dfrac{-\tonda{x^3 -2}}{x^2+1} =
-         -\dfrac{x^3 -2}{x^2+1} 
+f(-x) &= \dfrac{-(-x)^3 +2}{(-x)^2+1} =
+         \dfrac{x^3 +2}{x^2+1}
 \end{align*}
 Poiché \(f(-x) \ne f(x) \sstext{e} f(-x) \ne -f(x)\), la funzione non è 
 né \textbf{pari} né \textbf{dispari}.
@@ -1436,30 +1443,33 @@ che appartiene all'Insieme di Definizione quindi è lo zero della funzione.
 \item  \quad \(f(x): x \mapsto \dfrac{x^3 -3x}{-2x^3+5x}\)
 (Esempio: \ref{esempio:funzioni_parita1})
 
-\(\dfrac{x^3 -3x}{-2x^3+5x} = 0\)
+\(\dfrac{x^3 -3x}{-2x^3+5x} = \srarrow x^3 -3x = 0 \srarrow 
+  x\tonda{x^2 -3} = 0 \srarrow 
+\text{zeri} = \graffa{-\sqrt{3};~0;~+\sqrt{3}}0\)
 
 \item  \quad \(f(x): x \mapsto \dfrac{x^3 -6x}{x^2+4}\)
 (Esempio: \ref{esempio:funzioni_parita2})
 
 \(\dfrac{x^3 -6x}{x^2+4} = 0 \srarrow x^3 -6x = 0 \srarrow 
-  x\tonda{x^2 -6} = 0 
+  x\tonda{x^2 -6} = 0 \srarrow 
 \text{zeri} = \graffa{-\sqrt{6};~0;~+\sqrt{6}}\)
 
 \item  \quad \(f(x): x \mapsto \dfrac{-x^3 +2}{x^2 +1}\)
 (Esempio: \ref{esempio:funzioni_parita3})
 
 \(\dfrac{-x^3 +2}{x^2 +1} = 0 \srarrow -x^3 +2 = 0 \srarrow x^3 = 2 \srarrow 
-\text{zeri} = \graffa{-\sqrt[3]{2}}\)
+\text{zeri} = \graffa{\sqrt[3]{2}}\)
 
 \item  \quad \(y = \sin x + 2 \sin 2x\)
 (Esempio: \ref{esempio:funzioni_periodicita1})
 
 \(\sin x + 2 \sin 2x = 0 \srarrow 
-\sin x + 2 \sin x \cdot \cos x = 0 \srarrow 
-\sin x \tonda{1 + 2 \cos x} = 0 \srarrow \)
+\sin x + 4 \sin x \cdot \cos x = 0 \srarrow 
+\sin x \tonda{1 + 4 \cos x} = 0 \srarrow \)
 
-\(\sistema{\sin x = 0 \\ \cos x = - \dfrac{1}{2}} \srarrow 
-  \sistema{x = 0 +k \pi\\ \cos x = \mp \dfrac{2}{3}\pi + 2 k \pi}\)
+\(\sistema{\sin x = 0 \\ \cos x = - \dfrac{1}{4}} \srarrow 
+  \sistema{x = 0 +k \pi \quad \forall k \in \Z \\ 
+  \cos x = \mp \arccos{\dfrac{1}{4}} +2k \pi \quad \forall k \in \Z }\)
 
 \end{enumerate}
 
@@ -1768,7 +1778,7 @@ Da queste si possono ricavare altre definizioni:
 \end{enumerate}
 
 \begin{esempio}
-Guardando i grafici e tenendo presenti definizioni, possiamo affermare che:
+Guardando i grafici e tenendo presenti le definizioni, possiamo affermare che:
 
 \vspace{1em}
 \affiancatic{.49}{.49}{
@@ -1844,14 +1854,14 @@ Che si leggono, rispettivamente: ``effe uguale a gi composto acca''
 e ``effe di x uguale a gi di acca di x''.
 
 \begin{esempio}
-Rappresenta la funzione  \(f: x \mapsto \dfrac{\tonda{3x -2}^2}{8}\)
+Rappresenta la funzione  \(f: x \mapsto \dfrac{\tonda{x -2}^2}{2}\)
 come funzione composta. 
 
 La funzione \(f\) è composta dalle due funzioni 
-\(h: x \mapsto 3x -2 \sstext{e} g: x \mapsto \dfrac{x^2}{8}\). \quad 
+\(h: x \mapsto x -2 \sstext{e} g: x \mapsto \dfrac{x^2}{2}\). \quad 
 La funzione 
-\(h\) toglie \(2\) al triplo del suo argomento, mentre la funzione 
-\(g\) esegue il quadrato del suo argomento e lo divide per \(8\).
+\(h\) toglie \(2\) al suo argomento, mentre la funzione 
+\(g\) esegue il quadrato del suo argomento e lo divide per \(2\).
 Quindi \(f\) applica prima la funzione \(h\) al proprio argomento, poi la 
 funzione \(g\) al risultato di \(h\).
 Lo schema seguente rappresenta la situazione.
@@ -1860,11 +1870,11 @@ Lo schema seguente rappresenta la situazione.
 \label{gra:differenziazione_boxcompostaa}
 
 Si tratta di una macchina che concatena due calcoli successivi. 
-Immettiamo ad esempio il valore \(6\). 
-La macchina \(h\) calcola, al suo interno, \(h(6)=3\cdot 6-2\) e dà come 
-risultato \(16\).
+Immettiamo ad esempio il valore \(5\). 
+La macchina \(h\) calcola, al suo interno, \(h(5)=5-2\) e dà come 
+risultato \(3\).
 Questo numero è l'input della macchina \(g\) che calcola 
-\(g(16)=\frac{16^2}{8}\) e dà come risultato \(32\)
+\(g(3)=\frac{3^2}{2}\) e dà come risultato \(4,5\)
 che è il risultato di \(f(x) = g(h(x))\).
 
 Possiamo disegnare su un piano cartesiano le tre funzioni: 
@@ -1909,7 +1919,7 @@ Immettiamo ad esempio il valore \(3\).
 La macchina \(h\) calcola, al suo interno, \(h(3)=-3^2+2\cdot 3+4\) e dà 
 come risultato \(1\).
 Questo numero è l'input della macchina \(g\) che calcola 
-\(g(16)=2^1\) e dà come risultato \(2\)
+\(g(1)=2^1\) e dà come risultato \(2\)
 che è il risultato di \(f(3) = g(h(3))\).
 
 Possiamo disegnare su un piano cartesiano le tre funzioni: 
@@ -1951,7 +1961,7 @@ composizione \textbf{non è commutativa}.
 
 \subsection{Funzione inversa}
 
-Prima di affrontare le funzioni inverse vediamo una particolare unzione che,
+Prima di affrontare le funzioni inverse vediamo una particolare funzione che,
 nella sua semplicità ha una grande importanza.
 
 \paragraph{Funzione identica}
@@ -2162,8 +2172,7 @@ Se noi restringiamo il suo dominio a
 e quindi possiamo calcolarne l'inversa: \quad
 \(f^{-1} = \arcsin x\). \\
 Questa avrà: \\ [.5em]
-dominio 
-\(= \graffa{x \in \R \sand -1 \leqslant x \leqslant +1}\)
+\(\ID = \graffa{x \in \R \sand -1 \leqslant x \leqslant +1}\)
 }{
 \affiancati{.29}{.29}{
   \sinIDeII
@@ -2171,8 +2180,8 @@ dominio
   \hspace*{-14mm}\arcsinIDeII
   }
 }
-Insieme Immagine 
-\(= \graffa{x \in \R \sand 
+% Insieme Immagine 
+\(\II = \graffa{x \in \R \sand 
   -\dfrac{\pi}{2} \leqslant x \leqslant +\dfrac{\pi}{2}}\)
 \end{esempio}
 
@@ -2181,15 +2190,14 @@ Disegna la funzione \(f(x) = \cos{x}\)  e la sua funzione inversa
 evidenziando Insieme di Definizione e Insieme Immagine.
 
 \affiancati{.39}{.59}{
-Nel caso della funzione \(f(x) = \cos{x}\) è definita in tutto \(\R\), 
+La funzione \(f(x) = \cos{x}\) è definita in tutto \(\R\), 
 si è preferito restringere il suo dominio a 
 \(0 \leqslant x \leqslant +\pi\).
 Questa funzione ``ristretta'' è iniettiva 
 e quindi possiamo calcolarne l'inversa: \quad
 \(f^{-1} = \arccos x\). \\
 Questa avrà: \\ [.5em]
-dominio 
-\(= \graffa{x \in \R \sand -1 \leqslant x \leqslant +1}\)
+\(\ID = \graffa{x \in \R \sand -1 \leqslant x \leqslant +1}\)
 }{
 \affiancati{.29}{.29}{
   \cosIDeII
@@ -2197,8 +2205,7 @@ dominio
   \hspace*{-14mm}\arccosIDeII
   }
 }
-Insieme Immagine  
-\(= \graffa{x \in \R \sand 
+\(\II = \graffa{x \in \R \sand 
   0 \leqslant x \leqslant +\pi}\)
 \end{esempio}
 
@@ -2214,10 +2221,9 @@ Possiamo osservate che l'Insieme Immagine è tutto \(\R\).
 
 L'inversa sarà: \quad
 \(f^{-1} = \arctan x\). \\
-Questa avrà: dominio 
-\(= \R\) \\ 
-Insieme Immagine 
-\(= \graffa{x \in \R \sand 
+Questa avrà: 
+\(\ID = \R\) \\ 
+\(\II = \graffa{x \in \R \sand 
   -\dfrac{\pi}{2} \leqslant x \leqslant +\dfrac{\pi}{2}}\)
   
 % \vspace{1em}
@@ -2294,7 +2300,7 @@ La funzione reale
 restringere il Dominio in modo da ottenere una funzione invertibile. \\[.5em]
 \( x_V = -\dfrac{b}{2a} = -\dfrac{-4}{-2} = -2\) \\[.5em]
 La funzione:  \quad 
-\(y=-x^2-4x+5 \sand x \geqslant -2\) \quad
+\(y=-x^2-4x+5 \stext{con} x \geqslant -2\) \quad
 è iniettiva. \\[.5em]
 Scambiamo \(x\) con \(y\) otteniamo: \quad 
 \(x = -y^2-4y+3\) 
@@ -2307,9 +2313,16 @@ poi applichiamo la formula risolutiva delle equazioni di secondo grado, in
 questo caso possiamo usare la formula ridotta: \\[.5em]
 \(y_{1,2} = -2 \mp \sqrt{4+3-x} = -2 \mp \sqrt{7-x}\) \\[.5em]
 Quello che abbiamo ottenuto non è una funzione \emph{reale} dato che per ogni 
-valore di \(x\) si ottengono due risultati, ma scegliendone opportunamente uno 
-dei due otteniamo la funzione inversa cercata: \\[.5em]
+valore di \(x\) si ottengono due risultati, ma scegliendo opportunamente uno 
+dei due otteniamo la funzione cercata: \quad 
 \(y = f^{-1}(x) = -2 + \sqrt{7-x}\) 
+
+\(f\) \quad ha \quad 
+\(\ID = \intervca{-2}{\infty}\) \quad e \quad 
+\(\II = \intervac{-\infty}{7}\) \\[.5em]
+\(f^{-1}\) \quad ha \quad 
+\(\ID = \intervac{-\infty}{7}\) \quad e \quad 
+\(\II = \intervca{-2}{\infty}\).
 }{
 \scalebox{.8}{\esempioinvd}
 }
@@ -2346,7 +2359,7 @@ Pur avendo risultati uguali, non sono uguali perché:
 \begin{itemize}[nosep]
 \item \(f\) ha 
 \(\ID =\graffa{x \in \R \sand x \geq 0}\);
-\item \(g\) 
+\item \(g\) ha 
 \(\ID =\graffa{x \in \R \sand \tonda{x < -4 \lor x \geq 0}}\);
 \end{itemize}
 \end{esempio}
@@ -2421,7 +2434,7 @@ Abbiamo parlato di funzione per riferirci ad un ``meccanismo'' in grado di
 associare ad un elemento di un insieme un altro elemento di un insieme.
 
 In matematica il collegamento tra gli elementi di due insiemi è detto 
-\emph{relazione}
+\emph{relazione}.
 
 \begin{definizione}
 Viene detta \textbf{relazione} una qualunque \emph{legge} che collega gli 
@@ -2512,10 +2525,10 @@ Non è detto che tutti gli elementi del \emph{Dominio} (o insieme \emph{A})
 siano collegati con un elemento del \emph{Codominio}.
 \begin{itemize}[nosep]
 \item il sottoinsieme del \emph{Dominio} formato dagli elementi da cui parte 
-una freccia lo abbiamo chiamato\emph{Insieme di Definizione} 
+una freccia lo abbiamo chiamato \emph{Insieme di Definizione} 
 (altri testi lo chiamano \emph{Dominio});
 \item il sottoinsieme del \emph{Codominio} formato dagli elementi a cui 
-arriva una freccia viene chiamato\emph{Insieme Immagine}.
+arriva una freccia viene chiamato \emph{Insieme Immagine}.
 \end{itemize}
 
 Dato che un insieme formato da tutte le coppie ordinate il cui primo elemento 
