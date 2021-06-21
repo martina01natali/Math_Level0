@@ -112,9 +112,9 @@
 %   \asse{#1}{#2}{#3}{#4};
 % }
 
-\newcommand{\assecontrattini}[4]{% Segmento con trattini.
+\newcommand{\assecontrattini}[4]{% Asse con trattini.
   % Esempio di chiamata:
-  %% \disegno{\segmentocontrattini{-7}{+7}{0}
+  %% \disegno{\assecontrattini{-7}{+7}{0}{t}
   \def \xmi{#1}
   \def \xma{#2}
   \def \posy{#3}
@@ -123,7 +123,7 @@
     \draw[very thin] (\x, \posy-0.1) -- (+\x, \posy+0.1);
   \draw [-{Stealth[length=2mm, open, round]}] 
         (\xmi-.3, \posy) -- (\xma+.3, \posy); 
-  \node [below] at (\xma+.3, \posy) {\var};
+  \node [below] at (\xma+.3, \posy) {\(\var\)};
 }
 
 \newcommand{\segmentocontrattini}[3]{% Segmento con trattini.
@@ -736,7 +736,8 @@ disequazioni
   \def \intb{#7}
   \coordinate (a) at (\posa, \posy);
   \coordinate (b) at (\posb, \posy);
-  \evidenzia{\a}{\b}
+%   \evidenzia{(\posa, \posy)}{(\posb, \posy)}
+  \evidenzia{(a)}{(b)}
 %   \draw [blue, thick, decorate, decoration=snake] (a) -- (b);
   \draw[fill=\inta] (a) circle (3pt) node [above] {\(\labela\)};
   \draw[fill=\intb] (b) circle (3pt) node [above] {\(\labelb\)};
@@ -959,21 +960,42 @@ disequazioni
 \tikzset{
   telescopio/.pic={% Disegna un telescopio non standard
   % Esempio di chiamata:
-  % \draw (-1, 1) pic [rotate=0, xscale=.5, yscale=-.5] {telescopio=\infty};
+  % \draw (-1, 1) pic [rotate=0, scale=.5] {telescopio=\infty};
   \begin{scope}[color=gray, ultra thick]
     \draw [fill=gray, rounded corners=2] (5.4, -1.4) rectangle (6.9, -0.4);
     \draw [fill=white, rounded corners=2] (1.4, -1.3) rectangle (5.6, -0.5);
     \draw [fill=white](0.4, -1.2) rectangle (1.4, -0.6);
     \draw [fill=white] (0.8, -1.2) circle (0.2);
-    \draw [fill=black, rounded corners=1] 
+    \draw [fill=gray, rounded corners=1] 
           (0.4, -1.3) -- (0.4, -0.5) -- (-0.45, -0.5) -- cycle;
     \draw [fill=white] (-0.2, -0.5) rectangle (0.2, -0.2);
     \draw [fill=gray, rounded corners=.5] (-0.3, -0.2) rectangle (0.3, 0);
+%     \draw [-{Stealth[length=2mm, open, round]}] (7.2, -.9) -- (8.2, -.9); 
+%     \node at (8.8, -.9) {#1};
     \draw [-{Stealth[length=2mm, open, round]}] (7.2, -.9) -- (8.2, -.9); 
-    \node [gray] at (9.2, -.9) {\footnotesize #1};
+    \node at (9.2, -.9) [black] {#1};
   \end{scope}
   }
 }
+
+% \tikzset{
+%   telescopio/.pic={% Disegna un telescopio non standard
+%   % Esempio di chiamata:
+%   % \draw (-1, 1) pic [rotate=0, xscale=.5, yscale=-.5] {telescopio=\infty};
+%   \begin{scope}[color=gray, ultra thick]
+%     \draw [fill=gray, rounded corners=2] (5.4, -1.4) rectangle (6.9, -0.4);
+%     \draw [fill=white, rounded corners=2] (1.4, -1.3) rectangle (5.6, -0.5);
+%     \draw [fill=white](0.4, -1.2) rectangle (1.4, -0.6);
+%     \draw [fill=white] (0.8, -1.2) circle (0.2);
+%     \draw [fill=black, rounded corners=1] 
+%           (0.4, -1.3) -- (0.4, -0.5) -- (-0.45, -0.5) -- cycle;
+%     \draw [fill=white] (-0.2, -0.5) rectangle (0.2, -0.2);
+%     \draw [fill=gray, rounded corners=.5] (-0.3, -0.2) rectangle (0.3, 0);
+%     \draw [-{Stealth[length=2mm, open, round]}] (7.2, -.9) -- (8.2, -.9); 
+%     \node [gray] at (9.2, -.9) {\footnotesize #1};
+%   \end{scope}
+%   }
+% }
 
 % % original:
 % \tikzset{

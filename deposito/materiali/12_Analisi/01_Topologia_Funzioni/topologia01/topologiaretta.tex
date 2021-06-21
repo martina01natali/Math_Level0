@@ -1,18 +1,42 @@
 % (c) 2017 Leonardo Aldegheri
 % (c) 2017 Carlotta Gualtieri
+% (c) 2021 Daniele Zambelli - daniele.zambelli@gmail.com
+
+\input{\folder topologiaretta_grafici}
 
 \chapter{Topologia della retta}
 
 \section{La topologia della retta}
 %label{}
 Già dall'etimologia del termine, dal greco ``\emph{topos}'' che significa 
-``luogo'', apprendiamo che il termine topologia indica lo studio ragionato 
-dei luoghi. Nell'ambito dei nostri studi la topologia, o scienza dei luoghi, 
-è quella branca della matematica che studia le proprietà geometriche delle 
-figure piane e spaziali che restano inalterate eseguendo trasformazioni 
-biunivoche. In particolare, con l'espressione topologia della retta si indica 
+``luogo'', apprendiamo che il termine topologia indica lo studio 
+ragionato dei luoghi. 
+Nell'ambito dei nostri studi la topologia, o scienza dei luoghi, 
+è quella branca della matematica che studia le proprietà geometriche 
+delle figure piane e spaziali che restano inalterate eseguendo 
+trasformazioni biunivoche. 
+In particolare, con l'espressione topologia della retta si indica 
 lo studio della retta come insieme di punti, approfondendo i concetti di 
-vicinanza, lontananza e distanza tra di essi.\\
+vicinanza, lontananza e distanza tra di essi.
+
+La retta si presta per essere un buon modello per la rappresentazione dei 
+numeri, ma per fare questo dobbiamo dotarla di: \quad 
+1.~un verso; \quad 2.~un'origine; \quad 3.~un'unità di misura.
+% \begin{enumerate}[nosep]
+% \item un verso;
+% \item un'origine;
+% \item un'unità di misura.
+% \end{enumerate}
+% \begin{center}
+% 1.~un verso; \qquad 2.~un'origine; \qquad 3.~un'unità di misura.
+% \end{center}
+Una retta con queste aggiunte l'abbiamo chiamata ``asse cartesiano'':
+\begin{center}
+\asseconpunti
+\end{center}
+
+
+
 
 Il primo passo che facciamo è quello di identificare i numeri reali con i 
 punti della retta: ad ognuno degli infiniti punti della retta facciamo 
@@ -20,7 +44,7 @@ corrispondere uno degli infiniti numeri dell'insieme \(\mathbb{R}\).
 Ricordiamo infatti che entrambi sono insiemi ordinati e completi e possiamo 
 costruire una corrispondenza biunivoca tra i loro elementi, fissando sulla 
 retta un'origine e un verso di percorrenza, come ci consente di fare il 
-postulato di ordinamento sulla retta.\\
+postulato di ordinamento sulla retta.
 
 Identificando i numeri reali con i punti della retta, possiamo definire la 
 distanza tra due numeri \(x\) e \(y\) reali come la distanza \(d(x, y)\) tra 
@@ -40,9 +64,316 @@ simmetrica,
 disuguaglianza triangolare.
 \end{enumerate}
 
+%-----------------------------------------------------
+% Prova definizione e minipage
+% 
+% \newtcbtheorem[number within=chapter]{newtheo}{Teorema}%
+% {colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+
+\begin{newtheo}{}{theoexample1}
+This is the text of the theorem. The counter is automatically assigned and,
+in this example, prefixed with the chapter number. This theorem is numbered 
+with \ref{th:theoexample1} and is given on page \pageref{th:theoexample1}.
+\end{newtheo}
+
+\noindent
+\begin{minipage}{.48\textwidth}
+\begin{newtheo}{This is my title}{theoexample2}
+This is the text of the theorem. The counter is automatically assigned and,
+in this example, prefixed with the chapter number. This theorem is numbered 
+with \ref{th:theoexample2} and is given on page \pageref{th:theoexample2}.
+\end{newtheo}
+\end{minipage}
+\hfill
+\begin{minipage}{.48\textwidth}
+\begin{newtheo}{This is my title}
+This is the text of the theorem. The counter is automatically assigned and,
+in this example, prefixed with the chapter number. This theorem is numbered 
+with \ref{th:theoexample3} and is given on page \pageref{th:theoexample3}.
+\end{newtheo}
+\label{th:theoexample3}
+\end{minipage}
+
+\affiancati{.48}{.48}{
+\begin{newtheo}{This is my title}{defexample2}
+This is the text of the theorem. The counter is automatically assigned and,
+in this example, prefixed with the chapter number. This theorem is numbered 
+with \ref{th:theoexample2} and is given on page \pageref{th:theoexample2}.
+\end{newtheo}
+}{
+\begin{newtheo}{This is my title}
+This is the text of the theorem. The counter is automatically assigned and,
+in this example, prefixed with the chapter number. This theorem is numbered 
+with \ref{th:theoexample3} and is given on page \pageref{th:theoexample3}.
+\end{newtheo}
+}
+
+\affiancati{.48}{.48}{
+\begin{newdef}{This is my title}{defexample2}
+This is the text of the theorem. The counter is automatically assigned and,
+in this example, prefixed with the chapter number. This theorem is numbered 
+with \ref{def:defexample2} and is given on page \pageref{def:defexample2}.
+\end{newdef}
+}{
+\begin{newdef}{This is my title}
+This is the text of the theorem. The counter is automatically assigned and,
+in this example, prefixed with the chapter number. This theorem is numbered 
+with \ref{def:defexample3} and is given on page \pageref{def:defexample3}.
+\end{newdef}
+\label{def:defexample3}
+}
+
+\affiancati{.48}{.48}{
+\begin{newoss}{This is my title}{defexample2}
+This is the text of the theorem. The counter is automatically assigned and,
+in this example, prefixed with the chapter number. This theorem is numbered 
+with \ref{oss:defexample2} and is given on page \pageref{oss:defexample2}.
+\end{newoss}
+}{
+\begin{newoss}{This is my title}
+This is the text of the theorem. The counter is automatically assigned and,
+in this example, prefixed with the chapter number. This theorem is numbered 
+with \ref{oss:defexample3} and is given on page \pageref{oss:defexample3}.
+\end{newoss}
+\label{oss:defexample3}
+}
+
+\begin{comment}
+
+
+%-----------------------------------------------------
+
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{framed}
+
+\colorlet{shadecolor}{orange!15}
+
+\newtheorem{theorem}{Theorem}
+
+\newenvironment{theo}
+  {\begin{shaded}\begin{theorem}}
+  {\end{theorem}\end{shaded}}
+
+\begin{document}
+
+\begin{theo}
+Some important theorem.
+\end{theo}
+
+\end{document}
+
+
+%-----------------------------------------------------
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{shadethm}
+
+\newshadetheorem{thm}{Theorem}
+\definecolor{shadethmcolor}{HTML}{EDF8FF}
+\definecolor{shaderulecolor}{HTML}{45CFFF}
+\setlength{\shadeboxrule}{.4pt}
+
+\begin{document}
+
+\begin{thm}
+Some important theorem.
+\end{thm}
+
+\end{document}
+
+
+
+
+
+%-----------------------------------------------------
+% Prova teorema e minipage
+
+\begin{minipage}{.49\textwidth}
+\begin{teorema}
+Un \textsc{intervallo} è un sottoinsieme di \(\mathbb{R}\), formato da tutti 
+i reali compresi tra due estremi, finiti o infiniti.
+\end{teorema}
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+\begin{teorema}
+Un \textsc{intervallo} è un sottoinsieme di \(\mathbb{R}\), formato da tutti 
+i reali compresi tra due estremi, finiti o infiniti.
+\end{teorema}
+\end{minipage}
+
+
+%-----------------------------------------------------
+% Prova theorem e minipage
+
+\newtheorem{theorem}{Theorem}
+
+\begin{minipage}{.49\textwidth}
+\begin{theorem}
+Un \textsc{intervallo} è un sottoinsieme di \(\mathbb{R}\), formato da tutti 
+i reali compresi tra due estremi, finiti o infiniti.
+\end{theorem}
+\end{minipage}
+\hfill
+\begin{minipage}{.49\textwidth}
+\begin{theorem}
+Un \textsc{intervallo} è un sottoinsieme di \(\mathbb{R}\), formato da tutti 
+i reali compresi tra due estremi, finiti o infiniti.
+\end{theorem}
+\end{minipage}
+
+% Questo va!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+% 
+% \usepackage{tcolorbox}
+% \usepackage{lipsum}
+
+% \newenvironment{cframed}[1][blue]
+%   {\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{#1}{blue!10!white}}%
+%     \MakeFramed {\advance\hsize-\width \FrameRestore}}
+%   {\endMakeFramed}
+% 
+% \begin{cframed}
+% \lipsum[1]
+% \end{cframed}
+% \begin{cframed}[red]
+% \lipsum[2]
+% \end{cframed}
+% \begin{cframed}[green]
+% \lipsum[3]
+% \end{cframed}
+% \lipsum[4]
+% 
+% 
+% 
+% \begin{lem}{On Brontosaurs}{}
+% \textbf{By Ann Elk (Misses)}
+% 
+% Brontosaurs are thin at one end, thick in the middle and thin again on the 
+% other end. 
+% \end{lem}
+
+\documentclass{article}
+\usepackage{mdframed}
+\usepackage{lipsum}
+
+\newmdtheoremenv{theo}{Theorem}
+
+\begin{document}
+
+\begin{theo}
+\lipsum*[1]
+\end{theo}
+
+\end{document}
+
+% arara: pdflatex
+\documentclass{article}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\newtcbtheorem[number within=section]{mytheo}{My Theorem}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+
+\begin{document}
+\begin{mytheo}{This is my title}{theoexample}
+  This is the text of the theorem. The counter is automatically assigned and,
+  in this example, prefixed with the section number. This theorem is numbered 
+with
+  \ref{th:theoexample} and is given on page \pageref{th:theoexample}.
+\end{mytheo}
+
+\end{document}
+
+\documentclass{article}
+\usepackage{amsthm}
+\usepackage{fancybox}
+
+\makeatletter
+\newtheoremstyle{caja}
+  {\topsep}
+  {\topsep}
+  {\itshape}
+  {}
+  {\bfseries}
+  {}
+  {.5em}
+  {\ovalbox{\thmname{#1}~\thmnumber{#2}\@ifempty{#3}{.}{}\thmnote{ (#3).}}}
+\makeatother
+\theoremstyle{caja}
+\newtheorem{theo}{Theorem}
+
+\begin{document}
+
+\begin{theo}
+test
+\end{theo}
+
+\begin{theo}[Important result]
+test
+\end{theo}
+
+\end{document}
+%-----------------------------------------------------
+\end{comment}
+% \disegno{\evidenzia[green]{(0, -2)}{(+2, +5)}}
+% \disegno{\inti{0}{-2}{+2}{a}{b}{white}{blue}{x}}
+\disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{blue}{white}{x}}
+% \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{white}{x}}
+
+\begin{table}[h!]
+\caption{Intervalli}
+\center
+\label{tab:intervalli}
+  \centering\begin{tabular}{>{\centering\arraybackslash}m{35mm}|
+                            >{\centering\arraybackslash}m{25mm}|
+                            >{\centering\arraybackslash}m{30mm}|
+                            >{\centering\arraybackslash}m{35mm}} 
+%  \begin{tabular}{p{4cm}|c|c|c}
+  a parole   & con i predicati & con le parentesi & sulla retta \\
+  \hline
+  i numeri compresi tra \(a\) e~\(b\) estremi esclusi & 
+  \(a < x < b\) & \((a;~b)\) o \(]a;~b[\) & 
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{white}{x}}\\
+  \hline
+  i numeri compresi tra \(a\) e~\(b\) estremi inclusi & 
+  \(a \le x \le b\) & \([a;~b]\) &  
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{blue}{blue}{x}} \\
+  \hline
+  i numeri compresi tra \(a\) e~\(b\), a~incluso, b~escluso & 
+  \(a \le x < b\) & \([a;~b)\) o \([a;~b[\) &  
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{blue}{white}{x}} \\
+  \hline
+  i numeri compresi tra \(a\) e~\(b\), a~escluso, b~incluso & 
+  \(a < x \le b\) & \((a;~b]\) o \(]a;~b]\) &  
+  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{blue}{x}} \\
+  \hline
+  i numeri fino ad \(a\), \(a\)~escluso & 
+  \(x < a\) & \((-\infty;~a)\) o \(]-\infty;~a[\) & 
+  \disegno{\raylconasse{0}{5}{2.5}{a}{white}{x}} \\
+  \hline
+  i numeri fino ad \(a\), \(a\)~incluso & 
+  \(x \le a\) & \((-\infty;~a]\) o \(]-\infty;~a]\) &  
+  \disegno{\raylconasse{0}{5}{2.5}{a}{blue}{x}} \\
+  \hline
+  i numeri da \(a\) in poi, \(a\)~escluso & 
+  \(x > a\) o \(a < x\) & \((a;~-\infty)\) o \(]a;~-\infty[\) & 
+  \disegno{\rayrconasse{0}{5}{2.5}{a}{white}{x}} \\
+  \hline
+  i numeri da \(a\) in poi, \(a\)~incluso & 
+  \(x \ge a\) o \(a \le x\) & \([a;~-\infty)\) o \([a;~-\infty[\) & 
+  \disegno{\rayrconasse{0}{5}{2.5}{a}{blue}{x}} \\
+  \hline
+ \end{tabular}
+\end{table}
+
+% \end{comment}
 \section{Gli intervalli}
 %label{}
-  \begin{definizione}
+\begin{definizione}
 Un \textsc{intervallo} è un sottoinsieme di \(\mathbb{R}\), formato da tutti 
 i reali compresi tra due estremi, finiti o infiniti.\\
 \end{definizione}
