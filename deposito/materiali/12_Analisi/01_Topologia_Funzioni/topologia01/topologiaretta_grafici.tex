@@ -4,16 +4,74 @@
 % 
 % 
 
-
-\newcommand{\asseconpunti}{% Retta con alcuni punti evidenziati
+\newcommand{\rettaconversoa}{% Retta dotata di un verso
   \disegno{
-    \assecontrattini{-7}{+7}{0}{t}
+    \assex{-6}{+6}{0}
+    \fill [fill=blue] (-3.5, 0) circle(2pt) 
+      node[above] {\(a\)} node[below] {\(A\)}
+      (0, 0) node[above] {\(<\)} node[below] {viene prima di}
+      (+3.5, 0) circle(2pt) 
+      node[above] {\(b\)} node[below] {\(B\)};
+  }
+}
+
+\newcommand{\rettaconversob}{% Retta dotata di un verso da destra a sinistra
+  \disegno{
+    \assex{+6}{-6}{0}
+    \fill [fill=blue] (-3.5, 0) circle(2pt) 
+      node[above] {\(a\)} node[below] {\(A\)}
+      (0, 0) node[above] {\(>\)} node[below] {viene dopo di}
+      (+3.5, 0) circle(2pt) 
+      node[above] {\(b\)} node[below] {\(B\)};
+  }
+}
+
+\newcommand{\asselineare}{% Asse con scala lineare
+  \disegno[7]{
+    \assecontrattini{-4}{+4}{0}{x}
+    \foreach \px in {-3, -2, -1, 0, +1, +2, +3}{
+      \draw (\px, 0) node[below] {\footnotesize\(\px\)};
+    }
+  }
+}
+
+\newcommand{\assequadratico}{% Asse con scala quadratica
+  \disegno[7]{
+    \assecontrattini{-4}{+4}{0}{x}
+    \foreach \px/\lx in {-3/-9, -2/-4, -1, 0, +1, +2/+4, +3/+9}{
+      \draw (\px, 0) node[below] {\footnotesize\(\lx\)};
+    }
+  }
+}
+
+\newcommand{\asselogaritmico}{% Asse con scala logaritmica
+  \disegno[7]{
+    \assecontrattini{-4}{+4}{0}{x}
+    \foreach \px in {-3, -2, -1, 0, +1, +2, +3}{
+      \draw (\px, 0) node[below] {\footnotesize\(10^{\px}\)};
+    }
+  }
+}
+
+\newcommand{\asseconpuntireali}{% Retta con alcuni punti realievidenziati
+  \disegno{
+    \assecontrattini{-7}{+7}{0}{x}
     \foreach \px/\lx in {-6/-6, -3/-3, -1.5/{-1,5}, 0/0, 1/+1, 
                          2.236/+\sqrt{5}, 3.666/\frac{11}{3},
                          5.5/\frac{11}{2}}{
-      \fill [fill=blue] (\px, 0) circle(2pt) node[below] {\(\lx\)};
+      \fill [fill=blue] (\px, 0) circle(2pt) node[below] {\footnotesize\(\lx\)};
 %       \draw 
     }
+  }
+}
+
+\newcommand{\asseconpuntiiperreali}{% Retta con alcuni punti iperreali
+  \disegno{
+    \assecontrattini{-7}{+7}{0}{x}
+    \microscopio{(-5, 0)}{2}{120}{-50}{2}{(7.6, 10)}{\(\times \infty\)}
+    \grandangolo{(0, 0)}{2}{120}{-50}{2}{(7.6, 10)}{\(\times \infty\)}
+    \draw (+3, 1) pic [rotate=0, scale=.5] {telescopio=\(\times \infty\)};
+    \microscopio{(+3, 1)}{2}{120}{-50}{2}{(7.6, 10)}{\(\times \infty\)}
   }
 }
 
