@@ -29,7 +29,7 @@ lo studio della retta come insieme di punti, approfondendo i concetti di
 vicinanza, lontananza e distanza tra di essi.
 
 \section{Numeri e punti}
-label{sec:topologianumeripunti}
+\label{sec:topologianumeripunti}
 
 La retta si presta per essere un buon modello per la rappresentazione dei 
 numeri, ma una delle caratteristiche importanti di quasi tutti gli insiemi 
@@ -57,8 +57,8 @@ Se al numero \(a\) corrisponde il punto \(A\) e al numero \(b\) il punto
 \(A \stext{viene prima di} B\).
 \end{newdef}
 
-Per poter fare corrispondere ad ogni numero un punto della retta, e 
-viceversa a d ogni punto della retta un numero, dobbiamo anche dotare la 
+Per poter fare corrispondere ad ogni numero un punto della retta e, 
+viceversa, a ogni punto della retta un numero, dobbiamo anche dotare la 
 retta di:
 \begin{enumerate} [noitemsep]
 \item un'origine, cioè un punto che rappresenti lo zero;
@@ -74,7 +74,7 @@ Di solito utilizziamo una scala lineare \dots \\
 }{
 \assequadratico
 
-\dots ma in certe occasioni può essere più comoda un'altra scala.
+\dots ma in certe occasioni può essere più comoda una scala quadratica.
 }
 
 \vspace{.5em}
@@ -123,7 +123,7 @@ Grazie alla corrispondenza tra numeri reali e punti di una retta,
 possiamo indicare un numero usando un punto o un punto usando un numero.
 
 \section{Distanza tra punti e lunghezza del segmento}
-label{sec:topologiadistanza}
+\label{sec:topologiadistanza}
 
 Il modello della retta permette di far corrispondere la differenza di due 
 numeri alla distanza tra due punti. 
@@ -205,7 +205,7 @@ maggiore o uguale a ogni elemento di \(A\):
 \affiancati{.48}{.48}{
 \begin{newdef}{}{}
 \(A\) è \emph{superiormente illimitato} se per ogni numero reale \(M\)
-in \(A\) esiste un numero \(x\) maggiore di \(M\):
+esiste un numero \(x \in A\) maggiore di \(M\):
 \[\forall M \in \R ~\exists x \in A \svert x > M\]
 \end{newdef}
 }{
@@ -232,7 +232,7 @@ dell'insieme.
 \affiancati{.48}{.48}{
 \begin{newdef}{}{}
 \(A\) è \emph{inferiormente illimitato} se per ogni numero reale \(M\)
-in \(A\) esiste un numero \(x\) minore di \(M\):
+in \(A\) esiste un numero \(x \in A\) minore di \(M\):
 \[\forall M \in \R ~ \exists x \in A \svert x < M\]
 \end{newdef}
 }{
@@ -255,10 +255,11 @@ elemento di \(A\):
 \end{newdef}
 
 \begin{newdef}{}{}
-Dato un insieme di numeri chiamiamo:
+Dato un insieme ordinato di numeri chiamiamo:
 \begin{itemize} [nosep]
-\item \emph{minorante} ogni numero minore di tutti i numeri dell'insieme;
-\item \emph{maggiorante} ogni numero maggiore di tutti i numeri 
+\item \emph{minorante} ogni numero minore o uguale a tutti i numeri 
+dell'insieme;
+\item \emph{maggiorante} ogni numero maggiore o uguale a tutti i numeri 
 dell'insieme;
 \end{itemize}
 \end{newdef}
@@ -312,7 +313,6 @@ punto appartiene a \(A\), prende il nome di massimo.
 \begin{esempio}
 Dato l'insieme 
 \(A = \graffa{x \in \R \sand x \stext{ è pari } \sand x < 7}\), 
-se è limitato superiormente:
 scrivi alcuni maggioranti, scrivi il minore tra tutti i maggioranti, 
 precisa se l'estremo superiore è il massimo dell'insieme oppure no.
 
@@ -347,7 +347,7 @@ Se all'insieme appartenessero due minoranti diversi, uno dei due sarebbe
 maggiore dell'altro e quindi, essendo maggiore di un elemento dell'insieme, 
 non può essere un minorante.
 \end{proof}
-\begin{newoss}
+\begin{newoss}{}{}
 Estremo inferiore, estremo superiore, minimo e massimo possono essere viste 
 come funzioni che hanno per argomento un insieme e per risultato un numero.
 Possiamo quindi usare la notazione delle funzioni: \quad \(m = \min{A}\).
@@ -379,8 +379,8 @@ appartiene ad \(A\) ed è un maggiorante di \(A\).
 insiemi. %TODO: invece che intervalli, fare degli insiemi più complicati
 \begin{enumerate}
 \item \(A = \graffa{x\in\R \sand 1 < x \geq 5}\)~: \\
-L'insieme dei minoranti è \(\graffa{x\in\R\vert x \leq 1}\) e
-l'insieme dei maggioranti è \(\graffa{x\in\R\vert x \geq 5}\).
+L'insieme dei minoranti è \(\graffa{x\in\R \sand x \leq 1}\) e
+l'insieme dei maggioranti è \(\graffa{x\in\R \sand x \geq 5}\).
 L'estremo inferiore è 1, infatti questo valore è il massimo 
 dei minoranti, 1 però non è minimo in quanto non appartiene a \(A\). 
 L'estremo superiore è 5, che appartiene all'insieme e è, quindi, massimo. 
@@ -417,17 +417,17 @@ l'estremo superiore di \(A\) \(\sup{A}\) ed è unico.
 Dimostriamo il secondo punto, la dimostrazione del primo è del tutto 
 analoga.
 
-Poiché \(A\) non è vuoto, conterrà almeno un numero, lo chiamiamo \(na\), 
+Poiché \(A\) non è vuoto, conterrà almeno un numero, lo chiamiamo \(n_A\), 
 poiché è limitato superiormente esisterà un numero maggiore di ogni numero 
-di \(A\), lo chiamiamo \(ma\).
+di \(A\), lo chiamiamo \(ma_A\).
 
-Possiamo suddividere l'intervallo \(\intervcc{na}{ma}\) in \(n\) parti 
+Possiamo suddividere l'intervallo \(\intervcc{n_A}{ma_A}\) in \(n\) parti 
 uguali.
 Tra i punti di suddivisione ne troveremo due consecutivi uno che appartiene 
 all'insieme \(A\) e uno che non appartiene all'insieme \(A\).
 
 Possiamo  ripetere la stessa operazione suddividendo l'intervallo 
-\(\intervcc{na}{ma}\) in un numero \(N\) infinito di parti uguali.
+\(\intervcc{n_A}{ma_A}\) in un numero \(N\) infinito di parti uguali.
 Anche in questo caso, per la proprietà di transfert dei numeri iperreali, 
 poiché si mantengono tutte le proprietà dei reali, avremo due numeri 
 consecutivi con il primo che appartiene all'insieme \(A\) e il secondo che 
@@ -442,10 +442,10 @@ all'insieme \(A\) e a un numero maggiore di tutti i numeri dell'insieme
 
 \affiancati{.48}{.48}{
 \begin{newoss}{}{}
-In Analisi Standard non esistono numeri infiniti perciò per indicare che 
-numeri più grandi di qualunque numero considerato è stato inventato un 
-apposito simbolo: \(+\infty\) e, per numeri più piccoli di qualunque 
-numero considerato, il simbolo \(-\infty\).
+In Analisi Standard non esistono numeri infiniti perciò per indicare 
+numeri più grandi di qualunque numero intero (o reale) è stato inventato un 
+apposito simbolo, \(+\infty\) e, per numeri più piccoli di qualunque 
+numero intero (o reale), il simbolo \(-\infty\).
 \end{newoss}
 }{
 \begin{newoss}{}{}
@@ -474,9 +474,12 @@ Estremo superiore e estremo inferiore e non massimo o minimo perché
 % 
 
 In matematica hanno particolare importanza alcuni insiemi numerici semplici 
-che sono individuati da due punti o da un solo punto sono gli intervalli 
+che sono individuati da due numeri o da un solo numero: sono gli intervalli 
 limitati o illimitati.
+Che, nel modello della retta, corrispondono a segmenti (delimitati da due 
+punti) e semirette (che hanno per origine un punto).
 
+\vspace{.5em}
 \affiancati{.48}{.48}{
 \begin{newdef}{}{}
 Un \emph{intervallo limitato} è l'insieme di numeri compresi tra due numeri 
@@ -496,6 +499,7 @@ contiene almeno un infinito.
 \end{newdef}
 }
 
+\vspace{.5em}
 Usando i simboli \(\mp \infty\) possiamo uniformare un certo tipo di 
 rappresentazione degli intervalli di numeri reali.
 
@@ -536,9 +540,9 @@ si dice chiuso superiormente se ha il massimo.
 Un intervallo illimitato superiormente è aperto superiormente non avendo 
 massimo e un intervallo illimitato inferiormente è aperto inferiormente non 
 avendo minimo.
-
-Gli intervalli limitati sono rappresentati da segmenti, quelli illimitati 
-da semirette o dall'intera retta.
+% 
+% Gli intervalli limitati sono rappresentati da segmenti, quelli illimitati 
+% da semirette o dall'intera retta.
 
 La seguente tabella riunisce i vari tipi di intervalli e la loro 
 rappresentazione.
@@ -617,8 +621,8 @@ Se un intervallo \(B\) è chiuso il suo complementare è aperto.
 \section{Intorni e monadi}
 \label{sec:topologiaintorni}
 
-Quando, dopo due secoli di calcolo infinitesimale i matematici hanno deciso 
-di risolvere i problemi logici che questo comportava, avevano difronte due 
+Quando, dopo due secoli di calcolo infinitesimale, i matematici hanno deciso 
+di risolvere i problemi logici che questo comportava, avevano di fronte due 
 possibili strade: integrare gli infiniti e gli infinitesimi nella matematica 
 in modo coerente, oppure ricostruire tutto il calcolo infinitesimale senza 
 usare gli infiniti e gli infinitesimi. 
@@ -631,7 +635,7 @@ Lo hanno fatto sostituendo i concetti di \emph{infinitamente vicino} con
 \affiancati{.48}{.48}{
 Essere vicini a un punto è reso con il concetto di intorno:
 \begin{newdef}{}{}
-Si definisce \emph{intorno} di un punto \(P\) (o numero reale \(x_P\)) 
+Si definisce \emph{intorno} di un punto \(P\) (o di un numero reale \(x_P\)) 
 un qualsiasi intervallo aperto contenente \(P\) (o \(x_P\)).
 \end{newdef}
 Ovviamente è di poco interesse un intervallo aperto ``grande'', l'intorno 
@@ -645,8 +649,8 @@ dell'intervallo sia a sinistra sia a destra.
 Essere infinitamente vicini a un punto è reso con il concetto di 
 \emph{monade} che abbiamo già incontrato.
 \begin{newdef}{}{}
-Si dice \emph{monade} di un punto \(P\) (o numero \(x_P\)) l'insieme di tutti 
-i punti (o i numeri) infinitamente vicini a \(P\) (o a \(x_P\)). 
+Si dice \emph{monade} di un punto \(P\) (o di un numero \(x_P\)) l'insieme 
+di tutti i punti (o i numeri) infinitamente vicini a \(P\) (o a \(x_P\)). 
 \end{newdef}
 }
 
@@ -666,20 +670,23 @@ con \(\delta_1\) e \(\delta_2\) reali positivi, cioè
 \[%\label{eq:}
 I(x_P)=\graffa{x \in \R \sand \tonda{x_P-\delta_1 < x < x_P+\delta_2}}\]
 
-\begin{figure}[h!]
-\centering
+\begin{center} \intorno \end{center}
 
-\includegraphics[width=0.5\textwidth]{img/top_1.png}%\caption{}
-%\label{fig:funz_14abc}
-\end{figure}
-  
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[width=0.5\textwidth]{img/top_1.png}%\caption{}
+% %\label{fig:funz_14abc}
+% \end{figure}
+
 Da quanto visto risulta chiaro che per ogni numero reale, esistono infiniti 
 intorni.
 
-\begin{center}
-\includegraphics[width=0.5\textwidth]{img/top_7.png}%\caption{}
-%\label{fig:funz_14abc}}
-\end{center}
+\begin{center} \intorniuno \end{center}
+
+% \begin{center}
+% \includegraphics[width=0.5\textwidth]{img/top_7.png}%\caption{}
+% %\label{fig:funz_14abc}}
+% \end{center}
 Per quanto riguarda le operazioni associabili agli intorni è da sottolineare 
 che l'intersezione e l'unione di due o più intorni di \(x_P\) sono ancora 
 intorni di \(x_P\).
@@ -706,11 +713,13 @@ l'intervallo aperto \(I_C(x_P)\) di centro \(x_P\) e raggio \(\delta\).
   I_C(x_P) = \{x \in \R \sand \abs{x-x_P} < \delta\}\]
 \end{newdef}
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.5\textwidth]{img/top_2.png}%\caption{}
-%\label{fig:funz_14abc}
-\end{figure}
+\begin{center} \intornocircolare \end{center}
+
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[width=0.5\textwidth]{img/top_2.png}%\caption{}
+% %\label{fig:funz_14abc}
+% \end{figure}
 
 \paragraph{Intorno sinistro e intorno destro}
 A volte non riusciamo a considerare un intero intorno di un certo punto 
@@ -726,11 +735,15 @@ Data l'ampiezza \(\delta > 0\):
   I_s(x_P) = \graffa{x \in \R \sand x_P-\delta < x < x_P}\]
 \end{newdef}
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.5\textwidth]{img/top_3.png}%\caption{}
-%\label{fig:funz_14abc}
-\end{figure}
+\begin{center} \disegno{\semintorno{-4}{I_S(x_P)}{-\delta}} \end{center}
+
+% \begin{center} \intornosinistro \end{center}
+
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[width=0.5\textwidth]{img/top_3.png}%\caption{}
+% %\label{fig:funz_14abc}
+% \end{figure}
 
 \begin{newdef}{}{}
 Si dice intorno destro del numero reale \(x_P\), \(I_d(x_P)\) o 
@@ -741,11 +754,15 @@ Data l'ampiezza \(\delta > 0\):
   I_d(x_P) = \graffa{x \in \R \sand x_P < x < x_P+\delta}\]
 \end{newdef}
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.5\textwidth]{img/top_4a.png}%\caption{}
-%\label{fig:funz_14abc}
-\end{figure}
+\begin{center} \disegno{\semintorno{+4}{I_D(x_P)}{+\delta}} \end{center}
+
+% \begin{center} \intornodestro \end{center}
+
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[width=0.5\textwidth]{img/top_4a.png}%\caption{}
+% %\label{fig:funz_14abc}
+% \end{figure}
 
 \begin{esempio} Intorni e intervalli.
 \begin{enumerate}[label=\alph*)]
@@ -762,7 +779,7 @@ di raggio \(\delta=3\).
 
 \paragraph{Intorno dell'infinito}
 
-Con gli intorni, e con i limiti è stato risolto il problema di sostituire 
+Con gli intorni e con i limiti è stato risolto il problema di sostituire 
 l'infinitamente vicino.
 Ma dobbiamo ancora affrontare il problema dell'infinitamente lontano o 
 dell'infinito.
@@ -789,11 +806,13 @@ a sinistra e aperto a destra:
 \[I(-\infty) = \intervaa{-\infty}{a} = \graffa{x \in \R \sand x < a}\]
 \end{newdef}
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.5\textwidth]{img/top_4.png}%\caption{}
-  %\label{fig:funz_14abc}
-\end{figure}
+\begin{center} \intornomenoinf \end{center}
+
+% \begin{figure}[h!]
+%   \centering
+%   \includegraphics[width=0.5\textwidth]{img/top_4.png}%\caption{}
+%   %\label{fig:funz_14abc}
+% \end{figure}
 
 % \begin{definizione}
 %   Dati \(a,\,b\in\R\) con \(a<b\), definiamo \textsc{intorno di più 
@@ -807,12 +826,13 @@ destra e aperto a sinistra:
 \[I(+\infty) = \intervaa{a}{+\infty} = \graffa{x \in \R \sand x > a}\]
 \end{newdef}
 
-% TODO: aggiustare figura, non b ma a.
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.5\textwidth]{img/top_5.png}%\caption{}
-%\label{fig:funz_14abc}
-\end{figure}
+\begin{center} \intornopiuinf \end{center}
+
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[width=0.5\textwidth]{img/top_5.png}%\caption{}
+% %\label{fig:funz_14abc}
+% \end{figure}
 
 % \begin{definizione}
 % Dati \(a,\,b\in\R\) con \(a<b\), definiamo \textsc{intorno di 
