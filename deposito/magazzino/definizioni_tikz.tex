@@ -717,9 +717,17 @@ disequazioni
   \draw [#1, fill=#5] #3 circle (3pt);
 }
 
+\newcommand{\evidenziapunti}[2][blue]{
+% Evidenzia alcuni punti
+  % \disegno{\evidenziapunti[red]{(2, 0)/+2, (5, 0)/+5}}}
+  \foreach \punto\lab in {#2}{
+    \draw [#1, fill=#1] \punto circle (3pt) node [above, black] {\(\lab\)};}
+}
+
 % \newcommand{\evidenziatuttomeno}[4][blue]{
 % % Evidenzia un intervallo meno alcuni punti
-%   % \disegno{\evidenziatuttomeno[red]{(-5, 0)}{(+5, 0)}{-3/0, -2/0, 0/0, 4/0}}
+%   % \disegno{\evidenziatuttomeno[red]{(-5, 0)}{(+5, 0)}{-3/0, -2/0, 0/0, 
+% 4/0}}
 %   \evidenzia[#1]{#2}{#3}
 %   \foreach \xp/\yp in {#4}{
 %     \draw [#1, fill=white] (\xp, \yp) circle (3pt);}
@@ -847,10 +855,26 @@ disequazioni
   \rayr{#1}{#2}{#4}{#6}{#8}
 }
 
-\newcommand{\inticonasse}[8]{% Intervallo interno con asse
+% \newcommand{\inti}
+%   \def \posy{#1}
+%   \def \posa{#2}
+%   \def \posb{#3}
+%   \def \labela{#4}
+%   \def \labelb{#5}
+%   \def \inta{#6}
+%   \def \intb{#7}
+% \newcommand{\inticonasse}[8]{% Intervallo interno con asse
+%   % \disegno{\inticonasse{0}{-2}{+2}{a}{b}{white}{black}{x}}
+%   \inti{#1}{#2}{#3}{#4}{#5}{#6}{#7}
+%   \asse{#2-1}{#3+1}{#1}{\(#8\)}
+% }
+
+\newcommand{\inticonasse}[9]{% Intervallo interno con asse
+  % orizzontale parte da (0, #1) e è lungo #2
+  % \disegno{\inticonasse{posy}{lung}{pa}{pb}{la}{lb}{filla}{fillb}{x}}
   % \disegno{\inticonasse{0}{-2}{+2}{a}{b}{white}{black}{x}}
-  \inti{#1}{#2}{#3}{#4}{#5}{#6}{#7}
-  \asse{#2-1}{#3+1}{#1}{\(#8\)}
+  \inti{#1}{#3}{#4}{#5}{#6}{#7}{#8}
+  \asse{0}{#2}{#1}{\(#9\)}
 }
 
 \newcommand{\raylconasse}[6]{% semiretta sinistra con asse
@@ -860,13 +884,14 @@ disequazioni
 }
 
 \newcommand{\rayrconasse}[6]{% semiretta sinistra con asse
+  % \disegno{\raylconasse{posy}{lung}{originesemiretta}{label}{fill}{x}}
   % \disegno{\raylconasse{0}{5}{-2}{p}{white}{}}
   \rayr{#1}{#2+.3}{#3}{#4}{#5}
   \asse{0}{#2}{#1}{\(#6\)}
 }
 
 \newcommand{\allx}[3]{% per ogni x
-  % \disegno{\raylconasse{0}{5}{-2}{}}
+  % \disegno{\allx{0}{10}{x}}
   \draw [blue, thick, decorate, decoration=snake] (-0.3, #1) -- (#2+0.3, #1);
   \asse{0}{#2}{#1}{\(#3\)}
   \draw [opacity=0] (0, 0) -- (0, .6);
@@ -973,7 +998,7 @@ disequazioni
 %     \draw [-{Stealth[length=2mm, open, round]}] (7.2, -.9) -- (8.2, -.9); 
 %     \node at (8.8, -.9) {#1};
     \draw [-{Stealth[length=2mm, open, round]}] (7.2, -.9) -- (8.2, -.9); 
-    \node at (9.2, -.9) [black] {#1};
+    \node at (9.2, -.9) [gray] {#1};
   \end{scope}
   }
 }

@@ -105,9 +105,9 @@ Per visualizzare numeri iperreali, non reali, abbiamo bisogno di utilizzare
 strumenti ottici non standard come \emph{microscopi}, \emph{grandangoli} o 
 \emph{telescopi}.
 
-Nel disegno a fianco sono visualizzati numeri infinitamente vicini a 
-\(-4\), numeri multipli dell'infinito \(A\) e numeri interi vicini 
-all'infinito \(A\).
+Nel disegno a fianco: numeri infinitamente vicini a 
+\(-4\); numeri multipli dell'infinito \(A\); numeri interi vicini 
+all'ipernaturale \(M\).
 }{
 \begin{center}
 \asseconpuntiiperreali
@@ -126,7 +126,7 @@ possiamo indicare un numero usando un punto o un punto usando un numero.
 \label{sec:topologiadistanza}
 
 Il modello della retta permette di far corrispondere la differenza di due 
-numeri alla distanza tra due punti. 
+numeri alla distanza (orientata) tra due punti. 
 La distanza sarà positiva se il secondo punto segue il primo, sarà negativa 
 se il secondo punto precede il primo.
 
@@ -142,36 +142,36 @@ coordinata del primo punto:
 \affiancati{.38}{.58}{
 Con riferimento alla figura a fianco, 
 la distanza tra \(A\) e \(B\) è:\\ [.5em]
-\(AB = x_B - x_A = -6 +\dfrac{3}{2} = -\dfrac{9}{2}\)
+\(AB = x_B - x_A = -6 +\dfrac{3}{2} = -\dfrac{9}{2}\)\\ [.5em]
+e la distanza tra \(C\) e \(D\) è: \\ [.5em]
+\(CD = x_D - x_C = \dfrac{11}{2} - \dfrac{11}{3} = +\dfrac{11}{6}\).
+
 }{
 \begin{center}
 \assecondistanze
 \end{center}
 }
 
-\noindent e la distanza tra \(C\) e \(D\) è: \quad
-\(CD = x_D - x_C = \dfrac{11}{2} - \dfrac{11}{3} = +\dfrac{11}{6}\).
+\newcommand{\lung}[2]{\mathcal{L}\punto{#1}{#2}}
 
 La lunghezza di un segmento sulla retta si calcola applicando il teorema di 
 Pitagora ad una sola dimensione:
-\[\overline{AB} = \sqrt{\tonda{x_B - x_A}^2} = \abs{x_B - x_A}=
-  \abs{-6 + \dfrac{3}{2}} = +\dfrac{9}{2}\]
+\[\overline{AB} = \lung{A}{B} = \sqrt{\tonda{x_B - x_A}^2} = 
+  \abs{x_B - x_A} = \abs{-6 + \dfrac{3}{2}} = +\dfrac{9}{2}\]
 
 \begin{newdef}{}{}
 La \emph{lunghezza di un segmento} di estremi \(A\) e \(B\) di coordinate 
 rispettivamente:
 \(x_A\) e \(x_B\) è il valore assoluto della differenza tra le coordinate 
 dei due punti: 
-\[\overline{AB} = \abs{x_B -x_A}\]
+\[\overline{AB} = \lung{A}{B} = \abs{x_B -x_A}\]
 \end{newdef}
-
-\newcommand{\lung}[2]{\mathcal{L}\punto{#1}{#2}}
 
 Al variare dei punti \(A\) e \(B\), e delle corrispondenti coordinate 
 \(x_A\) e \(x_B\) la lunghezza \(\mathcal{L}\) del segmento \(AB\) ha le 
 seguenti proprietà:
 \begin{enumerate}
-\item \(\lung{A}{B} =\lung{B}{A}\) 
+\item \(\lung{A}{B} = \lung{B}{A}\) 
 cioè la lunghezza di un segmento è simmetrica,
 \item \(\lung{A}{B} \geq 0\),
 \item \(\lung{A}{B} = 0 \sLRarrow A = B\),
@@ -182,31 +182,38 @@ detta disuguaglianza triangolare.
 \section{Insiemi limitati e illimitati}
 \label{sec:topologiainsiemi}
 
-Consideriamo un insieme non vuoto \(A\) di numeri. 
-L'insieme \(A\) si dice superiormente limitato se esiste un numero 
+In questa sezione considereremo sottoinsiemi di insiemi numerici dotati di 
+ordinamento: naturali, interi, razionali, reali o iperreali. 
+Cioè, dati due numeri, possiamo stabilire se un numero è minore, uguale o 
+maggiore dell'altro.
+
+Ricordiamo che, mentre ogni numero naturale, intero, razionale o reale è un 
+numero \emph{finito}, un numero iperreale può essere anche \emph{infinito}.
+
+Consideriamo un sottoinsieme numerico \(A\) di un insieme ordinato, ad es.: 
+\(A \subseteq \R\). 
+L'insieme \(A\) si dice superiormente limitato se esiste un numero finito 
 \(n\) maggiore o uguale a tutti gli elementi di \(A\). 
 % cioè \(n \geq x \quad \forall x \in A\). 
-Tale numero prende il nome di maggiorante, un insieme superiormente 
-limitato ammette infiniti maggioranti. 
+Questo numero \(n\) prende il nome di maggiorante. 
 Se un insieme \(A\) non è superiormente limitato si dice superiormente 
 illimitato.
 
 Possiamo dare le seguenti definizioni
 \footnote{~Nel seguito affiancheremo le definizioni Standard e Non 
-Standard, quando risultano diverse.}
-:
+Standard, quando risultano diverse.}:
 
 \begin{newdef}{}{}
-\(A\) è \emph{superiormente limitato} se esiste un numero \(n\) 
+\(A\) è \emph{superiormente limitato} se esiste un numero finito \(n\) 
 maggiore o uguale a ogni elemento di \(A\):
 \[\exists n \in \R \svert \forall x \in A,\, n \geq x\]
 \end{newdef}
 
 \affiancati{.48}{.48}{
 \begin{newdef}{}{}
-\(A\) è \emph{superiormente illimitato} se per ogni numero reale \(M\)
-esiste un numero \(x \in A\) maggiore di \(M\):
-\[\forall M \in \R ~\exists x \in A \svert x > M\]
+\(A\) è \emph{superiormente illimitato} se, per ogni numero finito \(m\),
+esiste un elemento di \(A\) maggiore di \(m\):
+\[\forall m \in \R ~\exists x \in A \svert x > m\]
 \end{newdef}
 }{
 \begin{newdef}{}{}
@@ -221,19 +228,16 @@ Le definizioni di \emph{inferiormente limitato} e \emph{inferiormente
 illimitato} sono speculari:
 
 \begin{newdef}{}{}
-\(A\) è \emph{inferiormente limitato} se esiste un numero \(n\) 
+\(A\) è \emph{inferiormente limitato} se esiste un numero finito \(n\) 
 minore o uguale a ogni elemento di \(A\):
 \[\exists n \in \R \svert \forall x \in A,\, n \leq x\]
 \end{newdef}
 
-Ogni numero minore o uguale a ogni elemento di un insieme si dice minorante 
-dell'insieme.
-
 \affiancati{.48}{.48}{
 \begin{newdef}{}{}
-\(A\) è \emph{inferiormente illimitato} se per ogni numero reale \(M\)
-in \(A\) esiste un numero \(x \in A\) minore di \(M\):
-\[\forall M \in \R ~ \exists x \in A \svert x < M\]
+\(A\) è \emph{inferiormente illimitato} se, per ogni numero finito \(m\),
+esiste un elemento di \(A\) minore di \(m\):
+\[\forall m \in \R ~ \exists x \in A \svert x < m\]
 \end{newdef}
 }{
 \begin{newdef}{}{}
@@ -244,14 +248,14 @@ in \(A\) esiste un numero \(x \in A\) minore di \(M\):
 }
 
 \vspace{.5em}
-Infine, diciamo che l'insieme \(A\) è limitato se è sia inferiormente 
-limitato che superiormente limitato.
+Diciamo che l'insieme \(A\) è \emph{limitato} se è limitato sia inferiormente 
+sia superiormente.
 
-\begin{newdef}{}{}
-\(A\) è \emph{limitato} se esistono due numeri \(a,~b~ \in \R\) tali che 
-\(a\) è minore di ogni elemento di \(A\) e \(b\) è maggiore di di ogni 
+\begin{newdef}{}{toprettalimitato}
+\(A\) è \emph{limitato} se esistono due numeri finiti \(a,~b\) tali 
+che \(a\) è minore di ogni elemento di \(A\) e \(b\) è maggiore di di ogni 
 elemento di \(A\):
-\[\exists a,~b \in \R \svert \forall x \in A,\quad a \leq x \leq b\]
+\[\exists a,~b \in \R \svert \forall x \in A,~ a \leq x \leq b\]
 \end{newdef}
 
 \begin{newdef}{}{}
@@ -266,45 +270,88 @@ dell'insieme;
 
 Le precedenti definizioni possono essere riscritte utilizzando i concetti 
 di minorante e maggiorante. 
-Ad esempio l'ultima diventa:
+Ad esempio la definizione \ref{def:toprettalimitato} diventa:
 
 \begin{newdef}{}{}
 \(A\) è \emph{limitato} se ha un minorante e un maggiorante.
 \end{newdef}
 
-\begin{esempio} Limitatezza/illimitatezza di insiemi, maggioranti e 
-minoranti.
-\begin{enumerate} [noitemsep, label=\alph*)]
+\begin{newtheo}{}{}
+Se un insieme \(A\) ha un minorante (un maggiorante), ne ha infiniti.
+\end{newtheo}
+\begin{proof}
+Se \(n\) è minore di ogni elemento di \(A\) anche \(n-1;~n-2;~\dots\)
+saranno minori di ogni elemento di \(A\).
+
+In modo analogo si dimostra il teorema per i maggioranti.
+\end{proof}
+
+\begin{esempio} Rappresenta i seguenti insiemi e studia se sono limitati o 
+illimitati, qual è l'insieme dei minoranti e dei maggioranti.
+\begin{enumerate} %[noitemsep, label=\alph*)]
+\item \(A = \graffa{x \in \R \sand \tonda{x < 3 \sor 7 \leq x \leq 9}}\) 
+
+\affiancati{.39}{.55}{
+\disegno{\raylconasse{0}{10}{3}{+3}{white}{x}
+         \inti{0}{7}{9}{+7}{+9}{blue}{blue}}
+}{
+È inferiormente illimitato, mino\((A) = \emptyset\); \\
+è superiormente limitato, magg\((A) = \graffa{x \geq 9}\). 
+}
+
+\item \(B=\graffa{x \in \R \sand \tonda{x = 2 \sor x = 5 \sor x > 8}}\) 
+
+\affiancati{.39}{.55}{
+\disegno{\rayrconasse{0}{10}{8}{+8}{white}{x}
+         \evidenziapunti{(2, 0)/+2, (5, 0)/+5}}
+}{
+È inferiormente limitato, mino\((B) = \graffa{x \leq +2}\); \\
+è superiormente illimitato, magg\((B) = \emptyset\). 
+}
+
+\item \(C=\graffa{x \in \R \sand \tonda{-2 < x \leq 0 \sor +2 \leq x < 4}}\) 
+
+\affiancati{.39}{.55}{
+\disegno{\inticonasse{0}{10}{3}{5}{-2}{0}{white}{blue}{x}
+         \inti{0}{7}{9}{+2}{+4}{blue}{white}}
+}{
+È inferiormente limitato, mino\((C) = \graffa{x \leq -2}\); \\
+è superiormente limitato, magg\((C) = \graffa{x \geq +4}\). 
+}
+
 \item 
-L'insieme \(A = \intervaa{-\infty}{4} ~ \cup ~ \intervcc{8}{15}\) è 
-superiormente limitato, perché tutti i suoi elementi sono 
-minori o uguali a 15; 15 è un 
-maggiorante, ma anche 16, 20 e 204 lo sono. 
-\(A\) è, poi, inferiormente illimitato.
-\item 
-L'insieme \(B=\graffa{5}~\cup~\intervaa{9}{+\infty}\) è inferiormente 
-limitato e tutti i numeri minori o uguali a 5 sono minoranti; l'insieme è 
-superiormente illimitato.
-\item 
-L'insieme 
-\(C=\graffa{x\in\R \sand x = \frac{1}{n} ~ \forall n \in \Nz } =
+\(D=\graffa{x\in\R \sand x = \frac{1}{n} ~ \forall n \in \Nz } =
 \graffa{1,\frac{1}{2},~\frac{1}{3},~ \dots}\) 
-è limitato, ha 1 come maggiorante e 0 come minorante. 
-Altri minoranti: \(-3\), \(-5\)\dots, altri maggioranti: 5, 8\dots.
-\item 
-L'insieme \(D = \intervac{3}{5} ~ \cup ~ \intervca{7}{9}\) 
-ammette 2 come minorante e 10 come maggiorante, quindi è sia 
-inferiormente che superiormente limitato: \(D\) è limitato.
-\item L'insieme \(\Q\) non ammette né minoranti né 
-maggioranti, quindi è illimitato sia inferiormente sia superiormente.
+
+\affiancati{.39}{.55}{
+\disegno{\asse{0}{10}{0}{x}
+         \evidenziapunti{(8.0, 0)/1, (5.0, 0)/\frac{1}{2}, 
+         (4.0, 0)/\frac{1}{3}, (3.5, 0)/\frac{1}{4}, 
+         (3.2, 0)/~, (3.0, 0)/~, (2.857, 0)/~, (2.75, 0)/~, 
+         (2.667, 0)/~\cdots, (2.6, 0)/~, (2.5, 0)/~, (2.4, 0)/~, 
+         (2.3, 0)/~, (2.2, 0)/~, (2.1, 0)/~, (2., 0)/0}}
+}{
+È limitato, mino\((D) = \graffa{x \leq 0}\) \\
+magg\((D) = \graffa{x \geq +1}\). 
+}
+
+\item Insieme dei numeri razionali: \(\Q\) 
+
+\affiancati{.39}{.55}{
+\disegno{\allx{0}{10}{x}}
+}{
+È inferiormente illimitato, min\((\Q) = \emptyset\); \\
+è superiormente illimitato, magg\((\Q) = \emptyset\). 
+}
 \end{enumerate}
 \end{esempio}
 
 \section{Massimi, minimi e estremi}
 \label{sec:topologiaestremi}
 
-Ragioniamo ora su quanto appena visto, nel precedente paragrafo. 
-Se un insieme \(A\) è superiormente limitato ha infiniti maggioranti; 
+Ricordiamo che stiamo parlando sempre di un sottoinsieme \(A\) di un insieme 
+ordinato. 
+Se l'insieme \(A\) è superiormente limitato, ha infiniti maggioranti; 
 non è possibile individuare un maggiorante più grande di tutti, 
 mentre possiamo trovare il maggiorante più piccolo.
 Questo maggiorante viene chiamato estremo superiore di \(A\) e, se tale 
@@ -334,21 +381,19 @@ il maggiore tra di essi è detto estremo inferiore.
 Se l'estremo inferiore appartiene all'insieme, prende il nome di minimo. 
 
 \begin{newtheo}{}{}
-Ad un insieme di numeri può appartenere al massimo un minorante e un 
+A un insieme di numeri può appartenere al massimo un minorante e un 
 maggiorante.
 \end{newtheo}
 \begin{proof}
-Precisiamo che ha senso parlare di minoranti o maggioranti solo in numeri 
-dove vale un ordinamento.
-
 Consideriamo i minoranti (per i maggioranti vale un ragionamento 
 simmetrico).
 Se all'insieme appartenessero due minoranti diversi, uno dei due sarebbe 
 maggiore dell'altro e quindi, essendo maggiore di un elemento dell'insieme, 
 non può essere un minorante.
 \end{proof}
+
 \begin{newoss}{}{}
-Estremo inferiore, estremo superiore, minimo e massimo possono essere viste 
+Estremo inferiore, estremo superiore, minimo e massimo possono essere visti 
 come funzioni che hanno per argomento un insieme e per risultato un numero.
 Possiamo quindi usare la notazione delle funzioni: \quad \(m = \min{A}\).
 \end{newoss}
@@ -366,50 +411,66 @@ esiste, il minimo dell'insieme dei maggioranti.
 \end{newdef}
 
 \begin{newdef}{}{}
-Un numero reale \(m\) si dice \emph{minimo} di \(A\), \(\min{A}\), se 
+Si definisce \(m\) \emph{minimo} di \(A\), \(\min{A}\), se 
 appartiene ad \(A\) ed è un minorante di A.
 \end{newdef}
 
 \begin{newdef}{}{}
-Un numero reale \(M\) si dice \emph{massimo} di \(A\), \(\max{A}\), se 
+Si definisce \(M\) \emph{massimo} di \(A\), \(\max{A}\), se 
 appartiene ad \(A\) ed è un maggiorante di \(A\).
 \end{newdef}
 
 \begin{esempio}Studiamo gli estremi, i massimi e i minimi dei seguenti 
 insiemi. %TODO: invece che intervalli, fare degli insiemi più complicati
 \begin{enumerate}
-\item \(A = \graffa{x\in\R \sand 1 < x \geq 5}\)~: \\
+\item 
+\(A = \graffa{x\in\R \sand \tonda{1 < x \geq 5 \sor 
+                                  x \in \graffa{2;~4;~6; 8}}}\)~:\\
+\disegno{\inticonasse{0}{10}{1}{5}{+1}{+5}{white}{blue}{x}
+         \evidenziapunti{(6, 0)/+6, (8, 0)/+8}}\\
 L'insieme dei minoranti è \(\graffa{x\in\R \sand x \leq 1}\) e
-l'insieme dei maggioranti è \(\graffa{x\in\R \sand x \geq 5}\).
+l'insieme dei maggioranti è \(\graffa{x\in\R \sand x \geq 8}\).
 L'estremo inferiore è 1, infatti questo valore è il massimo 
 dei minoranti, 1 però non è minimo in quanto non appartiene a \(A\). 
-L'estremo superiore è 5, che appartiene all'insieme e è, quindi, massimo. 
-\item \(B =\graffa{x \in \R \sand x < 3}\): \\
+L'estremo superiore è 8, che appartiene all'insieme e è, quindi, massimo. 
+
+\item \(B =\graffa{x \in \R \sand \tonda{x \leq 3 \sor 5 \leq x < 7}}\): \\
+\disegno{\raylconasse{0}{10}{3}{+3}{blue}{x}
+         \inti{0}{5}{7}{+5}{+7}{blue}{white}}\\
 non essendo inferiormente limitato, \(B\) non presenta né estremo inferiore 
 né minimo. 
-L'estremo superiore di \(B\) è 3, che non essendo compreso non è massimo.
+L'estremo superiore di \(B\) è 7, poiché non appartenendo all'insieme, 
+\(B\) non ha massimo.
+
 \item \(C = \graffa{x\in\R~\sand~ 2 \leq x \leq 5}\)~: \\
+\disegno{\inticonasse{0}{10}{2}{5}{+2}{+5}{blue}{blue}{x}}\\
 \(\inf{C} = 2; \quad \sup{C} = 5; \quad \min{C} = 2; \quad \max{C} = 5\) 
+
 \item \(D = \graffa{x\in\R~\sand~ 2 < x \leq 5}\)~: \\
+\disegno{\inticonasse{0}{10}{2}{5}{+2}{+5}{white}{blue}{x}}\\
 \(\inf{D} = 2; \quad \sup{D} = 5; \quad \min{D} = N.D.; \quad \max{D} = 5\)
+
 \item \(E = \graffa{x\in\R~\sand~ 2 \leq x < 5}\)~: \\
+\disegno{\inticonasse{0}{10}{2}{5}{+2}{+5}{blue}{white}{x}}\\
 \(\inf{E} = 2; \quad \sup{E} = 5; \quad \min{E} = 2; \quad \max{E} = N.D.\)
+
 \item \(F = \graffa{x\in\R~\sand~ 2 < x < 5}\)~: \\
+\disegno{\inticonasse{0}{10}{2}{5}{+2}{+5}{white}{white}{x}}\\
 \(\inf{F} = 2; \quad \sup{F} = 5;\quad \min{F} = N.D.;\quad 
   \max{F} = N.D.\)
 \end{enumerate}
 \end{esempio}
 
-Soffermiamoci ancora sui concetti di \(\sup{A}\), estremo superiore, e 
-di \(\inf{A}\), 
-estremo inferiore, enunciando la seguente proprietà che precisa l'esistenza 
-e l'unicità di \(\sup{A}\) e \(\inf{A}\) negli insiemi limitati:
+Soffermiamoci ancora sui concetti di \(\sup{A}\) (estremo superiore) e 
+di \(\inf{A}\) (estremo inferiore) enunciando il seguente teorema che 
+precisa l'esistenza e l'unicità di \(\sup{A}\) e \(\inf{A}\) negli insiemi 
+limitati:
 \begin{newtheo}
 Sia \(A\subset\R\), non vuoto:
 \begin{itemize} [nosep]
-\item se \(A\) è inferiormente limitato allora esiste in \(\R\) 
+\item se \(A \subset \R\) è inferiormente limitato, allora esiste in \(\R\) 
 l'estremo inferiore di \(A\) \(\inf{A}\) ed è unico.
-\item se \(A\) è superiormente limitato allora esiste in \(\R\) 
+\item se \(A \subset \R\) è superiormente limitato allora esiste in \(\R\) 
 l'estremo superiore di \(A\) \(\sup{A}\) ed è unico.
 \end{itemize}
 \end{newtheo}
@@ -419,17 +480,17 @@ analoga.
 
 Poiché \(A\) non è vuoto, conterrà almeno un numero, lo chiamiamo \(n_A\), 
 poiché è limitato superiormente esisterà un numero maggiore di ogni numero 
-di \(A\), lo chiamiamo \(ma_A\).
+di \(A\), lo chiamiamo \(m_A\).
 
-Possiamo suddividere l'intervallo \(\intervcc{n_A}{ma_A}\) in \(n\) parti 
+Possiamo suddividere l'intervallo \(\intervcc{n_A}{m_A}\) in \(n\) parti 
 uguali.
 Tra i punti di suddivisione ne troveremo due consecutivi uno che appartiene 
 all'insieme \(A\) e uno che non appartiene all'insieme \(A\).
 
 Possiamo  ripetere la stessa operazione suddividendo l'intervallo 
-\(\intervcc{n_A}{ma_A}\) in un numero \(N\) infinito di parti uguali.
-Anche in questo caso, per la proprietà di transfert dei numeri iperreali, 
-poiché si mantengono tutte le proprietà dei reali, avremo due numeri 
+\(\intervcc{n_A}{m_A}\) in un numero \(N\) infinito di parti uguali.
+Anche in questo caso, per la proprietà di transfert dei numeri iperreali 
+(cioè poiché si mantengono tutte le proprietà dei reali), avremo due numeri 
 consecutivi con il primo che appartiene all'insieme \(A\) e il secondo che 
 non appartiene all'insieme \(A\).
 
@@ -438,14 +499,18 @@ quindi hanno la stessa parte standard che è un numero reale.
 Questo numero reale che è infinitamente vicino a un numero che appartiene 
 all'insieme \(A\) e a un numero maggiore di tutti i numeri dell'insieme 
 \(A\) è l'estremo superiore di \(A\).
+
+Per quanto riguarda l'unicità: se avessimo due estremi superiori diversi, 
+dovrebbero essere tutti e due maggioranti e uno dei due sarebbe più piccolo, 
+quindi l'altro non può essere il minimo dei maggioranti.
 \end{proof}
 
 \affiancati{.48}{.48}{
 \begin{newoss}{}{}
 In Analisi Standard non esistono numeri infiniti perciò per indicare 
-numeri più grandi di qualunque numero intero (o reale) è stato inventato un 
-apposito simbolo, \(+\infty\) e, per numeri più piccoli di qualunque 
-numero intero (o reale), il simbolo \(-\infty\).
+numeri più grandi di qualunque numero intero (o reale) è si usa 
+il simbolo, \(+\infty\) (più infinito) e, per numeri più piccoli di 
+qualunque numero intero (o reale), il simbolo \(-\infty\) (meno infinito).
 \end{newoss}
 }{
 \begin{newoss}{}{}
@@ -457,11 +522,20 @@ infinito negativo.
 }
 
 \vspace{.5em}
-Nell'Analisi Standard \(+\infty\) è l'estremo superiore di un insieme 
-illimitato superiormente e \(-\infty\) è l'estremo inferiore di un insieme 
-illimitato inferiormente.
-Estremo superiore e estremo inferiore e non massimo o minimo perché 
-\(+\infty\) e \(-\infty\) non appartengono a \(\R\).
+Per uniformare le definizioni e le espressioni, nel caso di insiemi 
+illimitati superiormente si usa il simbolo \(+\infty\) 
+per indicare l'estremo superiore e 
+nel caso di insiemi illimitati inferiormente si usa \(-\infty\) 
+per indicare l'estremo inferiore.
+
+Ricordiamoci che \(+\infty\) e \(-\infty\) non possono mai essere 
+massimi o minimi perché non sono numeri, non appartengono a \(\R\) 
+e non possono appartenere ad alcun sottoinsieme di \(\R\).
+
+\begin{newoss}{}{}
+Da notare che il simbolo \(\infty\), senza segno, si presta a diverse 
+interpretazioni, quindi è preferibile non usarlo.
+\end{newoss}
 
 \section{Intervalli}
 \label{sec:topologiaintervalli}
@@ -500,8 +574,11 @@ contiene almeno un infinito.
 }
 
 \vspace{.5em}
-Usando i simboli \(\mp \infty\) possiamo uniformare un certo tipo di 
-rappresentazione degli intervalli di numeri reali.
+Usando il simbolo \(-\infty\) 
+per indicare l'estremo inferiore di un intervallo illimitato inferiormente 
+e \(+\infty\) 
+per indicare l'estremo superiore di un intervallo illimitato superiormente, 
+tutti gli intervalli hanno due estremi.
 
 \begin{newdef}{}{}
 Un intervallo si dice \emph{aperto} se non ha né minimo né massimo.
@@ -540,54 +617,50 @@ si dice chiuso superiormente se ha il massimo.
 Un intervallo illimitato superiormente è aperto superiormente non avendo 
 massimo e un intervallo illimitato inferiormente è aperto inferiormente non 
 avendo minimo.
-% 
-% Gli intervalli limitati sono rappresentati da segmenti, quelli illimitati 
-% da semirette o dall'intera retta.
+
+Nel modello della retta, gli intervalli limitati sono rappresentati da 
+segmenti, quelli illimitati da semirette o dall'intera retta.
 
 La seguente tabella riunisce i vari tipi di intervalli e la loro 
-rappresentazione.
-
-% \begin{table}[h!]
-% \caption{Intervalli}
-
+rappresentazione.\\ [.5em]
 \label{tab:intervalli}
-  \begin{tabular}{>{\centering\arraybackslash}m{30mm}|
-                  >{\centering\arraybackslash}m{25mm}|
-                  >{\centering\arraybackslash}m{35mm}|
+  \begin{tabular}{>{\centering\arraybackslash}m{30mm}
+                  >{\centering\arraybackslash}m{25mm}
+                  >{\centering\arraybackslash}m{35mm}
                   >{\centering\arraybackslash}m{35mm}} 
 %  \begin{tabular}{p{4cm}|c|c|c}
   tipo   & con i predicati & con le parentesi & sulla retta \\
   \hline
   limitato aperto & 
-  \(a < x < b\) & \((a;~b)\) o \(]a;~b[\) & 
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{white}{x}}\\
+  \(a < x < b\) & \(]a;~b[\) o \((a;~b)\) & 
+  \disegno{\inticonasse{0}{5}{1}{4}{a}{b}{white}{white}{x}}\\
   \hline
   limitato chiuso & 
   \(a \le x \le b\) & \([a;~b]\) &  
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{blue}{blue}{x}} \\
+  \disegno{\inticonasse{0}{5}{1}{4}{a}{b}{blue}{blue}{x}} \\
   \hline
   limitato, chiuso a sx e aperto a dx & 
-  \(a \le x < b\) & \([a;~b)\) o \([a;~b[\) &  
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{blue}{white}{x}} \\
+  \(a \le x < b\) & \([a;~b[\) o \([a;~b)\) &  
+  \disegno{\inticonasse{0}{5}{1}{4}{a}{b}{blue}{white}{x}} \\
   \hline
   limitato, aperto a dx e chiuso a sx & 
-  \(a < x \le b\) & \((a;~b]\) o \(]a;~b]\) &  
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{blue}{x}} \\
+  \(a < x \le b\) & \(]a;~b]\) o \((a;~b]\) &  
+  \disegno{\inticonasse{0}{5}{1}{4}{a}{b}{white}{blue}{x}} \\
   \hline
   illimitato a sx e aperto a dx & 
-  \(x < a\) & \((-\infty;~a)\) o \(]-\infty;~a[\) & 
+  \(x < a\) & \(]-\infty;~a[\) o \((-\infty;~a)\) & 
   \disegno{\raylconasse{0}{5}{2.5}{a}{white}{x}} \\
   \hline
   illimitato a sx e chiuso a dx & 
-  \(x \le a\) & \((-\infty;~a]\) o \(]-\infty;~a]\) &  
+  \(x \le a\) & \(]-\infty;~a]\) o \((-\infty;~a]\) &  
   \disegno{\raylconasse{0}{5}{2.5}{a}{blue}{x}} \\
   \hline
   aperto a sx e illimitato a dx & 
-  \(x > a\) o \(a < x\) & \((a;~-\infty)\) o \(]a;~-\infty[\) & 
+  \(x > a\) o \(a < x\) & \(]a;~-\infty[\) o \((a;~-\infty)\) & 
   \disegno{\rayrconasse{0}{5}{2.5}{a}{white}{x}} \\
   \hline
   chiuso a sx e illimitato a dx & 
-  \(x \ge a\) o \(a \le x\) & \([a;~-\infty)\) o \([a;~-\infty[\) & 
+  \(x \ge a\) o \(a \le x\) & \([a;~-\infty[\) o \([a;~-\infty)\) & 
   \disegno{\rayrconasse{0}{5}{2.5}{a}{blue}{x}} \\
   \hline
  \end{tabular}
@@ -597,12 +670,12 @@ rappresentazione.
 Applicando le operazioni insiemistiche agli intervalli, si possono 
 descrivere insiemi più complicati:
 
-\begin{enumerate} [noitemsep, label=\alph*)]
+\begin{enumerate} [label=\alph*)]
 \item L'insieme \(\R\) si può scrivere come 
 l'intervallo: \(\intervaa{-\infty}{+\infty}\);
 \item L'insieme \(\R-\{3\}\) si può indicare con: 
 \(\intervaa{-\infty}{3} \scup \intervaa{3}{+\infty}\);
-\item L'insieme \(\R-\{-2,3\}\) si può indicare con: 
+\item L'insieme \(\R-\{-2;~3\}\) si può indicare con: 
 \(\intervaa{-\infty}{-2} \scup \intervaa{-2}{3} \scup 
   \intervaa{3}{+\infty}\);
 \item L'insieme delle soluzioni della disequazione 
@@ -611,29 +684,37 @@ l'intervallo: \(\intervaa{-\infty}{+\infty}\);
 \end{enumerate}
 \end{esempio}
 
-Per quanto riguarda le operazioni tra intervalli evidenziamo che l'unione 
-di intervalli aperti è un insieme aperto; 
-l'intersezione di intervalli aperti non disgiunti è un intervallo aperto. 
-L'intersezione di intervalli chiusi non disgiunti è un intervallo chiuso; 
+Per quanto riguarda le operazioni tra intervalli evidenziamo che:
+\begin{itemize} %[noitemsep]
+\item 
+l'unione di intervalli aperti è un insieme aperto; 
+\item 
 l'unione di un numero finito di intervalli chiusi è un insieme chiuso. 
-Se un intervallo \(B\) è chiuso il suo complementare è aperto.
+\item 
+l'intersezione di intervalli aperti non disgiunti è un intervallo aperto;
+\item 
+l'intersezione di intervalli chiusi non disgiunti è un intervallo chiuso;
+\item 
+se un intervallo è chiuso il suo complementare è aperto.
+\end{itemize}
 
 \section{Intorni e monadi}
 \label{sec:topologiaintorni}
 
 Quando, dopo due secoli di calcolo infinitesimale, i matematici hanno deciso 
-di risolvere i problemi logici che questo comportava, avevano di fronte due 
-possibili strade: integrare gli infiniti e gli infinitesimi nella matematica 
+di risolvere i problemi logici che questo comportava, potevano: 
+o integrare gli infiniti e gli infinitesimi nella matematica 
 in modo coerente, oppure ricostruire tutto il calcolo infinitesimale senza 
 usare gli infiniti e gli infinitesimi. 
 Hanno scelto questa seconda strada.
-
 Lo hanno fatto sostituendo i concetti di \emph{infinitamente vicino} con 
 \emph{ancora più vicino} e \emph{infinitamente grande} con 
 \emph{ancora più grande}. 
 
-\affiancati{.48}{.48}{
 Essere vicini a un punto è reso con il concetto di intorno:
+
+% \bigskip
+\affiancati{.48}{.48}{
 \begin{newdef}{}{}
 Si definisce \emph{intorno} di un punto \(P\) (o di un numero reale \(x_P\)) 
 un qualsiasi intervallo aperto contenente \(P\) (o \(x_P\)).
@@ -664,41 +745,43 @@ di tutti i punti (o i numeri) infinitamente vicini a \(P\) (o a \(x_P\)).
 
 La definizione di intorno di un numero \(x_P\) può essere espressa in simboli 
 con:
+
+\affiancati{.49}{.49}{
 \[I(x_P)=\intervaa{x_P-\delta_1}{x_P+\delta_2}\]
 con \(\delta_1\) e \(\delta_2\) reali positivi, cioè 
 \(\delta_1,~ \delta_2 \in \Rp\) o, equivalentemente,
 \[%\label{eq:}
 I(x_P)=\graffa{x \in \R \sand \tonda{x_P-\delta_1 < x < x_P+\delta_2}}\]
-
+}{
 \begin{center} \intorno \end{center}
+}
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=0.5\textwidth]{img/top_1.png}%\caption{}
-% %\label{fig:funz_14abc}
-% \end{figure}
-
+\affiancati{.49}{.49}{
 Da quanto visto risulta chiaro che per ogni numero reale, esistono infiniti 
 intorni.
 
-\begin{center} \intorniuno \end{center}
-
-% \begin{center}
-% \includegraphics[width=0.5\textwidth]{img/top_7.png}%\caption{}
-% %\label{fig:funz_14abc}}
-% \end{center}
 Per quanto riguarda le operazioni associabili agli intorni è da sottolineare 
 che l'intersezione e l'unione di due o più intorni di \(x_P\) sono ancora 
 intorni di \(x_P\).
+}{
+\begin{center} 
+\intorni{1}{0/+4/0/{I_1}, -1/+2/-1/{I_2}, -0.5/+2.5/-2/{I_3}} 
+\end{center}
+}
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=0.5\textwidth]{img/top_7.png}%\caption{}
-% %\label{fig:funz_14abc}
-% \end{figure}
-  
-Chiarito il concetto di intorno, introduciamo alcun tipi di 
-intorno che renderanno più funzionale l'uso di questo concetto. 
+\affiancati{.49}{.49}{
+Riferendoci agli intorni precedenti, è facile calcolare 
+\(I_1 \cup I_2\) e \(I_1 \cap I_3\), e vedere che sono sempre intorni di 
+\(1\).
+}{
+\begin{center} 
+\intorni{1}{-1/+4/0/{I_1 \cup I_2}, 0/+2.5/-1/{I_1 \cap I_3}} 
+\end{center}
+}
+
+\vspace{.5em}
+Introduciamo, ora, alcun tipi di intorno che renderanno più funzionale l'uso 
+di questo concetto. 
 
 \paragraph{Intorno circolare} 
 I numeri reali positivi \(\delta_1\) e \(\delta_2\) non devono per forza 
@@ -784,14 +867,14 @@ l'infinitamente vicino.
 Ma dobbiamo ancora affrontare il problema dell'infinitamente lontano o 
 dell'infinito.
 
-Avendo introdotto gli insiemi illimitati possiamo ora parlare degli intorni 
-di infinito. Anche se 
-\(+\infty\) e \(-\infty\) non sono numeri reali è utile 
-introdurne gli intorni.
+Avendo introdotto gli insiemi illimitati e posto come estremo 
+superiore di un insieme illimitato superiormente \(+\infty\) e come estremo 
+inferiore di un insieme illimitato inferiormente \(-\infty\), possiamo ora 
+parlare degli intorni di \(+\infty\) e \(-\infty\).
 
-\(+\infty\) e \(-\infty\) non sono numeri reali quindi non possiamo sommare 
-o sottrarre a questi simboli dei numeri reali per ottenere un loro intorno, 
-dobbiamo seguire un'altra strada.
+Dato che \(+\infty\) e \(-\infty\) non sono numeri reali, non possiamo 
+sommare o sottrarre a questi simboli dei numeri reali per ottenere un loro 
+intorno, dobbiamo seguire un'altra strada.
 
 % \begin{newdef}
 % Dato un punto \(P\) o un numero \(x_P\), definiamo \textsc{intorno di 
@@ -808,18 +891,6 @@ a sinistra e aperto a destra:
 
 \begin{center} \intornomenoinf \end{center}
 
-% \begin{figure}[h!]
-%   \centering
-%   \includegraphics[width=0.5\textwidth]{img/top_4.png}%\caption{}
-%   %\label{fig:funz_14abc}
-% \end{figure}
-
-% \begin{definizione}
-%   Dati \(a,\,b\in\R\) con \(a<b\), definiamo \textsc{intorno di più 
-% infinito} un qualsiasi intervallo illimitato a destra e aperto a sinistra
-% \[  I(+\infty)=]b,+\infty[=\{x\in\R\vert x>b\}\]
-% \end{definizione}
-
 \begin{newdef}{}{}
 Definiamo \emph{intorno di più infinito} un qualsiasi intervallo illimitato a 
 destra e aperto a sinistra:
@@ -828,43 +899,18 @@ destra e aperto a sinistra:
 
 \begin{center} \intornopiuinf \end{center}
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=0.5\textwidth]{img/top_5.png}%\caption{}
-% %\label{fig:funz_14abc}
-% \end{figure}
-
-% \begin{definizione}
-% Dati \(a,\,b\in\R\) con \(a<b\), definiamo \textsc{intorno di 
-% infinito} l'unione tra un intorno di \(-\infty\)  e un intorno di \(+
-% \infty\) 
-% \[  I(\infty)=I(-\infty)\cup I(+\infty)=\{x\in\R\vert x<a \lor 
-% x>b\}\]
-% e \textsc{l'intorno circolare di infinito}, dove \(c\in\R^+\) come
-% \[  I_c(\infty)=]-\infty,-c[\cup]c,+\infty[\]
-% \end{definizione}
-% 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=0.5\textwidth]{img/top_6.png}%\caption{}
-% %\label{fig:funz_14abc}
-% \end{figure}
-
-
 % TODO: Non mi sembra una cosa sensata, meglio metterla negli intervalli.
 \begin{esempio} Scrivere gli intervalli risultato di una disequazione come 
 intorni di infiniti.
 \begin{enumerate}[label=\alph*)]
-\item Le soluzioni della disequazione \(x+4 > 0\) formano un intorno 
-di \(+\infty\).  
-Soluzioni: \(x > -4\), \(\intervaa{-4}{+\infty}\).
-\item Le soluzioni della disequazione \(x^2+5x+6 > 0\) formano un 
-intorno di infinito. 
-Soluzioni: \(x < -3 \sor x > -2\), 
+\item Le soluzioni della disequazione \(x+4 > 0\) le soluzioni 
+formano un intorno di \(+\infty\): \(x > -4\), \(\intervaa{-4}{+\infty}\).
+\item Le soluzioni della disequazione \(x^2+5x+6 > 0\) formano 
+l'unione degli intorni di meno infinito e di più infinito: 
+\(x < -3 \sor x > -2\), 
 \(\intervaa{-\infty}{-3} \scup \intervaa{-2}{+\infty}\).
-\item Consideriamo la disequazione \(\abs{x}>3\), 
-le soluzioni formano l'unione dell'intorno di meno infinito e di più 
-infinito:
+\item le soluzioni della disequazione \(\abs{x}>3\), 
+formano l'unione dell'intorno di meno infinito e di più infinito:
 \(\intervaa{-\infty}{-3} \scup \intervaa{3}{+\infty}\).
 \end{enumerate} 
 \end{esempio}
@@ -872,9 +918,9 @@ infinito:
 \section{Punti di accumulazione}
 \label{sec:topologiapuntiaccumulazione}
 
-Per poter calcolare una funzione per valori sempre più vicini a un punto, 
-bisogna che questi valori ci siano nell'insieme di definizione della 
-funzione. 
+Per poter calcolare una funzione per valori ``vicini quanto si vuole'' 
+a un punto, bisogna che questi valori ci siano nell'insieme di definizione 
+della funzione. 
 È stato chiamato ``punto di accumulazione'' un punto che ha questa proprietà.
 
 Partiamo dall'osservare le differenze tra due insiemi di esempio.
@@ -893,8 +939,8 @@ se consideriamo l'intorno
 \(4+0,001\) che appartiene a questo nuovo intorno e all'insieme \(A\), 
 e così via.
 
-Possiamo osservare che anche il numero \(3\), pur non facendo 
-parte dell'insieme \(A\), ha almeno un punto di \(A\), diverso da \(3\) in 
+Possiamo osservare che anche il numero \(2\), pur non facendo 
+parte dell'insieme \(A\), ha almeno un punto di \(A\), diverso da \(2\) in 
 ogni suo intorno.
 \end{esempio}
 
@@ -1017,41 +1063,79 @@ Diremo che \(A\) è \emph{discreto} se ogni suo punto è un punto isolato in
 
 Dato un sottoinsieme denso \(S\) della retta, classifichiamo 
 i punti della retta relativamente ad \(S\).
+% 
+% \affiancati{.48}{.48}{
+% \begin{newdef}{}{}
+% Chiamiamo punti \emph{interni} di \(S\) i punti che appartengono a \(S\) 
+% e possiedono un intorno completamente contenuto in \(S\).
+% \end{newdef}
+% }{
+% \begin{newdef}{}{}
+% Chiamiamo punti \emph{interni} di \(S\) i punti che appartengono a \(S\) 
+% e la cui monade è completamente contenuta in \(S\).
+% \end{newdef}
+% }
+% 
+% \affiancati{.48}{.48}{
+% \begin{newdef}{}{}
+% Chiamiamo punti \emph{esterni} a \(S\) i punti che non appartengono a \(S\) 
+% e possiedono un intorno che non contiene elementi di \(S\).
+% \end{newdef}
+% }{
+% \begin{newdef}{}{}
+% Chiamiamo punti \emph{esterni} a \(S\) i punti che non appartengono a \(S\) 
+% e la cui monade non contiene elementi di \(S\).
+% \end{newdef}
+% }
+% 
+% \affiancati{.48}{.48}{
+% \begin{newdef}{}{}
+% Chiamiamo punti \emph{di frontiera} di \(S\) 
+% quelli per i quali tutti gli intorni contengono punti che appartengono a 
+% \(S\) e punti che non appartengono a \(S\).
+% \end{newdef}
+% }{
+% \begin{newdef}{}{}
+% Chiamiamo punti \emph{di frontiera} di \(S\) i punti la cui monade contiene 
+% punti che appartengono a \(S\) e punti che non appartengono a \(S\).
+% \end{newdef}
+% }
 
 \affiancati{.48}{.48}{
 \begin{newdef}{}{}
-Chiamiamo punti \emph{interni} di \(S\) i punti che appartengono a \(S\) 
-e possiedono un intorno completamente contenuto in \(S\).
+Diciamo che il punto \(P\) è \emph{interno} all'insieme \(S\) se 
+\emph{esiste} un intorno di \(P\) completamente contenuto in \(S\).
 \end{newdef}
 }{
 \begin{newdef}{}{}
-Chiamiamo punti \emph{interni} di \(S\) i punti che appartengono a \(S\) 
-e la cui monade è completamente contenuta in \(S\).
+Diciamo che il punto \(P\) è \emph{interno} all'insieme \(S\) se la 
+monade di \(P\) è completamente contenuta in \(S\).
 \end{newdef}
 }
 
 \affiancati{.48}{.48}{
 \begin{newdef}{}{}
-Chiamiamo punti \emph{esterni} a \(S\) i punti che non appartengono a \(S\) 
-e possiedono un intorno che non contiene elementi di \(S\).
+Diciamo che il punto \(P\) è \emph{esterno} all'insieme \(S\) se 
+\emph{esiste} un intorno di \(P\) che non contiene elementi \(S\).
 \end{newdef}
 }{
 \begin{newdef}{}{}
-Chiamiamo punti \emph{esterni} a \(S\) i punti che non appartengono a \(S\) 
-e la cui monade non contiene elementi di \(S\).
+Diciamo che il punto \(P\) è \emph{esterno} all'insieme \(S\) se la  
+monade di \(P\) non contiene elementi \(S\).
 \end{newdef}
 }
 
 \affiancati{.48}{.48}{
 \begin{newdef}{}{}
-Chiamiamo punti \emph{di frontiera} di \(S\) 
-quelli per i quali tutti gli intorni contengono punti che appartengono a 
-\(S\) e punti che non appartengono a \(S\).
+Diciamo che il punto \(P\) è \emph{di frontiera} rispetto all'insieme \(S\) 
+se \emph{ogni} intorno di \(P\) contiene elementi che appartengono a \(S\) 
+e elementi che non appartengono a \(S\).
 \end{newdef}
 }{
 \begin{newdef}{}{}
-Chiamiamo punti \emph{di frontiera} di \(S\) i punti la cui monade contiene 
-punti che appartengono a \(S\) e punti che non appartengono a \(S\).
+Diciamo che il punto \(P\) è \emph{di frontiera} rispetto all'insieme \(S\) 
+se la monade di \(P\) contiene elementi che appartengono a \(S\) e 
+elementi che non appartengono a \(S\).
 \end{newdef}
 }
 
