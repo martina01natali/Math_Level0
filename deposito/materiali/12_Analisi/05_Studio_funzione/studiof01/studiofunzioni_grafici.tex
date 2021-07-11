@@ -40,7 +40,7 @@
 
 \newcommand{\cefunzionea}{% 
   % prima funzione.
-  \disegnod{2}{
+  \disegno[2]{
     \cefunca
   }
 }
@@ -52,7 +52,7 @@
 
 \newcommand{\assifunzionea}{% 
   % prima funzione.
-  \disegnod{2}{
+  \disegno[2]{
     \cefunca
     \assifunca
   }
@@ -73,7 +73,7 @@
 
 \newcommand{\segnofunzionea}{% 
   % prima funzione.
-  \disegnod{2}{
+  \disegno[2]{
     \cefunca
     \assifunca
     \segnofunca
@@ -92,7 +92,7 @@
 
 \newcommand{\asintoticofunzionea}{% 
   % prima funzione.
-  \disegnod{2}{
+  \disegno[2]{
     \cefunca
     \assifunca
     \segnofunca
@@ -110,7 +110,7 @@
 
 \newcommand{\asintotifunzionea}{% 
   % prima funzione.
-  \disegnod{2}{
+  \disegno[2]{
     \cefunca
     \assifunca
     \segnofunca
@@ -131,7 +131,7 @@
 
 \newcommand{\stazionarifunzionea}{% 
   % prima funzione.
-  \disegnod{2}{
+  \disegno[2]{
     \cefunca
     \assifunca
     \segnofunca
@@ -175,7 +175,7 @@
 
 \newcommand{\segnoderivatasecondaa}{% 
   % segno della prima funzione.
-  \disegnod{10}{
+  \disegno[10]{
   \assex{-3}{+4}{0}
   \draw (0, 0.15) -- (0, 0) node [below] {\(0\)};
   \draw (1, 0.15) -- (1, 0) node [below] {\(1\)};
@@ -201,7 +201,7 @@
 
 \newcommand{\tuttoassiemea}{% 
   % prima funzione.
-  \disegnod{3}{
+  \disegno[3]{
     \cefunca
     \assifunca
     \segnofunca
@@ -212,155 +212,64 @@
   }
 }
 
-\newcommand{\funzioneb}{% 
-    \disegno{
-    \rcom{-5}{+5}{-2}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-5.3, xmax=+5.3, ymin=-2.3, ymax=+10.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-5.3:+5.3]
-            {x**4-4*x**2+3}
-    }
-}
-
-\newcommand{\funzionec}{% 
-    \disegno{
-    \rcom{-10}{+10}{-5}{+15}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-10.3, xmax=+10.3, ymin=-5.3, ymax=+15.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-10.3:-1.1]
-            {(x**2+12*x+20)/(2*x+2)}   % x**2/(2*x-6)
-     \tkzFct[ultra thick, color=Green!50!black, domain=-0.9:+10.3]
-            {(x**2+12*x+20)/(2*x+2)}
-    }
-}
-
+%-----------------------------------------------------------
 % Esercizi: descrivi i seguenti grafici
 
 \def \uni{3.7}
-\newcommand{\grafesea}{%  
-  \def \func {(-2*x-5)/(x**2-x-6)}
-    \disegnod{\uni}{
-    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=+6.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-6.3:-2.01]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=-1.99:+2.9]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=+3.1:6.3]
-            {\func}
-    }
+
+\newcommand{\grafese}[3]{%
+  \def \minx{#1}
+  \def \miny{#2}
+  \def \func{#3}
+  \disegno[\uni]{
+    \graficoxy{#1}{#1+16}{#2}{#2+13}{green!50!black}{\func}
+%     \graficoxy{\minx}{\minx+16}{\miny}{\miny+12}{green!50!black}{\func}
+  }
 }
 
-\newcommand{\grafeseb}{%  
-  \def \func {(x**2-x-5)/(-2*x**2-x-1)}
-    \disegnod{\uni}{
-    \rcom{-6}{+6}{-2}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-2.3, ymax=+10.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-6.3:+6.3]
-            {\func}
-    }
+\newcommand{\grafesesp}[4]{%
+  \def \minx{#1}
+  \def \miny{#2}
+  \def \func{#3}
+  \def \grafinterv{#4}
+  \disegno[\uni]{
+    \graficospezzato{\minx}{\minx+16}{\miny}{\miny+13}{green!50!black}
+                    {\func}
+%                     {\grafinterv} % Questo non va
+                    {#4}            % Questo sì ???!!!???
+  }
 }
 
-\newcommand{\grafesec}{% 
-  \def \func {(-4*x**2-2*x+2)/(-x**2+3*x-4)}
-    \disegnod{\uni}{
-    \rcom{-6}{+6}{-2}{+10}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-2.3, ymax=+10.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-6.3:+6.3]
-            {\func}
-    }
+\newcommand{\semiramoiperbole}[4]{% ramo di iperbole 
+  \def \minx{#1}
+  \def \miny{#2}
+  \def \a{#3}
+  \def \b{#4}
+  \def \recta{(\minx-.3, \miny-.3)}
+  \def \rectb{(\minx+16.5, \miny+14.)}
+  \disegno[\uni]{
+    \begin{scope}
+      \clip \recta rectangle \rectb;
+      \rcom{\minx}{\minx+16}{\miny}{\miny+13}{gray!50, very thin, step=1}
+      \tkzInit[xmin=\minx-0.3,xmax=\minx+16.3,ymin=\miny-0.3,ymax=\minx+17.6]
+      \tkzFct[domain=0:\minx+13.4, ultra thick, green!50!black, rotate=+45]
+            {sqrt(x*x*\b*\b/\a/\a+\b*\b)}
+      \tkzFct[domain=\minx-0.3:0, ultra thick, green!50!black, rotate=-67.5]
+            {sqrt(x*x*\b*\b/\a/\a+\b*\b)}
+    \end{scope}
+  }
 }
 
-
-\newcommand{\grafesed}{%  
-  \def \func {(x**2+2*x-4)/(-x**2-4*x-3)}
-    \disegnod{\uni}{
-    \rcom{-8}{+4}{-6}{+6}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-8.3, xmax=+4.3, ymin=-6.3, ymax=+6.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-8.3:-3.01]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=-2.99:-1.01]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=-.99:4.3]
-            {\func}
-    }
+\newcommand{\semicirconferenza}[3]{% Semi circonferenza negativa 
+  \def \minx{#1}
+  \def \miny{#2}
+  \def \r{#3}
+%   \def \recta{(\minx+.8, \miny-0.3,)}
+%   \def \rectb{(\minx+16.3, \miny+14.8)}
+  \disegno[\uni]{
+    \rcom{\minx}{\minx+16}{\miny}{\miny+13}{gray!50, very thin, step=1}
+    \draw (\r, 0) [ultra thick, green!50!black] arc(0:-180:5);
+  }
 }
 
-\newcommand{\grafesee}{% 
-  \def \func {(x**2 -6*x +5)/(x**2 -9)}
-    \disegnod{\uni}{
-    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=+6.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-6.3:-3.1]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=-2.9:+2.9]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=+3.1:6.3]
-            {\func}
-    }
-}
-
-\newcommand{\grafesef}{%  
-  \def \func {(2*x**2+5*x+4)/(3*x**2-x-2)}
-    \disegnod{\uni}{
-    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=+6.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-6.3:-0.67]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=-0.66:+0.99]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=+1.01:6.3]
-            {\func}
-    }
-}
-
-\newcommand{\grafeseg}{% 
-  \def \func {(4*x**2 -6*x +5)/(x**2 +6)}
-    \disegnod{\uni}{
-    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=+6.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-6.3:-0.67]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=-0.66:+0.99]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=+1.01:6.3]
-            {\func}
-    }
-}
-
-\newcommand{\grafeseh}{%  
-  \def \func {(x**3 +1)/(x**2 -3*x -10)}
-    \disegnod{\uni}{
-    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=+6.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-6.3:-2.1]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=-1.9:+4.9]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=+5.1:6.3]
-            {\func}
-    }
-}
-
-\newcommand{\grafesei}{%  
-  \def \func {(4*x**2 -6*x +5)/(x +5)}
-    \disegnod{\uni}{
-    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=+6.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-6.3:-5.1]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=-4.9:+6.3]
-            {\func}
-    }
-}
-
-\newcommand{\grafesej}{%  
-  \def \func {(3*x**2 -3)/(-2*x**2 +4*x +6)}
-    \disegnod{\uni}{
-    \rcom{-6}{+6}{-6}{+6}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-6.3, xmax=+6.3, ymin=-6.3, ymax=+6.3]
-     \tkzFct[ultra thick, color=Green!50!black, domain=-6.3:+2.9]
-            {\func}
-     \tkzFct[ultra thick, color=Green!50!black, domain=3.1:+6.3]
-            {\func}
-    }
-}
 

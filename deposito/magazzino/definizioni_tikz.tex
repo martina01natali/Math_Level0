@@ -210,7 +210,9 @@
   \def \funzione{#6}
   \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
   \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
-  \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, color=\colore]
+%   Perché non funziona con \max e funziona con #2???!!!???
+%   \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, color=\colore]
+  \tkzFct[domain=\mix-0.3:#2+0.3, ultra thick, color=\colore]
          {\funzione}
 }
 
@@ -233,7 +235,9 @@
 
 \newcommand{\graficospezzato}[7]{  % Grafico di una funzione.
   % Esempio di chiamata:
-  %% \disegno{\graficoxy{-7}{+7}{-11}{+10}{blue!50!black}{2*x+3}}
+  %% \disegno{\graficospezzato{-7}{+7}{-11}{+10}{blue!50!black}
+  %%                          {(-2*x-5)/(x**2-x-6)}
+  %%                          {-8.3/-2.01, -1.99/+2.9, +3.1/8.3}}
   \def \mix{#1}
   \def \max{#2}
   \def \miy{#3}
