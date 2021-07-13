@@ -251,6 +251,34 @@
     \tkzFct[domain=\mii:\mai, ultra thick, color=\colore]{\funzione}}
 }
 
+\newcommand{\grafparti}[7]{% 
+% Esempio chiamata:
+%   \disegno{
+%     \grafparti{0}{10}{0}{8}{green!50!black}
+%               {-.3/+4/-0.62*x*x+3.34*x+1.46,
+%               +4/+7/-1.03*x+9.4,
+%               +7/+9.25/(-(1.65*(x-3.65)+0.66)+10)**-1+2.35,
+%               +9.35/+10.3/(-(1.65*(x-3.65)+0.66)+10)**-1+2.35
+%               }
+%               {4/4.88/white, 4/5.28/blue, 7/2.19/white, 7/2.61/blue}
+%   }
+% % Da notare l'uso di ``(...)**-1'' per evitare ``/'' che va in conflitto 
+% % con la sintassi di \foreach
+  \def \mix{#1}
+  \def \max{#2}
+  \def \miy{#3}
+  \def \may{#4}
+  \def \col{#5}
+  \def \funzioni{#6}
+  \def \pnti{#7}
+  \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+  \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+  \foreach \da/\fino/\func in \funzioni{
+    \tkzFct[domain=\da:\fino, ultra thick, \col] {\func}}
+  \foreach \px/\py/\pc in \pnti{
+    \filldraw (\px, \py) [fill=\pc] circle(1.5pt);}
+}
+
 \newcommand{\gnominonum}[5]{
   % example:
   % \disegno{\gnomino{0.7}{1.5}{gray!50}{blue!50!black}}

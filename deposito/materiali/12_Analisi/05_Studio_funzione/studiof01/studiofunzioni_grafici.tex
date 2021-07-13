@@ -240,6 +240,23 @@
   }
 }
 
+\newcommand{\grafeseparti}[4]{%
+  \def \minx{#1}
+  \def \miny{#2}
+  \def \funcs{#3}
+  \def \punti{#4}
+  \disegno[\uni]{
+% Il pezzo di codice commentato non funziona
+%     \grafparti{\minx}{\minx+16}{\miny}{\miny+13}{green!50!black}
+%               {\funcs}
+%               {\punti}
+% Il codice seguente sì???!!!???
+  \grafparti{\minx}{\minx+16}{\miny}{\miny+13}{green!50!black}
+            {#3}
+            {#4}
+  }
+}
+
 \newcommand{\semiramoiperbole}[4]{% ramo di iperbole 
   \def \minx{#1}
   \def \miny{#2}
@@ -264,12 +281,20 @@
   \def \minx{#1}
   \def \miny{#2}
   \def \r{#3}
-%   \def \recta{(\minx+.8, \miny-0.3,)}
-%   \def \rectb{(\minx+16.3, \miny+14.8)}
   \disegno[\uni]{
     \rcom{\minx}{\minx+16}{\miny}{\miny+13}{gray!50, very thin, step=1}
     \draw (\r, 0) [ultra thick, green!50!black] arc(0:-180:5);
   }
 }
 
-
+% \newcommand{\grafpartia}{
+%   \disegno{
+%     \grafparti{0}{10}{0}{8}{green!50!black}
+%               {-.3/+4/-0.62*x*x+3.34*x+1.46,
+%               +4/+7/-1.03*x+9.4,
+%               +7/+9.25/(-(1.65*(x-3.65)+0.66)+10)**-1+2.35,
+%               +9.35/+10.3/(-(1.65*(x-3.65)+0.66)+10)**-1+2.35
+%               }
+%               {4/4.88/white, 4/5.28/blue, 7/2.19/white, 7/2.61/blue}
+%   }
+% }
