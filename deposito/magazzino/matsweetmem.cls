@@ -119,6 +119,10 @@
 \newtcbtheorem[number within=chapter]{newtheo}{Teorema}%
 {colback=green!5, colframe=green!50!black, fonttitle=\bfseries,
  coltitle=blue!50!black, theorem style=plain}{th}
+ 
+\newtcbtheorem[use counter from=newtheo]{newcor}{Corollario}%
+{colback=green!5, colframe=green!50!black, fonttitle=\bfseries,
+ coltitle=blue!50!black, theorem style=plain}{cor}
 
 \newtcbtheorem[number within=chapter]{newdef}{Definizione}%
 {colback=blue!5,colframe=blue!50!black,fonttitle=\bfseries,

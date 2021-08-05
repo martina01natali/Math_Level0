@@ -189,8 +189,9 @@
     \def \xma{6.6}; \def \yma{7.1};
     \draw [Green!40!black, ultra thick] 
           (-0.3, 6.7) .. controls (5, -4) and (5, 17) .. (10.3, 0.5);
-    \draw (\xa, \ya) -- (\xa, 0) node [below] {\(a\)}
-          (\xb, \yb) -- (\xb, 0) node [below] {\(b\)};
+    \filldraw (\xa, \ya) circle (2pt) -- (\xa, 0) node [below] {\(a\)}
+              (\xb, \yb) circle (2pt) -- (\xb, 0) node [below] {\(b\)}
+              (\xb, \yb) -- (0, \yb) node [left] {\(f(a) = f(b)\)};
     \filldraw [Red!40!black] (\xmi, \ymi) circle (2pt) node [below] {$m$};
     \filldraw [Blue!40!black] (\xma, \yma) circle (2pt) node [above] {$M$};
     \draw [thick] (\xmi-2, \ymi) -- (\xmi+2, \ymi)
@@ -207,11 +208,15 @@
     \def \xma{6.5}; \def \yma{7.08};
     \draw [Green!40!black, ultra thick] 
           (-0.3, 6.7) .. controls (6.7, -4) and (4.6, 17) .. (10.3, 0.5);
-    \draw (\xa, \ya) -- (\xa, 0) node [below] {\(a\)}
-          (\xb, \yb) -- (\xb, 0) node [below] {\(b\)};
+    \filldraw (0, \ya) node [left] {\(f(a)\)} -- 
+              (\xa, \ya) circle (2pt) node [above] {\(A\)} -- 
+              (\xa, 0) node [below] {\(a\)}
+              (0, \yb) node [left] {\(f(b)\)} -- 
+              (\xb, \yb) circle (2pt) node [above] {\(B\)} -- 
+              (\xb, 0) node [below] {\(b\)};
     \draw [thick] (\xa-1, \ya-.33) -- (\xb+1, \yb+.33);
-%     \filldraw [Red!40!black] (\xmi, \ymi) circle (2pt) node [below] {$m$};
-%     \filldraw [Blue!40!black] (\xma, \yma) circle (2pt) node [above] {$M$};
+    \filldraw [Red!40!black] (\xmi, \ymi) circle (2pt);
+    \filldraw [Blue!40!black] (\xma, \yma) circle (2pt);
     \draw [thick] (\xmi-2, \ymi-.66) -- (\xmi+2, \ymi+.66)
                   (\xma-2, \yma-.66) -- (\xma+2, \yma+.66);
     }

@@ -2,7 +2,17 @@
 
 \input{\folder teoremifc_grafici.tex}
 
-\chapter{Teoremi sulle funzioni continue}
+\chapter{Teoremi sulle funzioni continue o derivabili}
+
+% \emph{
+% In questo capitolo vedremo un nuovo insieme numerico: 
+% gli \emph{Iperinteri}.
+% Questi numeri ci permetteranno di dimostrare con una certa facilità 
+% alcuni teoremi. % sulle funzioni continue e derivabili.
+% 
+% Dopo aver ripreso le definizioni di continuità di una funzione, 
+% dimostreremo alcuni teoremi fondamentali dell'analisi relativi 
+% alle funzioni continue e alle funzioni derivabili.}
 
 \section{Numeri iperinteri}
 \label{subsec:cont_iperinteri}
@@ -27,13 +37,18 @@ simbolo:
 
 \begin{minipage}{.59\textwidth}
 La parte intera di un numero \(x\) è il più grande numero intero \(n\) 
-minore o uguale a \(x\). Attenzione che mentre per i numeri positivi il 
-concetto è abbastanza naturale, per quelli negativi il concetto non è 
-altrettanto immediato, vedi la tabella precedente.
+minore o uguale a \(x\). 
 
-Vale la pena di sottolineare che, mentre per i numeri positivi, la parte 
-intera si ottiene togliendo la parte decimale, per i numeri negativi la 
-parte intera è un po' meno intuitiva: \(\quadra{-4,12}=-5\).
+Attenzione che mentre per i numeri positivi il 
+concetto è abbastanza naturale, per quelli negativi il concetto non è 
+altrettanto immediato, vedi la tabella precedente:
+\begin{itemize} [nosep]
+\item per i numeri positivi, la parte intera si ottiene togliendo la parte 
+decimale;
+\item per i numeri negativi la parte intera è il numero stesso se la parte 
+decimale è nulla, altrimenti è il numero meno la parte decimale e meno uno
+(es. \(\quadra{-4,12}=-5\)).
+\end{itemize}
 \end{minipage}
 \hfill
 \begin{minipage}{.39\textwidth}
@@ -42,35 +57,36 @@ parte intera è un po' meno intuitiva: \(\quadra{-4,12}=-5\).
 \end{center}
 \end{minipage}
 
+\vspace{.5em}
 Applicando la funzione parte intera ai numeri Iperreali otteniamo gli 
 Iperinteri.
 
-\begin{definizione}
- I numeri \textbf{Iperinteri} sono quei numeri Iperreali per cui vale 
-l'uguaglianza:
- \[x=\quadra{x}\]
-\end{definizione}
+\begin{newdef}{}{iperinteri}
+I numeri \textbf{Iperinteri} sono quei numeri Iperreali per cui vale 
+l'uguaglianza: \qquad
+\(x=\quadra{x}\)
+\end{newdef}
 
 Possiamo fare alcune osservazioni sugli Iperinteri:
 
-\begin{enumerate}
- \item 
+\begin{enumerate} [noitemsep]
+\item 
 La somma algebrica di due numeri Iperinteri è un numero Iperintero.
- \item 
+\item 
 Ogni numero Iperreale si trova tra due numeri Iperinteri:
-\[\forall x \in \IR \quadra{x} \leqslant x < \quadra{x}+1\]
+\[\forall x \in \IR \quad \quadra{x} \leqslant x < \quadra{x}+1\]
 \end{enumerate}
 
 Possiamo usare gli Interi per dividere un intervallo Reale \([a;~b]\)
 in \(n\) parti uguali. Ciascuna di queste \(n\) parti 
-uguali è lunga \(l=\frac{b-a}{n}\).
+uguali è lunga \(l=\dfrac{b-a}{n}\).
 
 Gli \(n\) sotto intervalli che si ottengono sono:
 \[\left[a;~a+l \right[,~[a+l;~a+2l[,~\dots,~
 [a+jl;~a+(j+1)l[,~\dots,~
 [a+\tonda{n-1}l;~a+nl=b]\]
 
-Gli estremi di questi intervalli sono chiamati punti di partizione 
+Gli estremi di questi intervalli sono chiamati \emph{punti di partizione} 
 dell'intervallo:
 \[a;~a+l;~a+2l;~a+3l;~\dots;~a+\tonda{n-1}l;~a+nl=b\]
 
@@ -78,7 +94,7 @@ Possiamo ora estendere questo procedimento ai numeri Iperreali.
 Scegliamo un numero infinito iperintero \(H\) e dividiamo in parti 
 uguali l'intervallo di numeri Iperreali \(\intervcc{a}{b}\). Ogni 
 sotto intervallo avrà la stessa lunghezza infinitesima 
-\(\delta=\frac{b-a}{H}\).
+\(\delta=\dfrac{b-a}{H}\).
 
 Gli \(H\) sotto intervalli che si ottengono sono:
 \[\left[a;~a+\delta \right[,~[a+\delta;~a+2\delta[,~\dots,~
@@ -96,39 +112,78 @@ apparterrà a uno dei sotto intervalli infinitesimi:
 
 Possiamo ora affrontare alcuni teoremi riguardanti le funzioni continue.
 
-\section{Continuità}
+\section{Teoremi sulle funzioni continue}
 \label{sec:cont_continuita}
 
-\subsection{Definizione}
+\subsection{Definizione di continuità}
 \label{sec:cont_definizione}
 
-Richiamiamo il significato di continuità:
+Richiamiamo le definizioni di continuità presentate nel capitolo sulla 
+continuità e i limiti.
 
-\begin{definizione}
-Diremo che una funzione è \textbf{continua} in un punto \(c\), 
+\begin{newdef}{}{}
+Diremo che una funzione è \emph{continua in un punto \(c\)} non isolato, 
 se è definita in \(c\) e, 
 quando \(x\) è infinitamente vicino a \(c\), 
-allora \(f(x)\) è infinitamente vicino a \(f(c)\). E si scrive::
+allora \(f(x)\) è infinitamente vicino a \(f(c)\), 
 
-\[f \text{ è continua in } c \Leftrightarrow 
-\forall x \tonda{\tonda{x \approx c} \Rightarrow 
-\tonda{f(x) \approx f(c)}}\]
-\end{definizione}
+\vspace{.5em}
+e si scrive \(f\) è continua nel punto \(c\) se: \hspace{5mm}
+\(\forall x \approx c \quad f(x) \approx f(c)\)
 
-Data una funzione \(y=f(x)\) definita nel punto \(c\), le seguenti 
-affermazioni sono equivalenti:
+% \vspace{.5em}
+oppure: \hspace{51mm}
+\(\forall \epsilon \approx 0 \quad f(c + \epsilon) \approx f(c)\)
 
-\begin{enumerate}[noitemsep]
- \item \(f\) è continua in \(c\);
- \item se \(x \approx c\) allora \(f(x) \approx f(c)\) 
-       (\(\approx\): infinitamente vicino);
- \item se \(\st(x) = c\) allora \(\st(f(x)) = f(c)\);
- \item \(\lim_{x \to c} f(x) = f(c)\);
- \item se \(x\) si allontana da \(c\) di un infinitesimo allora 
-   \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
- \item se \(\Delta x\) è infinitesimo allora il corrispondente \(\Delta y\) 
-   è infinitesimo.
-\end{enumerate}
+% \vspace{.5em}
+oppure: \hspace{51mm}
+\(\forall \epsilon \approx 0 \quad f(c + \epsilon) - f(c) \approx 0\)
+
+% \vspace{.5em}
+o ancora: \hspace{49mm}
+\(\forall x \stext{se } \pst{x} = c \sstext{allora} \pst{f(x)} = f(c)\)
+\end{newdef}
+
+\begin{newdef}{}{}
+Una \emph{funzione è continua} se è continua in ogni punto del suo 
+insieme di definizione.
+\end{newdef}
+
+\begin{newdef}{}{}
+Una funzione è \emph{continua in un intervallo} se:
+\begin{itemize} [noitemsep]
+\item 
+la funzione, ristretta a quell'intervallo, è continua e
+\item 
+è definita in tutti i punti dell'intervallo.
+\end{itemize}
+\end{newdef}
+
+% \begin{newdef}{}{}
+% Diremo che una funzione è \textbf{continua} in un punto \(c\), 
+% se è definita in \(c\) e, 
+% quando \(x\) è infinitamente vicino a \(c\), 
+% allora \(f(x)\) è infinitamente vicino a \(f(c)\). E si scrive::
+% 
+% \[f \text{ è continua in } c \Leftrightarrow 
+% \forall x \tonda{\tonda{x \approx c} \Rightarrow 
+% \tonda{f(x) \approx f(c)}}\]
+% \end{newdef}
+% 
+% Data una funzione \(y=f(x)\) definita nel punto \(c\), le seguenti 
+% affermazioni sono equivalenti:
+% 
+% \begin{enumerate}[noitemsep]
+%  \item \(f\) è continua in \(c\);
+%  \item se \(x \approx c\) allora \(f(x) \approx f(c)\) 
+%        (\(\approx\): infinitamente vicino);
+%  \item se \(\st(x) = c\) allora \(\st(f(x)) = f(c)\);
+%  \item \(\lim_{x \to c} f(x) = f(c)\);
+%  \item se \(x\) si allontana da \(c\) di un infinitesimo allora 
+%    \(f(x)\) si allontana da \(f(c)\) di un infinitesimo.
+%  \item se \(\Delta x\) è infinitesimo allora il corrispondente \(\Delta y\) 
+%    è infinitesimo.
+% \end{enumerate}
 
 \subsection{Alcuni teoremi delle funzioni continue}
 \label{subsec:cont_iperinteri}
@@ -137,78 +192,92 @@ Il prossimo teorema riguarda gli zeri di una funzione. Con zero di una
 funzione 
 si intende un valore della \(x\) che rende la funzione uguale a zero:
 
-\begin{definizione}
+\begin{newdef}{}{}
  \(c\) è uno \textbf{zero} della funzione \(f(x)\) se \(f(c)=0\)
-\end{definizione}
+\end{newdef}
 
-\begin{teorema}[Teorema degli zeri]
-Supponiamo che una funzione \(f(x)\) sia continua nell'intervallo chiuso
-\(\intervcc{a}{b}\) e agli estremi dell'intervallo assuma valori di segno 
-opposto allora la funzione ha uno zero nell'intervallo 
+\begin{esempio}
+Verifica che gli zeri della funzione \(f(x) = x^2 -5x -24\) \quad sono: 
+\(-3 \stext{e} 8\).\\ [.5em]
+\(f(-3) = (-3)^2 -5 (-3) -24 = 9 +15 -24 = 0\) \quad e \quad 
+\(f(-3) = 8^2 -5 \cdot 8 -24 = 64 -40 -24 = 0\)
+\end{esempio}
+
+
+\begin{newtheo}{Teorema degli zeri}{}
+Se una funzione \(f(x)\) è continua nell'intervallo chiuso
+\(\intervcc{a}{b}\) e agli estremi dell'intervallo assume valori di segno 
+opposto, allora ha (almeno) uno zero nell'intervallo 
 aperto~\(\intervaa{a}{b}\).
-\end{teorema}
+\end{newtheo}
 
 \noindent Ipotesi: \nopagebreak
 \begin{enumerate}[nosep]
- \item \(f\) è una funzione continua;
- \item \(f\) è definita nell'intervallo chiuso \(\intervcc{a}{b}\);
+ \item \(f\) è una funzione continua nell'intervallo chiuso 
+\(\intervcc{a}{b}\);
  \item \(f(a) \cdot f(b) < 0\) 
  (equivale a dire che \(f(a)\) e \(f(b)\) hanno valori discordi).
 \end{enumerate}
 
 \noindent Tesi: 
 
-\(\exists~c \in \intervaa{a}{b} \text{ tale che } f(c)=0\).
+\(\exists~c \in \intervaa{a}{b} \stext{ tale che } f(c)=0\).
 
 \begin{proof}
-Supponiamo che \(f(a)<0\) e \(f(b)>0\), posto \(H\) un numero iperintero 
-infinito, dividiamo l'intervallo iperreale~\(\intervcc{a}{b}\) in~\(H\) 
-parti uguali
+Supponiamo che \(f(a)<0\) e \(f(b)>0\), posto \(h > 1\) un numero naturale, 
+dividiamo l'intervallo \(\intervcc{a}{b}\) in~\(h\) parti uguali 
+di lunghezza \(l = \dfrac{b -a}{h}\).
+\[a;~a+l;~a+2l;~\dots;~a+jl;~\dots;~a+hl=b\]
+Esisterà un indice, che chiamiamo \(k\), per il quale: \qquad
+\(f(a+kl) \leqslant 0 < f(a+(k+1)l)\)\\
+Ora suddividiamo l'intervallo in un numero iperintero infinito \(H\) 
+otterremo infiniti intervalli di lunghezza \(\delta = \dfrac{b -a}{H}\):
+\qquad \(a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b\)\\
+Per il principio di transfert anche in questo caso esisterà un valore 
+iperreale \(k\) tale che:
 
-\begin{minipage}{.58\textwidth}
-\[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b\]
-Chiamiamo \(k\) l'indice per il quale:
+\noindent\begin{minipage}{.58\textwidth}
 \[f(a+k\delta) \leqslant 0 < f(a+(k+1)\delta)\]
+I due valori: \(a+k\delta \stext{ e }a+(k+1)\delta\) sono infinitamente 
+vicini e quindi hanno la stessa parte standard.
 Dato che \(f\) è continua:
 \[a+k\delta \approx a+(k+1)\delta \quad \Rightarrow \quad 
 f(a+k\delta) \approx f(a+(k+1)\delta)\] 
 Ma l'unico numero standard che è infinitamente vicino ad un numero
 minore di zero e anche ad un numero maggiore di zero è zero. 
-Quindi chiamando:\(c=\pst{a+k\delta}=\pst{a+(k+1)\delta}\)
-\[f(c)=f(\pst{a+k\delta})=\pst{f(a+k\delta)}=0\]
-In modo analogo si dimostra il caso in cui \(f(a)>0>f(b)\).
+Quindi chiamando: \(c=\pst{a+k\delta}=\pst{a+(k+1)\delta}\): \quad 
+\(f(c)=0\)
+% \[f(c)=f(\pst{a+k\delta})=\pst{f(a+k\delta)}=0\]
 \end{minipage}
 \hfill
 \begin{minipage}{.38\textwidth}
 \begin{center} \tzeri \end{center}
 \end{minipage}
 
+In modo analogo si dimostra il caso in cui \(f(a)>0>f(b)\).
 \end{proof}
-
 Da notare che il teorema dimostra che in \(\intervcc{a}{b}\) c'è almeno uno 
 zero della funzione, ma non dice nulla sul numero degli zeri.
 
 La dimostrazione di questo teorema permette di dimostrarne facilmente degli 
-altri: 
+altri. 
 
-\begin{corollario}
+\begin{newcor}{}{}
 Il teorema dei valori intermedi dice che se una funzione è continua in un
 intervallo \(\intervcc{a}{b}\) allora tra \(a\) e \(b\) assume tutti i 
-valori 
-compresi tra \(f(a)\) e \(f(b)\).
-\end{corollario}
+valori compresi tra \(f(a)\) e \(f(b)\).
+\end{newcor}
 
 \begin{proof}
-Suggerimento: 
-supponiamo che \(f(a) \leqslant h < f(b)\), 
-costruiamo una nuova funzione: \(g(x)=f(x)-h\).
-La funzione \(g\) soddisfa tutte le ipotesi del teorema precedente per cui:
-\[\exists~c \in \intervaa{a}{b} \text{ tale che } g(c)=0\]
-e sostituendo la funzione \(g\) otteniamo:
-\[g(c)=0 \Rightarrow f(c)-h=0 \Rightarrow f(c)=h\].
+Scelto un qualsiasi valore \(h\) compreso tra \(f(a) \stext{ e } f(b)\), \\
+costruiamo una nuova funzione: \quad \(g(x) = f(x)-h\).\\ 
+\(g\) soddisfa tutte le ipotesi del teorema precedente per cui: \quad 
+\(\exists~c \in \intervaa{a}{b} \text{ tale che } g(c)=0\)\\
+e sostituendo la funzione \(g\) otteniamo: \quad 
+\(g(c)=0 \Rightarrow f(c) -h=0 \sRarrow f(c)=h\).
 \end{proof}
 
-\begin{corollario}
+\begin{newcor}{}{}
 Se una funzione è continua in un
 intervallo \(\intervcc{a}{b}\) e 
 \(f(x)\neq 0 \quad \forall x \in \intervcc{a}{b}\) 
@@ -219,32 +288,31 @@ allora:
  \item se \(f(c)>0\) \quad per un qualunque \quad \(c \in \intervcc{a}{b}\)
  \quad allora \quad \(f(x)>0 \quad \forall x \in \intervcc{a}{b}\).
 \end{enumerate}
-\end{corollario}
+\end{newcor}
 
 \begin{proof}
-Suggerimento: 
-consideriamo il primo caso: \(f(c)>0\) 
+Consideriamo il primo caso: \(f(c) < 0\) 
 se esistesse un valore \(d \in \intervcc{a}{b}\) per cui
-\(f(d)>0\) allora nell'intervallo \(\intervcc{c}{d}\) 
-esiste un punto \(e \Rightarrow f(e)=0\)
+\(f(d) > 0\) allora nell'intervallo \(\intervcc{c}{d}\) 
+esiste un punto \(z \sRarrow f(z) = 0\)
 essendo \(\intervcc{c}{d} \subseteq \intervcc{a}{b}\) 
 ciò contraddirebbe l'ipotesi.
 In modo analogo si dimostra il secondo caso.
 \end{proof}
 
-\section{Massimi e minimi}
-\label{sec:cont_massimiminimi}
+\subsection{Massimi e minimi}
+\label{subsec:cont_massimiminimi}
 
 Data una funzione definita in un certo intervallo, può darsi che questa 
 funzione abbia un massimo o un minimo in questo intervallo.
 
-\begin{definizione}
+\begin{newdef}{}{}
  Chiamiamo \textbf{massimo} di una funzione in un intervallo \(I\) un punto 
 \(\punto{c}{f(c)}\) tale che, per ogni \(x\) appartenente all'intervallo, 
-\(f(c)\) sia maggiore o uguale a \(f(x)\):
-\[\punto{c}{f(c)} \text{ è un massimo se } \forall x \in I \quad
-f(c) \geqslant f(x)\]
-\end{definizione}
+\(f(c)\) sia maggiore o uguale a \(f(x)\): \qquad
+\(max(f,~I) = \punto{c}{f(c)} \sLRarrow \forall x \in I \quad
+f(c) \geqslant f(x)\)
+\end{newdef}
 
 \begin{minipage}{.25\textwidth}
 La definizione di \textbf{minimo} in un intervallo si ottiene facilmente 
@@ -260,40 +328,34 @@ oppure potrebbe \emph{non} avere minimi o massimi, vedi i grafici a fianco.
 \begin{center} \costante \contiperbole \end{center}
 \end{minipage}
 
-\newpage %------------------------------------------------------------
+Un importante teorema afferma che ogni funzione continua in un intervallo 
+chiuso è limitata.
 
-Un importante teorema è il seguente.
 
-\begin{teorema}[Teorema di Weierstrass]
+\begin{newtheo}{Teorema di Weierstrass}{}
 Supponiamo che una funzione \(f(x)\) sia continua nell'intervallo chiuso
 \(\intervcc{a}{b}\) allora, in questo intervallo assume un valore massimo e 
 un valore minimo.
-\end{teorema}
-\vspace{-30mm}                           % Perchè???????????????????????
-\begin{minipage}{.56\textwidth}
-\noindent Ipotesi:
-\begin{enumerate}[nosep]
- \item \(f\) è una funzione continua;
- \item \(f\) è definita nell'intervallo chiuso \(\intervcc{a}{b}\)
-\end{enumerate}
+\end{newtheo}
+
+% \newpage %------------------------------------------------------------
+
+\noindent Ipotesi: \quad 
+\(f\) è una funzione continua nell'intervallo chiuso \(\intervcc{a}{b}\)
 
 \noindent Tesi: 
 \begin{enumerate}[nosep]
- \item \(\exists~c \in \intervcc{a}{b} \text{ tale che }
-         f(c) \geqslant f(x) \quad \forall x \in \intervcc{a}{b}\);
- \item \(\exists~c \in \intervcc{a}{b} \text{ tale che }
-         f(c) \leqslant f(x) \quad \forall x \in \intervcc{a}{b}\).
+ \item \(\exists~m \in \intervcc{a}{b} \text{ tale che }
+         f(m) \leqslant f(x) \quad \forall x \in \intervcc{a}{b}\);
+ \item \(\exists~M \in \intervcc{a}{b} \text{ tale che }
+         f(M) \geqslant f(x) \quad \forall x \in \intervcc{a}{b}\).
 \end{enumerate}
-\end{minipage}
-\hfill
-\begin{minipage}{.42\textwidth}
-\begin{center} \tweierstrass \end{center}
-\end{minipage}
+
+\begin{proof}
+Dimostriamo la prima tesi, la seconda si dimostra in modo analogo.
 
 \vspace{-10mm}                           % Perchè???????????????????????
-\begin{proof}
-Dimostriamo la prima tesi.
-
+\begin{minipage}{.56\textwidth}
 Se dividiamo l'intervallo \(\intervcc{a}{b}\) in \(h\) parti uguali, 
 otteniamo i punti di partizione \(t_i\). Confrontando i valori che assume 
 la funzione in ognuno di questi punti otterremo che uno di questi valori è 
@@ -302,18 +364,24 @@ maggiore o uguale a tutti gli altri.
 Operiamo ora una divisione infinita dell'intervallo \(\intervcc{a}{b}\)
 ottenendo i punti di partizione: 
 \[a;~a+\delta;~a+2\delta;~\dots;~a+j\delta;~\dots;~a+H\delta=b\]
+\end{minipage}
+\hfill
+\begin{minipage}{.42\textwidth}
+\vspace*{-25mm}                           % Perchè???????????????????????
+\begin{center} \scalebox{.9}{\tweierstrass} \end{center}
+\end{minipage}
+
+\vspace{-10mm}                           % Perchè???????????????????????
 Per il principio di tranfer posso confrontare tra di loro tutti i valori 
 della funzione in questi punti e troverò che uno di questi è maggiore o 
 uguale a tutti gli altri, supponiamo che questo punto sia: \(a+k\delta\):
 \[f(a+k\delta) \geqslant f(a+j\delta) \text{ per ogni j Iperintero}\]
 Considerando la parte standard 
 se \(c=\pst{a+k\delta}\) e \(d=\pst{a+j\delta}\)
-ne deriva che:
-\[f(c) \geqslant f(d)\]
-
-In modo analogo si dimostra la seconda tesi.
+ne deriva che: \\
+\(f(c) \geqslant f(d) \quad \forall d \in I\), quindi esiste (almeno) un 
+massimo dell'intervallo.
 \end{proof}
-
 
 \section{Teoremi sulle funzioni derivabili}
 \label{subsec:cont_definizione}
@@ -321,9 +389,10 @@ In modo analogo si dimostra la seconda tesi.
 \subsection{Continuità e derivabilità}
 \label{subsec:cont_contderiv}
 
-\begin{teorema}[Derivabilità e continuità]
+
+\begin{newtheo}{Derivabilità e continuità}{}
 Se una funzione è derivabile in un punto allora, in quel punto, è continua.
-\end{teorema}
+\end{newtheo}
 
 \noindent Ipotesi: 
 \(f(x) \text{ è derivabile in } c\)
@@ -331,32 +400,32 @@ Se una funzione è derivabile in un punto allora, in quel punto, è continua.
 \(f(x) \text{ è continua in } c\).
 
 \begin{proof}
-
 Se \(\pst{\dfrac{dy}{dx}}=m \quad \text{allora} \quad 
-\dfrac{dy}{dx}=a \quad \text{con a finito} \)\\
+\dfrac{dy}{dx}=a\) \quad con a iperreale finito.\\
 Da questo deriva che \(dy= a \cdot dx\) e quindi in corrispondenza di 
 un incremento infinitesimo di \(x\) anche la funzione ha una 
 variazione infinitesima.
 \end{proof}
-\begin{osservazione}
+\begin{newoss}{}{}
 Il precedente teorema afferma che se una funzione è derivabile, in un 
 intervallo incluso nel suo Insieme di Definizione, allora è continua in 
-quell'intervallo, ma non dice niente del viceversa: Potrebbe essere 
+quell'intervallo, ma non dice niente del viceversa: potrebbe essere 
 continua nell'intervallo ma non derivabile.
-\end{osservazione}
+\end{newoss}
 
 \subsection{Alcuni teoremi}
 \label{subsec:cont_teoremi}
 
 Ora affrontiamo una sequenza di teoremi collegati tra di loro.
-\begin{teorema}[Teorema di Fermat]
+
+\begin{newtheo}{Teorema di Fermat}{}
 % Se una funzione è continua, 
-Se una funzione è  
+Se una funzione è 
 definita in un intervallo chiuso, 
-ha un massimo (minimo) in un punto interno all'intervallo
-e in quel punto è derivabile, 
-allora in quel punto ha derivata nulla.
-\end{teorema}
+ha un massimo (minimo) in un punto \(c\) interno all'intervallo 
+dove la funzione è derivabile, 
+allora in quel punto ha derivata della funzione è nulla.
+\end{newtheo}
 
 \vspace{-30mm}                           % Perchè???????????????????????
 \begin{minipage}{.54\textwidth}
@@ -373,7 +442,7 @@ allora in quel punto ha derivata nulla.
 
 \noindent Tesi: 
 
-la derivata \(f'(c)=0\)
+\hspace{4mm} la derivata \(f'(c)=0\)
 \end{minipage}
 \hfill
 \begin{minipage}{.42\textwidth}
@@ -383,39 +452,75 @@ la derivata \(f'(c)=0\)
 
 \vspace{-10mm}                           % Perchè???????????????????????
 \begin{proof}
-Consideriamo un valore \(\Delta\) positivo abbastanza piccolo 
-in modo che \(c+\Delta\) appartenga ancora all'intervallo \([a;~b]\).
-Poiché \(f(c)\) è un massimo: 
-\[f(c+\Delta) \leqslant f(c) \Rightarrow f(c+\Delta) - f(c) \leqslant 0\]
-Dividendo entrambi i membri per \(\Delta\) otteniamo:
-\[\frac{f(c+\Delta) - f(c)}{\Delta} \leqslant 0\]
-Questa disuguaglianza continua a valere anche se \(\Delta\) è un 
-infinitesimo:
-\[\frac{f(c+\delta) - f(c)}{\delta} \leqslant 0\] 
-e prendendo la parte standard dell'espressione otteniamo:
-\[f'_+(c)=\pst{\frac{f(c+\delta) - f(c)}{\delta}} \leqslant 0\] 
-Ora possiamo ripetere le stesse considerazioni prendendo un valore 
-\(\Delta\) 
-negativo.
-Poiché \(f(c)\) è un massimo: 
-\[f(c+\Delta) \leqslant f(c) \Rightarrow f(c+\Delta) - f(c) \leqslant 0\]
-Questa volta dividendo entrambi i membri per \(\Delta\) dobbiamo tener 
-conto che \(\Delta\) è negativo quindi dobbiamo invertire il verso del 
-predicato:
-\[\frac{f(c+\Delta) - f(c)}{\Delta} \geqslant 0\]
-Questa disuguaglianza continua a valere anche se \(\Delta\) è un 
-infinitesimo:
-\[\frac{f(c+\delta) - f(c)}{\delta} \geqslant 0\] 
-e prendendo la parte standard dell'espressione otteniamo:
-\[f'_-(c)=\pst{\frac{f(c+\delta) - f(c)}{\delta}} \geqslant 0\] 
+Diamo la dimostrazione nel caso la funzione per \(x = c\) abbia un massimo, 
+la dimostrazione nel caso di minimo è analoga.
 
-Ma poiché per ipotesi la funzione è derivabile in \(c\), il valore 
-dell'espressione: \(\pst{\frac{f(c+\delta) - f(c)}{\delta}}\) non dipende 
+Consideriamo un valore \(\Delta \neq 0\) abbastanza piccolo 
+in modo che \(c+\Delta\) appartenga ancora all'intervallo \([a;~b]\).
+
+Poiché \(f(c)\) è un massimo: \quad 
+\(f(c+\Delta) \leqslant f(c) \sRarrow f(c+\Delta) - f(c) \leqslant 0\)
+
+Dividendo entrambi i membri per \(\Delta\) otteniamo:
+\begin{multicols}{2}
+\begin{itemize} [nosep]
+\item se \(\Delta < 0\): \quad 
+\(\dfrac{f(c+\Delta) - f(c)}{\Delta} \geqslant 0\) \\
+a sinistra di \(c\) la funzione è crescente.
+\item se \(\Delta > 0\): \quad 
+\(\dfrac{f(c+\Delta) - f(c)}{\Delta} \leqslant 0\) \\
+a destra di \(c\) la funzione è decrescente.
+\end{itemize}
+\end{multicols}
+
+Queste disuguaglianze continuano a valere anche se \(\Delta\) è un 
+infinitesimo:
+\begin{multicols}{2}
+\begin{itemize} [nosep]
+\item se \(\delta < 0\): \quad 
+\(\dfrac{f(c+\delta) - f(c)}{\delta} \geqslant 0\)
+\item se \(\delta > 0\): \quad 
+\(\dfrac{f(c+\delta) - f(c)}{\delta} \leqslant 0\)
+\end{itemize}
+\end{multicols}
+
+Prendendo le parti standard delle espressioni otteniamo le derivate 
+sinistra e destra:
+\begin{itemize} [nosep]
+\item se \(\delta < 0\): \quad 
+\(f'_-(c)=\pst{\dfrac{f(c+\delta) - f(c)}{\delta}} \geqslant 0\)
+\item se \(\delta > 0\): \quad 
+\(f'_+(c)=\pst{\dfrac{f(c+\delta) - f(c)}{\delta}} \leqslant 0\)
+\end{itemize}
+
+% Poiché, per ipotesi, la funzione in \(c\) è derivabile le due parti standard
+% devono coincidere (perché per essere derivabile, la parte standard non deve 
+% dipendere dal valore dell'infinitesimo scelto) e l'unico numero reale 
+% infinitamente vicino sia a un numero negativo sia a uno positivo è zero.
+
+% \[f'_+(c)=\pst{\frac{f(c+\delta) - f(c)}{\delta}} \leqslant 0\] 
+% Ora possiamo ripetere le stesse considerazioni prendendo un valore 
+% \(\Delta\) 
+% negativo.
+% Poiché \(f(c)\) è un massimo: 
+% \[f(c+\Delta) \leqslant f(c) \Rightarrow f(c+\Delta) - f(c) \leqslant 0\]
+% Questa volta dividendo entrambi i membri per \(\Delta\) dobbiamo tener 
+% conto che \(\Delta\) è negativo quindi dobbiamo invertire il verso del 
+% predicato:
+% \[\frac{f(c+\Delta) - f(c)}{\Delta} \geqslant 0\]
+% Questa disuguaglianza continua a valere anche se \(\Delta\) è un 
+% infinitesimo:
+% \[\frac{f(c+\delta) - f(c)}{\delta} \geqslant 0\] 
+% e prendendo la parte standard dell'espressione otteniamo:
+% \[f'_-(c)=\pst{\frac{f(c+\delta) - f(c)}{\delta}} \geqslant 0\] 
+
+Poiché per ipotesi la funzione è derivabile in \(c\), il valore 
+dell'espressione: \(\pst{\dfrac{f(c+\delta) - f(c)}{\delta}}\) non dipende 
 dal valore dell'infinitesimo \(\delta\) perciò: \(f'_-(c) = f'_+(c)\). 
 Quindi:
 \[0 \leqslant f'_-(c) = f'_+(c) \leqslant 0\]
 Da cui si ricava la tesi:
-\[f(c) = 0\]
+\hspace{26mm}\(f'(c) = 0\)
 \end{proof}
 
 Conseguenza dei teoremi di Weierstrass e Fermat è che se una funzione è 
@@ -426,18 +531,20 @@ c) in un punto la cui derivata vale zero.\\
 \begin{center} \estremo \nonder \derzero \end{center}
 
 \vspace{-15mm}                           % Perchè???????????????????????
-\begin{teorema}[Teorema di Rolle]
+
+\begin{newtheo}{Teorema di Rolle}{}
 Supponiamo che una funzione \(f(x)\) continua nell'intervallo chiuso
 \(\intervcc{a}{b}\),
 sia derivabile nell'intervallo aperto
 \(\intervaa{a}{b}\) 
 e, agli estremi, assuma lo stesso valore: \(f(a) = f(b)\) allora
 esiste un punto \(c\) dell'intervallo \(\intervaa{a}{b}\) nel quale 
-la derivata è nulla: \(f'(c)=0\).
-\end{teorema}
+la derivata è nulla: \qquad \(f'(c)=0\).
 
-\vspace*{-35mm}                           % Perchè???????????????????????
-\begin{minipage}{.54\textwidth}
+\end{newtheo}
+
+\vspace*{-20mm}                           % Perchè???????????????????????
+\noindent \begin{minipage}{.49\textwidth}
 \noindent Ipotesi:
 \begin{enumerate}[nosep]
  \item \(f\) è continua nell'intervallo chiuso \(\intervcc{a}{b}\)
@@ -447,10 +554,15 @@ la derivata è nulla: \(f'(c)=0\).
 
 \noindent Tesi: 
 
-\(\exists~c \in \intervaa{a}{b} \text{ tale che } f'(c)=0\);
+\hspace{4mm}\(\exists~c \in \intervaa{a}{b} \text{ tale che } f'(c)=0\);
+
+\vspace{1em}
+(Dire che esiste un punto non esclude che ne esista anche un altro e un 
+altro ancora e\dots)
 \end{minipage}
 \hfill
-\begin{minipage}{.42\textwidth}
+\begin{minipage}{.49\textwidth}
+\vspace{-15mm}
 \begin{center} \trolle \end{center}
 \end{minipage}
 
@@ -458,40 +570,52 @@ la derivata è nulla: \(f'(c)=0\).
 \begin{proof}
 Dato che valgono le ipotesi del teorema di Weierstrass, 
 nell'intervallo \(\intervcc{a}{b}\) 
-esisterà un massimo \(M\) e un minimo \(m\).
+esisterà un massimo \(M\) o un minimo \(m\) (o entrambi).
 Si possono distinguere 3 casi:
 \begin{enumerate} %[nosep]
- \item Se \(M = m = f(a) = f(b)\), la funzione è costante. 
- In questo caso la dimostrazione è banale 
- poiché~\(f'(c)=0 \forall c \in \intervaa{a}{b}\)
- \item Se \(M > f(a)\) vuol dire che la funzione ha un massimo 
- in~\(c\) ovvero~\(f(c)=M\). 
- La funzione \(f\) nel punto \(c\) soddisfa tutte le ipotesi del teorema 
- di Fermat, 
+\item Se \(M = m = f(a) = f(b)\), la funzione è costante. 
+In questo caso la dimostrazione è banale 
+poiché~\(f'(c)=0 \quad \forall c \in \intervaa{a}{b}\)
+
+\item Se la funzione ha un massimo in un punto~\(c\):~\(f(c)=M\) 
+(o un minimo:~\(f(c)=m\)), 
+soddisfa tutte le ipotesi del teorema di Fermat: 
 \begin{enumerate}[noitemsep]
- \item \(f\) è una funzione continua nell'intervallo chiuso 
-  \(\intervcc{a}{b}\);
- \item \(c\) appartiene all'intervallo aperto \(\intervaa{a}{b}\);
- \item \(f(c)\) è un massimo;
- \item \(f\) è derivabile in \(c\).
+\item \(f\) è una funzione continua nell'intervallo chiuso 
+\(\intervcc{a}{b}\);
+\item \(c\) appartiene all'intervallo aperto \(\intervaa{a}{b}\);
+\item \(f(c)\) è un massimo (o un minimo);
+\item \(f\) è derivabile in \(c\).
 \end{enumerate}
- quindi in \(c\) la funzione ha derivata nulla: \(f'(c)=0\).
- \item Se \(m < f(a)\) vuol dire che la funzione ha un minimo 
- in~\(c\) ovvero~\(f(c)=m\).
- Si dimostra in modo analogo al punto 2.
+Quindi in \(c\) ha derivata nulla: \(f'(c)=0\).
+% 
+% \item Se la funzione ha un minimo in~\(c\) ovvero~\(f(c)=m\).
+% Si dimostra in modo analogo al punto 2.
 \end{enumerate}
+In ogni caso esiste almeno un punto in cui ha derivata nulla.
 \end{proof}
 
-\begin{teorema}[Teorema di Lagrange o della pendenza media]
-La pendenza media di una funzione \(f\) in un intervallo 
-\(\intervcc{a}{b}\) è data da:
-\[\text{pendenza media} = \frac{f(b)-f(a)}{b-a}\]
-Se una funzione \(f\) è continua nell'intervallo chiuso \(\intervcc{a}{b}\) e
-è derivabile nell'intervallo aperto \(\intervaa{a}{b}\) allora
-esiste un punto \(c\) dell'intervallo \(\intervaa{a}{b}\) nel quale 
-la derivata è ha lo stesso valore della 
-pendenza media:~\(f'(c)=\text{pendenza media}\).
-\end{teorema}
+Il prossimo teorema assomiglia a quello di Rolle, ma qui \(f(a) \neq f(b)\).
+
+Prima di tutto richiamiamo il concetto di \emph{pendenza media}: la pendenza 
+media della funzione nell'intervallo \(\intervcc{a}{b}\) 
+è data dal rapporto incrementale della funzione: \\
+\(\text{pendenza media} = \dfrac{f(b)-f(a)}{b-a}\).
+
+
+\begin{newtheo}{Teorema di Lagrange o della pendenza media}{}
+% La pendenza media di una funzione \(f\) in un intervallo 
+% \(\intervcc{a}{b}\) è data da: \quad 
+% \(\text{pendenza media} = \dfrac{f(b)-f(a)}{b-a}\)
+
+Se una funzione \(f\) è continua nell'intervallo chiuso \(\intervcc{a}{b}\) 
+e è derivabile nell'intervallo aperto \(\intervaa{a}{b}\) allora
+esiste (almeno) un punto \(c\) dell'intervallo \(\intervaa{a}{b}\) nel quale 
+la derivata ha lo stesso valore della 
+pendenza media: \qquad 
+\(f'(c) = \dfrac{f(b)-f(a)}{b-a}\).
+
+\end{newtheo}
 
 \vspace*{-35mm}                           % Perchè???????????????????????
 \begin{minipage}{.54\textwidth}
@@ -505,7 +629,7 @@ pendenza media:~\(f'(c)=\text{pendenza media}\).
 
 \noindent Tesi: 
 
-\(\exists~c \in \intervaa{a}{b}\text{ tale che } 
+\hspace{4mm}\(\exists~c \in \intervaa{a}{b} \stext{ tale che } 
 f'(c)=\dfrac{f(b)-f(a)}{b-a}\);
 \end{minipage}
 \hfill
@@ -516,101 +640,153 @@ f'(c)=\dfrac{f(b)-f(a)}{b-a}\);
 \vspace{-15mm}                           % Perchè???????????????????????
 
 \begin{proof}
-Chiamiamo \(m\) la pendenza media: \(m=\dfrac{f(b)-f(a)}{b-a}\). 
-La funzione lineare che congiunge i due 
-punti \(\punto{a}{f(a)}\) e \(\punto{b}{f(b)}\) è:
-\[l(x) = f(a) + m(x-a)\]
-Costruiamo una nuova funzione uguale alla distanza in verticale tra \(f(x)\) 
-e \(l(x)\):
-\[h(x) = f(x) - l(x)\]
-Questa nuova funzione soddisfa tutte le ipotesi del teorema di Rolle:
+% Chiamiamo \(m\) la pendenza media: \(m=\dfrac{f(b)-f(a)}{b-a}\). \\
+La funzione lineare che congiunge i due punti \(A\) e \(B\) è:
+
+\(l(x) = \dfrac{f(b)-f(a)}{b-a}(x-a) + f(a)\)\\
+Costruiamo una nuova funzione togliendo da \(f(x)\) la funzione 
+\(l(x)\): \quad 
+\(h(x) = f(x) - l(x)\) \\
+La nuova funzione \(h\) soddisfa tutte le ipotesi del teorema di Rolle:
 \begin{enumerate}[nosep]
- \item \(h\) è una funzione continua 
- nell'intervallo chiuso \(\intervcc{a}{b}\)
- poiché è somma di due funzioni continue;
- \item \(h\) è una funzione derivabile 
- nell'intervallo aperto \(\intervaa{a}{b}\)
- poiché è somma di due funzioni derivabili;
- \item \(h(a)=h(b)\)  poiché:
- 
- \(h(a)=f(a) - (f(a) + m(a-a))=f(a)-f(a)-0=0\)
- 
- e 
- 
- \(h(b)=f(b) - (f(a) + m(b-a))=
- f(b)-f(a)-\dfrac{f(b)-f(a)}{b-a}\cdot \tonda{b-a}=\)\\
- \(=f(b)-f(a)-f(b)+f(a)=0\)
+\item \(h\) è continua nell'intervallo chiuso \(\intervcc{a}{b}\)
+poiché è somma di due funzioni continue;
+\item \(h\) è derivabile nell'intervallo aperto \(\intervaa{a}{b}\)
+poiché è somma di due funzioni derivabili;
+\item agli estremi dell'intervallo la funzione ha lo stesso 
+valore: \(h(a) = h(b) = 0\):
+
+\(h(a) = f(a) - (\dfrac{f(b)-f(a)}{b-a}(a-a) + f(a)) = f(a)-0-f(a) = 0\)
+
+e 
+
+\(h(b) = %f(b) - (f(a) + m(b-a))=
+f(b)-\dfrac{f(b)-f(a)}{\cancel{b-a}} \cdot 
+\cancel{\tonda{b-a}}-f(a)=f(b)-f(b)+f(a)-f(a)=0\)
 \end{enumerate}
- 
- Quindi esiste un punto \(c\) dell'intervallo \(\intervaa{a}{b}\) tale che:
- \[h'(c)=0\]
- Sostituendo la funzione \(h\) con la sua definizione otteniamo:
- \[h'(c) = f'(c)-l'(c)= f'(c)-m=0 \Rightarrow f'(c)=m\]
- E sostituendo \(m\) otteniamo la tesi:
- \[f'(c)=\dfrac{f(b)-f(a)}{b-a}\]
+
+Quindi esiste un punto \(c\) dell'intervallo \(\intervaa{a}{b}\) tale che:
+\quad \(h'(c)=0\) \\
+Sostituendo la funzione \(h\) con la sua definizione otteniamo:\\[4mm]
+\hspace*{15mm}\(h'(c) = f'(c)-l'(c)= f'(c)-\dfrac{f(b)-f(a)}{b-a}=0 
+~~\sRarrow ~~
+f'(c)=\dfrac{f(b)-f(a)}{b-a}\)
+% E sostituendo \(m\) otteniamo la tesi:
+% \[f'(c)=\dfrac{f(b)-f(a)}{b-a}\]
 \end{proof}
 
-\pagebreak %-------------------------------------------------
+% \pagebreak %-------------------------------------------------
 
-\begin{corollario}
+\begin{newcor}{}{}
 Derivata e andamento di una funzione. Se in una funzione \(f'(x)>0\) per ogni 
 punto di un certo intervallo \(I\), allora la funzione è crescente in tutto 
 l'intervallo.
-\end{corollario}
+\end{newcor}
 % 
 % \newcommand{\sand}{~ \wedge ~}
 % \newcommand{\sor}{~ \vee ~}
 % \newcommand{\sRarrow}{~ \Rightarrow ~}
 
+\bigskip
 \begin{proof}
-Consideriamo due punti \(x_0 < x_1 ~ \in I\), 
-per il teorema della pendenza media:
-\[\exists c \in I \text { tale che } f'(c) = \dfrac{f(x_1)-f(x_0)}{x_1-x_0}\]
-Dato che 
-\[\forall c \in I \Rightarrow f'(c) > 0\]
-si ha:
-\[\dfrac{f(x_1)-f(x_0)}{x_1-x_0}>0 \]
-E poiché il denominatore è positivo, \(x_1 - x_0 > 0\)
-\[f(x_1)-f(x_0)>0 \sRarrow f(x_1)>f(x_0)\]
+Consideriamo due punti qualunque dell'intervallo \(I\) con \(x_1 > x_0\), 
+\\[2mm]
+per il teorema della pendenza media: \hspace{22mm} 
+\(\exists c \in I \text { tale che } 
+  f'(c) = \dfrac{f(x_1)-f(x_0)}{x_1-x_0}\) \\
+% dato che per ipotesi: \hspace{39mm}
+% \(\forall c \in I \Rightarrow f'(c) > 0\) \\[1mm]
+% si ha:\hspace{63mm}
+% \(\dfrac{f(x_1)-f(x_0)}{x_1-x_0}>0 \)\\[1mm]
+dato che per ipotesi la derivata è positiva, anche: \hspace{3.5mm}
+% \(\forall c \in I \Rightarrow f'(c) > 0\) \\[1mm]
+% si ha:\hspace{63mm}
+\(\dfrac{f(x_1)-f(x_0)}{x_1-x_0}>0 \)\\[3mm]
+E poiché il denominatore è positivo, si ha: \hspace{14.5mm}
+\(f(x_1)-f(x_0)>0 \sRarrow f(x_1)>f(x_0)\)
 \end{proof}
 
+\bigskip
 Un teorema che fornisce uno strumento per semplificare il calcolo dei 
 limiti che si presentano nella forma indeterminata: 
-\(\dfrac{\epsilon}{\delta}\) o \(\dfrac{M}{N}\), è il seguente:
+\(\dfrac{\epsilon}{\delta}\) % o \(\dfrac{M}{N}\)
+, è il seguente.
 
-\begin{teorema}[De L'H\^opital]
 
-Date due funzioni \(f(x)\) e \(g(x)\) definite in un intervallo \(I\) 
-aperto che contiene \(c\) eventualmente possono non essere definite in 
-\(c\).
+\begin{newtheo}{De L'H\^opital}{}
 
-Se \(f\) e \(g\) sono derivabili nell'insieme \(I-\graffa{c}\) e 
-\(g' \neq 0\) Entrambe le funzioni tendono a zero o all'infinito per 
-\(x \to c\) e
-esiste \(\dfrac{f'(c)}{g'(c)}\) allora:
-\(\displaystyle \lim_{x \to c} \dfrac{f(x)}{g(x)}=\dfrac{f'(c)}{g'(c)}\).
-\end{teorema}
+Date due funzioni \(f(x)\) e \(g(x)\) derivabili in \(x = c\) 
+e che in \(c\) valgono zero, allora: \qquad 
+\(\displaystyle \lim_{x \to c} \dfrac{f(x)}{g(x)} = 
+  \dfrac{f'(c)}{g'(c)}\).
+%   \lim_{x \to c} \dfrac{f'(c)}{g'(c)}\).
+% Date due funzioni \(f(x)\) e \(g(x)\) definite in un intervallo \(I\) 
+% aperto che contiene \(c\) eventualmente possono non essere definite in 
+% \(c\).
+% 
+% Se \(f\) e \(g\) sono derivabili nell'insieme \(I-\graffa{c}\) e 
+% \(g' \neq 0\) Entrambe le funzioni tendono a zero o all'infinito per 
+% \(x \to c\) e
+% esiste \(\dfrac{f'(c)}{g'(c)}\) allora:
+% \(\displaystyle \lim_{x \to c} \dfrac{f(x)}{g(x)}=\dfrac{f'(c)}{g'(c)}\).
+
+\end{newtheo}
 
 \noindent Ipotesi: 
 \begin{enumerate}[nosep]
- \item \(f\) \(g\) sono definite e derivabili in \(I-\graffa{c}\);
- \item \(g'(x)\neq 0 ~ \forall x \in I-\graffa{c}\); 
- \item \((\displaystyle \lim_{x \to c}{f(x)}=
-          \lim_{x \to c}{g(x)}=0\) o (\(\infty\))
- \item \(\exists \dfrac{f'(c)}{g'(c)}\); 
+ \item \(f(c) = 0 \stext{e} g(c) = 0\);
+ \item \(f\) \(g\) sono derivabili in \(c\);
 \end{enumerate}
 
 \noindent Tesi: 
 
-\(\displaystyle \lim_{x \to c}{f(x)}{g(x)}=\dfrac{f'(c)}{g'(c)}\); 
+\(\displaystyle \lim_{x \to c}\dfrac{f(x)}{g(x)} = 
+  \dfrac{f'(c)}{g'(c)}\); 
+%   \lim_{x \to c}\dfrac{f'(c)}{g'(c)}\); 
 
-% \begin{proof}
+\begin{proof}
+\begin{align*}
+\lim_{x \to c} \dfrac{f(c)}{g(c)} &\stackrel{1}{=}
+\pst{\dfrac{f(c+\epsilon)}{g(c+\epsilon)}}\stackrel{2}{=}
+\pst{\dfrac{f(c+\epsilon) - f(c)}{g(c+\epsilon) - f(c)}}\stackrel{3}{=} \\
+&=\pst{\dfrac{\dfrac{f(c+\epsilon) - f(c)}{\epsilon}}
+             {\dfrac{g(c+\epsilon) - f(c)}{\epsilon}}}\stackrel{4}{=}
+\dfrac{\pst{\dfrac{f(c+\epsilon) - f(c)}{\epsilon}}}
+        {\pst{\dfrac{g(c+\epsilon) - f(c)}{\epsilon}}}\stackrel{5}{=} 
+\dfrac{f'(c)}{g'(c)}
+\end{align*}
+Dove i passaggi hanno le seguenti giustificazioni:
+\begin{enumerate} [nosep]
+\item definizione di limite al finito;
+\item dato che \(f(c) = 0 \stext{e} g(c) = 0\);
+\item dividiamo il numeratore e il denominatore per lo stesso infinitesimo 
+\(\epsilon\);
+\item per una proprietà della parte standard;
+\item dato che le funzioni sono derivabili in \(c\) le parti 
+standard non dipendono dal particolare incremento infinitesimo scelto e 
+hanno come risultato le derivate delle funzioni.
+\end{enumerate}
+\end{proof}
+
+Più in generale: 
+date due funzioni \(f(x)\) e \(g(x)\) derivabili in \(x = c\) 
+e che in \(c\) valgono zero, allora: \quad 
+\(\displaystyle \lim_{x \to c} \dfrac{f(x)}{g(x)} = 
+  \lim_{x \to c} \dfrac{f'(c)}{g'(c)}\).
+
+\bigskip
+Il teorema di De L'H\^opital si estende anche al caso in cui in \(c\) le 
+funzioni abbiano un valore infinito.
+
+% TODO
+% \section{Applicazioni}
+% in questa sezione presentiamo alcuni esercizi nei quali viengono 
+% utilizzati i teoremi presentati nel capitolo
+% \subsection{???} 
+% OPPURE
+% \begin{esempio}
 % 
-% \end{proof}
-
-
-
-
+% \end{esempio}
 
 
 
