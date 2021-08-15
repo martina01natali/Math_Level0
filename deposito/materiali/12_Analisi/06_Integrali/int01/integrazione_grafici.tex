@@ -8,26 +8,19 @@
 \newcommand{\areasottesasegmento}{% Area sottesa a un segmento
   \disegno{
     \coordinate (a) at (2.5, 4);
-    \coordinate (xa) at (2.5, 0);
-    \coordinate (ya) at (0, 4);
     \coordinate (b) at (4.3, 5.2);
-    \coordinate (xb) at (4.3, 0);
-    \coordinate (yb) at (0, 5.2);
-
+    \coordinate (o) at (0, 0);
     \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
-    (a) -- (b) -- (xb) -- (xa) -- cycle;
-
+    (a) -- (b) |- (o) -| (a) -- cycle;
     \rcom{-1}{+6}{-1}{+6}{gray!50, very thin, step=1}
-    
-    \draw [thick] (a) -- (b);
-    \filldraw (a) circle (1.5pt) node [above left] {A};
-    \filldraw (b) circle (1.5pt) node [above left] {B};
-
-    \begin{scope}[dotted]
-    \draw [-] (a) -- (xa) node [below] {\(a\)};
-    \draw [-] (a) -- (ya) node [left] {\(y_A\)};
-    \draw [-] (b) -- (xb) node [below] {\(b\)};
-    \draw [-] (b) -- (yb) node [left] {\(y_B\)};
+    \filldraw [thick, color=blue!50!black] 
+        (a) circle (.5pt) node [above] {\(A\)} -- 
+        (b) circle (.5pt) node [above] {\(B\)};
+    \begin{scope}[thin]
+    \draw (a -| o) node [left] {\(y_A\)} -- (a) --
+          (a |- o) node [below] {\(x_A\)}
+          (b -| o) node [left] {\(y_B\)} -- (b) --
+          (b |- o) node [below] {\(x_B\)};
     \end{scope}
     }
 }
@@ -60,6 +53,7 @@
     \coordinate (ctrli) at (3, -4);
     \coordinate (ctrlf) at (7, 17);
     \def \linea{(i) .. controls (ctrli) and (ctrlf) .. (f)}
+    \node at (9.8, 3.5) {\(f\)};
 }
 
 \newcommand{\areasottesacurva}{% Area sottesa ad una curva.
@@ -81,7 +75,7 @@
     \begin{scope}
     \draw [-] (a) -- (\xa, 0) node [below] {\(a\)};
     \draw [-] (b) -- (\xb, 0) node [below] {\(b\)};
-    \node at (4.5, 2.5) {\(\mathcal{A}(a;~b)\)};
+    \node at (4.5, 2.5) {\(\mathcal{A}_f(a;~b)\)};
     \end{scope}
     }
 }
@@ -110,8 +104,8 @@
     \draw [-] (a) -- (\xa, 0) node [below] {\(a\)};
     \draw [-] (c) -- (\xc, 0) node [below] {\(t\)};
     \draw [-] (b) -- (\xb, 0) node [below] {\(b\)};
-    \node at (3, 2.5) {\(\mathcal{A}(a;~t)\)};
-    \node at (7.2, 2.5) {\(\mathcal{A}(t;~b)\)};
+    \node at (3, 2.5) {\(\mathcal{A}_f(a;~t)\)};
+    \node at (7.2, 2.5) {\(\mathcal{A}_f(t;~b)\)};
     \end{scope}
     }
 }
@@ -141,58 +135,267 @@
     \draw  (\xa, 0) node [below] {\(a\)} -- (\xa, \ym) -- 
            (\xb, \ym)  -- (\xb, 0) node [below] {\(b\)};
     \draw [densely dotted] (\xa, \ym) -- (0, \ym) node [left] {\(\h\)};
-    \node at (4.5, 2.5) {\(\mathcal{A}_{\lm}(a;~b)\)};
+    \node at (4.5, 2.5) {\(\lm \cdot (b -a))\)};
+%     \node at (4.5, 2.5) {\(\mathcal{A}_{\lm}(a;~b)\)};
     \end{scope}
     }
 }
 
 \newcommand{\areaminore}{% Rettangolo minore.
-  \arearettangolare{2}{3.49}{mi}{m}
+  \arearettangolare{2}{3.49}{m}{m}
 }
 
 \newcommand{\areamaggiore}{% Rettangolo maggiore.
-  \arearettangolare{7}{7.12}{ma}{M}
+  \arearettangolare{7}{7.12}{M}{M}
+}
+
+% \newcommand{\velocita}{% Velocità media
+%   \def \fun{6*sqrt(x)-x-3}
+%   \def \funa{6*sqrt(\x)-\x-3}
+%   \def \mix{0}
+%   \def \max{7}
+%   \def \miy{0}
+%   \def \may{7}
+%   \def \xa{1.5}
+%   \def \xb{4}
+%   \def \x{\xa} \pgfmathparse{\funa} \let\ya\pgfmathresult
+%   \def \x{\xb} \pgfmathparse{\funa} \let\yb\pgfmathresult
+%   \pgfmathparse{(\yb - \ya) / (\xb - \xa)} \let\m\pgfmathresult
+%   \disegno{
+%     \rcomvar{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}{t}{s}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[ultra thick, color=red!50!black, domain=\mix:\max+0.3]{\fun}
+%     \fill [fill=red!50!black] 
+%           (\xa, \ya) circle(2pt) node [above left]{\(A\)} 
+%           (\xb, \yb) circle(2pt) node [above left]{\(B\)};
+%     \tkzFct[thick, color=blue!50!black, domain=\mix:\max+0.3]
+%            {\m*(x - \xa) + \ya}
+%     \draw [thick, dashed, blue!50!black]
+%           (0, \ya) node [left]{\(s(t_1)\)} -- (\xa, \ya) -- 
+%           (\xa, 0) node [below]{\(t_1\)}
+%           (0, \yb) node [left]{\(s(t_2)\)} -- (\xb, \yb) -- 
+%           (\xb, 0) node [below]{\(t_2\)}
+%           (\xa, \ya) -- (\xb, \ya) node [midway, below] {\(\Delta t\)}
+%           (\xb, \yb/2 + \ya/2) node [right] {\(\Delta s\)};
+%   }
+% }
+
+% \newcommand{\sommariemannesea}[1]{% Somma di Riemann per gli esercizi.
+%   \disegno{
+%   \def \fun{.5*x +3}
+%   \def \mix{-2}
+%   \def \max{7}
+%   \def \miy{0}
+%   \def \may{6}
+%   \def \Dt{#1};
+%   \def \xa{-2};
+%   \def \xb{+5};
+%   \def \lab{y=\frac{1}{2}x +3};
+% %     \def \xi{-0.3};
+% %     \def \xf{8.3};
+% %     \begin{scope}
+% %       \clip (0, 0) rectangle (\xf, 10.3);
+% %       \fill [top color=green!30!black!20, bottom color=green!50!black!10] 
+% %       (\xi, \m*\xi) -- (\xf,  \m*\xf) -- (\xf, 0) -- (\xi, 0) -- cycle;
+% %     \end{scope}
+%     \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+%     \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+%     \tkzFct[ultra thick, color=black, domain=\mix-0.3:\max+0.3]{\fun}
+% %     \begin{scope}
+% %       \clip (-0.3, -0.3) rectangle (\xf, 10.3);
+% %       \draw [thick] (\xi, \m*\xi) -- (\xf,  \m*\xf);
+%     \node at (2.8, 5.5) {\(\lab\)};
+% %     \end{scope}
+% % 
+% %     \draw [-] (\xa, \m*\xa) -- (\xa, 0) node [below, yshift=-4pt] {\(a\)};
+% %     \foreach \x in {\xxi,...,\xxf}
+% %       \draw [-] (\x, \m*\x) -- (\x, 0) node [below, yshift=-2pt] {\(\x\)};
+%   }
+% }
+
+% Da ristrutturare completamente passando la funzione invece che 
+% la lista delle altezze
+\newcommand{\fillrettangoli}[6]{% Rettangoli retinati
+  \def \dxx{#1}
+  \def \xxa{#2};
+  \def \altezze{#3}
+  \def \xxh{#4};
+  \def \yyh{#5};
+  \def \xxb{#6};
+  \begin{scope}
+  \foreach \yy [count = \i] in \altezze{
+    \fill [top color=green!30!black!20,bottom color=green!50!black!10]
+          (\xxa+\i*\dxx-\dxx, \yy) rectangle (\xxa+\i*\dxx, 0);}
+  \fill [top color=green!30!black!20,bottom color=green!50!black!10]
+        (\xxh, \yyh) rectangle (\xxb, 0);
+  \end{scope}
+}
+
+\newcommand{\rettangoli}[6]{% Contorno dei rettangoli
+  \def \dxx{#1}
+  \def \xxa{#2};
+  \def \altezze{#3}
+  \def \xxh{#4};
+  \def \yyh{#5};
+  \def \xxb{#6};
+  \begin{scope}
+  \foreach \yy [count = \i] in \altezze{
+    \draw (\xxa+\i*\dxx-\dxx, \yy) rectangle (\xxa+\i*\dxx, 0);}
+  \draw (\xxh, \yyh) rectangle (\xxb, 0);
+  \end{scope}
 }
 
 \newcommand{\sommariemann}{% Somma di Riemann.
+  \def \Dt{1}
   \disegno{
     \definizionilinea
-    \def \dx{1};
-%     \def \ym{2};
-%     \def \lm{3};
-
-    \foreach \xa/\y in {0.4/4.9, 1.4/3.65, 2.4/3.57, 3.4/4.17, 4.4/5.15, 
-                        5.4/6.2, 6.4/6.9, 7.4/7.06}{
-      \fill [top color=green!30!black!20,bottom color=green!50!black!10]
-      (\xa, \y) -- (\xa+\dx, \y) -- (\xa+\dx, 0.015) -- (\xa, 0.015) -- cycle;
-      \draw [thick, cap=butt] (\xa, \y) -- (\xa+\dx, \y);
-      \draw [very thin](\xa,\y) -- (\xa,0.015) (\xa+\dx,\y) -- 
-                       (\xa+\dx,0.015);
-    }
-    \def \y{6.25}
-    \fill [top color=green!30!black!20,bottom color=green!50!black!10]
-      (8.43, \y) -- (\xb, \y) -- (\xb, 0.015) -- (8.43, 0.015) -- cycle;
-
-    \draw [thick, cap=butt] (8.4, \y) -- (\xb, \y);
-    \draw [very thin] (\xb, \y) -- (\xb, 0.015);
-
+    \fillrettangoli{\Dt}{.4}{4.9, 3.65, 3.57, 4.17, 5.15, 6.2, 6.9, 7.06}
+                   {8.4}{6.25}{8.8}
     \rcom{0}{+10}{0}{+8}{gray!50, very thin, step=1}
-
+    \rettangoli{1}{.4}{4.9, 3.65, 3.57, 4.17, 5.15, 6.2, 6.9, 7.06}
+                   {8.4}{6.25}{8.8}
     \begin{scope}
       \clip (\xi, 0) rectangle (\xf, 8);
       \draw [thick] \linea;
     \end{scope}
-    
     \node at (\xa, 0) [below, yshift=-1.2em] {\(a\)};
     \node at (\xb, 0) [below, yshift=-1em] {\(b\)};
     \foreach \n in {0,1,2}
-      \node at (\xa+\n*\dx, 0) [below] {\(t_\n\)};
+      \node at (\xa+\n*\Dt, 0) [below] {\(t_\n\)};
     \foreach \n in {3.5,6.5}
-      \node at (\xa+\n*\dx, 0) [below, yshift=-6pt] {\(\dots\)};
-    \node at (\xa+5*\dx, 0) [below] {\(t_i\)};
-    \node at (\xa+8*\dx, 0) [below] {\(t_h\)};
+      \node at (\xa+\n*\Dt, 0) [below, yshift=-6pt] {\(\dots\)};
+    \node at (\xa+5*\Dt, 0) [below] {\(t_i\)};
+    \node at (\xa+8*\Dt, 0) [below] {\(t_h\)};
 
     }
+}
+
+\newcommand{\sommariemannesempa}{% Somma di Riemann per gli esempi.
+  \def \fun{.5*x +3}
+  \def \mix{-2.5}
+  \def \max{6}
+  \def \miy{0}
+  \def \may{6}
+  \def \Dt{1}
+  \def \xa{-2}
+  \def \xb{+5}
+  \def \lab{y=\frac{1}{2}x +3}
+  \disegno{
+    \fillrettangoli{\Dt}{\xa}{2, 2.5, 3, 3.5, 4, 4.5}{4}{5}{5}
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[ultra thick, color=black, domain=\mix-0.3:\max+0.3]{\fun}
+    \rettangoli{\Dt}{\xa}{2, 2.5, 3, 3.5, 4, 4.5}{4}{5}{5}
+    \node at (\xa, 0) [below, yshift=-1.2em] {\(a\)};
+    \node at (\xb, 0) [below, yshift=-1em] {\(b\)};
+    \foreach \n in {0,...,7}{
+      \node at (\xa+\n*\Dt, 0) [below] {\(t_\n\)};}
+    \draw (5, 5.5) -- (5, 0);
+  }
+}
+
+\newcommand{\sommariemannesempb}{% Somma di Riemann per gli esempi.
+  \def \fun{.5*x +3}
+  \def \mix{-2.5}
+  \def \max{6}
+  \def \miy{0}
+  \def \may{6}
+  \def \Dt{2}
+  \def \xa{-2}
+  \def \xb{+5}
+  \def \lab{y=\frac{1}{2}x +3}
+  \disegno{
+    \fillrettangoli{\Dt}{\xa}{2, 3, 4}{4}{5}{5}
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[ultra thick, color=black, domain=\mix-0.3:\max+0.3]{\fun}
+    \rettangoli{\Dt}{\xa}{2, 3, 4}{4}{5}{5}
+    \node at (\xa, 0) [below, yshift=-1.2em] {\(a\)};
+    \node at (\xb, 0) [below, yshift=-1em] {\(b\)};
+    \foreach \n in {0,...,3}{
+      \node at (\xa+\n*\Dt, 0) [below] {\(t_\n\)};}
+    \draw (5, 5.5) -- (5, 0);
+  }
+}
+
+\newcommand{\sommariemannesempc}{% Somma di Riemann per gli esempi.
+  \def \fun{.25*x*x -x +2}
+  \def \mix{0}
+  \def \max{9}
+  \def \miy{0}
+  \def \may{10}
+  \def \Dt{2}
+  \def \xa{1}
+  \def \ya{1}
+  \def \xb{+8}
+  \def \yb{+10}
+%   \def \alt{1.25, 1.25, 3.25}
+  \disegno{
+    \fillrettangoli{\Dt}{\xa}{1.25, 1.25, 3.25}{7}{7.25}{8}
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[ultra thick, color=black, domain=\mix-0.3:\max+0.3]{\fun}
+    \rettangoli{\Dt}{\xa}{1.25, 1.25, 3.25}{7}{7.25}{8}
+    \node at (\xa, 0) [below, yshift=-1.2em] {\(a\)};
+    \node at (\xb, 0) [below, yshift=-1em] {\(b\)};
+    \foreach \n in {0,...,3}{
+      \node at (\xa+\n*\Dt, 0) [below] {\(t_\n\)};}
+    \draw (\xa, \ya) -- (\xa, 0) (\xb, \yb) -- (\xb, 0);
+  }
+}
+
+\newcommand{\sommariemannesempd}{% Somma di Riemann per gli esempi.
+  \def \fun{.25*x*x -x +2}
+  \def \mix{0}
+  \def \max{9}
+  \def \miy{0}
+  \def \may{10}
+  \def \Dt{2}
+  \def \xa{1}
+  \def \ya{1}
+  \def \xh{+7}
+  \def \xb{+8}
+  \def \yb{+10}
+%   \def \alt{1.25, 1.25, 3.25}
+  \disegno{
+    \fillrettangoli{\Dt}{\xa}{1.25, 3.25, 7.25}{\xh}{\yb}{\xb}
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[ultra thick, color=black, domain=\mix-0.3:\max+0.3]{\fun}
+    \rettangoli{\Dt}{\xa}{1.25, 3.25, 7.25}{\xh}{\yb}{\xb}
+    \node at (\xa, 0) [below, yshift=-1.2em] {\(a\)};
+    \node at (\xb, 0) [below, yshift=-1em] {\(b\)};
+    \foreach \n in {0,...,3}{
+      \node at (\xa+\n*\Dt, 0) [below] {\(t_\n\)};}
+    \draw (\xa, \ya) -- (\xa, 0) (\xb, \yb) -- (\xb, 0);
+  }
+}
+
+\newcommand{\sommariemannesempe}{% Somma di Riemann per gli esempi.
+  \def \fun{.25*x*x -x +2}
+  \def \mix{0}
+  \def \max{9}
+  \def \miy{0}
+  \def \may{10}
+  \def \Dt{2}
+  \def \xa{1}
+  \def \ya{1}
+  \def \xh{+7}
+  \def \xb{+8}
+  \def \yb{+8.5}
+%   \def \alt{1.25, 1.25, 3.25}
+  \disegno{
+    \fillrettangoli{\Dt}{\xa}{1, 2, 5}{\xh}{\yb}{\xb}
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[ultra thick, color=black, domain=\mix-0.3:\max+0.3]{\fun}
+    \rettangoli{\Dt}{\xa}{1, 2, 5}{\xh}{\yb}{\xb}
+    \node at (\xa, 0) [below, yshift=-1.2em] {\(a\)};
+    \node at (\xb, 0) [below, yshift=-1em] {\(b\)};
+    \foreach \n in {0,...,3}{
+      \node at (\xa+\n*\Dt, 0) [below] {\(t_\n\)};}
+    \draw (\xa, \ya) -- (\xa, 0) (\xb, \yb) -- (\xb, 0);
+  }
 }
 
 \newcommand{\riemanninferiore}{% Somma di Riemann inferiore.
@@ -327,7 +530,7 @@
     }
 }
 
-\newcommand{\funzintx}[5]{% Area sottesa ad una costante.
+\newcommand{\funzintx}[5]{% Area sottesa ad una retta.
   \disegno{
     \def \m{#1};
     \def \xa{#2};
@@ -392,19 +595,21 @@
     }
 }
 
-\newcommand{\teoremafonda}{% Area sottesa fino a x.
+\newcommand{\teoremafonda}{% Teorema fondamentale incremento non infinitesimo.
+  \def \k{2}
+  \def \xi{-4.3}
+  \def \yi{2}
+  \def \xf{7.3}
+  \def \yf{4}
+  \def \xa{2.6}
+  \def \ya{5.10}
+  \def \xm{3}
+  \def \ym{2.5}
+  \def \x{3.4}
+  \def \y{5.55}
+  \def \label{p}
+  \def \linea{(\xi, \yi) .. controls (-2, -2) and (3, 10) .. (\xf, \yf)}
   \disegno{
-    \def \k{2};
-    \def \xi{-4.3};
-    \def \yi{2};
-    \def \xf{7.3};
-    \def \yf{4};
-    \def \xa{2.6};
-    \def \ya{5.10};
-    \def \x{3.4};
-    \def \y{5.55};
-    \def \label{p};
-    \def \linea{(\xi, \yi) .. controls (-2, -2) and (3, 10) .. (\xf, \yf)};
     \begin{scope}
       \clip (\xi, 0) rectangle (\xf, 6);
       \fill [left color=red!10!black!5, right color=red!60!black!20] 
@@ -415,20 +620,19 @@
       \fill [top color=green!40!black!30, bottom color=green!40!black!5] 
         (\xa, 0) -- (\xa, \ya) -- (\x, \ya) -- (\x, 0) -- cycle;
     \end{scope}
-
     \rcom{-4}{+7}{0}{+7}{gray!50, very thin, step=1}
-    
     \draw [thick] \linea;
     \node at (6.5, 5.5) {\(f\)};
-
-    \draw [-] (\xa, \ya) -- (\xa, 0) node [below, xshift=-3pt] {\(x\)}
+    \draw [-] (\xa, \ya) -- (\xa, 0) node [below, yshift=-8pt] {\(x\)}
               (\xa, \ya) -- (\x, \ya)
-              (\x, \ya) -- (\x, 0) node [below, xshift=-4pt] {\(dx\)};
-    \draw [dotted] (\xa, \ya) -- (0, \ya) node [left] {\(f(x)\)};
-    }
+              (\x, \ya) -- (\x, 0); 
+    \node at (\x, 0) [below, xshift=-5pt] {\footnotesize \(\Delta t\)};
+    \draw [thin] (\xa, \ya) -- (0, \ya) node [left] {\(f(x)\)};
+    \freccia{(3.9, \ym)}{(\xm-.1, \ym)}{right}{\Delta S}
+  }
 }
 
-\newcommand{\intdef}{% Area sottesa ad una funzione da a a b.
+\newcommand{\intdefesempa}{% Area sottesa ad una funzione da a a b.
   \disegno{
     \def \xa{-1};
     \def \ya{4};
@@ -438,7 +642,7 @@
 
     \begin{scope}
       \clip (\xa, 0) rectangle (\xb, \yb);
-      \fill [top color=green!40!black!30, bottom color=green!60!black!20] 
+      \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
         \linea -- (\xb, 0) -- (\xa, 0) -- cycle;
     \end{scope}
     
@@ -448,5 +652,48 @@
     \draw [thick] \linea;
     \draw [-] (\xa, \ya) -- (\xa, 0) node [below] {\(a\)};
     \draw [-] (\xb, \yb) -- (\xb, 0) node [below] {\(b\)};
+    }
+}
+
+\newcommand{\intdefesempb}{% Area sottesa ad una funzione da a a b.
+  \def \fun{x +1/x +1/(x*x)}
+  \def \mix{0}
+  \def \max{9}
+  \def \miy{0}
+  \def \may{10}
+  \def \Dt{2}
+  \def \xa{1}
+  \def \ya{3}
+  \def \xb{+7}
+  \def \yb{+7.1633}
+  \disegno{
+    \fill [top color=green!30!black!20,bottom color=green!50!black!10]
+          (\xa, 0) -- (\xa, \ya) --
+          (\xa, \ya) .. controls (+1.7, +1.7) and (+3, +3.5) ..  
+          (\xb, \yb) -- (\xb, 0);
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[ultra thick, color=black, domain=\mix+0.3:\max+0.3]{\fun}
+    \draw (\xa, \ya) -- (\xa, 0) node [below] {\(a\)} 
+          (\xb, \yb) -- (\xb, 0) node [below] {\(b\)}; 
+    \node at (7.7, 8.4) {\(f\)};
+%     \def \xa{-1};
+%     \def \ya{4};
+%     \def \xb{2};
+%     \def \yb{7};
+%     \def \linea{(-1.68, 8.3) parabola bend (.25, 0.875) (2.18, 8.3)};
+% 
+%     \begin{scope}
+%       \clip (\xa, 0) rectangle (\xb, \yb);
+%       \fill [top color=green!40!black!30, bottom color=green!60!black!20] 
+%         \linea -- (\xb, 0) -- (\xa, 0) -- cycle;
+%     \end{scope}
+%     
+%     \rcom{-3}{+5}{0}{+8}{gray!50, very thin, step=1}
+%     
+%     \node at (-1.9, 7.5) {\(f\)};
+%     \draw [thick] \linea;
+%     \draw [-] (\xa, \ya) -- (\xa, 0) node [below] {\(a\)};
+%     \draw [-] (\xb, \yb) -- (\xb, 0) node [below] {\(b\)};
     }
 }

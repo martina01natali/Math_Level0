@@ -32,25 +32,25 @@ delimitata dal segmento, dalle rette parallele all'asse \(y\) passanti per i
 suoi estremi e dall'asse \(x\).
 
 \begin{esempio}
-Dati i punti \(A \punto{2,5}{6}\) e \(B \punto{4,3}{7,2}\), calcola l'area 
+Dati i punti \(A \punto{2,5}{6}\) e \(B \punto{4,3}{7,2}\), calcola 
+l'area 
 sottesa al segmento \(AB\).
 
-\begin{minipage}{.29\textwidth}
+\affiancati{.29}{.69}{
 \begin{inaccessibleblock}[Area sottesa al segmento.]
   \areasottesasegmento
 \end{inaccessibleblock}
-\end{minipage}
-\hfill
-\begin{minipage}{.69\textwidth}
+}{
  Possiamo riconoscere che la superficie sottesa al segmento ha la forma di un 
 trapezio rettangolo con le due basi lunghe \(y_A\) e \(y_B\) e l'altezza 
-lunga \(b - a = x_B - x_A\). L'area è quindi:
+lunga \(\Delta t x = x_B - x_A\). L'area è quindi:
 \begin{align*}
- \mathcal{A} &= \frac{1}{2} \cdot \tonda{y_B + y_A} \cdot \tonda{x_b - x_a}=\\
-             &= \frac{1}{2} \cdot \tonda{7,2 + 6} \cdot \tonda{4,3 - 2,5} =\\
-             &= \frac{1}{2} \cdot \tonda{13,2} \cdot \tonda{1,8} = 11,88
+\mathcal{A} 
+  &= \frac{1}{2} \cdot \tonda{y_B + y_A} \cdot \tonda{x_B - x_A}=\\
+  &= \frac{1}{2} \cdot \tonda{7,2 + 6} \cdot \tonda{4,3 - 2,5} =\\
+  &= \frac{1}{2} \cdot \tonda{13,2} \cdot \tonda{1,8} = 11,88
 \end{align*}
-\end{minipage}
+}
 \end{esempio}
 
 Abbiamo anche calcolato l'area della superficie sottesa ad una sequenza di 
@@ -62,13 +62,11 @@ Calcola l'area sottesa ai segmenti paralleli all'asse \(x\), di lunghezza
 \(0,5\) e di ordinata rispettivamente: \quad 
 \(5;~4;~6;~3;~7;~5\)
 
-\begin{minipage}{.29\textwidth}
+\affiancati{.29}{.69}{
 \begin{inaccessibleblock}[Area sottesa al segmento.]
   \areasottesasegmenti
 \end{inaccessibleblock}
-\end{minipage}
-\hfill
-\begin{minipage}{.69\textwidth}
+}{
 Prima di affrontare i calcoli possiamo fare alcune osservazioni:
 \begin{enumerate} [nosep]
  \item i vari segmenti non sono in continuità uno con l'altro;
@@ -82,43 +80,41 @@ colonne;
  \item di sicuro l'area è maggiore di \(3 \cdot 3\);
  \item di sicuro l'area è minore di \(3 \cdot 7\);
 \end{enumerate}
-\end{minipage}
+}
 \end{esempio}
 
 La soluzione consiste nel calcolare l'area di ogni rettangolo e sommarli 
 tutti.
 Chiamiamo:
-\(\mathcal{A}_0\) l'area sottesa al segmento \(S_0\),\\
-\(\mathcal{A}_1\) l'area sottesa al segmento \(S_1\),\\
+\(\mathcal{A}_1\) l'area sottesa al segmento \(S_1\), 
+\quad (primo segmento)\\
 \dots\\
 \(\mathcal{A}_i\) l'area sottesa al segmento \(S_i\),\\
 \dots\\
 \(\mathcal{A}_n\) l'area sottesa al segmento \(S_n\)
-\quad
-(dove con \(n\) intendiamo l'ultimo segmento).\\
+\quad (ultimo segmento).\\
 
 Possiamo calcolare allora l'area con la seguente formula:
 \begin{align*}
-  \mathcal{A} &= \mathcal{A}_0 + \mathcal{A}_1 + \dots + 
+  \mathcal{A} &= \mathcal{A}_1 + \mathcal{A}_2 + \dots + 
                  \mathcal{A}_i + \dots + \mathcal{A}_n = \\
-              &= y_0 \cdot \Delta_x + y_1 \cdot \Delta_x + 
-                 y_2 \cdot \Delta_x + y_3 \cdot \Delta_x + 
-                 y_4 \cdot \Delta_x + y_5 \cdot \Delta_x = \\
+              &= y_1 \cdot \Delta t + y_2 \cdot \Delta t + 
+                 y_3 \cdot \Delta t + y_4 \cdot \Delta t + 
+                 y_5 \cdot \Delta t + y_6 \cdot \Delta t = \\
               &= ~5 \cdot 0,5\, + ~4 \cdot 0,5\, + ~6 \cdot 0,5\, + 
                  ~3 \cdot 0,5 + ~7 \cdot 0,5 + ~5 \cdot 0,5 = \\
               &= \quad\; 2,5 \; + \quad\; 2 \quad\; + \quad\; 3 \quad\, + 
-                 \quad\, 1,5 \; + \quad\, 3,5 \; + \quad\, 2,5 \; = 15
+                 \quad 1,5 \,\; + \quad 3,5 \,\; + \quad 2,5 \,\; = 15
 \end{align*}
 
-Le scritture usate per le formule scritte sopra non piacciono ai matematici 
-perché risultano lunghe da scrivere e nascondono, 
+Il metodo usato per scrivere queste formule non piace ai matematici 
+perché queste formule risultano lunghe e nascondono, 
 in mezzo a molti simboli che si ripetono, 
-la sostanza delle operazioni che vengono fatte . 
+la sostanza delle operazioni che vengono fatte. 
 È stato così inventato un altro simbolo detto 
 \emph{Sommatoria} che indica la somma di un certo numero di espressioni che 
 si assomigliano. Il simbolo usato è la \emph{Sigma} (la esse greca) maiuscola:
-
-\[\sum\]
+\(\sum\)
 
 Intorno a questo simbolo vengono aggiunte tutte le informazioni che servono 
 per precisare il calcolo:
@@ -128,11 +124,11 @@ per precisare il calcolo:
 caso:~\(i=0\);
  \item \emph{sopra}: l'ultimo valore dell'indice, nel nostro caso:~5;
  \item \emph{dopo}: cosa si somma, nel nostro caso: la formula per calcolare 
-l'area di ogni rettangolo da sommare: \(y_i \cdot \Delta_x\).
+l'area di ogni rettangolo da sommare: \(y_i \cdot \Delta t\).
 \end{itemize}
 
-\[\mathcal{A} = \sum_{i=0}^5 \mathcal{A}_i = 
-                \sum_{i=0}^5 y_i \cdot \Delta_x = 15\]
+\[\mathcal{A} = \sum_{i=1}^6 \mathcal{A}_i = 
+                \sum_{i=1}^6 y_i \cdot \Delta t = 15\]
 
 \ifcoding
 Con il linguaggio di programmazione Python:
@@ -157,35 +153,43 @@ L'integrale definito di una funzione \(f\) è proprio
 l'area compresa tra il grafico della funzione, l'asse delle ascisse 
 e due rette verticali per gli estremi \(a\) e \(b\) di un intervallo chiuso 
 in cui la funzione è definita.
+L'area sottesa dipende:
 
-Fissata la funzione f, tale area dipenderà dalla scelta degli estremi a e b 
-dell'intervallo, ed è possibile indicarla come: 
-\[\mathcal{A}(a,b)\]
+\affiancati{.49}{.49}{
+\begin{itemize} [nosep]
+\item dalla funzione,
+\item dagli estremi \(a\) e \(b\) dell'intervallo.
+\end{itemize}
+}{
+\(\qquad \longrightarrow \qquad\mathcal{A}(f,~a,~b)\)
+}
 
-La funzione binaria \(\mathcal{A}\), area sottesa ad una funzione in un 
-intervallo, ha due tipiche proprietà che potranno essere usate per 
-determinarla. Esse sono: 
+Se fissiamo la funzione \(f\), tale area dipenderà solo dalla scelta 
+degli estremi a e b dell'intervallo, ed è possibile indicarla come: \qquad
+\(\mathcal{A}_f(a,~b)\)
+
+\bigskip
+La funzione binaria area sottesa ad una funzione in un 
+intervallo, \(\mathcal{A}_f\), ha due tipiche proprietà che potranno essere 
+usate per determinarla. Esse sono: 
 
 \begin{enumerate}
  \item
 La \emph{proprietà additiva}, dice che se \(a\), \(b\) e \(t\) 
 sono tre valori che appartengono all'intervallo in cui è definita \(f\) e 
-\(a < t < b\)
-allora \(\mathcal{A}(a,~b)\) = 
-\(\mathcal{A}(a,~t)\)+\(\mathcal{A}(t,~b)\)).
+\quad \(a < t < b\) \quad allora \quad 
+\(\mathcal{A}_f(a,~b)\) = \(\mathcal{A}_f(a,~t)\)+\(\mathcal{A}_f(t,~b)\)).
 
-\begin{minipage}{.49\textwidth}
+\affiancati{.49}{.49}{
 \begin{inaccessibleblock}[Area sottesa ad una curva.] 
   \areasottesacurva
 \end{inaccessibleblock}
-\end{minipage}
-\hfill
-\begin{minipage}{.49\textwidth}
+}{
 \begin{inaccessibleblock}[Proprietà additiva per 
 un'area sottesa ad una curva.] 
   \propradditiva
 \end{inaccessibleblock}
-\end{minipage}
+}
 
 Questa proprietà afferma che se una superficie 
 viene divisa in due parti da una linea, 
@@ -196,170 +200,369 @@ Nel nostro caso la linea è la retta di equazione: \(x = t\).
 La \emph{proprietà rettangolare} rispetto alla funzione \(f\), 
 dice che se \(m\) è il minimo e \(M\) massimo della funzione \(f\) 
 nell'intervallo \(\intervcc{a}{b}\)
-allora \\
-\(m\cdot(b-a) = \mathcal{A}_{mi}(a,~b) \leq \mathcal{A}(a,~b) \leq
-                       \mathcal{A}_{ma}(a,~b) = M\cdot(b-a)\),
+allora: \quad
+\(m\cdot(b-a) \leq \mathcal{A}_f(a,~b) \leq M\cdot(b-a)\).
 
-\begin{minipage}{.49\textwidth}
+% \[m\cdot(b-a) = \mathcal{A}_{mi}(a,~b) \leq \mathcal{A}_f(a,~b) \leq
+%                        \mathcal{A}_{ma}(a,~b) = M\cdot(b-a)\]
+% 
+% \vspace{-1em}
+\affiancati{.49}{.49}{
 \begin{inaccessibleblock}[Rettangolo minore dell'area sottesa.] 
   \areaminore
 \end{inaccessibleblock}
-\end{minipage}
-\hfill
-\begin{minipage}{.49\textwidth}
+}{
 \begin{inaccessibleblock}[Rettangolo maggiore dell'area sottesa.] 
   \areamaggiore
 \end{inaccessibleblock}
-\end{minipage}
+}
 
 Questa proprietà afferma che l'area sottesa ad una funzione è maggiore 
 dell'area di un rettangolo di ugual base che ha per altezza il minimo della 
 funzione \(f\) nell'intervallo \(\intervcc{a}{b}\) 
-e minore di un rettangolo con la stessa base che ha per altezza il massimo 
+e è minore di un rettangolo con la stessa base che ha per altezza il massimo 
 della funzione \(f\) nell'intervallo \(\intervcc{a}{b}\). 
 \end{enumerate}
 
-\section{Definizione}
+\section{L'integrale definito}
 \label{sec:integrali_definizione}
 
-\begin{minipage}{.49\textwidth} 
+\affiancati{.49}{.49}{
 Consideriamo una funzione \(f\) definita in tutto un intervallo \(I\) a cui 
 appartengono i punti \(a\) e \(b\), e una partizione dell'intervallo chiuso 
-\(\intervcc{a}{b}\) in sotto intervalli di uguale ampiezza \(\Delta\) 
+\(\intervcc{a}{b}\) in sotto intervalli di uguale ampiezza \(\Delta t\) 
 separati dai punti: 
 \(a = t_0 < t_1 < \dots < t_h \le b\) \\
-dove \(t_i = t_0 +i \Delta\) \quad e \quad \(t_{i+1} - t_i= \Delta\) \\
-e dove \(h\) è il massimo numero naturale tale che: \\
-\(t_0 + h \Delta \le b\), e dunque \(b-t_h \le \Delta\). 
+dove \(t_i = t_0 +i \cdot \Delta t\) \quad e \quad \(t_{i+1} - t_i= \Delta 
+x\) \\
+e dove \(h\) è il massimo numero naturale tale che: \quad
+\(t_0 + h \cdot \Delta t \le b\), e dunque \(b-t_h \le \Delta t\). 
+
 Il segmento \(ab\) è dunque uguale alla somma di \(h\) segmenti di lunghezza 
-\(\Delta\) più il segmento che va da \(t_h\) a \(b\):
-\(ab = h \cdot \delta + (b - t_h)\)
-\end{minipage}
-\hfill
-\begin{minipage}{.49\textwidth}
+\(\Delta t\) più il segmento che va da \(t_h\) a \(b\):
+\(ab = h \cdot \Delta t + (b - t_h)\)
+}{
 \begin{inaccessibleblock}[Somma di Riemann.] 
   \sommariemann
 \end{inaccessibleblock}
-\end{minipage}
+}
 
-Si può considerare la sommatoria:
-\[\left(\sum_{i=0}^{h-1} f(t_i)\cdot\Delta \right)+f(t_h)\cdot(b-t_h)\] 
-che è l'area dell'unione dei rettangoli che 
-hanno per altezza \(f(t_i)\) 
-e per base i segmenti di lunghezza \(\Delta\)) e un segmento di lunghezza \(b 
-- t_{h}\). 
-
-Chiamiamo questa area \emph{somma di Riemann finita}.
+La somma di tutti quei rettangoli è detta \emph{Somma di Riemann} e
+la indicheremo con: 
+\[\mathcal{S}_R \tonda{f,~a,~b,~\Delta} = \sum_a^b f \cdot \Delta t\]
+\begin{newdef}{}{}
+\emph{Somma di Riemann} è l'area dell'unione dei rettangoli che 
+hanno per altezza \(f(t_i)\) e per base i segmenti di lunghezza 
+\(\Delta t\)) e un segmento di lunghezza \(b - t_{h}\): 
+\[\mathcal{S}_R \tonda{f,~a,~b,~\Delta} = 
+\left(\sum_{i=0}^{h-1} f(t_i)\cdot\Delta t \right)+f(t_h)\cdot(b-t_h) = 
+\sum_a^b f \cdot \Delta t\] 
+\end{newdef}
 
 Abbiamo già dimostrato che una funzione \(f\) continua in 
-\(\intervcc{a}{b}\) in un intervallo chiuso ha massimo e minimo. 
+un intervallo chiuso ha massimo e minimo. 
 Chiamiamo \(M\) il massimo e \(m\) il minimo di \(f\) nell'intervallo 
 \(\intervcc{a}{b}\).
 
 Allora anche per la somma di Riemann finita vale la proprietà rettangolare: 
-\[m\cdot(b - a) \le \sum_a^b f \cdot\Delta \le M\cdot(b - a)\] 
+\[m\cdot(b - a) \le \sum_a^b f \cdot\Delta t \le M\cdot(b - a)\] 
 Quindi una somma di Riemann finita è senz'altro un numero finito.
 
 Questa sommatoria dipende:
-% \begin{multicols}{3} 
+
+\vspace{-1em}
+\begin{multicols}{3} 
 \begin{itemize} [nosep]
  \item dalla funzione \(f\),
  \item dagli estremi \(a\) e \(b\),
- \item dall'intervallo \(\Delta\).
+ \item dall'intervallo \(\Delta t\).
 \end{itemize}
-% \end{multicols}
+\end{multicols}
 
-Poiché \(h\) e la successione dei numeri \(t_i\) determinati 
-dalle quantità indicate, sicché la denoteremo come 
-\[\sum_a^b f \cdot \Delta\] 
+\vspace{-.5em}
+\noindent mentre \(h\) e la successione dei numeri \(t_i\) sono determinati 
+dalle quantità indicate. 
+
 Se fissiamo la funzione \(f\), e gli estremi \(a\) e \(b\) allora la somma di 
 Riemann è una funzione reale unaria che dipende solo dall'intervallo  
-\(\Delta\). 
+\(\Delta t\). 
 
-% ESEMPI DI SOMME DI RIEMANN AL VARIARE DI DELTA % TODO
+\begin{esempio}
+Data la funzione \(f(x) = \dfrac{1}{2}x +3\) e 
+l'intervallo \(\intervcc{-2}{+5}\)
+calcola la somma di Riemann per \(\Delta t = 1\) e
+per \(\Delta t = 2\) e confronta i due risultati.
 
-Possiamo osservare che al diminuire della distanza \(\Delta\) tra i punti di 
-partizione l'area coperta da questa unione di rettangoli sarà sempre più 
-vicina all'area sottesa alla funzione.
+Calcoliamo la somma di Riemann con \(\Delta t = 1\).
 
-Usando i numeri iperreali possiamo dare a \(\Delta\) un valore infinitesimo e 
-per distinguerlo lo chiameremo: \(dt\).
+Calcoliamo i punti di ripartizione, e i valori della funzione in quei 
+punti:
+
+\affiancati{.64}{.34}{
+\begin{center}
+\begin{tabular}{ccccccccc}
+\(i\) & \(0\) & \(1\) & \(2\) & \(3\) & \(4\) & \(5\) & \(6\) & \(7\) \\
+\midrule
+\(t_i\) & \(-2\) & \(-1\) & \(~~0\) & \(+1\) & \(+2\) & \(+3\) & 
+\(+4\) & \(+5\) \\
+\(f(t_i)\) & \(+2\) & \(+2,5\) & \(+3\) & \(+3,5\) & \(+4\) & 
+\(+4,5\) & \(+5\) & \(+5,5\) \\
+\midrule
+\end{tabular}
+\end{center}
+Il numero di intervalli è: \\[.5em]
+\hspace*{15mm}\(h = \left \lfloor \dfrac{+5 - (-2)}{1} \right \rfloor = 7\)\\
+dove \(\lfloor a \rfloor\) indica la parte intera di \(a\).
+}{
+\begin{inaccessibleblock}[] 
+%   \begin{center} \sommariemannesea{1}{2, 2.5, 3, 3.5, 4, 4.5} \end{center}
+  \begin{center} \sommariemannesempa \end{center}
+\end{inaccessibleblock}
+}
+
+L'ultimo punto di partizione coincide esattamente con l'estremo 
+dell'intervallo quindi il calcolo si semplifica un po'.
+\begin{align*}
+\mathcal{S}_R \tonda{f,~a,~b,~\Delta} &= \sum_a^b f(x) \cdot \Delta t =
+   \tonda{\sum_{i=0}^{h -1} f(t_i) \cdot \Delta t} +f(t_h)\cdot(b-t_h) = \\
+&= \tonda{\sum_{i=0}^{6} f(t_i) \cdot 1} +f(t_7) \cdot 0 = 
+   +2+2,5+3+3,5+4+4,5+5 = 24,5
+\end{align*}
+Calcoliamo ora la somma di Riemann con \(\Delta t = 2\).
+
+Calcoliamo i punti di ripartizione, e i valori della funzione in quei 
+punti:
+
+\vspace{.5em}
+\affiancati{.64}{.34}{
+\begin{center}
+\begin{tabular}{ccccccccc}
+\(i\) & \(0\) & \(1\) & \(2\) & \(3\) \\
+\midrule
+\(t_i\) & \(-2\) & \(~~0\) & \(+2\) & \(+4\) \\
+\(f(t_i)\) & \(+2\) & \(+3\) & \(+4\) & \(+5\) \\
+\midrule
+\end{tabular}
+\end{center}
+Il numero di intervalli completi è: \\[.5em]
+\hspace*{15mm}\(h = \left \lfloor \dfrac{+5 - (-2)}{2} \right \rfloor = 3\).
+
+L'ultimo intervallo ha ampiezza: \\ 
+\hspace*{15mm}
+\(b - \tonda{a +h \cdot \Delta t} = 5 - \tonda{-2 +2 \cdot 3} = +1\).
+}{
+\begin{inaccessibleblock}[] 
+%   \begin{center} \sommariemannesea{2}{2, 3, 4} \end{center}
+  \begin{center} \sommariemannesempb \end{center}
+\end{inaccessibleblock}
+}
+
+Dato che nella sommatoria l'ampiezza degli intervalli è sempre la stessa 
+possiamo raccoglierla a fattore comune:
+\begin{align*}
+\mathcal{S}_R \tonda{f,~a,~b,~\Delta} &= \sum_a^b f(x) \cdot \Delta t =
+   \tonda{\sum_{i=0}^{h -1} f(t_i) \cdot \Delta t} +f(t_h)\cdot(b-t_h) = \\
+&= \tonda{\sum_{i=0}^{2} f(t_i) \cdot 2} +f(t_3) \cdot 1 = 
+   +2 \tonda{+2+3+4} + 5 \cdot 1 = 23
+\end{align*}
+\end{esempio}
+
+\begin{newoss*}{}{}
+Al diminuire della distanza \(\Delta t\) tra i punti di partizione l'area 
+coperta da questa unione di rettangoli sarà sempre più vicina all'area 
+sottesa alla funzione.
+\end{newoss*}
+Usando i numeri iperreali possiamo dare a \(\Delta t\) un valore infinitesimo 
+e, per distinguerlo, lo chiameremo: \(dt\) (de ti).
 
 Chiamiamo \(H\) il numero infinito di partizioni dell'intervallo 
-\(\intervcc{a}{b}\) tale che \(x_H = t_0 + H \cdot dt\) e \(t_H \le b\).
+\(\intervcc{a}{b}\) tale che \(x_H = t_0 + H \cdot dt\) con: \quad 
+\(t_H \le b\) ~~e~~ \(t_{H+1} > b\).
 
 Chiamiamo \emph{somma di Riemann infinita} questa nuova sommatoria:
-\[\sum_a^b f \cdot dt\]
+\[\mathcal{S}_{RI} \tonda{f,~a,~b,~dt} = \sum_a^b f \cdot dt\]
 Per il principio di transfer, anche per la somma di Riemann infinita vale 
 che 
 \[m \cdot (b - a) \le  \sum_a^b f \cdot dt  \le M\cdot(b - a)\]
-e pertanto anche la somma di Riemann infinita sarà un iperreale finito. 
-Possiamo quindi calcolare la sua parte standard. 
+Pertanto la somma di Riemann infinita sarà un iperreale finito e 
+possiamo quindi calcolare la sua parte standard. 
 
-A questa parte standard diamo il nome di \emph{integrale definito}
-\begin{definizione}
+A questa parte standard diamo il nome di \emph{integrale definito} e
+associamo un nuovo simbolo.
+\begin{newdef}{}{}
 Data una funzione standard \(f\) continua su \(\intervcc{a}{b}\),
 chiamiamo \emph{integrale definito} la parte standard della 
 somma di Riemann infinita:
-\[\pst{\sum_a^b f \cdot dt}\]
-\end{definizione}
-
-Per semplificare un po' la notazione useremo per indicare questa quantità un 
-nuovo simbolo, una specie di esse stirata che è il simbolo di integrale:
 \[\int_a^b f \cdot dt = \pst{\sum_a^b f \cdot dt}\]
+\end{newdef}
+
+% Per semplificare un po' la notazione useremo per indicare questa quantità 
+% un nuovo simbolo, una specie di esse stirata che è il simbolo di 
+% integrale:
+% \[\int_a^b f \cdot dt = \pst{\sum_a^b f \cdot dt}\]
 
 \section{Somme di Riemann inferiore e superiore}
 \label{sec:integrali_somme_riemann}
 
-Mentre le somme di Riemann finite dipendono dal valore di \(\Delta\), i 
-matematici hanno dimostrato che le somme di Riemann infinite non dipendono 
-dall'infinitesimo scelto come base dei rettangolini.
-
-Ma, anche accettando la precedente affermazione, il lettore attento e pignolo 
-può avere il dubbio che definendo somme di 
-Riemann in modo diverso si ottengano integrali definiti diversi. 
-Noi abbiamo 
-calcolato l'area dei rettangolini prendendo come altezza il valore di \(f\) 
-nell'estremo sinistro dell'intervallo, ma cosa succede se consideriamo 
-l'estremo destro o se consideriamo un punto a caso dell'intervallo?
+% Mentre le somme di Riemann finite dipendono dal valore di \(\Delta t\), i 
+% matematici hanno dimostrato che le somme di Riemann infinite non dipendono 
+% dall'infinitesimo scelto come base dei rettangolini.
+% 
+% Ma, anche accettando la precedente affermazione, il lettore attento e 
+% pignolo può avere il dubbio che definendo somme di 
+% Riemann in modo diverso si ottengano integrali definiti diversi. 
+Il lettore attento e pignolo può avere il dubbio che definendo somme di 
+Riemann in modo diverso si ottengano 
+aree diverse.
+integrali definiti diversi. 
+Questo è senz'altro vero.
+Noi abbiamo calcolato l'area dei rettangolini prendendo come altezza il 
+valore di \(f\) nell'estremo sinistro dell'intervallo, ma cosa succede se 
+consideriamo l'estremo destro o se consideriamo un altro punto 
+dell'intervallo?
 
 Vediamo qualche esempio:
 % 
 % ESEMPI DI SOMME DI RIEMANN FINITE CON SCELTE DIVERSE DI F(Xi) % TODO
 
-Se in ogni sottointervallo chiamiamo \({}_{-}f(t_i)\) il minimo valore 
-assunto dalla funzione e \({}^{-}f(t_i)\) il suo massimo valore, allora 
-possiamo definire le somme di Riemann finite superiore e inferiore. \\
-La somma di Riemann finita inferiore è: 
-\[\sum_{i=0}^h{}_{-}f(t_i)\cdot\Delta = \sum_a^b{}_{-} f \cdot \Delta\] 
-e quella superiore è: 
-\[\sum_{i=0}^h {}^{-}f(t_i)\cdot\Delta = \sum_a^b {}^{-}f \cdot \Delta\]
+\begin{esempio}
+Data la funzione \(f(x) = \dfrac{1}{2}x^2 +2x +3\), 
+l'intervallo \(\intervcc{1}{+8}\)
+e \(\Delta t = 2\).
+Calcola la somma di Riemann prendendo come altezza di ogni triangolo: 
+
+\begin{enumerate} [nosep]
+\item il valore di \(f\) nel punto sinistro del rettangolino;
+\item il valore di \(f\) nel punto destro del rettangolino;
+\item il valore di \(f\) nel punto centrale del rettangolino
+\end{enumerate}
+
+Calcoliamo i punti di ripartizione, e i valori della funzione in quei 
+punti:
+
+\begin{center}
+\begin{tabular}{cccccc}
+\(i\) & \(0\) & \(1\) & \(2\) & \(3\) & \(b\) \\
+\midrule
+\(t_i\) & \(+1\) & \(+3\) & \(+5\) & \(+7\) & \(+8\) \\
+\(f(t_i)\) & \(1,25\) & \(+1,25\) & \(3,25\) & \(+7,25\) & \(+10\) \\
+\midrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item altezze  uguali a \(f(t_i)\)
+
+\affiancati{.54}{.44}{
+\begin{align*}
+\mathcal{S}_{R_1} \tonda{f,~a,~b,~\Delta} &= 
+   \sum_a^b f(x) \cdot \Delta t = \\
+&= \tonda{\sum_{i=0}^{h -1} f(t_i) \cdot \Delta t} +f(t_h)\cdot(b-t_h) = \\
+&= \tonda{\sum_{i=0}^{2} f(t_i) \cdot 2} +f(t_3) \cdot 1 = \\
+&= +2 \tonda{1,25 +1,25 +3,25} + 7 \cdot 1 = 18,5
+\end{align*}
+}{
+\begin{inaccessibleblock}[] 
+%   \begin{center} \sommariemannesea{1}{2, 2.5, 3, 3.5, 4, 4.5} \end{center}
+%   \begin{center} \sommariemannesempc \end{center}
+\scalebox{.8}{\sommariemannesempc}
+\end{inaccessibleblock}
+}
+
+\item altezze  uguali a \(f(t_{i+1})\)
+
+\affiancati{.54}{.44}{
+\begin{align*}
+\mathcal{S}_{R_2} \tonda{f,~a,~b,~\Delta} &= 
+   \sum_a^b f(x) \cdot \Delta t = \\
+&= \tonda{\sum_{i=0}^{h -1} 
+               f(t_{i+1}) \cdot \Delta t} +f(t_h)\cdot(b-t_h) = \\
+&= \tonda{\sum_{i=0}^{2} f(t_{i+1}) \cdot 2} +f(t_3) \cdot 1 = \\
+&= +2 \tonda{1,25 +3,25 +7,25} + 10 \cdot 1 = 32,5
+\end{align*}
+}{
+\begin{inaccessibleblock}[] 
+%   \begin{center} \sommariemannesea{1}{2, 2.5, 3, 3.5, 4, 4.5} \end{center}
+%   \begin{center} \sommariemannesempc \end{center}
+\scalebox{.8}{\sommariemannesempd}
+\end{inaccessibleblock}
+}
+
+\item altezze  uguali a \(f((t_{i}+t_{i+1})/2) = f(t_{m_i})\)
+
+Calcoliamo i punti di ripartizione, e i valori della funzione in quei 
+punti:
+
+\affiancati{.54}{.44}{
+\begin{align*}
+\mathcal{S}_{R_2} \tonda{f,~a,~b,~\Delta} &= 
+   \sum_a^b f(x) \cdot \Delta t = \\
+&= \tonda{\sum_{i=0}^{h -1} 
+               f(t_{m_i}) \cdot \Delta t} +f(t_h)\cdot(b-t_h) = \\
+&= \tonda{\sum_{i=0}^{2} f(t_{m_i}) \cdot 2} +f(t_{m_3}) \cdot 1 = \\
+&= +2 \tonda{1 +2 +5} + 8.5 \cdot 1 = 24,5
+\end{align*}
+}{
+\begin{inaccessibleblock}[] 
+%   \begin{center} \sommariemannesea{1}{2, 2.5, 3, 3.5, 4, 4.5} \end{center}
+%   \begin{center} \sommariemannesempc \end{center}
+\scalebox{.8}{\sommariemannesempe}
+\end{inaccessibleblock}
+}
+\end{enumerate}
+\end{esempio}
+
+\begin{newoss}{}{}
+Il terzo metodo approssima l'area sottesa meglio degli altri due, ma non è 
+detto che questo valga per ogni funzione.
+
+In ogni caso l'area che otteniamo con le somme di Riemann finite è sempre 
+un'approssimazione dell'area sottesa alla funzione mentre sarebbe molto 
+interessante un metodo per calcolare \emph{esattamente} l'area sottesa.
+\end{newoss}
+
+
+In generale se in ogni sottointervallo chiamiamo \({}_{-}f(t_i)\) il minimo 
+valore assunto dalla funzione e \({}^{-}f(t_i)\) il suo massimo valore, 
+allora possiamo definire le somme di Riemann finite superiore e inferiore. 
+\begin{newdef}{}{}
+
+\begin{enumerate}[nosep]
+\item La somma di Riemann finita inferiore è: \qquad
+\(\displaystyle
+\sum_{i=0}^h{}_{-}f(t_i)\cdot\Delta t = \sum_a^b{}_{-} f \cdot \Delta t\) 
+\item La somma di Riemann finita superiore è: \qquad
+\(\displaystyle
+\sum_{i=0}^h {}^{-}f(t_i)\cdot\Delta t = \sum_a^b {}^{-}f \cdot \Delta t\)
+\end{enumerate}
+\end{newdef}
+
 Evidentemente 
-\[\sum_a^b{}_{-}f \cdot \Delta \le \sum_a^b f \cdot \Delta \le 
-\sum_a^b {}^{-}f \cdot \Delta\] 
-poiché ogni rettangolino della prima somma ha un'altezza non maggiore 
-dell'altezza del corrispondente rettangolino della seconda somma e:
+\[\sum_a^b{}_{-}f \cdot \Delta t \le \sum_a^b f \cdot \Delta t \le 
+\sum_a^b {}^{-}f \cdot \Delta t\] 
+poiché ogni rettangolino della prima somma ha un'altezza minore o uguale 
+all'altezza del corrispondente rettangolino della seconda somma e:
 
 \begin{itemize} [nosep]
- \item per la proprietà rettangolare, l'area sottesa alla funzione in ogni 
-sottointervallo, sarà compresa tra il rettangolino inferiore e quello 
-superiore.
- \item per la proprietà additiva, l'area sottesa alla funzione sarà maggiore 
+\item per la proprietà rettangolare, l'area sottesa alla funzione in ogni 
+sottointervallo, sarà compresa tra l'area del rettangolino inferiore e 
+quella del rettangolino superiore.
+\item per la proprietà additiva, l'area sottesa alla funzione sarà maggiore 
 della somma di tutti i rettangolini inferiori e minore della somma di tutti i 
 rettangolini superiori.
 \end{itemize}
 
-\begin{minipage}{.49\textwidth}
-\begin{inaccessibleblock}[Somma dei rettangolini contenuti nell'area sottesa.] 
-  \riemanninferiore
+\affiancati{.49}{.49}{
+\begin{inaccessibleblock}[Somma dei rettangolini contenuti nell'area 
+sottesa.] 
+\begin{center} \riemanninferiore \end{center}
 \end{inaccessibleblock}
-\end{minipage}
-\hfill
-\begin{minipage}{.49\textwidth}
-\begin{inaccessibleblock}[Somma dei rettangolini che contengono l'area sottesa.] 
-  \riemannsuperiore
+}{
+\begin{inaccessibleblock}[Somma dei rettangolini che contengono l'area 
+sottesa.] 
+\begin{center} \riemannsuperiore \end{center}
 \end{inaccessibleblock}
-\end{minipage}
+}
 
   Passando alle loro estensioni naturali non standard, cioè riducendo la base 
 di ogni rettangolino a un infinitesimo risulta ancora 
@@ -370,16 +573,17 @@ Ma se \(dt\) è un infinitesimo e la funzione è continua, allora anche la
 differenza tra \({}_{-}f(t_0)\) e \({}^{-}f(t_0)\) è un infinitesimo (per la 
 definizione di funzione continua) e il prodotto tra questa differenza e 
 l'intervallo \(dt\) è un infinitesimo di ordine superiore 
-all'area di un rettangolino perciò anche la somma, 
-pur infinita, di questi prodotti è un infinitesimo. 
-Quindi la differenza tra la somma di Riemann infinita 
+all'area di un rettangolino 
+(che è data dal prodotto di un numero non infinitesimo per un infinitesimo) 
+perciò anche la somma, pur infinita, di questi prodotti è un infinitesimo. 
+La differenza tra le somme di Riemann infinite 
 superiore e inferiore è un infinitesimo mentre il valore di una di queste 
-somme è un valore finito perciò le due somme sono indistinguibili e la loro 
-parte standard è la stessa.
+somme è un valore non infinitesimo, perciò le due somme sono indistinguibili 
+e la loro parte standard è la stessa.
 \[\sum_a^b {}_{-}f \cdot dt \sim \sum_a^b {}^{-}f \cdot dt \sRarrow 
   \int_a^b {}_{-}f \cdot dt = \int_a^b {}^{-}f \cdot dt\]
-Possiamo perciò chiamare integrale la parte standard di una una qualsiasi 
-somma di Riemann infinita:
+Possiamo quindi chiamare \emph{integrale} la parte standard di una 
+qualsiasi somma di Riemann infinita:
 \[\int_b^a f \cdot dt = \pst{\sum_a^b {}_{-}f \cdot dt} =
                         \pst{\sum_a^b {}^{-}f \cdot dt}\]
 
@@ -393,55 +597,87 @@ Partendo dalle disuguaglianze relative alla somma di Riemann infinita:
 \[m \cdot (b - a) \le  \sum_a^b f \cdot dt  \le M\cdot(b - a)\]
 e passando alle parti standard, che 
 preservano le disuguaglianze, poiché il primo e l'ultimo termine sono parti 
-standard di se stessi in quanto reali, si ha: 
+standard di se stessi in quanto reali, si ha che anche per 
+l'integrale vale la proprietà rettangolare.
+\begin{newtheo}{}{}
+L'integrale di una funzione in un intervallo è minore del rettangolo che 
+ha per base \(ab\) e per altezza il massimo della funzione e è maggiore del 
+rettangolo che ha per base \(ab\) e per altezza il minimo della funzione:
 \[m \cdot(b - a) \le  \int_a^b f \cdot dt  \le M\cdot(b - a)\] 
-e quindi anche per l'integrale vale la proprietà rettangolare.
+\end{newtheo}
 
 \subsection{Altre proprietà }
 \label{subsec:integrali_altre_proprieta}
 
 Dalla definizione di integrale seguono le seguenti proprietà:
 \begin{enumerate}
- \item se l'intervallo è nullo, sarà nullo anche l'integrale:
-\[\int_a^a f \cdot dt=0\] 
- \item l'integrale di una costante \(k\) è uguale all'area del rettangolo:
-\[\int_a^b k \cdot dt = k \cdot (b-a)\]
- \item l'integrale di una costante \(k\) per una funzione \(f\) è uguale alla 
-costante per l'integrale della funzione:
-\[\int_a^b k \cdot f \cdot dt = k\cdot\int_a^b f \cdot dt\]
- \item l'integrale della somma di due funzioni è uguale alla somma degli 
-integrali:
-\[\int_a^b (f+g)\cdot dt = \int_a^b f \cdot dt + \int_a^b g\cdot dt\]
- \item se, in un certo intervallo, la funzione \(f\) è sempre inferiore alla 
+ \item ~\\ [-3.5em]
+\begin{newtheo}{}{}
+Se l'intervallo è nullo, sarà nullo anche l'integrale: \quad
+\(\displaystyle \int_a^a f \cdot dt = 0\) 
+\end{newtheo}
+
+ \item ~\\ [-3.5em]
+\begin{newtheo}{}{}
+L'integrale di una costante \(k\) è uguale all'area del rettangolo: \\
+\hspace*{40mm}
+\(\displaystyle \int_a^b k \cdot dt = k \cdot (b-a)\) 
+\end{newtheo}
+
+ \item ~\\ [-3.5em]
+\begin{newtheo}{}{}
+L'integrale di una costante \(k\) per una funzione \(f\) è uguale alla 
+costante per l'integrale della funzione: \quad
+% \hspace*{30mm}
+\(\displaystyle \int_a^b k \cdot f \cdot dt = k\cdot\int_a^b f \cdot dt\) 
+\end{newtheo}
+
+ \item ~\\ [-3.5em]
+\begin{newtheo}{}{}
+L'integrale della somma di due funzioni è uguale alla somma degli 
+integrali: \quad
+% \hspace*{30mm}
+\(\displaystyle 
+\int_a^b (f+g)\cdot dt = \int_a^b f \cdot dt + \int_a^b g\cdot dt\) 
+\end{newtheo}
+
+ \item ~\\ [-3.5em]
+\begin{newtheo}{}{}
+Se, in un certo intervallo, la funzione \(f\) è sempre inferiore alla 
 funzione \(g\) allora, in quell'intervallo, anche l'integrale di \(f\) è 
-minore dell'integrale di \(g\):
-\[f \le g \quad \forall t \in \intervcc{a}{b} \sRarrow 
-\int_a^b f \cdot dt \le \int_a^b g\cdot dt\]
+minore dell'integrale di \(g\): \quad
+% \hspace*{30mm}
+\(\displaystyle 
+f(t) \le g(t) \quad \forall t \in \intervcc{a}{b} \sRarrow 
+\int_a^b f \cdot dt \le \int_a^b g\cdot dt\) 
+\end{newtheo}
 \end{enumerate}
 
 \subsection{Definizione di opposto}
 \label{subsec:integrali_opposto}
 
-Definiamo poi che, se scambiamo gli estremi di integrazione, otteniamo 
-l'opposto dell'integrale definito:
+Non discende dalle considerazioni precedenti, ma è molto comodo pensare  
+che, se scambiamo gli estremi di integrazione, otteniamo 
+l'opposto dell'integrale definito.
+\begin{newdef}{}{}
 \[\int_b^a f \cdot dt = - \int_a^b f \cdot dt\]
+\end{newdef}
 
 \subsection{Proprietà additiva}
 \label{subsec:integrali_proprieta_additiva}
 
 Poiché la scelta del sottointervallo infinitesimo non cambia il valore 
 dell'integrale definito, 
-nell'integrale vale anche la proprietà additiva, infatti: 
-\[\int_a^b f \cdot dt + \int_b^c f \cdot dt = \int_a^c f \cdot 
-dt\] 
-Passando poi alle sommatorie infinite:
+nell'integrale vale anche la proprietà additiva. 
+\begin{newtheo}{}{}
+\[\int_a^b f \cdot dt + \int_b^c f \cdot dt = \int_a^c f \cdot dt\] 
+\end{newtheo}
+Infatti, considerando le sommatorie infinite:
 \[\sum_a^b f \cdot dt,\quad \sum_b^c f \cdot dt \quad\text{ e } \quad 
   \sum_a^c f \cdot dt\] 
-e prendendo 
-\(dt = (b-a)/H\)
-con \(H\) ipernaturale infinito, 
+e prendendo \(dt = \dfrac{b-a}{H}\) con \(H\) ipernaturale infinito, 
 i punti di ripartizione degli intervalli \(\intervcc{a}{b}\) e 
-\(\intervcc{b}{c}\) coincidono con quelli dell'intervallo \(\intervcc{a}{c}\)
+\(\intervcc{b}{c}\) coincidono con quelli dell'intervallo \(\intervcc{a}{c}\) 
 sicché la terza sommatoria è evidentemente la somma delle altre due.
 Passando alle loro parti standard, operazione che preserva l'addizione, si 
 ottiene il risultato voluto.
@@ -461,14 +697,14 @@ troverebbero soluzione nei casi particolari.
 
 Il problema consiste nel calcolare l'area sottesa ad una funzione continua in 
 funzione del solo secondo estremo:
-\[\mathcal{S}(x) = \int_{\dots}^x f~dx \] %= \int f~dx\] 
+\[\mathcal{S}(x) = \int_{\dots}^x f~dt \] %= \int f~dt\] 
 
-Con \(\int_{}^x f~dx\) intendiamo l'area sottesa fino a \(x\).
+Con \(\int_{}^x f~dt\) intendiamo l'area sottesa fino a \(x\).
 
 Noi sappiamo che per la proprietà additiva degli integrali l'area sottesa 
 fino a \(x\) è uguale alla somma dell'area sottesa fino ad \(a\) più l'area 
 sottesa alla funzione tra \(a\) e \(x\):
-\[\int_{}^x f~dx = \int_{}^a f~dx + \int_{a}^x f~dx \sRarrow
+\[\int_{}^x f~dt = \int_{}^a f~dt + \int_{a}^x f~dt \sRarrow
   \mathcal{S}(\dots ;~x) = \mathcal{S}(\dots ;~a) + \mathcal{S}(a;~x)\]
 
 Apparentemente questo passaggio non ha migliorato la situazione, perché 
@@ -477,155 +713,139 @@ somma di una quantità definita: ``integrale da \(a\) a \(x\)'' più
 ``integrale fino ad \(a\)'' che è ancora una quantità incognita.
 
 D'ora in poi, la \emph{superficie fino a \(x\)} verrà indicata in modo un 
-po' 
-più semplice:
-\[\mathcal{S}(x) = \int_{\dots}^x f~dx = \int f~dx\]
+po' più semplice:
+\[\mathcal{S}(x) = \int_{\dots}^x f~dt = \int f~dt\]
 
-\begin{minipage}{.49 \textwidth} 
+\affiancati{.49}{.49}{
 Ora, non sappiamo quanto sia \(\mathcal{S}(\dots ;~a)\) cioè la superficie 
 sottesa alla funzione fino ad \(a\), ma di sicuro non dipende ad \(x\), cioè, 
 al variare di \(x\), rimane costante.
 
-Possiamo perciò concentrarci sul calcolo di \(\int_{a}^x f~dx\) sapendo che a 
+Possiamo perciò concentrarci sul calcolo di \(\int_{a}^x f~dt\) sapendo che a 
 seconda della scelta di \(a\) il risultato ottenuto potrà differire, da 
 quello atteso, solo per una costante \(\mathcal{C}_a\)
 che dipende dalla scelta di \(a\).
 
 Quindi:
-\[\int f~dx = \int_{a}^x f~dx + \mathcal{C}_a\]
-\end{minipage}
-\hfill
-\begin{minipage}{.49 \textwidth}
+\[\int f~dt = \int_{a}^x f~dt + \mathcal{C}_a\]
+}{
 \begin{inaccessibleblock}[] 
   \begin{center} \intfinox \end{center}
 \end{inaccessibleblock}
-\end{minipage}
+}
 
-
+Prima di procedere, vediamo alcuni casi particolari (e particolarmente 
+semplici).
 \begin{esempio}
-Calcola il valore dell'integrale: \(\int_3^x 2~dx\)
+Calcola il valore dell'integrale: \(\displaystyle \int_3^x 2~dt\)
 
 Diamo alcuni valori alla \(x\) e osservando la figura possiamo calcolare 
 l'area sottesa:
 
-\begin{minipage}{.59 \textwidth} 
-\[S(3;~4) = \int_3^4 2~dx = 2\] 
-\[S(3;~5) = \int_3^5 2~dx = 4\] 
-\[S(3;~6) = \int_3^6 2~dx = 6\]
+\affiancati{.59}{.39}{
+\[S(3;~4) = \int_3^4 2~dt = 2\] 
+\[S(3;~5) = \int_3^5 2~dt = 4\] 
+\[S(3;~6) = \int_3^6 2~dt = 6\]
 
-In generale avremo: 
-\[S(3;~x) = \int_3^x 2~dx = 2x -6\]
-\end{minipage}
-\hfill
-\begin{minipage}{.39 \textwidth}
+In generale avremo: \quad 
+\(\displaystyle S(3;~x) = \int_3^x 2~dt = 2x -6\)
+}{
 \begin{inaccessibleblock}[] 
   \begin{center} \funzint{2}{3}{4}{6}{2} \end{center}
 \end{inaccessibleblock}
-\end{minipage}
+}
 \end{esempio}
 
 \begin{esempio}
-Calcola il valore dell'integrale: \(\int_1^x 2~dx\)
+Calcola il valore dell'integrale: \(\displaystyle \int_1^x 2~dt\)
 
 Diamo alcuni valori alla \(x\) e osservando la figura possiamo calcolare 
 l'area sottesa:
 
-\begin{minipage}{.59 \textwidth} 
-\[S(1;~4) = \int_1^4 2~dx = 6\] 
-\[S(1;~5) = \int_1^5 2~dx = 8\] 
-\[S(1;~6) = \int_1^6 2~dx = 10\]
+\affiancati{.59}{.39}{
+\[S(1;~4) = \int_1^4 2~dt = 6\] 
+\[S(1;~5) = \int_1^5 2~dt = 8\] 
+\[S(1;~6) = \int_1^6 2~dt = 10\]
 
-In generale avremo: 
-\[S(1;~x) = \int_1^x 2~dx = 2x -2\]
-\end{minipage}
-\hfill
-\begin{minipage}{.39 \textwidth}
+In generale avremo: \quad
+\(\displaystyle S(1;~x) = \int_1^x 2~dt = 2x -2\)
+}{
 \begin{inaccessibleblock}[] 
   \begin{center} \funzint{2}{1}{4}{6}{2} \end{center}
 \end{inaccessibleblock}
-\end{minipage}
+}
 \end{esempio}
 
 Le due soluzioni degli esempi precedenti differiscono, come ci aspettavamo, 
 solo per una costante che dipende dall'estremo inferiore dell'integrale. 
-Tenendo conto di questa osservazione possiamo scrivere:
-\[\int 2~dx = 2x + \mathcal{C}\]
+Tenendo conto di questa osservazione possiamo scrivere: \quad
+\(\displaystyle \int 2~dt = 2x + \mathcal{C}\)
 
 Possiamo generalizzare i precedenti esempi con il seguente:
 
 \begin{esempio}
 Studia l'integrale della funzione costante: \(f: x \mapsto k\)
-% Calcola il valore dell'integrale: \(\int k~dx\)
+% Calcola il valore dell'integrale: \(\int k~dt\)
 
-\begin{minipage}{.59 \textwidth}
+\affiancati{.59}{.39}{
 \begin{align*}
-\int k~dx &= \int_a^x k~dx + \mathcal{C}_a =
-             \int_a^x k~dx = S(a,~x) + \mathcal{C}_a = \\
+\int k~dt &= \int_a^x k~dt + \mathcal{C}_a =
+             \int_a^x k~dt = S(a,~x) + \mathcal{C}_a = \\
           &= k \cdot \tonda{x -a} + \mathcal{C}_a = 
              kx - ka + \mathcal{C}_a
 \end{align*}
 Osservando che \(-ka\) non dipende dalla \(x\) ed è quindi una costante, 
 possiamo riunire le due costanti in una unica:
 \[-ka + \mathcal{C}_a = \mathcal{C}\]
-In generale avremo: 
-\[\int k~dx = kx + \mathcal{C}\]
-\end{minipage}
-\hfill
-\begin{minipage}{.39 \textwidth}
+In generale avremo: \quad 
+\(\displaystyle \int k~dt = kx + \mathcal{C}\)
+}{
 \begin{inaccessibleblock}[] 
   \begin{center} \funzintk{3.5}{1.2}{4.7}{k} \end{center}
 \end{inaccessibleblock}
-\end{minipage}
+}
 \end{esempio}
 
 \begin{esempio}
 Studia l'integrale della funzione: \(f: x \mapsto x\)
 
-\begin{minipage}{.59 \textwidth}
+\affiancati{.59}{.39}{
 Osservando il disegno vediamo che la superficie ha la forma di un triangolo 
 rettangolo isoscele, quindi se la base è \(x\) anche l'altezza vale \(x\).
 scegliamo come estremo inferiore il valore~0.
-\[S(0;~4)=\int_0^4 x dx = 8 \quad 
-  S(0;~5)=\int_0^5 x dx = 12,5 = \dfrac{1}{2}25\] 
-\[S(0;~6)=\int_0^6 x dx = 18 \quad 
-  S(0;~7)=\int_0^7 x dx = 24,5 = \dfrac{1}{2}49\]
+\[S(0;~4)=\int_0^4 x dt = 8 \quad 
+  S(0;~5)=\int_0^5 x dt = 12,5 = \dfrac{1}{2}25\] 
+\[S(0;~6)=\int_0^6 x dt = 18 \quad 
+  S(0;~7)=\int_0^7 x dt = 24,5 = \dfrac{1}{2}49\]
 
-E in generale:
-\[S(0;~x)=\int_0^x x dx = \dfrac{1}{2}x^2\]
-\end{minipage}
-\hfill
-\begin{minipage}{.39 \textwidth}
+E in generale: \quad 
+\(\displaystyle S(0;~x)=\int_0^x x dt = \dfrac{1}{2}x^2\)
+}{
 \begin{inaccessibleblock}[]  
-  \begin{center} \funzintx{1}{2}{4}{7}{y=x} \end{center}
+  \begin{center} \funzintx{1}{0}{4}{7}{y=x} \end{center}
 \end{inaccessibleblock}
-\end{minipage}
+}
 
-\begin{minipage}{.59 \textwidth}
+\affiancati{.59}{.39}{
 Se invece di prendere come estremo inferiore~0 scegliamo il valore~3, 
 otteniamo:
-\[S(3;~4)=\int_3^4 x dx = 3,5 = \dfrac{1}{2}7\qquad
-  S(3;~5)=\int_3^5 x dx = 8\] 
-\[S(3;~6)=\int_3^6 x dx = 13,5 = \dfrac{1}{2}27 \qquad 
-  S(3;~7)=\int_3^7 x dx = 20\]
+\[S(3;~4)=\int_3^4 x dt = 3,5 = \dfrac{1}{2}7\qquad
+  S(3;~5)=\int_3^5 x dt = 8\] 
+\[S(3;~6)=\int_3^6 x dt = 13,5 = \dfrac{1}{2}27 \qquad 
+  S(3;~7)=\int_3^7 x dt = 20\]
 
-E in generale:
-\[S(3;~x)=\int_3^x x dx = \dfrac{1}{2}x^2 -4,5\]
-\end{minipage}
-\hfill
-\begin{minipage}{.39 \textwidth}
+E in generale: \quad 
+\(\displaystyle S(3;~x)=\int_3^x x dt = \dfrac{1}{2}x^2 -4,5\)
+}{
 \begin{inaccessibleblock}[]  
   \begin{center} \funzintx{1}{3}{4}{7}{y=x} \end{center}
 \end{inaccessibleblock}
-\end{minipage}
+}
 
 Possiamo osservare che le due soluzioni precedenti \(S(3;~x)\) e \(S(0;~x)\)
 differiscono solo per una costante quindi: 
-\[\int x~dx = \dfrac{1}{2}x^2 + \mathcal{C}\]
+\[\int x~dt = \dfrac{1}{2}x^2 + \mathcal{C}\]
 \end{esempio}
-
-% ESEMPI DI FUNZIONI SEMPLICI: COSTANTE, LINEARE, QUADRATA % TODO
-% 
-% SPIEGARE IL CONCETTO DI FUNZIONE INTEGRALE %TODO
 
 \section{Teorema fondamentale dell'analisi}
 \label{sec:integrali_teorema_fondamentale}
@@ -634,94 +854,126 @@ sospetto \dots se ci ricordiamo qualcosa sulle derivate.
 
 Ma procediamo cercando di risolvere il problema precedente per una funzione 
 qualsiasi: 
-\[S(x) = \int f \cdot dx\]
+\[S(x) = \int f \cdot dt\]
 
-\subsection{Dimostrazione grafica}
+\affiancati{.54}{.44}{
+Consideriamo un rettangolino della somma di Riemann. chiamiamo:
+\(\Delta S(x)\) la sua area. 
 
-\begin{minipage}{.49 \textwidth}
-Consideriamo un rettangolino infinitesimo in cui è divisa l'area sottesa alla 
-funzione \(f\). chiamiamo:
-\[d S(x)\]
-la sua area. 
+Questo rettangolino avrà base lunga \(\Delta t\) e 
+altezza \(f(x)\) quindi la sua area vale: \quad 
+\(f(x) \cdot \Delta t\).
 
-Questo rettangolino infinitesimo avrà base lunga \(dx\) e 
-altezza indistinguibile da \(f(x)\) quindi la sua area vale:
-\[f(x) \cdot dx\]
-\end{minipage}
-\hfill
-\begin{minipage}{.49 \textwidth}
+Ne deriva: 
+\[\displaystyle
+  f(x) \cdot \Delta t = \Delta S(x) \sRarrow 
+  f(x) = \frac{\Delta S(x)}{\Delta t}\]
+Passando a una suddivisione in infiniti rettangoli di larghezza 
+infinitesima: \quad 
+\(f(x) \sim \dfrac{d S(x)}{dt}\)
+}{
 \begin{inaccessibleblock}[]  
   \begin{center} \teoremafonda \end{center}
 \end{inaccessibleblock}
-\end{minipage}
+}
+Cioè il valore della funzione in \(x\) è indistinguibile dal rapporto tra 
+la superficie infinitesima \(S(x)\) e la larghezza dell'intervallino 
+\(dt\). \\
+Applicando la parte standard ad entrambi i membri della relazione 
+otteniamo: 
+\[\pst{f(x)} = \pst{\dfrac{d S(x)}{dt}}\]
 
-Ne deriva:
-\[f(x) \cdot dx = d S(x) \sRarrow f(x) = \frac{d S(x)}{dx} \sim S'(x) =
-  D\quadra{\int f~dx}\]
+Ma dato che \(x\) e \(f(x)\) sono reali e che 
+\(\displaystyle S(x) = \int f~dt\): \quad 
+\(\displaystyle f(x) =\Deriv{S(x)} = D\quadra{\int f(x)~dt}\)
+
 A parole: 
 \begin{itemize} [nosep]
  \item la funzione integranda è uguale alla derivata dell'integrale;
  \item l'integrale è l'operatore inverso della derivata.
 \end{itemize}
 
-Per trovare l'integrale della funzione \(f\) devo trovare una funzione 
-\(F\) primitiva di \(f\) cioè una funzione la cui derivata sia \(f\).
+\bigskip
+\noindent{Per trovare l'integrale della funzione \(f\) devo trovare una 
+funzione 
+\(F\) primitiva di \(f\) cioè una funzione la cui derivata sia \(f\).}
 
-\subsection{Dimostrazione algebrica}
+\begin{newtheo}{Teorema fondamentale del calcolo}{teofond}
+Una \emph{funzione integrale} di \(f\) è una primitiva di \(f\),
+cioè una funzione la cui derivata è \(f\).
+\[F(x) = \int f(x)~dt \sLRarrow F'(x) = f(x)\]
+\end{newtheo}
 
+% \affiancati{.49}{.49}{
+% Consideriamo un rettangolino infinitesimo in cui è divisa l'area sottesa 
+% alla funzione \(f\). chiamiamo:
+% \[d S(x)\]
+% la sua area. 
+% 
+% Questo rettangolino infinitesimo avrà base lunga \(dt\) e 
+% altezza indistinguibile da \(f(x)\) quindi la sua area vale:
+% \[f(x) \cdot dt\]
+% }{
+% \begin{inaccessibleblock}[]  
+%   \begin{center} \teoremafonda \end{center}
+% \end{inaccessibleblock}
+% }
+% 
+% Ne deriva:
+% \[f(x) \cdot dt = d S(x) \sRarrow f(x) = \frac{d S(x)}{dt} \sim S'(x) =
+%   D\quadra{\int f~dt}\]
+% A parole: 
+% \begin{itemize} [nosep]
+%  \item la funzione integranda è uguale alla derivata dell'integrale;
+%  \item l'integrale è l'operatore inverso della derivata.
+% \end{itemize}
+% 
+% Per trovare l'integrale della funzione \(f\) devo trovare una funzione 
+% \(F\) primitiva di \(f\) cioè una funzione la cui derivata sia \(f\).
+
+\begin{proof}
 Utilizzando la definizione di derivata possiamo
 dimostrare che la derivata della funzione integrale è proprio la 
 funzione integranda cioè che  
-\[D\quadra{\int f~dx} = D\quadra{F(x)} = F'(x) = f(x)\]
+\[D\quadra{\int f~dt} = D\quadra{F(x)} = F'(x) = f(x)\]
 Applichiamo alla funzione \(F\) la regola del calcolo della derivata:
-\[F'(x) = \pst{\frac{F(x+dx)-F(x)}{dx}} = 
-\pst{\frac{\int_a^{x+dx} f \cdot dx - \int_a^x f \cdot dx}{dx}} =\] 
-% che per l'arbitrarietà dell'incremento (l'incremento d'integrazione \(dx\) 
+\[F'(x) = \pst{\frac{F(x+dt)-F(x)}{dt}} = 
+\pst{\frac{\int_a^{x+dt} f \cdot dt - \int_a^x f \cdot dt}{dt}} =\] 
+% che per l'arbitrarietà dell'incremento (l'incremento d'integrazione \(dt\) 
 % può essere \(du\)) è uguale a
-% \[\pst{\frac{\int_a^{x+dx} f \cdot dx - \int_a^x f \cdot dx}{dx}} =\]
+% \[\pst{\frac{\int_a^{x+dt} f \cdot dt - \int_a^x f \cdot dt}{dt}} =\]
 per l'additività degli integrali consideriamo che
-\[\pst{\frac{\int_x^{x+dx} f \cdot dx}{dx}} = 
-    \pst{\frac{f(x) \cdot dx}{dx}} = \pst{f(x)} = f(x)\]
+\[\pst{\frac{\int_x^{x+dt} f \cdot dt}{dt}} = 
+    \pst{\frac{f(x) \cdot dt}{dt}} = \pst{f(x)} = f(x)\]
 
 La prima uguaglianza della riga
 precedente è giustificata dal fatto che, per definizione 
-\[\int_x^{x+dx} f \cdot dx \approx \sum_x^{x+dx} f \cdot dx = f(x) \cdot dx\]
+\[\int_x^{x+dt} f \cdot dt \approx \sum_x^{x+dt} f \cdot dt = f(x) \cdot dt\]
 
 mentre l'ultima è vera poiché \(f(x)\) un numero reale quindi la sua parte 
 standard è uguale al numero stesso. 
+\end{proof}
 
 % Volendo raggiungere l'espressione che consente di calcolare un integrale 
 % definito dai valori di una primitiva negli estremi di integrazione, si può 
-% osservare che, ricordando ancora che le primitive di una funzione continua in 
-% un intervallo differiscono per una costante, si può osservare che
-% \[F(b) = \int_a^b f \cdot dx = G(b) + k\]
-% dove G è una qualsiasi primitiva di \(f\) e k dipende da G. Per determinare k, 
-% si osservi che
-% \[0 = \int_a^a f \cdot dx = G(a) + k\]
+% osservare che, ricordando ancora che le primitive di una funzione continua 
+% in un intervallo differiscono per una costante, si può osservare che
+% \[F(b) = \int_a^b f \cdot dt = G(b) + k\]
+% dove G è una qualsiasi primitiva di \(f\) e k dipende da G. Per determinare 
+% k, si osservi che
+% \[0 = \int_a^a f \cdot dt = G(a) + k\]
 % sicché deve essere \(k = - G(a)\), e si ottiene nuovamente la classica 
 % relazione tra integrale definito e primitive della funzione integranda 
-% \[\int_a^b f \cdot dx = G(b) - G(a)\]
-% 
-% La determinazione mediante le primitive può esser un ottimo modo per 
-% calcolare un integrale. Ma anche in questo caso ci sono difficoltà. 
-% Non esiste un metodo semplice per calcolare una primitiva.
-% 
-% Data una funzione \(f\), per trovare una sua primitiva bisogna ricordare di 
-% avere incontrato \(f\) come derivata di una  certa funzione. 
-% I metodi d'integrazione aiutano a modificare la situazione nella speranza di 
-% arrivare al punto di dover trovare primitive di funzioni che si ricorda di 
-% aver incontrato come derivate di altre funzioni. 
-% La determinazione delle primitive di una funzione, è spesso una sfida aperta 
-% e alcune volte è proprio impossibile da calcolare.
+% \[\int_a^b f \cdot dt = G(b) - G(a)\]
 
-\section{Integrali indefiniti}
+\section{Integrali indefiniti di particolari funzioni}
 \label{sec:integrali_indefiniti}
 
 Il teorema fondamentale dell'analisi dice che la funzione integrale è una 
 primitiva della funzione integranda quindi se ho imparato a derivare una 
 funzione posso, con il procedimento inverso trovare una funzione integrale 
 della funzione integranda:
-\[\text{se} \quad D \quadra{F} = f \quad \text{allora} \quad \int f dx = F\]
+\[\text{se} \quad D \quadra{F} = f \quad \text{allora} \quad \int f dt = F\]
 
 Ma dalle regole delle derivate sappiamo che tutte le funzioni che 
 differiscono per una costante hanno la stessa derivata quindi se 
@@ -732,28 +984,59 @@ Quindi se \(F\) è una primitiva della funzione \(f\) e \(C\) è una
 costante, allora tutte le funzioni del tipo: \(F + C\) sono primitive di 
 \(f\).
 
-Di seguito vediamo una tabella con le primitive di alcune funzioni.
+Di seguito vediamo una tabella con le primitive e le derivate di alcune 
+funzioni.
 
-{%
-\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+% \begin{center}
+% \emph{Derivate immediate}
+% 
+% \vspace{.5em}
+% \begin{tabular}{cc} 
+% \toprule
+% \(f(x)\) & \(f'(x)\)\\ 
+% \midrule 
+% \(k\)  & 0 \\ [6pt]
+% \(x\) & 1 \\ [6pt]
+% \(x^\alpha\) & \(\alpha x^{\alpha-1}\) \\ [6pt]
+% \(e^x\) & \(e^x\)\\ [6pt]
+% \(a^x\) & \(a^x\ln a\)\\[6pt]
+% \(\ln x\) & \(\dfrac{1}{x}\)\\[6pt]
+% \(\log_a x\) & \(\dfrac{1}{x\ln a}\)\\[6pt]
+% \(\sen x\) & \(\cos x\) \\ [6pt]
+% \(\cos x\) & \(-\sen x\) \\ [6pt]
+% \(\tg x\) & \(\dfrac{1}{cos^2 x}=\tg^2 x +1\) \\[6pt]
+% \(\arcsin x\) & \(\dfrac{1}{\sqrt{1 -x^2}}\)\\[6pt]
+% \(\arccos x\) & \(-\dfrac{1}{\sqrt{1 -x^2}}\)\\[6pt]
+% \(\arctan x\) & \(\dfrac{1}{1 +x^2}\)\\
+% \bottomrule
+% \end{tabular}
+% \end{center}
+
+% {%
+% \newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
 \begin{center}
 \begin{tabular}{ccc}
-primitiva & \qquad f \qquad & derivata\\
-\(k x +C\) & \qquad \(k\) & \qquad \(0\)\\
-\(\dfrac{1}{2}x^2 +C\) & \qquad \(x\) \qquad & \(1\)\\
-\(\dfrac{k}{2}x^2 +C\) & \qquad \(kx\) \qquad & \(k\)\\
-\(\dfrac{1}{n+1}x^{n+1} +C\) & \qquad \(x^n\) \qquad & \(nx^{n-1}\)\\
-\(e^x +C\) & \qquad \(e^x\) \qquad & \(e^x\)\\
-\(\dfrac{a^x}{\ln{a}} +C\) & \qquad \(a^x\) \qquad & \(\tonda{\ln{a}} a^x\)\\
-\(ln \abs{x} +C\) & \qquad \(\dfrac{1}{x}\) \qquad & \(-\dfrac{1}{x^2}\)\\
-\(-\cos x +C\) & \qquad \(\sen x\) \qquad & \(\cos x\)\\
-\(\sen x +C\) & \qquad \(\cos x\) \qquad & \(-\sen x\)\\
+\toprule
+primitiva & \qquad funzione \qquad & derivata\\[6pt]
+\midrule
+\(k x +C\) & \qquad \(k\) \qquad & \(0\)\\[6pt]
+\(\dfrac{1}{2}x^2 +C\) & \qquad \(x\) \qquad & \(1\)\\[6pt]
+\(\dfrac{k}{2}x^2 +C\) & \qquad \(kx\) \qquad & \(k\)\\[6pt]
+\(\dfrac{1}{n+1}x^{n+1} +C\) & \qquad \(x^n\) \qquad & \(nx^{n-1}\)\\[6pt]
+\(e^x +C\) & \qquad \(e^x\) \qquad & \(e^x\)\\[6pt]
+\(\dfrac{a^x}{\ln{a}} +C\) & \qquad \(a^x\) \qquad & \(\tonda{\ln{a}} 
+a^x\)\\[6pt]
+\(ln \abs{x} +C\) & \qquad \(\dfrac{1}{x}\) \qquad & 
+\(-\dfrac{1}{x^2}\)\\[6pt]
+\(-\cos x +C\) & \qquad \(\sen x\) \qquad & \(\cos x\)\\[6pt]
+\(\sen x +C\) & \qquad \(\cos x\) \qquad & \(-\sen x\)\\[6pt]
 \(\tg x +C\) & \qquad \(\dfrac{1}{cos^2 x}\) \qquad & 
-    \(-\dfrac{2 \cos x \sen x}{cos^4 x}\)\\
+    \(-\dfrac{2 \cos x \sen x}{cos^4 x}\)\\[6pt]
 \(\) & \qquad \(\) \qquad & \(\)\\
+\bottomrule
 \end{tabular}
 \end{center}
-}%
+% }%
 
 \section{Calcolo dell'integrale definito}
 \label{sec:integrali_indefiniti}
@@ -766,15 +1049,32 @@ Dato che \(F(a)\) è il valore dell'area fino ad \(a\) e
 \(F(b)\) è il valore dell'area fino ad \(b\), 
 per trovare l'area sottesa alla funzione tra \(a\) e \(b\),
 basta togliere dall'area fino ad \(a\) l'area fino a \(b\).
-\[\text{se} \quad F(x) = \int f(x)~dx \quad \text{allora} \quad 
-\int_a^b f(x)~dx = \quadra{F(x)}_a^b = F(b) - F(a)\]
+\[\text{se} \quad F(x) = \int f(x)~dt \quad \text{allora} \quad 
+\int_a^b f(x)~dt = \quadra{F(x)}_a^b = F(b) - F(a)\]
 
+Determinare un integrale definito mediante le primitive può esser un modo 
+molto comodo, ma anche con questo metodo ci sono difficoltà: 
+non esiste un metodo semplice per calcolare una primitiva.
+
+Data una funzione \(f\), per trovare una sua primitiva bisogna ricordare di 
+avere incontrato \(f\) come derivata di una  certa funzione. 
+I metodi d'integrazione aiutano a modificare la situazione nella speranza 
+di arrivare al punto di dover trovare primitive di funzioni che si ricorda 
+di aver incontrato come derivate di altre funzioni. 
+Il calcolo delle primitive di una funzione, è spesso una sfida 
+aperta e alcune volte è proprio impossibile.
+Quando non è possibile trovare la primitiva di una funzione l'unica strada 
+che abbiamo per calcolare un integrale definito, è quella di trovare dei 
+valori approssimati usando le somme di Riemann con sottointervalli 
+sufficientemente piccoli.
+
+\newpage %-------------------------------------------
 \begin{esempio}
 Calcola l'area sottesa alla funzione \quad
 \(f: x \mapsto 2 x^2 -x +3\) \quad 
 tra~\(-1\) e~\(+2\).
 
-\begin{minipage}{.59 \textwidth}
+\affiancati{.59}{.39}{
 Calcoliamo un integrale indefinito della funzione \(f\):
 \begin{align*} 
 \int \tonda{2 x^2 -x +1}~dx &= 2 \int x^2~dx -\int x~dx + \int 1~dx = \\
@@ -783,26 +1083,54 @@ Calcoliamo un integrale indefinito della funzione \(f\):
 Adesso che abbiamo l'integrale indefinito della funzione, possiamo calcolare 
 l'area cercata con una semplice sottrazione: basta togliere dall'area 
 sottesa fino a \(b\) l'area sottesa fino ad \(a\):
-\end{minipage}
-\hfill
-\begin{minipage}{.39 \textwidth}
+}{
 \begin{inaccessibleblock}[]  
-  \begin{center} \intdef \end{center}
+  \begin{center} \intdefesempa \end{center}
 \end{inaccessibleblock}
-\end{minipage}
+}
+
+\begin{align*}
+\mathcal{S}_{ab} &= \int_{-1}^{+2} \tonda{2 x^2 -x +1}~dx = 
+   \quadra{\frac{2}{3}x^3 - \frac{1}{2}x^2 + x}_{-1}^{+2} = \\
+&= \tonda{\frac{2}{3}2^3 - \frac{1}{2}2^2 + 2} -
+     \tonda{\frac{2}{3}(-1)^3 - \frac{1}{2}(-1)^2 +(-1)} = \\
+&= \tonda{\frac{16}{3} - \frac{4}{2} + 2} - 
+     \tonda{-\frac{2}{3} - \frac{1}{2} -1} = 
+   \frac{32 -12 +12 +4 +3 +6}{6} = \frac{45}{6} = 7,5
+\end{align*}
+\end{esempio}
+
+\begin{esempio}
+Calcola l'area sottesa alla funzione \quad
+\(f: x \mapsto x + \dfrac{1}{x} + \dfrac{1}{x^2}\) \quad 
+tra~\(+1\) e~\(+7\).
+
+\affiancati{.59}{.39}{
+Calcoliamo un integrale indefinito della funzione \(f\):
+\begin{align*} 
+\int \tonda{x + \dfrac{1}{x} + \dfrac{1}{x^2}}~dx &= 
+  \int \tonda{x~dx +\int \dfrac{1}{x}~dx + \int \dfrac{1}{x^2}}~dx = \\
+&= \frac{1}{2}x^2 + \ln \abs{x} - \dfrac{1}{x} + \mathcal{C}
+\end{align*}
+L'area cercata si ottiene togliendo dall'area 
+sottesa fino a \(b\) l'area sottesa fino ad \(a\):
+}{
+\begin{inaccessibleblock}[]  
+  \begin{center} \intdefesempb \end{center}
+\end{inaccessibleblock}
+}
 
 \begin{align*}
 \mathcal{S}_{ab} &= 
-  \quadra{\frac{2}{3}x^3 - \frac{1}{2}x^2 + x}_{-1}^{2} = 
-  \tonda{\frac{2}{3}2^3 - \frac{1}{2}2^2 + 2} -
-     \tonda{\frac{2}{3}(-1)^3 - \frac{1}{2}(-1)^2 +(-1)} = \\
-  &= \tonda{\frac{16}{3} - \frac{4}{2} + 2} - 
-     \tonda{-\frac{2}{3} - \frac{1}{2} -1} = 
-  \frac{32 -12 +12 +4 +3 +6}{6} = \frac{45}{6} = 7,5
-\end{align*} 
-
-
- 
+  \int_{1}^{7} \tonda{x + \dfrac{1}{x} + \dfrac{1}{x^2}}~dx =
+  \quadra{\frac{1}{2}x^2 + \ln \abs{x} - \dfrac{1}{x}}_{1}^{7} = \\
+&= \tonda{\frac{1}{2}7^2 + \ln \abs{7} - \dfrac{1}{7}} -
+     \tonda{\frac{1}{2}1^2 + \ln \abs{1} - \dfrac{1}{1}} = \\
+&= \tonda{\frac{49}{2} + \ln{7} - \dfrac{1}{7}} - 
+     \tonda{\frac{1}{2} +0 -1} = 
+  \frac{343 + 14 \ln{7} +1 - 7 + 14}{14} = \frac{351 + 14 \ln{7}}{14} \simeq 
+  27.02
+\end{align*}
 \end{esempio}
 
 \begin{comment}
@@ -814,7 +1142,8 @@ ancora dei punti trattati ap­prossimativamente. Ad esempio uno potrebbe
 rimanere perplesso nel leggere \(\int_u^{u+du} f(x) \cdot du\), 
 doman­dandosi che ci sta a 
 fare la x in questa espressione. Infatti, a rigore, non dovrebbe esserci. 
-\(f(x)\) indica la quantità che si ottiene calcolando la funzione unaria \(f\) 
+\(f(x)\) indica la quantità che si ottiene calcolando la funzione unaria 
+\(f\) 
 nel 
 valore x della variabile indipendente, mentre la funzione è indicata dalla 
 sola \(f\). Così, se si volesse essere precisi fino in fondo si sarebbe 
@@ -860,7 +1189,7 @@ essere interpretata correttamente da persone ammaestrate a farlo, e che
 inoltre induca imprecisioni. 
 
 Nel numero 207 avevamo correttamente indicato il differenziale e la derivata 
-con le notazioni \(df\) e \(df / dx\). 
+con le notazioni \(df\) e \(df / dt\). 
 Avevamo anche usato le notazioni 
 \(G(x) = g(f(x)) e G'(x) = g'(f(x))·f'(x)\)  
 per indicare la funzione composta e la sua 
@@ -871,22 +1200,25 @@ tratta di un abuso di linguaggio e richiede l'addestramento sufficiente per
 superare questa imprecisione.
 
 Nel numero 210, avevamo correttamente indicato le somme con la notazione 
-\((\sum_{i=0}^{h-1} f(x_i)\cdot\Delta) + f(xh)\cdot(b-xh)\), 
+\((\sum_{i=0}^{h-1} f(x_i)\cdot\Delta t) + f(xh)\cdot(b-xh)\), 
 poiché qui davvero si considerano i 
 valori che la funzione \(f\) assume nei punti indicati. Ma dopo, osservando 
 che 
-la somma dipendeva solo da \(\Delta\) e dagli estremi dell'intervallo, oltre 
+la somma dipendeva solo da \(\Delta t\) e dagli estremi dell'intervallo, 
+oltre 
 che 
-dalla funzione f, si era scritto \(\sum_a^b f(x) \cdot \Delta\), e qui ci si 
+dalla funzione f, si era scritto \(\sum_a^b f(x) \cdot \Delta t\), e qui ci 
+si 
 è chinati 
 all'imprecisione della tradizione e dal voler richiamare che il prodotto era 
-tra valori specifici della funzione e \(\Delta\) (anche se i valori specifici 
-non sono indicati da f(x)) invece di indicare \(\sum_a^b f\Delta\). 
+tra valori specifici della funzione e \(\Delta t\) (anche se i valori 
+specifici 
+non sono indicati da f(x)) invece di indicare \(\sum_a^b f\Delta t\). 
 Questa accettazione 
 della consuetudine è proseguita coerentemente anche nella notazione 
-\(\int_a^b f(x) \cdot dx = st (\sum_a^b f(x) \cdot dx)\), anche se sarebbe 
+\(\int_a^b f(x) \cdot dt = st (\sum_a^b f(x) \cdot dt)\), anche se sarebbe 
 stato più esatto scrivere 
-\(\int_a^b fdx = st(\sum_a^b fdx)\), e similmente in tutto quello che segue. 
+\(\int_a^b fdt = st(\sum_a^b fdt)\), e similmente in tutto quello che segue. 
 Essendoci conformati alla notazione corrente, si può a buona ragione 
 continuare a seguire questa notazione, sapendo quali abusi linguistici 
 comporta e come sviluppare correttamente il percorso.
