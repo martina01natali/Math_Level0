@@ -645,7 +645,7 @@ Prima di tutto mettiamoci d'accordo su alcuni nomi:
 \large
 \[b=\sqrt[n]{a}\]
 \begin{center} 
-\(\sqrt[]{~}\) \quad \emph{radice}; \quad
+\(\sqrt[]{\phantom{a}}\) \quad \emph{radice}; \quad
 \(n\) \quad \emph{indice}; \quad
 \(a\) \quad \emph{radicando}; \quad
 \(b\) \quad \emph{radice}.
@@ -1400,29 +1400,31 @@ Moltiplicazione e divisione di radici con indice diverso.
 \label{sec:radicali_portare_dentro}
 
 Per portare un fattore dentro il segno di radice bisogna elevarlo 
-all'indice 
-della radice:
+all'indice della radice:
 \begin{itemize*}
  \item \(a\sqrt[n]b=\sqrt[n]{a^n\cdot b}\) se \(n\) è pari e \(a\ge 0\)
  \item \(a\sqrt[n]b=-\sqrt[n]{a^n\cdot b}\) se \(n\) è pari e \(a<0\)
  \item \(a\sqrt[n]b=\sqrt[n]{a^n\cdot b}\) se \(n\) è dispari.
 \end{itemize*}
-
 Ricordando che abbiamo posto \(\sqrt[1]a=a\), portare un fattore sotto radice 
 equivale a svolgere la moltiplicazione tra una radice di indice \(1\) e una 
 radice di indice qualsiasi.
+
+Osserviamo che se l'indice è pari, non possiamo portare sotto radice 
+fattori negativi.
+
 % \begin{exrig}
  \begin{esempio}
  Portare un numero reale dentro il segno di radice.
  \begin{itemize}
  \item \(2\cdot \sqrt[3]7=\sqrt[3]{2^3\cdot 7}=\sqrt[3]{56}\)
- \item \(3\cdot \sqrt{\frac 2{21}}=\sqrt{3^2\cdot \frac 2{21}}=
-        \sqrt{9\cdot \frac 2{21}}=\sqrt{\frac 6 7}\)
+ \item \(3\cdot \sqrt{\frac 2{21}}= \sqrt{3^2 \cdot \frac 2{21}}=
+        \sqrt{9 \cdot \frac 2{21}}= \sqrt{\frac 6 7}\)
+%  \item \(3\cdot \sqrt{\dfrac 2{21}}=\sqrt{3^2\cdot \dfrac 2{21}}=
+%         \sqrt{9\cdot \dfrac 2{21}}=\sqrt{\dfrac 6 7}\)
  \item \(-\frac 1 2\sqrt{3}\)\, lasciamo fuori dalla radice il segno meno 
        \(-\frac 1 2\sqrt{3}=-\sqrt{\left(\frac 1 2\right)^2\cdot 3}=
         -\sqrt{\frac 3 4}\)
- \item \(-\frac 1 3\cdot \sqrt{12}=-\sqrt{\left(\frac 1 3\right)^2\cdot 12}=
-        -\sqrt{\frac 1 9\cdot 12}=-\sqrt{\frac 4 3}\)
  \item \((1-\sqrt{2})\cdot \sqrt{3}=-(\sqrt{2}-1)\cdot \sqrt{3}=
         -\sqrt{(\sqrt{2}-1)^2\cdot 3}\)
  \item \(-2\sqrt[3]5=\sqrt[3]{(-2)^3\cdot 5}=\sqrt[3]{-40}\).
@@ -1437,33 +1439,59 @@ esponente un numero che sia maggiore o uguale all'indice della radice.
 In generale si inizia scomponendo in fattori irriducibili il radicando, 
 ottenendo un radicale del tipo \(\sqrt[n]{a^m}\) con \(m\ge n\).
 
-\paragraph{I° modo:} si esegue la divisione intera \(m:n\) ottenendo un 
-quoziente \(q\) e un resto \(r\). Per la proprietà della divisione si 
-ha \(m=n\cdot q+r\) quindi \(\sqrt[n]{a^m}=\sqrt[n]{a^{n\cdot q+r}}\) 
-e per le proprietà delle potenze 
-\(\sqrt[n]{a^{n\cdot q+r}}=\sqrt[n]{(a^q)^n\cdot a^r}\) 
-e per la regola del prodotto di due radici con medesimo indice si ottiene:
+% \paragraph{I° modo:} si esegue la divisione intera \(m:n\) ottenendo un 
+% quoziente \(q\) e un resto \(r\). Per la proprietà della divisione si 
+% ha \(m=n\cdot q+r\) quindi \(\sqrt[n]{a^m}=\sqrt[n]{a^{n\cdot q+r}}\) 
+% e per le proprietà delle potenze 
+% \(\sqrt[n]{a^{n\cdot q+r}}=\sqrt[n]{(a^q)^n\cdot a^r}\) 
+% e per la regola del prodotto di due radici con medesimo indice si ottiene:
+% 
+% \[\sqrt[n]{a^{n\cdot q+r}}= \sqrt[n]{(a^q)^n\cdot a^r}=
+%   \sqrt[n]{(a^q)^n}\cdot \sqrt[n]{a^r}=
+%   a^q\cdot \sqrt[n]{a^r}\text{ con } r<n.\]
+% Notiamo che il fattore ``fuori`` dalla radice ha per esponente il quoziente 
+% della divisione intera, mentre il fattore che rimane ``dentro`` ha per 
+% esponente il resto della divisione stessa.
+% 
+%  \(\sqrt[3]{a^8}=\ldots \) eseguiamo la divisione \(8:3\) con \(q=2\) e \(r=2\), 
+%  otteniamo \(\sqrt[3]{a^8}=a^2\cdot \sqrt[3]{a^2}\).
 
-\[\sqrt[n]{a^{n\cdot q+r}}= \sqrt[n]{(a^q)^n\cdot a^r}=
-  \sqrt[n]{(a^q)^n}\cdot \sqrt[n]{a^r}=
-  a^q\cdot \sqrt[n]{a^r}\text{ con } r<n.\]
-Notiamo che il fattore ``fuori`` dalla radice ha per esponente il quoziente 
-della divisione intera, mentre il fattore che rimane ``dentro`` ha per 
-esponente il resto della divisione stessa.
-
- \(\sqrt[3]{a^8}=\ldots \) eseguiamo la divisione \(8:3\) con \(q=2\) e \(r=2\), 
- otteniamo \(\sqrt[3]{a^8}=a^2\cdot \sqrt[3]{a^2}\).
-
-\paragraph{II° modo:} si può trasformare la potenza del radicando nel 
+% \paragraph{II° modo:} 
+Si può trasformare la potenza del radicando nel 
 prodotto di due potenze con la stessa base; una avente esponente multiplo 
 dell'indice della radice e l'altra avente per esponente la differenza tra 
 l'esponente iniziale e il multiplo trovato. Consideriamo il seguente 
 esempio:
 
- \(\sqrt[3]{a^8}=\ldots \) il multiplo di \(3\) più vicino a \(8\) è \(6\) quindi, 
- otteniamo 
+\(\sqrt[3]{a^8}=\ldots \) il multiplo di \(3\) più vicino a \(8\) è \(6\) 
+quindi, 
+otteniamo 
 \[\sqrt[3]{a^8}=\sqrt[3]{a^6\cdot a^2}=\sqrt[3]{a^6}\cdot \sqrt[3]{a^2}=
-  a^2\cdot \sqrt[3]{a^2}.\]
+a^2\cdot \sqrt[3]{a^2}.\]
+
+% \begin{osservazione}
+% Quanto scritto sopra sembra filare, ma c'è un problema: \emph{il segno}:
+% % .
+% % Osserviamo i seguenti passaggi:
+% \[\tonda{-3} \cdot \sqrt{5} = \sqrt{\tonda{-3}^2 \cdot 5} = 
+%   \sqrt{9 \cdot 5} = +3 \cdot \sqrt{5}\]
+% Se dividiamo la prima e l'ultima espressione 
+% per \(\sqrt{5}\) otteniamo: \(-3 = +3\) e questo non è accettabile.
+% Questo problema sorge quando l'indice della radice è un numero pari.
+% \end{osservazione}
+
+Anche per portare un fattore fuori dal segno di radice, dobbiamo distinguere 
+le radici con indice pari e dispari.
+\begin{definizione}
+Dobbiamo distinguere due casi:
+
+Nei radicali con indice \(n\) dispari: \quad
+\(\sqrt[n]{a^n \cdot b} = a \cdot \sqrt[n]{b}\)
+
+Nei radicali con indice \(n\) pari: \quad
+\(\sqrt[n]{a^n \cdot b} = \abs{a} \cdot \sqrt[n]{b}\)
+\end{definizione}
+
 
 % \begin{exrig}
  \begin{esempio}
@@ -1476,6 +1504,10 @@ esempio:
  \item \(\sqrt{75}=\sqrt{5^2\cdot 3}=5\sqrt{3}\)
  \item \(\sqrt{720}=\sqrt{2^4\cdot 3^2\cdot 5}=
         2^2\cdot 3\cdot \sqrt 5=12\sqrt 5\)
+ \item \(-\dfrac 1 3\cdot \sqrt{12} =
+         -\sqrt{\left(\dfrac 1 3\right)^2\cdot 12} =
+        -\sqrt{\dfrac 1 9\cdot 12} = -\sqrt{\dfrac 4 3} =
+        -2 \sqrt{\dfrac{1}{3}} = -\dfrac{2}{\sqrt{3}}\)
 \end{itemize}
  \end{esempio}
 % \end{exrig}
@@ -1510,6 +1542,7 @@ trasformando la radice in potenza con esponente frazionario:
 \(\sqrt[m]{\sqrt[n]a}=\left(a^{\frac 1 n}\right)^{\frac 1 m}=
  a^{\frac 1{mn}}=\sqrt[m\cdot n]a\)
 
+ \vspace{-.5em}
 % \begin{exrig}
  \begin{esempio}
  Radice di radice.

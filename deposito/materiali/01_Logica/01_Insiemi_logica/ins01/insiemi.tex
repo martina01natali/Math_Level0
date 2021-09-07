@@ -3,6 +3,20 @@
 
 \input{\folder insiemi_grafici.tex}
 
+\newcommand{\eseminter}[4]{% tabella relativa agli esempi sugli intervalli
+  \emph{
+  \makebox[.30\textwidth][l]{a parole} 
+  \makebox[.20\textwidth][c]{con i predicati} 
+  \makebox[.20\textwidth][c]{con le parentesi} 
+  \makebox[.20\textwidth][c]{sulla retta} \\[-.5em]}
+  \hrule 
+
+  \parbox[l]{.30\textwidth}{#1}
+  \makebox[.20\textwidth][c]{#2}
+  \makebox[.20\textwidth][c]{#3}
+  \parbox[c]{.20\textwidth}{#4}
+}
+
 \chapter{Insiemi}
 
 \section{Definizioni}
@@ -999,12 +1013,14 @@ dice \textbf{aperto}.
 
 Dato che gli intervalli numerici vengono usati spesso in matematica, a 
 seconda del contesto possono essere rappresentati in modo diverso e è utile 
-saper rappresentare un intervallo:
+saper rappresentare un intervallo:\\ [-1.5em]
+\begin{multicols}{3}
 \begin{itemize} [nosep]
  \item in modo grafico;
  \item usando i predicati;
  \item usando parentesi.
 \end{itemize}
+\end{multicols}
 
 Di seguito vengono riassunti gli~8 casi possibili.
 
@@ -1021,19 +1037,19 @@ Di seguito vengono riassunti gli~8 casi possibili.
   \hline
   i numeri compresi tra \(a\) e~\(b\) estremi esclusi & 
   \(a < x < b\) & \((a;~b)\) o \(]a;~b[\) & 
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{white}{x}}\\
+  \disegno{\inticonasse{0}{5}{1.}{4}{a}{b}{white}{white}{x}}\\
   \hline
   i numeri compresi tra \(a\) e~\(b\) estremi inclusi & 
   \(a \le x \le b\) & \([a;~b]\) &  
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{black}{x}} \\
+  \disegno{\inticonasse{0}{5}{1}{4}{a}{b}{blue}{blue}{x}} \\
   \hline
   i numeri compresi tra \(a\) e~\(b\), a~incluso, b~escluso & 
   \(a \le x < b\) & \([a;~b)\) o \([a;~b[\) &  
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{white}{x}} \\
+  \disegno{\inticonasse{0}{5}{1}{4}{a}{b}{blue}{white}{x}} \\
   \hline
   i numeri compresi tra \(a\) e~\(b\), a~escluso, b~incluso & 
   \(a < x \le b\) & \((a;~b]\) o \(]a;~b]\) &  
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{black}{x}} \\
+  \disegno{\inticonasse{0}{5}{1}{4}{a}{b}{white}{blue}{x}} \\
   \hline
   i numeri fino ad \(a\), \(a\)~escluso & 
   \(x < a\) & \((-\infty;~a)\) o \(]-\infty;~a[\) & 
@@ -1041,7 +1057,7 @@ Di seguito vengono riassunti gli~8 casi possibili.
   \hline
   i numeri fino ad \(a\), \(a\)~incluso & 
   \(x \le a\) & \((-\infty;~a]\) o \(]-\infty;~a]\) &  
-  \disegno{\raylconasse{0}{5}{2.5}{a}{black}{x}} \\
+  \disegno{\raylconasse{0}{5}{2.5}{a}{blue}{x}} \\
   \hline
   i numeri da \(a\) in poi, \(a\)~escluso & 
   \(x > a\) o \(a < x\) & \((a;~-\infty)\) o \(]a;~-\infty[\) & 
@@ -1049,74 +1065,50 @@ Di seguito vengono riassunti gli~8 casi possibili.
   \hline
   i numeri da \(a\) in poi, \(a\)~incluso & 
   \(x \ge a\) o \(a \le x\) & \([a;~-\infty)\) o \([a;~-\infty[\) & 
-  \disegno{\rayrconasse{0}{5}{2.5}{a}{black}{x}} \\
+  \disegno{\rayrconasse{0}{5}{2.5}{a}{blue}{x}} \\
   \hline
  \end{tabular}
 \end{table}
-% 
-% \begin{table}[h!]
-% \caption{Intervalli}
-% \center
-% \label{tab:intervalli}
-%  \begin{tabular}{p{4cm}|c|c|c}
-%   a parole   & con i predicati & con le parentesi & sulla retta \\
-%   \hline
-%   i numeri compresi tra~\(a\) e~\(b\) estremi esclusi & 
-%   \(a < x < b\) & \((a;~b)\) o \(]a;~b[\) & 
-%   \mbox{\disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{white}{x}}}\\
-%   \hline
-%   i numeri compresi tra~\(a\) e~\(b\) estremi inclusi & 
-%   \(a \le x \le b\) & \([a;~b]\) &  
-%   \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{black}{x}} \\
-%   \hline
-%   i numeri compresi tra~\(a\) e~\(b\), a~incluso, b~escluso & 
-%   \(a \le x < b\) & \([a;~b)\) o \([a;~b[\) &  
-%   \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{black}{white}{x}} \\
-%   \hline
-%   i numeri compresi tra~\(a\) e~\(b\), a~escluso, b~incluso & 
-%   \(a < x \le b\) & \((a;~b]\) o \(]a;~b]\) &  
-%   \disegno{\inticonasse{0}{-1.5}{+1.5}{a}{b}{white}{black}{x}} \\
-%   \hline
-%   i numeri fino ad~\(a\), \(a\)~escluso & 
-%   \(x < a\) & \((-\infty;~a)\) o \(]-\infty;~a[\) & 
-%   \disegno{\raylconasse{0}{5}{2.5}{a}{white}{x}} \\
-%   \hline
-%   i numeri fino ad~\(a\), \(a\)~incluso & 
-%   \(x \le a\) & \((-\infty;~a]\) o \(]-\infty;~a]\) &  
-%   \disegno{\raylconasse{0}{5}{2.5}{a}{black}{x}} \\
-%   \hline
-%   i numeri da~\(a\) in poi, \(a\)~escluso & 
-%   \(x > a\) o \(a < x\) & \((a;~-\infty)\) o \(]a;~-\infty[\) & 
-%   \disegno{\rayrconasse{0}{5}{2.5}{a}{white}{x}} \\
-%   \hline
-%   i numeri da~\(a\) in poi, \(a\)~incluso & 
-%   \(x \ge a\) o \(a \le x\) & \([a;~-\infty)\) o \([a;~-\infty[\) & 
-%   \disegno{\rayrconasse{0}{5}{2.5}{a}{black}{x}} \\
-%   \hline
-%  \end{tabular}
-% \end{table}
 
 Vediamo alcuni esempi numerici.
 
 \begin{esempio}
-\(A=\{x|~x \in \insR \sand x<6\}\) intervallo illimitato inferiormente e 
-aperto superiormente.
+\(A=\{x|~x \in \insR \sand x<6\}\) 
 
+È un intervallo illimitato inferiormente e aperto superiormente.
 L'insieme~\(A\) contiene tutti i punti della
 semiretta che precedono il punto immagine del numero~\(6\). 
 Nella figura questi punti sono evidenziati e 
-per mettere in evidenza che l'origine della semiretta non
-appartiene all'insieme abbiamo messo un pallino vuoto sul punto~\(6\).
-\begin{center}
-\center
- \begin{tabular}{p{4cm}ccc}
-  a parole   & con i predicati & con le parentesi & sulla retta \\
-  \hline
-  i numeri fino a~\(6\)escluso & 
-  \(x < 6\) & \(\intervaa{-\infty}{+6}\) & 
-  \disegno{\raylconasse{0}{5}{2.5}{6}{white}{x}} \\
- \end{tabular}
-\end{center}
+per visualizzare che l'origine della semiretta non
+appartiene all'insieme, il punto~\(6\) è indicato con un pallino vuoto.
+
+\eseminter
+{i numeri fino a~\(6\) escluso}
+{\(x < 6\)}
+{\(\intervaa{-\infty}{+6}\)}
+{\disegno{\raylconasse{0}{5}{2.5}{6}{white}{x}}}
+
+% \begin{center}
+%  \begin{tabular}{p{4cm}ccc}
+%   a parole   & con i predicati & con le parentesi & sulla retta \\
+%   \hline
+%   \vspace*{-6mm} i numeri fino a~\(6\) escluso & 
+%   \mbox{\vspace*{-16mm} \(x < 6\)} & 
+%   \vspace*{-6mm} \(\intervaa{-\infty}{+6}\) & 
+%   \disegno{\node at (0, 1) {~}; \raylconasse{0}{5}{2.5}{6}{white}{x}} 
+%  \end{tabular}
+% \end{center}
+% \begin{center}
+% \center
+%  \begin{tabular}{p{4cm}ccc}
+%   a parole   & con i predicati & con le parentesi & sulla retta \\
+%   \hline
+%   \vspace*{-6mm} i numeri fino a~\(6\) escluso & 
+%   \mbox{\vspace*{-16mm} \(x < 6\)} & 
+%   \vspace*{-6mm} \(\intervaa{-\infty}{+6}\) & 
+%   \disegno{\node at (0, 1) {~}; \raylconasse{0}{5}{2.5}{6}{white}{x}} 
+%  \end{tabular}
+% \end{center}
 \end{esempio}
 
 \begin{esempio}
@@ -1127,16 +1119,12 @@ L'insieme~\(B\) contiene tutti i punti compresi tra~\(-1\) compreso
 e~\(4\) escluso. 
 Nella figura questi punti sono evidenziati e il punto~\(-1\) è 
 indicato con un pallino pieno mentre il punto ~\(4\) con un pallino vuoto.
-\begin{center}
-\center
- \begin{tabular}{p{4cm}ccc}
-  a parole   & con i predicati & con le parentesi & sulla retta \\
-  \hline
-  i numeri tra~\(-1\)~incluso e~\(+4\)~escluso & 
-  \(-1 \le x < +4\) & \(\intervca{-1}{+4}\) &  
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{-1}{+4}{black}{white}{x}} \\
- \end{tabular}
-\end{center}
+
+\eseminter
+{i numeri tra~\(-1\)~incluso e~\(+4\)~escluso}
+{\(-1 \le x < +4\)}
+{\(\intervca{-1}{+4}\)}
+{\disegno{\inticonasse{0}{5}{1}{4}{-1}{+4}{blue}{white}{x}}}
 \end{esempio}
 
 \begin{esempio}
@@ -1147,16 +1135,12 @@ L'insieme~\(C\) contiene tutti i punti compresi tra~\(+1\) escluso
 e~\(+9\) compreso. 
 Nella figura questi punti sono evidenziati e il punto~\(+1\) è 
 indicato con un pallino vuoto mentre il punto ~\(+9\) con un pallino pieno.
-\begin{center}
-\center
- \begin{tabular}{p{4cm}ccc}
-  a parole   & con i predicati & con le parentesi & sulla retta \\
-  \hline
-  i numeri tra~\(+1\)~escluso e~\(+9\)~incluso & 
-  \(+1 < x \le +4\) & \(\intervac{+1}{+9}\) &  
-  \disegno{\inticonasse{0}{-1.5}{+1.5}{+1}{+9}{white}{black}{x}} \\
- \end{tabular}
-\end{center}
+
+\eseminter
+{i numeri tra~\(+1\)~escluso e~\(+9\)~incluso}
+{\(+1 < x \le +4\)}
+{\(\intervac{+1}{+9}\)}
+{\disegno{\inticonasse{0}{5}{1}{4}{+1}{+9}{white}{blue}{x}}}
 \end{esempio}
 
 \begin{esempio}\label{ese:insiemi_intervalli}
@@ -1185,8 +1169,6 @@ tabella e poi rappresentarli con i predicati e le parentesi:
 \grafooperazioni
 \end{center}
 \end{esempio}
-
-
 
 \section{I diagrammi di Eulero-Venn come modello di un problema}
 \label{sec:insiemi_problemi}

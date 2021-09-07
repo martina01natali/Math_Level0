@@ -966,7 +966,7 @@ standard è uguale al numero stesso.
 % relazione tra integrale definito e primitive della funzione integranda 
 % \[\int_a^b f \cdot dt = G(b) - G(a)\]
 
-\section{Integrali indefiniti di particolari funzioni}
+\section{Calcolo dell'integrale indefinito}
 \label{sec:integrali_indefiniti}
 
 Il teorema fondamentale dell'analisi dice che la funzione integrale è una 
@@ -987,37 +987,11 @@ costante, allora tutte le funzioni del tipo: \(F + C\) sono primitive di
 Di seguito vediamo una tabella con le primitive e le derivate di alcune 
 funzioni.
 
-% \begin{center}
-% \emph{Derivate immediate}
-% 
-% \vspace{.5em}
-% \begin{tabular}{cc} 
-% \toprule
-% \(f(x)\) & \(f'(x)\)\\ 
-% \midrule 
-% \(k\)  & 0 \\ [6pt]
-% \(x\) & 1 \\ [6pt]
-% \(x^\alpha\) & \(\alpha x^{\alpha-1}\) \\ [6pt]
-% \(e^x\) & \(e^x\)\\ [6pt]
-% \(a^x\) & \(a^x\ln a\)\\[6pt]
-% \(\ln x\) & \(\dfrac{1}{x}\)\\[6pt]
-% \(\log_a x\) & \(\dfrac{1}{x\ln a}\)\\[6pt]
-% \(\sen x\) & \(\cos x\) \\ [6pt]
-% \(\cos x\) & \(-\sen x\) \\ [6pt]
-% \(\tg x\) & \(\dfrac{1}{cos^2 x}=\tg^2 x +1\) \\[6pt]
-% \(\arcsin x\) & \(\dfrac{1}{\sqrt{1 -x^2}}\)\\[6pt]
-% \(\arccos x\) & \(-\dfrac{1}{\sqrt{1 -x^2}}\)\\[6pt]
-% \(\arctan x\) & \(\dfrac{1}{1 +x^2}\)\\
-% \bottomrule
-% \end{tabular}
-% \end{center}
-
-% {%
-% \newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\affiancati{.59}{.39}{
 \begin{center}
 \begin{tabular}{ccc}
 \toprule
-primitiva & \qquad funzione \qquad & derivata\\[6pt]
+\emph{primitiva} & \qquad \emph{funzione} \qquad & \emph{derivata}\\
 \midrule
 \(k x +C\) & \qquad \(k\) \qquad & \(0\)\\[6pt]
 \(\dfrac{1}{2}x^2 +C\) & \qquad \(x\) \qquad & \(1\)\\[6pt]
@@ -1032,11 +1006,55 @@ a^x\)\\[6pt]
 \(\sen x +C\) & \qquad \(\cos x\) \qquad & \(-\sen x\)\\[6pt]
 \(\tg x +C\) & \qquad \(\dfrac{1}{cos^2 x}\) \qquad & 
     \(-\dfrac{2 \cos x \sen x}{cos^4 x}\)\\[6pt]
-\(\) & \qquad \(\) \qquad & \(\)\\
+% \(\) & \qquad \(\) \qquad & \(\)\\
 \bottomrule
 \end{tabular}
 \end{center}
-% }%
+}{
+\begin{center}
+% \vspace{1.2em}
+\begin{tabular}{l}
+\toprule
+\hspace{7mm} \emph{regole di integrazione}\\
+\midrule
+\(\displaystyle 
+\int k ~ f ~ dt = k~\int f ~ dt\)\\[8pt]
+\(\displaystyle 
+\int (f+g)~dt = \int f~dt + \int g~dt\)\\[8pt]
+\bottomrule
+\end{tabular}
+\end{center}
+% \vspace{20mm}
+}
+
+\begin{esempio}
+Calcola l'integrale indefinito delle seguenti funzioni.
+\begin{enumerate}
+\item \(f: x \mapsto x^4\)
+
+Applichiamo un integrale immediato:
+\[\int x^4~dx = \dfrac{1}{5}x^5 +C\]
+\item \(f: x \mapsto 7x^2\)
+
+Applichiamo un integrale immediato e la prima delle due regole di 
+integrazione:
+\[\int 7x^2~dx = 7\int x^2~dx = 7 \dfrac{1}{3}x^3 +C= \dfrac{7}{3}x^3 +C\]
+\item \(f: x \mapsto 3 -\sin x\)
+
+Applichiamo la seconda delle regole di derivazione e gli integrali immediati:
+\[\int \tonda{3 -\sin x}~dx = \int 3~dx - \int \sin x~dx = 3x +\cos x +C\]
+\item \(f: x \mapsto \)
+
+Basta applicare una delle regole degli integrali immediati:
+\[\int ~dx = \dfrac{7}{3}x +C\]
+\item \(f: x \mapsto x^3 -5x^2 +3x -2\)
+
+Basta applicare una delle regole degli integrali immediati:
+\[\int \tonda{x^3 -5x^2 +3x -2}~dx = 
+\dfrac{1}{4}x^4 -\dfrac{5}{3}x^3 +\dfrac{3}{2}x^2 -2x +C\]
+\end{enumerate}
+\end{esempio}
+
 
 \section{Calcolo dell'integrale definito}
 \label{sec:integrali_indefiniti}
@@ -1068,7 +1086,7 @@ che abbiamo per calcolare un integrale definito, è quella di trovare dei
 valori approssimati usando le somme di Riemann con sottointervalli 
 sufficientemente piccoli.
 
-\newpage %-------------------------------------------
+% \newpage %-------------------------------------------
 \begin{esempio}
 Calcola l'area sottesa alla funzione \quad
 \(f: x \mapsto 2 x^2 -x +3\) \quad 
