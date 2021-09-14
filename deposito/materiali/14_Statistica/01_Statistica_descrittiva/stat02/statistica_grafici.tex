@@ -1,0 +1,50 @@
+% (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
+
+
+\newcommand{\areoese}{% areogramma per l'esempio 15
+  \def \data{0/2/orange/159, 2/4/brown/160, 
+             4/5/green/165, 5/7/red/170, 
+             7/8/blue/172, 8/10/pink/173, 
+             10/14/lightgray/175, 14/15/olive/180, 
+             15/17/lime/182, 17/20/purple/185}
+  \def \num{20}
+  \def \ua{360/\num} %unit angle
+  \disegno{
+    \draw (0, 6) node {Areogramma} (12, 6) node {Diagramma a barre};
+    \draw (0,0) circle (4);
+    \foreach \from/\to/\colfill/\lab in \data{
+      \pgfmathparse{\ua*(\from+\to)/2} \let\alf\pgfmathresult
+      \pgfmathparse{int(100*(\to-\from)/\num)} \let\perc\pgfmathresult
+      \draw[fill=\colfill] (0,0) -- (\from*\ua:4) arc (\from*\ua:\to*\ua:4);
+      \draw (\alf:3) node {\(\lab\)};
+      \draw (\alf:4.8) node {\(\perc\%\)};
+    }
+    \begin{scope}[xshift=42mm, yshift=-21mm]
+      \begin{axis}[
+      xbar,
+      enlarge y limits=0.05,
+      ytick={155, 160, 165, 170, 175, 180, 185, 190},
+      bar width=3pt, 
+      xmin=0, xmax=5,
+      width=60mm,
+      height=60mm]
+      \addplot[fill=CornflowerBlue, draw=black] coordinates {
+      (2, 159)
+      (2, 160)
+      (1, 165)
+      (2, 170)
+      (1, 172)
+      (2, 173)
+      (4, 175)
+      (1, 180)
+      (2, 182)
+      (3, 185)
+      };
+      \end{axis}
+    \end{scope}
+  }
+}
+
+
+
+

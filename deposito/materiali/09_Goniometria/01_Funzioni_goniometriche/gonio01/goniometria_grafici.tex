@@ -1,5 +1,140 @@
 % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
+% Colors
+  \colorlet{anglecolor}{green!60!black}
+  \colorlet{sincolor}{blue!60!black}
+  \colorlet{coscolor}{red!60!black}
+  \colorlet{tancolor}{orange!60!black}
+
+\newcommand{\circgoniobase}[6][.8]{
+  % Circonferenza goniometrica con sin cos e tan
+  \def \may{#1}
+  \def \angle{#2}
+  \def \alabel{#3}
+  \def \lsin{#4}
+  \def \lcos{#5}
+  \def \ltan{#6}
+  \def \alfangle{\angle / 2}
+    \path (1, 0) coordinate (H) (0, 0) coordinate (O);
+    \path (\angle:1) coordinate (P) -| coordinate (S) (O);
+    \path (P) -| coordinate (S) (O);
+    \path (P) |- coordinate (C) (O);
+    \path (intersection of 0,0 -- \angle:2 and 1,0 -- 1,1.2) 
+          coordinate (T);
+    \rcom{-.8}{+.8}{-.8}{\may}{gray!50, very thin, step=1}
+    \draw (0, 0) circle(1);
+    \draw [thin] (S) -- (P) -- (C) (1, \may+1) -- (1, 0);
+    \filldraw (O) circle(1.2pt) node [below left] {\(O\)} 
+              (H) circle(1.2pt) node [below, xshift=4pt] {\(H\)};
+    \begin{scope}[font=\fontsize{8}{8}, very thick]
+      \begin{scope}[anglecolor]
+        \draw [rotate=\angle] (O) -- (2.5, 0);
+        \filldraw (P) circle(1.0pt) node [above] {\(P\)};
+        \draw [-latex] (0.3, 0) arc(0:\angle:0.3);
+        \draw [-latex] (H) arc(0:\angle:1);
+        \node at (\alfangle:.4) {\(\alabel\)};
+      \end{scope}
+      \filldraw (S) [sincolor] node [left] {\(S\)} circle(1.0pt) -- 
+                (O) node [midway, left] {\(\lsin\)};
+      \filldraw (C) [coscolor] node [below] {\(C\)} circle(1.0pt) -- 
+                (O) node [midway, below] {\(\lcos\)};
+      \filldraw (T) [tancolor] node [above, xshift=3pt] {\(T\)} 
+                circle(1.0pt) -- 
+                (H) node [midway, right=-2pt] {\(\ltan\)};
+    \end{scope}
+}
+
+\newcommand{\circgonio}{% Circonferenza goniometrica generica completa
+  \disegno[25]{
+    \clip(-1.3, -1.3) rectangle (1.3, 1.3);
+    \circgoniobase{40}{\alpha}{\sin \alpha}{\cos \alpha}{\tan \alpha}
+  }
+}
+
+\newcommand{\circgoniopertangente}{% Circ. gonio. tan = sin/cos
+  \disegno[25]{
+    \clip(-.3, -.2) rectangle (1.3, 1.3);
+    \circgoniobase{40}{\alpha}{\sin \alpha}{\cos \alpha}{\tan \alpha}
+  }
+}
+
+
+\newcommand{\funcwithlabel}[8]{% funzione con etichetta
+  % esempio di chiamata:
+  % \funcwithlabel{7}{-7}{+7}{-1}{+1}{sincolor}{sin(x)}{y = \sin x}
+  \def \scale{#1}
+  \def \mix{#2}
+  \def \max{#3}
+  \def \miy{#4}
+  \def \may{#5}
+  \def \fcolor{#6}
+  \def \func{#7}
+  \def \flab{#8}
+  \disegno[\scale]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:\max+0.3, ultra thick, \fcolor] \func
+    \node at (0, -1.5) {\(\flab\)};
+  }
+}
+
+\newcommand{\tanwithlabel}{% tangentoide con etichetta
+  % esempio di chiamata:
+  % \tanwithlabel
+  \def \scale{7}
+  \def \mix{-7}
+  \def \max{+7}
+  \def \miy{-5}
+  \def \may{+5}
+  \def \fcolor{tancolor}
+  \def \func{tan(x)}
+  \def \flab{y = \tan x}
+  \disegno[\scale]{
+    \rcom{\mix}{\max}{\miy}{\may}{gray!50, very thin, step=1}
+    \tkzInit[xmin=\mix-0.3,xmax=\max+0.3,ymin=\miy-0.3,ymax=\may+0.3]
+    \tkzFct[domain=\mix-0.3:-4.8, ultra thick, tancolor] \func
+    \tkzFct[domain=-4.6:-1.7, ultra thick, tancolor] \func
+    \tkzFct[domain=-1.5:+1.5, ultra thick, tancolor] \func
+    \tkzFct[domain=+1.7:+4.6, ultra thick, tancolor] \func
+    \tkzFct[domain=+4.8:\max+0.3, ultra thick, tancolor] \func
+    \node at (0, -5.5) {\(\flab\)};
+  }
+}
+
+\newcommand{\angoliassociati}{% Circonferenza goniometrica con 
+% evidenziati gli angoli associati.
+  \def \angle{20}
+  \def \alphaangle{\angle / 2}
+  \def \alabel{\alpha}
+  \disegno[25]{
+    \path (1, 0) coordinate (H) (0, 0) coordinate (O);
+    \path (\angle:1) coordinate (P) -| coordinate (S) (O);
+    \path (P) -| coordinate (S) (O);
+    \path (P) |- coordinate (C) (O);
+    \path (intersection of 0,0 -- \angle:1.6 and 1,0 -- 1,1.2) 
+          coordinate (T);
+    \rcom{-.8}{+.8}{-.8}{+.8}{gray!50, very thin, step=1}
+    \draw (0, 0) circle(1);
+%     \draw [thin] (S) -- (P) -- (C) (1, 1.2) -- (1, 0);
+%     \filldraw (O) circle(1.2pt) node [below left] {\(O\)} 
+%               (H) circle(1.2pt) node [below, xshift=4pt] {\(H\)};
+    \begin{scope}[font=\fontsize{8}{8}, very thick]
+      \begin{scope}[anglecolor]
+        \foreach \base in {0, 90, 180, 270}{
+        \draw [rotate=\base - \angle] (O) -- (1.3, 0);
+        \draw [rotate=\base + \angle] (O) -- (1.3, 0);}
+%         \filldraw (P) circle(1.0pt) node [above] {\(P\)};
+        \draw [-latex] (0.3, 0) arc(0:\angle:0.3);
+        \draw [-latex] (H) arc(0:\angle:1);
+        \node at (\alphaangle:.4) {\(\alabel\)};
+      \end{scope}
+      \draw (S) [sincolor] -- (O);
+      \filldraw (C) [coscolor] -- (O);
+      \filldraw (T) [tancolor] -- (H);
+    \end{scope}
+  }
+}
+
 \newcommand{\quadratopitagorico}[3]{%
   \coordinate (a) at (0, 0);
   \coordinate (b) at (#1, 0);
@@ -41,4 +176,26 @@
 %     \draw (#1*.45, #1*.15) node [anglecolor] {\(60 \text{°}\)};
     \draw (#1*.25, #1*.08) node  {\(60 \text{°}\)};
   \end{scope}
+}
+
+\newcommand{\angolotrenta}{% Circ. gonio. angolo 30°
+  \disegno[25]{
+    \clip (-.3, -.3) rectangle (1.3, 1.3);
+    \circgoniobase{30}{30}{\dfrac{1}{2}}{\dfrac{\sqrt{3}}{2}}
+                  {\dfrac{\sqrt{3}}{3}}
+  }
+}
+
+\newcommand{\angoloquarantacinque}{% Circ. gonio. angolo 45°
+  \disegno[25]{
+    \clip (-.3, -.3) rectangle (1.3, 1.3);
+    \circgoniobase{45}{45}{\dfrac{\sqrt{2}}{2}}{\dfrac{\sqrt{2}}{2}}{1}
+  }
+}
+
+\newcommand{\angolosessanta}{% Circ. gonio. angolo 60°
+  \disegno[25]{
+    \clip (-.3, -.3) rectangle (1.3, 2);
+    \circgoniobase[1.45]{60}{60}{\dfrac{\sqrt{3}}{2}}{\dfrac{1}{2}}{\sqrt{3}}
+  }
 }

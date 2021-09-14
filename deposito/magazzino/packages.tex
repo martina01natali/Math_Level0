@@ -47,8 +47,8 @@
 % \usepackage[monochrome]{color}
 \usepackage[T1]{fontenc} 
 \usepackage{textcomp} 	
-\usepackage[utf8x]{inputenc}
-\usepackage[polutonikogreek,italian]{babel} 
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel} 
 \usepackage{icomma} % per la virgola come separatore decimale in modo math
 \usepackage{quoting}        % per i testi citati
 \quotingsetup{font=small}
@@ -57,8 +57,6 @@
 %========================
 \renewcommand{\rmdefault}{ppl}
 \usepackage{mathpazo}
-\usepackage[scaled=.95]{helvet}
-\usepackage{eulervm}
 %========================
 % Tipografia
 %========================
@@ -83,7 +81,19 @@
 %========================
 % Matematica I
 %========================
-%\usepackage{amsmath} % aggiunto da daniele
+\usepackage[scaled=.95]{helvet}
+% \usepackage{eulervm} % eulervm va in conflitto con fourier per: 
+% \overrightarrow{} 
+% dov'è che ho usato questo pacchetto? per fare che cosa?
+\usepackage{fourier}  % in goniometria è definito \wideparen
+% % % buono \widearc, ma è incompatibile con \overrightarrow
+% % Ho estratto da fourier.sty le seguenti 4 righe e sembra funzionare!
+% \DeclareFontEncoding{FMX}{}{}
+% \DeclareFontSubstitution{FMX}{futm}{m}{n}
+% \DeclareSymbolFont{largesymbols}{FMX}{futm}{m}{n}
+\DeclareMathAccent{\widearc}{\mathord}{largesymbols}{216}% per \widearc 
+\usepackage[e]{esvect} % per i vettori
+\usepackage{ushort} % per lesottolineature semplici o doppie
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}

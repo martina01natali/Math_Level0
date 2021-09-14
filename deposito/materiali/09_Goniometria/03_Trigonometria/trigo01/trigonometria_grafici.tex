@@ -202,6 +202,33 @@
   }
 }
 
+\newcommand{\trisecondocriterio}[3]{
+  \def \latoa{#1}
+  \def \angolob{#2}
+  \def \latoc{#3}
+  \disegno[10]{
+    \path (0, 0) coordinate (B) (\latoa, 0) coordinate (C);
+    \path (\angolob:\latoc) coordinate (A);
+    \draw (A) node[above]{$A$} -- 
+          (B) node[below left]{$B$} -- 
+          (C)node [below right]{$C$} -- cycle;
+
+    \tkzFillAngle[ fill=LimeGreen ,draw, size=.4](C,B,A)
+    \tkzFillAngle[ fill=LimeGreen ,draw, size=.4](A,C,B)
+    \tkzFillAngle[ fill=LimeGreen ,draw, size=.4](B,A,C)
+
+    \tkzLabelSegment[midway, below](B,C){$a$}
+    \tkzLabelSegment[midway, right](A,C){$b$}
+    \tkzLabelSegment[midway, left](A,B){$c$}
+
+    \begin{scope}[font=\scriptsize]
+    \tkzLabelAngle[pos=.5](C,B,A){$\beta$}
+    \tkzLabelAngle[pos=.5](A,C,B){$\gamma$}
+    \tkzLabelAngle[pos=.5](B,A,C){$\alpha$}
+    \end{scope}
+  }
+}
+
 \newcommand{\triangoliese}{
   \disegno[10]{
   \coordinate (A) at (0,0);

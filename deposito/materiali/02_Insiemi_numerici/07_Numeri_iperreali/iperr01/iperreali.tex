@@ -91,7 +91,7 @@ Abbiamo anche visto che la distanza tra due di questi numeri è un numero
 inferiore a \(\frac{1}{n}\) per ogni \(n\) naturale diverso da zero.
 Quindi la differenza tra due di questi numeri è un  numero, in valore 
 assoluto, più piccolo di 
-\[\frac{1}{n} \quad \forall~ n \in \Nz\]
+\[\frac{1}{n} \quad \forall n \in \Nz\]
 I numeri di questo tipo sono dei numeri nuovi, nessuno dei numeri che 
 abbiamo conosciuto finora ha questa caratteristica.
 
@@ -99,7 +99,7 @@ abbiamo conosciuto finora ha questa caratteristica.
 Chiamiamo \emph{infinitesimo} un numero che, in valore assoluto, è minore di
 \(\frac{1}{n}\) per ogni \(n\) naturale diverso da zero:
 \[\epsilon \stext{è un infinitesimo se } 
-\abs{\epsilon} < \frac{1}{n} \quad \forall~ n \in \Nz\]
+\abs{\epsilon} < \frac{1}{n} \quad \forall n \in \Nz\]
 \end{definizione}
 % Se accettiamo che possa \textbf{non} valere il postulato di 
 % Eudosso-Archimede, possiamo costruire un insieme numerico non archimedeo. 
@@ -120,7 +120,8 @@ Chiamiamo \emph{infinitesimo} un numero che, in valore assoluto, è minore di
 Eudosso-Archimede infatti se
 \(\epsilon < \dfrac{1}{n} \quad \forall n \in \Nz\) 
 moltiplicando entrambi i membri per \(n\) 
-si ottiene: \(n \epsilon < 1\).
+si ottiene: \(n \epsilon < 1\) qualunque sia il numero naturale 
+\(n\) scelto.
 
 Quindi non si può ottenere un multiplo di un infinitesimo che sia maggiore di 
 un numero grande quanto si vuole.
@@ -294,13 +295,14 @@ La distanza tra \(a\) e \(b\) è uguale a~3 più un infinitesimo
    \abs{5-5 + \delta - \epsilon}=
    \abs{0 + \delta - \epsilon} = \abs{\gamma}
  \)
- 
- In questo caso la distanza tra \(a\) e \(b\) è un infinitesimo 
+
+In questo caso la distanza tra \(a\) e \(b\) è un infinitesimo 
 (\emph{i}).
 \end{esempio}
 
-\noindent Negli iperreali la differenza tra due numeri può essere:
+\pagebreak %--------------------------------------------------
 
+\noindent Negli iperreali la differenza tra due numeri può essere:
 \begin{itemize} [noitemsep]
  \item un infinito;
  \item un finito non infinitesimo;
@@ -325,7 +327,7 @@ che i due numeri sono \emph{infinitamente vicini}.
 \begin{definizione}    % [Infinitamente vicini]
 Due numeri si dicono \textbf{infinitamente vicini} (simbolo:~\(\approx\)) se 
 la loro differenza è un infinitesimo:
-\[x \approx y \Leftrightarrow x - y = \epsilon\]
+\[x \approx y \sLRarrow x - y = \epsilon\]
 \end{definizione}
 
 Tutti gli infinitesimi sono infinitamente vicini tra di loro e sono 
@@ -390,9 +392,9 @@ e:
 \[\tonda{64 -1} < \tonda{64 + \delta} < \tonda{64 +1}\]
  \item Nell'ultimo caso possiamo osservare che, essendo \(\epsilon\) in 
 valore assoluto minore di qualunque numero reale, 
- \(\dfrac{5}{\epsilon}\) è un numero maggiore di qualunque numero reale e 
-la somma di~8 più un numero maggiore di qualunque altro, non può essere 
-minore di un determinato numero reale, 
+ \(\dfrac{5}{\epsilon}\) è un numero, in valore assoluto,  maggiore di 
+qualunque numero reale e la somma di~8 più un numero maggiore di qualunque 
+altro, non può essere minore di un determinato numero reale, 
 %  \[\nexists y \in \R \quad | \quad 8+\dfrac{5}{\epsilon} < y\]
 perciò \(8+\dfrac{5}{\epsilon}\) è un numero infinito.
 \end{enumerate}
@@ -429,9 +431,8 @@ iperreale finito il numero reale a lui infinitamente vicino.
 
 \begin{definizione}
  Si dice che \(a\) è la \textbf{parte standard} di \(x\), e si scrive: 
- \(\st(x) = a\), se \(a\) è un numero reale e \(x\) è un numero iperreale
-infinitamente vicino ad \(a\):
-\[\st(x) = a \sLRarrow a \in \R \stext{e} x \approx a\mbox{, con }x\in \IR\]
+ \(\st(x) = a\), se \(a\) è un numero reale infinitamente vicino a \(x\):
+\[\st(x) = a \sLRarrow a \in \R \stext{e} x \approx a\]
 \end{definizione}
 \begin{osservazione}
 \begin{itemize} [nosep]
@@ -443,6 +444,10 @@ La parte standard di un infinitesimo è zero infatti:
  \item 
 Un numero iperreale infinito non ha parte standard poiché non esiste nessun 
 numero reale infinitamente vicino a un infinito.
+ \item 
+La \emph{parte standard} è una funzione che ha per dominio i numeri 
+iperreali, per insieme di definizione gli iperreali finiti e per codominio, 
+e insieme immagine, i numeri reali.
 \end{itemize}
 \end{osservazione}
 \vspace{1em}
@@ -695,10 +700,11 @@ ci basta sapere il tipo del risultato.
 In questo paragrafo esploriamo il tipo del risultato delle quattro 
 operazioni aritmetiche.
 
-Teniamo presente che, quando il numero iperreale è un numero reale, 
-valgono le stesse proprietà delle operazioni nei reali.
+Teniamo presente che, essendo gli iperreali un'\emph{estensione} dei reali, 
+quando il numero iperreale è un numero reale, valgono le stesse proprietà 
+delle operazioni nei reali.
 
-Perciò: 
+In particolare: 
 \begin{description} %[noitemsep]
 \item [zero] è l'elemento neutro dell'addizione e 
 elemento assorbente per la moltiplicazione;
@@ -1188,7 +1194,7 @@ Possiamo vedere che dal quinto elemento in poi la prima successione è sempre
 minore della seconda ed essendo l'infinito più grande di cinque 
 otteniamo che \(2^M > M^2\) quindi possiamo scrivere:
 \[\frac{M}{2^M} < \frac{M}{M^2} = \frac{1}{M} < 1\]
-Ma \(\frac{1}{M}\) è un infinitesimo quindi \(M\) è un infinito di ordine 
+Ma \(\dfrac{1}{M}\) è un infinitesimo quindi \(M\) è un infinito di ordine 
 inferiore a \(2^M\).
 \end{esempio}
 
@@ -1333,7 +1339,7 @@ Dimostrazione
 \label{subsubsec:insnum_infiniti}
 
 La situazione si ribalta se i due numeri sono infiniti infatti, in 
-questo caso, sono indistinguibili anche se differiscono di 
+questo caso, sono indistinguibili anche se la loro differenza è 
 un valore finito o addirittura infinito. 
 
 Si può dimostrare il seguente
@@ -1366,7 +1372,7 @@ In modo analogo si può procedere con la seconda parte del teorema.
 % \end{proof}
 
 \subsection{Principio di tranfer}
-\label{subsec:insnum_nonarchimedei}
+\label{subsec:transfer}
 
 Abbiamo applicato agli iperreali le operazioni aritmetiche con grande 
 naturalezza estendendo i metodi e i risultati che già conosciamo nei Reali. 
@@ -1378,13 +1384,13 @@ In questo modo tutto quello che è possibile fare con i numeri Reali lo si
 può fare anche con gli Iperreali.
 
 \begin{osservazione}
- Non vale il viceversa. Dato che gli Iperreali estendono i Reali, ci sono 
+Non vale il viceversa. Dato che gli Iperreali estendono i Reali, ci sono 
 delle funzioni che, definite negli Iperreali, non hanno un valore 
 corrispondente nei Reali. Ad esempio la funzione iperreale \emph{parte 
 standard} non ha una funzione corrispondente nei numeri reali.
 
 \begin{esempio}
- Consideriamo ad esempio la funzione: 
+Consideriamo ad esempio la funzione: 
 \(f: x \mapsto \frac{1}{x} \quad \forall x \in \R \stext{e} x \ne 0\)
 
 È facile costruire la funzione \(\effestar\) (\emph{effe star}) con 
@@ -1412,9 +1418,9 @@ reale.
 \section{Applicazioni}
 \label{sec:insnum_applicazioni}
 
-Dopo aver dato un'occhiata a cosa sono e come funzionano i numeri iperreali 
-vediamo qualche problema che si può convenientemente risolvere con 
-questi numeri.
+Dopo aver dato un'occhiata a cosa sono e come funzionano i numeri 
+iperreali vediamo qualche problema che si può convenientemente risolvere 
+con questi numeri.
 
 \subsection{Espressioni con gli iperreali}
 \label{subsec:insnum_espressioni}
@@ -1641,7 +1647,7 @@ Dove i passaggi hanno i seguenti motivi:
 \end{enumerate}
 \end{esempio}
 
-% \pagebreak %--------------------------------------------------
+\pagebreak %--------------------------------------------------
 
 \begin{esempio}
 Riduci l'espressione 
@@ -1650,8 +1656,8 @@ usando la relazione di indistinguibilità:
 
 \begin{osservazione}
  Anche qui si potrebbe pensare che essendo~\(9H^2 -12H\) indistinguibile 
-da~\(9H^2\) e~\(9H^2 +1\) indistinguibile da~\(9H^2\), la precedente 
-espressione sia indistinguibile da \\
+da~\(9H^2\) e~\(9H^2 +1\) indistinguibile da~\(9H^2\), e che quindi la 
+precedente espressione sia indistinguibile da \\
 \(\sqrt{9H^2} - \sqrt{9H^2} = 0\)\\
 Ma il concetto di indistinguibile, non si può \emph{mai} 
 applicare tra un numero e lo zero quindi non possiamo dire che 

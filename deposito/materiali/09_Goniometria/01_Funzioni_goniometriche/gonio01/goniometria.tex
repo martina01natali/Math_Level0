@@ -1,5 +1,18 @@
 % (c) 2015 Daniele Zambelli daniele.zambelli@gmail.com
 
+% \providecommand*\wideparen[1]{
+%   \setbox254\hbox{\(#1\)}
+%   \dimen0=\wd254\relax
+%   \setbox254\hbox{\rotatebox{-90}{(}}
+%   \vbox{
+%     \ialign{
+%      ##\crcr
+%      \resizebox{\dimen0}{!}{\box254}\crcr
+%      \(\hfil\displaystyle{#1}\hfil\)\crcr
+%     }
+%   }
+% }
+
 \input{\folder goniometria_grafici.tex}
 
 \chapter{Goniometria}
@@ -136,21 +149,10 @@ dall'origine uguale a~1. Ricordandoci la formula della distanza tra due punti
 nel piano cartesiano possiamo dire che le coordinate di ciascun punto della 
 circonferenza soddisfano l'equazione \(\sqrt{x^2 + y^2} = 1\).
 
-\providecommand*\wideparen[1]{
-  \setbox254\hbox{\(#1\)}
-  \dimen0=\wd254\relax
-  \setbox254\hbox{\rotatebox{-90}{(}}
-  \vbox{
-    \ialign{
-     ##\crcr
-     \resizebox{\dimen0}{!}{\box254}\crcr
-     \(\hfil\displaystyle{#1}\hfil\)\crcr
-    }
-  }
-}
-
-La direzione del vettore può essere individuata o fornendo l'angolo \(\alpha\) 
-o fornendo la lunghezza dell'arco~\(\wideparen{AB}\).
+La direzione del vettore può essere individuata o fornendo l'angolo 
+\(\alpha\) 
+o fornendo la lunghezza dell'arco~\(\widearc{AB}\).
+% o fornendo la lunghezza dell'arco~\(\wideparen{AB}\).
 
 Ricordandoci la formula della circonferenza (\(\mathcal{C}= 2 \pi r\)) si può 
 vedere facilmente che tra gli angoli e i corrispondenti archi valgono le 
@@ -200,28 +202,27 @@ ogni valore dell'arco~\(\alpha\) le lunghezze di alcuni segmenti.
 Cioè la circonferenza goniometrica ci permette di creare le tre funzioni 
 reali: \emph{seno}, \emph{coseno}, \emph{tangente}. 
 
-\noindent\begin{minipage}{.54\textwidth}
+\noindent\begin{minipage}{.52\textwidth}
 Ora consideriamo l'angolo \(\alpha\) che ha il vertice nell'origine degli 
 assi e il primo lato coincidente con l'asse~\(x\). L'altro lato interseca la 
 circonferenza in un punto \(P\) e interseca la tangente alla circonferenza 
 nel punto~\(T\).
 Il segmento \(OP\) è lungo ~1 essendo il raggio della circonferenza 
 goniometrica.
-Possiamo costruire due triangoli rettangoli con i cateti paralleli agli assi. 
+Possiamo costruire due triangoli rettangoli 
+con i cateti paralleli agli assi: \(OCP\) e \(OHT\). 
 Chiamiamo:
 \begin{itemize} [nosep]
- \item \(\sin \alpha\) il cateto opposto all'angolo~\(\alpha\) (\(OP\));
- \item \(\cos \alpha\) il cateto adiacente all'angolo~\(\alpha\) (\(OH\));
- \item \(\tan \alpha\) il cateto~\(KT\);
+\item \(\sin \alpha\) il cateto opposto all'angolo~\(\alpha\) (\(OS\));
+\item \(\cos \alpha\) il cateto adiacente all'angolo~\(\alpha\) (\(OC\));
+\item \(\tan \alpha\) il cateto~\(HT\);
 \end{itemize}
 \end{minipage}
-\begin{minipage}{.44\textwidth}
+\begin{minipage}{.46\textwidth}
 % \begin{figure}[h]
   \begin{center}
 \begin{inaccessibleblock}[La circonferenza goniometrica.]
-    \input{\folder lbr/005_circ_gonio.pgf}
-%     \caption{Circonferenza goniometrica}
-%     \label{fig:trigo_circ_gonio}
+\scalebox{1.}{\circgonio}
 \end{inaccessibleblock}
   \end{center}
 %    \vspace{-24pt}
@@ -247,14 +248,16 @@ Chiamiamo:
 Si può osservare che:
 
 \begin{itemize} [nosep]
- \item con \(\alpha\) intendiamo sia l'angolo sia l'arco.
- \item \(\cos \alpha\) è l'ascissa di~\(P\) e~\(\sin \alpha\) è 
-  l'ordinata di~\(P\): \(P \left(\cos \alpha;~\sin \alpha \right)\);
- \item per il teorema di Pitagora:~\(\sin^2 \alpha + \cos^2 \alpha = 1\);
- \item sia \(\cos \alpha\) sia~\(\sin \alpha\) hanno valori interni
-  all'intervallo~\(\left[-1;~+1 \right]\).
+\item con \(\alpha\) intendiamo sia l'angolo \(\widehat{COP}\) 
+sia l'arco\(\widearc{HP}\).
+\item \(\cos \alpha\) è l'ascissa di~\(P\) e~\(\sin \alpha\) è 
+l'ordinata di~\(P\): \quad 
+\(P \left(\cos \alpha;~\sin \alpha \right)\);
+\item per il teorema di Pitagora: \quad 
+\(\sin^2 \alpha + \cos^2 \alpha = 1\);
+\item sia \quad \(\cos \alpha\) \quad sia \quad \(\sin \alpha\) 
+hanno valori interni all'intervallo~\(\intervcc{-1}{+1}\).
 \end{itemize}
-
 
 Possiamo riprendere la tabella precedente e completarla con i valori di 
 \emph{seno}, \emph{coseno} e \emph{tangente}:
@@ -318,7 +321,6 @@ Vediamo ora come disegnare il grafico della funzione seno.
  \end{enumeratea}
 %  \end{enumerate}
 \end{procedura}
-
 % \begin{figure}[h] 
  \vspace{-6pt}
   \begin{center}
@@ -333,22 +335,23 @@ Vediamo ora come disegnare il grafico della funzione seno.
 % \end{figure} 
 
 In modo analogo puoi riportare sul piano i punti relativi al coseno e alla 
-tangente. ottenendo il grafico delle tre funzioni circolari fondamentali.
+tangente ottenendo il grafico delle tre funzioni circolari fondamentali.
 
 % \begin{figure}[!h] 
  \vspace{-6pt}
   \begin{center}
 \begin{inaccessibleblock}[Sinusoide nel piano cartesiano.]
-    \input{\folder lbr/007_sin.pgf}
+%     \input{\folder lbr/007_sin.pgf}
 %     \caption{Sinusoide nel piano cartesiano}
 %     \label{fig:trigo_sin}
+\funcwithlabel{7}{-7}{+7}{-1}{+1}{sincolor}{sin(x)}{y = \sin x}
 \end{inaccessibleblock}
   \end{center}
 %    \vspace{-24pt}
 % \end{figure} 
 Puoi osservare che la funzione seno:
 \begin{itemize*}
- \item è definita per ogni valore di x;
+ \item è definita per ogni valore di \(x\);
  \item è simmetrica rispetto \dots
  \item è contenuta nell'intervallo \dots
  \item si ripete sempre uguale, cioè è periodica con periodo \dots
@@ -359,16 +362,17 @@ Puoi osservare che la funzione seno:
   \begin{center}
   
 \begin{inaccessibleblock}[Cosinusoide nel piano cartesiano.]
-    \input{\folder lbr/008_cos.pgf}
+%     \input{\folder lbr/008_cos.pgf}
 %     \caption{Cosinusoide nel piano cartesiano}
 %     \label{fig:trigo_sin}
+\funcwithlabel{7}{-7}{+7}{-1}{+1}{coscolor}{cos(x)}{y = \cos x}
 \end{inaccessibleblock}
   \end{center}
 %    \vspace{-24pt}
 % \end{figure} 
 Puoi osservare che la funzione coseno:
 \begin{itemize*}
- \item è definita per ogni valore di x;
+ \item è definita per ogni valore di \(x\);
  \item è simmetrica rispetto \dots
  \item è contenuta nell'intervallo \dots
  \item si ripete sempre uguale, cioè è periodica con periodo \dots
@@ -381,9 +385,10 @@ Puoi osservare che la funzione coseno:
  \vspace{-6pt}
   \begin{center}
 \begin{inaccessibleblock}[Tangentoide nel piano cartesiano.]
-    \input{\folder lbr/009_tan.pgf}
+%     \input{\folder lbr/009_tan.pgf}
 %     \caption{Tangentoide nel piano cartesiano}
 %     \label{fig:trigo_sin}
+\tanwithlabel
 \end{inaccessibleblock}
   \end{center}
    \vspace{-24pt}
@@ -393,7 +398,7 @@ Puoi osservare che la funzione coseno:
 
 Puoi osservare che la funzione tangente:
 \begin{itemize*}
- \item non è definita quando x vale \dots
+ \item non è definita quando \(x\) vale \dots
  \item è simmetrica rispetto \dots
  \item è illimitata superiormente e inferiormente:
  \item si ripete sempre uguale, cioè è periodica con periodo \dots
@@ -409,43 +414,46 @@ tangente) sono legate tra di loro. Vediamo alcuni legami.
 
 \subsection{Relazione fondamentale della goniometria}
 
-La prima relazione che lega seno e coseno deriva dal teorema di Pitagora:
-\[\left(\sin \alpha \right)^2 + \left(\cos \alpha \right)^2 = 1\]
+Osservando che il triangolo rettangolo \(OCP\) ha per cateti \(\sin \alpha\) 
+e \(\cos \alpha\) e per ipotenusa \(1\), applicando il teorema di Pitagora, 
+otteniamo:
+% La prima relazione che lega seno e coseno deriva dal teorema di Pitagora:
+\(\left(\sin \alpha \right)^2 + \left(\cos \alpha \right)^2 = 1\)
+
 Può essere scritta con lo stesso significato risparmiando qualche parentesi:
-\[\sin^2 \alpha + \cos^2 \alpha = 1\]
-e deriva dalla definizione di seno e coseno.
+\(\sin^2 \alpha + \cos^2 \alpha = 1\)
+
 Da questa si ricavano le formule:
-\[\sin^2 \alpha = 1 - \cos^2 \alpha \qquad 
-  \cos^2 \alpha = 1 - \sin^2 \alpha\]
+\(\sin^2 \alpha = 1 - \cos^2 \alpha \qquad 
+  \cos^2 \alpha = 1 - \sin^2 \alpha\)
 
 \subsection{Tangente in funzione di seno e coseno}
 
-Si può osservare che quando il seno vale~0 anche la tangente vale~0 e quando 
-il coseno vale~0 la tangente non è definita. Questo può darci un indizio 
-riguardo alla seguente relazione:
+Osserviamo la circonferenza goniometrica: 
+i due triangoli \(OHT\) e \(OCP\), sono simili perché hanno due angoli 
+congruenti, l'angolo \(\alpha\) e l'angolo retto. 
 
-\[\tan \alpha = \frac{\sin \alpha}{\cos \alpha}\]
+Quindi i lati corrispondenti sono in proporzione e si può esplicitare 
+il lato \(HT\):
 
-La si può dimostrare considerando che i triangoli \(OHP\) e \(OKT\) sono simili
-e quindi i rapporti tra lati corrispondenti sono uguali:
+\affiancati{.59}{.39}{
+\[OHT \sim OCP \sRarrow \frac{HT}{CP} = \frac{OH}{OC} \sRarrow 
+HT = \frac{OH \cdot CP}{OC}\]
 
-\[OHP \sim OKT \Rightarrow \frac{HP}{OH} = \frac{KT}{OK}\]
-
-\begin{minipage}{.3\textwidth}
-e considerando che:
+Considerando che:
 \begin{itemize*}
- \item \(HP = \sin \alpha\);
- \item \(OH = \cos \alpha\);
- \item \(KT = \tan \alpha\);
- \item \(OK = 1\);
+ \item \(HT = \tan \alpha\);
+ \item \(OH = 1\);
+ \item \(CP = OS = \sin \alpha\);
+ \item \(OC = \cos \alpha\);
 \end{itemize*}
-Operando le sostituzioni si ottiene la relazione precedente.
-\end{minipage}
-\begin{minipage}{.6\textwidth}
-\begin{center}
- \input{\folder lbr/005_circ_gonio.pgf}
-\end{center}
-\end{minipage}
+possiamo operare le sostituzioni ottenendo:
+\(\tan \alpha = \dfrac{\sin \alpha}{\cos \alpha}\)
+}{
+\begin{inaccessibleblock}[La circonferenza goniometrica.]
+\begin{center}\scalebox{1}{\circgoniopertangente}\end{center}
+\end{inaccessibleblock}
+}
 
 \subsection{Traslazione di seno e coseno}
 
@@ -484,11 +492,15 @@ Si può osservare facilmente che: (\emph{completa tu la seguente tabella})
 \begin{minipage}{.3\textwidth}
   \begin{center}
 \begin{inaccessibleblock}[Circonferenza goniometrica con evidenziati 
-  gli angoli associati.]
-    \input{\folder lbr/011_angoli_associati.pgf}
-%     \caption{Angoli associati}
-%     \label{fig:trigo_angoli_associati}
+gli angoli associati.]
+\scalebox{.8}{\angoliassociati}
 \end{inaccessibleblock}
+% \begin{inaccessibleblock}[Circonferenza goniometrica con evidenziati 
+%   gli angoli associati.]
+%     \input{\folder lbr/011_angoli_associati.pgf}
+% %     \caption{Angoli associati}
+% %     \label{fig:trigo_angoli_associati}
+% \end{inaccessibleblock}
   \end{center}
 \end{minipage}
 \begin{minipage}{.7\textwidth}
@@ -550,10 +562,11 @@ di usare una calcolatrice non le apposite funzioni.
 \end{itemize}
 
 Alle volte abbiamo a che fare con angoli particolari di cui possiamo 
-ricordarci 
-il valore delle corrispondenti funzioni circolari. 
+ricordarci il valore delle corrispondenti funzioni circolari. 
 Prima di affrontarli, però dobbiamo ripassare alcuni risultati ottenuti 
 applicando il teorema di Pitagora.
+
+% \pagebreak  %---------------------------------------------
 
 \subsection{Digressione pitagorica}
 
@@ -624,7 +637,7 @@ Osserviamo i tre casi seguenti che fanno riferimento ad angoli minori di un
 angolo retto. Per quanto detto nel paragrafo precedente è facile estendere le
 conclusioni agli altri angoli associati.
 
-\newpage %-------------------------------------------------------
+% \newpage %-------------------------------------------------------
 
 \subsection{Angolo di 30°}
 
@@ -636,7 +649,8 @@ triangolo equilatero.\\
  \begin{minipage}{.45\textwidth}
   \begin{center}
 \begin{inaccessibleblock}[Circonferenza goniometrica con angolo di~30°.]
-    \input{\folder lbr/014_angolo_30.pgf}
+\angolotrenta
+%     \input{\folder lbr/014_angolo_30.pgf}
 \end{inaccessibleblock}
   \end{center}
  \end{minipage}
@@ -672,7 +686,8 @@ quadrato.\\
  \begin{minipage}{.45\textwidth}
   \begin{center}
 \begin{inaccessibleblock}[Circonferenza goniometrica con angolo di~45°.]
-    \input{\folder lbr/015_angolo_45.pgf}
+\angoloquarantacinque
+% \input{\folder lbr/015_angolo_45.pgf}
 \end{inaccessibleblock}
   \end{center}
  \end{minipage}
@@ -707,24 +722,25 @@ triangolo equilatero.\\
  \begin{minipage}{.45\textwidth}
   \begin{center}
 \begin{inaccessibleblock}[Circonferenza goniometrica con angolo di~60°.]
-    \input{\folder lbr/016_angolo_60.pgf}
+\angolosessanta
+%     \input{\folder lbr/016_angolo_60.pgf}
 \end{inaccessibleblock}
   \end{center}
  \end{minipage}
  \begin{minipage}{.45\textwidth}
-Consideriamo i due triangoli rettangoli \(OHP\) e \(OKT\) possiamo riconoscere 
-che:
+Consideriamo i due triangoli rettangoli \(OHP\) e \(OKT\) possiamo 
+riconoscere che:
 \begin{itemize} [noitemsep]
  \item il cateto \(OH\) corrisponde a metà lato del triangolo equilatero; 
  \item il cateto \(HP\) corrisponde all'altezza del triangolo equilatero;
  \item il cateto \(KT\) corrisponde all'altezza del triangolo equilatero.\\
 \end{itemize}
- \end{minipage}
+Tenendo presente che: \(OP=1\) e \(OK=1\) applichiamo a questi casi i 
+risultati ottenuti sopra:
+\end{minipage}
 
 % \vspace{-6pt}
 
-Tenendo presente che: \(OP=1\) e \(OK=1\) applichiamo a questi casi i risultati 
-ottenuti sopra:
 \begin{itemize} [noitemsep]
  \item il coseno dell'angolo di~60° è uguale a \(\dfrac{1}{2}\): 
   \(\cos 60 = \dfrac{1}{2}\); 
@@ -840,7 +856,7 @@ compreso
   \begin{center}
 \begin{inaccessibleblock}[Soluzione grafica dell'equazione: 
     \(\sin x = \dfrac{1}{2}\).]
-    \input{\folder lbr/017_equazione01.pgf}
+    \scalebox{.9}{\input{\folder lbr/017_equazione01.pgf}}
 %     \caption{Soluzione grafica di: \(\sin x = \dfrac{1}{2}\)}
 %     \label{fig:trigo_equazione01}
 \end{inaccessibleblock}
@@ -872,7 +888,7 @@ La scriviamo in forma normale:
   \begin{center}
 \begin{inaccessibleblock}[Soluzione grafica dell'equazione: 
     \(\cos x = \dfrac{\sqrt{2}}{2}\).]
-    \input{\folder lbr/018_equazione02.pgf}
+    \scalebox{.9}{\input{\folder lbr/018_equazione02.pgf}}
 %     \caption{Soluzione grafica di: \(\cos x = \dfrac{\sqrt{2}}{2}\)}
 %     \label{fig:trigo_equazione02}
 \end{inaccessibleblock}
@@ -895,19 +911,21 @@ La scriviamo in forma normale:
 Questa volta abbiamo ottenuto una equazione che non è elementare: 
 contiene sia \(\sin x\) sia \(\cos x\).
 A questo punto possiamo usare un trucco:
-  
+
+\affiancati{.49}{.49}{
 %  \begin{figure}[!h]
- \begin{minipage}{.50\textwidth}
-  \begin{center}
+%  \begin{minipage}{.48\textwidth}
+%   \begin{center}
 \begin{inaccessibleblock}[Soluzione grafica dell'equazione: 
     \(\tan x = \sqrt{3}\).]
     \input{\folder lbr/019_equazione03.pgf}
 %     \caption{Soluzione grafica di: \(\tan x = \sqrt{3}\)}
 %     \label{fig:trigo_equazione03}
 \end{inaccessibleblock}
-  \end{center}
- \end{minipage}
- \begin{minipage}{.48\textwidth}
+}{
+%   \end{center}
+%  \end{minipage}
+%  \begin{minipage}{.48\textwidth}
   \begin{enumerate*}
    \item controlliamo che \(x = 90\) e \(x = 180\) non siano soluzioni 
     dell'equazione;
@@ -926,8 +944,9 @@ A questo punto possiamo usare un trucco:
   
   Scopriamo così che, tra~0° e~360° ci sono due angoli che rendono vera 
   l'equazione e sono:~60° e 240°. 
- \end{minipage}
+%  \end{minipage}
 % \end{figure}
+}
  \end{esempio}
 
 % \end{exrig}

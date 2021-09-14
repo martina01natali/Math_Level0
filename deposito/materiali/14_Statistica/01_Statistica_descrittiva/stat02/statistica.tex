@@ -2,6 +2,8 @@
 % (c) 2012 -2014 Dimitrios Vrettos - d.vrettos@gmail.com
 % (c) 2014 Daniele Zambelli - daniele.zambelli@gmail.com
 
+\input{\folder statistica_grafici.tex}
+
 \chapter{Statistica descrittiva bivariata}
 
 \section{Indagine statistica}
@@ -222,6 +224,7 @@ Totale & 52 & &&&\\
 \end{esempio}
 % \end{exrig}
 
+\pagebreak %-----------------------------------------
 
 Riassumendo
 \begin{center}
@@ -245,7 +248,7 @@ immediatamente, in maniera diretta e sintetica.
 
 La rappresentazione grafica può avvenire utilizzando diversi tipi di 
 grafico a seconda delle caratteristiche da
-analizzare.
+evidenziare.
 
 \subsubsection{Diagramma cartesiano}
 La rappresentazione grafica attraverso un diagramma cartesiano dà, in modo 
@@ -256,9 +259,9 @@ fabbrica)
 oppure quando si hanno due caratteri quantitativi e si vuol analizzare il 
 tipo di legame esistente fra di essi.
 
-
 % \begin{exrig}
- \begin{esempio}\label{es:statistica2}
+\begin{esempio}
+\label{es:statistica2}
 
 Consideriamo la tabella statistica relativa alla domanda ``quante ore al 
 giorno passi al computer?'', posta ad un
@@ -296,13 +299,13 @@ non ha significato reale, dato che le sue coordinate non sono riportate
 nella tabella statistica del fenomeno da studiare.
 \begin{grafico}[t]
 \begin{minipage}{0.5\textwidth}
-\input{\folder lbr/fig002_graf.pgf}
+\scalebox{.8}{\input{\folder lbr/fig002_graf.pgf}}
 \caption{Valori interi}
 % \caption{Esempio~\ref{es:statistica2}}
 \label{gr:A.1}
 \end{minipage}\hfill
 \begin{minipage}{0.5\textwidth}
-\input{\folder lbr/fig003_graf.pgf}
+\scalebox{.8}{\input{\folder lbr/fig003_graf.pgf}}
 \caption{Valori intermedi}
 % \caption{Esempio~\ref{es:statistica2}}
 \label{gr:A.2}
@@ -317,7 +320,7 @@ un certo numero di dati con un simbolo che si assume come \emph{unità
 grafica};
 il simbolo richiama l'oggetto dell'indagine e dà quindi una visione 
 immediata del fenomeno.
-Ad esempio si può utizzare un uomo stilizzato per rappresentare un dato 
+Ad esempio si può usare un uomo stilizzato per rappresentare un dato 
 riguardante il numero di persone che vivono in un determinato territorio,
 una macchina per la produzione annua di automobili in una fabbrica, e così 
 via.
@@ -340,34 +343,38 @@ scolastico~2003-2004 all'anno~2008-2009 secondo questa tabella:
 \end{tabular}
 \end{center}
 
-Possiamo rappresentare mediante ideogramma i dati contenuti nella tabella 
+% \affiancati{.39}{.59}{
+\noindent Possiamo rappresentare mediante ideogramma i dati contenuti nella 
+tabella 
 statistica.
 Consideriamo una faccina stilizzata come unità grafica assegnandole il 
 valore di~50 ragazzi iscritti.
-\begin{center}
- \input{\folder lbr/fig004_emo.pgf}
-\end{center}
-Il numero degli iscritti di ogni anno scolastico sarà rappresentato da 
-tante unità grafiche quanti sono i gruppi di~50 iscritti.
-Per avere il grafico relativo all'anno~2003-2004 si devono usare tre 
-faccine, in quanto~\(150: 50 = 3\).
-\begin{center}
- \input{\folder lbr/fig005_emo.pgf}
-\end{center}
-Se la divisione del numero degli iscritti per~50 dà resto, esso si dovrà 
-rappresentare disegnando solo una parte
-dell'unità grafica, corrispondente alla frazione tra resto e~50. Ad esempio 
-nell'~a.s.~2006-2007 ci sono stati~325 iscritti; \(325:50 = 6\)
-col resto di~25, quindi~325 sarà uguale a~6 unità grafiche 
-e~\(\frac{25}{50}=\frac{1}{2}\) unità grafica, cioè mezza faccina.
-\begin{center}
- \input{\folder lbr/fig006_emo.pgf}
-\end{center}
 
-Il grafico completo sarà:
+% }{
+% \begin{center}
+%  \input{\folder lbr/fig004_emo.pgf}
+% \end{center}
+% Il numero degli iscritti di ogni anno scolastico sarà rappresentato da 
+% tante unità grafiche quanti sono i gruppi di~50 iscritti.
+% Per avere il grafico relativo all'anno~2003-2004 si devono usare tre 
+% faccine, in quanto~\(150: 50 = 3\).
+% \begin{center}
+%  \input{\folder lbr/fig005_emo.pgf}
+% \end{center}
+% Se la divisione del numero degli iscritti per~50 dà resto, esso si dovrà 
+% rappresentare disegnando solo una parte
+% dell'unità grafica, corrispondente alla frazione tra resto e~50. Ad esempio 
+% nell'~a.s.~2006-2007 ci sono stati~325 iscritti; \(325:50 = 6\)
+% col resto di~25, quindi~325 sarà uguale a~6 unità grafiche 
+% e~\(\frac{25}{50}=\frac{1}{2}\) unità grafica, cioè mezza faccina.
+% \begin{center}
+%  \input{\folder lbr/fig006_emo.pgf}
+% \end{center}
+% Il grafico completo sarà:
 \begin{center}
  \input{\folder lbr/fig007_emo.pgf}
 \end{center}
+% }
  \end{esempio}
 % \end{exrig}
 
@@ -376,26 +383,22 @@ Questo tipo di rappresentazione, detta anche diagramma a nastri o a
 bastoni, viene usata quando si vuole fornire un'idea delle frequenze
 delle diverse modalità di un fenomeno, in genere si usa per caratteri 
 qualitativi o quantitativi discreti.
-Per poter valutare il significato statistico della lunghezza dei nastri o 
-delle colonne è necessario scegliere opportunamente una scala di 
-riferimento:
-la larghezza del nastro è arbitraria ma uguale per tutti i nastri, la 
-lunghezza è proporzionale alla caratteristica che si deve rappresentare.
-I nastri e le colonne possono inoltre essere suddivisi in parti di colori 
+Il diagramma a colonne viene anche detto \emph{istogramma}.
+
+Lo spessore delle barre o delle colonne è arbitraria ma uguale per tutte. 
+La lunghezza è proporzionale alla caratteristica che si deve rappresentare.
+Le barre e le colonne possono inoltre essere suddivisi in parti di colori 
 diversi per indicare le singole componenti o i singoli fenomeni
 che si vogliono analizzare.
+La differenza fra le due rappresentazioni consiste soltanto
+nell'orientamento del grafico: orizzontale uno, verticale l'altro.
 
-La differenza fra la rappresentazione a barre e quella a colonne, detta 
-anche istogramma, consiste soltanto
-nell'orientamento del grafico: nel diagramma a nastri si indicano le 
-modalità del carattere sull'asse verticale e le frequenze sull'asse 
-orizzontale,
-mentre in quello a colonne le modalità del carattere sono riportate 
-sull'asse
-orizzontale e le frequenze su quello verticale.
-
-Di seguito vengono riportate le due tipologie di grafico accompagnate dalla 
-tabella di riferimento:
+\begin{esempio}
+In due classi parallele di un istituto viene svolta un'indagine sulla materia 
+preferita dagli alunni.
+Di seguito viene riportata la tabella con lo spoglio dei dati e la loro 
+rappresentazione con grafico a barre e a colonne.
+\end{esempio}
 
 \begin{center}
  \begin{tabularx}{.95\textwidth}{X*{7}{c}Xc}
@@ -516,43 +519,53 @@ In tal modo l'area di ogni rettangolo rappresenta la frequenza
 corrispondente a ciascuna classe.
 
 % \begin{exrig}
- \begin{esempio}
+\begin{esempio}
+Costruiamo un istogramma relativo ai crateri lunari.
 
-Costruiamo un istogramma a partire dalla distribuzione di frequenza 
-riportata nella seguente tabella:
+A partire dalla distribuzione di frequenza, calcoliamo la densità di 
+frequenza che si ottiene dividendo la frequenza assoluta per l'ampiezza della 
+classe e riportiamo il risultato in un istogramma.
+
+\affiancati{.59}{.39}{
 \begin{center}
 \begin{tabular}{lcc}
 \toprule
-Diametro crateri lunari (\(\unit{km}\)) & Numero di crateri\\
+Diametro (\(\unit{km}\)) & Numero  & 
+Densità di Freq.\\
 \midrule
-\(0-50\) & 1088 \\
-\(50-100\) & 745 \\
-\(100-150\) & 20 \\
+\(0-50\) & 1088 & \(1088/50=21,76\) \\
+\(50-100\) & 745 \(745/50=14,9\) \\
+\(100-150\) & 20 \(20/50=0,4\) \\
 \bottomrule
 \end{tabular}
 \end{center}
-
-Innanzitutto dobbiamo determinare per ogni classe la densità di frequenza 
-che si ottiene dividendo la frequenza assoluta per l'ampiezza della classe:
-
-\begin{center}
-\begin{minipage}{.6\textwidth}
-\begin{tabular}{cc}
-\toprule
-Diametro crateri lunari (\(\unit{km}\)) & Densità\\
-\midrule
-\(0-50\) & \(1088/50=21,76\) \\
-\(50-100\) & \(745/50=14,9\) \\
-\(100-150\) & \(20/50=0,4\) \\
-\bottomrule
-\end{tabular}
-\end{minipage} 
-\begin{minipage}{.38\textwidth}
-\begin{inaccessibleblock}[Figura: TODO]
-\scalebox{.7}{\input{\folder lbr/fig011_dia.pgf}}
+}{
+\begin{inaccessibleblock}[Figura: istogramma]
+\begin{center}\scalebox{.9}{\input{\folder lbr/fig011_dia.pgf}}\end{center}
 \end{inaccessibleblock}
-\end{minipage}
-\end{center}
+}
+
+% Innanzitutto dobbiamo determinare per ogni classe la densità di frequenza 
+% che si ottiene dividendo la frequenza assoluta per l'ampiezza della classe:
+% 
+% \begin{center}
+% \begin{minipage}{.6\textwidth}
+% \begin{tabular}{cc}
+% \toprule
+% Diametro crateri lunari (\(\unit{km}\)) & Densità\\
+% \midrule
+% \(0-50\) & \(1088/50=21,76\) \\
+% \(50-100\) & \(745/50=14,9\) \\
+% \(100-150\) & \(20/50=0,4\) \\
+% \bottomrule
+% \end{tabular}
+% \end{minipage} 
+% \begin{minipage}{.38\textwidth}
+% \begin{inaccessibleblock}[Figura: TODO]
+% \scalebox{.7}{\input{\folder lbr/fig011_dia.pgf}}
+% \end{inaccessibleblock}
+% \end{minipage}
+% \end{center}
 
 \end{esempio}
 
@@ -803,6 +816,8 @@ valore minimo assunti dalla
 variabile: \(\cvar = x_{max} - x_{min}\).
 \end{definizione}
 
+% \pagebreak %--------------------------------------------------
+
 Tale indice dà un'informazione molto grossolana perché tiene conto solo del 
 primo e dell'ultimo termine della
 distribuzione e non tiene conto di tutti i valori intermedi. Si 
@@ -887,6 +902,8 @@ Totale\\
 si ha che lo scarto medio assoluto è~62,4. Si può allora affermare che in 
 ogni tipologia di classe si hanno in media~\(202\pm~62,4\) iscritti.
 
+% \newpage %-----------------------------------------------
+
 \subsection{Varianza e scarto quadratico medio}
 \label{subsec:stat02_scarto_quadratico}
 
@@ -894,13 +911,9 @@ L'indice più utilizzato è la varianza.
 
 \begin{definizione}
 La \emph{varianza} è la media dei quadrati degli scarti fra le singole 
-osservazioni e la loro media
-aritmetica:
+osservazioni e la loro media aritmetica:
 \[\var=\frac{ \left[ (x_1-M)^2+(x_2-M)^2+ \cdots +(x_n-M)^2 \right] 
 }{n}=\frac{1}{n}\sum_{i=1}^n (x_i-M)^2.\]
-
-Lo \emph{scarto quadratico medio} è la radice quadrata della 
-varianza:~\(\sigma=\sqrt{\var{}}\).
 \end{definizione}
 
 Se i dati si presentano sotto forma di distribuzione di frequenza la media 
@@ -914,98 +927,156 @@ frequenze, cioè:
 
 La varianza assume valore zero quando tutti i valori coincidono con la 
 media ed è tanto più grande quanto più i singoli valori
-si discostano dalla media. Poiché tale indice è influenzato sia dal valore 
-della media che dall'unità di misura utilizzato spesso si utilizza
-un indice detto \emph{coefficiente di variazione}.
+si discostano dalla media. 
 
-\subsection{Coefficiente di variazione}
-\label{subsec:stat02_coeff_variazione}
+\begin{definizione}
+Lo \emph{scarto quadratico medio} o \emph{Deviazione standard} è la radice 
+quadrata della varianza:
+\[\text{Scarto quadratico medio } = \sigma = \sqrt{\var{}}\]
+\end{definizione}
+
+Poiché questi indici sono influenzati dall'unità di misura utilizzata, 
+spesso si usa un indice detto \emph{coefficiente di variazione}
 
 \begin{definizione}
 Il \emph{coefficiente di variazione} è uguale al rapporto fra scarto 
 quadratico medio (radice quadrata
 della varianza) e media aritmetica:
-\[\cfvar{} = \frac{\sqrt{\var{}}}{\media}\].
+\[\text{Coeff. variazione} = CV = \frac{\sqrt{\var{}}}{\media}\].
 \end{definizione}
 Tale indice risulta di particolare utilità per confrontare distribuzioni 
 diverse.
 
 % \begin{exrig}
- \begin{esempio}
+\begin{esempio}
 
 È dato l'elenco delle stature, in~\(\unit{cm}\), dei ragazzi di
-una classe: 165, 182, 159, 173, 160, 175, 185, 190, 175, 180, 159, 185, 
-176, 170, 175, 160, 175, 182, 159, 185.
+una classe: 159, 170, 182, 173, 175, 185, 185, 160, 170, 160, 159, 175, 175, 
+173, 165, 185, 182, 175, 180, 172.
 
 \begin{enumeratea}
-\item Ordina i dati in una tabella delle frequenze;
-\item rappresenta i dati graficamente;
-\item calcola la media, la mediana e la moda;
-\item calcola la varianza e il coefficiente di variazione.
-\end{enumeratea}
-
-\subsubsection{Tabella delle frequenze}
-
+\item Tabella delle frequenze
 \begin{center}
-\begin{tabular}{lccc}
+\begin{tabular}{lccccccccccr}
 \toprule
-Dati & Frequenze assolute & Frequenze relative & Frequenze percentuali\\
+Classi & 159 & 160 & 165 & 170 & 172 & 173 & 175 & 180 & 182 & 185 & Tot\\
 \midrule
-159 & 3 & 0,15 & 15\% \\
-160 & 2 & 0,1 & 10\% \\
-165 & 1 & 0,05 & 5\% \\
-170 & 1 & 0,05 & 5\% \\
-173 & 1 & 0,05 & 5\% \\
-175 & 4 & 0,2 & 20\% \\
-176 & 1 & 0,05 & 5\% \\
-180 & 1 & 0,05 & 5\% \\
-182 & 2 & 0,1 & 10\% \\
-185 & 3 & 0,15 & 15\% \\
-190 & 1 & 0,05 & 5\% \\
-\midrule
-Totale & 20 & 1 & 100\% \\
-\bottomrule
+F. assoluta & 2 & 2 & 1 & 2 & 1 & 2 & 4 & 1 & 2 & 3  & 20\phantom{\%}\\
+F. relativa & 0,10 & 0,10 & 0,05 & 0,10 & 0,05 & 0,10 & 0,20 & 
+0,05 & 0,10 & 0,15 & 1\phantom{\%}\\
+F. perc. & 10\% & 10\% & 5\% & 10\% & 5\% & 10\% & 20\% & 
+5\% & 10\% & 15\% & 100\%\\
 \end{tabular}
 \end{center}
-\begin{itemize*}
-\item La somma delle frequenze assolute indica il numero totale degli 
-studenti;
-\item la somma delle frequenze relative deve avvicinarsi il più possibile 
-a~1;
-\item la somma delle frequenze percentuali deve avvicinarsi il più 
-possibile a~100.
-\end{itemize*}
-\vspace{-24pt}
-\subsubsection{Grafici}
+\item Rappresentazione grafica
 \begin{center}
- \input{\folder lbr/fig011_areo.pgf}
+\areoese
+% \scalebox{.8}{\input{\folder lbr/fig011_areo.pgf}}
 \end{center}
+\item Indici di posizione
 
-\vspace{-24pt}
-\subsubsection{Calcolo della media, mediana e moda}
+Media aritmetica:
+\[\text{media } = \frac{1}{20} \cdot 
+(159 \cdot 2 + 160 \cdot 2 + 165 + 170 \cdot 2 + 173 \cdot 2 + 
+175 \cdot 4 + 180 + 182 \cdot 2 + 185 \cdot 3) = 173\]
 
-Calcoliamo la media aritmetica:
-\begin{equation*}
-\begin{split}
-\media &= \frac{1}{20} \cdot 
-(165+182+159+173+160+175+185+190+175+180+159+185\\
- &+176+170+175+160+175+182+159+185)=173,5.
-\end{split}
-\end{equation*}
-
-Per determinare la mediana si devono ordinare in modo crescente i dati:
-159, 159, 159, 160, 160, 165, 170, 173, 175, 175, 175, 175, 176, 180, 182, 
-182, 185, 185, 185, 190.
+Mediana: \quad si devono ordinare in modo crescente tutti i dati:\\
+159, 159, 160, 160, 165, 170, 170, 172, 173, 
+\textbf{173}, \textbf{175}, 
+175, 175, 175, 180, 182, 182, 185, 185, 185\\
 Essendo i dati in numero pari si calcola la media dei due dati centrali:
-\(\mediana = {175+175}/{2}=175.\)
-Se i dati sono molti è possibile individuare qual è o quali sono i dati 
-centrali utilizzando la tabella delle
-frequenze opportunamente costruita, cioè con i dati scritti in ordine 
-crescente.
+\quad \(\mediana = 174\).
 
-La moda è la modalità del carattere altezza che è più ricorrente, cioè 
-quello con la frequenza più alta:
+Moda: \quad
 \(\moda = 175\).
+\item Indici di variabilità
+
+Tabella degli scarti
+\begin{center}
+\begin{tabular}{lcccccccccccr}
+\toprule
+Classi & 159 & 160 & 165 & 170 & 172 & 173 & 175 & 180 & 182 & 185 & Media\\
+\midrule
+F. assoluta & 2 & 2 & 1 & 2 & 1 & 2 & 4 & 1 & 2 & 3  & \\
+Scarto & \(-14\) & \(-13\) & \(-8\) & \(-3\) & \(-1\) & \(0\) & \(+2\) & 
+\(+7\) & \(+9\) & \(+12\) & 0\\
+Sc.quad. & 196 & 169 & 64 & 9 & 1 & 0 & 4 & 
+49 & 81 & 144 & 73,6\\
+\end{tabular}
+\end{center}
+\end{enumeratea}
+\(\text{Varianza } = \dfrac{1}{20} \cdot 
+(196 \cdot 2 + 169 \cdot 2 + 64 + 9 \cdot 2 + 1 + 0 \cdot 2 + 
+4 \cdot 4 + 49 + 81 \cdot 2 + 144 \cdot 3) = 73,6\)\\
+\(\text{Scarto quadratico medio } = \sigma =
+  \sqrt{73,6} \simeq 8,58\)\\
+\(\text{Coeff. di variazione } = \dfrac{\sigma}{\text{media}} = 
+  \dfrac{8,58}{173} \simeq 0,050\)
+
+
+% \subsubsection{Tabella delle frequenze}
+% 
+% \begin{center}
+% \begin{tabular}{lccc}
+% \toprule
+% Dati & Frequenze assolute & Frequenze relative & Frequenze percentuali\\
+% \midrule
+% 159 & 3 & 0,15 & 15\% \\
+% 160 & 2 & 0,1 & 10\% \\
+% 165 & 1 & 0,05 & 5\% \\
+% 170 & 1 & 0,05 & 5\% \\
+% 173 & 1 & 0,05 & 5\% \\
+% 175 & 4 & 0,2 & 20\% \\
+% 176 & 1 & 0,05 & 5\% \\
+% 180 & 1 & 0,05 & 5\% \\
+% 182 & 2 & 0,1 & 10\% \\
+% 185 & 3 & 0,15 & 15\% \\
+% 190 & 1 & 0,05 & 5\% \\
+% \midrule
+% Totale & 20 & 1 & 100\% \\
+% \bottomrule
+% \end{tabular}
+% \end{center}
+% \begin{itemize*}
+% \item La somma delle frequenze assolute indica il numero totale degli 
+% studenti;
+% \item la somma delle frequenze relative deve avvicinarsi il più possibile 
+% a~1;
+% \item la somma delle frequenze percentuali deve avvicinarsi il più 
+% possibile a~100.
+% \end{itemize*}
+% \vspace{-24pt}
+% 
+% \subsubsection{Grafici}
+% \begin{center}
+%  \input{\folder lbr/fig011_areo.pgf}
+% \end{center}
+% 
+% \vspace{-24pt}
+% \subsubsection{Calcolo della media, mediana e moda}
+% 
+% Calcoliamo la media aritmetica:
+% \begin{equation*}
+% \begin{split}
+% \media &= \frac{1}{20} \cdot 
+% (165+182+159+173+160+175+185+190+175+180+159+185\\
+%  &+176+170+175+160+175+182+159+185)=173,5.
+% \end{split}
+% \end{equation*}
+% 
+% Per determinare la mediana si devono ordinare in modo crescente i dati:
+% 159, 159, 159, 160, 160, 165, 170, 173, 175, 175, 175, 175, 176, 180, 182, 
+% 182, 185, 185, 185, 190.
+% Essendo i dati in numero pari si calcola la media dei due dati centrali:
+% \(\mediana = {175+175}/{2}=175.\)
+% Se i dati sono molti è possibile individuare qual è o quali sono i dati 
+% centrali utilizzando la tabella delle
+% frequenze opportunamente costruita, cioè con i dati scritti in ordine 
+% crescente.
+% 
+% La moda è la modalità del carattere altezza che è più ricorrente, cioè 
+% quello con la frequenza più alta:
+% \(\moda = 175\).
 \end{esempio}
 % \end{exrig}
 
@@ -1037,17 +1108,18 @@ nominale), \textquotedblleft gradimento dell'organizzazione e della qualità
 dei maestri\textquotedblright (variabile qualitativa ordinale) e 
 \textquotedblleft titolo di studio\textquotedblright (variabile qualitativa 
 ordinale).
+La tabella seguente riassume i dati raccolti.
+% % \begin{center}
+%         Variabili rilevate su ogni unità statistica
+% % \end{center}
 
-% \begin{center}
-        Variabili rilevate su ogni unità statistica
-% \end{center}
-
+{\footnotesize
 \begin{center}
 \begin{tabular}{|p{1.5cm}|c|c|c|c|c|}
 \hline
         &Z&     Y       &X      &W      &L\\
         \hline
-Unità statistiche & Voto& Altezza &Sesso& Gradimento& Titolo di studio\\
+n & Voto& Altezza &Sesso& Gradimento& Titolo di studio\\
 \hline
          1 & 19 &     178  & Maschio& Basso & Licenza media\\
         \hline
@@ -1091,7 +1163,7 @@ Unità statistiche & Voto& Altezza &Sesso& Gradimento& Titolo di studio\\
         \hline
 \end{tabular}
 \end{center}
-
+}
 \vspace{12pt}
 La statistica descrittiva univariata ha come obiettivo lo studio della 
 distribuzione di ogni variabile, singolarmente considerata, all'interno 
@@ -1468,7 +1540,7 @@ media \(\mu\) &21,3&      172,38\\
 \end{tabular}
 \end{center}
 
-
+{\footnotesize
     \begin{adjustwidth}{-.5in}{-.5in}
 \begin{center}
 \vspace{6pt}
@@ -1506,7 +1578,7 @@ U.stat. &      \(z_i\)&  \(y_i\)&  (\(z_i-\mu z\)) &
 \end{tabular}
 \end{center}
     \end{adjustwidth}
-
+}
 \begin{center}
 \vspace{6pt}
 \begin{tabular}{|c|}
@@ -1598,18 +1670,19 @@ ripetendo di volta in volta la  scelta di x e il calcolo di y  sino ad
 ottenere una tabella con un  appropriato insieme di coppie/punti. 
  In questo caso si tratta invece di muoversi nella direzione opposta: è 
 nota la tabella delle coppie/punti (i dati statistici di base) e si vuole 
-determinare la funzione cui tali punti possono appartenere.
+determinare la funzione alla quale tali punti possono appartenere.
  In generale si dovrebbero affrontare due problemi successivi. 
  \begin{enumerate}
         \item Decidere il \textquotedblleft tipo\textquotedblright di 
-funzione cui i punti potrebbero appartenere (una retta, una parabola, 
+funzione alla quale i punti potrebbero appartenere (una retta, una parabola, 
 un'esponenziale, e così via), sapendo che ogni tipo di funzione ha una 
 forma caratteristica che si modella in relazione ad alcuni parametri che 
-ricorrono nella sua espressione analitica. Ad esempio, ogni retta 
-(genericamente indicata come y = m x+q) assume andamenti diversi secondo il 
-valore numerico dei parametri \textquotedblleft m\textquotedblright 
-(coefficiente angolare) e \textquotedblleft q\textquotedblright (termine 
-noto o intercetta).
+ricorrono nella sua espressione analitica. 
+% Ad esempio, ogni retta 
+% (genericamente indicata come y = m x+q) assume andamenti diversi secondo il 
+% valore numerico dei parametri \textquotedblleft m\textquotedblright 
+% (coefficiente angolare) e \textquotedblleft q\textquotedblright (termine 
+% noto o intercetta).
         \item Decidere  il valore da assegnare ai parametri della funzione 
 che si è scelta. Tale assegnazione deve rispondere al criterio di rendere 
 il più possibile legittimo il ruolo della funzione come modello di 
@@ -1619,31 +1692,36 @@ punti di cui disponiamo, allora quando si inserisce uno dei nostri valori
 di x nella funzione/retta ci si aspetta di ottenere (o quasi) il suo 
 corrispondente valore di y.
  \end{enumerate}
- Nel caso specifico, se ci si limita a dare per scontata la scelta della 
-retta come \textquotedblleft funzione madre\textquotedblright dell'insieme 
-di coppie/punti che si considerano, resta solo da deciderne i parametri. A 
-tale proposito, un valido criterio guida consiste nel ritenere che 
-\textquotedblleft la migliore retta sia quella che rende minima la somma 
-delle differenze al quadrato tra i valori di \(y_i\) realmente osservati e i 
-corrispondenti valori che la retta stessa fornisce per i diversi valori di 
-\(x_i\) osservati (\(i=1,2,3,\dots n\)); essendo \(n\) il numero di punti che si 
-considerano.
+Il caso più semplice consiste nello scegliere come ``funzione madre'', 
+una funzione lineare.
+La migliore retta per approssimare la nostra distribuzione di dati è quella 
+che rende minima la somma delle differenze al quadrato tra i valori di 
+\(y_i\) realmente osservati e i corrispondenti valori che la retta stessa 
+fornisce per i diversi valori di \(x_i\).
+% Nel caso specifico, se ci si limita a dare per scontata la scelta della 
+% retta come \textquotedblleft funzione madre\textquotedblright dell'insieme 
+% di coppie/punti che si considerano, resta solo da deciderne i parametri. 
+% A tale proposito, un valido criterio guida consiste nel ritenere che 
+% \textquotedblleft la migliore retta sia quella che rende minima la somma 
+% delle differenze al quadrato tra i valori di \(y_i\) realmente osservati 
+% e i corrispondenti valori che la retta stessa fornisce per i diversi 
+% valori di \(x_i\) osservati (\(i=1,2,3,\dots n\)); essendo \(n\) il numero 
+% di punti che si considerano.
  La retta che risponde a tale requisito è nota come \textquotedblleft retta 
 di regressione  o retta dei minimi quadrati\textquotedblright è la retta 
-passante per il \emph{baricentro}, ovvero il punto di coordinate 
-\((\overline{x};\overline{y})\), medie delle variabili X e Y avente 
-\textquotedblleft m\textquotedblright:
- \[m=\frac{\sigma_{xy}}{\sigma^2_{x}}\]
- (dove \(\sigma_{xy}\) è un altro modo per indicare la covarianza 
-\(COV_{xy}\))\\
- i cui termini (covarianza tra X e Y, varianza di X, e medie di X e di Y) 
-sono calcolati a partire dalla matrice dei dati di base e con le usuali 
-formule già viste.
- Pertanto, l'espressione finale della retta di regressione è la seguente:
+che:
+\begin{itemize}[nosep]
+\item passa per il \emph{baricentro}, ovvero il punto di coordinate 
+\((\overline{x};\overline{y})\), medie delle variabili X e Y;
+\item ha per coefficiente angolare:
+\(m=\dfrac{\sigma_{xy}}{\sigma^2_{x}}\) 
+dove \(\sigma_{xy}\) indica la covarianza \(COV_{xy}\))
+\end{itemize}
+Pertanto, l'espressione finale della retta di regressione è la seguente:
 \[y-\overline{y}=\frac{\sigma_{xy}}{\sigma^2_{x}}(x-\overline{x})
   \sRarrow
   y=\frac{\sigma_{xy}}{\sigma^2_{x}}(x-\overline{x})+\overline{y}\]
- Resta tuttavia ancora da verificare se tale retta, pur essendo la 
+Resta tuttavia ancora da verificare se tale retta, pur essendo la 
 \textquotedblleft migliore\textquotedblright,  è realmente idonea a 
 svolgere il ruolo di \textquotedblleft funzione madre\textquotedblright 
 dell'insieme delle n coppie/punti che si considerano. Tale verifica avviene 
@@ -1661,6 +1739,7 @@ esistere (perché Y si mantiene costante al variare di X) o potrebbe essere
 del tutto diverso da un legame di tipo lineare e, quindi, esprimibile con 
 una retta. In quest'ultimo caso, conviene riprendere in esame il punto 1. e 
 riflettere sulla scelta del tipo di funzione più idonea.
+
 \begin{esempio}
  Ad esempio, se si volesse esprimere, mediante una retta il legame tra il 
 voto (variabile dipendente) espresso dalla variabile Z  e l'altezza 
@@ -1691,6 +1770,8 @@ esempio ciò non accade in quanto, come facile rilevare:
 scarsa. Per esprimere l'eventuale relazione tra Z e Y conviene dunque 
 ipotizzare un diverso tipo di funzione matematica.
 \end{esempio}
+
+% \newpage %-------------------------------------------
 
 \section{Schema riassuntivo: formule della statistica}
 \label{sec:stat02_formule}
