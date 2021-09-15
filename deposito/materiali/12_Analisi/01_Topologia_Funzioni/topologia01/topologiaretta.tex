@@ -39,7 +39,7 @@ dire, tra due numeri, quale è il più grande e quale il più piccolo.
 
 Questa caratteristica dei numeri si traduce, nella retta, nel poter 
 determinare quale punto viene prima e quale dopo, 
-per fate questo dobbiamo assegnare un verso alla retta.
+per fare questo dobbiamo assegnare un verso alla retta.
 
 \affiancati{.49}{.49}{
 \rettaconversoa
@@ -49,13 +49,13 @@ a destra \dots
 }{
 \rettaconversob
 
-\dots ma nulla toglie di disegnarlo anche in altri modi.
+\dots ma nulla toglie che lo si possa disegnare anche in altri modi.
 }
 
 \begin{newdef}{}{verso}
 Se al numero \(a\) corrisponde il punto \(A\) e al numero \(b\) il punto 
 \(B\), dire che \(a < b\) è equivalente a dire che 
-\(A \stext{viene prima di} B\).
+\(A \stext{viene prima di} B\) o che \(B \stext{viene dopo} A\).
 \end{newdef}
 
 Per poter fare corrispondere ad ogni numero un punto della retta e, 
@@ -174,20 +174,22 @@ Al variare dei punti \(A\) e \(B\), e delle corrispondenti coordinate
 \(x_A\) e \(x_B\) la lunghezza \(\mathcal{L}\) del segmento \(AB\) ha le 
 seguenti proprietà:
 \begin{enumerate}
-\item \(\lung{A}{B} = \lung{B}{A}\) 
-cioè la lunghezza di un segmento è simmetrica,
-\item \(\lung{A}{B} \geq 0\),
-\item \(\lung{A}{B} = 0 \sLRarrow A = B\),
-\item \(\forall A,~B,~C \quad \lung{A}{B} \leq \lung{A}{C} + \lung{C}{B}\) 
-detta disuguaglianza triangolare.
+\item \(\lung{A}{B} = \lung{B}{A}\), 
+% cioè la lunghezza di un segmento è simmetrica,
+\item \(\lung{A}{B} \geqslant 0\),
+\item \(\lung{A}{B} = 0 \sLRarrow A \equiv B\),
+\item \(\forall A,~B,~C \quad \lung{A}{B} \leqslant \lung{A}{C} + 
+\lung{C}{B}\) 
+(detta disuguaglianza triangolare).
 \end{enumerate}
 
 \section{Insiemi limitati e illimitati}
 \label{sec:topologiainsiemi}
 
-In questa sezione ci concentreremo su sottoinsiemi di: \\
-\hspace*{30mm}
-retta \(\retta\), \quad numeri reali \(\R\) \quad numeri iperreali \(\IR\).
+In questa sezione ci concentreremo su sottoinsiemi \\
+\hspace*{20mm}
+della retta \(\retta\), \qquad dei numeri reali \(\R\) \qquad 
+dei numeri iperreali \(\IR\).
 
 % In questa sezione considereremo sottoinsiemi di insiemi numerici dotati di 
 % ordinamento: naturali, interi, razionali, reali o iperreali. 
@@ -201,7 +203,7 @@ retta \(\retta\), \quad numeri reali \(\R\) \quad numeri iperreali \(\IR\).
 % \(A \subseteq \R\). 
 % L'insieme \(A\) si dice superiormente limitato se esiste un numero finito 
 % \(n\) maggiore o uguale a tutti gli elementi di \(A\). 
-% % cioè \(n \geq x \quad \forall x \in A\). 
+% % cioè \(n \geqslant x \quad \forall x \in A\). 
 % Questo numero \(n\) prende il nome di maggiorante. 
 % Se un insieme \(A\) non è superiormente limitato si dice superiormente 
 % illimitato.
@@ -211,9 +213,10 @@ Una prima distinzione che possiamo fare tra i sottoinsiemi di questi enti
 
 \begin{newdef}{}{}
 \(A \subseteq \retta\) è \emph{superiormente limitato} se 
-ogni elemento di \(A\) viene prima di un dato punto \(P \in \retta\).
+ogni elemento di \(A\) viene prima (vedi def. \ref{def:verso}) 
+di un dato punto \(P \in \retta\).
 \[\exists P \in \retta \sstext{tale che} 
-  \forall x \in A,~ x \stext{viene prima} P\]
+  \forall x \in A,~ x \stext{viene prima di} P\]
 \end{newdef}
 
 \affiancati{.49}{.49}{
@@ -221,14 +224,14 @@ ogni elemento di \(A\) viene prima di un dato punto \(P \in \retta\).
 \(A \subseteq \R\) è \emph{superiormente limitato} se, esiste un numero 
 \(m \in \R\), maggiore di ogni elemento di \(A\).
 \[\exists m \in \R \sstext{tale che} 
-  \forall x \in A \quad x \leq m\]
+  \forall x \in A \quad x \leqslant m\]
 \end{newdef}
 }{
 \begin{newdef}{}{}
 \(A \subseteq \IR\) è \emph{superiormente limitato} se, esiste un numero 
 finito, maggiore di ogni elemento di \(A\).
 \[\exists m \stext{finito} \sstext{tale che} 
-  \forall x \in A \quad x \leq m\]
+  \forall x \in A \quad x \leqslant m\]
 \end{newdef}
 }
 
@@ -269,12 +272,12 @@ In sintesi, \emph{inferiormente limitato}:
 \affiancati{.49}{.49}{
 \begin{newdef}{}{}
 \[\exists m \in \R \sstext{tale che} 
-  \forall x \in A \quad x \geq m\]
+  \forall x \in A \quad x \geqslant m\]
 \end{newdef}
 }{
 \begin{newdef}{}{}
 \[\exists m \stext{finito} \sstext{tale che} 
-  \forall x \in A \quad x \geq m\]
+  \forall x \in A \quad x \geqslant m\]
 \end{newdef}
 }
 
@@ -337,14 +340,15 @@ In modo analogo si dimostra il teorema per i maggioranti.
 \begin{esempio} Rappresenta i seguenti insiemi e studia se sono limitati o 
 illimitati, qual è l'insieme dei minoranti e dei maggioranti.
 \begin{enumerate} %[noitemsep, label=\alph*)]
-\item \(A = \graffa{x \in \R \sand \tonda{x < 3 \sor 7 \leq x \leq 9}}\) 
+\item \(A = \graffa{x \in \R \sand \tonda{x < 3 \sor 7 \leqslant x \leqslant 
+9}}\) 
 
 \affiancati{.39}{.55}{
 \disegno{\raylconasse{0}{10}{3}{+3}{white}{x}
          \inti{0}{7}{9}{+7}{+9}{blue}{blue}}
 }{
 È inferiormente illimitato, mino\((A) = \emptyset\); \\
-è superiormente limitato, magg\((A) = \graffa{x \geq 9}\). 
+è superiormente limitato, magg\((A) = \graffa{x \geqslant +9}\). 
 }
 
 \item \(B=\graffa{x \in \R \sand \tonda{x = 2 \sor x = 5 \sor x > 8}}\) 
@@ -353,18 +357,19 @@ illimitati, qual è l'insieme dei minoranti e dei maggioranti.
 \disegno{\rayrconasse{0}{10}{8}{+8}{white}{x}
          \evidenziapunti{(2, 0)/+2, (5, 0)/+5}}
 }{
-È inferiormente limitato, mino\((B) = \graffa{x \leq +2}\); \\
+È inferiormente limitato, mino\((B) = \graffa{x \leqslant +2}\); \\
 è superiormente illimitato, magg\((B) = \emptyset\). 
 }
 
-\item \(C=\graffa{x \in \R \sand \tonda{-2 < x \leq 0 \sor +2 \leq x < 4}}\) 
+\item \(C=\graffa{x \in \R \sand \tonda{-2 < x \leqslant 0 \sor +2 \leqslant 
+x < 4}}\) 
 
 \affiancati{.39}{.55}{
 \disegno{\inticonasse{0}{10}{3}{5}{-2}{0}{white}{blue}{x}
          \inti{0}{7}{9}{+2}{+4}{blue}{white}}
 }{
-È inferiormente limitato, mino\((C) = \graffa{x \leq -2}\); \\
-è superiormente limitato, magg\((C) = \graffa{x \geq +4}\). 
+È inferiormente limitato, mino\((C) = \graffa{x \leqslant -2}\); \\
+è superiormente limitato, magg\((C) = \graffa{x \geqslant +4}\). 
 }
 
 \item 
@@ -379,8 +384,8 @@ illimitati, qual è l'insieme dei minoranti e dei maggioranti.
          (2.667, 0)/~\cdots, (2.6, 0)/~, (2.5, 0)/~, (2.4, 0)/~, 
          (2.3, 0)/~, (2.2, 0)/~, (2.1, 0)/~, (2., 0)/0}}
 }{
-È limitato, mino\((D) = \graffa{x \leq 0}\) \\
-magg\((D) = \graffa{x \geq +1}\). 
+È limitato, mino\((D) = \graffa{x \leqslant 0}\) \\
+magg\((D) = \graffa{x \geqslant +1}\). 
 }
 
 \item Insieme dei numeri razionali: \(\Q\) 
@@ -388,7 +393,7 @@ magg\((D) = \graffa{x \geq +1}\).
 \affiancati{.39}{.55}{
 \disegno{\allx{0}{10}{x}}
 }{
-È inferiormente illimitato, min\((\Q) = \emptyset\); \\
+È inferiormente illimitato, mino\((\Q) = \emptyset\); \\
 è superiormente illimitato, magg\((\Q) = \emptyset\). 
 }
 \end{enumerate}
@@ -400,8 +405,8 @@ magg\((D) = \graffa{x \geq +1}\).
 Ricordiamo che se il sottoinsieme \(A \neq \emptyset\) è superiormente 
 limitato, ha infiniti maggioranti; 
 non è possibile individuare un maggiorante più grande di tutti, 
-mentre possiamo trovare il maggiorante più piccolo.
-
+mentre possiamo trovare il maggiorante più piccolo che chiameremo 
+\emph{estremo superiore}.
 L'estremo superiore può appartenere oppure no al sottoinsieme \(A\).
 
 
@@ -469,33 +474,34 @@ non può essere un minorante.
 insiemi. %TODO: invece che intervalli, fare degli insiemi più complicati
 \begin{enumerate}
 \item 
-\(A = \graffa{x\in\R \sand \tonda{1 < x \geq 5 \sor 
-                                  x \in \graffa{2;~4;~6; 8}}}\)~:\\
+\(A = \graffa{x\in\R \sand \tonda{1 < x \leqslant 5 \sor 
+                                  x \in \graffa{2;~4;~6;~8}}}\)~:\\
 \disegno{\inticonasse{0}{10}{1}{5}{+1}{+5}{white}{blue}{x}
          \evidenziapunti{(6, 0)/+6, (8, 0)/+8}}\\
-L'insieme dei minoranti è \(\graffa{x\in\R \sand x \leq 1}\) e
-l'insieme dei maggioranti è \(\graffa{x\in\R \sand x \geq 8}\).
+L'insieme dei minoranti è \(\graffa{x\in\R \sand x \leqslant 1}\) e
+l'insieme dei maggioranti è \(\graffa{x\in\R \sand x \geqslant 8}\).
 L'estremo inferiore è 1, infatti questo valore è il massimo 
 dei minoranti, 1 però non è minimo in quanto non appartiene a \(A\). 
 L'estremo superiore è 8, che appartiene all'insieme e è, quindi, massimo. 
 
-\item \(B =\graffa{x \in \R \sand \tonda{x \leq 3 \sor 5 \leq x < 7}}\): \\
+\item \(B =\graffa{x \in \R \sand \tonda{x \leqslant 3 \sor 5 \leqslant x < 
+7}}\): \\
 \disegno{\raylconasse{0}{10}{3}{+3}{blue}{x}
          \inti{0}{5}{7}{+5}{+7}{blue}{white}}\\
 non essendo inferiormente limitato, \(B\) non presenta né estremo inferiore 
 né minimo. 
-L'estremo superiore di \(B\) è 7, poiché non appartenendo all'insieme, 
+L'estremo superiore di \(B\) è 7 e, poiché non appartenendo all'insieme, 
 \(B\) non ha massimo.
 
-\item \(C = \graffa{x\in\R~\sand~ 2 \leq x \leq 5}\)~: \\
+\item \(C = \graffa{x\in\R~\sand~ 2 \leqslant x \leqslant 5}\)~: \\
 \disegno{\inticonasse{0}{10}{2}{5}{+2}{+5}{blue}{blue}{x}}\\
 \(\inf{C} = 2; \quad \sup{C} = 5; \quad \min{C} = 2; \quad \max{C} = 5\) 
 
-\item \(D = \graffa{x\in\R~\sand~ 2 < x \leq 5}\)~: \\
+\item \(D = \graffa{x\in\R~\sand~ 2 < x \leqslant 5}\)~: \\
 \disegno{\inticonasse{0}{10}{2}{5}{+2}{+5}{white}{blue}{x}}\\
 \(\inf{D} = 2; \quad \sup{D} = 5; \quad \min{D} = N.D.; \quad \max{D} = 5\)
 
-\item \(E = \graffa{x\in\R~\sand~ 2 \leq x < 5}\)~: \\
+\item \(E = \graffa{x\in\R~\sand~ 2 \leqslant x < 5}\)~: \\
 \disegno{\inticonasse{0}{10}{2}{5}{+2}{+5}{blue}{white}{x}}\\
 \(\inf{E} = 2; \quad \sup{E} = 5; \quad \min{E} = 2; \quad \max{E} = N.D.\)
 
@@ -530,10 +536,12 @@ di \(A\), lo chiamiamo \(m_A\).
 Possiamo suddividere l'intervallo \(\intervcc{n_A}{m_A}\) in \(n\) parti 
 uguali.
 Tra i punti di suddivisione ne troveremo due consecutivi uno che appartiene 
-all'insieme \(A\) e uno che non appartiene all'insieme \(A\).
+ad \(A\) e uno che non appartiene ad \(A\).
 
-Possiamo  ripetere la stessa operazione suddividendo l'intervallo 
-\(\intervcc{n_A}{m_A}\) in un numero \(N\) infinito di parti uguali.
+Consideriamo ora l'insieme \(\fstar{A}\) estensione iperreale di \(A\), 
+possiamo ripetere la stessa operazione suddividendo l'intervallo 
+\(\intervcc{n_{\fstar{A}}}{m_{\fstar{A}}}\) in un numero \(N\) infinito di 
+parti uguali.
 Anche in questo caso, per la proprietà di transfert dei numeri iperreali 
 (cioè poiché si mantengono tutte le proprietà elementari dei reali), avremo 
 due numeri consecutivi con il primo che appartiene all'insieme \(A\) e il 
@@ -557,7 +565,7 @@ quindi l'altro non può essere il minimo dei maggioranti.
 
 In matematica (e non solo) viene spesso usato il simbolo di infinito: 
 \(\infty\).
-Chiariamo il suo significato.
+Cerchiamo di chiarire il suo significato.
 
 \affiancati{.49}{.49}{
 \begin{newoss}{}{}
@@ -986,7 +994,8 @@ Consideriamo un intorno destro di \(0\): \quad
 dove \(\delta_1\) è un qualunque reale positivo,
 se \(0 < x < \delta_1\) allora \(f(x) > \dfrac{1}{\tonda{\delta_1}^2}\).\\ 
 Lo stesso vale per ogni \(x\) appartenente a un intorno sinistro di \(0\).\\ 
-In ogni caso se \(x\) appartiene ad un intorno di \(0\), \(f(x\) appartiene a 
+In ogni caso se \(x\) appartiene ad un intorno di \(0\), \(f(x)\) appartiene 
+a 
 un intorno di \(+\infty\). 
 \end{esempio}
 
@@ -1081,7 +1090,7 @@ Possiamo ora dare le seguenti definizioni.
 % \end{newdef}
 
 \begin{newdef}{}{}
-Chiamiamo \emph{punto di accumulazione} per \(A\) un punto \(P\) se ogni 
+\(P\) è un \emph{punto di accumulazione} per \(A\) se ogni 
 suo intorno contiene almeno un elemento di \(A\) diverso da \(P\).
 \end{newdef}
 
@@ -1220,20 +1229,20 @@ Dato l'insieme \(A = \intervaa{4}{8}\)
 stabilisci le caratteristiche dei seguenti punti.
 \begin{enumerate} [label=\alph*)]
 \item \(x_P= 2\): \quad  \(x_P \notin A\), 
-\(x_P\) non è di accumulazione per \(A\) \(x_P\) è esterno ad \(A\).
+\(x_P\) non è di accumulazione per \(A\), \(x_P\) è esterno ad \(A\).
 \item \(x_P= 4\): \quad  \(x_P \notin A\), 
-\(x_P\) è di accumulazione per \(A\) \(x_P\) è di frontiera per \(A\).
+\(x_P\) è di accumulazione per \(A\), \(x_P\) è di frontiera per \(A\).
 \item \(x_P= 5\): \quad  \(x_P \in A\), 
-\(x_P\) è di accumulazione per \(A\) \(x_P\) è interno ad \(A\).
+\(x_P\) è di accumulazione per \(A\), \(x_P\) è interno ad \(A\).
 \item \(x_P= 8\): \quad  \(x_P \notin A\), 
-\(x_P\) è di accumulazione per \(A\) \(x_P\) è di frontiera per \(A\).
+\(x_P\) è di accumulazione per \(A\), \(x_P\) è di frontiera per \(A\).
 \item \(x_P= 9\): \quad  \(x_P \notin A\), 
-\(x_P\) non è di accumulazione per \(A\) \(x_P\) è esterno ad \(A\).
+\(x_P\) non è di accumulazione per \(A\), \(x_P\) è esterno ad \(A\).
 \end{enumerate}
 \end{esempio}
 
 \begin{esempio}
-Studio dei punti di accumulazione di \(A=\graffa{5;~6;~7;~8}\).
+Studio dei punti di accumulazione di \(A = \graffa{5;~6;~7;~8}\).
 
 L'insieme, essendo finito, non ha punti di accumulazione; 
 non possiamo parlare di punti interni o di frontiera.
