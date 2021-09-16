@@ -213,8 +213,8 @@
 \newcommand{\dueassivuoti}{% 
   % Disegno di due assi paralleli
   \disegno{
-    \assecontrattini{-12}{+12}{0}{\(x\)}
-    \assecontrattini{-12}{+12}{3}{\(y\)}
+    \assecontrattini{-12}{+12}{0}{x}
+    \assecontrattini{-12}{+12}{3}{y}
     \foreach \x in {-12, ..., 11}{
       \draw  (\x, 0) [below, font=\small] node {\x};
       \draw  (\x, 3) [above, font=\small] node {\x};
@@ -226,8 +226,8 @@
   % Funzione rappresentata su due assi
   \def \mix{#1} \def \max{#2} \def \funct{#3}
   \disegno{
-    \assecontrattini{-12}{+12}{0}{\(x\)}
-    \assecontrattini{-12}{+12}{3}{\(y\)}
+    \assecontrattini{-12}{+12}{0}{x}
+    \assecontrattini{-12}{+12}{3}{y}
     \foreach \x in {-12, ..., 11}{
       \draw  (\x, 0) [below, font=\small] node {\x};
       \draw  (\x, 3) [above, font=\small] node {\x};
@@ -420,8 +420,10 @@
 \newcommand{\intervallimonotonia}{% Interv. di monotonia di una funzione.
   \disegno[4.5]{
     \graficoxy{-5}{+9}{-4}{+4}{brown!50!black}{.03*x**3-.1*x**2-x}
-    \draw [brown!50!black] (-2.403, 1.41) -- (-2.403, 0) node [below] {\(a\)};
-    \draw [brown!50!black] (+4.625, -3.796) -- (+4.625, 0) node [above] {\(b\)};
+    \draw [brown!50!black] (-2.403, 1.41) -- (-2.403, 0) 
+           node [below] {\(a\)};
+    \draw [brown!50!black] (+4.625, -3.796) -- (+4.625, 0) 
+           node [above] {\(b\)};
   }
 }
 
