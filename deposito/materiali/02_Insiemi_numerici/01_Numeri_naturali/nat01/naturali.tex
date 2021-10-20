@@ -5,9 +5,8 @@
 \input{\folder naturali_grafici.tex}
 
 \chapter{Numeri naturali}
-
 \section{L'origine dei numeri}
-\label{sec:01_origine}
+\label{sec:nat_origine}
 
 L'origine del sistema dei numeri naturali si perde nella notte dei tempi. 
 Non abbiamo documenti sufficienti per capire come l'uomo li abbia costruiti 
@@ -24,6 +23,16 @@ Nilo e il lago Edoardo, che riporta delle tacche disposte in modo tale da
 farci pensare che rappresentino dei numeri o dei calcoli. L'osso risale a
 un periodo tra il~20\,000\,~\aC~e il~18\,000\,~\aC
 
+\ifdefined\HCode                          % compilazione htlatex
+\begin{figure}
+\begin{inaccessibleblock}[Descrizione immagine: Osso con incise alcune 
+tacche regolari]
+\includegraphics{img/fig001.png}
+\end{inaccessibleblock}
+\caption{~Osso di Ishango}
+\label{fig:ishango}
+\end{figure}
+\else                                    % compilazione pdflatex
 \begin{wrapfloat}{figure}{r}{0pt}
 \begin{inaccessibleblock}[Descrizione immagine: Osso con incise alcune 
 tacche regolari]
@@ -32,6 +41,7 @@ tacche regolari]
 \caption{Osso di Ishango}
 \label{fig:ishango}
 \end{wrapfloat}
+\fi
 
 Possiamo immaginare che i pastori per contare i capi del proprio gregge, 
 facessero delle tacche su dei bastoni mano a mano che le pecore entravano 
@@ -50,7 +60,14 @@ Sappiamo per certo che circa~6\,000 anni fa gli antichi Egizi scrivevano,
 incidendo sulla pietra, i numeri utilizzando geroglifici per le potenze 
 di~10:
 
-% \input{\folder lbr/tab001}
+\ifdefined\HCode                          % compilazione htlatex
+\begin{inaccessibleblock}[Descrizione immagine: 
+Geroglifici che rappresentano le potenze di 10 da uno a un milione]
+\begin{center} 
+\includegraphics[scale=1]{img/hieropotdieci.png} 
+\end{center}
+\end{inaccessibleblock}
+\else
 \begin{inaccessibleblock}[Descrizione immagine: 
 Geroglifici che rappresentano le potenze di 10 da uno a un milione]
 \vspace{-2ex}
@@ -59,17 +76,26 @@ Geroglifici che rappresentano le potenze di 10 da uno a un milione]
 \end{center}
 \vspace{-2ex}
 \end{inaccessibleblock}
+\fi
 
 Ripetendo questi simboli è possibile scrivere, per esempio, il numero~3673 
 così:
 
-% \vspace{-2ex}\input{\folder lbr/tab002}\vspace{-2ex}
+\ifdefined\HCode                          % compilazione htlatex
+\begin{inaccessibleblock}[Descrizione immagine: Numero 3673 scritto con i 
+geroglifici]
+\begin{center} 
+\includegraphics{img/hiero3673.png} 
+\end{center}
+\end{inaccessibleblock}
+\else
 \begin{inaccessibleblock}[Descrizione immagine: Numero 3673 scritto con i 
 geroglifici]
 \vspace{-2ex}
 \begin{center} \includegraphics[scale=0.25]{img/hiero3673.png} \end{center}
 \vspace{-2ex}
 \end{inaccessibleblock}
+\fi
 
 I Romani usavano invece sette simboli con i quali, seguendo determinate 
 regole, rappresentavano qualunque numero. 
@@ -79,11 +105,11 @@ Il numero~\(MM\) rappresenta~\(~1000+1000 =~2000\); il numero~\( VI\)
 rappresenta~\(~5+1=6~\), mentre il numero~\( IV~\) rappresenta~\(~5-1=4~\).
 
 \section{I numeri naturali}
-\label{sec:01_naturali}
+\label{sec:nat_naturali}
 
 I primi numeri che abbiamo usato sin da bambini per contare gli oggetti o 
 le persone si chiamano \emph{numeri naturali}
-\[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13\dots \]
+\[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, \dots \]
 L'insieme di tutti questi numeri si indica con la lettera~\(\N\).
 
 Cosa hanno in comune le dita di una mano, con~5 mele,~5~penne,~5~sedie? 
@@ -109,7 +135,7 @@ discusso matematici e filosofi come Frege, Peano, Russell, Hilbert e tanti
 altri. Oggi ci sono diversi punti di vista.
 
 \section{Cosa sono}
-\label{sec:01_definizione}
+\label{sec:nat_definizione}
 
 I numeri naturali sono alla base dell'aritmetica, 
 tutti gli altri numeri si possono costruire a partire da questi. 
@@ -124,10 +150,10 @@ siamo tutti d'accordo di ritenere conosciuti.
 
 I concetti primitivi per definire i numeri naturali sono:
 
-\begin{itemize*}
+\begin{itemize}[noitemsep]
  \item lo zero;
  \item il successore di un numero.
-\end{itemize*}
+\end{itemize}
 
 Lo \emph{zero} è il numero che serve per contare gli elementi di un insieme 
 con il minore numero di elementi possibile: l'insieme vuoto.
@@ -138,7 +164,7 @@ subito dopo~\(n\).
 Quindi se siamo d'accordo su questi due concetti di base, possiamo definire 
 i numeri naturali come un insieme nel quale valgono le seguenti proprietà:
 
-\begin{enumerate*}
+\begin{enumerate}[noitemsep]
  \item Zero è un numero naturale.
  \item Per ogni numero naturale, anche il suo successore è un numero 
 naturale.
@@ -148,7 +174,7 @@ naturale.
    valendo per un numero naturale qualsiasi, 
    vale anche per il suo successore 
    allora vale per ogni numero naturale.
-\end{enumerate*}
+\end{enumerate}
 
 In pratica i numeri naturali sono la sequenza:
 
@@ -160,7 +186,7 @@ appositi, le cifre, e un sistema per rappresentarli:
  0, 1, 2, 3, ... 123, 124, ...
 
 \section{Il sistema di numerazione decimale posizionale}
-\label{sec:01_sist10}
+\label{sec:nat_sist10}
 
 Il modo di scrivere i numeri dei romani risultava piuttosto complicato sia 
 nella scrittura dei numeri sia nell'esecuzione dei calcoli. 
@@ -188,7 +214,6 @@ il numero dieci viene rappresentato dalla scrittura~10.
 \end{figure}
 \end{inaccessibleblock}
 
- 
 I dischetti sull'ultima asta rappresentano il numero~9; un dischetto sulla 
 penultima rappresenta il numero~10. 
 Per rappresentare il numero cento si fa uso della scrittura~100.
@@ -210,13 +235,13 @@ scrittura~\(~2\cdot 10^2+1\cdot 10+9\).
 
 Per quanto detto, il sistema di numerazione che usiamo è:
 
-\begin{itemize*}
+\begin{itemize} [noitemsep]
  \item \emph{decimale} o a base dieci, 
   perché usiamo dieci segni (cifre) per scrivere i numeri;
  \item \emph{posizionale} 
   perché una stessa cifra assume un peso (valore) diverso a seconda della 
   posizione che occupa.
-\end{itemize*}
+\end{itemize}
 
 \subsection{Rappresentazione geometrica}
 I numeri naturali possono essere rappresentati su una semiretta: 
@@ -253,11 +278,11 @@ naturali qualsiasi.
 
 \begin{legge}[di tricotomia]
 Dati due numeri naturali n, m vale sempre una delle seguenti tre relazioni: 
-\quad n > m,\quad n < m,\quad n = m.
+\[\quad n > m,\quad n < m,\quad n = m\]
 \end{legge}
 
 \section{Operazioni con i numeri naturali}
-\label{sec:01_operazioni}
+\label{sec:nat_operazioni}
 
 Possiamo vedere le operazioni matematiche come dei meccanismi, delle regole, 
 che associano ad alcuni oggetti matematici, detti \emph{operandi}, 
@@ -285,8 +310,8 @@ Data l'importanza delle funzioni e il loro uso in molti contesti diversi,
 vengono anche usati molti modi diversi per rappresentarle. 
 Di seguito ne vediamo alcuni dove applichiamo la rappresentazione al caso
 dell'addizione.
-\[somma = add \punto{o_1}{o_2} \]
-\[somma: \punto{o_1}{o_2} \mapsto o_1 + o_2\]
+\[somma = add \coppia{o_1}{o_2} \]
+\[somma: \coppia{o_1}{o_2} \mapsto o_1 + o_2\]
 
 \pagebreak
 Possono essere usate anche delle rappresentazioni grafiche:
@@ -297,30 +322,32 @@ Possono essere usate anche delle rappresentazioni grafiche:
 Funzione rappresentata con grafi\\[1em]
 \begin{inaccessibleblock}
 [Descrizione immagine: Funzione rappresentata come scatole nere]
-\grafoscatolasx{add}{\(o_1\)}{\(o_2\)}{somma}\\[0.5em]
-\grafoscatoladx{add}{\(o_1\)}{\(o_2\)}{somma}\\[0.5em]
+\grafoscatolasd{add}{o_1}{o_2}{somma}\\[0.5em]
+\grafoscatolads{add}{o_1}{o_2}{somma}\\[2em]
 \end{inaccessibleblock}
 
 \begin{inaccessibleblock}
 [Descrizione immagine: Funzione rappresentata come porta logica]
-\grafoporta{add}{\(o_1\)}{\(o_2\)}{somma}
+\grafoportad[1.1]{add}{o_1}{o_2}{somma}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{.48\textwidth}
 \begin{center}
-Rappresentazioni dell'espressione:\\
+Rappresentazioni dell'espressione:
+
 \(7 + 5 = 12\)
 
 \begin{inaccessibleblock}
 [Descrizione immagine: Espressione rappresentata come scatole nere]
-\grafoscatolasx{add}{\(7\)}{\(5\)}{\(12\)}\\[0.5em]
-\grafoscatoladx{add}{\(7\)}{\(5\)}{\(12\)}\\[0.5em]
+\grafoscatolasd{add}{7}{5}{12}\\[0.5em]
+\grafoscatolads{add}{7}{5}{12}\\[2em]
 \end{inaccessibleblock}
+
 \begin{inaccessibleblock}
 [Descrizione immagine: Espressione rappresentata come porta logica]
-\grafoporta{add}{\(7\)}{\(5\)}{\(12\)}
+\grafoportad[1.1]{add}{7}{5}{12}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -338,17 +365,20 @@ Interpretazione di queste due righe di programma:
 \item [\textbf{``o\_1'' e ``o\_2''}] sono i parametri della funzione; 
 \item [\textbf{l'espressione che segue la parola ``return''}] è il risultato
 della funzione; 
-\item [\textbf{``def'' e ``return''}] sono delle parole riservate del linguaggio
+\item [\textbf{``def'' e ``return''}] sono delle parole riservate del 
+linguaggio
 Python.
 \end{description}
 La funzione qui definita ha due parametri.
 
-Il risultato della funzione può essere visualizzato con la seguente istruzione:
+Il risultato della funzione può essere visualizzato con la seguente 
+istruzione:
 \begin{lstlisting}
 print(add(5, 7))
 \end{lstlisting}
 \begin{description} [noitemsep]
-\item [\textbf{``print''}] è un comando per visualizzare qualcosa sullo schermo;
+\item [\textbf{``print''}] è un comando per visualizzare qualcosa sullo 
+schermo;
 \item [\textbf{``5'' e ``7''}] sono gli argomenti della funzione. 
 \end{description}
 La funzione ``add'' ha due paramteri (``o\_1'' e ``o\_2'') e per eseguirla
@@ -376,7 +406,7 @@ né di quale operazione. Quindi useremo delle lettere per indicare
 operandi e  risultato mentre, per l'operazione, useremo un simbolo diverso 
 da quelli delle quattro operazioni. Diremo che:
 
-\begin{itemize*}
+\begin{itemize} [noitemsep]
  \item Un'operazione si dice \emph{legge di composizione interna} se
   il risultato appartiene allo stesso insieme degli operandi.
  \item Un'operazione gode della proprietà \emph{commutativa} se 
@@ -387,13 +417,13 @@ da quelli delle quattro operazioni. Diremo che:
   \(a \star u = u \star a = a\)
  \item Un'operazione possiede elemento \emph{inverso} se per ogni
   elemento \(a\) dell'insieme, esiste un elemento \(a'\) 
-  dell'insieme per cui \(a \star a' = a' \star a = u\) dove \(u\) è l'elemento
-  neutro.
-\end{itemize*}
+  dell'insieme per cui \(a \star a' = a' \star a = u\) dove \(u\) è 
+  l'elemento neutro.
+\end{itemize}
 
 Vediamo ora alcune operazioni con i numeri naturali e le loro proprietà.
 
-\subsection{Addizione in \(\N\)}
+\subsection{Addizione in $\N$}
 
 L'addizione è collegata all'operazione concreta di aggiungere gli elementi di 
 un gruppo di oggetti agli elementi di un altro gruppo.
@@ -433,12 +463,12 @@ L'addizione è una funzione che ha come \emph{argomento} una \emph{coppia
 qualsiasi} di numeri naturali e dà come \emph{risultato} un \emph{numero 
 naturale}:
 
-\vspace{1em}
+\vspace{2em}
 \begin{minipage}[t]{.48\textwidth}
 \begin{center}
 \begin{inaccessibleblock}
 [Descrizione immagine: Addizione rappresentata come porta logica]
-\grafoporta{add}{\(o_1\)}{\(o_2\)}{somma}
+\grafoportad[1.1]{add}{o_1}{o_2}{somma}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -447,7 +477,7 @@ naturale}:
 \begin{center}
 \begin{inaccessibleblock}
 [Descrizione immagine: rappresentazione di una addizione]
-\grafoporta{add}{\(7\)}{\(5\)}{\(12\)}
+\grafoportad[1.1]{add}{7}{5}{12}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -469,19 +499,20 @@ Si dice che è una \emph{legge di composizione interna}.
 
 Nei numeri naturali l'addizione presenta le seguenti proprietà:
 
-\begin{itemize*}
+\begin{itemize} [noitemsep]
  \item \emph{Commutativa}: \(a + b = b + a\)
  \item \emph{Associativa}: \((a + b) + c = a + (b + c)\)
  \item \emph{Elemento neutro} \(a + 0 = 0 + a = a\)
-\end{itemize*}
+\end{itemize}
 
-\subsection{Sottrazione in \(\N\)}
+\subsection{Sottrazione in $\N$}
 
 La sottrazione è collegata all'operazione concreta di togliere degli oggetti 
 da un gruppo di oggetti.
 
 \begin{definizione}
-Dati due numeri naturali~\(m\) e~\(n\), la sottrazione associa un terzo numero 
+Dati due numeri naturali~\(m\) e~\(n\), la sottrazione associa un terzo 
+numero 
 naturale~\(d\), se esiste, che aggiunto ad~\(n\) dà come somma~\(m\).
 Si scrive~\(m - n = d\).
 \end{definizione}
@@ -532,12 +563,12 @@ La sottrazione è una funzione che ha come \emph{argomento} una \emph{coppia
 ordinata} di numeri naturali e dà come \emph{risultato} un \emph{numero 
 naturale}:
 
-\vspace{1em}
+\vspace{2em}
 \begin{minipage}[t]{.48\textwidth}
 \begin{center}
 \begin{inaccessibleblock}
 [Descrizione immagine: Sottrazione rappresentata come porta logica]
-\grafoporta{sub}{\(o_1\)}{\(o_2\)}{differenza}
+\grafoportad[1.1]{sub}{o_1}{o_2}{differenza}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -546,7 +577,7 @@ naturale}:
 \begin{center}
 \begin{inaccessibleblock}
 [Descrizione immagine: rappresentazione di una sottrazione]
-\grafoporta{sub}{\(7\)}{\(5\)}{\(2\)}
+\grafoportad[1.1]{sub}{7}{5}{2}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -555,7 +586,7 @@ naturale}:
 \begin{osservazione}
 \begin{itemize} [nosep]
 \item l'argomento è formato da coppie ordinate: non è lo stesso 
-\(\punto{7}{5}\) o \(\punto{5}{7}\);
+\(\coppia{7}{5}\) o \(\coppia{5}{7}\);
 \item la funzione è definita solo quando il primo numero non è 
 minore del secondo.
 \end{itemize}
@@ -573,16 +604,16 @@ Possiamo dire che ha solo l'elemento neutro a destra infatti \(a - 0 = a\),
 ma in generale non si può fare \(0 - a\).
 
 Una proprietà interessante della sottrazione è la proprietà 
-\begin{itemize*}
+\begin{itemize} [noitemsep]
  \item \emph{Invariantiva}: \(a - b = (a \mp c) - (b \mp c)\)
-\end{itemize*}
+\end{itemize}
 
 \begin{definizione}
 Aggiungendo o togliendo ad entrambi i 
 termini di una sottrazione la stessa quantità la differenza non cambia.
 \end{definizione}
 
-\subsection{Moltiplicazione in \(\N\)}
+\subsection{Moltiplicazione in $\N$}
 
 La moltiplicazione è legata all'azione di contare oggetti disposti in uno
 schieramento rettangolare.
@@ -599,9 +630,11 @@ uguali a~\(m\):
 \end{inaccessibleblock}
 \end{definizione}
 
-Ma questa definizione è sensata solo nel caso \(n\) sia maggiore di~1.
+Ma questa definizione è sensata solo nel caso \(n\) sia un numero 
+naturale maggiore di~1.
 Quindi dobbiamo completarla:
 
+% \[\left \{\frac{a}{b}\right. \qquad \sqrt{\frac{a}{b}}\]
 \begin{inaccessibleblock}[
 \begin{definizione}
 \[
@@ -614,11 +647,11 @@ m \times n = \begin{cases}
 ]
 \begin{definizione}
 \[
-m \times n = \begin{cases}
+m \times n = \sistema{
  0 & se \quad n = 0\\
  m & se \quad n = 1\\
  \underbrace{m + m + \dots + m}_{\text{n volte}} & \mbox{ negli altri casi}
-\end{cases}\]
+}\]
 \end{definizione}
 \end{inaccessibleblock}
 
@@ -643,16 +676,17 @@ risultato si chiama \emph{prodotto}.
 
 \subsubsection{Funzione moltiplicazione}
 
-La moltiplicazione è una funzione che ha come \emph{argomento} una \emph{coppia 
+La moltiplicazione è una funzione che ha come \emph{argomento} una 
+\emph{coppia 
 qualsiasi} di numeri naturali e dà come \emph{risultato} un \emph{numero 
 naturale}:
 
-\vspace{1em}
+\vspace{2em}
 \begin{minipage}[t]{.48\textwidth}
 \begin{center}
 \begin{inaccessibleblock}
 [Descrizione immagine: Moltiplicazione rappresentata come porta logica]
-\grafoporta{mul}{\(o_1\)}{\(o_2\)}{prodotto}
+\grafoportad[1.1]{mul}{o_1}{o_2}{prodotto}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -661,7 +695,7 @@ naturale}:
 \begin{center}
 \begin{inaccessibleblock}
 [Descrizione immagine: rappresentazione di una moltiplicazione]
-\grafoporta{mul}{\(3\)}{\(4\)}{\(12\)}
+\grafoportad[1.1]{mul}{3}{4}{12}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -684,11 +718,11 @@ naturali}.
 
 Nei numeri naturali la moltiplicazione presenta le seguenti proprietà:
 
-\begin{itemize*}
+\begin{itemize} [noitemsep]
  \item \emph{Commutativa}: \(a \cdot b = b \cdot a\)
  \item \emph{Associativa}: \((a \cdot b) \cdot c = a \cdot (b \cdot c)\)
  \item \emph{Elemento neutro} \(a \cdot 1 = 1 \cdot a = a\)
-\end{itemize*}
+\end{itemize}
 
 Un'altra importante proprietà che utilizzeremo spesso anche in seguito è la:
 
@@ -703,13 +737,14 @@ sicuro almeno uno dei fattori deve essere zero. Attenzione: questa proprietà
 non vale per tutti gli insiemi numerici in cui è definita la 
 moltiplicazione.
 
-\subsection{Divisione in \(\N\)}
+\subsection{Divisione in $\N$}
 
 La divisione è collegata all'operazione concreta di dividere una certa
 quantità di oggetti in gruppi con lo stesso numero di oggetti.
 
 \begin{definizione}
-Dati due numeri naturali~\(m\) e~\(n\), con~\(n \neq 0\), la divisione associa 
+Dati due numeri naturali~\(m\) e~\(n\), con~\(n \neq 0\), la divisione 
+associa 
 un terzo numero naturale~\(q\), se esiste, che moltiplicato per ad~\(n\) dà 
 come prodotto~\(m\).
 Si scrive~\(m : n = q\).
@@ -739,11 +774,11 @@ esempio:~\(10 : 4 =\) non è un numero naturale.
 Se esiste il quoziente esatto tra i numeri \(m\) e \(n\), si dice che:
 
 \begin{multicols}{3}
-\begin{itemize*}
+\begin{itemize} [noitemsep]
  \item \(n\) è \emph{divisore} di~\(m\);
  \item \(m\) è \emph{divisibile} per~\(n\);
  \item \(m\) è \emph{multiplo} di~\(n\)
-\end{itemize*}
+\end{itemize}
 \end{multicols}
 
 %\begin{exrig}
@@ -784,12 +819,12 @@ La divisione è una funzione che ha come \emph{argomento} una \emph{coppia
 ordinata} di numeri naturali e dà come \emph{risultato} un \emph{numero 
 naturale}:
 
-\vspace{1em}
+\vspace{2em}
 \begin{minipage}[t]{.48\textwidth}
 \begin{center}
 \begin{inaccessibleblock}
 [Descrizione immagine: Divisione rappresentata come porta logica]
-\grafoporta{div}{\(o_1\)}{\(o_2\)}{quoziente}
+\grafoportad[1.1]{div}{o_1}{o_2}{quoziente}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -798,7 +833,7 @@ naturale}:
 \begin{center}
 \begin{inaccessibleblock}
 [Descrizione immagine: rappresentazione di una divisione]
-\grafoporta{div}{\(12\)}{\(4\)}{\(3\)}
+\grafoportad[1.1]{div}{12}{4}{3}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -807,7 +842,7 @@ naturale}:
 \begin{osservazione}
 \begin{itemize} [nosep]
 \item l'argomento è formato da coppie ordinate: non è lo stesso 
-\(\punto{12}{4}\) o \(\punto{4}{12}\);
+\(\coppia{12}{4}\) o \(\coppia{4}{12}\);
 \item la funzione è definita solo quando il primo numero è un multiplo
 del secondo.
 \end{itemize}
@@ -824,11 +859,11 @@ Possiamo dire che ha solo l'elemento neutro a destra infatti \(a : 1 = a\),
 ma in generale non si può fare \(1 : a\).
 
 L'unica proprietà interessante della divisione è la proprietà
-\begin{itemize*}
+\begin{itemize} [noitemsep]
  \item \emph{Invariantiva}: 
   \(a : b = (a \cdot c) : (b \cdot c) = (a : c) : (b : c) \text{ se } c \neq 
 0\)
-\end{itemize*}
+\end{itemize}
 
 \begin{definizione}
 Moltiplicando o dividendo entrambi i termini di una divisione per 
@@ -931,14 +966,15 @@ Se, però, la sottrazione è a destra:
 % \ovalbox{\risolvii \ref{ese:1.8}, \ref{ese:1.9}}
 
 \section{Potenza}
-\label{sec:01_potenza}
+\label{sec:nat_potenza}
 
 La \emph{potenza} di un numero naturale è una moltiplicazione che ha tutti 
 i fattori uguali.
 
 \begin{definizione}
 Dati due numeri naturali~\(b\),~\(e\), l'operazione di \emph{potenza} 
-associa un terzo numero~\(p\) che si ottiene moltiplicando~\(e\) fattori tutti 
+associa un terzo numero~\(p\) che si ottiene moltiplicando~\(e\) fattori 
+tutti 
 uguali a~\(b\):
 \begin{inaccessibleblock}[
   \[b^e = \mbox{e volte}{b \cdot b \cdot  \dots  \cdot b} = p\]
@@ -996,12 +1032,12 @@ La potenza è una funzione che ha come \emph{argomento} una \emph{coppia
 ordinata} di numeri naturali e dà come \emph{risultato} un \emph{numero 
 naturale}:
 
-\vspace{1em}
+\vspace{2em}
 \begin{minipage}[t]{.48\textwidth}
 \begin{center}
 \begin{inaccessibleblock}
 [Descrizione immagine: Potenza rappresentata come porta logica]
-\grafoporta{pow}{\(o_1\)}{\(o_2\)}{potenza}
+\grafoportad[1.1]{pow}{o_1}{o_2}{potenza}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -1010,7 +1046,7 @@ naturale}:
 \begin{center}
 \begin{inaccessibleblock}
 [Descrizione immagine: rappresentazione di una potenza]
-\grafoporta{pow}{\(2\)}{\(5\)}{\(32\)}
+\grafoportad[1.1]{pow}{2}{5}{32}
 \end{inaccessibleblock}
 \end{center}
 \end{minipage}
@@ -1019,7 +1055,7 @@ naturale}:
 \begin{osservazione}
 \begin{itemize} [nosep]
 \item l'argomento è formato da coppie ordinate: non è lo stesso 
-\(\punto{2}{5}\) o \(\punto{5}{2}\).
+\(\coppia{2}{5}\) o \(\coppia{5}{2}\).
 \end{itemize}
 
 \end{osservazione}
@@ -1071,9 +1107,11 @@ degli esponenti.
 % La proprietà segue da questa osservazione:
 %\begin{inaccessibleblock}[per definizione stessa di potenza]
 %\begin{align*}
-% a^m:a^n &=\underbrace{(a\cdot  a\cdot a \cdot\ldots\cdot a)}_{m\text{ volte}}:
+% a^m:a^n &=\underbrace{(a\cdot  a\cdot a \cdot\ldots\cdot a)}_{m\text{ 
+% volte}}:
 % \underbrace{(a\cdot a \cdot \ldots \cdot a)}_{n \text{ volte}}\\
-% &=\underbrace{(a:a)\cdot(a:a)\cdot\ldots \cdot(a:a)}_{m \text{ volte}} \cdot%
+% &=\underbrace{(a:a)\cdot(a:a)\cdot\ldots \cdot(a:a)}_{m \text{ volte}} 
+% \cdot%
 % \underbrace{(a \cdot a \cdot \ldots \cdot a)}_{m-n \text{ volte}}
 % =a^{m-n}.
 %\end{align*}
@@ -1191,7 +1229,7 @@ molti linguaggi di programmazione: \(0^0 = 1\).
 %\end{document} %---------------------------------------------------
 
 \section{Espressioni numeriche}
-\label{sec:01_espressioni}
+\label{sec:nat_espressioni}
 
 Spesso in matematica abbiamo a che fare con più operazioni combinate 
 assieme.
@@ -1219,7 +1257,7 @@ La regola più semplice sarebbe "eseguire da sinistra a destra", ma i
 matematici hanno scoperto che risulta più comodo eseguire prima le
 moltiplicazioni e dopo le addizioni.
 (vedi figura~\ref{fig:op_prec2}).
- 
+
 \begin{inaccessibleblock}[]
 \begin{figure}[h]
  \centering
@@ -1315,12 +1353,12 @@ Possiamo applicare le seguenti indicazioni:
 
 \begin{procedura}
  Per risolvere un'espressione in modo sequenziale:
-\begin{enumerate*} 
+\begin{enumerate} [noitemsep] 
  \item scorriamo tutta l'espressione da sinistra a destra 
  e sottolineiamo tutte le operazioni che si possono eseguire;
  \item riscriviamo l'espressione sostituendo alle operazioni sottolineate,
  nel passo precedente, i loro risultati.
-\end{enumerate*}
+\end{enumerate}
 \end{procedura}
 
 Partiamo da una nuova espressione:
@@ -1336,49 +1374,43 @@ non possiamo eseguire~\(2 + 6\). La prossima espressione che incontriamo
 quindi la sottolineiamo. Procediamo così sottolineando tutte le operazioni
 che possiamo eseguire, a questo punto della soluzione, rispettando le
 precedenze algebriche:
-\begin{tabbing}
-\hspace{3cm}\=\kill
- Sottolineo: \> \(2 + 
+
+\noindent Sottolineo: \hspace{28mm} \(2 + 
  \underline{6 \times 2} \div \left[ \underline{\left(4 -2 \right)} 
    \times \underline{3^{2}} - 
    \underline{3 \times 5} \right] +
  \left( \underline{5^{2}} + \underline{2^{3}} \right) \div 3 =\)
-\end{tabbing} 
 
 Ricopiamo l'espressione sostituendo al posto delle operazioni 
 sottolineate il loro risultato:
-\begin{tabbing}
-\hspace{3cm}\=\kill
- Eseguo: \> \(= 2 + 
+
+\noindent Eseguo: \hspace{28.7mm} \(= 2 + 
  12 \div \left[ 2 \times 9 - 15 \right| +
  \left( 25 + 8 \right) \div 3 =\)
-\end{tabbing} 
 
 Otteniamo così un'espressione a cui applicare nuovamente i due passi 
 precedenti fino ad averla ridotta ad un numero.
-
-\begin{tabbing}
-\hspace{3cm}\=\kill
- Sottolineo: \> \(= 2 + 
+\begin{align*}
+\text{Sottolineo: } \qquad &= 2 + 
  12 \div \left[ \underline{2 \times 9} - 15 \right| +
- \underline{\left( 25 + 8 \right)} \div 3 =\) \\ 
- Eseguo: \> \(= 2 + 12 \div \left[ 18 - 15 \right| +
- 33 \div 3 =\) \\ 
- Sottolineo: \> \(= 2 + 
+ \underline{\left( 25 + 8 \right)} \div 3 = \hspace{20mm}\\ 
+\text{Eseguo: } \qquad &= 2 + 12 \div \left[ 18 - 15 \right| +
+ 33 \div 3 =\\ 
+\text{Sottolineo: } \qquad &= 2 + 
  12 \div \underline{\left[ 18 - 15 \right|} +
- \underline{33 \div 3} =\) \\ 
- Eseguo: \> \(= 2 + 
+ \underline{33 \div 3} = \\ 
+\text{Eseguo: } \qquad &= 2 + 
  12 \div 3 +
- 11 =\) \\ 
- Sottolineo: \> \(= 2 + 
+ 11 = \\ 
+\text{Sottolineo: } \qquad &= 2 + 
  \underline{12 \div 3} +
- 11 =\) \\ 
- Eseguo: \> \(= 2 + 
+ 11 = \\ 
+\text{Eseguo: } \qquad &= 2 + 
  4 +
- 11 =\) \\ 
- Sottolineo: \> \(= \underline{2 +  4} + 11 =\) \\ 
- Eseguo: \> \(= 6 + 11 = 17\)
-\end{tabbing} 
+ 11 = \\ 
+\text{Sottolineo: } \qquad &= \underline{2 +  4} + 11 = \\ 
+\text{Eseguo: } \qquad &= 6 + 11 = 17
+\end{align*}
 
 Nell'ultimo passaggio, essendo rimasta una sola operazione, è inutile 
 sottolinearla. Avremmo anche potuto risolvere con un passaggio in meno
@@ -1387,7 +1419,7 @@ calcolando assieme le due addizioni:
 \(= 2 + 4 + 11 = 17\)
 
 \section{Espressioni con un buco}
-\label{sec:01_espressioni_buco}
+\label{sec:nat_espressioni_buco}
 
 A volte potrà succedere che, nell'espressione, manchi un numero.
 Conoscendo il risultato possiamo trovare il numero mancante.
@@ -1396,13 +1428,13 @@ Conoscendo il risultato possiamo trovare il numero mancante.
 
 \begin{procedura}
  Per trovare l'operando mancante usando il grafo ad albero:
-\begin{enumerate*}
+\begin{enumerate} [noitemsep]
  \item costruiamo il grafo risolutivo senza eseguire operazioni;
  \item eseguiamo tutte le operazioni possibili;
  \item scriviamo il risultato nella radice;
  \item con un colore diverso completiamo il grafo risalendo fino al numero 
   mancante.
-\end{enumerate*}
+\end{enumerate}
 \end{procedura}
 
 %\begin{exrig}
@@ -1469,7 +1501,7 @@ Scriviamo nella radice il risultato dell'espressione, e poniamo attenzione
 al nodo vuoto che lo precede.
 
 \affiancati{.44}{.54}{
-\begin{itemize*}
+\begin{itemize} [noitemsep]
  \item questo numero meno ottanta deve dare come risultato uno: il numero 
   cercato è~81; 
  \item nel nodo precedente: qui ci va una potenza che deve dare come 
@@ -1480,7 +1512,7 @@ usare
   risultato quattro, l'esponente qui deve essere 19;
  \item e infine: dodici sommato a questo esponente deve dare come risultato 
   diciannove: il valore mancante è quindi:~7.
-\end{itemize*}
+\end{itemize}
 }{
 \begin{inaccessibleblock}[]
  \begin{center}
@@ -1496,13 +1528,13 @@ usare
 
 \begin{procedura}
  Per trovare l'operando mancante usando il metodo sequenziale:
-\begin{enumerate*}
+\begin{enumerate} [noitemsep]
  \item risolviamo l'espressione lasciando il buco ogni volta che 
   dobbiamo eseguire un'operazione tra un numero e un buco;
  \item scriviamo il risultato dopo l'ultima operazione;
  \item con un colore diverso risaliamo dalla soluzione al dato mancante
   chiudendo man mano i buchi.
-\end{enumerate*}
+\end{enumerate}
 \end{procedura}
 
 %\begin{exrig}
@@ -1519,12 +1551,12 @@ buco.
 
 Ora possiamo risalire: cambiamo colore e\dots
 
-\begin{itemize*}
+\begin{itemize} [noitemsep]
   \item il numero che diviso per~2 dà~9 è~18;
   \item il numero che tolto da~20 dà~18 +~10;
   \item il numero che moltiplicato per~2 dà~10 è~5;
   \item \dots
-\end{itemize*}
+\end{itemize}
 }{
 \(\left[ \underline{4 \times 5} + \underline{16 \div 2} -
   \left(13 - \underline{2^{\dots}} \right) \times 2 \right] \div 2 = 9\)
@@ -1590,7 +1622,7 @@ La risalita non dovrebbe creare problemi.
 %\end{exrig}
 
 \section{Divisibilità e numeri primi}
-\label{sec:01_divsibilita}
+\label{sec:nat_divsibilita}
 
 La divisione esatta nei numeri naturali,~\(m\) e~\(n\), non è sempre 
 possibile: si può fare solo se~\(m\) è multiplo di~\(n\).
@@ -1654,8 +1686,8 @@ Alcune semplici divisioni intere:
 \begin{itemize} [nosep]
 \item \(0 \divint 5=0\)
 \item \(9 \divint 2=4\)
-\item \(3\divint 5=0\)
-\item \(3\divint~0=\text{Non Definita}\)
+\item \(3 \divint 5=0\)
+\item \(3 \divint 0=\text{Non Definita}\)
 \end{itemize}
 \end{multicols}
 \end{esempio}
@@ -1730,11 +1762,11 @@ Algoritmi della divisione tra 327 e 23, 1329 e 107, 12594 e 171]
 \end{center}
 \vspace{-12pt}
 
-% \begin{enumeratea}
+% \begin{enumerate}[noitemsep, label=(\alph*)]
 %  \item \(327:23=\) quoziente~14 e resto~5;
 %  \item \(1329:107=\)quoziente~12 e resto~45;
 %  \item \(125943:171=\) quoziente~736 e resto~87.
-% \end{enumeratea}
+% \end{enumerate}
 
 \subsection{Divisori, numeri primi, numeri composti}
 
@@ -1760,7 +1792,7 @@ scrivi quanti sono i divisori.
 \textsf{\relax 
 numero
 } & \textsf{\relax 
-          divisori          
+          divisori 
 } & \textsf{\relax 
 numero di divisori
 }\\
@@ -1796,12 +1828,12 @@ numero di divisori
 \end{tabular}
 \end{table}
 
-\begin{enumeratea}
+\begin{enumerate}[noitemsep, label=(\alph*)]
  \item Quale sarà il prossimo numero con un numero dispari 
   di divisori? (\emph{facile})
  \item Quale sarà il prossimo numero con esattamente~2
   divisori? (\emph{difficile})
-\end{enumeratea}
+\end{enumerate}
 
 Guardando la tabella dei divisori si può osservare che ogni numero è 
 divisibile per~1 e per se stesso. Poi può avere altri divisori, questi
@@ -1861,7 +1893,7 @@ compagni.
 % \vspazio\ovalbox{\risolvi \ref{ese:1.17}}
 
 \subsubsection{Criteri di divisibilità}
-\label{sec:01_divisibilita}
+\label{subsec:nat_criteridivisibilita}
 
 Per vedere se un numero divide un altro \emph{basta} eseguire la 
 divisione e osservare se si ottiene un resto uguale a zero. 
@@ -1932,7 +1964,7 @@ Poiché~24 non è divisibile per~17 non lo sarà neppure~1894.
 \pagebreak
 
 \section{Scomposizione in fattori primi}
-\label{sec:01_scomposizione}
+\label{sec:nat_scomposizione}
 
 Scomporre in fattori un numero significa scriverlo come prodotto di altri 
 numeri naturali. 
@@ -2009,7 +2041,7 @@ Sottolinea e scomponi.
 %\vspazio\ovalbox{\risolvi \ref{ese:1.22}, \ref{ese:1.23}, \ref{ese:1.24}}
 
 \section{Massimo Comune Divisore e minimo comune multiplo}
-\label{sec:01_mcdemcm}
+\label{sec:nat_mcdemcm}
 
 \label{def:mcd}
 \begin{definizione}
@@ -2035,11 +2067,11 @@ applicare la seguente procedura:
 
 \begin{procedura}
 Calcolo del~\(\mcd\) di due o più numeri naturali:
-\begin{enumeratea}
+\begin{enumerate}[noitemsep, label=(\alph*)]
  \item si scompongono i numeri in fattori primi;
  \item si moltiplicano tra loro i fattori comuni, 
   presi una sola volta e con l'esponente minore.
-\end{enumeratea}
+\end{enumerate}
 \end{procedura}
 
 % \clearpage
@@ -2077,7 +2109,7 @@ Pertanto: \quad \(\mcd(60,120,90)=~2\cdot3\cdot5=30\)
 %\begin{exrig}
  \begin{esempio}
  Numeri primi tra loro:
- \begin{itemize*}
+ \begin{itemize} [noitemsep]
  \item 12 e~25 sono primi tra loro. Infatti il~\(\mcd(12,~25)=1\) dato che 
   nelle loro scomposizioni in fattori non si hanno fattori 
   comuni:~\(12 =2^2\cdot3\) e~\(25=5^2\);
@@ -2087,7 +2119,7 @@ Pertanto: \quad \(\mcd(60,120,90)=~2\cdot3\cdot5=30\)
   e~19 sono numeri primi;
  \item 12 e~15 non sono primi tra di loro in quanto hanno~3 come divisore 
   comune.
- \end{itemize*}
+ \end{itemize}
  \end{esempio}
 %\end{exrig}
 
@@ -2113,11 +2145,11 @@ applicare la seguente procedura:
 
 \begin{procedura}
 Calcolo del~\(\mcm\) di due o più numeri naturali:
-\begin{enumeratea}
+\begin{enumerate}[noitemsep, label=(\alph*)]
  \item si scompongono i numeri in fattori primi;
  \item si moltiplicano tra loro i fattori comuni e non comuni, 
   presi una sola volta, con l'esponente maggiore .
-\end{enumeratea}
+\end{enumerate}
 \end{procedura}
 
 % \newpage
@@ -2168,3 +2200,11 @@ da~\(315\unit{cm}\). In tutto occorrono~\(29\cdot21=609\) mattonelle.
 
 % \ovalbox{\risolvii \ref{ese:1.26}, \ref{ese:1.27}, \ref{ese:1.28}, 
 % \ref{ese:1.29}, \ref{ese:1.30}, \ref{ese:1.31}, \ref{ese:1.32}}
+
+\[\tonda{\dfrac{a}{b}} \qquad \graffa{\dfrac{a}{b}} \qquad 
+\left\{\dfrac{a}{b}\right\} \qquad \Biggl\{\dfrac{a}{b}\Biggr\}\]
+$$\tonda{\dfrac{a}{b}} \qquad \graffa{\dfrac{a}{b}} \qquad 
+\left\{\dfrac{a}{b}\right\} \qquad \Biggl\{\dfrac{a}{b}\Biggr\}$$
+\begin{comment}
+
+\end{comment}

@@ -26,6 +26,69 @@
 %  -  the part of code of the files under chap/, img/  and lbr/ directories
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%========================
+% Classe del documento
+%========================
+
+% % tratti da Internet
+% \ifx\pdfoutput\undefined                  % compilazione htlatex
+% \documentclass{memoir}
+% % \usepackage{graphicx}
+% % \DeclareGraphicsExtensions{.png, .gif, .jpg} % dà errore
+% \newcommand{\href}[2]{\Link[#1]{}{} #2 \EndLink}
+% \newcommand{\hypertarget}[2]{\Link[]{}{#1} #2 \EndLink}
+% % \newcommand{\hyperlink}[2]{\Link[]{#1}{} #2 \EndLink} % dà errore
+% \else                                     % compilazione pdflatex
+% \documentclass[10pt,a4paper,openright]{\magdir matsweetmem}
+% % \usepackage[pdftex]{graphicx}
+% % \DeclareGraphicsExtensions{.pdf,.png,.jpg} % dà errore
+% \RequirePackage[colorlinks,hyperindex,pagebackref]{hyperref}
+% % \usepackage[colorlinks, hypertexnames=false]{hyperref} % originale di m.d.
+% \fi
+% 
+% \ifdefined\HCode
+%    \def\pgfsysdriver{pgfsys-dvisvgm4ht.def}
+% \fi 
+
+% fusione mia
+\ifdefined\HCode                          % compilazione htlatex
+  \documentclass{memoir}
+  \def\pgfsysdriver{pgfsys-dvisvgm4ht.def}
+  % \usepackage{graphicx}
+  % \DeclareGraphicsExtensions{.png, .gif, .jpg} % dà errore
+  \newcommand{\href}[2]{\Link[#1]{}{} #2 \EndLink}
+  \newcommand{\hypertarget}[2]{\Link[]{}{#1} #2 \EndLink}
+  % \newcommand{\hyperlink}[2]{\Link[]{#1}{} #2 \EndLink} % dà errore
+\else                                     % compilazione pdflatex
+  \documentclass[10pt,a4paper,openright]{\magdir matsweetmem}
+  % \usepackage[pdftex]{graphicx}
+  % \DeclareGraphicsExtensions{.pdf,.png,.jpg} % dà errore
+  \RequirePackage[colorlinks,hyperindex,pagebackref]{hyperref}
+  % \usepackage[colorlinks, hypertexnames=false]{hyperref} %originale di m.d.
+  %========================
+  % Per l'accessibilità
+  %========================
+  % Il seguente pacchetto dà errore se chiamato con make4ht:
+  \usepackage[accsupp]{axessibility}  % 349      Undefined control sequence.
+  % \usepackage{microtype}
+  % \DisableLigatures{encoding = *, family = *}
+
+  \usepackage{fourier}  % in goniometria è definito \wideparen
+  % % % buono \widearc, ma è incompatibile con \overrightarrow
+  % % Ho estratto da fourier.sty le seguenti 4 righe e sembra funzionare!
+  % \DeclareFontEncoding{FMX}{}{}
+  % \DeclareFontSubstitution{FMX}{futm}{m}{n}
+  % \DeclareSymbolFont{largesymbols}{FMX}{futm}{m}{n}
+\fi
+
+%--------------------- original
+% \documentclass[10pt,a4paper,openright]{\magdir matsweetmem}
+% \documentclass{\magdir matsweetmem}
+% Per la versione in scala di grigio commentare la precedente e
+% decommentare la riga seguente
+% \documentclass[10pt,a4paper,openright,gray]{\magdir matsweetmem}
+%---------------------
+
 % \usepackage{framed}     % Per fare delle prove
 % \usepackage{xcolor}     % Per fare delle prove
 % \usepackage{lipsum}     % Per fare delle prove
@@ -33,12 +96,6 @@
 % \usepackage{blindtext}%    % Per fare delle prove
 % \usepackage[theorems,breakable]{tcolorbox}%    % Per fare delle prove
 
-%========================
-% Per l'accessibilità
-%========================
-\usepackage[accsupp]{axessibility}
-% \usepackage{microtype}
-% \DisableLigatures{encoding = *, family = *}
 
 %========================
 %  Lingua & codifica
@@ -82,15 +139,15 @@
 % Matematica I
 %========================
 \usepackage[scaled=.95]{helvet}
-% \usepackage{eulervm} % eulervm va in conflitto con fourier per: 
-% \overrightarrow{} 
-% dov'è che ho usato questo pacchetto? per fare che cosa?
-\usepackage{fourier}  % in goniometria è definito \wideparen
-% % % buono \widearc, ma è incompatibile con \overrightarrow
-% % Ho estratto da fourier.sty le seguenti 4 righe e sembra funzionare!
-% \DeclareFontEncoding{FMX}{}{}
-% \DeclareFontSubstitution{FMX}{futm}{m}{n}
-% \DeclareSymbolFont{largesymbols}{FMX}{futm}{m}{n}
+% % \usepackage{eulervm} % eulervm va in conflitto con fourier per: 
+% % \overrightarrow{} 
+% % dov'è che ho usato questo pacchetto? per fare che cosa?
+% \usepackage{fourier}  % in goniometria è definito \wideparen
+% % % % buono \widearc, ma è incompatibile con \overrightarrow
+% % % Ho estratto da fourier.sty le seguenti 4 righe e sembra funzionare!
+% % \DeclareFontEncoding{FMX}{}{}
+% % \DeclareFontSubstitution{FMX}{futm}{m}{n}
+% % \DeclareSymbolFont{largesymbols}{FMX}{futm}{m}{n}
 \DeclareMathAccent{\widearc}{\mathord}{largesymbols}{216}% per \widearc 
 \usepackage[e]{esvect} % per i vettori
 \usepackage{ushort} % per lesottolineature semplici o doppie
@@ -102,6 +159,11 @@
 \usepackage[np,noaddmissingzero,autolanguage]{numprint}
 \usepackage{mathtools}
 %\usepackage{eurosym}  % per il simbolo €
+
+
+\RequirePackage{tcolorbox}      % Per fare delle prove sui theorem
+\tcbuselibrary{theorems}    % Per fare delle prove sui theorem
+
 %========================
 % Grafica
 %========================
@@ -122,10 +184,10 @@
 \usepackage{pgfplots}
 \usepgfplotslibrary{patchplots}
 \pgfplotsset{compat=1.8}
-\usepackage{tkz-euclide}
-\usepackage{tkz-fct}
+% \usepackage{tkz-euclide}            % dà errore con make4ht
+% \usepackage{tkz-fct}                % dà errore con make4ht
 \usepackage{circuitikz}
-%\usetikzlibrary{circuits}
+%\usetikzlibrary{circuits}            % dà errore con make4ht
 \usepackage{tikz-qtree} % aggiunto da daniele
 % \usetkzobj{all}
 % \usepackage{qtree} % per funzionitopologia
@@ -161,14 +223,14 @@
 \usepackage{pifont}
 % \usepackage{hiero}
 %========================
-% Matematica II
+% Matematica II               ????????????????????????????
 %========================
 \usepackage{\magdir matsweet}
 %\usepackage{\magdir shadethm}
 %========================
 % Collegamenti
 %========================
-\usepackage[colorlinks, hypertexnames=false]{hyperref}
+% \usepackage[colorlinks, hypertexnames=false]{hyperref} già nell'if iniziale
 \usepackage{bookmark}
 %========================
 % Per il coding
@@ -189,13 +251,13 @@
 \setsecnumdepth{subsection} 
 \maxtocdepth{subsection}
 \setlength{\cftpartnumwidth}{2.25em}
-\setlength{\shadeboxsep}{5pt} 
-\setlength{\shadeboxrule}{.4pt} 
-\setlength{\shadedtextwidth}{\textwidth}
-\addtolength{\shadedtextwidth}{-2\shadeboxsep}
-\addtolength{\shadedtextwidth}{-2\shadeboxrule}
-\setlength{\shadeleftshift}{0pt}
-\setlength{\shaderightshift}{0pt}
+% \setlength{\shadeboxsep}{5pt}            % danno errore con make4ht
+% \setlength{\shadeboxrule}{.4pt} 
+% \setlength{\shadedtextwidth}{\textwidth}
+% \addtolength{\shadedtextwidth}{-2\shadeboxsep}
+% \addtolength{\shadedtextwidth}{-2\shadeboxrule}
+% \setlength{\shadeleftshift}{0pt}
+% \setlength{\shaderightshift}{0pt}
 \linespread{1.05}
 \captionnamefont{\small\scshape}
 \captiontitlefont{\small}

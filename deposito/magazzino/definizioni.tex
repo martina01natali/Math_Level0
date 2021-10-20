@@ -122,17 +122,17 @@
 % \def\columnseprulecolor{\color{black}}
 % % \usepackage{widetable} % Per tabelle con larghezza fissa
 
-%--------------------------
-% Nuovi comandi di testo:
+%--------------------------% Inizio comandi per l'ambiente math
+% QUANDO SI MODIFICA UNO DI QUESTI BISOGNA 
+% MODIFICARE ANCHE IL FILE DI CONFIGURAZIONE: md_make4ht.cfg
 
-%--------------------------
 % Insiemi numerici:
-\newcommand{\N}{\mathbb{N}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Nz}{\mathbb{N}^0}
 \newcommand{\Zz}{\mathbb{Z}^0}
-\newcommand{\Qz}{\mathbb{Q^0}}
+\newcommand{\Qz}{\mathbb{Q}^0}
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Rz}{\mathbb{R}^0}
@@ -144,8 +144,7 @@
 \newcommand{\effestar}{{}^*\hspace{-.15em}f}
 % \newcommand{\fstar}[1][f]{{}^*\!#1}
 \newcommand{\fstar}[1]{{}^*\hspace{-.25em}#1}
-
-% \newcommand{\ID}{I.D.}
+\newcommand{\ID}{I.D.}
 \newcommand{\II}{I.I.}
 
 %--------------------------
@@ -159,9 +158,9 @@
 % Delimitatori e parentesi:
 \newcommand{\tonda}[1]{\left( #1 \right)}
 \newcommand{\quadra}[1]{\left[ #1 \right]}
-\newcommand{\rquadra}[1]{\left] #1 \right[} % Parentesi quadra rovescia
+% \newcommand{\rquadra}[1]{\left] #1 \right[} % Quadra rovescia: Deprecata
 \newcommand{\graffa}[1]{\left \{ #1 \right \}}
-\newcommand{\abs}[1]{\left \lvert #1 \right \rvert}
+% \newcommand{\abs}[1]{\left \lvert #1 \right \rvert} %usare modulo
 \newcommand{\modulo}[1]{\left| #1 \right|}
 \newcommand{\angolare}[1]{\left \langle #1 \right \rangle}
 
@@ -172,7 +171,8 @@
 \newcommand{\vettore}[1]{\left(\begin{array}{c}#1\end{array}\right)}
 \newcommand{\matrice}[2]{\tonda{\begin{array}{#1}#2\end{array}}}
 \newcommand{\vect}[1]{\overrightarrow{#1}}
-\newcommand{\punto}[2]{\tonda{#1;~#2}}
+\newcommand{\coppia}[2]{\tonda{#1;~#2}}
+\newcommand{\punto}[3]{#1\tonda{#2;~#3}}
 \newcommand{\Deriv}[1]{\mathit{D}\quadra{#1}}
 
 %--------------------------
@@ -200,7 +200,7 @@
 
 %--------------------------
 % Operatori per le funzioni circolari e per gli Iperreali:
-\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\sen}{sin}
 \DeclareMathOperator{\tg}{tg}
 \DeclareMathOperator{\st}{st}              % standard
 \newcommand{\pst}[1]{\st \tonda{#1}}       % parte standard di 
@@ -216,6 +216,12 @@
 \renewcommand{\min}[1]{\omin \tonda{#1}}     % Minimo
 \DeclareMathOperator{\omax}{max}
 \renewcommand{\max}[1]{\omax \tonda{#1}}     % Massimo
+
+\DeclareMathOperator{\divint}{~div~}
+\DeclareMathOperator{\mcd}{MCD}
+\DeclareMathOperator{\mcm}{mcm}
+
+%--------------------------% Fne comandi per l'ambiente math
 
 %--------------------------
 % Soluzione di una disequazione
@@ -286,7 +292,7 @@
 % %\newshadetheorem{procedura}[teorema]{Procedura}
 % %\newshadetheorem{proprieta}[teorema]{Propriet\`a}
 
-\newcommand{\defintextsep}{\intextsep}
+% \newcommand{\defintextsep}{\intextsep} ?????????????????????
 % 
 % %--------------------------
 % % Nuovo stile di teoremi.

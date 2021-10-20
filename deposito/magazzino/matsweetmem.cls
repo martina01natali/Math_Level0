@@ -26,13 +26,13 @@
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{shadethm}
 \RequirePackage[pdftex]{graphicx}
-\RequirePackage{tcolorbox}      % Per fare delle prove sui theorem
-\tcbuselibrary{theorems}    % Per fare delle prove sui theorem
-\newcommand{\mcpar}[1]{%
-\paragraph*{%
-\small\normalfont\scshape{#1}%
-}%
-}
+% \RequirePackage{tcolorbox}      % Per fare delle prove sui theorem
+% \tcbuselibrary{theorems}    % Per fare delle prove sui theorem
+% \newcommand{\mcpar}[1]{% dà errore con make4ht
+% \paragraph*{%
+% \small\normalfont\scshape{#1}%
+% }%
+% }
 \newcommand{\spazielen}{%
   \setlength{\itemsep}{0pt}%
   \setlength{\parskip}{0pt}%
@@ -59,11 +59,11 @@
   \labelwidth=3cm\hspace{%
 \labelsep}\emph{#1}%
 }
-\newenvironment{enumeratea}{%
-  \begin{enumerate}[label=\alph*\,)]%
-    \spazielen}{%
-  \end{enumerate}%
-}
+% \newenvironment{enumeratea}{%
+%   \begin{enumerate}[label=\alph*\,)]%
+%     \spazielen}{%
+%   \end{enumerate}%
+% }
 \newenvironment{enumerate*}{%
   \begin{enumerate}%
     \spazielen}{%
@@ -77,91 +77,91 @@
 \newenvironment{exrig}{%
   \vskip2mm\hrule\vskip2mm}{%
   \hrule\vskip2mm}
-\theoremstyle{definition}
-\newtheorem{definizione}{Definizione}[chapter]
-% \newshadetheorem{definizione}{Definizione}[chapter]
-\newshadetheorem{criterio}[definizione]{Criterio}
-\newshadetheorem{sesempio}{Esempio}[chapter]
-\newtheorem{esempio}[sesempio]{\color{Sepia}Esempio}
-\newtheorem{problema}[sesempio]{\color{Sepia}Problema}
-\newtheorem{esercizio}{\color{Sepia}}[chapter]
-\theoremstyle{plain}
-\newcommand{\thmcolor}{%
-  \definecolor{shadethmcolor}{gray}{1}%
-  \definecolor{shaderulecolor}{gray}{0.95}%
-}
-\newshadetheorem{teorema}{\thmcolor{Teorema}}[chapter]
-\newshadetheorem{legge}[teorema]{Legge}
-\newshadetheorem{postulato}[teorema]{Postulato}
-\newshadetheorem{principio}[teorema]{Principio}
-\newshadetheorem{procedura}[teorema]{Procedura}
-\newshadetheorem{proposizione}[teorema]{Proposizione}
-\newshadetheorem{proprieta}[teorema]{Propriet\`a}
-
-%--------------------------
-% Per il testo di geometria (tratto da Geoetria Razionale C3): 
-\theoremstyle{plain} 
-% \newshadetheorem{postulato}{\thmcolor{Postulato}}[chapter]
-% \newshadetheorem{corollario}{\thmcolor{Corollario}}[chapter]
-% \newshadetheorem{proposizione}{\thmcolor{Proposizione}}[chapter]
-\newshadetheorem{corollario}[teorema]{Corollario}
+% \theoremstyle{definition}
+% \newtheorem{definizione}{Definizione}[chapter]
+% % \newshadetheorem{definizione}{Definizione}[chapter]
+% \newshadetheorem{criterio}[definizione]{Criterio}
+% \newshadetheorem{sesempio}{Esempio}[chapter]
+% \newtheorem{esempio}[sesempio]{\color{Sepia}Esempio}
+% \newtheorem{problema}[sesempio]{\color{Sepia}Problema}
+% \newtheorem{esercizio}{\color{Sepia}}[chapter]
+% \theoremstyle{plain}
+% \newcommand{\thmcolor}{%
+%   \definecolor{shadethmcolor}{gray}{1}%
+%   \definecolor{shaderulecolor}{gray}{0.95}%
+% }
+% \newshadetheorem{teorema}{\thmcolor{Teorema}}[chapter]
+% \newshadetheorem{legge}[teorema]{Legge}
+% \newshadetheorem{postulato}[teorema]{Postulato}
+% \newshadetheorem{principio}[teorema]{Principio}
+% \newshadetheorem{procedura}[teorema]{Procedura}
 % \newshadetheorem{proposizione}[teorema]{Proposizione}
-
-%\newshadetheorem{legge}[teorema]{Legge}
-%\newshadetheorem{principio}[teorema]{Principio}
-%\newshadetheorem{procedura}[teorema]{Procedura}
-%\newshadetheorem{proprieta}[teorema]{Propriet\`a}
-
-%--------------------------
-% Nuovo stile di teoremi Funzionano anche in minipage.
-% Sto applicando questo stile al capitolo sulla topologia della retta.
-% Poi se tutto funziona sarebbe da estenderlo a tutti i libri.
-\newtcbtheorem[number within=chapter]{newtheo}{Teorema}%
-{colback=green!5, colframe=green!50!black, fonttitle=\bfseries,
- coltitle=blue!50!black, theorem style=plain}{th}
- 
-\newtcbtheorem[use counter from=newtheo]{newcor}{Corollario}%
-{colback=green!5, colframe=green!50!black, fonttitle=\bfseries,
- coltitle=blue!50!black, theorem style=plain}{cor}
-
-\newtcbtheorem[number within=chapter]{newdef}{Definizione}%
-{colback=blue!5,colframe=blue!50!black,fonttitle=\bfseries,
- coltitle=violet!50!black, theorem style=plain}{def}
-
-\newtcbtheorem[number within=chapter]{newoss}{Oservazione}%
-{colback=violet!5,colframe=violet!50!black,fonttitle=\bfseries,
- coltitle=green!50!black, theorem style=plain}{oss}
-
-
-\newenvironment{soluzione}[1][Soluzione]%
- {\begin{trivlist}%
-   \item[\hskip \labelsep {\itshape #1}]%
- }
- {\end{trivlist}%
-   {\flushright{\color{Sepia}$\blacklozenge$}\par}%
- }
+% \newshadetheorem{proprieta}[teorema]{Propriet\`a}
+% 
+% %--------------------------
+% % Per il testo di geometria (tratto da Geoetria Razionale C3): 
+% \theoremstyle{plain} 
+% % \newshadetheorem{postulato}{\thmcolor{Postulato}}[chapter]
+% % \newshadetheorem{corollario}{\thmcolor{Corollario}}[chapter]
+% % \newshadetheorem{proposizione}{\thmcolor{Proposizione}}[chapter]
+% \newshadetheorem{corollario}[teorema]{Corollario}
+% % \newshadetheorem{proposizione}[teorema]{Proposizione}
+% 
+% %\newshadetheorem{legge}[teorema]{Legge}
+% %\newshadetheorem{principio}[teorema]{Principio}
+% %\newshadetheorem{procedura}[teorema]{Procedura}
+% %\newshadetheorem{proprieta}[teorema]{Propriet\`a}
+% 
+% %--------------------------
+% % Nuovo stile di teoremi Funzionano anche in minipage.
+% % Sto applicando questo stile al capitolo sulla topologia della retta.
+% % Poi se tutto funziona sarebbe da estenderlo a tutti i libri.
+% \newtcbtheorem[number within=chapter]{newtheo}{Teorema}%
+% {colback=green!5, colframe=green!50!black, fonttitle=\bfseries,
+%  coltitle=blue!50!black, theorem style=plain}{th}
+%  
+% \newtcbtheorem[use counter from=newtheo]{newcor}{Corollario}%
+% {colback=green!5, colframe=green!50!black, fonttitle=\bfseries,
+%  coltitle=blue!50!black, theorem style=plain}{cor}
+% 
+% \newtcbtheorem[number within=chapter]{newdef}{Definizione}%
+% {colback=blue!5,colframe=blue!50!black,fonttitle=\bfseries,
+%  coltitle=violet!50!black, theorem style=plain}{def}
+% 
+% \newtcbtheorem[number within=chapter]{newoss}{Oservazione}%
+% {colback=violet!5,colframe=violet!50!black,fonttitle=\bfseries,
+%  coltitle=green!50!black, theorem style=plain}{oss}
+% 
+% 
+% \newenvironment{soluzione}[1][Soluzione]%
+%  {\begin{trivlist}%
+%    \item[\hskip \labelsep {\itshape #1}]%
+%  }
+%  {\end{trivlist}%
+%    {\flushright{\color{Sepia}$\blacklozenge$}\par}%
+%  }
 \newcommand{\diagramname}{Grafico}
 \newcommand{\listdiagramname}{Elenco dei grafici}
 \newlistof{listofdiagrams}{dgm}{\listdiagramname}
 \newfloat[chapter]{grafico}{dgm}{Grafico}
-\newlistentry{grafico}{dgm}{0}
-\newcommand*{\frntspz}{%
-  \begingroup\newlength{\drop}
-  \drop=0.15\textheight
-  \vspace{\drop}
-  \centering
-    \fontsize{16pt}{0in}%
-    \selectfont\MakeUppercase\serie\\[0.5\drop]
-    \fontsize{26pt}{0pt}%
-    \selectfont\MakeUppercase\titolo\par
-  \vspace{\drop}
-    {\LARGE\descr}\par
-  \vspace{2.5\drop}
-    \large\editore
-  \vskip2mm
-    \large\Edizione\ - \anno\par
-  \vspace{\drop}
-  \endgroup}
+% \newlistentry{grafico}{dgm}{0}
+% \newcommand*{\frntspz}{%
+%   \begingroup\newlength{\drop}
+%   \drop=0.15\textheight
+%   \vspace{\drop}
+%   \centering
+%     \fontsize{16pt}{0in}%
+%     \selectfont\MakeUppercase\serie\\[0.5\drop]
+%     \fontsize{26pt}{0pt}%
+%     \selectfont\MakeUppercase\titolo\par
+%   \vspace{\drop}
+%     {\LARGE\descr}\par
+%   \vspace{2.5\drop}
+%     \large\editore
+%   \vskip2mm
+%     \large\Edizione\ - \anno\par
+%   \vspace{\drop}
+%   \endgroup}
 \renewcommand{\printpartname}{}
 \newcommand{\numeroparte}{\partnumfont \thepart}
 \renewcommand{\printpartnum}{}
