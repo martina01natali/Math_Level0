@@ -1,0 +1,123 @@
+%========================
+% Lettura file esterni
+%========================
+\input{congresso_21_preambolo}
+\input{congresso_21_funzioni}
+
+\usefonttheme{serif} % caratteri serif per tutto
+% \setbeamercovered{transparent} % per intravvedere il prosieguo della slide
+
+\usepackage{graphicx}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[lf]{Baskervaldx} % lining figures
+% \usepackage[bigdelims,vvarbb]{newtxmath} % math italic letters from Nimbus 
+% Roman
+% \usepackage[cal=boondoxo]{mathalfa} % mathcal from STIX, unslanted a bit
+% \renewcommand*\oldstylenums[1]{\textosf{#1}}
+
+\useinnertheme{rounded}
+\setbeamercolor{title}{fg=blue}
+%\setbeamercolor{titlelike}{fg=blue}
+\setbeamercolor{frametitle}{fg=blue}
+\setbeamercolor{normal text}{bg=black,fg=black}
+\setbeamercolor{structure}{bg=yellow, fg=blue}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{background canvas}[vertical 
+shading][bottom=blue!15,top=yellow!50]
+% \usefonttheme{professionalfonts}
+\beamertemplatenavigationsymbolsempty
+% Font for the presentation title
+\setbeamerfont{title}{size = \Huge}
+% Font of the frame titles
+% \setbeamerfont{frametitle}{size = \large}
+\setbeamerfont{frametitle}{series=\bfseries,size=\Large}
+% {family=\rmfamily,series=\bfseries,size=\Large}
+%{\fontsize{32}{36}}}
+
+% Standard block 
+\setbeamercolor{block title}{fg = blue, bg = orange!30}
+\setbeamercolor{block body}{bg = yellow!30}
+% Alert block 
+\setbeamercolor{block title alerted}{fg = black, bg = red!30}
+\setbeamercolor{block body alerted}{bg = orange!30}
+% Example block 
+\setbeamercolor{block title example}{fg = black, bg = green!30}
+\setbeamercolor{block body example}{bg = cyan!30}
+
+\setbeamertemplate{footline}
+{
+\leavevmode%
+\hbox{%
+
+\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]
+{author in head/foot}%
+\usebeamerfont{author in head/foot}
+\insertshortauthor
+\end{beamercolorbox}%
+
+\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]
+{title in head/foot}%
+\usebeamerfont{title in head/foot}
+\insertshorttitle \hspace*{3em}
+\insertframenumber{} / \inserttotalframenumber \hspace*{1ex}
+% \oldstylenums{\insertframenumber{} / \inserttotalframenumber \hspace*{1ex}}
+\end{beamercolorbox}}%
+\vskip0pt%
+}
+
+%========================
+% Funzioni
+%========================
+%--------------------------------------------
+% Colori
+\newcommand{\green}[1]{{{\color{green!70!black}#1}}}
+\newcommand{\blue}[1]{{{\color{blue!70!black}#1}}}
+\newcommand{\red}[1]{{{\color{red!70!black}#1}}}
+\newcommand{\orange}[1]{{{\color{orange!70!black}#1}}}
+
+%--------------------------------------------
+% Per semplificare 2 minipage affiancate
+\renewcommand{\affiancati}[4]{% Due parti affiancate
+  \def \larghezzaa{#1}
+  \def \larghezzab{#2}
+  \def \testoa{#3}
+  \def \testob{#4}
+  \begin{columns}
+  \begin{column}{\larghezzaa\textwidth}
+    \testoa
+  \end{column}
+  \begin{column}{\larghezzab\textwidth}
+    \testob
+  \end{column}
+  \end{columns}
+}
+
+%--------------------------------------------
+% Per semplificare 3 minipage affiancate
+\newcommand{\affiancatitre}[6]{% Tre parti affiancate
+  \def \larghezzaa{#1}
+  \def \larghezzab{#2}
+  \def \larghezzac{#3}
+  \def \testoa{#4}
+  \def \testob{#5}
+  \def \testoc{#6}
+  \begin{columns}
+  \begin{column}{\larghezzaa\textwidth}
+    \testoa
+  \end{column}
+  \begin{column}{\larghezzab\textwidth}
+    \testob
+  \end{column}
+  \begin{column}{\larghezzac\textwidth}
+    \testoc
+  \end{column}
+  \end{columns}
+}
+
+%--------------------------
+% Spaziatura all'interno di una diapositiva
+\newcommand{\spause}[1][1]{\pause
+
+\vspace{#1em}
+}

@@ -100,7 +100,26 @@
 
 %--------------------------% Fine comandi per l'ambiente math
 
-%--------------------------% Formattazione del testo
+%--------------------------% Funzioni per le presentazioni
+
+\newcommand{\initslides}{
+% Le prime due slide della presentazione: titolo e TOC
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Piano della presentazione}
+% \begin{multicols}{2}
+\tableofcontents
+% \end{multicols}
+\end{frame}
+}
+\newcommand{\md}{\orange{Matematica Dolce}~}
+
+%--------------------------% Fine funzioni per le presentazioni
+
+%--------------------------% Funzioni per la formattazione del testo
 
 \newcommand{\affiancati}[4]{% 2 minipage affiancate
 % Esempio di chiamata:
@@ -134,7 +153,7 @@
   \end{minipage}
 }
 
-%--------------------------% Fine Formattazione del testo
+%--------------------------% Fine funzioni per la formattazione del testo
 
 %--------------------------% Libreria grafica
 
@@ -498,12 +517,11 @@
   \def \yris{#4}
   \def \op{#5}
   \def \ris{#6}
-  \def \dim{.94}
-  \def \dimalf{\dim/2}
-  \def \ddim{\dim/10}
+  \def \dimalf{\ndim/2}
+  \def \ddim{\ndim/10}
   \def \xtopl{\xris-\dimalf}
   \def \xtopr{\xris+\dimalf}
-  \def \ytop{\yris+2*\dim}
+  \def \ytop{\yris+2*\ndim}
   \def \ym{\yris+3*\dimalf}
   \draw \popa to [out=270, in=90] (\xris-3*\ddim, \ytop);
   \draw \popb to [out=270, in=90] (\xris+3*\ddim, \ytop);
@@ -524,6 +542,7 @@
   \def \le{-10.3}
   \def \lf{-12.8}
   \def \lg{-14.2}
+  \def \ndim{.94}
   \disegno{
     \draw (0, 0) node{
     \(2 ~+~ 6 ~\times~ 2 ~\div 
@@ -549,6 +568,74 @@
     \nodoesp{(-9.6, \la)}{(-5.6, \le)}{-9.0}{\lf}{+}{6}
     \nodoesp{(-9.0, \lf)}{(+8.2, \ld)}{+3.5}{\lg}{+}{17}
     \draw (+3.5, \lg) 
+      node[draw, above, rectangle,rounded corners=1pt, very thick] 
+          {\(\ris\)};
+  }
+}
+
+\newcommand{\parentesi}[5]{
+  \def \posx{#1}
+  \def \posy{#2}
+  \def \inter{#3}
+  \def \pa{#4}
+  \def \pb{#5}
+  \draw (\posx-\inter, \posy) node [above=-2pt] {\(\pa\)}
+        (\posx+\inter, \posy) node [above=-2pt] {\(\pb\)};
+  
+}
+
+\newcommand{\espressionealberodia}{
+  \def \la{-0.3}
+  \def \lb{-2.8}
+  \def \lc{-5.3}
+  \def \ld{-7.8}
+  \def \le{-10.3}
+  \def \lf{-12.8}
+  \def \lg{-14.2}
+  \def \ndim{1.0}
+  \def \xa{-10.55} \def \xb{-9.62} 
+  \def \xc{-8.7} \def \xd{-7.85} \def \xe{-7.0} 
+  \def \xf{-6.05} 
+  \def \xg{-4.8} \def \xh{-3.9} \def \xi{-3.0} 
+  \def \xj{-2.05} 
+  \def \xk{-1.2} \def \xl{-1.0} \def \xm{-0.8} 
+  \def \xn{+0.1} 
+  \def \xo{+0.95} \def \xp{+1.9} \def \xq{2.7} 
+  \def \xr{+3.95} 
+  \def \xs{5.1} \def \xt{5.3} \def \xu{5.5} 
+  \def \xv{6.4} 
+  \def \xw{7.25} \def \xx{7.45} \def \xy{7.65} 
+  \def \xz{8.8} \def \xaa{9.7} 
+  \disegno{
+%     \foreach \x/\l in {\xa/a, \xb/b, \xc/c, \xd/d, \xe/e, 
+%                        \xf/f, \xg/g, \xh/h, \xi/i, \xj/j, 
+%                        \xk/k, \xl/l, \xm/m, \xn/n, \xo/o, 
+%                        \xp/p, \xq/q, \xr/r, \xs/s, \xt/t,
+%                        \xu/u, \xv/v, \xw/w, \xx/x, \xy/y, 
+%                        \xz/z, \xaa/a}{
+%       \draw (\x, \la) circle(1pt) node [below] {\l};
+%     }
+    \draw (0, 0) node{
+    \(2 ~+~ 6 ~\times~ 2 ~\div 
+    \left[ \left(4 ~-~ 2 \right) \times~ 3^{2} ~-~ 3 ~\times~ 5 \right] ~+~
+    \left( 5^{2} ~+~ 2^{3} \right) ~\div~ 3 =\)};
+    \nodoesp{(\xc, \la)}{(\xe, \la)}{\xd}{\lb}{\times}{12}
+    \nodoesp{(\xg, \la)}{(\xi, \la)}{\xh}{\lb}{-}{2}
+    \parentesi{\xh}{\lb}{.8}{(}{)}
+    \nodoesp{(\xk, \la)}{(\xm, +0.0)}{\xl}{\lb}{\uparrow}{9}
+    \nodoesp{(\xo, \la)}{(\xq, \la)}{\xp}{\lb}{\times}{15}
+    \nodoesp{(\xs, \la)}{(\xu, +0.0)}{\xt}{\lb}{\uparrow}{25}
+    \nodoesp{(\xw, \la)}{(\xy, +0.0)}{\xx}{\lb}{\uparrow}{8}
+    \nodoesp{(\xh, \lb)}{(\xl, \lb)}{\xj}{\lc}{\times}{18}
+    \nodoesp{(\xt, \lb)}{(\xx, \lb)}{\xv}{\lc}{+}{33}
+    \parentesi{\xv}{\lc}{1}{(}{)}
+    \nodoesp{(\xj, \lc)}{(\xp, \lb)}{\xn}{\ld}{-}{3}
+    \parentesi{\xn}{\ld}{.8}{[}{]}
+    \nodoesp{(\xv, \lc)}{(\xaa, \la)}{\xz}{\ld}{\div}{11}
+    \nodoesp{(\xd, \lb)}{(\xn, \ld)}{\xf}{\le}{\div}{4}
+    \nodoesp{(\xa, \la)}{(\xf, \le)}{\xb}{\lf}{+}{6}
+    \nodoesp{(\xb, \lf)}{(\xz, \ld)}{\xr}{\lg}{+}{17}
+    \draw (\xr, \lg) 
       node[draw, above, rectangle,rounded corners=1pt, very thick] 
           {\(\ris\)};
   }

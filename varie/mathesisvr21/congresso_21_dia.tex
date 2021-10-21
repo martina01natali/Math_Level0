@@ -1,871 +1,93 @@
-\documentclass[a4paper,10pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc} 
-\usepackage{textcomp} 	
-\usepackage[italian]{babel} 
-\usepackage{lmodern}
-\usepackage{enumitem} % per [nosep]
-% \usepackage{graphicx}
-\usepackage{amssymb, amsmath, amsthm, amsfonts}
-\usepackage{hyperref}
-\usepackage{comment}
-\usepackage{tikz}
-\usepackage{pgfplots}
-\usepackage{tkz-fct}
-\usepgfplotslibrary{patchplots}
-\pgfplotsset{compat=1.8}
-\usetikzlibrary{
-  arrows,%
-  arrows.meta,
-  through,
-  automata, %
-  backgrounds, %
-  calc, %
-  decorations.markings, %
-  decorations.shapes, %
-  decorations.text, % 
-  decorations.pathreplacing, %
-  decorations.pathmorphing, % per linee tracciate ``a mano''
-  fit, %
-  matrix, %
-  mindmap, %
-  patterns, %
-  positioning, %
-  intersections, %aggiunto da claudio
-  shapes, %
-  shapes.geometric,
-  snakes,
-  overlay-beamer-styles % per le animazioni
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%           Congresso nazionale di Matematica 2021
+%
+%         Matematica 2021. Nuove proposte didattiche
+%
+%                     12, 13 novembre
+%
+%                         Verona
+%
+%------------------------------
+% Compilazione:
+% pdflatex --shell-escape congresso_21_dia.tex
+%------------------------------
+%
+% This work may be distributed and/or modified under the
+% conditions of the Creative Commons BY-SA
+%
+% Authors: Daniele Zambelli
+%
+% The Current Maintainer of this work is 
+% Daniele Zambelli - daniele.zambelli@gmail.com
+%
+% Copyright 2020-24 Daniele Zambelli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%--------------------------% Inizio comandi per l'ambiente math
-% QUANDO SI MODIFICA UNO DI QUESTI BISOGNA 
-% MODIFICARE ANCHE IL FILE DI CONFIGURAZIONE: md_make4ht.cfg
+%========================
+% Classe del documento
+%========================
+% \documentclass[handout]{beamer}   % Per la stampa, vedi anche sotto...
+% \documentclass[14pt]{beamer}
+% \documentclass[mathserif]{beamer} % in alternativa ai due seguenti
 
-% Insiemi numerici:
-\newcommand{\N}{\ensuremath{\mathbb{N}}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\Nz}{\mathbb{N}^0}
-\newcommand{\Zz}{\mathbb{Z}^0}
-\newcommand{\Qz}{\mathbb{Q}^0}
-\newcommand{\A}{\mathbb{A}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Rz}{\mathbb{R}^0}
-\newcommand{\Rp}{\mathbb{R}^+}
-\newcommand{\IR}{{}^*\hspace{-.12em}\mathbb{R}} % Iperreali
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\IC}{{}^*\hspace{-.12em}\mathbb{C}} % Ipercomplessi
-\newcommand{\K}{\mathbb{K}}
-\newcommand{\effestar}{{}^*\hspace{-.15em}f}
-% \newcommand{\fstar}[1][f]{{}^*\!#1}
-\newcommand{\fstar}[1]{{}^*\hspace{-.25em}#1}
-\newcommand{\ID}{I.D.}
-\newcommand{\II}{I.I.}
+\documentclass{beamer} %commentare in caso di stampa
+%========================
+% Lettura file esterni
+%========================
+\input{congresso_21_preambolodia}
 
-%--------------------------
-% varianti di lettere greche:
-\renewcommand{\epsilon}{\varepsilon}
-\renewcommand{\theta}{\vartheta}
-\renewcommand{\rho}{\varrho}
-\renewcommand{\phi}{\varphi}
-
-%--------------------------
-% Delimitatori e parentesi:
-\newcommand{\tonda}[1]{\left( #1 \right)}
-\newcommand{\quadra}[1]{\left[ #1 \right]}
-% \newcommand{\rquadra}[1]{\left] #1 \right[} % Quadra rovescia: Deprecata
-\newcommand{\graffa}[1]{\left \{ #1 \right \}}
-% \newcommand{\abs}[1]{\left \lvert #1 \right \rvert} %usare modulo
-\newcommand{\modulo}[1]{\left| #1 \right|}
-\newcommand{\angolare}[1]{\left \langle #1 \right \rangle}
-
-%--------------------------
-% Sisteni, vettori, matrici:
-\newcommand{\sistema}[1]{\left\{\begin{array}{lcl}#1\end{array}\right.}
-\newcommand{\fatratti}[1]{\left\{\begin{array}{lclcl}#1\end{array}\right.}
-\newcommand{\vettore}[1]{\left(\begin{array}{c}#1\end{array}\right)}
-\newcommand{\matrice}[2]{\tonda{\begin{array}{#1}#2\end{array}}}
-\newcommand{\vect}[1]{\overrightarrow{#1}}
-\newcommand{\coppia}[2]{\tonda{#1;~#2}}
-\newcommand{\punto}[3]{#1\tonda{#2;~#3}}
-\newcommand{\Deriv}[1]{\mathit{D}\quadra{#1}}
-
-%--------------------------
-% Intervalli:
-\newcommand{\intervcc}[2]{\left[#1;~#2\right]}
-\newcommand{\intervac}[2]{\left]#1;~#2\right]}
-\newcommand{\intervca}[2]{\left[#1;~#2\right[}
-\newcommand{\intervaa}[2]{\left]#1;~#2\right[}
-
-%--------------------------
-% simboli con l'aggiunta di uno spazio prima e dopo:
-\newcommand{\sand}{~ \wedge ~}
-\newcommand{\sor}{~ \vee ~}
-\newcommand{\scap}{~ \cap ~}
-\newcommand{\scup}{~ \cup ~}
-\newcommand{\svert}{~ \vert ~}
-\newcommand{\sLarrow}{~ \Leftarrow ~}
-\newcommand{\sLRarrow}{~ \Leftrightarrow ~}
-\newcommand{\sRarrow}{~ \Rightarrow ~}
-\newcommand{\slarrow}{~ \leftarrow ~}
-\newcommand{\slrarrow}{~ \leftrightarrow ~}
-\newcommand{\srarrow}{~ \rightarrow ~}
-\newcommand{\stext}[1]{~~\text{#1}~~}
-\newcommand{\sstext}[1]{\quad\text{#1}\quad}
-
-%--------------------------
-% Operatori per le funzioni circolari e per gli Iperreali:
-\DeclareMathOperator{\sen}{sin}
-\DeclareMathOperator{\tg}{tg}
-\DeclareMathOperator{\st}{st}              % standard
-\newcommand{\pst}[1]{\st \tonda{#1}}       % parte standard di 
-\DeclareMathOperator{\monade}{mon}         % monade
-\newcommand{\mon}[1]{\monade \tonda{#1}}   % monade di 
-\DeclareMathOperator{\Galassia}{Gal}       % Galassia
-\newcommand{\Gal}[1]{\Galassia \tonda{#1}} % Galassia di 
-\DeclareMathOperator{\oinf}{inf}
-\renewcommand{\inf}[1]{\oinf \tonda{#1}}   % Estremo inferiore
-\DeclareMathOperator{\osup}{sup}
-\renewcommand{\sup}[1]{\osup \tonda{#1}}     % Estremo superiore
-\DeclareMathOperator{\omin}{min}
-\renewcommand{\min}[1]{\omin \tonda{#1}}     % Minimo
-\DeclareMathOperator{\omax}{max}
-\renewcommand{\max}[1]{\omax \tonda{#1}}     % Massimo
-
-\DeclareMathOperator{\divint}{~div~}
-\DeclareMathOperator{\mcd}{MCD}
-\DeclareMathOperator{\mcm}{mcm}
-
-%--------------------------% Fine comandi per l'ambiente math
-
-%--------------------------% Formattazione del testo
-
-\newcommand{\affiancati}[4]{% 2 minipage affiancate
-% Esempio di chiamata:
-% \affiancati{.48}{.48}{testo1}{testo2}
-  \def \larga{#1}
-  \def \largb{#2}
-%   \def \contenutoa{#3}
-%   \def \contenutob{#4}
-  \noindent\begin{minipage}{\larga\textwidth}
-    #3
-  \end{minipage}
-  \hfill
-  \begin{minipage}{\largb\textwidth}
-    #4
-  \end{minipage}
-}
-
-\newcommand{\affiancatic}[4]{% 2 minipage affiancate con contenuto centrato
-% Esempio di chiamata:
-% \affiancati{.48}{.48}{testo1}{testo2}
-  \def \larga{#1}
-  \def \largb{#2}
-  \def \contenutoa{#3}
-  \def \contenutob{#4}
-  \noindent \begin{minipage}{\larga\textwidth}
-    \begin{center} \contenutoa \end{center}
-  \end{minipage}
-  \hfill
-  \begin{minipage}{\largb\textwidth}
-    \begin{center} \contenutob \end{center}
-  \end{minipage}
-}
-
-%--------------------------% Fine Formattazione del testo
-
-%--------------------------% Libreria grafica
-
-\newcommand{\disegno}[2][5]{% Recomanded
-  % Esempio di chiamata:
-  %% 
-  \def \dimensione{#1}
-  \def \grafico{#2}
-\begin{tikzpicture}[x=\dimensione mm, y=\dimensione mm, smooth]
-  \grafico
-\end{tikzpicture}
-}
-
-\newcommand{\asse}[4]{% Asse orizzontale.
-  % Esempio di chiamata:
-  %% \disegno{\asse{-7}{+7}{0}{\(t\)}
-  \def \xmi{#1}
-  \def \xma{#2}
-  \def \posy{#3}
-  \def \var{#4}
-  \draw [-{Stealth[length=2mm, open, round]}] 
-        (\xmi-.3, \posy) -- (\xma+.3, \posy);
-  \node [below] at (\xma, \posy) {\var};
-}
-
-\newcommand{\rcomvar}[7]{% Riferimento Cartesiano Ortogonale Monometrico.
-  % Esempio di chiamata:
-  %% \disegno{\rcomvar{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}{t}{s}
-  \def \xmi{#1}
-  \def \xma{#2}
-  \def \ymi{#3}
-  \def \yma{#4}
-  \def \griglia{#5}
-  \def \vascissa{#6}
-  \def \vordinata{#7}
-  \draw[#5] (\xmi-0.3, \ymi-0.3) grid (\xma+0.3, \yma+0.3); % Griglia
-  \begin{scope}[-{Stealth[length=2mm, open, round]}, black] % Assi
-    \draw (\xmi-0.3, 0) -- (\xma+0.5, 0) 
-      node [below, xshift=-3pt] {\vascissa};
-    \draw (0, \ymi-0.3) -- (0, \yma+0.5) 
-      node [left, yshift=-3pt] {\vordinata};
-  \end{scope}
-}
-\newcommand{\rcom}[5]{% Riferimento Cartesiano Ortogonale Monometrico: x-y.
-  % Esempio di chiamata:
-  %% \disegno{\rcom{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}
-  \rcomvar{#1}{#2}{#3}{#4}{#5}{\(x\)}{\(y\)}
-}
-
-\newcommand{\microscopio}[7]{% 
-  % Esempio di chiamata:
-  % \microscopio{punto}{lung}{angoloa}{angolob}{raggio}
-  %             {postoetichetta}{etichetta}
-  % \microscopio{(8, 5)}{2}{120}{-50}{2}{(7.6, 10)}{\infty}
-  \def \punto{#1}
-  \def \lung{#2}
-  \def \anga{#3}
-  \def \angb{#4}
-  \def \rad{#5}
-  \def \postimes{#6}
-  \def \labeltimes{#7}
-  \draw [color=gray, fill=white, line join=round] \punto -- +(\anga: \lung)
-        arc [start angle=\angb, delta angle=350, radius=\rad] -- cycle;
-  \node [gray] at \postimes {\footnotesize \labeltimes};
-}
-
-\newcommand{\freccia}[4]{
-  \def \pp{#1}
-  \def \pa{#2}
-  \def \poslabel{#3}
-  \def \value{#4}
-  \draw [-{Latex[length=2mm, width=1mm]}, black] \pp 
-    node[\poslabel]{\footnotesize \(\value\)} -- \pa; 
-}
-
-%--------------------------% Fine Libreria grafica
-
-%--------------------------% Funzioni grafiche
-
-\newcommand{\puntomedio}{% Punto medio di un segmento
-    \disegno{
-      \rcom{-3}{+10}{-2}{+8}{gray!50, very thin, step=1}
-      \coordinate (a) at (2, 3);
-      \coordinate (b) at (8, 6);
-      \coordinate (m) at ($ (a)!.5!(b) $);
-      \draw [-] (a) -- (b);
-      \filldraw (a) circle (1.5pt) node [below right] {A};
-      \filldraw (b) circle (1.5pt) node [below right] {B};
-
-      \begin{scope}[dotted]
-      \draw [-] (a) -- (2, 0) node [below] {$x_A$};
-      \draw [-] (a) -- (0, 3) node [left] {$y_A$};
-      \draw [-] (b) -- (8, 0) node [below] {$x_B$};
-      \draw [-] (b) -- (0, 6) node [left] {$y_B$};
-      \begin{scope}[red]
-      \filldraw (m) circle (1.5pt) node [below right] {M};
-      \draw [-] (m) -- (5, 0) 
-        node [below, xshift=2pt] {$\dfrac{x_{A}+x_{B}}{2}$};
-      \draw [-] (m) -- (0, 4.5) 
-        node [left, yshift=2pt] {$\dfrac{y_{A}+y_{B}}{2}$};
-      \end{scope}
-      \end{scope}
-    }
-}
-
-\newcommand{\lungseg}{% Segmento qualunque
-    \disegno{
-      \rcom{-5}{+5}{-5}{+5}{gray!50, very thin, step=1}
-      \foreach \pos/\lab in {(0, 4)/R, (0, -2)/S, (-4, 0)/H, (3, 0)/K}
-      \coordinate (e) at (-3, -4);
-      \coordinate (f) at (2, 4);
-      \coordinate (g) at (2, -4);
-      \draw [-] (e) -- (f);
-      \filldraw (e) circle (1.5pt) node [below right] {E};
-      \filldraw (f) circle (1.5pt) node [below right] {F};
-      \filldraw (g) circle (1.5pt) node [below right] {G};
-
-      \begin{scope}[dotted]
-      \draw [-] (e) -- (g) 
-        node [below, xshift=1mm] at ($(e)!.5!(g)$) {$x_F - x_E$};
-      \draw [-] (f) -- (g) 
-        node [below, xshift=8mm] at ($(f)!.5!(g)$) {$y_F - y_E$};
-      \end{scope}
-    }
-}
-
-\newcommand{\areasottesauno}{% Area sottesa a un segmento
-    \disegno{
-      \coordinate (a) at (1, 3);
-      \coordinate (xa) at (1, 0);
-      \coordinate (ya) at (0, 3);
-      \coordinate (b) at (7, 8);
-      \coordinate (xb) at (7, 0);
-      \coordinate (yb) at (0, 8);
-
-      \fill [top color=green!30!black!20,bottom color=green!50!black!10] 
-      (a) -- (b) -- (xb) -- (xa) -- cycle;
-
-      \rcom{-1}{+9}{-1}{+9}{gray!50, very thin, step=1}
-      
-      \draw [-] (a) -- (b);
-      \filldraw (a) circle (1.5pt) node [below right] {A};
-      \filldraw (b) circle (1.5pt) node [below right] {B};
-
-      \begin{scope}[dotted]
-      \draw [-] (a) -- (xa) node [below] {$A'$};
-      \draw [-] (a) -- (ya) node [left] {$y_A$};
-      \draw [-] (b) -- (xb) node [below] {$B'$};
-      \draw [-] (b) -- (yb) node [left] {$y_B$};
-      \end{scope}
-    }
-}
-
-\colorlet{anglecolor}{green!30!black}
-\colorlet{sincolor}{blue!50!black}
-% \colorlet{coscolor}{red!50!black}
-% \colorlet{tancolor}{orange!70!black}
-
-
-\newcommand{\diseqsin}[6]{%
-% Soluzione della disequazione $\sin x \in [a;~b]$ 
-% nella circonferenza goniometrica e nella sinusoide.
-% Chiamata tipica: 
-% \diseqsin{-.5}{1.73205080757 / 2}{0}{60}{120}{210}{330}{360}
-
-% Parametri
-  \def \psina{#1}
-  \def \psinb{#2}
-  \def \padeg{#3}
-  \def \pbdeg{#4}
-  \def \pcdeg{#5}
-  \def \pddeg{#6}
-  \def \_deg2rad{0.01745329252}
-  \def \parad{#3*\_deg2rad}
-  \def \pbrad{#4*\_deg2rad}
-  \def \pcrad{#5*\_deg2rad}
-  \def \pdrad{#6*\_deg2rad}
-% Assi
-  \begin{scope}[-{Stealth[length=2mm, open, round]}]
-    \draw (-2.1,0) -- (6.5, 0) node [below] {$x$}; % Asse x
-    \draw (-1, -1.3) -- (-1, 1.3) node [left] {$y'$}; % Asse y'
-    \draw (0, -1.3) -- (0, 1.3) node [left] {$\sin x$}; % Asse y
-    \foreach \y in {-1, -.5, +.5, +1}{
-      \draw [-] (-0.02, \y) -- (+0.05, \y);}
-  \end{scope}
-% Circonferenza
-  \coordinate (a) at (-1, 0);
-  \coordinate (b) at (0, 0);
-  \node(c0) at (a)[draw, circle through=(b)] {};  
-% Tacche con etichetta asse x
-  \begin{scope}[font=\tiny]
-  \foreach \x/\xtext in {
-      0.0/0, 0.5236/30, 1.047/60, 1.571/90, 2.094/120, 2.618/150, 
-      3.142/180, 3.665/210, 4.189/240, 4.712/270, 5.236/300, 5.76/330, 
-      6.283/360}
-  \node[below] at(\x, 0) {$\xtext$};
-  \end{scope}
-% Tacche asse x
-  \begin{scope}[font=\tiny]
-  \foreach \x in { 
-      0.0, 0.2618, 0.5236, 0.7854, 1.047, 1.309, 1.571, 1.833, 
-      2.094, 2.356, 2.618, 2.88, 3.142, 3.403, 3.665, 3.927, 
-      4.189, 4.451, 4.712, 4.974, 5.236, 5.498, 5.76, 6.021, 6.283}
-  {\draw [black] (\x, -0.02) -- (\x, +0.05) node (a) {};}
-  \end{scope}
-%Sinusoide
-  \tkzInit[xmin=0,xmax=+6.5,ymin=-1.1,ymax=+1.1]
-  \tkzFct[domain=0:+6.5, thick, sincolor]{sin(x)}
-% Tratto di sinusoide evidenziata PECCATO CHE NON FUNZIONI!!!
-%   \tkzFct[domain=\parad:\pbrad, thick, decoration=snake]{sin(x)}
-% Segmenti
-  \begin{scope}[sincolor, thick]
-  \foreach \x in {-1, 0} 
-    {\draw [decorate, snake=snake, segment length=5pt, segment amplitude=2pt] 
-    (\x, \psina) -- (\x, \psinb);}
-  \foreach \x in {-1, 0} 
-    {\filldraw (\x, \psina) circle(1.5pt) (\x, \psinb) circle(1.5pt);}
-  \draw (-2.1, \psina) coordinate (pt0a) -- (+6.5, \psina) coordinate (pt1a);
-  \draw (-2.1, \psinb) coordinate (pt0b) -- (+6.5, \psinb) coordinate (pt1b);
-  \end{scope}
-% Intersezioni
-  \coordinate (ca) at (intersection 1 of c0 and pt0a--pt1a);
-  \coordinate (cb) at (intersection 1 of c0 and pt1a--pt0a);
-  \coordinate (cc) at (intersection 1 of c0 and pt0b--pt1b);
-  \coordinate (cd) at (intersection 1 of c0 and pt1b--pt0b);
-  \begin{scope}[anglecolor]
-  \foreach \p in {(ca), (cb), (cc), (cd)}
-    {\filldraw (-1, 0) -- \p [fill] circle(1.5pt);}
-% Soluzioni
-  \foreach \xp/\yp in {\parad/\psina, \pbrad/\psinb, 
-                       \pcrad/\psinb, \pdrad/\psina}
-    {\filldraw (\xp, 0) [anglecolor] circle(1.5pt) -- 
-               (\xp, \yp) [sincolor] circle(1.5pt);}
-  \draw [decorate, decoration=snake, segment length=5pt, 
-         segment amplitude=2pt, anglecolor] 
-        (\parad, 0) -- (\pbrad, 0);
-  \draw [decorate, decoration=snake, segment length=5pt, 
-         segment amplitude=2pt, anglecolor] 
-        (\pcrad, 0) -- (\pdrad, 0);
-
-  \draw (\parad, 0) [fill] circle(2pt); 
-  \draw (\pbrad, 0) [fill] circle(2pt);
-  \draw (\pcrad, 0) [fill] circle(2pt); 
-  \draw (\pdrad, 0) [fill] circle(2pt);
-% Angoli
-  \draw [decorate, decoration=snake, segment length=5pt, 
-         segment amplitude=2pt] 
-        (ca) arc(\padeg:\pbdeg:1);
-  \draw [decorate, decoration=snake, segment length=5pt,
-         segment amplitude=2pt] 
-        (cd) arc(\pcdeg:\pddeg:1);
-  \end{scope}
-}
-
-\newcommand{\disequazionegon}{
-  \disegno[10]{\diseqsin{.5}{1.73205080757 / 2}{30}{60}{120}{150}}
-}
-
-\newcommand{\grafoscatolasd}[4]{% 
-  % Funzione binaria rappresentata come scatola nera a sinistra
-  % esempio di chiamata:
-  % \grafoscatolasx{add}{\(o_1\)}{\(o_2\)}{somma}
-  \def \nomef{#1}
-  \def \opa{#2}
-  \def \opb{#3}
-  \def \risultato{#4}
-  \disegno[10]{
-     \node [draw, fill=blue!20, minimum size=3em, rounded corners] 
-            at (0, 0) (block 1) {\nomef};
-     \draw [->] (-1, +0.5) node [left] {$\opa$} -- (block 1);
-     \draw [->] (-1, -0.5) node [left] {$\opb$} -- (block 1);
-     \draw[->] (block 1.east) -- (1, 0) node [right] {$\risultato$};
-  }
-}
-
-\newcommand{\grafoportad}[5][1]{% 
-  % Funzione binaria rappresentata come porta logica
-  % esempio di chiamata:
-  % \grafoportad[3]{add}{o_1}{o_2}{somma}
-  \def \dim{#1}
-  \def \nomef{#2}
-  \def \opa{#3}
-  \def \opb{#4}
-  \def \risultato{#5}
-  \def \ddim{2*\dim}
-  \disegno{
-    \draw (0, 0) node {\nomef} (-\dim, +\dim) -- (-\dim, -\dim) 
-      arc [start angle=-90, end angle=90, x radius=\ddim, y radius =\dim]
-      -- cycle;
-     \draw (-1.5*\dim, .5*\dim) node [left=-4pt] {$\boxed{\opa}$} -- 
-       (-\dim, .5*\dim)
-       (-1.5*\dim, -.5*\dim) node [left=-4pt] {$\boxed{\opb}$} -- 
-       (-\dim, -.5*\dim)
-       (+\dim, 0) -- (+1.5*\dim, 0) 
-       node [right=-4pt] {$\boxed{\risultato}$};
-  }
-}
-
-\newcommand{\frecciav}[4]{% Freccia verticale.
-  % Esempio di chiamata:
-  % \frecciav{-.25}{-.04}{-.12}{}
-  \def \posx{#1}
-  \def \ymi{#2}
-  \def \yma{#3}
-  \def \lab{#4}
-%   \draw [-{Stealth[length=2mm, round]}] (\posx, \yma) -- (\posx, \ymi);
-  \draw [-{Straight Barb[length=4pt,width=2pt, round]}] 
-         (\posx, \yma) -- (\posx, \ymi);
-  \node [above] at (\posx, \yma) {\lab};
-}
-
-\newcommand{\rettaappross}{% 
-  % Alcuni punti del segmento 0-1.
-  \asse{-8}{+8}{0}{};
-%   \foreach \x in {.02, .04, ..., .3}{
-  \foreach \x in {.1, .2, .4, .8, 1.6, 3.2}{
-    \draw (-\x, 0) arc [start angle=0, end angle=+20, radius=.8];
-    \draw (\x, 0) arc [start angle=180, end angle=160, radius=.8];}
-}
-
-\newcommand{\unoconnome}{% 
-  % Sezione con elementi separatori di cui due con nome
-\disegno{
-  \rettaappross
-  \frecciav{-2.5}{-.4}{-1.2}{}
-  \frecciav{2.5}{-0.4}{-1.2}{}
-  \node at(-.8, .4)[above] {\(q_1\)};
-  \node at(1.6, .4) [above] {\(q_2\)};
-  \draw [<->] (-2.4, -1.2) -- node [below] {\(\frac{1}{n}\)} (2.4, -1.2);
-  \microscopio{(0, .2)}{1.}{89}{-90}{2}{(2, 5.)}{\(\times \infty\)}
-  \draw (-2.0, 3.1) -- (+2.0, 3.1);
-  \draw (0, 3.3) -- (0, 3.1);
-    \node at (0, 3.1) [below] {\(a\)};
-  }
-}
-
-\newcommand{\molticonnome}{% 
-  % Sezione con elementi separatori di cui due con nome
-\disegno{
-  \rettaappross
-  \frecciav{-2.5}{-.4}{-1.2}{}
-  \frecciav{2.5}{-0.4}{-1.2}{}
-  \node at(-.8, .4)[above] {\(q_1\)};
-  \node at(1.6, .4) [above] {\(q_2\)};
-  \draw [<->] (-2.4, -1.2) -- node [below] {\(\frac{1}{n}\)} (2.4, -1.2);
-  \microscopio{(0, .2)}{1.}{89}{-90}{2}{(2, 5.)}{\(\times \infty\)}
-  \draw (-2.0, 3.1) -- (+2.0, 3.1);
-  \foreach \x in {-1.2, -.6, ..., 1.2}
-    \draw (\x, 3.3) -- (\x, 3.1);
-    \node at (-.6, 3.1) [below] {\(\alpha\)};
-    \node at (.6, 3.1) [below] {\(\beta\)};
-  }
-}
-
-\newcommand{\nodoesp}[6]{% nodo di un'espressione numerica
-  % esempio di chiamata:
-  % \nodoesp{(-5, -1)}{(-4, -1)}{-4.5}{-3}{\times}{12}
-  \def \popa{#1}
-  \def \popb{#2}
-  \def \xris{#3}
-  \def \yris{#4}
-  \def \op{#5}
-  \def \ris{#6}
-  \def \dim{.94}
-  \def \dimalf{\dim/2}
-  \def \ddim{\dim/10}
-  \def \xtopl{\xris-\dimalf}
-  \def \xtopr{\xris+\dimalf}
-  \def \ytop{\yris+2*\dim}
-  \def \ym{\yris+3*\dimalf}
-  \draw \popa to [out=270, in=90] (\xris-3*\ddim, \ytop);
-  \draw \popb to [out=270, in=90] (\xris+3*\ddim, \ytop);
-  \draw (\xtopl, \ytop) -- (\xtopr, \ytop) -- (\xtopr, \ym) 
-        arc (0:-180:\dimalf) -- cycle;
-  \draw (\xris, \ym) node {\(\op\)}
-        (\xris, \yris) node[draw, above, rectangle,rounded corners=1pt] 
-                           {\(\ris\)};
-%         (\xris, \yris) node[draw, above, rectangle] {\(\ris\)};
-  
-}
-
-\newcommand{\espressionealberoa}{
-  \def \la{-0.3}
-  \def \lb{-2.8}
-  \def \lc{-5.3}
-  \def \ld{-7.8}
-  \def \le{-10.3}
-  \def \lf{-12.8}
-  \def \lg{-14.2}
-  \disegno{
-    \draw (0, 0) node{
-    \(2 ~+~ 6 ~\times~ 2 ~\div 
-    \left[ \left(4 ~-~ 2 \right) \times~ 3^{2} ~-~ 3 ~\times~ 5 \right] ~+~
-    \left( 5^{2} ~+~ 2^{3} \right) ~\div~ 3 =\)};
-    \nodoesp{(-8.2, \la)}{(-6.5, \la)}{-7.4}{\lb}{\times}{12}
-    \nodoesp{(-4.5, \la)}{(-2.9, \la)}{-3.7}{\lb}{-}{2}
-    \draw (-3.7-.8, \lb) node [above=-2pt] {\((\)}
-          (-3.7+.8, \lb) node [above=-2pt] {\()\)};
-    \nodoesp{(-1.2, \la)}{(-0.8, +0.0)}{-1}{\lb}{\uparrow}{9}
-    \nodoesp{(+0.9, \la)}{(+2.6, \la)}{+1.8}{\lb}{\times}{15}
-    \nodoesp{(+4.8, \la)}{(+5.2, +0.0)}{+5.0}{\lb}{\uparrow}{25}
-    \nodoesp{(+6.8, \la)}{(+7.2, +0.0)}{+7.0}{\lb}{\uparrow}{8}
-    \nodoesp{(-3.7, \lb)}{(-1, \lb)}{-2}{\lc}{\times}{18}
-    \nodoesp{(+5, \lb)}{(+7, \lb)}{+6}{\lc}{+}{33}
-    \draw (+6-1, \lc) node [above=-2pt] {\((\)}
-          (+6+1, \lc) node [above=-2pt] {\()\)};
-    \nodoesp{(-2, \lc)}{(+1.8, \lb)}{0}{\ld}{-}{3}
-    \draw (0-.8, \ld) node [above=-2pt] {\([\)}
-          (0+.8, \ld) node [above=-2pt] {\(]\)};
-    \nodoesp{(+6, \lc)}{(+9.2, \la)}{+8.2}{\ld}{\div}{11}
-    \nodoesp{(-7.4, \lb)}{(0, \ld)}{-5.6}{\le}{\div}{4}
-    \nodoesp{(-9.6, \la)}{(-5.6, \le)}{-9.0}{\lf}{+}{6}
-    \nodoesp{(-9.0, \lf)}{(+8.2, \ld)}{+3.5}{\lg}{+}{17}
-    \draw (+3.5, \lg) 
-      node[draw, above, rectangle,rounded corners=1pt, very thick] 
-          {\(\ris\)};
-  }
-}
-
-\def \fcolor{green!50!black}
-
-\newcommand{\dmicx}[8]{% 
-  % interno del microscopio posto sull'asse x.
-  \def \basexa{#1}
-  \def \basexb{#2}
-  \def \basey{#3}
-  \def \mxxa{#4}
-  \def \mxxb{#5}
-  \def \yab{#6}
-  \def \eta{#7}
-  \def \etb{#8}
-  \draw (\basexa, \basey) -- (\basexb, \basey);
-%   \fill [cyan!50]  (\xa, \yab) -- (\xa, \basey) -- 
-%                    (\xb, \basey) -- (\xb, \yab) -- cycle;
-  \draw [dashed] (\mxxa, \yab) -- (\mxxa, \basey) 
-        node [below=1.5pt, xshift=\xsh, black] {\eta};
-  \draw [dashed] (\mxxb, \yab) -- (\mxxb, \basey) 
-        node [below, xshift=\xesh, black] {\etb};
-}
-
-
-\newcommand{\dmicf}[8]{% 
-  % interno del microscopio posto sulla funzione.
-  \def \mcol{#1}
-  \def \basea{#2}  
-  \def \baseb{#3} 
-  \def \puntobase{#4} 
-  \def \puntoa{#5} 
-  \def \puntob{#6} 
-  \def \dx{#7} 
-  \def \df{#8}
-  \path \puntoa node(pa) {} \puntob node(pb) {} \puntobase node(base) {};
-%   \fill [fill=cyan!50] 
-%         (pa -| base) -- (pa |- pa) -- (pa |- base) -- 
-%         (pb |- base) -- (pb |- pb) -- (pb -| base) -- cycle;
-  \draw [ultra thick, color=\mcol] \basea -- \baseb;
-  \draw [dashed] (pa -| base) -- (pa |- pa) -- (pa |- base)
-        (pb -| base) -- (pb |- pb) -- (pb |- base);
-  \draw [thick] (pa |- pa) -- (pb |- pa)
-        node [midway, below, black] {\dx}; %{\(\epsilon\)};
-  \draw [thick] (pb |- pb) -- (pb |- pa)
-        node [midway, right, color=\mcol] {\df}; % {\(df(x)_7\)};
-}
-
-\newcommand{\dmicy}[8]{% 
-  % interno del microscopio posto sull'asse y.
-  \def \baseya{#1} 
-  \def \baseyb{#2} 
-  \def \basex{#3}
-  \def \ya{#4}
-  \def \yb{#5}
-  \def \xab{#6}
-  \def \eta{#7}
-  \def \etb{#8}
-%   \fill [cyan!50]  (\xab, \ya) -- (\basex, \ya) -- 
-%                    (\basex, \yb) -- (\xab, \yb) -- cycle;
-  \draw (\basex, \baseya) -- (\basex, \baseyb);
-  \draw [dashed] (\basex, \ya) node [left, \fcolor] {\eta} -- (\xab, \ya);
-  \draw [dashed] (\basex, \yb) node [left, \fcolor] {\etb} -- (\xab, \yb);
-}
-
-\newcommand{\differenziale}{% 
-  % definita in intervallo 0-inf.
-  \def \xsh{-1mm}
-  \def \xesh{+2.5mm}
-  \disegno{
-    \rcom{-1}{+8}{-5}{+7}{gray!50, very thin, step=1}
-    \tkzInit[xmin=-1.3, xmax=+8.3, ymin=-5.3, ymax=+7.3]
-    \tkzFct[ultra thick, \fcolor, domain=-1.3:+8.3]
-            {.25*x*x-x-3}
-    \draw [dashed] (7, 2.25) -- (7, 0) node [below, black] {\(x_0\)};
-    \draw [dashed] (7, 2.25) -- (0, 2.25) node [left] {\(f(x_0)\)};
-    \microscopio{(7, 0)}{1.5}{-60}{150}{2}{(11, -.3)}{\(\times \infty\)}
-    \dmicx{7.65}{11.3}{-3.1}{9}{10}{-0.35}{\(x_0\)}{\(x_0+\epsilon\)}
-    \microscopio{(7, 2.25)}{.5}{0}{180}{2}{(11, 4.2)}{\(\times  \infty\)}
-    \dmicf{\fcolor}{(8.7, .4)}{(10.3, 4.1)}{(7.8, 0.34)}{(9, +1.1)}
-        {(10, 3.4)} {\(\epsilon\)}{\(df(x_0)\)}
-    \microscopio{(0, 2.25)}{.5}{0}{180}{2}{(4, 4.2)}{\(\times  \infty\)}
-    \dmicy{0.25}{4.25}{2.51}{1.1}{3.4}{4.2}{\(f(x_0)\)}{\(f(x_0+\epsilon)\)}
-  }
-}
-
-\newcommand{\teoremafonda}{% Teorema fond. incremento non infinitesimo.
-  \def \k{2}
-  \def \xi{-2.3}
-  \def \yi{2}
-  \def \xf{7.3}
-  \def \yf{4}
-  \def \xa{2.6}
-  \def \ya{5.10}
-  \def \xm{3}
-  \def \ym{2.5}
-  \def \x{3.4}
-  \def \y{5.55}
-  \def \label{p}
-  \def \linea{[\fcolor] 
-              (\xi, \yi) .. controls (-1, -1.1) and (3, 10) .. (\xf, \yf)
-             }
-  \disegno{
-    \begin{scope}
-      \clip (\xi, 0) rectangle (\xf, 6);
-      \fill [left color=red!10!black!5, right color=red!60!black!20] 
-        \linea -- (\xf, 0) -- (\xi, 0) -- cycle;
-    \end{scope}
-    \begin{scope}
-      \clip (\xa, 0) rectangle (\x, 6);
-      \fill [top color=green!40!black!30, bottom color=green!40!black!5] 
-        (\xa, 0) -- (\xa, \ya) -- (\x, \ya) -- (\x, 0) -- cycle;
-    \end{scope}
-    \rcom{-2}{+7}{0}{+7}{gray!50, very thin, step=1}
-    \draw [thick] \linea;
-    \node at (-2, 2.5) {\(f\)};
-%     \draw [-] (\xa, \ya) -- (\xa, 0) node [below, yshift=-8pt] {\(x\)}
-%               (\xa, \ya) -- (\x, \ya)
-%               (\x, \ya) -- (\x, 0); 
-    \draw (\xa, \ya) -- (\xa, 0) node [below, yshift=-8pt] {\(x\)}
-          (\x, 0) -- (\x, \ya) -- (0, \ya) node [left] {\(f(x)\)};
-    \node at (\x, 0) [below, xshift=-5pt] {\footnotesize \(\Delta t\)};
-%     \draw [thin] (\xa, \ya) -- (0, \ya) node [left] {\(f(x)\)};
-    \freccia{(3.9, \ym)}{(\xm-.1, \ym)}{right}{\Delta S}
-  }
-}
-
-\newcommand{\micx}{% 
-  % interno del microscopio posto sull'asse x.
-  \draw [thick] (\mbordoax, \mybasex) -- (\mbordobx, \mybasex);
-  \draw [thin] (\mxa, \myax) -- (\mxa, \mybasex) 
-        node [below=1.5pt, black] {\(x\)};
-  \draw [thin] (\mxb, \mybx) -- (\mxb, \mybasex) 
-        node [below, black] {\(\xdx\)};
-}
-
-\newcommand{\micl}{% 
-  % interno del microscopio posto su una linea verticale.
-  \draw [thin] (\mxa, \mymial) -- (\mxa, \mymaal) 
-               (\mxb, \mymibl) -- (\mxb, \mymabl)
-               \posds node {\(\ds\)};
-}
-
-
-\newcommand{\micf}{% 
-  % interno del microscopio posto sulla funzione.
-  \path (\mxa, \myaf) node(pa) {} (\mxb, \mybf) node(pb) {};
-  \draw [thick, \fcolor] \mbordoaf -- \mbordobf;
-  \draw [thin] (\mxa, \mymiaf) -- (\mxa, \myaf) --
-               (\mxb, \myaf) -- (\mxb, \mymibf);
-  \draw [dashed] (\mxb, \mybf) -- (\mxb, \myaf)
-                 (\mxb, \mybf) -- (\mxmibf, \mybf)
-                 (\mxa, \myaf) -- (\mxmiaf, \myaf);
-}
-
-\newcommand{\micy}{% 
-  % interno del microscopio posto sull'asse y.
-  \draw [thick] (\mxbasey, \mbordoay) -- (\mxbasey, \mbordoby);
-  \draw [dashed] 
-    (\mxbasey, \myaf) node [left] {\(\fx\)} -- (\mxmaay, \myaf)
-    (\mxbasey, \mybf) node [left] {\(\fxdx\)} -- 
-    (\mxmaay, \mybf);
-}
-
-\newcommand{\teoremafondb}{% Teorema fondamentale incremento infinitesimo.
-  \def \k{2}
-  \def \xi{-2.3}
-  \def \yi{2}
-  \def \xf{7.3}
-  \def \yf{4}
-  \def \xa{2.6}
-  \def \ya{5.10}
-  \def \mxa{\xa+2.8}
-  \def \mxb{\mxa+2}
-  \def \mybasex{-2}
-  \def \mybasel{1.5}
-  \def \myaf{7.75}
-  \def \mybf{8.75}
-  \def \mbordoax{\xa+1.85}
-  \def \mbordobx{\xa+5.65}
-  \def \myax{0.37}
-  \def \mybx{0.34}
-  \def \mymial{1.86}
-  \def \mymaal{5.37}
-  \def \mymibl{1.9}
-  \def \mymabl{5.32}
-  \def \mbordoaf{(\xa+1.87, \ya+2.2)}
-  \def \mbordobf{(\xa+5.5, \ya+4)}
-  \def \mxmiaf{4.32}
-  \def \mxmibf{4.37}
-  \def \mymiaf{6.4}
-  \def \mymibf{6.54}
-  \def \mxbasey{+2.5}
-  \def \mbordoay{+6.24}
-  \def \mbordoby{+10.18}
-  \def \mxmaay{4}
-  \def \mxmaby{4}
-  \def \mxmiay{0.32}
-  \def \mxmiby{0.37}
-  \def \xdx{x+dx}
-  \def \fx{f(x)}
-  \def \fxdx{f(x+dx)}
-  \def \posds{(6.4, 3.7)}
-  \def \ds{dS}
-  \def \label{p}
-  \def \linea{[\fcolor] 
-              (\xi, \yi) .. controls (-1, -1.1) and (3, 10) .. (\xf, \yf)}
-  \disegno{
-    \begin{scope}
-      \clip (\xi, 0) rectangle (\xf, 6);
-      \fill [left color=red!10!black!5, right color=red!60!black!20] 
-        \linea -- (\xf, 0) -- (\xi, 0) -- cycle;
-    \end{scope}
-    \rcom{-2}{+7}{0}{+7}{gray!50, very thin, step=1}
-    \draw [thick] \linea;
-    \node at (-2, 2.5) {\(f\)};
-    \draw [thin] (0, \ya) --  (\xa, \ya) -- (\xa, 0); 
-    \freccia{(\xa-.8, -0.65)}{(\xa, 0)}{below}{x}
-    \freccia{(\xa+.8, -0.5)}{(\xa, 0)}{below}{\xdx}
-    \freccia{(-0.5, \ya-.5)}{(0, \ya)}{left}{\fx}
-    \freccia{(-0.5, \ya+.5)}{(0, \ya)}{left}{\fxdx}
-    \microscopio{(\xa, 0)}{2}{-20}{160}{2}{(8, .5)}{\(\times \infty\)}
-    \begin{scope}
-    \clip(+6.36, -1.36) circle (1.98);
-    \fill [top color=green!40!black!15, bottom color=green!40!black!5] 
-          (\mxa, \mybasex) rectangle (\mxb, \mybasex+2.7);
-    \end{scope}
-    \micx
-    \microscopio{(\xa, 2.25)}{2}{20}{200}{2}{(4, 10)}{\(\times  \infty\)}
-    \begin{scope}
-    \clip(+6.36, +3.62) circle (1.98);
-    \fill [top color=green!40!black!30, bottom color=green!40!black!20] 
-          (\mxa, \mybasel) rectangle (\mxb, \mybasel+4.5);
-    \end{scope}
-    \micl
-    \microscopio{(\xa, \ya)}{2.8}{+40}{220}{2}{(8, 10)}{\(\times  \infty\)}
-    \begin{scope}
-    \clip(+6.28, +8.18) circle (1.98);
-    \fill [top color=green!40!black!45, bottom color=green!40!black!35] 
-          (\mxa, \myaf-2.4) -- (\mxb, \myaf-2.4) -- (\mxb, \myaf) -- 
-          (\mxa, \myaf) -- cycle;
-    \end{scope}
-    \micf
-    \microscopio{(0, \ya)}{1.8}{50}{240}{2}{(8, 5.5)}{\(\times  \infty\)}
-    \micy
-%     \micy{0.25}{4.25}{2.51}{1.1}{3.4}{4.2}{\(f(x_0)\)}{\(f(x_0+\epsilon)\)}
-%   \def \baseya{#1} 
-%   \def \baseyb{#2} 
-%   \def \basex{#3}
-%   \def \ya{#4}
-%   \def \yb{#5}
-%   \def \xab{#6}
-%   \def \eta{#7}
-%   \def \etb{#8}
-  }
-}
-
-%--------------------------% Fne funzioni grafiche
-
-%opening
+%========================
+% Variabili per questa presentazione
+%========================
 \title{Matematica Dolce,\\ 
-un libro di testo fuori dalla moda}
-\author{Daniele Zambelli\footnote{Curatore del progetto 
-(\href{mailto:daniele.zambelli@gmail.com}{daniele.zambelli@gmail.com})}}
+un libro di testo fuori dalla \\
+\emph{moda}}
+\date{13 novembre 2021}
+\author{Daniele Zambelli
+% \footnote{\tiny{Curatore del progetto 
+% (\href{mailto:daniele.zambelli@gmail.com}{daniele.zambelli@gmail.com})}}
+}
+% Congresso nazionale di Matematica 2021
+
+%========================
+% Documento
+%========================
 
 \begin{document}
 
-\maketitle
+\transduration{1}
+\initslides
 
-\begin{abstract}
-Da quasi dieci di anni ha incominciato a evolversi un libro di testo di 
-matematica per le scuole superiori fuori dalla \emph{moda}.
+\section{Introduzione}
 
-Il testo non è ``bello'', non è ``completo'', contiene errori;
+\begin{frame}\frametitle{Non solo matematica}
+
+\begin{flushright}
+Parafrasando quello che dicono alcuni miei amici buddisti: \\
+``\emph{La matematica è fatta di non matematica}''.
+\end{flushright}
+
+Il progetto legato alla costruzione di un manuale di matematica non è 
+fatto solo di aspetti legati alla matematica e alla sua didattica. 
+
+\bigskip
+\pause
+Mi concentrerò principalmente sugli 
+\begin{center}\green{aspetti non matematici} \end{center}
+relativi al progetto \orange{Matematica Dolce} e accennerò a quelli 
+matematici solo come mini-esempi.
+
+\end{frame}
+
+
+\begin{frame}\frametitle{A chi è rivolto}
+
+\md non è un libro ``bello'', non è ``completo'', contiene errori;
 ciò nonostante può essere uno strumento utile per quegli insegnanti che
-\begin{itemize} [noitemsep]
+
+\bigskip
+\begin{itemize} [<+->]
 \item oltre a insegnare amano imparare;
 \item cercano il confronto con altri;
 \item sono attenti alle cause delle difficoltà di apprendimento dei propri 
@@ -877,8 +99,15 @@ editrici;
 \item \dots
 \end{itemize}
 
+\end{frame}
+
+
+\begin{frame}\frametitle{Caratteri principali}
+
 In questo intervento verrà brevemente illustrato un progetto:
-\begin{itemize} [noitemsep]
+
+\bigskip
+\begin{itemize}  %[<+->]
 \item libero,
 \item collaborativo,
 \item evolutivo,
@@ -886,43 +115,45 @@ In questo intervento verrà brevemente illustrato un progetto:
 \item accessibile.
 \end{itemize}
 
-\end{abstract}
+\end{frame}
 
-\section{Introduzione}
-\begin{flushright}
-Parafrasando quello che dicono alcuni miei amici buddisti, \\
-``La matematica è fatta da non matematica''.
-\end{flushright}
-
-Tutto il progetto legato attorno ad un manuale di matematica non è fatto solo 
-di aspetti legati alla matematica e alla sua didattica. 
-Gli aspetti matematico-didattici sono quelli che mi-ci interessano di più, ma 
-la forma di una comunicazione in un congresso non è adatta a trattarli:
-in questa situazione non è possibile un dialogo e un confronto.
-
-In questi pochi minuti cercherò di illustrare gli aspetti non matematici 
-relativi al progetto Matematica Dolce e accennerò a quelli matematici solo 
-come mini-esempi.
 
 \section{Libertà}
 
+
+\begin{frame}\frametitle{La licenza}
+
 Tutto il progetto è realizzato sotto la licenza CC BY-SA e questo vuol dire 
 che è possibile:
-\begin{itemize} [noitemsep]
+\begin{itemize} [<+->]
 \item usare il materiale per qualunque scopo;
 \item farne delle copie e diffonderlo;
 \item modificarlo a proprio piacere e diffondere la versione modificata;
 \item è possibile anche usarlo per ricavarne degli utili diretti o indiretti.
 \end{itemize}
 
-Ci sono due restrizioni:
-\begin{itemize} [noitemsep]
+\end{frame}
+
+
+\begin{frame}\frametitle{Cosa si \red{deve} fare}
+
+Nella licenza ci sono due restrizioni:
+
+\bigskip
+\begin{itemize} [<+->]
 \item deve essere citata la fonte originale del progetto;
 \item deve essere mantenuta la licenza.
 \end{itemize}
 
+\end{frame}
+
+
+\begin{frame}\frametitle{In pratica}
+
 La scelta di questa licenza:
-\begin{itemize} [noitemsep]
+
+\bigskip
+\begin{itemize} [<+->]
 \item rende libero l'insegnante di usare le parti che 
 gli aggradano e modificare quelle che non si addicono al suo stile di 
 insegnamento;
@@ -930,61 +161,80 @@ insegnamento;
 contributo agli alunni.
 \end{itemize}
 
-\paragraph{Esempio} Il testo libero da cui sono partito, matematica \(C^3\), 
+\end{frame}
+
+
+\begin{frame}\frametitle{Esempio: Il piano cartesiano}
+
+\subsection{Esempio} Il testo libero da cui sono partito, matematica \(C^3\), 
 non presentava, nel biennio, il piano cartesiano. 
 Tra le prime modifiche fatte, abbiamo inserito, nel primo volume, un 
 capitolo sul piano cartesiano con i 3 problemi sui segmenti:
 
-\noindent \begin{minipage}[t]{.36\textwidth}
+\affiancatitre{.34}{.25}{.28}{
 \begin{center}
-Punto medio
+\blue{Punto medio}
 
 \scalebox{.6}{\puntomedio}
 \end{center}
-\end{minipage}
-\begin{minipage}[t]{.33\textwidth}
+}{
 \begin{center}
-Lunghezza
+\blue{Lunghezza}
 
 \scalebox{.6}{\lungseg}
 \end{center}
-\end{minipage}
-\begin{minipage}[t]{.33\textwidth}
+}{
 \begin{center}
-Area sottesa
+\blue{Area sottesa}
 
 \scalebox{.6}{\areasottesauno}
-\end{center}
-\end{minipage}
+\end{center}}
+\end{frame}
 
 
 \section{Collaborazione}
 
-Il testo non è il frutto del lavoro di una sola persona, ma molti vi hanno 
-collaborato.
+\begin{frame}\frametitle{Il bello di cooperare}
+
+Molti insegnanti hanno lavorato alla produzione di questo testo.
+\spause
 Il confronto con i colleghi su varie scelte è sempre un momento di grande 
 ricchezza.
-
+\spause
 Difficilmente un insegnante, da solo, è in grado di affrontare la scrittura 
 di un intero manuale di matematica, ma assieme possiamo farlo.
-
-Ora che c'è una base sufficientemente solida dei vari argomenti da 
-affrontare nei cinque anni dell'insegnamento secondario, ogni insegnante 
+\spause
+Ora che c'è una base sufficientemente solida, ogni insegnante 
 può aggiungere o modificare il suo argomento del cuore, quello su cui ha 
 trovato un modo efficace di proporlo e può renderlo disponibile a tutti.
 
+\end{frame}
+
+
+\begin{frame}\frametitle{Difficoltà}
+
 La collaborazione non è facile:
-\begin{enumerate} [noitemsep]
+\begin{enumerate} [<+->]
+\item Aspetti non tecnici:
+\begin{enumerate}
+\item serve una certa sicurezza;
+\item serve la disponibilità al confronto e alla condivisione.
+\end{enumerate}
+\item Aspetti tecnici:
+\begin{enumerate}
 \item servono degli strumenti comuni;
 \item serve una struttura che permetta lo scambio.
 \end{enumerate}
+\end{enumerate}
 
-Per quanto riguarda il primo aspetto, lo strumento con cui è realizzato il 
-testo è \LaTeX.
+\end{frame}
+
+
+\begin{frame}\frametitle{Strumento per la produzione: \LaTeX}
 
 Molte persone che hanno una formazione matematica conoscono \LaTeX, 
 per chi non lo conoscesse, in sintesi:
-\begin{itemize} [noitemsep]
+\begin{itemize} %[noitemsep]
 \item \LaTeX è un linguaggio di descrizione del testo; 
 \item permette di scrivere tutte le formule usando un testo piano;
 \item permette, anche se con una certa difficoltà di realizzare grafici 
@@ -992,100 +242,132 @@ sofisticati;
 \item può produrre documenti in formato .pdf o in altri formati.
 \end{itemize}
 
-Anche \LaTeX è libero, lo si può scaricare, gratuitamente, e installare 
-su qualunque piattaforma (Windows, Mac, Linux).
+\end{frame}
 
+
+\begin{frame}\frametitle{Anche \LaTeX è libero}
+
+Lo si può scaricare, gratuitamente, e installare 
+su qualunque piattaforma (Windows, Mac, Linux).
+\spause
 Si usa un editor per descrivere, in un semplice file di testo, 
 il documento che si vuole realizzare, lo si compila e si ottiene un 
 documento .pdf di buona (ottima) qualità.
 
-\medskip
-La struttura usata per la condivisione verrà presentata nella prossima 
-sezione, dato che riguarda anche la manutenzione del testo.
+\end{frame}
 
-\paragraph{Esempio} Discutendo con le colleghe sull'argomento equazioni e 
+
+\subsection{Esempio} 
+
+\begin{frame}\frametitle{Esempio: disequazione goniometrica}
+
+Discutendo con le 
+colleghe sull'argomento equazioni e 
 disequazioni goniometriche era sorta una divergenza: alcuni preferivano 
 usare la circonferenza goniometrica, altri il grafico della funzione.
-
+\spause
 La soluzione è stata quella di combinare in un unico disegno i due grafici: 
 
 \begin{center}
 \disequazionegon
 \end{center}
 
+\end{frame}
+
 
 \section{Evoluzione}
 
-Il testo non è una perfetta esposizione della materia, è una raccolta di 
-modi per presentare i vari argomenti della materia.
+\begin{frame}\frametitle{Lacune e miglioramenti}
 
-Non esiste ``il'' modo giusto esistono vari modi per ogni argomento, modi 
-che possono adattarsi più o meno allo stile di apprendimento 
+Non esiste il modo \emph{giusto} esistono vari modi per ogni argomento, 
+modi che possono adattarsi più o meno allo stile di apprendimento 
 dell'insegnante e degli alunni. 
-Ho sempre invidiato quei colleghi che, avendo trovato il modo giusto, per 
-molti anni della loro carriera, procedevano riproponendo le stesse cose nello 
-stesso modo. 
-Io non riuscivo a fare le stesse lezioni neppure quando avevo classi 
-parallele.
-
+\spause
+Esistono insegnanti che non riescono a fare lezione sempre allo stesso 
+modo.
+Variando, a volte si trova un metodo o un esempio che è più efficace di altri.
+\spause
 Il libro non è bello e neppure perfetto (per fortuna), ma evolve facilmente.
 Ogni lezione svolta in classe può suggerire modifiche piccole o grandi al 
 testo: la correzione di un errore, il cambiamento o l'aggiunta di un esempio, 
 la riscrittura di alcune parti o di un intero capitolo.
 
+\end{frame}
+
+
+\begin{frame}\frametitle{Sistema per il controllo di versione}
+
 Lo strumento per la revisione è preso dallo sviluppo del software: 
 Sistema di Controllo di Versione (CVS).
-
+\spause
 In estrema sintesi consiste nell'avere l'intero lavoro sia in locale, 
 nell'hard disk del proprio computer, dove è possibile modificarlo, sia 
 in un repository remoto dove può essere condiviso. 
-
+\spause
 Un apposito programma (git) fornisce tutti gli strumenti per 
 sincronizzare lo stato locale e quello remoto e tiene traccia di tutti 
 i cambiamenti in modo da poter tornare indietro a qualunque stadio della 
 lavorazione, e di gestire il lavoro di più persone con gli eventuali 
 conflitti.
 
-\paragraph{Esempio} Inizialmente le funzioni venivano introdotte dopo aver 
-parlato di insiemi, prodotto cartesiano e relazioni.
+\end{frame}
 
-Dopo aver scritto il capitolo per il volume di quinta sull'introduzione 
-alle funzioni, dove utilizzavo un nuovo approccio tratto dall'informatica, 
-ho esteso questo nuovo approccio a tutti i volumi introducendo le funzioni 
+
+\subsection{Esempio} 
+
+\begin{frame}\frametitle{Esempio: funzioni}
+
+Inizialmente le funzioni venivano introdotte dopo aver 
+trattato: insiemi, prodotto cartesiano e relazioni.
+
+\pause
+La contaminazione della matematica con l'informatica ha suggerito un nuovo 
+approccio che ha permesso l'introduzione delle funzioni 
 già nelle prime pagine del primo volume.
 
 \medskip
 \affiancatic{.49}{.49}{
-Funzione rappresentata con grafi:
+Rappresentazione con grafi
 \[add \coppia{a_1}{a_2} = somma\]
 \grafoscatolasd{add}{a_1}{a_2}{somma}\\[1em]
 \grafoportad[1.1]{add}{a_1}{a_2}{somma}
 }{
-Chiamata di una funzione:
+Chiamata di una funzione
 \[add \coppia{7}{5} = 12\]
 \grafoscatolasd{add}{7}{5}{12}\\[1em]
 \grafoportad[1.1]{add}{7}{5}{12}
 }
 
+\end{frame}
+
 
 \section{Polimorfismo}
+
+
+\begin{frame}\frametitle{Un libro - mille libri}
 
 \begin{description}
 \item [Problema ] mi va abbastanza bene in generale, ma quel, quegli 
 argomenti sono trattati in un modo che non risponde alle mie esigenze.
 \item [Soluzione ] seguo le istruzioni:
-\begin{enumerate} [noitemsep]
+\begin{enumerate} [<+->]
 \item opero un \emph{fork} del progetto;
 \item modifico quello che non mi va bene;
 \item propongo al gruppo di integrare nel testo le modifiche.
 \end{enumerate}
 \end{description}
 
+\end{frame}
+
+
+\begin{frame}\frametitle{Possibili scenari}
+
 Se le proposte di modifica non vengono accolte, si tengono due testi con una 
 radice comune e alcune parti diverse.
+\spause
 Questo progetto rende facile l'operazione di adattare il testo alle proprie 
 esigenze:
-\begin{itemize} [noitemsep]
+\begin{itemize} %[noitemsep]
 \item si può cambiare l'ordine dei capitoli per spostare alcuni argomenti da 
 un anno a un altro;
 \item si possono aggiungere o togliere argomenti;
@@ -1093,98 +375,161 @@ un anno a un altro;
 \item si possono aggiungere (o togliere) esercizi.
 \end{itemize}
 
-\paragraph{Esempio} Estrarre un solo capitolo, da usare come dispensa, 
-richiede non più di~5 minuti.
+\end{frame}
 
-\paragraph{Esempio} Nel testo il quinto volume è dedicato all'analisi 
+
+\subsection{Esempio 1}
+
+
+\begin{frame}\frametitle{Esempio1: testo a moduli}
+
+Senza modificare i contenuti è possibile:
+\begin{itemize} 
+\item Estrarre un solo capitolo, da usare come dispensa, 
+non richiede più di~5 minuti;
+\item trasformare il testo da 5-volumi a moduli dedicati ai diversi argomenti.
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Esempio 2}
+
+
+\begin{frame}\frametitle{Esempio2: Analisi Non Standard (NSA)}
+
+Il quinto volume è dedicato principalmente all'analisi 
 proposta con il metodo non standard.
-Questo semplicemente perché chi ha scritto questi capitoli preferisce e ha 
-usato nella sua attività didattica l'Analisi Non Standard.
 
-Il tutto può partire dalla seguente osservazione:
+\pause
+Se tra due classi contigue di razionali scegliamo di mettere:
 
-\vspace{1em}
+\spause
 \affiancati{.48}{.48}{
-Se scegliamo di mettere un solo separatore tra due classi contigue di 
-razionali:
-
-\begin{center}\scalebox{.6}{\unoconnome}\end{center}
-
-otteniamo l'insieme completo dei numeri reali: \(\R\).
+un solo separatore:
 }{
-Se scegliamo di mettere più separatori tra due classi contigue di 
-razionali:
-
-\vspace{1em}
-\begin{center}\scalebox{.6}{\molticonnome}\end{center}
-
-otteniamo il meraviglioso insieme dei numeri iperreali: \(\IR\).
+più separatori:
 }
 
-\bigskip
+\affiancati{.48}{.48}{
+\begin{center}\scalebox{.6}{\unoconnome}\end{center}
+}{
+\begin{center}\scalebox{.6}{\molticonnome}\end{center}
+}
+
+\affiancati{.48}{.48}{
+otteniamo l'insieme dei numeri reali: \(\R\).
+}{
+% \vspace*{-1mm}
+otteniamo l'insieme dei numeri iperreali: \(\IR\).
+}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Derivata}
+
 L'insieme dei numeri iperreali contiene anche gli infinitesimi e gli 
 infiniti e è quindi adatto a risolvere in modo semplice i problemi relativi 
 alla pendenza delle funzioni e alle aree delle superfici sottese alle 
 funzioni.
 
+\pause
 \begin{center}
-Pendenza di una funzione in un punto
+\blue{Pendenza di una funzione in un punto}
 
-\affiancati{.39}{.59}{
+\affiancati{.49}{.49}{
 In una funzione abbastanza tranquilla, la pendenza in un punto è il 
 numero reale più vicino al rapporto differenziale:
 \[f'(x) \approx \dfrac{f(x + dx) - f(x)}{dx}\]
 }{
-\differenziale
+\scalebox{.7}{\differenziale}
 }
 \end{center}
 
-\pagebreak
+\end{frame}
+
+
+\begin{frame}\frametitle{Integrale}
+
 \begin{center}
-Teorema fondamentale del calcolo differenziale
+\blue{Teorema fondamentale del calcolo differenziale}
+\end{center}
 
 \affiancati{.48}{.48}{
-\teoremafonda
+\scalebox{.7}{\teoremafonda}
 
 L'area sottesa al grafico della funzione nell'intervallo reale
 \(\Delta x\) è approssimativamente uguale a 
 \(\Delta S = f(x) \cdot \Delta x\).
 }{
-\teoremafondb
+\hspace*{-35mm}\scalebox{.7}{\teoremafondb}
+
 L'area sottesa alla funzione nell'intervallo infinitesimo
 \(d x\) è indistinguibile da 
 \(d S = f(x) \cdot d x\).
 }
-\end{center}
 
-\vspace{1em}
-Chi non volesse usare questa modalità, comunque, non ha che da modificare 
+\end{frame}
+
+
+\begin{frame}\frametitle{E per gli analisti standard?}
+
+Grazie alla licenza adottata e ai sorgenti a disposizione,
+\spause
+chi non volesse usare questa modalità, può modificare 
 alcuni capitoli iniziando l'analisi dalla definizione \(\epsilon - \delta\) 
 di limite.
+\spause
+In questo modo il progetto si arricchisce e si adatta a diverse esigenze.
+\end{frame}
+
 
 \section{Accessibilità}
+
+
+\begin{frame}\frametitle{Attenzione a diversi stili di apprendimento}
+
+L'apparato grafico ha grande importanza nella didattica della matematica.
+\spause
+Gli argomenti sono spesso illustrati con grafici e, quando possibile, sono 
+stati proposti metodi di soluzione grafici.
+\spause
+Ad esempio il calcolo di espressioni in \(\N\) e la scomposizione in fattori 
+sono proposti con grafi ad albero.
+
+Ma i metodi grafici, se aiutano alcuni alunni, non sono utilizzabili da chi 
+ha difficoltà visive e può ``guardare'' il testo solo attraverso una 
+barra braille.
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Axessibility}
 
 Ciechi e ipovedenti hanno grande difficoltà nello studio della matematica 
 in particolare nella lettura delle formule.
 Il testo, grazie alla licenza e all'uso di \LaTeX, ha integrato il pacchetto 
-\emph{axessibility} prodotto dall'università di Torino che permette ai 
+\emph{axessibility} sviluppato dall'università di Torino che permette ai 
 lettori di pdf di leggere le formule nel formato \LaTeX.
 
 È inoltre in corso la traduzione in formato html con le formule in Mathjax 
 visibili sia in \LaTeX sia in mathml. Con la possibilità di tradurre tutto il 
 testo in Lambda.
 
-L'apparato grafico ha grande importanza nella didattica della matematica, per 
-cui certi argomenti usano proprio dei grafi come ad esempio il calcolo di 
-espressioni con grafi ad albero.
-Ma dove è stato possibile sono stati affiancati metodi che potessero essere 
-seguiti anche su una barra braille.
+\end{frame}
 
-\paragraph{Esempio} Già da quando insegnavo alle medie usavo un grafo ad 
+
+\subsection{Esempio} 
+
+
+\begin{frame}\frametitle{Un modo diverso per calcolare le espressioni}
+
+Già da quando insegnavo alle medie usavo un grafo ad 
 albero per la soluzione delle espressioni con i numeri naturali. 
 I motivi di questa scelta sono vari:
 
-\begin{itemize} [noitemsep]
+\begin{itemize} %[noitemsep]
 \item permette di separare il problema della precedenza delle operazioni dal 
 problema del calcolo;
 \item è un esercizio significativo dell'uso dei grafi ad albero;
@@ -1198,20 +543,31 @@ trasformazioni topologiche;
 \item è bello.
 \end{itemize}
 
-\espressionealberoa
+\end{frame}
 
-Proprio gli ultimi due punti delle motivazioni precedenti evidenziano il 
-conflitto con chi ha problemi di vista.
-Un testo che voglia essere inclusivo deve offrire una soluzione alternativa 
-che permetta di mantenere almeno i più importanti obiettivi.
-Viene proposto quindi un secondo metodo che può essere eseguito anche su una 
-barra braille.
-Il metodo consiste nella ripetizione di due fasi:
 
-\begin{enumerate} [noitemsep]
+\begin{frame}\frametitle{Espressione risolta con un albero}
+
+\espressionealberodia
+
+\end{frame}
+
+
+\begin{frame}\frametitle{E per chi non può usare l'albero?}
+
+Un metodo alternativo per rappresentare l'albero risolutivo, 
+ma che può essere usato anche con una barra braille, 
+consiste nella ripetizione di due fasi:
+
+\begin{enumerate} %[noitemsep]
 \item evidenziare tutte le operazioni che si possono svolgere;
 \item sostituire a queste operazioni il loro risultato.
 \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Un metodo lineare equivalente}
 
 \[2 + 6 \times 2 \div 
  \left[ \left(4 -2 \right) \times 3^{2} - 3 \times 5 \right] +
@@ -1246,14 +602,18 @@ Il metodo consiste nella ripetizione di due fasi:
 \text{Eseguo: } \qquad &= 6 + 11 = 17
 \end{align*}
 
+\end{frame}
+
 
 \section{Conclusioni}
 
-\subsection{Buoni motivi per non usarlo}
+
+\begin{frame}\frametitle{Buoni motivi per non usarlo}
 
 Questo testo non è adatto a tutte le situazioni infatti:
-\begin{description}
-\item [È libero: ] questo comporta una certa responsabilità di chi lo usa :
+\begin{description} [<+->]
+\item [È libero:~~~~ ] questo comporta una certa responsabilità di chi 
+lo usa:
 se c'è qualcosa che non va deve contribuire a correggerlo segnalando o 
 mandando le correzioni.
 \item [È collaborativo: ] presenta una disomogeneità tra i vari capitoli.
@@ -1266,7 +626,10 @@ l'insegnante che, se ha un alunno disabile, deve interessarsi un po' alle
 tecnologie assistive utilizzabili con il testo.
 \end{description}
 
-\subsection{Contribuire}
+\end{frame}
+
+
+\begin{frame}\frametitle{Contribuire}
 
 Se, nonostante tutto, qualcuna delle caratteristiche di questo progetto 
 risuona con la propria visione dell'insegnamento o della matematica, allora 
@@ -1274,30 +637,41 @@ sorge la domanda: come posso contribuire?
 
 Ci sono molti modi:
 \begin{description}
-\item [Usarlo: ] il libro è vivo se viene usato.
+\item [Usarlo:~~~~~~ ] il libro è vivo se viene usato.
 \item [Correggerlo: ] il libro è vivo se vengono segnalati e corretti gli 
 errori.
-\item [Adattarlo: ] il libro è vivo se si adatta a diversi ambienti e a 
+\item [Adattarlo:~~~ ] il libro è vivo se si adatta a diversi ambienti e a 
 nuove situazioni.
-\item [Ampliarlo: ] il libro è vivo se cresce.
+\item [Ampliarlo:~~ ] il libro è vivo se cresce.
 \item [Renderlo più accessibile: ] l'inclusività è uno degli obiettivi 
 fondanti del progetto.
 \end{description}
 
+\end{frame}
+
+
+\begin{frame}\frametitle{Informazioni}
+
 Una buona partenza per collegarsi al progetto è il sito:
+
+\bigskip
 \begin{center}
-\href{https://www.matematicadolce.eu}{www.matematicadolce.eu}
+\href{https://www.matematicadolce.eu}
+     {{\Large \orange{www.matematicadolce.eu}}}
 \end{center}
 
+\bigskip
 Dove si possono trovare:
 \begin{itemize}
-\item i link per scaricare l'ultima versione disponibile 
-(\textsc{downloads}),
+\item i link per scaricare l'ultima versione 
+(\blue{\textsc{downloads}}),
 \item i contatti con chi cura Matematica Dolce
-(\textsc{chi siamo}),
+(\blue{\textsc{chi siamo}}),
 \item alcune indicazioni sulle scelte didattiche
-(\textsc{perché?}).
+(\blue{\textsc{perché?}}).
 \end{itemize}
+
+\end{frame}
 
 \end{document}
 
