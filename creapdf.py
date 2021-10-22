@@ -24,7 +24,10 @@ $ ./creapdf.py pippo.tex pluto.tex
   non cancella i file ausiliari e non produce il pdf monocromatico:
 $ ./creapdf.py -t [<elencofile>]
 
-# opzione -x (xhtml) produce un file xhtml con matjax:
+# opzione -x (xhtml) produce un file xhtml con mathml:
+$ ./creapdf.py -x [<elencofile>]
+
+# opzione -j (xhtml) produce un file xhtml con matjax:
 $ ./creapdf.py -x [<elencofile>]
 
 # opzione -m (mono) esegue la compilazione e produce il pdf monocromatico:
@@ -40,7 +43,7 @@ import sys, getopt
 import os
 
 DDIR = 'dist'
-SAFEDIR = [DDIR, 'copertine']
+SAFEDIR = [DDIR, 'copertine', '_ignore']
 EXTCLEAR = ('.4ct', '.4tc', '.aux', '.css', '.dvi', '.gnuplot',
             '.html', '.idv', '.lg', '.log', '.svg',
             '.nav', '.out', '.snm', '.table', '.tmp', '.toc', '.xref')
@@ -97,12 +100,22 @@ See the available settings.
 """
 
 
-def toxhtml(filename):
+##def toxhtml(filename, math=''):
+##    """Compile with: pdflatex <filename>."""
+##    nfile, ext = os.path.splitext(filename)
+##    ddir = DDIR
+##    print(rf"filename: {filename}, nfile: {nfile}, ext: {ext}, ddir: {ddir}")
+##    cstr = rf'make4ht {filename} -c md_make4ht -l -u -s -d {ddir} "{math}"'
+##    print(rf"cstr: {cstr}")
+##    os.system(cstr)
+####    os.system(rf'make4ht -u -s -f html5+dvisvgm_hashes {filename}')
+
+def toxhtml(filename, cstr):
     """Compile with: pdflatex <filename>."""
     nfile, ext = os.path.splitext(filename)
     ddir = DDIR
     print(rf"filename: {filename}, nfile: {nfile}, ext: {ext}, ddir: {ddir}")
-    cstr = rf'make4ht {filename} -c md_make4ht -l -u -s -d {ddir} "mathjax"'
+##    cstr = rf'make4ht {filename} -c md_make4ht -l -u -s -d {ddir} "{math}"'
     print(rf"cstr: {cstr}")
     os.system(cstr)
 ##    os.system(rf'make4ht -u -s -f html5+dvisvgm_hashes {filename}')
@@ -128,7 +141,7 @@ def main(argv):
     inputfile = ''
     outputfile = ''
     try:
-        opts, nfiles = getopt.getopt(argv,"hctxmi:o:",["ifile=","ofile="])
+        opts, nfiles = getopt.getopt(argv,"hctxjmi:o:",["ifile=","ofile="])
 ##        print(opts, args)
     except(getopt.GetoptError):
         print(__doc__)
@@ -143,9 +156,17 @@ def main(argv):
             print(__doc__)
             sys.exit()
         elif opt == '-x':
-            print("xhtml:")
+            print("xhtml+mathml:")
             for filename in nfiles:
-                toxhtml(filename)
+                toxhtml(filename,
+                        rf'make4ht {filename} -l -u -s -d {DDIR} "mathml"')
+            return
+        elif opt == '-j':
+            print("xhtml+mathjax:")
+            for filename in nfiles:
+                toxhtml(filename,
+                        rf'make4ht {filename} -c md_make4ht \
+-l -u -s -d {DDIR} "mathjax"')
             return
         elif opt == '-c':
             print("Cancellati:")
