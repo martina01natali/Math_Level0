@@ -509,9 +509,6 @@
 }
 
 \newcommand{\nodoesp}[6]{% nodo di un'espressione numerica
-  % IMPORTANTE: si aspetta che nel suo ambiente sia definita la variabile:
-  % \ndim, ad esempio:
-  % \def \ndim{.94}
   % esempio di chiamata:
   % \nodoesp{(-5, -1)}{(-4, -1)}{-4.5}{-3}{\times}{12}
   \def \popa{#1}
@@ -534,17 +531,6 @@
         (\xris, \yris) node[draw, above, rectangle,rounded corners=1pt] 
                            {\(\ris\)};
 %         (\xris, \yris) node[draw, above, rectangle] {\(\ris\)};
-  
-}
-
-\newcommand{\parentesi}[5]{
-  \def \posx{#1}
-  \def \posy{#2}
-  \def \inter{#3}
-  \def \pa{#4}
-  \def \pb{#5}
-  \draw (\posx-\inter, \posy) node [above=-2pt] {\(\pa\)}
-        (\posx+\inter, \posy) node [above=-2pt] {\(\pb\)};
   
 }
 
@@ -585,6 +571,17 @@
       node[draw, above, rectangle,rounded corners=1pt, very thick] 
           {\(\ris\)};
   }
+}
+
+\newcommand{\parentesi}[5]{
+  \def \posx{#1}
+  \def \posy{#2}
+  \def \inter{#3}
+  \def \pa{#4}
+  \def \pb{#5}
+  \draw (\posx-\inter, \posy) node [above=-2pt] {\(\pa\)}
+        (\posx+\inter, \posy) node [above=-2pt] {\(\pb\)};
+  
 }
 
 \newcommand{\espressionealberodia}{
