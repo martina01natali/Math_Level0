@@ -73,12 +73,12 @@
   % \usepackage{microtype}
   % \DisableLigatures{encoding = *, family = *}
 
-  \usepackage{fourier}  % in goniometria è definito \wideparen
-  % % % buono \widearc, ma è incompatibile con \overrightarrow
-  % % Ho estratto da fourier.sty le seguenti 4 righe e sembra funzionare!
-  % \DeclareFontEncoding{FMX}{}{}
-  % \DeclareFontSubstitution{FMX}{futm}{m}{n}
-  % \DeclareSymbolFont{largesymbols}{FMX}{futm}{m}{n}
+%   \usepackage{fourier}  % in goniometria è definito \wideparen
+%   % % % buono \widearc, ma è incompatibile con \overrightarrow
+%   % % Ho estratto da fourier.sty le seguenti 4 righe e sembra funzionare!
+%   % \DeclareFontEncoding{FMX}{}{}
+%   % \DeclareFontSubstitution{FMX}{futm}{m}{n}
+%   % \DeclareSymbolFont{largesymbols}{FMX}{futm}{m}{n}
 \fi
 
 %--------------------- original
@@ -148,6 +148,12 @@
 % % \DeclareFontEncoding{FMX}{}{}
 % % \DeclareFontSubstitution{FMX}{futm}{m}{n}
 % % \DeclareSymbolFont{largesymbols}{FMX}{futm}{m}{n}
+
+% \ifdefined\HCode                          % compilazione htlatex
+% \else
+% \usepackage{fourier}  % in goniometria è definito \wideparen
+% \fi
+
 \DeclareMathAccent{\widearc}{\mathord}{largesymbols}{216}% per \widearc 
 \usepackage[e]{esvect} % per i vettori
 \usepackage{ushort} % per lesottolineature semplici o doppie
@@ -159,8 +165,6 @@
 \usepackage[np,noaddmissingzero,autolanguage]{numprint}
 \usepackage{mathtools}
 %\usepackage{eurosym}  % per il simbolo €
-
-
 \RequirePackage{tcolorbox}      % Per fare delle prove sui theorem
 \tcbuselibrary{theorems}    % Per fare delle prove sui theorem
 

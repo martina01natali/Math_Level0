@@ -8,6 +8,8 @@
 \section{L'origine dei numeri}
 \label{sec:nat_origine}
 
+\begin{comment}
+
 L'origine del sistema dei numeri naturali si perde nella notte dei tempi. 
 Non abbiamo documenti sufficienti per capire come l'uomo li abbia costruiti 
 o scoperti; è possibile che il nostro sistema di numerazione sia nato 
@@ -424,6 +426,10 @@ da quelli delle quattro operazioni. Diremo che:
 Vediamo ora alcune operazioni con i numeri naturali e le loro proprietà.
 
 \subsection{Addizione in $\N$}
+% 
+% \subsection{Addizione in \(\N\)}
+
+% \subsection{Addizione nei numeri naturali}
 
 L'addizione è collegata all'operazione concreta di aggiungere gli elementi di 
 un gruppo di oggetti agli elementi di un altro gruppo.
@@ -441,13 +447,15 @@ successivo per~5 volte.
  \centering
  \(3+5=8\)
 
- \input{\folder lbr/fig002_addmol.pgf}
+\addline
+%  \input{\folder lbr/fig002_addmol.pgf}
 \end{minipage}%
 \begin{minipage}{0.15\textwidth}
  \centering
 \begin{inaccessibleblock}[Descrizione immagine: semiretta dei numeri 
 naturali sulla quale sono segnati spostamenti a destra di tre unità]
- \includegraphics[scale=0.35]{img/op_add.png}
+%  \includegraphics[scale=0.35]{img/op_add.png}
+\opfun{3}{+}{5}{8}{-.8}{0}{+.8}
 \end{inaccessibleblock}
 \end{minipage}%
 
@@ -524,13 +532,15 @@ precedente per~5 volte.
  \centering
  \(7-5=2\) perché~\(2+5=7\)
 
- \input{\folder lbr/fig003_sotdivi.pgf}
+\sotline
+%  \input{\folder lbr/fig003_sotdivi.pgf}
 \end{minipage}%
 \begin{minipage}{0.15\textwidth}
  \centering
 \begin{inaccessibleblock}[Descrizione immagine: semiretta dei naturali con 
 spostamenti a sinistra di 5 unità]
- \includegraphics[scale=0.35]{img/op_sot.png}
+\opfun{7}{-}{5}{2}{-.8}{0}{+.8}
+%  \includegraphics[scale=0.35]{img/op_sot.png}
 \end{inaccessibleblock}
 \end{minipage}%
 
@@ -667,7 +677,8 @@ aggiungere~3 per~4 volte.
 \begin{minipage}{0.15\textwidth}
  \centering
 \begin{inaccessibleblock}[]
- \includegraphics[scale=0.35]{img/op_mol.png}
+\opfun{3}{\times}{4}{12}{-.8}{0}{+.8}
+%  \includegraphics[scale=0.35]{img/op_mol.png}
 \end{inaccessibleblock}
 \end{minipage}%
 
@@ -762,7 +773,8 @@ contenuto nel numero~12.
 \begin{minipage}{0.15\textwidth}
  \centering
 \begin{inaccessibleblock}[]
- \includegraphics[scale=0.35]{img/op_div.png}
+\opfun{12}{:}{4}{3}{-.6}{+.2}{+.8}
+%  \includegraphics[scale=0.35]{img/op_div.png}
 \end{inaccessibleblock}
 \end{minipage}%
 
@@ -1010,14 +1022,25 @@ negli altri casi}
 \end{inaccessibleblock}
 
 
+% % TODO da togliere %-------------------------------------
+% \[\alpha = \widehat{AB}\]
+% \[\alpha = \widearc{AB}\]
+% \[\alpha = \wideparen{AB}\]
+% \[f(x) = x^2\]
+% \[\{\dfrac{a}{b}\} \qquad 
+% \left\{\dfrac{a}{b}\right\} \qquad \Biggl\{\dfrac{a}{b}\Biggr\}\]
+% %-------------------------------------
+
 \begin{inaccessibleblock}[]
 \begin{minipage}{0.80\textwidth}
  \centering
-   \input{\folder lbr/fig007_ptn.pgf}
+ \defpot
+%    \input{\folder lbr/fig007_ptn.pgf}
 \end{minipage}%
 \begin{minipage}{0.15\textwidth}
  \centering
- \includegraphics[scale=0.35]{img/op_pot.png}
+\potfun
+%  \includegraphics[scale=0.35]{img/op_pot.png}
 \end{minipage}%
 \end{inaccessibleblock}
 
@@ -1262,11 +1285,13 @@ moltiplicazioni e dopo le addizioni.
 \begin{figure}[h]
  \centering
  \begin{minipage}[t]{.40\textwidth}
-  \centering\includegraphics[scale=0.35]{img/op_prec1.png}
+\begin{center} \assocsinistra \end{center}
+%   \centering\includegraphics[scale=0.35]{img/op_prec1.png}
   \caption{Da sinistra a destra.}\label{fig:op_prec1}
  \end{minipage}\hfil
  \begin{minipage}[t]{.50\textwidth}
-  \centering\includegraphics[scale=0.35]{img/op_prec2.png}
+\begin{center} \precedenzaalg \end{center}
+%   \centering\includegraphics[scale=0.35]{img/op_prec2.png}
   \caption{Precedenza alle moltiplicazioni.}\label{fig:op_prec2}
  \end{minipage}
 \end{figure}
@@ -1316,16 +1341,28 @@ Costruiamo il grafo tenendo conto delle seguenti indicazioni:
 
 % \newpage
 
+\end{comment}
+
 %\begin{exrig}
- \begin{esempio}
-  \(49 - [2^4 \times (14 : 7) + 10]=\)
-  
-\begin{inaccessibleblock}[Descrizione immagine: TODO]
- \begin{center}
-  \includegraphics[scale=0.35]{img/op_espr.png}
- \end{center}
+\begin{esempio}
+\(49 - [2^4 \times (14 : 7) + 10]=\)
+
+\affiancati{.48}{.48}{
+Prima realizziamo il grafo ad albero vuoto, ponendo attenzione aòlla 
+precedenza delle operazioni.
+\begin{inaccessibleblock}[Grafo ad albero, vuoto per la soluzione di 
+un'espressione]
+ \begin{center} \espalberoav \end{center}
+%   \includegraphics[scale=0.35]{img/op_espr.png}
 \end{inaccessibleblock}
- \end{esempio}
+}{
+\begin{inaccessibleblock}[Riempimento del grafo ad albero]
+Poi eseguiamo le operazioni e scriviamo i risultati negli appositi spazi.
+ \begin{center} \espalberoa \end{center}
+%   \includegraphics[scale=0.35]{img/op_espr.png}
+\end{inaccessibleblock}
+}
+\end{esempio}
 
  \begin{esempio}
   \(8^9 \times 8^5 : (8^3)^4 : [4^{12} : (4^2)^5] + 27^2 : 9^2 =\)
@@ -1337,7 +1374,8 @@ Costruiamo il grafo tenendo conto delle seguenti indicazioni:
   
 \begin{inaccessibleblock}[]
  \begin{center}
-  \includegraphics[scale=0.35]{img/op_espr_pot.png}
+ \begin{center} \espalberob \end{center}
+%   \includegraphics[scale=0.35]{img/op_espr_pot.png}
  \end{center}
 \end{inaccessibleblock}
  \end{esempio}
@@ -1458,7 +1496,8 @@ l'attenzione a quello che lo precede.
 }{
 \begin{inaccessibleblock}[]
  \begin{center}
-  \includegraphics[scale=0.32]{img/op_buco1.png}
+ \espbucoaa
+%   \includegraphics[scale=0.32]{img/op_buco1.png}
  \end{center}
 \end{inaccessibleblock}
 }
@@ -1466,7 +1505,8 @@ l'attenzione a quello che lo precede.
 \affiancati{.59}{.39}{
 \begin{inaccessibleblock}[]
  \begin{center}
-  \includegraphics[scale=0.32]{img/op_buco2.png}
+ \espbucoab
+%   \includegraphics[scale=0.32]{img/op_buco2.png}
  \end{center}
 \end{inaccessibleblock}
 }{Ora dobbiamo trovare quel numero che tolto da~28 dia come risultato~18. 
@@ -1476,11 +1516,18 @@ al dato mancante:
 }
 
 \affiancati{.39}{.59}{
-Il valore mancante era: \(3\).
+Partendo da \(28\) per ottenere \(18\) devo togliere \(10\).
+
+Il numero che moltiplicato per \(2\) fa \(10\) è \(5\).
+
+Partendo da \(13\) per ottenere \(5\) devo togliere \(8\).
+
+Infine, l'esponente da dare a \(2\) per ottenere \(8\) è \(3\).
 }{
 \begin{inaccessibleblock}[]
  \begin{center}
-  \includegraphics[scale=0.32]{img/op_buco3.png}
+ \espbucoac
+%   \includegraphics[scale=0.32]{img/op_buco3.png}
  \end{center}
 \end{inaccessibleblock}
 }
@@ -1516,7 +1563,8 @@ usare
 }{
 \begin{inaccessibleblock}[]
  \begin{center}
-  \includegraphics[scale=0.40]{img/op_buco4.png}
+ \espbucob
+%   \includegraphics[scale=0.40]{img/op_buco4.png}
  \end{center}
 \end{inaccessibleblock}
 }
@@ -1586,7 +1634,7 @@ Ora possiamo risalire: cambiamo colore e\dots
 % }
 \end{esempio}
 
-\pagebreak %--------------------------------------------
+% \pagebreak %--------------------------------------------
 
 \begin{esempio}
 Possiamo anche risolvere espressioni con il buco dove bisogna
