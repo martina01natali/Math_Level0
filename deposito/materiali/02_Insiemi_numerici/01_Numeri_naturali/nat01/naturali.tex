@@ -8,6 +8,15 @@
 \section{L'origine dei numeri}
 \label{sec:nat_origine}
 
+\begin{comment}
+In questo capitolo:
+- riprenderai i N;
+- ti verrà presentato l'importante strumento matematico costituito dalle 
+funzioni
+
+\end{comment}
+
+
 L'origine del sistema dei numeri naturali si perde nella notte dei tempi. 
 Non abbiamo documenti sufficienti per capire come l'uomo li abbia costruiti 
 o scoperti; è possibile che il nostro sistema di numerazione sia nato 
@@ -276,10 +285,10 @@ rappresenta con il simbolo di
 Grazie a questo ordinamento, è sempre possibile confrontare due numeri 
 naturali qualsiasi.
 
-\begin{legge}[di tricotomia]
+\begin{principio}{di tricotomia}{}
 Dati due numeri naturali n, m vale sempre una delle seguenti tre relazioni: 
-\[\quad n > m,\quad n < m,\quad n = m\]
-\end{legge}
+\[\quad n < m,\quad n = m, \quad n > m\]
+\end{principio}
 
 \section{Operazioni con i numeri naturali}
 \label{sec:nat_operazioni}
@@ -296,7 +305,7 @@ nei numeri naturali.
 Prima di affrontare le operazioni introduciamo uno dei concetti più importanti
 nella matematica moderna: il concetto di \emph{funzione}.
 
-\begin{definizione}
+\begin{definizione}{}{}
 Chiamiamo \emph{funzione} un qualunque procedimento che, 
 a partire da alcuni oggetti che sono gli \emph{argomenti}, 
 ne produce uno che è il \emph{risultato} della funzione.
@@ -313,7 +322,6 @@ dell'addizione.
 \[somma = add \coppia{o_1}{o_2} \]
 \[somma: \coppia{o_1}{o_2} \mapsto o_1 + o_2\]
 
-\pagebreak
 Possono essere usate anche delle rappresentazioni grafiche:
 
 \vspace{1em}
@@ -384,7 +392,7 @@ schermo;
 La funzione ``add'' ha due paramteri (``o\_1'' e ``o\_2'') e per eseguirla
 dobbiamo passarle due argomenti (``5'' e ``7'').
 
-\begin{osservazione}
+\begin{osservazione}{}{}
 Queste prime funzioni che studiamo sono funzioni binarie: il loro argomento è
 una coppia di numeri mentre il risultato è un solo numero.
 
@@ -392,7 +400,7 @@ Esistono anche funzioni che hanno per argomento più numeri o anche uno solo.
 Esistono anche funzioni che hanno come risultato più numeri.
 \end{osservazione}
 
-\begin{osservazione}
+\begin{osservazione}{}{}
 Nell'ambito informatico gli argomenti sono anche detti ``input'' e il 
 risultato è detto ``output'' della funzione.
 \end{osservazione}
@@ -428,7 +436,7 @@ Vediamo ora alcune operazioni con i numeri naturali e le loro proprietà.
 L'addizione è collegata all'operazione concreta di aggiungere gli elementi di 
 un gruppo di oggetti agli elementi di un altro gruppo.
 
-\begin{definizione}
+\begin{definizione}{}{}
   Dati due numeri naturali~\(n\) e~\(m\), l'\emph{addizione} associa un terzo 
   numero~\(s\), che si ottiene partendo da~\(n\) e procedendo verso i 
   successori \(m\)~volte. Si scrive~\(n+m=s\).
@@ -441,21 +449,24 @@ successivo per~5 volte.
  \centering
  \(3+5=8\)
 
- \input{\folder lbr/fig002_addmol.pgf}
+\addline
+%  \input{\folder lbr/fig002_addmol.pgf}
 \end{minipage}%
 \begin{minipage}{0.15\textwidth}
  \centering
 \begin{inaccessibleblock}[Descrizione immagine: semiretta dei numeri 
 naturali sulla quale sono segnati spostamenti a destra di tre unità]
- \includegraphics[scale=0.35]{img/op_add.png}
+%  \includegraphics[scale=0.35]{img/op_add.png}
+\opfun{3}{+}{5}{8}{-.8}{0}{+.8}
 \end{inaccessibleblock}
 \end{minipage}%
 
 Gli operandi dell'addizione si chiamano \emph{addendi} e il risultato si 
 chiama \emph{somma}.
 
-\osservazione Per definire l'addizione abbiamo utilizzato il concetto di 
-successore.
+\begin{osservazione}{}{}
+Per definire l'addizione abbiamo utilizzato il concetto di successore.
+\end{osservazione}
 
 \subsubsection{Funzione addizione}
 
@@ -483,10 +494,11 @@ naturale}:
 \end{minipage}
 
 \vspace{-1em}
-\begin{osservazione}
-\begin{itemize} [nosep]
-\item la funzione dà sempre un risultato naturale qualunque sia l'argomento.
-\end{itemize}
+\begin{osservazione}{}{}
+% \begin{itemize} [nosep]
+% \item 
+la funzione dà sempre un risultato naturale qualunque sia l'argomento.
+% \end{itemize}
 
 \end{osservazione}
 
@@ -510,7 +522,7 @@ Nei numeri naturali l'addizione presenta le seguenti proprietà:
 La sottrazione è collegata all'operazione concreta di togliere degli oggetti 
 da un gruppo di oggetti.
 
-\begin{definizione}
+\begin{definizione}{}{}
 Dati due numeri naturali~\(m\) e~\(n\), la sottrazione associa un terzo 
 numero 
 naturale~\(d\), se esiste, che aggiunto ad~\(n\) dà come somma~\(m\).
@@ -524,13 +536,15 @@ precedente per~5 volte.
  \centering
  \(7-5=2\) perché~\(2+5=7\)
 
- \input{\folder lbr/fig003_sotdivi.pgf}
+\sotline
+%  \input{\folder lbr/fig003_sotdivi.pgf}
 \end{minipage}%
 \begin{minipage}{0.15\textwidth}
  \centering
 \begin{inaccessibleblock}[Descrizione immagine: semiretta dei naturali con 
 spostamenti a sinistra di 5 unità]
- \includegraphics[scale=0.35]{img/op_sot.png}
+\opfun{7}{-}{5}{2}{-.8}{0}{+.8}
+%  \includegraphics[scale=0.35]{img/op_sot.png}
 \end{inaccessibleblock}
 \end{minipage}%
 
@@ -583,7 +597,7 @@ naturale}:
 \end{minipage}
 
 \vspace{-1em}
-\begin{osservazione}
+\begin{osservazioni}{}{}
 \begin{itemize} [nosep]
 \item l'argomento è formato da coppie ordinate: non è lo stesso 
 \(\coppia{7}{5}\) o \(\coppia{5}{7}\);
@@ -591,7 +605,7 @@ naturale}:
 minore del secondo.
 \end{itemize}
 
-\end{osservazione}
+\end{osservazioni}
 
 \subsubsection{Proprietà della sottrazione}
 
@@ -608,7 +622,7 @@ Una proprietà interessante della sottrazione è la proprietà
  \item \emph{Invariantiva}: \(a - b = (a \mp c) - (b \mp c)\)
 \end{itemize}
 
-\begin{definizione}
+\begin{definizione}{}{}
 Aggiungendo o togliendo ad entrambi i 
 termini di una sottrazione la stessa quantità la differenza non cambia.
 \end{definizione}
@@ -618,7 +632,7 @@ termini di una sottrazione la stessa quantità la differenza non cambia.
 La moltiplicazione è legata all'azione di contare oggetti disposti in uno
 schieramento rettangolare.
 
-\begin{definizione}
+\begin{definizione}{}{}
 Dati due numeri naturali~\(m\),~\(n\), l'operazione di \emph{moltiplicazione} 
 associa un terzo numero~\(p\) che si ottiene sommando~\(n\) addendi tutti 
 uguali a~\(m\):
@@ -636,7 +650,7 @@ Quindi dobbiamo completarla:
 
 % \[\left \{\frac{a}{b}\right. \qquad \sqrt{\frac{a}{b}}\]
 \begin{inaccessibleblock}[
-\begin{definizione}
+\begin{definizione}{}{}
 \[
 m \times n = \begin{cases}
  0 & se \quad n = 0\\
@@ -645,7 +659,7 @@ m \times n = \begin{cases}
 \end{cases}\]
 \end{definizione}
 ]
-\begin{definizione}
+\begin{definizione}{}{}
 \[
 m \times n = \sistema{
  0 & se \quad n = 0\\
@@ -667,7 +681,8 @@ aggiungere~3 per~4 volte.
 \begin{minipage}{0.15\textwidth}
  \centering
 \begin{inaccessibleblock}[]
- \includegraphics[scale=0.35]{img/op_mol.png}
+\opfun{3}{\times}{4}{12}{-.8}{0}{+.8}
+%  \includegraphics[scale=0.35]{img/op_mol.png}
 \end{inaccessibleblock}
 \end{minipage}%
 
@@ -701,7 +716,7 @@ naturale}:
 \end{minipage}
 
 \vspace{-1em}
-\begin{osservazione}
+\begin{osservazione}{}{}
 \begin{itemize} [nosep]
 \item la funzione dà sempre un risultato naturale qualunque sia l'argomento.
 \end{itemize}
@@ -726,11 +741,11 @@ Nei numeri naturali la moltiplicazione presenta le seguenti proprietà:
 
 Un'altra importante proprietà che utilizzeremo spesso anche in seguito è la:
 
-\begin{legge}[Legge di annullamento del Prodotto:]
+\begin{principio}{di annullamento del prodotto:}{}
 il prodotto di due o più numeri naturali si annulla se e solo se almeno uno 
 dei fattori è nullo.
 \[ a\cdot b=0\Leftrightarrow a=0\text{ oppure }b=0. \]
-\end{legge}
+\end{principio}
 
 Questa legge dice che se il risultato di una moltiplicazione è zero di 
 sicuro almeno uno dei fattori deve essere zero. Attenzione: questa proprietà 
@@ -742,7 +757,7 @@ moltiplicazione.
 La divisione è collegata all'operazione concreta di dividere una certa
 quantità di oggetti in gruppi con lo stesso numero di oggetti.
 
-\begin{definizione}
+\begin{definizione}{}{}
 Dati due numeri naturali~\(m\) e~\(n\), con~\(n \neq 0\), la divisione 
 associa 
 un terzo numero naturale~\(q\), se esiste, che moltiplicato per ad~\(n\) dà 
@@ -762,7 +777,8 @@ contenuto nel numero~12.
 \begin{minipage}{0.15\textwidth}
  \centering
 \begin{inaccessibleblock}[]
- \includegraphics[scale=0.35]{img/op_div.png}
+\opfun{12}{:}{4}{3}{-.6}{+.2}{+.8}
+%  \includegraphics[scale=0.35]{img/op_div.png}
 \end{inaccessibleblock}
 \end{minipage}%
 
@@ -783,7 +799,7 @@ Se esiste il quoziente esatto tra i numeri \(m\) e \(n\), si dice che:
 
 %\begin{exrig}
 
- \begin{esempio}
+ \begin{esempio}{}{}
 Alcuni esempi:
 \begin{enumerate} [noitemsep]
 \item \(12:3=4\) perché~\(4 \times 3 = 12\): 
@@ -800,7 +816,8 @@ per~3 dia~5.
 \end{esempio}
 %\end{exrig}
 
-\osservazione Nella definizione di quoziente abbiamo richiesto che il 
+\begin{osservazione}{}{}
+Nella definizione di quoziente abbiamo richiesto che il 
 divisore sia diverso da zero. In effetti, se il divisore è~0 non c'è nessun 
 numero che moltiplicato per~0 ci possa dare un dividendo diverso da zero.
 Per esempio, nella divisione~\(5:0\) dobbiamo ottenere un numero che 
@@ -808,6 +825,8 @@ moltiplicato per~0 dia~5; ciò non è possibile in quanto qualsiasi numero
 moltiplicato per~0 dà~0.
 Invece nella divisione~\(0:0\) un qualsiasi numero è adatto come quoziente, 
 infatti qualsiasi numero moltiplicato per~0 dà~0 come prodotto.
+\end{osservazione}
+
 
 Nel linguaggio matematico diciamo che una divisione del tipo~\(n:0\), 
 con~\(n\neq~0\), è \emph{impossibile}; mentre la divisione~\(0:0\) è 
@@ -839,7 +858,7 @@ naturale}:
 \end{minipage}
 
 \vspace{-1em}
-\begin{osservazione}
+\begin{osservazione}{}{}
 \begin{itemize} [nosep]
 \item l'argomento è formato da coppie ordinate: non è lo stesso 
 \(\coppia{12}{4}\) o \(\coppia{4}{12}\);
@@ -865,7 +884,7 @@ L'unica proprietà interessante della divisione è la proprietà
 0\)
 \end{itemize}
 
-\begin{definizione}
+\begin{definizione}{}{}
 Moltiplicando o dividendo entrambi i termini di una divisione per 
 la stessa quantità, \textbf{diversa da zero}, il quoziente non  cambia.
 \end{definizione}
@@ -971,7 +990,7 @@ Se, però, la sottrazione è a destra:
 La \emph{potenza} di un numero naturale è una moltiplicazione che ha tutti 
 i fattori uguali.
 
-\begin{definizione}
+\begin{definizione}{}{}
 Dati due numeri naturali~\(b\),~\(e\), l'operazione di \emph{potenza} 
 associa un terzo numero~\(p\) che si ottiene moltiplicando~\(e\) fattori 
 tutti 
@@ -988,7 +1007,7 @@ Ma questa definizione è sensata solo nel caso \(e\) sia maggiore di~1.
 Quindi dobbiamo completarla:
 
 \begin{inaccessibleblock}[
-  \begin{definizione}
+  \begin{definizione}{}{}
     \[
     b^e = \begin{cases}
     1 & se \quad e = 0 \text{ e } b\neq 0\\
@@ -998,7 +1017,7 @@ negli altri casi}
     \end{cases}\]
   \end{definizione}
   ]
-  \begin{definizione}
+  \begin{definizione}{}{}
     \[
     b^e = \begin{cases}
     1 & se \quad e = 0 \text{ e } b\neq 0\\
@@ -1013,11 +1032,13 @@ negli altri casi}
 \begin{inaccessibleblock}[]
 \begin{minipage}{0.80\textwidth}
  \centering
-   \input{\folder lbr/fig007_ptn.pgf}
+ \defpot
+%    \input{\folder lbr/fig007_ptn.pgf}
 \end{minipage}%
 \begin{minipage}{0.15\textwidth}
  \centering
- \includegraphics[scale=0.35]{img/op_pot.png}
+\potfun
+%  \includegraphics[scale=0.35]{img/op_pot.png}
 \end{minipage}%
 \end{inaccessibleblock}
 
@@ -1052,7 +1073,7 @@ naturale}:
 \end{minipage}
 
 \vspace{-1em}
-\begin{osservazione}
+\begin{osservazione}{}{}
 \begin{itemize} [nosep]
 \item l'argomento è formato da coppie ordinate: non è lo stesso 
 \(\coppia{2}{5}\) o \(\coppia{5}{2}\).
@@ -1217,16 +1238,15 @@ definizione di potenza si giustificano nel seguente modo:
 \end{align*}
 \end{multicols}
 \vspace{-1.5em}
-\osservazione 
+\begin{osservazione}{}{} 
 Alla potenza~\(0^0\) non si assegna alcun valore perché applicando la 
 definizione di~\(a^0\) si dovrebbe ottenere~1;
 applicando la definizione~\(0^a\) si dovrebbe ottenere~0. Nonostante ciò, in 
 molti linguaggi di programmazione: \(0^0 = 1\).
+\end{osservazione}
 
 % \ovalbox{\risolvii \ref{ese:1.10}, \ref{ese:1.11}, \ref{ese:1.12}, 
 %  \ref{ese:1.13}, \ref{ese:1.14}, \ref{ese:1.15}}\vspazio
-
-%\end{document} %---------------------------------------------------
 
 \section{Espressioni numeriche}
 \label{sec:nat_espressioni}
@@ -1235,7 +1255,7 @@ Spesso in matematica abbiamo a che fare con più operazioni combinate
 assieme.
 In questo caso parliamo di espressioni:
 
-\begin{definizione}
+\begin{definizione}{}{}
  Un'espressione aritmetica è un modo per rappresentare una successione 
  di operazioni.
 \end{definizione}
@@ -1248,38 +1268,42 @@ promosso Luca;
 scrivendo <<Luca ha detto: Mario è stato promosso>> significa che è stato 
 promosso Mario.
 
+\affiancati{.49}{.49}{
 Anche nella matematica, quando abbiamo più operazioni da eseguire, dobbiamo 
 chiarire l'ordine con cui si devono eseguire le operazioni. 
-Per esempio, l'espressione~\(7+5\cdot2\) può valere~24 oppure~17, infatti:
+Per esempio, l'espressione~\(7+5\times2\) può valere~24 oppure~17, infatti:
 se eseguiamo le operazioni da sinistra verso destra otteniamo un risultato, 
 se eseguiamo prima la moltiplicazione ne otteniamo un altro.
 La regola più semplice sarebbe "eseguire da sinistra a destra", ma i 
 matematici hanno scoperto che risulta più comodo eseguire prima le
 moltiplicazioni e dopo le addizioni.
-(vedi figura~\ref{fig:op_prec2}).
+}{
+\begin{inaccessibleblock}[Grafi con associatività a sinistra e precedenza 
+algebrica.]
+\affiancati{.49}{.49}{
+\begin{center} \assocsinistra \end{center}
+}{
+{\footnotesize Associatività a sinistra}
+}
 
-\begin{inaccessibleblock}[]
-\begin{figure}[h]
- \centering
- \begin{minipage}[t]{.40\textwidth}
-  \centering\includegraphics[scale=0.35]{img/op_prec1.png}
-  \caption{Da sinistra a destra.}\label{fig:op_prec1}
- \end{minipage}\hfil
- \begin{minipage}[t]{.50\textwidth}
-  \centering\includegraphics[scale=0.35]{img/op_prec2.png}
-  \caption{Precedenza alle moltiplicazioni.}\label{fig:op_prec2}
- \end{minipage}
-\end{figure}
+\affiancati{.49}{.49}{
+\begin{center} \precedenzaalg \end{center}
+}{
+{\footnotesize Precedenza algebrica}
+}
+
 \end{inaccessibleblock}
-\osservazione Alcune calcolatrici, quelle ``aritmetiche'' svolgono le 
+}
+
+\begin{osservazione}{}{} 
+Alcune calcolatrici, quelle ``aritmetiche'' svolgono le 
 operazioni man mano che sono inserite, si dice che applicano 
 \emph{l'associatività a sinistra}. Altre, le calcolatrici ``scientifiche'' 
 seguono le regole dell'algebra. Esegui la seguente sequenza di operazioni 
 sulla tua calcolatrice 
 (le barre verticali separano i diversi tasti da premere):
-\begin{verbatim}
- |7|+|5|×|2|=|
-\end{verbatim} 
+\[|7|+|5|\times|2|=|\]
+\end{osservazione}
 % \pagebreak
 
 Osserva il risultato e confrontalo poi con quello ottenuto dai tuoi 
@@ -1303,7 +1327,7 @@ Risolviamo le espressioni con i numeri naturali usando grafi ad albero;
 gli operandi sono le foglie dell'albero, il risultato è la radice. 
 Costruiamo il grafo tenendo conto delle seguenti indicazioni:
 
-\begin{procedura}
+\begin{procedura}{}{}
  Per risolvere un'espressione usando un grafo:
 \begin{enumerate} [noitemsep]
  \item in ogni nodo viene riportata l'operazione eseguita e il risultato;
@@ -1317,27 +1341,38 @@ Costruiamo il grafo tenendo conto delle seguenti indicazioni:
 % \newpage
 
 %\begin{exrig}
- \begin{esempio}
+ \begin{esempio}{}{}
   \(49 - [2^4 \times (14 : 7) + 10]=\)
-  
-\begin{inaccessibleblock}[Descrizione immagine: TODO]
- \begin{center}
-  \includegraphics[scale=0.35]{img/op_espr.png}
- \end{center}
-\end{inaccessibleblock}
- \end{esempio}
 
- \begin{esempio}
+\affiancati{.48}{.48}{
+Prima realizziamo il grafo ad albero vuoto, ponendo attenzione alla 
+precedenza delle operazioni.
+\begin{inaccessibleblock}[Grafo ad albero, vuoto per la soluzione di 
+un'espressione]
+ \begin{center} \espalberoav \end{center}
+%   \includegraphics[scale=0.35]{img/op_espr.png}
+\end{inaccessibleblock}
+}{
+\begin{inaccessibleblock}[Riempimento del grafo ad albero]
+Poi eseguiamo le operazioni e scriviamo i risultati negli appositi spazi.
+ \begin{center} \espalberoa \end{center}
+%   \includegraphics[scale=0.35]{img/op_espr.png}
+\end{inaccessibleblock}
+}
+\end{esempio}
+
+\begin{esempio}{}{}
   \(8^9 \times 8^5 : (8^3)^4 : [4^{12} : (4^2)^5] + 27^2 : 9^2 =\)
-  
-  Se per risolvere un'espressione dobbiamo utilizzare le proprietà delle 
-  potenze, al posto del simbolo di operazione scriveremo le 
-  sigle~``p1'',~``p2'',~\dots per indicare l'uso della prima, seconda,~\dots
-  quinta proprietà.
-  
+
+Se per risolvere un'espressione dobbiamo utilizzare le proprietà delle 
+potenze, al posto del simbolo di operazione scriveremo le 
+sigle~``p1'',~``p2'',~\dots per indicare l'uso della prima, seconda,~\dots
+quinta proprietà.
+
 \begin{inaccessibleblock}[]
  \begin{center}
-  \includegraphics[scale=0.35]{img/op_espr_pot.png}
+ \begin{center} \espalberob \end{center}
+%   \includegraphics[scale=0.35]{img/op_espr_pot.png}
  \end{center}
 \end{inaccessibleblock}
  \end{esempio}
@@ -1351,7 +1386,7 @@ Vediamo allora il metodo sequenziale che prevede di copiare tutta o in
 parte l'espressione rendendola via via più semplice. 
 Possiamo applicare le seguenti indicazioni:
 
-\begin{procedura}
+\begin{procedura}{}{}
  Per risolvere un'espressione in modo sequenziale:
 \begin{enumerate} [noitemsep] 
  \item scorriamo tutta l'espressione da sinistra a destra 
@@ -1426,7 +1461,7 @@ Conoscendo il risultato possiamo trovare il numero mancante.
 
 \subsection{Soluzione con grafo ad albero}
 
-\begin{procedura}
+\begin{procedura}{}{}
  Per trovare l'operando mancante usando il grafo ad albero:
 \begin{enumerate} [noitemsep]
  \item costruiamo il grafo risolutivo senza eseguire operazioni;
@@ -1438,7 +1473,7 @@ Conoscendo il risultato possiamo trovare il numero mancante.
 \end{procedura}
 
 %\begin{exrig}
-\begin{esempio}
+\begin{esempio}{}{}
 Nella seguente espressione manca un esponente:
 
 \([4 \times 5 + 16 : 2 - (13 - 2^{\dots}) \times 2] : 2 = 9\)
@@ -1458,7 +1493,8 @@ l'attenzione a quello che lo precede.
 }{
 \begin{inaccessibleblock}[]
  \begin{center}
-  \includegraphics[scale=0.32]{img/op_buco1.png}
+ \espbucoaa
+%   \includegraphics[scale=0.32]{img/op_buco1.png}
  \end{center}
 \end{inaccessibleblock}
 }
@@ -1466,7 +1502,8 @@ l'attenzione a quello che lo precede.
 \affiancati{.59}{.39}{
 \begin{inaccessibleblock}[]
  \begin{center}
-  \includegraphics[scale=0.32]{img/op_buco2.png}
+ \espbucoab
+%   \includegraphics[scale=0.32]{img/op_buco2.png}
  \end{center}
 \end{inaccessibleblock}
 }{Ora dobbiamo trovare quel numero che tolto da~28 dia come risultato~18. 
@@ -1476,17 +1513,24 @@ al dato mancante:
 }
 
 \affiancati{.39}{.59}{
-Il valore mancante era: \(3\).
+Partendo da \(28\) per ottenere \(18\) devo togliere \(10\).
+
+Il numero che moltiplicato per \(2\) fa \(10\) è \(5\).
+
+Partendo da \(13\) per ottenere \(5\) devo togliere \(8\).
+
+Infine, l'esponente da dare a \(2\) per ottenere \(8\) è \(3\).
 }{
 \begin{inaccessibleblock}[]
  \begin{center}
-  \includegraphics[scale=0.32]{img/op_buco3.png}
+ \espbucoac
+%   \includegraphics[scale=0.32]{img/op_buco3.png}
  \end{center}
 \end{inaccessibleblock}
 }
 \end{esempio}
 
- \begin{esempio}
+ \begin{esempio}{}{}
   Se c'è un ``buco'' in una espressione da risolvere con le proprietà delle 
   potenze, si procede allo stesso modo:
   
@@ -1516,7 +1560,8 @@ usare
 }{
 \begin{inaccessibleblock}[]
  \begin{center}
-  \includegraphics[scale=0.40]{img/op_buco4.png}
+ \espbucob
+%   \includegraphics[scale=0.40]{img/op_buco4.png}
  \end{center}
 \end{inaccessibleblock}
 }
@@ -1526,7 +1571,7 @@ usare
 
 \subsection{Soluzione sequenziale}
 
-\begin{procedura}
+\begin{procedura}{}{}
  Per trovare l'operando mancante usando il metodo sequenziale:
 \begin{enumerate} [noitemsep]
  \item risolviamo l'espressione lasciando il buco ogni volta che 
@@ -1538,7 +1583,7 @@ usare
 \end{procedura}
 
 %\begin{exrig}
-  \begin{esempio}
+  \begin{esempio}{}{}
 \(\left[ 4 \times 5 + 16 \div 2 -
   \left(13 - 2^{\dots} \right) \times 2 \right] \div 2 = 9\)
 
@@ -1586,9 +1631,9 @@ Ora possiamo risalire: cambiamo colore e\dots
 % }
 \end{esempio}
 
-\pagebreak %--------------------------------------------
+% \pagebreak %--------------------------------------------
 
-\begin{esempio}
+\begin{esempio}{}{}
 Possiamo anche risolvere espressioni con il buco dove bisogna
 applicare le proprietà delle potenze:
 
@@ -1632,7 +1677,7 @@ il \emph{quoziente} e il \emph{resto}.
 Questa è una funzione che ha due argomenti e per risultato una coppia 
 ordinata di numeri.
 
-\begin{definizione}
+\begin{definizione}{}{}
  Dati due numeri naturali~\(m\) e~\(n\), con~\(n\neq~0\), 
  esistono due numeri \(q\) e \(r\) con \(0 \leqslant r < n\) 
  tali che: 
@@ -1640,7 +1685,7 @@ ordinata di numeri.
  \(q\) si dice \emph{quoziente} e \(r\) si dice \emph{resto} della divisione.
 \end{definizione}
 
-\begin{esempio} \(25:7\)
+\begin{esempio}{}{} \(25:7\)
 
 \affiancati{.59}{.39}{
  Nella divisione con resto tra~25 e~7 si ha quoziente~3 
@@ -1654,7 +1699,7 @@ ordinata di numeri.
 }
 \end{esempio}
 
- \begin{esempio}
+ \begin{esempio}{}{}
  Alcune semplici divisioni con il resto:
  \vspace{-1em}
 \begin{multicols}{2}
@@ -1672,14 +1717,14 @@ Un'operazione che dà due risultati a volte è scomoda quindi i matematici
 hanno ricavato, dalla divisione con resto, due nuove operazioni: 
 la \emph{divisione intera} e il \emph{modulo}.
 
-\begin{definizione}
+\begin{definizione}{}{}
 Dati due numeri naturali~\(m\) e~\(n\), con~\(n\neq~0\), la 
 \emph{divisione intera}~\(m\divint n\) è l'operazione che dà il più grande 
 numero naturale~\(q\) (il quoziente) per il quale si ha
 \[q\times n\le m\]
 \end{definizione}
 
-\begin{esempio}
+\begin{esempio}{}{}
 Alcune semplici divisioni intere:
 \vspace{-1em}
 \begin{multicols}{2}
@@ -1692,15 +1737,15 @@ Alcune semplici divisioni intere:
 \end{multicols}
 \end{esempio}
 
-\begin{definizione}
+\begin{definizione}{}{}
 Dati due numeri naturali~\(m\) e~\(n\), con~\(n\neq~0\), l'operazione che 
 restituisce il resto della divisione intera tra~\(m\) e~\(n\) si chiama 
 \emph{modulo} di~\(m\) rispetto a~\(n\) e viene indicata con~\(m\bmod{n}\).
 \end{definizione}
 
-\pagebreak %--------------------------------------------
+% \pagebreak %--------------------------------------------
 
-\begin{esempio}
+\begin{esempio}{}{}
 Alcuni esempi di resto delle divisioni:
 \vspace{-1em}
 \begin{multicols}{3}
@@ -1772,7 +1817,7 @@ Algoritmi della divisione tra 327 e 23, 1329 e 107, 12594 e 171]
 
 % Precisiamo il significato di \emph{divisore} con la seguente definizione:
 
-\begin{definizione}
+\begin{definizione}{}{}
 Il numero \(n\) si dice divisore di \(m\), e \(m\) multiplo di \(n\),
 se il resto della divisione intera è zero: 
 \[m \bmod n = 0\]
@@ -1839,7 +1884,7 @@ Guardando la tabella dei divisori si può osservare che ogni numero è
 divisibile per~1 e per se stesso. Poi può avere altri divisori, questi
 altri divisori si chiamano divisori propri.
 
-\begin{definizione}
+\begin{definizione}{}{}
  Chiamiamo \emph{divisore proprio} di un numero un divisore diverso dal 
  numero stesso e dall'unità.
 \end{definizione}
@@ -1855,16 +1900,16 @@ due numeri sono particolari:
 
 Dopo queste osservazioni possiamo dare le seguenti definizioni:
 
-\begin{definizione}
+\begin{definizione}{}{}
  Un numero~\(n>1\) si dice \emph{primo} se ha esattamente due divisori. 
 \end{definizione}
 
-\begin{definizione}
+\begin{definizione}{}{}
  Un numero~\(n>1\) si dice \emph{quadrato} se ha un numero dispari di 
 divisori. 
 \end{definizione}
 
-\begin{definizione}
+\begin{definizione}{}{}
  Un numero~\(n>1\) si dice \emph{composto} se ha più di due, ma non infiniti, 
  divisori. 
 \end{definizione}
@@ -1872,10 +1917,14 @@ divisori.
 % Nella tabella dei divisori evidenzia i numeri primi e con un colore diverso 
 % i numeri quadrati.
 
-\osservazione 2 è l'unico numero primo pari.
-\vspace{-1em}
-\osservazione Un numero è primo quando non è divisibile per nessun numero 
+\begin{osservazioni}{}{}
+\begin{itemize}
+\item 2 è l'unico numero primo pari.
+\item Un numero è primo quando non è divisibile per nessun numero 
 primo compreso tra~2 e la radice quadrata del numero.
+\end{itemize}
+\end{osservazioni}
+
 
 % \ovalbox{\risolvi \ref{ese:1.16}}\vspazio
 % \newpage
@@ -1883,7 +1932,7 @@ primo compreso tra~2 e la radice quadrata del numero.
 Ma quanti sono i numeri primi? La risposta a questa domanda venne data da 
 Euclide con il seguente teorema che porta il suo nome:
 
-\begin{teorema}[di Euclide]
+\begin{teorema}{di Euclide}{}
 I numeri primi sono infiniti.
 \end{teorema}
 
@@ -1961,7 +2010,7 @@ Poiché~24 non è divisibile per~17 non lo sarà neppure~1894.
 
 % \ovalbox{\risolvii \ref{ese:1.18}, \ref{ese:1.19}}
 
-\pagebreak
+% \pagebreak
 
 \section{Scomposizione in fattori primi}
 \label{sec:nat_scomposizione}
@@ -1971,7 +2020,7 @@ numeri naturali.
 
 % \vspazio\ovalbox{\risolvii \ref{ese:1.20}, \ref{ese:1.21}}
 
-\begin{teorema}[Teorema fondamentale dell'Aritmetica]
+\begin{teorema}{Teorema fondamentale dell'Aritmetica}{}
  Ogni numero naturale~\(n>1\) si può scrivere in modo unico come prodotto di 
  numeri primi.
 \end{teorema}
@@ -1988,7 +2037,7 @@ illustrato negli esempi seguenti.
 %\begin{exrig}
 
 \begin{inaccessibleblock}[]
- \begin{esempio}
+ \begin{esempio}{}{}
  Scomporre in fattori primi il numero~630.
  \begin{center}
  \input{\folder lbr/fig008_scmp0.pgf}
@@ -2022,7 +2071,7 @@ Possiamo anche usare un metodo sequenziale:
 Sottolinea e scomponi.
 
 %\begin{exrig}
- \begin{esempio}
+ \begin{esempio}{}{}
  Scomporre in fattori primi il numero~1260.
 
  \(\underline{1260} = 2^{2} \cdot 3^{2} \cdot 5 \cdot 7\)
@@ -2044,7 +2093,7 @@ Sottolinea e scomponi.
 \label{sec:nat_mcdemcm}
 
 \label{def:mcd}
-\begin{definizione}
+\begin{definizione}{}{}
 Il \emph{massimo comune divisore} di numeri naturali~\(a\) e~\(b\)  è il
 più grande tra tutti i divisori comuni ad~\(a\) e~\(b\)
 e si indica con~\(\mcd(a,b)\).
@@ -2065,7 +2114,7 @@ I divisori comuni sono~1,~2,~6, il più grande è~6, quindi:~\(\mcd(18,
 Per calcolare il massimo comune divisore di due o più numeri si può 
 applicare la seguente procedura:
 
-\begin{procedura}
+\begin{procedura}{}{}
 Calcolo del~\(\mcd\) di due o più numeri naturali:
 \begin{enumerate}[noitemsep, label=(\alph*)]
  \item si scompongono i numeri in fattori primi;
@@ -2077,7 +2126,7 @@ Calcolo del~\(\mcd\) di due o più numeri naturali:
 % \clearpage
 
 %\begin{exrig}
-\begin{esempio}
+\begin{esempio}{}{}
 Calcolare~\(\mcd(60,~48,~36)\).
 
 Si scompongono in fattori i singoli numeri:\\
@@ -2088,7 +2137,7 @@ il~3 compare con esponente minimo~1.
 Pertanto: \quad \(\mcd(60,~48,~36)=~2^2 \cdot 3 = 12\).
 \end{esempio}
 
- \begin{esempio}
+ \begin{esempio}{}{}
  Calcolare~\(\mcd(60,~120,~90)\).
 
 Si scompongono in fattori i singoli numeri:\\
@@ -2101,13 +2150,13 @@ Pertanto: \quad \(\mcd(60,120,90)=~2\cdot3\cdot5=30\)
  \end{esempio}
 %\end{exrig}
 
-\begin{definizione}
+\begin{definizione}{}{}
  Due numeri~\(a\) e~\(b\) si dicono \emph{primi tra loro} o \emph{coprimi} 
  se~\(\mcd(a,b) =~1\).
 \end{definizione}
 
 %\begin{exrig}
- \begin{esempio}
+ \begin{esempio}{}{}
  Numeri primi tra loro:
  \begin{itemize} [noitemsep]
  \item 12 e~25 sono primi tra loro. Infatti il~\(\mcd(12,~25)=1\) dato che 
@@ -2123,7 +2172,7 @@ Pertanto: \quad \(\mcd(60,120,90)=~2\cdot3\cdot5=30\)
  \end{esempio}
 %\end{exrig}
 
-\begin{definizione}
+\begin{definizione}{}{}
  Il \emph{minimo comune multiplo} di due numeri naturali~\(a\) e~\(b\) è il più
  piccolo tra tutti i multipli comuni ad~\(a\) e a~\(b\) 
  e si indica con~\(\mcm(a,b)\).
@@ -2143,7 +2192,7 @@ Sono multipli comuni~30,~60,~90\ldots Il più piccolo dei multipli comuni
 Per calcolare il minimo comune multiplo tra due o più numeri si può 
 applicare la seguente procedura:
 
-\begin{procedura}
+\begin{procedura}{}{}
 Calcolo del~\(\mcm\) di due o più numeri naturali:
 \begin{enumerate}[noitemsep, label=(\alph*)]
  \item si scompongono i numeri in fattori primi;
@@ -2155,7 +2204,7 @@ Calcolo del~\(\mcm\) di due o più numeri naturali:
 % \newpage
 
 %\begin{exrig}
- \begin{esempio}
+ \begin{esempio}{}{}
  Calcolare il~\(\mcm(60,48,36)\).
 
 Scomponendo in fattori i numeri si 
@@ -2166,7 +2215,7 @@ più grande con cui compaiono sono:~\(2^4,~3^2,~5\).
 Il~\(\mcm\) è~\(2^4\cdot3^2\cdot5=720\).
  \end{esempio}
 
- \begin{esempio}
+ \begin{esempio}{}{}
  Calcolare il~\(\mcm(20,24,450)\).
 
 Scomponendo in fattori si 
@@ -2175,7 +2224,7 @@ Moltiplicando i fattori comuni e non comuni con il massimo esponente
 si ha~\(2^3\cdot3^2\cdot5^2=1800\).
  \end{esempio}
 
- \begin{esempio}
+ \begin{esempio}{}{}
  Si vuole pavimentare una stanza a pianta rettangolare di~\(315\unit{cm}\) 
  per~\(435\unit{cm}\) con mattonelle quadrate le più grandi possibile, 
  senza sprecarne alcuna. Quali sono le dimensioni delle 
@@ -2200,11 +2249,3 @@ da~\(315\unit{cm}\). In tutto occorrono~\(29\cdot21=609\) mattonelle.
 
 % \ovalbox{\risolvii \ref{ese:1.26}, \ref{ese:1.27}, \ref{ese:1.28}, 
 % \ref{ese:1.29}, \ref{ese:1.30}, \ref{ese:1.31}, \ref{ese:1.32}}
-
-\[\tonda{\dfrac{a}{b}} \qquad \graffa{\dfrac{a}{b}} \qquad 
-\left\{\dfrac{a}{b}\right\} \qquad \Biggl\{\dfrac{a}{b}\Biggr\}\]
-$$\tonda{\dfrac{a}{b}} \qquad \graffa{\dfrac{a}{b}} \qquad 
-\left\{\dfrac{a}{b}\right\} \qquad \Biggl\{\dfrac{a}{b}\Biggr\}$$
-\begin{comment}
-
-\end{comment}

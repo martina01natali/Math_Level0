@@ -24,6 +24,8 @@
 
 %--------------------------------------- Inizio Spostati da matsweetmem.cls
 % 
+\begin{comment}
+% questi sono sostituiti dai seguenti
 \theoremstyle{definition}
 \newtheorem{definizione}{Definizione}[chapter]
 % % \newshadetheorem{definizione}{Definizione}[chapter]
@@ -79,26 +81,61 @@
 %\newshadetheorem{procedura}[teorema]{Procedura}
 %\newshadetheorem{proprieta}[teorema]{Propriet\`a}
 
+\end{comment}
+
+\newtheorem{esercizio}{\color{Sepia}}[chapter]
+
 %--------------------------
 % Nuovo stile di teoremi Funzionano anche in minipage.
 % Sto applicando questo stile al capitolo sulla topologia della retta.
 % Poi se tutto funziona sarebbe da estenderlo a tutti i libri.
-\newtcbtheorem[number within=chapter]{newtheo}{Teorema}%
+
+\theoremstyle{plain}
+
+\newtcbtheorem[number within=chapter]{teorema}{Teorema}%
 {colback=green!5, colframe=green!50!black, fonttitle=\bfseries,
  coltitle=blue!50!black, theorem style=plain}{th}
  
-\newtcbtheorem[use counter from=newtheo]{newcor}{Corollario}%
+\newtcbtheorem[use counter from=teorema]{corollario}{Corollario}%
 {colback=green!5, colframe=green!50!black, fonttitle=\bfseries,
  coltitle=blue!50!black, theorem style=plain}{cor}
 
-\newtcbtheorem[number within=chapter]{newdef}{Definizione}%
+\newtcbtheorem[use counter from=teorema]{principio}{Principio}%
+{colback=green!5, colframe=green!50!black, fonttitle=\bfseries,
+ coltitle=blue!50!black, theorem style=plain}{cor}
+
+\newtcbtheorem[number within=chapter]{definizione}{Definizione}%
 {colback=blue!5,colframe=blue!50!black,fonttitle=\bfseries,
  coltitle=violet!50!black, theorem style=plain}{def}
 
-\newtcbtheorem[number within=chapter]{newoss}{Oservazione}%
+\newtcbtheorem[number within=chapter]{osservazione}{Oservazione}%
 {colback=violet!5,colframe=violet!50!black,fonttitle=\bfseries,
  coltitle=green!50!black, theorem style=plain}{oss}
 
+\newtcbtheorem[number within=chapter]{osservazioni}{Oservazioni}%
+{colback=violet!5,colframe=violet!50!black,fonttitle=\bfseries,
+ coltitle=green!50!black, theorem style=plain}{oss}
+
+\newtcbtheorem[number within=chapter]{esempio}{Esempio}%
+{colback=yellow!5,colframe=yellow!50!black,fonttitle=\bfseries,
+ coltitle=green!50!black, theorem style=plain}{esem}
+
+\newtcbtheorem[number within=esempio]{problema}{Problema}%
+{colback=yellow!5,colframe=yellow!50!black,fonttitle=\bfseries,
+ coltitle=green!50!black, theorem style=plain}{prob}
+
+\newtcbtheorem[number within=chapter]{procedura}{Procedura}%
+{colback=teal!5,colframe=teal!50!black,fonttitle=\bfseries,
+ coltitle=green!50!black, theorem style=plain}{prob}
+
+\newtcblisting{listing}
+  {colback=teal!5,colframe=teal!75!black,
+   listing only}%,listing options={language=python}}
+   
+% \begin{commandshell}
+% ls -al
+% cd /usr/lib
+% \end{commandshell}
 
 \newenvironment{soluzione}[1][Soluzione]%
  {\begin{trivlist}%
@@ -140,16 +177,16 @@
 \newcommand\lr@valass[1]{\left|#1\right|}
 \newcommand\n@valass[2][]{\mathopen{#1|}#2\mathclose{#1|}}
 \newcommand{\longarray}{\renewcommand{\arraystretch}{2}}
-\newcommand{\osservazione}{%
-  \paragraph{%
-    {\color{Mahogany}\ding{113}} Osservazione%
-  }%
-}
-\newcommand{\conclusione}{%
-  \paragraph{%
-    {\color{Mahogany}\ding{109}} Conclusione%
-  }%
-}
+% \newcommand{\osservazione}{%
+%   \paragraph{%
+%     {\color{Mahogany}\ding{113}} Osservazione%
+%   }%
+% }
+% \newcommand{\conclusione}{%
+%   \paragraph{%
+%     {\color{Mahogany}\ding{109}} Conclusione%
+%   }%
+% }
 \newcommand{\vspazio}{\vspace{1ex}}
 \newcommand{\risolvi}{%
   {\fontsize{12pt}{0pt}%
