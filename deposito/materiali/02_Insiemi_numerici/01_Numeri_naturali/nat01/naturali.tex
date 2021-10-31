@@ -5,8 +5,43 @@
 \input{\folder naturali_grafici.tex}
 
 \chapter{Numeri naturali}
-\section{L'origine dei numeri}
-\label{sec:nat_origine}
+
+\newtcolorbox{mybox}[2][]{colback=red!5,
+colframe=red!75!black,fonttitle=\bfseries,
+colbacktitle=red!75!black,enhanced,
+attach boxed title to top center={yshift=-1mm},
+title={#2},#1}
+
+\newcommand{\inicapitolo}[1]{
+\begin{mybox}{In questo capitolo incontrerai:}
+#1
+\end{mybox}
+}
+
+\inicapitolo{
+\begin{itemize}
+\item i numeri naturali;
+\item l'importante strumento matematico costituito dalle funzioni;
+\item i grafi ad albero;
+\item le operazioni con i naturali e le loro proprietà;
+\item le proprietà delle potenze;
+\item le espressioni con i numeri naturali;
+\item i numeri primi;
+\item la divisibilità, i divisori e i multipli.
+\end{itemize}
+}
+
+% \begin{mybox}{In questo capitolo incontrerai}
+% \begin{itemize}
+% \item i numeri naturali;
+% \item l'importante strumento matematico costituito dalle funzioni;
+% \item i grafi ad albero
+% \item le operazioni con i naturali e le loro proprietà;
+% \item i numeri primi;
+% \item la divisibilità, i divisori e i multipli;
+% \item 
+% \end{itemize}
+% \end{mybox}
 
 \begin{comment}
 In questo capitolo:
@@ -16,6 +51,10 @@ funzioni
 
 \end{comment}
 
+
+
+\section{L'origine dei numeri}
+\label{sec:nat_origine}
 
 L'origine del sistema dei numeri naturali si perde nella notte dei tempi. 
 Non abbiamo documenti sufficienti per capire come l'uomo li abbia costruiti 
@@ -32,26 +71,7 @@ Nilo e il lago Edoardo, che riporta delle tacche disposte in modo tale da
 farci pensare che rappresentino dei numeri o dei calcoli. L'osso risale a
 un periodo tra il~20\,000\,~\aC~e il~18\,000\,~\aC
 
-\ifdefined\HCode                          % compilazione htlatex
-\begin{figure}
-\begin{inaccessibleblock}[Descrizione immagine: Osso con incise alcune 
-tacche regolari]
-\includegraphics{img/fig001.png}
-\end{inaccessibleblock}
-\caption{~Osso di Ishango}
-\label{fig:ishango}
-\end{figure}
-\else                                    % compilazione pdflatex
-\begin{wrapfloat}{figure}{r}{0pt}
-\begin{inaccessibleblock}[Descrizione immagine: Osso con incise alcune 
-tacche regolari]
-\includegraphics[scale=0.35]{img/fig001.png}
-\end{inaccessibleblock}
-\caption{Osso di Ishango}
-\label{fig:ishango}
-\end{wrapfloat}
-\fi
-
+\affiancati{.56}{.42}{
 Possiamo immaginare che i pastori per contare i capi del proprio gregge, 
 facessero delle tacche su dei bastoni mano a mano che le pecore entravano 
 nel recinto una alla volta: una tacca per ogni pecora. 
@@ -60,6 +80,13 @@ pecora) non è efficace per greggi, o gruppi di oggetti, di grandi
 dimensioni. 
 Si immagini, per esempio, la difficoltà di tracciare cinquecento tacche su 
 un bastone. 
+}{
+\begin{inaccessibleblock}[Descrizione immagine: Osso con incise alcune 
+tacche regolari]
+\scalebox{.35}{\includegraphics{img/fig001.png}}
+\end{inaccessibleblock}
+}
+
 È possibile allora che, per rappresentare numeri grandi, si siano cominciati 
 a usare simboli specifici che richiamassero alla mente i numeri grandi e 
 che contemporaneamente siano state fissate alcune regole per associare 
@@ -69,42 +96,101 @@ Sappiamo per certo che circa~6\,000 anni fa gli antichi Egizi scrivevano,
 incidendo sulla pietra, i numeri utilizzando geroglifici per le potenze 
 di~10:
 
-\ifdefined\HCode                          % compilazione htlatex
-\begin{inaccessibleblock}[Descrizione immagine: 
-Geroglifici che rappresentano le potenze di 10 da uno a un milione]
-\begin{center} 
-\includegraphics[scale=1]{img/hieropotdieci.png} 
-\end{center}
-\end{inaccessibleblock}
-\else
+% \ifdefined\HCode                          % compilazione htlatex
+% \begin{figure}
+% \begin{inaccessibleblock}[Descrizione immagine: Osso con incise alcune 
+% tacche regolari]
+% \includegraphics{img/fig001.png}
+% \end{inaccessibleblock}
+% \caption{~Osso di Ishango}
+% \label{fig:ishango}
+% \end{figure}
+% \else                                    % compilazione pdflatex
+% \begin{wrapfloat}{figure}{r}{0pt}
+% \begin{inaccessibleblock}[Descrizione immagine: Osso con incise alcune 
+% tacche regolari]
+% \includegraphics[scale=0.35]{img/fig001.png}
+% \end{inaccessibleblock}
+% \caption{Osso di Ishango}
+% \label{fig:ishango}
+% \end{wrapfloat}
+% \fi
+% 
+% Possiamo immaginare che i pastori per contare i capi del proprio gregge, 
+% facessero delle tacche su dei bastoni mano a mano che le pecore entravano 
+% nel recinto una alla volta: una tacca per ogni pecora. 
+% Tuttavia, questo metodo di associazione uno ad uno (una tacca per una 
+% pecora) non è efficace per greggi, o gruppi di oggetti, di grandi 
+% dimensioni. 
+% Si immagini, per esempio, la difficoltà di tracciare cinquecento tacche su 
+% un bastone. 
+% È possibile allora che, per rappresentare numeri grandi, si siano cominciati 
+% a usare simboli specifici che richiamassero alla mente i numeri grandi e 
+% che contemporaneamente siano state fissate alcune regole per associare 
+% questi simboli.
+% 
+% Sappiamo per certo che circa~6\,000 anni fa gli antichi Egizi scrivevano, 
+% incidendo sulla pietra, i numeri utilizzando geroglifici per le potenze 
+% di~10:
+% 
+% \ifdefined\HCode                          % compilazione htlatex
+% \begin{inaccessibleblock}[Descrizione immagine: 
+% Geroglifici che rappresentano le potenze di 10 da uno a un milione]
+% \begin{center} 
+% \includegraphics[scale=1]{img/hieropotdieci.png} 
+% \end{center}
+% \end{inaccessibleblock}
+% \else
+% \begin{inaccessibleblock}[Descrizione immagine: 
+% Geroglifici che rappresentano le potenze di 10 da uno a un milione]
+% \vspace{-2ex}
+% \begin{center} 
+% \includegraphics[scale=0.28]{img/hieropotdieci.png} 
+% \end{center}
+% \vspace{-2ex}
+% \end{inaccessibleblock}
+% \fi
+
+% Ripetendo questi simboli è possibile scrivere, per esempio, il numero~3673 
+% così:
+% 
+% \ifdefined\HCode                          % compilazione htlatex
+% \begin{inaccessibleblock}[Descrizione immagine: Numero 3673 scritto con i 
+% geroglifici]
+% \begin{center} 
+% \includegraphics{img/hiero3673.png} 
+% \end{center}
+% \end{inaccessibleblock}
+% \else
+% \begin{inaccessibleblock}[Descrizione immagine: Numero 3673 scritto con i 
+% geroglifici]
+% \vspace{-2ex}
+% \begin{center} \includegraphics[scale=0.25]{img/hiero3673.png} \end{center}
+% \vspace{-2ex}
+% \end{inaccessibleblock}
+% \fi
+
+
 \begin{inaccessibleblock}[Descrizione immagine: 
 Geroglifici che rappresentano le potenze di 10 da uno a un milione]
 \vspace{-2ex}
 \begin{center} 
-\includegraphics[scale=0.28]{img/hieropotdieci.png} 
+\scalebox{.35}{\includegraphics{img/hieropotdieci.png}} 
 \end{center}
 \vspace{-2ex}
 \end{inaccessibleblock}
-\fi
 
 Ripetendo questi simboli è possibile scrivere, per esempio, il numero~3673 
 così:
 
-\ifdefined\HCode                          % compilazione htlatex
 \begin{inaccessibleblock}[Descrizione immagine: Numero 3673 scritto con i 
 geroglifici]
+\vspace{-2ex}
 \begin{center} 
-\includegraphics{img/hiero3673.png} 
+\scalebox{.35}{\includegraphics{img/hiero3673.png}} 
 \end{center}
-\end{inaccessibleblock}
-\else
-\begin{inaccessibleblock}[Descrizione immagine: Numero 3673 scritto con i 
-geroglifici]
-\vspace{-2ex}
-\begin{center} \includegraphics[scale=0.25]{img/hiero3673.png} \end{center}
 \vspace{-2ex}
 \end{inaccessibleblock}
-\fi
 
 I Romani usavano invece sette simboli con i quali, seguendo determinate 
 regole, rappresentavano qualunque numero. 
@@ -213,15 +299,17 @@ fino a~9 dischetti: per rappresentare il numero~10 dispongo un dischetto
 nell'asta a sinistra e vuoto la prima asta: 
 il numero dieci viene rappresentato dalla scrittura~10.
 
-\begin{inaccessibleblock}[Pallottoliere]
-\begin{figure}[h]
-\begin{center}
-\input{\folder lbr/img001_pal.pgf}
-\caption{Il pallottoliere}
-\label{fig:pallottoliere}
-\end{center}
-\end{figure}
-\end{inaccessibleblock}
+% \begin{inaccessibleblock}[Pallottoliere]
+% \begin{figure}[h]
+% \begin{center}
+% \input{\folder lbr/img001_pal.pgf}
+% \caption{Il pallottoliere}
+% \label{fig:pallottoliere}
+% \end{center}
+% \end{figure}
+% \end{inaccessibleblock}
+
+
 
 I dischetti sull'ultima asta rappresentano il numero~9; un dischetto sulla 
 penultima rappresenta il numero~10. 
@@ -237,11 +325,21 @@ Nel pallottoliere ciascuna asta indica una potenza di dieci.
 Il valore di un numero si ottiene moltiplicando ciascuna cifra per il
 suo peso e sommando i valori ottenuti.
 
+\affiancati{.39}{.59}{
 Per esempio, tre dischetti nella terza asta rappresentano il 
 numero~\(~3\cdot 10^2=300\).
 Il numero~\(219\) si rappresenta tenendo conto di questa 
 scrittura~\(~2\cdot 10^2+1\cdot 10+9\).
+}{
+\begin{inaccessibleblock}[Pallottoliere]
+\begin{center}
+\input{\folder lbr/img001_pal.pgf}
+\label{fig:pallottoliere}
+\end{center}
+\end{inaccessibleblock}
+}
 
+\bigskip
 Per quanto detto, il sistema di numerazione che usiamo è:
 
 \begin{itemize} [noitemsep]
@@ -319,19 +417,19 @@ Data l'importanza delle funzioni e il loro uso in molti contesti diversi,
 vengono anche usati molti modi diversi per rappresentarle. 
 Di seguito ne vediamo alcuni dove applichiamo la rappresentazione al caso
 dell'addizione.
-\[somma = add \coppia{o_1}{o_2} \]
-\[somma: \coppia{o_1}{o_2} \mapsto o_1 + o_2\]
+\[somma = add \coppia{o_1}{o_2} \qquad
+  somma: \coppia{o_1}{o_2} \mapsto o_1 + o_2\]
 
 Possono essere usate anche delle rappresentazioni grafiche:
 
-\vspace{1em}
+\vspace{.5em}
 \begin{minipage}[t]{.48\textwidth}
 \begin{center}
 Funzione rappresentata con grafi\\[1em]
 \begin{inaccessibleblock}
 [Descrizione immagine: Funzione rappresentata come scatole nere]
 \grafoscatolasd{add}{o_1}{o_2}{somma}\\[0.5em]
-\grafoscatolads{add}{o_1}{o_2}{somma}\\[2em]
+\grafoscatolads{add}{o_1}{o_2}{somma}\\[.5em]
 \end{inaccessibleblock}
 
 \begin{inaccessibleblock}
@@ -350,7 +448,7 @@ Rappresentazioni dell'espressione:
 \begin{inaccessibleblock}
 [Descrizione immagine: Espressione rappresentata come scatole nere]
 \grafoscatolasd{add}{7}{5}{12}\\[0.5em]
-\grafoscatolads{add}{7}{5}{12}\\[2em]
+\grafoscatolads{add}{7}{5}{12}\\[0.5em]
 \end{inaccessibleblock}
 
 \begin{inaccessibleblock}
@@ -368,7 +466,7 @@ def add(o_1, o_2):
     return o_1 + o_2
 \end{lstlisting}
 Interpretazione di queste due righe di programma:
-\begin{description} [noitemsep]
+\begin{description} [nosep]
 \item [\textbf{``add''}] è il nome della funzione;
 \item [\textbf{``o\_1'' e ``o\_2''}] sono i parametri della funzione; 
 \item [\textbf{l'espressione che segue la parola ``return''}] è il risultato
@@ -384,7 +482,7 @@ istruzione:
 \begin{lstlisting}
 print(add(5, 7))
 \end{lstlisting}
-\begin{description} [noitemsep]
+\begin{description} [nosep]
 \item [\textbf{``print''}] è un comando per visualizzare qualcosa sullo 
 schermo;
 \item [\textbf{``5'' e ``7''}] sono gli argomenti della funzione. 
@@ -474,7 +572,7 @@ L'addizione è una funzione che ha come \emph{argomento} una \emph{coppia
 qualsiasi} di numeri naturali e dà come \emph{risultato} un \emph{numero 
 naturale}:
 
-\vspace{2em}
+\vspace{.5em}
 \begin{minipage}[t]{.48\textwidth}
 \begin{center}
 \begin{inaccessibleblock}
@@ -493,7 +591,7 @@ naturale}:
 \end{center}
 \end{minipage}
 
-\vspace{-1em}
+% \vspace{-1em}
 \begin{osservazione}{}{}
 % \begin{itemize} [nosep]
 % \item 

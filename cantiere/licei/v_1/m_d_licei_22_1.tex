@@ -95,7 +95,7 @@
 % Lettura preambolo
 %========================
 \input{\magdir packages}
-
+\usepackage{lipsum}
 %========================
 % Lettura definizioni
 %========================
@@ -115,12 +115,35 @@
 % Documento
 %========================
 \begin{document}
-% \frontmatter
-% \input{\matdir 00_intestazioni/les/frontespizio}
-% \input{\matdir 00_intestazioni/les/colophon}
-% \intestazione{\matdir 00_intestazioni/les/}{indice}
-% \intestazione{\matdir 00_intestazioni/les/}{prefazione}
+\frontmatter
+\input{\matdir 00_intestazioni/les/frontespizio}
+\input{\matdir 00_intestazioni/les/colophon}
+\intestazione{\matdir 00_intestazioni/les/}{indice}
+% \chapter{Prefazione}
+% \lipsum[1-10]
 
+% \renewcommand{\chaptermark}[1]{\markboth{Prefazione}{Prefazione}} 
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}            % senza numero
+% \renewcommand{\sectionmark}[1]{\markright{#1}}
+
+\fancyhead[RO]{{\footnotesize \nouppercase{\leftmark} 
+               \qquad} \large \thepage}
+\fancyhead[LE]{\large \thepage {\footnotesize 
+               \qquad \nouppercase{\leftmark}}}
+
+\intestazione{\matdir 00_intestazioni/les/}{prefazione}
+
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter. #1}{}} % con numero
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+% \renewcommand{\chaptermark}[1]{\markboth{#1}{}}            % senza numero
+% \renewcommand{\sectionmark}[1]{\markright{#1}}
+% --- Dispari destra, Pari sinistra con numeri di pagina in minuscolo.
+\fancyhead[RO]{{\footnotesize \nouppercase{\rightmark} 
+               \qquad} \large \oldstylenums{\thepage}}
+\fancyhead[LE]{\large \oldstylenums{\thepage} {\footnotesize
+               \qquad \nouppercase{\leftmark}}}
+               
+               
 \mainmatter
 % ..................................................
 % Primo tema: Aritmetica e algebra
