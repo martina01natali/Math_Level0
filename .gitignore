@@ -1,6 +1,7 @@
 # use glob syntax.
 syntax: glob
 
+# Ignore automatically created files
 *~
 *.backup
 *.aux
@@ -18,8 +19,13 @@ syntax: glob
 *.table
 *.toc
 *.zip
-
-_ignore/*
-dist/*
-_old/*
 *./kile
+
+# Ignore the _ignore directorys
+**/_ignore/
+
+# Ignore the _old directorys
+**/_old/
+
+# Ignore the build directorys
+**/dist/
