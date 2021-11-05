@@ -859,6 +859,7 @@
     \freccia{(\xa+.8, -0.5)}{(\xa, 0)}{below}{\xdx}
     \freccia{(-0.5, \ya-.5)}{(0, \ya)}{left}{\fx}
     \freccia{(-0.5, \ya+.5)}{(0, \ya)}{left}{\fxdx}
+    \begin{scope}[visible on=<2->] 
     \microscopio{(\xa, 0)}{2}{-20}{160}{2}{(8, .5)}{\(\times \infty\)}
     \begin{scope}
     \clip(+6.36, -1.36) circle (1.98);
@@ -876,6 +877,8 @@
     \microscopio{(\xa, \ya)}{2.8}{+40}{220}{2}{(8, 10)}{\(\times  \infty\)}
     \begin{scope}
     \clip(+6.28, +8.18) circle (1.98);
+    \fill [color=red!35!black!12] 
+          (\mxa, \myaf)-- (\mxb, \myaf) -- (\mxb, \mybf) -- cycle;
     \fill [top color=green!40!black!45, bottom color=green!40!black!35] 
           (\mxa, \myaf-2.4) -- (\mxb, \myaf-2.4) -- (\mxb, \myaf) -- 
           (\mxa, \myaf) -- cycle;
@@ -883,15 +886,7 @@
     \micf
     \microscopio{(0, \ya)}{1.8}{50}{240}{2}{(8, 5.5)}{\(\times  \infty\)}
     \micy
-%     \micy{0.25}{4.25}{2.51}{1.1}{3.4}{4.2}{\(f(x_0)\)}{\(f(x_0+\epsilon)\)}
-%   \def \baseya{#1} 
-%   \def \baseyb{#2} 
-%   \def \basex{#3}
-%   \def \ya{#4}
-%   \def \yb{#5}
-%   \def \xab{#6}
-%   \def \eta{#7}
-%   \def \etb{#8}
+    \end{scope}
   }
 }
 

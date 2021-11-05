@@ -99,26 +99,15 @@ See the available settings.
 
 """
 
-
-##def toxhtml(filename, math=''):
-##    """Compile with: pdflatex <filename>."""
-##    nfile, ext = os.path.splitext(filename)
-##    ddir = DDIR
-##    print(rf"filename: {filename}, nfile: {nfile}, ext: {ext}, ddir: {ddir}")
-##    cstr = rf'make4ht {filename} -c md_make4ht -l -u -s -d {ddir} "{math}"'
-##    print(rf"cstr: {cstr}")
-##    os.system(cstr)
-####    os.system(rf'make4ht -u -s -f html5+dvisvgm_hashes {filename}')
-
-def toxhtml(filename, cstr):
+def toxhtml(filename, cstr, ddir):
     """Compile with: pdflatex <filename>."""
-    nfile, ext = os.path.splitext(filename)
-    ddir = DDIR
-    print(rf"filename: {filename}, nfile: {nfile}, ext: {ext}, ddir: {ddir}")
-##    cstr = rf'make4ht {filename} -c md_make4ht -l -u -s -d {ddir} "{math}"'
-    print(rf"cstr: {cstr}")
+    print(rf"filename: {filename}, ddir: {ddir}")
+    print(rf"cstr: {cstr}")                        # to compile html
     os.system(cstr)
-##    os.system(rf'make4ht -u -s -f html5+dvisvgm_hashes {filename}')
+    cstr = rf'make4ht -m clean {filename}' # to clean builds files
+    print(rf"cstr: {cstr}")
+    print("Cancello i file temporanei.")
+    os.system(cstr)
 
 def clean(path):
     """Clean recursiveli the directory an sub dir."""
@@ -159,14 +148,15 @@ def main(argv):
             print("xhtml+mathml:")
             for filename in nfiles:
                 toxhtml(filename,
-                        rf'make4ht {filename} -l -u -s -d {DDIR} "mathml"')
+                        rf'make4ht {filename} -l -u -s -d {DDIR} "mathml"',
+                        DDIR)
             return
         elif opt == '-j':
             print("xhtml+mathjax:")
             for filename in nfiles:
                 toxhtml(filename,
-                        rf'make4ht {filename} -c md_make4ht \
--l -u -s -d {DDIR} "mathjax"')
+         rf'make4ht {filename} -c md_make4ht -l -u -s -d {DDIR} "mathjax"',
+                        DDIR)
             return
         elif opt == '-c':
             print("Cancellati:")

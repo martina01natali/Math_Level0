@@ -1374,7 +1374,7 @@ promosso Luca;
 scrivendo <<Luca ha detto: Mario è stato promosso>> significa che è stato 
 promosso Mario.
 
-\affiancati{.49}{.49}{
+\affiancati{.54}{.44}{
 Anche nella matematica, quando abbiamo più operazioni da eseguire, dobbiamo 
 chiarire l'ordine con cui si devono eseguire le operazioni. 
 Per esempio, l'espressione~\(7+5\times2\) può valere~24 oppure~17, infatti:
@@ -1386,18 +1386,17 @@ moltiplicazioni e dopo le addizioni.
 }{
 \begin{inaccessibleblock}[Grafi con associatività a sinistra e precedenza 
 algebrica.]
-\affiancati{.49}{.49}{
-\begin{center} \assocsinistra \end{center}
+\affiancati{.48}{.47}{
+\begin{flushright}
+\emph{\footnotesize Associatività a sinistra:\phantom{g}}
+ \assocsinistra 
+\end{flushright}
 }{
-{\footnotesize Associatività a sinistra}
+\begin{flushright}
+\emph{\footnotesize Precedenza algebrica:}
+\precedenzaalg
+\end{flushright}
 }
-
-\affiancati{.49}{.49}{
-\begin{center} \precedenzaalg \end{center}
-}{
-{\footnotesize Precedenza algebrica}
-}
-
 \end{inaccessibleblock}
 }
 
@@ -1408,7 +1407,7 @@ operazioni man mano che sono inserite, si dice che applicano
 seguono le regole dell'algebra. Esegui la seguente sequenza di operazioni 
 sulla tua calcolatrice 
 (le barre verticali separano i diversi tasti da premere):
-\[|7|+|5|\times|2|=|\]
+\[|~7~|+|~5~|\times|~2~|=|\]
 \end{osservazione}
 % \pagebreak
 
@@ -1476,10 +1475,8 @@ sigle~``p1'',~``p2'',~\dots per indicare l'uso della prima, seconda,~\dots
 quinta proprietà.
 
 \begin{inaccessibleblock}[]
- \begin{center}
  \begin{center} \espalberob \end{center}
 %   \includegraphics[scale=0.35]{img/op_espr_pot.png}
- \end{center}
 \end{inaccessibleblock}
  \end{esempio}
 %\end{exrig}
@@ -1559,6 +1556,31 @@ calcolando assieme le due addizioni:
 
 \(= 2 + 4 + 11 = 17\)
 
+\begin{esempio}{}{}
+Possiamo confrontare i due metodi applicati alla stessa espressione:
+
+\vspace{2mm}
+\affiancati{.48}{.48}{
+\begin{inaccessibleblock}[]
+Con un albero:
+\begin{center} \espalberoc \end{center}
+\end{inaccessibleblock}
+}{
+Con il metodo sequenziale:
+
+\vspace{3mm}
+\(\phantom{= } \underline{3^3} - 
+   \tonda{\underline{5^2} \times 2 - \underline{10^2} : \underline{2^2}} 
+   =\)\\[.5em]
+\(= 27 - \tonda{\underline{25 \times 2} - \underline{100 : 4}} =\)\\[.5em]
+\(= 27 - \tonda{\underline{50 - 25}} =\)\\[.5em]
+\(= \underline{27 - 25} =\)\\[.5em]
+\(= 2\)
+\vspace{18.5mm}
+}
+\end{esempio}
+
+
 \section{Espressioni con un buco}
 \label{sec:nat_espressioni_buco}
 
@@ -1566,6 +1588,9 @@ A volte potrà succedere che, nell'espressione, manchi un numero.
 Conoscendo il risultato possiamo trovare il numero mancante.
 
 \subsection{Soluzione con grafo ad albero}
+
+% TODO: Riempimento in modo da far iniziare l'esempio seguente in una 
+% pagina nuova
 
 \begin{procedura}{}{}
  Per trovare l'operando mancante usando il grafo ad albero:
@@ -1578,7 +1603,6 @@ Conoscendo il risultato possiamo trovare il numero mancante.
 \end{enumerate}
 \end{procedura}
 
-%\begin{exrig}
 \begin{esempio}{}{}
 Nella seguente espressione manca un esponente:
 
@@ -1636,12 +1660,12 @@ Infine, l'esponente da dare a \(2\) per ottenere \(8\) è \(3\).
 }
 \end{esempio}
 
- \begin{esempio}{}{}
-  Se c'è un ``buco'' in una espressione da risolvere con le proprietà delle 
-  potenze, si procede allo stesso modo:
-  
-  \((3^4)^3 \times 3^{\dots} : (3^3)^5 -2^3 \times 2 \times 
-  (20 -3 \times 5) = 1\)
+\begin{esempio}{}{}
+Se c'è un ``buco'' in una espressione da risolvere con le proprietà delle 
+potenze, si procede allo stesso modo:
+
+\((3^4)^3 \times 3^{\dots} : (3^3)^5 -2^3 \times 2 \times 
+(20 -3 \times 5) = 1\)
 
 Costruiamo il grafo risolutivo eseguendo tutte le operazioni possibili. 
 Rimangono vuoti tutti i nodi che collegano la radice all'elemento
@@ -1650,7 +1674,17 @@ Usando un colore diverso, a partire dalla radice, completiamo il grafo.
 Scriviamo nella radice il risultato dell'espressione, e poniamo attenzione 
 al nodo vuoto che lo precede.
 
-\affiancati{.44}{.54}{
+\affiancati{.54}{.44}{
+\vspace*{.8em}
+\hspace*{-29mm}
+\scalebox{1}{\espbucob}
+% \begin{inaccessibleblock}[]
+% % \begin{center}
+% 
+% %   \includegraphics[scale=0.40]{img/op_buco4.png}
+% % \end{center}
+% \end{inaccessibleblock}
+}{
 \begin{itemize} [noitemsep]
  \item questo numero meno ottanta deve dare come risultato uno: il numero 
   cercato è~81; 
@@ -1663,13 +1697,6 @@ usare
  \item e infine: dodici sommato a questo esponente deve dare come risultato 
   diciannove: il valore mancante è quindi:~7.
 \end{itemize}
-}{
-\begin{inaccessibleblock}[]
- \begin{center}
- \espbucob
-%   \includegraphics[scale=0.40]{img/op_buco4.png}
- \end{center}
-\end{inaccessibleblock}
 }
 \end{esempio}
 
@@ -1683,38 +1710,36 @@ usare
  \item risolviamo l'espressione lasciando il buco ogni volta che 
   dobbiamo eseguire un'operazione tra un numero e un buco;
  \item scriviamo il risultato dopo l'ultima operazione;
- \item con un colore diverso risaliamo dalla soluzione al dato mancante
-  chiudendo man mano i buchi.
+ \item con un colore diverso risaliamo dalla soluzione al dato mancante.
 \end{enumerate}
 \end{procedura}
 
 %\begin{exrig}
   \begin{esempio}{}{}
-\(\left[ 4 \times 5 + 16 \div 2 -
+\quad \(\left[ 4 \times 5 + 16 \div 2 -
   \left(13 - 2^{\dots} \right) \times 2 \right] \div 2 = 9\)
 
+Sottolineiamo le operazioni che dobbiamo eseguire,
+sostituiamo le operazioni sottolineate con il loro risultato o con un buco,
+poi risaliamo riempiendo i buchi:
+
 \affiancati{.49}{.44}{
-Sottolineando tutte le operazioni che dobbiamo eseguire a questo punto:
-
-Ora, sostituiamo tutte le operazioni sottolineate con il loro risultato, 
-tutte tranne l'operazione che contiene il buco: il suo risultato sarà un 
-buco.
-
-Ora possiamo risalire: cambiamo colore e\dots
 
 \begin{itemize} [noitemsep]
   \item il numero che diviso per~2 dà~9 è~18;
-  \item il numero che tolto da~20 dà~18 +~10;
+  \item il numero che tolto da~20 dà~18 è~10;
   \item il numero che moltiplicato per~2 dà~10 è~5;
-  \item \dots
+  \item il numero che tolto da~13 dà~5 è~8;
+  \item l'esponente da dare a~2 per ottenere~8 è~3.
 \end{itemize}
 }{
+\hspace*{-5mm}{
 \(\left[ \underline{4 \times 5} + \underline{16 \div 2} -
   \left(13 - \underline{2^{\dots}} \right) \times 2 \right] \div 2 = 9\)
 
-\vspace{.5em}
-\(\left[ 20 + 8 -
-  \left(13 - {\dots} \right) \times 2 \right] \div 2 = 9\)
+% \vspace{.5em}
+% \(\left[ 20 + 8 -
+%   \left(13 - {\dots} \right) \times 2 \right] \div 2 = 9\)
 
 \vspace{.5em}
 \(\left[ \underline{20 + 8} -
@@ -1728,7 +1753,7 @@ Ora possiamo risalire: cambiamo colore e\dots
 
 \vspace{.5em}
 \(\underline{{\dots} \div 2} = 9\)
-
+}
 }
 
 % \affiancati{.49}{.49}{
@@ -1740,13 +1765,12 @@ Ora possiamo risalire: cambiamo colore e\dots
 % \pagebreak %--------------------------------------------
 
 \begin{esempio}{}{}
-Possiamo anche risolvere espressioni con il buco dove bisogna
-applicare le proprietà delle potenze:
-
-\affiancati{.48}{.48}{
-\(\left(3^4 \right)^3 \cdot 3^{\dots} \div \left(3^3 \right)^5 -
+\quad \(\left(3^4 \right)^3 \cdot 3^{\dots} \div \left(3^3 \right)^5 -
   2^{3} \cdot 2 \cdot \left( 20 - 3 \cdot 5 \right) = 1\)
 
+Qui possiamo applicare le proprietà delle potenze:
+
+\affiancati{.48}{.48}{
 \vspace{.5em}
 \(\underline{\left(3^4 \right)^3} \cdot 
   3^{\dots} \div \underline{\left(3^3 \right)^5} -
@@ -1930,7 +1954,7 @@ se il resto della divisione intera è zero:
 \end{definizione}
 
 Prima di proseguire, disegna nel quaderno la seguente tabella e completala. 
- 
+
 Nella prima colonna scrivi i numeri fino al~50, nella seconda scrivi tutti 
 i divisori di quel numero ordinati dal minore al maggiore, nella terza 
 scrivi quanti sono i divisori.
@@ -2058,48 +2082,48 @@ la divisione: sono i \emph{criteri di divisibilità}.
 Di seguito sono riportati i criteri relativi ai primi numeri naturali.
 
 \begin{description} [noitemsep]
-\item[0:~] Nessun numero è divisibile per~0.
-\item[1:~] Tutti i numeri sono divisibili per~1.
-\item[2:~] 0,~2,~4,~6,~8 sono divisibili per~2 
+\item[\textbf{0}:~] Nessun numero è divisibile per~0.
+\item[\textbf{1}:~] Tutti i numeri sono divisibili per~1.
+\item[\textbf{2}:~] 0,~2,~4,~6,~8 sono divisibili per~2 
 e un numero è divisibile per~2 se e solo se il numero formato dalla sua 
 ultima cifra è divisibile per~2.
-\item[3:~] 0,~3,~6,~9 sono divisibili per~3,
+\item[\textbf{3}:~] 0,~3,~6,~9 sono divisibili per~3,
 e un numero è divisibile per~3 se e solo se la somma delle sue cifre è un 
 numero è divisibile per~3.
-\item[4:~] 0,~4,~8,~12,~16,~20,~24,~28,~32,~36,~\dots, 
+\item[\textbf{4}:~] 0,~4,~8,~12,~16,~20,~24,~28,~32,~36,~\dots, 
 sono divisibili per~4 
 e un numero è divisibile per~4 se e solo se il numero formato dalle sue 
 ultime~2 cifre, è divisibile per~4.
-\item[5:~] 0,~5 sono divisibili per~5 
+\item[\textbf{5}:~] 0,~5 sono divisibili per~5 
 e un numero è divisibile per~5 se e solo se il numero formato dalla sua 
 ultima cifra è divisibile per~5.
-\item[6:~] Un numero è divisibile per~6 se è divisibile 
+\item[\textbf{6}:~] Un numero è divisibile per~6 se è divisibile 
 per~2 e per~3.
-\item[7:~] 0,~7 sono divisibili per~7 
+\item[\textbf{7}:~] 0,~7 sono divisibili per~7 
 e un numero maggiore di~10 è divisibile per~7 se la differenza, 
 in valore assoluto, fra il numero ottenuto togliendo la cifra delle unità 
 e il doppio della cifra delle unità è divisibile per~7.\\
-Il numero~252 è divisibile per~7, infatti~\( \valass{25 -~2\cdot 2}=~21\) è 
+Il numero~252 è divisibile per~7, infatti~\( \modulo{25 -~2\cdot 2}=~21\) è 
 multiplo di~7.\\
-Il numero~887 non è divisibile per~7, infatti~\(\valass{88 -~2\cdot 7}=~74\) 
+Il numero~887 non è divisibile per~7, infatti~\(\modulo{88 -~2\cdot 7}=~74\) 
 non è divisibile per~7.
-\item[8:~] 0,~8,~16,~24,~32,~\dots, sono 
+\item[\textbf{8}:~] 0,~8,~16,~24,~32,~\dots, sono 
 divisibili per~8 
 e un numero è divisibile per~8 se e solo se il numero formato dalle sue 
 ultime~3 cifre, è divisibile per~8.
-\item[9:~] 0,~9 sono divisibili per~9,
+\item[\textbf{9}:~] 0,~9 sono divisibili per~9,
 e un numero è divisibile per~9 se e solo se la somma delle sue cifre è un 
 numero è divisibile per~9.
-\item[10:~] 0 è divisibile per~10 
+\item[\textbf{10}:~] 0 è divisibile per~10 
 e un numero è divisibile per~10 se e solo se il numero formato dalla sua 
 ultima cifra è divisibile per~10.
-\item[11:~] 0 è divisibile per~11
+\item[\textbf{11}:~] 0 è divisibile per~11
 e un numero è divisibile per~11 se e solo se la differenza, 
 in valore assoluto, fra la somma delle cifre di posto pari e la somma delle 
 cifre di posto dispari è un numero divisibile per~11.\\
-Il numero~253 è divisibile per~11, infatti~\(\valass{5-(2+3)} =~0\);\\
-Il numero~887 non è divisibile per~11, infatti~\(\valass{8-(8+7)}=~7\).
-\item[12:~] Un numero è divisibile per~12 se è 
+Il numero~253 è divisibile per~11, infatti~\(\modulo{5-(2+3)} =~0\);\\
+Il numero~887 non è divisibile per~11, infatti~\(\modulo{8-(8+7)}=~7\).
+\item[\textbf{12}:~] Un numero è divisibile per~12 se è 
 divisibile 
 per~3 e per~4.
 \item[un numero qualunque:~] Un numero~\(a\) è divisibile 
@@ -2145,6 +2169,8 @@ illustrato negli esempi seguenti.
 \begin{inaccessibleblock}[]
  \begin{esempio}{}{}
  Scomporre in fattori primi il numero~630.
+ 
+\vspace{-1em}
  \begin{center}
  \input{\folder lbr/fig008_scmp0.pgf}
  \end{center}
@@ -2168,7 +2194,7 @@ diversi:
 
 %\end{exrig}
 
-Qualunque strada si segua per scomporre un numero in fattori primi 
+Qualunque strada si segua per effettuare la scomposizione, 
 otterremo sempre lo stesso risultato.
 
 \subsection{Scomposizione con un metodo sequenziale}
@@ -2180,6 +2206,7 @@ Sottolinea e scomponi.
  \begin{esempio}{}{}
  Scomporre in fattori primi il numero~1260.
 
+\vspace{.5em}
  \(\underline{1260} = 2^{2} \cdot 3^{2} \cdot 5 \cdot 7\)
  
  \(\underline{10} \cdot \underline{126}\)
@@ -2243,8 +2270,8 @@ il~3 compare con esponente minimo~1.
 Pertanto: \quad \(\mcd(60,~48,~36)=~2^2 \cdot 3 = 12\).
 \end{esempio}
 
- \begin{esempio}{}{}
- Calcolare~\(\mcd(60,~120,~90)\).
+\begin{esempio}{}{}
+Calcolare~\(\mcd(60,~120,~90)\).
 
 Si scompongono in fattori i singoli numeri:\\
 \(60 = 2^2\cdot3\cdot5; 
@@ -2252,36 +2279,36 @@ Si scompongono in fattori i singoli numeri:\\
 \quad 90 = 2\cdot3^2\cdot5\)\\
 I~fattori in comune sono~2,~3,~5. L'esponente minino è~1 per tutti.
 
-Pertanto: \quad \(\mcd(60,120,90)=~2\cdot3\cdot5=30\)
- \end{esempio}
+Pertanto: \quad \(\mcd(60,~120,~90)=~2\cdot3\cdot5=30\)
+\end{esempio}
 %\end{exrig}
 
 \begin{definizione}{}{}
- Due numeri~\(a\) e~\(b\) si dicono \emph{primi tra loro} o \emph{coprimi} 
- se~\(\mcd(a,b) =~1\).
+Due numeri~\(a\) e~\(b\) si dicono \emph{primi tra loro} o \emph{coprimi} 
+se~\(\mcd(a,b) =~1\).
 \end{definizione}
 
 %\begin{exrig}
- \begin{esempio}{}{}
- Numeri primi tra loro:
- \begin{itemize} [noitemsep]
- \item 12 e~25 sono primi tra loro. Infatti il~\(\mcd(12,~25)=1\) dato che 
-  nelle loro scomposizioni in fattori non si hanno fattori 
-  comuni:~\(12 =2^2\cdot3\) e~\(25=5^2\);
+\begin{esempio}{}{}
+Numeri primi tra loro:
+\begin{itemize} [noitemsep]
+\item 12 e~25 sono primi tra loro. Infatti il~\(\mcd(12,~25)=1\) dato che 
+nelle loro scomposizioni in fattori non si hanno fattori 
+comuni:~\(12 =2^2\cdot3\) e~\(25=5^2\);
 % \item 35 e~16 sono primi tra loro. Infatti~\(35=5\times~7\),~\(16=2^4\). 
 %  I due numeri non hanno divisori comuni e il loro~\(\mcd=1\);
- \item 11 e~19 sono primi tra loro infatti il~\(\mcd(11,19)=1\) dato che~11 
-  e~19 sono numeri primi;
- \item 12 e~15 non sono primi tra di loro in quanto hanno~3 come divisore 
-  comune.
- \end{itemize}
- \end{esempio}
+\item 11 e~19 sono primi tra loro infatti il~\(\mcd(11,~19)=1\) dato che~11 
+e~19 sono numeri primi;
+\item 12 e~15 non sono primi tra di loro in quanto hanno~3 come divisore 
+comune.
+\end{itemize}
+\end{esempio}
 %\end{exrig}
 
 \begin{definizione}{}{}
- Il \emph{minimo comune multiplo} di due numeri naturali~\(a\) e~\(b\) è il più
- piccolo tra tutti i multipli comuni ad~\(a\) e a~\(b\) 
- e si indica con~\(\mcm(a,b)\).
+Il \emph{minimo comune multiplo} di due numeri naturali~\(a\) e~\(b\) è il più
+piccolo tra tutti i multipli comuni ad~\(a\) e a~\(b\) 
+e si indica con~\(\mcm(a,~b)\).
 \end{definizione}
 
 Per calcolare il minimo comune multiplo tra~6 e~15 applicando la 
@@ -2311,7 +2338,7 @@ Calcolo del~\(\mcm\) di due o più numeri naturali:
 
 %\begin{exrig}
  \begin{esempio}{}{}
- Calcolare il~\(\mcm(60,48,36)\).
+ Calcolare il~\(\mcm(60,~48,~36)\).
 
 Scomponendo in fattori i numeri si 
 ha~\(60=2^2\cdot3\cdot5\);~\(48=2^4\cdot3\);~\(36 =2^2\cdot3^2\).
@@ -2322,7 +2349,7 @@ Il~\(\mcm\) è~\(2^4\cdot3^2\cdot5=720\).
  \end{esempio}
 
  \begin{esempio}{}{}
- Calcolare il~\(\mcm(20,24,450)\).
+ Calcolare il~\(\mcm(20,~24,~450)\).
 
 Scomponendo in fattori si 
 ha:~\(20=2^2\cdot5\);~\(24=2^3\cdot3\);~\(450 =~2\cdot3^2\cdot5^2\).
