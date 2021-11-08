@@ -233,21 +233,25 @@ Then you can simply say
   
 }
 
-\newcommand{\opfun}[7]{
+\newcommand{\opfun}[9]{
   \def \oa{#1}
   \def \op{#2}
   \def \ob{#3}
   \def \ris{#4}
-  \def \pa{#5}
-  \def \pr{#6}
-  \def \pb{#7}
-  \def \la{-0.3}
-  \def \lb{-2.8}
-%   \def \ndim{1.0}
-%   \def \xa{\pa} \def \xb{\pr} \def \xc{\pb}
+  \def \xna{#5}
+  \def \xnb{#6}
+  \def \loa{#7}
+  \def \lob{#8}
+  \def \lris{#9}
+  \pgfmathparse{\xna/2 + \xnb/2} \let\xnr\pgfmathresult
+  \def \yla{-0.3}
+  \def \ylb{-2.8}
   \disegno{
     \draw (0, 0) node{$\oa ~\op~ \ob$};
-    \nodoesp{(\pa, \la)}{(\pb, \la)}{\pr}{\lb}{\op}{\ris}
+    \nodoesp{(\xna, \yla)}{(\xnb, \yla)}{\xnr}{\ylb}{\op}{\ris}
+    \freccia{(\xna-1, 0)}{(\xna-.3, 0)}{left}{\loa}
+    \freccia{(\xnb+1, 0)}{(\xnb+.3, 0)}{right}{\lob}
+    \freccia{(\xnr+1.5, \ylb+.5)}{(\xnr+.6, \ylb+.5)}{right}{\lris}
   }
 }
 
@@ -325,67 +329,6 @@ Then you can simply say
   }
 }
 
-\begin{comment}
-\newcommand{\addline}{
- \begin{tikzpicture}[decoration={markings,mark=between positions 0.7 and .9 
-step 30pt with {\arrow{stealth}}}]
-  \begin{scope}[thick,font=\scriptsize]
-   \draw[->] (0,0)  - -  (280pt,0) node[above]{$\N$};
-    \foreach \c in {3,4,...,7}{%
-     \draw[dotted, color=RedOrange,postaction={decorate}](\c,5pt)--(\c,5pt) 
-arc (180:0:0.5 and 0.5);}
-    \foreach \n in {0,1,2,...,9}{%	
-     \draw (\n,-3pt) -- (\n,3pt)   node [below=5pt] {$\n$};}
-  \end{scope}
- \end{tikzpicture}
-}
-\end{comment}
-
-% \newcommand{\sotline}{
-%  \begin{tikzpicture}[decoration={markings,mark=between positions .3 and .5 
-% step 30pt with {\arrowreversed{stealth}}}]
-%   \begin{scope}[thick,font=\scriptsize]
-%    \draw[->] (0,0)  - -  (280pt,0) node[above]{$\N$};
-%     \foreach \c in {2,3,...,6}{%
-%      \draw[dotted, color=CornflowerBlue, postaction={decorate}]
-%        (\c,5pt) -- (\c,5pt) arc (180:0:0.5 and 0.5);}
-%     \foreach \n in {0,1,2,...,9}{%	
-%      \draw (\n,-3pt) -- (\n,3pt)   node [below=5pt] {$\n$};}
-%   \end{scope}
-%  \end{tikzpicture}
-% }
-% 
-% \newcommand{\sotlinei}{
-%  \begin{tikzpicture}[decoration={markings,mark=between positions .3 and .5 
-% step 30pt with {\arrowreversed{stealth}}}]
-%   \begin{scope}[thick,font=\scriptsize]
-%    \draw[->] (0,0)  - -  (280pt,0) node[above]{$\N$};
-%     \foreach \c in {-2,-1,...,4}{%
-%      \draw[dotted, 
-% color=CornflowerBlue,postaction={decorate}](\c,5pt)--(\c,5pt) arc (180:0:0.5 
-% and 0.5);}
-%     \foreach \n in {0,1,2,...,9}{%	
-%      \draw (\n,-3pt) -- (\n,3pt)   node [below=5pt] {$\n$};}
-%   \end{scope}
-%  \end{tikzpicture}
-% }
-
-% \newcommand{\sotfun}{
-%   \opfun{7}{-}{5}{2}
-%   \def \oa{7}
-%   \def \op{-}
-%   \def \ob{5}
-%   \def \ris{2}
-%   \def \la{-0.3}
-%   \def \lb{-2.8}
-% %   \def \ndim{1.0}
-%   \def \xa{-.8} \def \xb{0} \def \xc{+.8}
-%   \disegno{
-%     \draw (0, 0) node{\(\oa ~\op~ \ob\)};
-%     \nodoesp{(\xa, \la)}{(\xc, \la)}{\xb}{\lb}{\op}{\ris}
-%   }
-% }
-
 \newcommand{\defpot}{
 \begin{tikzpicture} 
   \node (esp) at (0,0) 
@@ -403,13 +346,21 @@ arc (180:0:0.5 and 0.5);}
   \def \op{\uparrow}
   \def \ob{3}
   \def \ris{8}
-  \def \la{-0.3}
-  \def \lb{-2.8}
+  \def \xna{-.2}
+  \def \xnb{+.2}
+  \def \loa{base}
+  \def \lob{esponente}
+  \def \lris{potenza}
+  \pgfmathparse{\xna/2 + \xnb/2} \let\xnr\pgfmathresult
+  \def \yla{-0.3}
+  \def \ylb{-2.8}
 %   \def \ndim{1.0}
-  \def \xa{-.2} \def \xb{0} \def \xc{+.2}
   \disegno{
     \draw (0, 0) node{$\oa^\ob$};
-    \nodoesp{(\xa, \la)}{(\xc, -.1)}{\xb}{\lb}{\op}{\ris}
+    \nodoesp{(\xna, \yla)}{(\xnb, -.1)}{\xnr}{\ylb}{\op}{\ris}
+    \freccia{(\xna-1, 0)}{(\xna-.3, 0)}{left}{\loa}
+    \freccia{(\xnb+1, .2)}{(\xnb+.3, .2)}{right}{\lob}
+    \freccia{(\xnr+1.5, \ylb+.5)}{(\xnr+.6, \ylb+.5)}{right}{\lris}
   }
 }
 
@@ -437,6 +388,66 @@ arc (180:0:0.5 and 0.5);}
     \nodoesp{(\xc, \la)}{(\xe, \la)}{\xd}{\lb}{\times}{10}
     \nodoesp{(\xa, \la)}{(\xd, \lb)}{\xb}{\lc}{+}{17}
   }
+}
+
+\newcommand{\albero}{
+
+\tikzset{
+  treenode/.style = {shape=rectangle, rounded corners,
+                     draw, align=center,
+                     top color=white},
+  root/.style     = {treenode, bottom color=red!30},
+  env/.style      = {treenode, bottom color=green!30},
+  dummy/.style    = {treenode, bottom color=blue!30}
+}
+\begin{tikzpicture}
+  [
+    grow                    = up,
+    sibling distance        = 6em,
+    level distance          = 3em,
+    edge from parent/.style = {draw},
+    every node/.style       = {font=\footnotesize},
+    sloped
+  ]
+  \node [root] {n0}
+    child { node [env] {n2}}
+    child { node [dummy] {n1}
+      child { node [dummy] {n4}
+        child { node [env] {n7}}
+        child { node [env] {n6}}
+        child { node [env] {n5}}}
+      child { node [env] {n3}}};
+\end{tikzpicture}
+
+% \begin{tikzpicture}[grow=up, edge from parent/.style={draw,-latex}, label 
+% distance = 0.2cm,
+%   level 1/.style = {level distance=1.5cm, sibling distance=22mm},
+%   level 2/.style = {level distance=1.5cm, sibling distance=11mm},
+%   level 3/.style = {level distance=1.5cm, sibling distance=6mm},
+%   ]
+%   \node[label=90:{t=0}] {11.45}
+%   child {node {19.08}
+%     child {node {29.54}
+%       child {node {40}}
+%       child {node[opacity=.5] {20}}
+%     }
+%     child {node[opacity=.75] {9.54}
+%       child {node[opacity=.5] {20}}
+%       child {node[opacity=.5] {0}}
+%     }
+%   }
+%   child {node[label=90:{t=1}] {4.53}
+%     child {node[opacity=.75] {9.54}
+%       child {node[opacity=.5] {20}}
+%       child {node[opacity=.5] {0}}
+%     }
+%     child {node[label=90:{t=2}] {0}
+%       child {node[opacity=.5] {0}}
+%       child {node[label=90:{t=3}] {0}}
+%     }
+%   };
+% \end{tikzpicture}
+
 }
 
 \newcommand{\espalberoav}{
