@@ -275,20 +275,47 @@ Ogni numero naturale ha il successore e ogni numero, a eccezione di~0, ha il
 precedente. 
 L'insieme~\(\N\) ha~0 come elemento minimo e non ha un elemento massimo.
 
+\section{Confronto tra numeri naturali}
+\label{sec:nat_operazioni}
+
 I numeri rappresentati sulla retta sono sempre più grandi man mano che ci 
 si allontana dall'origine. 
 L'origine e la freccia indicano chiaramente in quale verso i numeri 
 crescono. Noi, in generale disponiamo la semiretta in modo che i numeri 
 crescano da sinistra a destra.
-Ogni numero è maggiore di tutti i suoi precedenti, quelli che stanno alla 
-sua sinistra, e minore di tutti i suoi successivi, quelli che stanno alla 
-sua destra. 
-Tra i numeri naturali esiste quindi una relazione d'ordine, che si 
-rappresenta con il simbolo di 
-\emph{disuguaglianza}~\(\leqslant\) (si legge ``minore o uguale di'') o 
-\emph{disuguaglianza stretta}~\(<\) (si legge ``minore di'').
-Grazie a questo ordinamento, è sempre possibile confrontare due numeri 
-naturali qualsiasi.
+
+Ogni numero è minore del suo successore.
+Questa proprietà si può estendere anche al successore del successore e 
+al successore del successore del successore \dots. 
+
+Tra i numeri naturali possiamo individuare una relazione di equivalenza: 
+`\emph{essere uguale} indicata dal simbolo ``\(=\)''. 
+Questa relazione ha le seguenti proprietà:
+\begin{enumerate} [nosep]
+\item \emph{riflessiva}: \(a = a\);
+\item \emph{simmetrica}: se \(a = b\) allora \(b = a\);
+\item \emph{transitiva}: se \(a = b\) e \(b = c\) allora \(a = c\);
+\end{enumerate}
+
+\bigskip
+Tra i numeri naturali possiamo individuare una relazione d'ordine: 
+\emph{essere minore o uguale} indicata dal simbolo ``\(\leqslant\)''. 
+Questa relazione ha le seguenti proprietà:
+\begin{enumerate} [nosep]
+\item \emph{riflessiva}: \(a \leqslant a\);
+\item \emph{antisimmetrica}: se \(a \leqslant b\) allora \(b \nleqslant a\);
+\item \emph{transitiva}: se \(a \leqslant b\) e \(b \leqslant c\) 
+allora \(a \leqslant c\);
+\end{enumerate}
+
+\bigskip
+Tra i numeri naturali possiamo riconoscere le seguenti relazioni 
+d'ordine: \begin{itemize} [nosep]
+\item \emph{disuguaglianza}~\(\leqslant\) (si legge ``minore o uguale di'');
+\item \emph{disuguaglianza stretta}~\(<\) (si legge ``minore di'');
+\item \emph{disuguaglianza}~\(\geqslant\) (si legge ``maggiore o uguale di'');
+\item \emph{disuguaglianza stretta}~\(>\) (si legge ``maggiore di'').
+\end{itemize}
 
 \begin{principio}{di tricotomia}{}
 Dati due numeri naturali \(n\) e \(m\) vale sempre una delle seguenti tre 
@@ -400,18 +427,14 @@ La funzione ``add'' ha due \emph{parametri}
 (``parametro\_1'' e ``parametro\_2'') e, per eseguirla, 
 dobbiamo passarle due \emph{argomenti} (``5'' e ``7'').
 
-\begin{osservazione}{}{}
-Queste prime funzioni che studiamo sono funzioni binarie: il loro argomento è
-una coppia di numeri mentre il risultato è un solo numero.
-
-Esistono anche funzioni che hanno per argomento più numeri o anche uno solo.
-Esistono anche funzioni che hanno come risultato più numeri.
-\end{osservazione}
-
-\begin{osservazione}{}{}
-Nell'ambito informatico gli argomenti sono anche detti ``input'' e il 
+\begin{osservazioni}{}{}
+\begin{itemize} [nosep]
+\item Queste prime funzioni che studiamo sono funzioni binarie: richiedono 
+come argomenti due numeri e danno come risultato un numero.
+\item Nell'ambito informatico gli argomenti sono anche detti ``input'' e il 
 risultato è detto ``output'' della funzione.
-\end{osservazione}
+\end{itemize}
+\end{osservazioni}
 
 \subsection{Proprietà delle operazioni}
 
@@ -441,6 +464,14 @@ simbolo \(\star\):
   \(a \star b = b \star a\).
 \end{enumerate}
 
+\begin{comment}
+% TODO spostare questa in un capitolo su approfondimenti sui numeri:
+% Potrebbe contenere: 
+% - basi numeriche;
+% - strutture algebriche;
+% - numeri primi e crittografia;
+% - ...
+
 Le proprietà delle operazioni non dipendono solo dalle operazioni, ma anche 
 dall'insieme in cui vengono eseguite.
 L'insieme formato da un insieme numerico e da una o più operazioni, 
@@ -465,11 +496,11 @@ Le principali strutture algebriche con due operazioni che incontreremo sono:
 \item \emph{Campo}
 \end{itemize}
 
-\bigskip
+\end{comment}
+
+% \bigskip
 Vediamo ora alcune operazioni con i numeri naturali, le loro proprietà e le 
 strutture algebriche sui naturali.
-
-% \newpage %------------------------------------------
 
 \subsection{Addizione in $\N: \quad \coppia{\N}{+}$}
 
@@ -501,6 +532,7 @@ naturali sulla quale sono segnati spostamenti a destra di tre unità]
 \end{inaccessibleblock}
 }
 
+\vspace{-.5em}
 \subsubsection{Funzione addizione}
 
 L'addizione tra numeri naturali è una funzione che ha come \emph{argomenti} 
@@ -528,30 +560,32 @@ due numeri naturali e dà come \emph{risultato} un \emph{numero naturale}:
 Per come è definita, e dato che il successore di un numero naturale è un 
 numero naturale, la somma di due numeri naturali qualsiasi è \emph{sempre} 
 un numero naturale. 
-Si dice che l'addizione è una \emph{legge di composizione interna 
-ai naturali} e presenta le seguenti proprietà:
+Si dice che l'addizione nei numeri naturali presenta le seguenti proprietà:
 
 \begin{itemize} [noitemsep]
- \item \emph{Associativa}: \quad \((a + b) + c = a + (b + c)\)
- \item \emph{Elemento neutro è 0}: \quad \(a + 0 = 0 + a = a\)
- \item \emph{Commutativa}: \quad \(a + b = b + a\)
+ \item è una \emph{legge di composizione interna};
+ \item \emph{Associativa}: \quad \((a + b) + c = a + (b + c)\);
+ \item \emph{Elemento neutro è 0}: \quad \(a + 0 = 0 + a = a\);
+ \item \emph{Commutativa}: \quad \(a + b = b + a\).
 \end{itemize}
 
-\begin{osservazione}{Struttura algebrica: \(\coppia{\N}{+}\)}{}
-\begin{itemize} [noitemsep]
-\item Dato che vale la proprietà associativa diremo che la struttura 
-algebrica \(\coppia{\N}{+}\) è un \emph{semigruppo}. 
-\item Dato che è presente l'elemento neutro diremo che la struttura 
-algebrica \(\coppia{\N}{+}\) è un semigruppo dotato di unità (o 
-\emph{monoide}). 
-\item Dato che vale la proprietà commutativa la struttura 
-algebrica \(\coppia{\N}{+}\) è un \emph{monoide commutativo} 
-(o \emph{abeliano}\footnote{
+Avendo queste proprietà, la struttura algebrica \(\coppia{\N}{+}\) viene 
+chiamata \emph{monoide commutativo} (o \emph{abeliano}\footnote{
 In onore del grande e sfortunato matematico norvegese Niels Henrik Abel\\ 
 (vedi: \url{https://it.wikipedia.org/wiki/Niels_Henrik_Abel}).})
-\end{itemize}
 
-\end{osservazione}
+% % TODO da utilizzare in approfondimenti.
+% \begin{osservazione}{Struttura algebrica: \(\coppia{\N}{+}\)}{}
+% \begin{itemize} [noitemsep]
+% \item Dato che vale la proprietà associativa diremo che la struttura 
+% algebrica \(\coppia{\N}{+}\) è un \emph{semigruppo}. 
+% \item Dato che è presente l'elemento neutro diremo che la struttura 
+% algebrica \(\coppia{\N}{+}\) è un semigruppo dotato di unità (o 
+% \emph{monoide}). 
+% \item Dato che vale la proprietà commutativa la struttura 
+% algebrica \(\coppia{\N}{+}\) è un 
+% \end{itemize}
+% \end{osservazione}
 
 \subsection{Sottrazione in $\N: \quad \coppia{\N}{-}$}
 
@@ -568,8 +602,11 @@ Il primo operando si chiama \emph{minuendo}, il secondo \emph{sottraendo} e
 il risultato \emph{differenza}.
 \end{definizione}
 
-Se al concetto di successore aggiungiamo anche quello di precedente, 
-possiamo definire la sottrazione anche in un altro modo.
+% % TODO: come esercizio: 
+% % - definire ``precedente'' e ridefinire sottrazione.
+% 
+% Se al concetto di successore aggiungiamo anche quello di precedente, 
+% possiamo definire la sottrazione anche in un altro modo.
 Ritornando alla rappresentazione dei numeri naturali sulla semiretta 
 orientata, la differenza tra i numeri~7 e~5 si può trovare partendo da~7 e 
 procedendo a ritroso di~5 posizioni.
@@ -630,12 +667,11 @@ Nei naturali la sottrazione è una funzione che ha come
 % \vspace{-1em}
 \begin{osservazioni}{}{}
 \begin{itemize} [nosep]
-\item l'argomento è formato da coppie ordinate: non è lo stesso 
-\(\coppia{7}{5}\) o \(\coppia{5}{7}\);
-\item la funzione è definita solo quando il primo numero non è 
-minore del secondo.
+\item l'ordine degli argomenti è importante: 
+\(sub \coppia{7}{5} \neq sub \coppia{5}{7}\);
+\item è definita solo quando il numero da togliere è 
+minore del numero da diminuire.
 \end{itemize}
-
 \end{osservazioni}
 
 \subsubsection{Proprietà della sottrazione}
@@ -753,20 +789,24 @@ naturali} e presenta le seguenti proprietà:
  \item \emph{Commutativa}: \(a \cdot b = b \cdot a\)
 \end{itemize}
 
-\begin{osservazione}{Struttura algebrica: \(\coppia{\N}{\times}\)}{}
-\begin{itemize} [noitemsep]
-\item Dato che vale la proprietà associativa diremo che la struttura 
-algebrica \(\coppia{\N}{\times}\) è un \emph{semigruppo}. 
-\item Dato che è presente l'elemento neutro diremo che la struttura 
-algebrica \(\coppia{\N}{\times}\) è un semigruppo dotato di unità (o 
-\emph{monoide}). 
-\item Dato che vale la proprietà commutativa la struttura 
-algebrica \(\coppia{\N}{\times}\) è un \emph{monoide commutativo} 
-(o \emph{abeliano})
-\end{itemize}
-\end{osservazione}
+Avendo queste proprietà, la struttura algebrica \(\coppia{\N}{\times}\) 
+viene chiamata \emph{monoide commutativo} (o \emph{abeliano}.
 
-Un'altra importante proprietà che utilizzeremo spesso anche in seguito è la:
+% \begin{osservazione}{Struttura algebrica: \(\coppia{\N}{\times}\)}{}
+% \begin{itemize} [noitemsep]
+% \item Dato che vale la proprietà associativa diremo che la struttura 
+% algebrica \(\coppia{\N}{\times}\) è un \emph{semigruppo}. 
+% \item Dato che è presente l'elemento neutro diremo che la struttura 
+% algebrica \(\coppia{\N}{\times}\) è un semigruppo dotato di unità (o 
+% \emph{monoide}). 
+% \item Dato che vale la proprietà commutativa la struttura 
+% algebrica \(\coppia{\N}{\times}\) è un \emph{monoide commutativo} 
+% (o \emph{abeliano})
+% \end{itemize}
+% \end{osservazione}
+
+\bigskip %------------------------------------------
+Un'altra importante proprietà che utilizzeremo spesso anche in seguito è:
 
 \begin{principio}{di annullamento del prodotto}{}
 il prodotto di due o più numeri naturali si annulla se e solo se almeno uno 
@@ -844,7 +884,8 @@ per~3 dia~5.
 \end{esempio}
 %\end{exrig}
 
-\begin{osservazione}{}{}
+\begin{osservazioni}{Divisione per 0}{}
+La divisione per zero non è definita.
 \begin{itemize}[nosep]
 \item nella divisione~\(n:0\) con \(n\neq 0\), non c'è nessun numero che 
 moltiplicato per~0 ci possa dare un dividendo diverso da zero; 
@@ -853,8 +894,7 @@ questa divisione è \emph{impossibile}.
 infatti qualsiasi numero moltiplicato per~0 dà~0 come prodotto; 
 questa divisione è \emph{indeterminata}.
 \end{itemize}
-In ogni caso la divisione per zero non è definita.
-\end{osservazione}
+\end{osservazioni}
 
 
 
@@ -897,16 +937,14 @@ naturale}:
 \end{center}
 }
 
-% \vspace{-1em}
-\begin{osservazione}{}{}
+\begin{osservazioni}{}{}
 \begin{itemize} [nosep]
-\item l'argomento è formato da coppie ordinate: non è lo stesso 
-\(\coppia{12}{4}\) o \(\coppia{4}{12}\);
-\item la funzione è definita solo quando il primo numero è un multiplo
-del secondo.
+\item l'ordine degli argomenti è importante: 
+\(div \coppia{12}{4} \neq div \coppia{4}{12}\);
+\item è definita solo quando il numero da dividere è 
+un multiplo del numero che divide.
 \end{itemize}
-
-\end{osservazione}
+\end{osservazioni}
 
 \subsubsection{Proprietà della divisione}
 
@@ -924,9 +962,11 @@ L'unica proprietà interessante della divisione è la proprietà
 0\)
 \end{itemize}
 
-\begin{definizione}{}{}
+\begin{definizione}{Proprietà invariantiva della divisione}{}
 Moltiplicando o dividendo entrambi i termini di una divisione per 
-la stessa quantità, \textbf{diversa da zero}, il quoziente non  cambia.
+la stessa quantità, \textbf{diversa da zero}, 
+il quoziente non cambia\footnote{
+Da notare la differenza con la Proprietà invariantiva della sottrazione!}.
 \end{definizione}
 
 \subsection{Proprietà distributiva}
@@ -1023,15 +1063,29 @@ Se, però, la sottrazione è a destra:
 
 % \ovalbox{\risolvii \ref{ese:1.8}, \ref{ese:1.9}}
 
-\begin{osservazione}{La struttura algebrica : $\terna{\N}{+}{\times}$}{}
+Avendo queste proprietà, la struttura algebrica \(\terna{\N}{+}{\times}\) 
+viene chiamata \emph{semianello commutativo} (o \emph{abeliano}.
 
-Poiché le strutture \(\coppia{\N}{+}\) e \(\coppia{\N}{\times}\) 
-sono monoidi commutativi e 
-l'elemento neutro di \(\coppia{\N}{+}\) è elemento assorbente di 
-\(\coppia{\N}{\times}\) e 
-vale la proprietà distributiva della moltiplicazione rispetto all'addizione, 
-la struttura \(\terna{\N}{+}{\times}\) è un semianello commutativo.
+\begin{osservazione}{}{}
+Nonostante la grande utilità dei numeri naturali e il fascino dei problemi 
+presenti nei naturali che non sono ancora risolti, una struttura a 
+semianello è piuttosto debole:
+non permette di risolvere equazioni del tipo \(ax +b = 0\).
+Nei prossimi capitoli introdurremo altri insiemi numerici che permettono di 
+risolvere problemi sempre più complessi, ma, per ora, approfondiamo ancora un 
+po' la conoscenza di \(\N\).
 \end{osservazione}
+
+
+% \begin{osservazione}{La struttura algebrica : $\terna{\N}{+}{\times}$}{}
+% 
+% Poiché le strutture \(\coppia{\N}{+}\) e \(\coppia{\N}{\times}\) 
+% sono monoidi commutativi e 
+% l'elemento neutro di \(\coppia{\N}{+}\) è elemento assorbente di 
+% \(\coppia{\N}{\times}\) e 
+% vale la proprietà distributiva della moltiplicazione rispetto all'addizione, 
+% la struttura \(\terna{\N}{+}{\times}\) è un semianello commutativo.
+% \end{osservazione}
 
 \section{Potenza in $\N: \quad \coppia{\N}{\uparrow}$}
 \label{sec:nat_potenza}
@@ -1040,7 +1094,8 @@ La \emph{potenza} di un numero naturale è una moltiplicazione che ha tutti
 i fattori uguali.
 
 \begin{definizione}{Potenza}{}
-Dati due numeri naturali~\(b\),~\(e\), l'operazione di \emph{potenza} 
+Dati due numeri naturali~\(b\) e ~\(e\) \emph{non entrambi nulli},
+l'operazione di \emph{potenza} 
 associa un terzo numero~\(p\) che si ottiene moltiplicando~1 per 
 \(e\) fattori uguali a~\(b\):
 \begin{inaccessibleblock}[Definizione di potenza come prodotti ripetuti.]
@@ -1112,92 +1167,74 @@ naturale}:
 % \end{itemize}
 % \end{osservazione}
 
+\newcommand{\triaffiancati}[6]{
+  \noindent
+  \begin{minipage}[b]{#1\textwidth}
+  #4
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{#2\textwidth}
+  #5
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{#3\textwidth}
+  #6
+  \end{minipage}
+}
+
 \subsection{Proprietà delle potenze}
 
 \paragraph{1. Il prodotto di più potenze con la stessa base} 
-è una potenza che ha per base la stessa base e per esponente la somma degli 
-esponenti.
+è una potenza che ha per base la stessa base e per esponente la somma 
+degli esponenti.
 
-\begin{minipage}[c]{.35\textwidth}
-\vspace{4.5mm}
- \[\boxed{a^m \cdot a^n = a^{m+n}}\]
-\end{minipage}
-\hfil
-\begin{minipage}[c]{.35\textwidth}
-\[ 2^5 \cdot 2^6 \cdot 2^3 = 2^{5+6+3}=2^{14}\]
-\end{minipage}
-\hfil
-\begin{minipage}[c]{.25\textwidth}
-\vspace{4.5mm}
-\centering infatti:
-\end{minipage}
-\[ a^m \cdot a^n = \underbrace{(a\cdot a\cdot\ldots\cdot a)}_{m\text{ 
-volte}}\cdot%
- \underbrace{(a\cdot a\cdot a\cdot\ldots\cdot a)}_{n\text{ volte}}
- =\underbrace{(a\cdot a\cdot a\cdot a\cdot a\cdot\ldots\cdot a\cdot 
-a)}_{m+n\text{ volte}}%
- =a^{m+n}\]
-\vspace{-1em}
+\triaffiancati{.40}{.40}{.15}{
+\[\boxed{a^m \cdot a^n \cdot a^p = a^{m+n+p}}\]
+}{
+\[7^5 \cdot 7^6 \cdot 7^3 = 7^{5 + 6 + 3} = 7^{14}\]
+}{
+infatti:
+}
+\[a^m \cdot a^n = 
+  \underbrace{(a \cdot a \cdot \ldots \cdot a)}_{m \text{ volte}} \cdot 
+  \underbrace{(a \cdot a \cdot \ldots \cdot a)}_{n \text{ volte}} \cdot 
+  \underbrace{(a \cdot a \cdot a \cdot \ldots \cdot a)}_{p \text{ volte}} =
+  \underbrace{(a \cdot a \cdot a \cdot a \cdot a \cdot \ldots \cdot a 
+  \cdot a)}_{m+n+p\text{ volte}} = a^{m+n+p}\]
+
+\vspace{-1.5em}
 \paragraph{2. Il quoziente di due potenze con la stessa base} 
 è una potenza che ha per base la stessa base e per esponente la differenza 
 degli esponenti.
 
-\begin{minipage}[h]{.35\textwidth}
-\vspace{4.5mm}
+\triaffiancati{.40}{.40}{.15}{
 \[\boxed{a^m : a^n = a^{m-n}}\]
-\end{minipage}\hfil
-\begin{minipage}[h]{.35\textwidth}
+}{
 \[4^5 : 4^3 = 4^{5 - 3} = 4^2\]
-\end{minipage}
-\hfil
-\begin{minipage}[c]{.25\textwidth}
-\vspace{4.5mm}
-\centering infatti:
-\end{minipage}
-% \vspace{.5cm}
-% 
-% La proprietà segue da questa osservazione:
-%\begin{inaccessibleblock}[per definizione stessa di potenza]
-%\begin{align*}
-% a^m:a^n &=\underbrace{(a\cdot  a\cdot a \cdot\ldots\cdot a)}_{m\text{ 
-% volte}}:
-% \underbrace{(a\cdot a \cdot \ldots \cdot a)}_{n \text{ volte}}\\
-% &=\underbrace{(a:a)\cdot(a:a)\cdot\ldots \cdot(a:a)}_{m \text{ volte}} 
-% \cdot%
-% \underbrace{(a \cdot a \cdot \ldots \cdot a)}_{m-n \text{ volte}}
-% =a^{m-n}.
-%\end{align*}
-%\end{inaccessibleblock}
-%
-%Il secondo passaggio avviene per la proprietà invariantiva 
-%della divisione.
-
-% Altro modo per rappresentare lo stesso procedimento:
-\begin{align*}
- a^m: a^n &= \frac{a^m}{a^n}=
+}{
+infatti:
+}
+\[
+ a^m: a^n = \frac{a^m}{a^n}=
  \frac{\overbrace{\cancel{a} \cdot \cancel{a} \cdot \cancel{a} \cdot 
                   \ldots \cdot a}^{m \text{ volte}}}
  {\underbrace{\cancel{a} \cdot \cancel{a} \cdot
                   \ldots \cdot \cancel{a}}_{n \text{ volte}}}=
  a^{m-n}
-\end{align*}
-\vspace{-1em}
+\]
+
+\vspace{-1.5em}
 \paragraph{3. La potenza di una potenza è una potenza} 
 che ha per base la stessa base e per esponente il prodotto degli esponenti.
 
-\begin{minipage}[h]{.35\textwidth}
-\vspace{4.5mm}
+\triaffiancati{.40}{.40}{.15}{
 \[\boxed{(a^m)^n=a^{m \cdot n}}\]
-\end{minipage}\hfil
-\begin{minipage}[h]{.35\textwidth}
+}{
 \[(6^2)^5=6^{2\cdot 5}=6^{10}\]
-\end{minipage}
-\hfil
-\begin{minipage}[c]{.25\textwidth}
-\vspace{4.5mm}
-\centering infatti:
-\end{minipage}
-\[ (a^m)^n =\overbrace{a^m\cdot a^m\cdot\ldots\cdot a^m}^{n\text{ volte}}%
+}{
+infatti:
+}
+\[(a^m)^n =\overbrace{a^m\cdot a^m\cdot\ldots\cdot a^m}^{n\text{ volte}}%
  =\overbrace{\underbrace{(a\cdot a\cdot\ldots\cdot a)}_{m\text{ 
 volte}}\cdot%
    \underbrace{(a\cdot a\cdot\ldots\cdot a)}_{m\text{ 
@@ -1205,46 +1242,39 @@ volte}}\cdot\ldots\cdot%
    \underbrace{(a\cdot a\cdot\ldots\cdot a)}_{m\text{ 
 volte}}}^{n\text{ volte}}%
    =a^{m\cdot n}\]
+   
 \vspace{-1.5em}
 \paragraph{4. Il prodotto di più potenze con lo stesso esponente} 
 è una potenza che ha per base il prodotto delle basi e per esponente lo stesso
 esponente.
 
-\begin{minipage}[h]{.35\textwidth}
-\vspace{4.5mm}
-\[\boxed{a^n\cdot b^n=(a\cdot b)^n}\]
-\end{minipage}\hfil
-\begin{minipage}[h]{.35\textwidth}
-\[2^8\cdot 5^8=(2\cdot 5)^8\]
-\end{minipage}
-\hfil
-\begin{minipage}[c]{.25\textwidth}
-\vspace{4.5mm}
-\centering infatti:
-\end{minipage}
+\triaffiancati{.40}{.40}{.15}{
+\[\boxed{a^n \cdot b^n \cdot c^n = (a \cdot b \cdot c)^n}\]
+}{
+\[2^8 \cdot 5^8 \cdot 3^8 = (2 \cdot 5 \cdot 3)^8\]
+}{
+infatti:
+}
 \[a^n \cdot b^n=
-  \underbrace{(a\cdot a\cdot\ldots\cdot a)}_{n\text{ volte}}\cdot%
-  \underbrace{(b\cdot b\cdot\ldots\cdot b)}_{n\text{ volte}}=
-  \underbrace{(a\cdot b)\cdot(a\cdot b)\cdot\ldots\cdot
-              (a\cdot b)}_{n\text{ volte}}=
-   (a\cdot b)^n\]
+  \underbrace{(a \cdot \ldots \cdot a)}_{n\text{ volte}} \cdot
+  \underbrace{(b \cdot \ldots \cdot b)}_{n\text{ volte}} \cdot
+  \underbrace{(c \cdot \ldots \cdot c)}_{n\text{ volte}}=
+  \underbrace{(a \cdot b \cdot c) \cdot (a \cdot b \cdot c) \cdot
+              \ldots \cdot (a \cdot b \cdot c)}_{n\text{ volte}}=
+   (a \cdot b \cdot c)^n\]
+   
 \vspace{-1.5em}
 \paragraph{5. Il quoziente di due potenze con lo stesso esponente} 
 è una potenza che ha per base il quoziente delle basi e per esponente lo 
 stesso esponente.
 
-\begin{minipage}[h]{.35\textwidth}
-\vspace{4.5mm}
+\triaffiancati{.40}{.40}{.15}{
 \[\boxed{a^n:b^n=(a:b)^n}\]
-\end{minipage}\hfil
-\begin{minipage}[h]{.35\textwidth}
+}{
 \[6^4:3^4=(6:3)^4\]
-\end{minipage}
-\hfil
-\begin{minipage}[c]{.25\textwidth}
-\vspace{4.5mm}
-\centering infatti:
-\end{minipage}
+}{
+infatti:
+}
 \[a^n : b^n = \frac{a^n}{b^n} = 
   \frac{\overbrace{a\cdot a\cdot\ldots\cdot a}^{n\text{ volte}} }
        {\underbrace{b\cdot b\cdot\ldots\cdot b}_{n\text{ volte}}}=
@@ -1252,28 +1282,33 @@ stesso esponente.
               \frac{a}{b}}_{n\text{ volte}}=
    \tonda{\frac{a}{b}}^n\]
 
-Volendo far valere sempre le proprietà delle potenze, i casi particolari della
-definizione di potenza si giustificano nel seguente modo:
+\bigskip %--------------------------------------
+
+Si può vedere come i casi particolari delle potenze con esponente uguale a~0 
+e uguale a~1 siano in accordo con le proprietà delle potenze.
+
 \vspace{-1.5em}
-\begin{multicols}{2}
+\affiancati{.49}{.49}{
 \begin{align*}
  &a^0=a^{n-n}=a^n:a^n=1\\
  es.:\quad &4^0 = 4^{3-3} = 4^3 : 4^3 = 64 : 64 = 1
 \end{align*}
-
+}{
 \begin{align*}
  &a^1=a^{n-(n-1)} = a^n : a^{(n-1)} = a\\
  es.:\quad &8^1 = 8^{4-3} = 
     \frac{\cancel{8} \cdot \cancel{8} \cdot \cancel{8} \cdot 8}
     {\cancel{8} \cdot \cancel{8} \cdot \cancel{8}} = 8
 \end{align*}
-\end{multicols}
-\vspace{-1.5em}
+}
+
+% \vspace{-1.5em}
 \begin{osservazione}{}{} 
 Alla potenza~\(0^0\) non si assegna alcun valore perché applicando la 
 definizione di~\(a^0\) si dovrebbe ottenere~1;
 applicando la definizione~\(0^a\) si dovrebbe ottenere~0. Nonostante ciò, in 
-molti linguaggi di programmazione: \(0^0 = 1\).
+molti linguaggi di programmazione \(0^0\) dà per risultato 1.
+% \(0^0 = 1\).
 \end{osservazione}
 
 % \ovalbox{\risolvii \ref{ese:1.10}, \ref{ese:1.11}, \ref{ese:1.12}, 
@@ -1291,17 +1326,12 @@ In questo caso parliamo di espressioni:
  di operazioni.
 \end{definizione}
 
-Nel linguaggio comune alcune frasi possono risultare ambigue. Per esempio
-<<Luca ha detto Mario è stato promosso>> può avere due significati diversi
-a seconda di come si inserisce la punteggiatura:
-scrivendo <<Luca, ha detto Mario, è stato promosso>> significa che è stato 
-promosso Luca;
-scrivendo <<Luca ha detto: Mario è stato promosso>> significa che è stato 
-promosso Mario.
-
-\affiancati{.54}{.44}{
+Nel linguaggio comune alcune frasi possono risultare ambigue, per esempio:
+<<La vecchia porta la sbarra>>. 
 Anche nella matematica, quando abbiamo più operazioni da eseguire, dobbiamo 
 chiarire l'ordine con cui si devono eseguire le operazioni. 
+
+\affiancati{.54}{.44}{
 Per esempio, l'espressione~\(7+5\times2\) può valere~24 oppure~17, infatti:
 se eseguiamo le operazioni da sinistra verso destra otteniamo un risultato, 
 se eseguiamo prima la moltiplicazione ne otteniamo un altro.
