@@ -332,11 +332,11 @@ Then you can simply say
 \newcommand{\defpot}{
 \begin{tikzpicture} 
   \node (esp) at (0,0) 
-    {$2^3=\underbrace{2\times 2\times 2}_{3 \text{ volte}} = 8$};
+    {$2^3=1 \times \underbrace{2\times 2\times 2}_{3 \text{ volte}} = 8$};
 \begin{scope}[font=\scriptsize]
-  \draw[<-]  (-1.2,.5)--(-1,.7) node[right] {esponente};
-  \draw[->]  (-1.8,-.1)--(-1.6,.1) node[below left=.2] {base};
-  \draw[<-]  (1.6,.1)--(1.8,-.1) node[below right] {potenza };
+  \draw[<-]  (-1.4,.5)--(-1.2,.7) node[right] {esponente};
+  \draw[->]  (-2.0,-.1)--(-1.8,.1) node[below left=.2] {base};
+  \draw[<-]  (1.8,.1)--(2.0,-.1) node[below right] {potenza };
 \end{scope}
 \end{tikzpicture}
 }
@@ -900,14 +900,14 @@ Then you can simply say
   \draw(divisione-2-6.north east)--(divisione-3-6.south east);
   \draw(divisione-2-6.south east)--(divisione-2-9.south east);
   \draw(divisione-3-2.south west)--(divisione-3-4.south east);
-  \node (a) [above=of divisione-1-6.north east] {1.};
+%   \node (a) [above=of divisione-3-6.north east] {1.};
 % Seconda divisione
   \draw(divisione-2-15.north east)--(divisione-3-15.south east);
   \draw(divisione-2-15.south east)--(divisione-2-18.south east);
   \draw(divisione-3-11.south west)--(divisione-3-13.south east);
   \draw(divisione-5-13.south west)--(divisione-5-14.south east);
   \draw[densely dotted,->] (divisione-2-14) -- (divisione-4-14);
-  \node (b) [above=of divisione-1-15.north east] {2.};
+%   \node (b) [above=of divisione-1-15.north east] {2.};
 % Terza divisione
   \draw(divisione-2-24.north east)--(divisione-3-24.south east);
   \draw(divisione-2-24.south east)--(divisione-2-27.south east);
@@ -916,7 +916,10 @@ Then you can simply say
   \draw(divisione-7-22.south west)--(divisione-7-24.south east);
   \draw[densely dotted,->] (divisione-2-23) -- (divisione-4-23);
   \draw[densely dotted,->] (divisione-2-24) -- (divisione-6-24);
-  \node (c) [above=of divisione-1-24.north east] {3.};
+%   \node (c) [above=of divisione-1-24.north east] {3.};
+  \node at (-4.0, 1.8) [above] {passo 1};
+  \node at (+0.15, 1.8) [above] {passo 2};
+  \node at (+4.3, 1.8) [above] {passo 3};
 \end{tikzpicture}
 }
 

@@ -734,34 +734,29 @@
   \def \ya{5.10}
   \def \xm{3}
   \def \ym{2.5}
-  \def \x{3.4}
-  \def \y{5.55}
+  \def \xb{3.4}
+  \def \yb{5.55}
   \def \label{p}
   \def \linea{[\fcolor] 
               (\xi, \yi) .. controls (-1, -1.1) and (3, 10) .. (\xf, \yf)
              }
   \disegno{
     \begin{scope}
-      \clip (\xi, 0) rectangle (\xf, 6);
+      \clip (\xi, -2) rectangle (\xf+.2, 7.5);
       \fill [left color=red!10!black!5, right color=red!60!black!20] 
         \linea -- (\xf, 0) -- (\xi, 0) -- cycle;
-    \end{scope}
-    \begin{scope}
-      \clip (\xa, 0) rectangle (\x, 6);
       \fill [top color=green!40!black!30, bottom color=green!40!black!5] 
-        (\xa, 0) -- (\xa, \ya) -- (\x, \ya) -- (\x, 0) -- cycle;
-    \end{scope}
+        (\xa, 0) -- (\xa, \ya) -- (\xb, \ya) -- (\xb, 0) -- cycle;
     \rcom{-2}{+7}{0}{+7}{gray!50, very thin, step=1}
     \draw [thick] \linea;
     \node at (-2, 2.5) {\(f\)};
-%     \draw [-] (\xa, \ya) -- (\xa, 0) node [below, yshift=-8pt] {\(x\)}
-%               (\xa, \ya) -- (\x, \ya)
-%               (\x, \ya) -- (\x, 0); 
-    \draw (\xa, \ya) -- (\xa, 0) node [below, yshift=-8pt] {\(x\)}
-          (\x, 0) -- (\x, \ya) -- (0, \ya) node [left] {\(f(x)\)};
-    \node at (\x, 0) [below, xshift=-5pt] {\footnotesize \(\Delta t\)};
+    \draw (\xb, \yb) -- (\xb, \ya)
+          (\xa, \ya) -- (\xa, 0) node [below, yshift=-8pt] {\(x\)}
+          (\xb, 0) -- (\xb, \ya) -- (0, \ya) node [left] {\(f(x)\)};
+    \node at (\xm, 0) [below] {\footnotesize \(\Delta t\)};
 %     \draw [thin] (\xa, \ya) -- (0, \ya) node [left] {\(f(x)\)};
     \freccia{(3.9, \ym)}{(\xm-.1, \ym)}{right}{\Delta S}
+    \end{scope}
   }
 }
 
