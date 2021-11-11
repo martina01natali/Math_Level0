@@ -1319,11 +1319,11 @@ molti linguaggi di programmazione \(0^0\) dà per risultato 1.
 
 Spesso in matematica abbiamo a che fare con più operazioni combinate 
 assieme.
-In questo caso parliamo di espressioni:
+In questo caso parliamo di espressioni.
 
 \begin{definizione}{}{}
- Un'espressione aritmetica è un modo per rappresentare una successione 
- di operazioni.
+Un'espressione aritmetica è un modo per rappresentare una successione 
+di operazioni.
 \end{definizione}
 
 Nel linguaggio comune alcune frasi possono risultare ambigue, per esempio:
@@ -1359,29 +1359,33 @@ algebrica.]
 Alcune calcolatrici, quelle ``aritmetiche'' svolgono le 
 operazioni man mano che sono inserite, si dice che applicano 
 \emph{l'associatività a sinistra}. Altre, le calcolatrici ``scientifiche'' 
-seguono le regole dell'algebra. Esegui la seguente sequenza di operazioni 
-sulla tua calcolatrice 
+seguono le regole dell'algebra. 
+Esegui la seguente sequenza di operazioni sulla tua calcolatrice 
 (le barre verticali separano i diversi tasti da premere):
 \[|~7~|+|~5~|\times|~2~|=|\]
-\end{osservazione}
-% \pagebreak
-
 Osserva il risultato e confrontalo poi con quello ottenuto dai tuoi 
 compagni. 
 Diverse calcolatrici possono fornire risultati diversi (mai fidarsi delle
 macchine).
+\end{osservazione}
+% \pagebreak
 
 La precedenza algebrica prevede che:
 
 \begin{enumerate} [nosep]
- \item prima si svolgono le espressioni nelle parentesi più interne; 
- \item in una espressione senza parentesi si svolgono prima le potenze, 
-  poi moltiplicazioni e divisioni, poi addizioni e sottrazioni;
- \item le operazioni con la stessa precedenza si svolgono da sinistra verso 
-  destra.
+\item prima si svolgono le espressioni nelle parentesi più interne; 
+\item in una espressione senza parentesi si svolgono 
+\emph{prima le potenze}, 
+\emph{poi moltiplicazioni e divisioni}, 
+\emph{infine addizioni e sottrazioni};
+\item le operazioni con la stessa precedenza si svolgono da sinistra verso 
+destra.
 \end{enumerate}
 
 \subsection{Soluzione con grafo ad albero}
+
+I grafi sono disegni formati da punti collegati tra loro da linee. 
+I grafi ad albero sono dei particolari grafi.
 
 \begin{definizione}{Grafo ad albero}{}
 Un \emph{grafo ad albero} è un disegno formato da punti detti \emph{nodi} 
@@ -1392,7 +1396,7 @@ andare da un nodo ad un altro senza ripassare su un ramo.
 \affiancati{.49}{.49}{
 In un grafo ad albero si può scegliere un nodo come nodo iniziale, questo
 nodo si chiama \emph{radice} la radice è un nodo da cui partono dei rami, 
-a a cui non arriva alcun ramo.
+a cui non arriva alcun ramo.
 I nodi da cui non parte alcun ramo si chiamano \emph{foglie}.
 
 Nell'esempio a fianco, il nodo \emph{n0} è la radice, 
@@ -1403,8 +1407,10 @@ i nodi \emph{n2}, \emph{n3}, \emph{n5}, \emph{n6} e \emph{n7} sono le foglie,
 \albero
 }
 
-Useremo grafi ad albero grafi ad albero per risolvere le espressioni:
+Useremo grafi ad albero per risolvere le espressioni:
 gli operandi sono le foglie dell'albero, il risultato è la radice. 
+Il movimento, in questo caso, va dalle foglie alla radice (come la linfa 
+discendente.
 Costruiamo il grafo tenendo conto delle seguenti indicazioni:
 
 \begin{procedura}{}{}
@@ -1435,6 +1441,8 @@ un'espressione]
 }{
 \begin{inaccessibleblock}[Riempimento del grafo ad albero]
 Poi eseguiamo le operazioni e scriviamo i risultati negli appositi spazi.
+
+\vspace{1em}
  \begin{center} \espalberoa \end{center}
 %   \includegraphics[scale=0.35]{img/op_espr.png}
 \end{inaccessibleblock}
@@ -1467,10 +1475,10 @@ Possiamo applicare le seguenti indicazioni:
 \begin{procedura}{}{}
  Per risolvere un'espressione in modo sequenziale:
 \begin{enumerate} [noitemsep] 
- \item scorriamo tutta l'espressione da sinistra a destra 
- e sottolineiamo tutte le operazioni che si possono eseguire;
- \item riscriviamo l'espressione sostituendo alle operazioni sottolineate,
- nel passo precedente, i loro risultati.
+\item scorriamo tutta l'espressione da sinistra a destra 
+e sottolineiamo tutte le operazioni che si possono eseguire;
+\item riscriviamo l'espressione sostituendo, alle operazioni sottolineate,
+i loro risultati.
 \end{enumerate}
 \end{procedura}
 
@@ -1485,8 +1493,7 @@ moltiplicazione; poiché la moltiplicazione ha la precedenza sull'addizione,
 non possiamo eseguire~\(2 + 6\). La prossima espressione che incontriamo 
 è~\(6 \times 2\) dato che è seguita da una divisione possiamo eseguirla e 
 quindi la sottolineiamo. Procediamo così sottolineando tutte le operazioni
-che possiamo eseguire, a questo punto della soluzione, rispettando le
-precedenze algebriche:
+che possiamo eseguire rispettando le precedenze algebriche:
 
 \noindent Sottolineo: \hspace{28mm} \(2 + 
  \underline{6 \times 2} \div \left[ \underline{\left(4 -2 \right)} 
@@ -1545,9 +1552,9 @@ Con il metodo sequenziale:
 
 \vspace{3mm}
 \(\phantom{= } \underline{3^3} - 
-   \tonda{\underline{5^2} \times 2 - \underline{10^2} : \underline{2^2}} 
+   \tonda{\underline{5^2} \times 2 - \underline{10^2 : 2^2}} 
    =\)\\[.5em]
-\(= 27 - \tonda{\underline{25 \times 2} - \underline{100 : 4}} =\)\\[.5em]
+\(= 27 - \tonda{\underline{25 \times 2} - \underline{5^2}} =\)\\[.5em]
 \(= 27 - \tonda{\underline{50 - 25}} =\)\\[.5em]
 \(= \underline{27 - 25} =\)\\[.5em]
 \(= 2\)
@@ -1570,13 +1577,18 @@ Conoscendo il risultato possiamo trovare il numero mancante.
 \begin{procedura}{}{}
  Per trovare l'operando mancante usando il grafo ad albero:
 \begin{enumerate} [noitemsep]
- \item costruiamo il grafo risolutivo senza eseguire operazioni;
- \item eseguiamo tutte le operazioni possibili;
- \item scriviamo il risultato nella radice;
- \item con un colore diverso completiamo il grafo risalendo fino al numero 
-  mancante.
+%  \item costruiamo il grafo risolutivo senza eseguire operazioni;
+%  \item eseguiamo tutte le operazioni possibili;
+% \item scriviamo il risultato nella radice;
+% \item con un colore diverso completiamo il grafo risalendo fino al numero 
+\item costruiamo il grafo risolutivo eseguendo tutte le operazioni 
+possibili;
+\item con un colore diverso scriviamo il risultato nella radice e 
+completiamo il grafo risalendo fino al numero mancante.
 \end{enumerate}
 \end{procedura}
+
+È più difficile da immaginare che da fare\dots vedi l'esempio.
 
 \begin{esempio}{}{}
 Nella seguente espressione manca un esponente:
@@ -1584,9 +1596,9 @@ Nella seguente espressione manca un esponente:
 \([4 \times 5 + 16 : 2 - (13 - 2^{\dots}) \times 2] : 2 = 9\)
 
 \affiancati{.39}{.59}{
-Costruiamo il grafo risolutivo vuoto, eseguiamo tutte le operazioni 
+Costruiamo il grafo risolutivo eseguendo tutte le operazioni 
 possibili. 
-Ora, usando un colore diverso, scriviamo nella radice il 
+Usando un colore diverso, scriviamo nella radice il 
 risultato dell'espressione. 
 
 Ora poniamo attenzione al nodo vuoto che precede il risultato, 
@@ -1612,25 +1624,25 @@ l'attenzione a quello che lo precede.
  \end{center}
 \end{inaccessibleblock}
 }{Ora dobbiamo trovare quel numero che tolto da~28 dia come risultato~18. 
-Anche questo è facile da trovare: è~10. Lo scriviamo e ci spostiamo
-sul nodo precedente. Procedendo in questo modo possiamo risalire fino
-al dato mancante:
+Anche questo è facile da trovare: è~10. 
+
+Lo scriviamo e ci spostiamo sul nodo precedente. 
+Procedendo in questo modo possiamo risalire fino al dato mancante.
 }
 
 \affiancati{.39}{.59}{
-Partendo da \(28\) per ottenere \(18\) devo togliere \(10\).
+% Partendo da \(28\) per ottenere \(18\) devo togliere \(10\).
 
-Il numero che moltiplicato per \(2\) fa \(10\) è \(5\).
+Il numero che moltiplicato per \(2\) dà \(10\) è \(5\).
 
 Partendo da \(13\) per ottenere \(5\) devo togliere \(8\).
 
 Infine, l'esponente da dare a \(2\) per ottenere \(8\) è \(3\).
 }{
 \begin{inaccessibleblock}[]
- \begin{center}
- \espbucoac
-%   \includegraphics[scale=0.32]{img/op_buco3.png}
- \end{center}
+\begin{center}
+\espbucoac
+\end{center}
 \end{inaccessibleblock}
 }
 \end{esempio}
@@ -1661,16 +1673,16 @@ al nodo vuoto che lo precede.
 % \end{inaccessibleblock}
 }{
 \begin{itemize} [noitemsep]
- \item questo numero meno ottanta deve dare come risultato uno: il numero 
-  cercato è~81; 
- \item nel nodo precedente: qui ci va una potenza che deve dare come 
-  risultato~81, potrebbe essere~\(9^2\) o~\(3^4\), ma dato che sopra posso 
+\item questo numero meno~80 deve dare come risultato~1: il numero 
+cercato è~81; 
+\item nel nodo precedente: qui ci va una potenza che deve dare come 
+risultato~81, potrebbe essere~\(9^2\) o~\(3^4\), ma dato che sopra posso 
 usare 
-  le proprietà delle potenze con base~3, conviene usare~\(3^4\); 
- \item nel nodo precedente: questo esponente meno quindici deve dare come 
-  risultato quattro, l'esponente qui deve essere 19;
- \item e infine: dodici sommato a questo esponente deve dare come risultato 
-  diciannove: il valore mancante è quindi:~7.
+le proprietà delle potenze con base~3, conviene usare~\(3^4\); 
+\item nel nodo precedente: questo esponente meno~15 deve dare come 
+risultato~4, l'esponente qui deve essere~19;
+\item e infine:~12 sommato a questo esponente deve dare come risultato~19: 
+il valore mancante è quindi:~7.
 \end{itemize}
 }
 \end{esempio}
@@ -1679,17 +1691,26 @@ usare
 
 \subsection{Soluzione sequenziale}
 
+% \begin{procedura}{}{}
+% Per trovare l'operando mancante usando il metodo sequenziale:
+% \begin{enumerate} [noitemsep]
+% \item risolviamo l'espressione lasciando il buco ogni volta che 
+% dobbiamo eseguire un'operazione tra un numero e un buco;
+% \item scriviamo il risultato dopo l'ultima operazione;
+% \item con un colore diverso risaliamo dalla soluzione al dato mancante.
+% \end{enumerate}
+% \end{procedura}
+
 \begin{procedura}{}{}
- Per trovare l'operando mancante usando il metodo sequenziale:
+Per trovare l'operando mancante usando il metodo sequenziale:
 \begin{enumerate} [noitemsep]
- \item risolviamo l'espressione lasciando il buco ogni volta che 
-  dobbiamo eseguire un'operazione tra un numero e un buco;
- \item scriviamo il risultato dopo l'ultima operazione;
- \item con un colore diverso risaliamo dalla soluzione al dato mancante.
+\item risolviamo l'espressione lasciando il buco ogni volta che 
+dobbiamo eseguire un'operazione tra un numero e un buco;
+\item con un colore diverso scriviamo il risultato dopo l'ultima operazione
+e risaliamo dalla soluzione al dato mancante.
 \end{enumerate}
 \end{procedura}
 
-%\begin{exrig}
   \begin{esempio}{}{}
 \quad \(\left[ 4 \times 5 + 16 \div 2 -
   \left(13 - 2^{\dots} \right) \times 2 \right] \div 2 = 9\)
@@ -1702,7 +1723,7 @@ poi risaliamo riempiendo i buchi:
 
 \begin{itemize} [noitemsep]
   \item il numero che diviso per~2 dà~9 è~18;
-  \item il numero che tolto da~20 dà~18 è~10;
+  \item il numero che tolto da~28 dà~18 è~10;
   \item il numero che moltiplicato per~2 dà~10 è~5;
   \item il numero che tolto da~13 dà~5 è~8;
   \item l'esponente da dare a~2 per ottenere~8 è~3.
@@ -1769,7 +1790,6 @@ Qui possiamo applicare le proprietà delle potenze:
 La risalita non dovrebbe creare problemi.
 }
 \end{esempio}
-%\end{exrig}
 
 \section{Divisibilità e numeri primi}
 \label{sec:nat_divsibilita}
