@@ -104,10 +104,10 @@ def toxhtml(filename, cstr, ddir):
     print(rf"filename: {filename}, ddir: {ddir}")
     print(rf"cstr: {cstr}")                        # to compile html
     os.system(cstr)
-    cstr = rf'make4ht -m clean {filename}' # to clean builds files
-    print(rf"cstr: {cstr}")
-    print("Cancello i file temporanei.")
-    os.system(cstr)
+##    cstr = rf'make4ht -m clean {filename}' # to clean builds files
+##    print(rf"cstr: {cstr}")
+##    print("Cancello i file temporanei.")
+##    os.system(cstr)
 
 def clean(path):
     """Clean recursiveli the directory an sub dir."""
