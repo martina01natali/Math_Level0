@@ -40,7 +40,7 @@
   \def \fine{#2}
   \def \etichetta{#3}
   \def \parametri{#4}
-  \coordinate [label=\(\Vec{\etichetta}$] (v) at 
+  \coordinate [label=$\Vec{\etichetta}$] (v) at 
                ($((\inizio)+0.5*(\fine)$);
   \draw [#4] [->] (\inizio) --++ (\fine);
 }
@@ -55,8 +55,8 @@
   \def \parametri{#5}
   \coordinate [label=$\Vec{\etichettainizio\etichettafine}$] (N) at 
               ($(0.5*(\inizio)+0.5*(\fine)$);
-  \coordinate [label=\(\etichettainizio$] (A) at (\inizio);
-  \coordinate [label=\(\etichettafine$] (B) at (\fine);
+  \coordinate [label=$\etichettainizio$] (A) at (\inizio);
+  \coordinate [label=$\etichettafine$] (B) at (\fine);
   \draw [#5] [->] (\inizio) -- (\fine);
 }
 
@@ -85,7 +85,7 @@
 
 \newcommand{\asse}[4]{% Asse orizzontale.
   % Esempio di chiamata:
-  %% \disegno{\asse{-7}{+7}{0}{\(t$}
+  %% \disegno{\asse{-7}{+7}{0}{$t$}
   \def \xmi{#1}
   \def \xma{#2}
   \def \posy{#3}
@@ -98,12 +98,12 @@
 \newcommand{\assex}[3]{% Asse x.
   % Esempio di chiamata:
   %% \disegno{\assex{-5}{+5}{0}}
-  \asse{#1}{#2}{#3}{\(x$};
+  \asse{#1}{#2}{#3}{$x$};
 }
 
 % \newcommand{\assecontrattini}[4]{% Asse.
 %   % Esempio di chiamata:
-%   %% \disegno{\assecontrattini{-7}{+7}{0}{\(t$}
+%   %% \disegno{\assecontrattini{-7}{+7}{0}{$t$}
 %   \def \xmi{#1}
 %   \def \xma{#2}
 %   \def \posy{#3}
@@ -124,7 +124,7 @@
     \draw[very thin] (\x, \posy-0.1) -- (+\x, \posy+0.1);
   \draw [-{Stealth[length=2mm, open, round]}] 
         (\xmi-.3, \posy) -- (\xma+.3, \posy); 
-  \node [below] at (\xma+.3, \posy) {\(\var$};
+  \node [below] at (\xma+.3, \posy) {$\var$};
 }
 
 \newcommand{\segmentocontrattini}[3]{% Segmento con trattini.
@@ -141,7 +141,7 @@
 
 % \newcommand{\assecontrattini}[4]{% Asse.
 %   % Esempio di chiamata:
-%   %% \disegno{\assecontrattini{-7}{+7}{0}{\(t$}
+%   %% \disegno{\assecontrattini{-7}{+7}{0}{$t$}
 %   \def \xmi{#1}
 %   \def \xma{#2}
 %   \def \posy{#3}
@@ -184,7 +184,7 @@
 \newcommand{\rcom}[5]{% Riferimento Cartesiano Ortogonale Monometrico: x-y.
   % Esempio di chiamata:
   %% \disegno{\rcom{-7}{+7}{-11}{+10}{gray!50, very thin, step=1}}
-  \rcomvar{#1}{#2}{#3}{#4}{#5}{\(x$}{\(y$}
+  \rcomvar{#1}{#2}{#3}{#4}{#5}{$x$}{$y$}
 }
 
 % \newcommand{\pianoxy}[4]{  % Grafico di una funzione.
@@ -290,9 +290,9 @@
   \def \shift{#5}
   \draw [thin, dashed, \colorline] 
         (\xgno, 0) 
-        node [below=\shift, \colorpoint] {\fontsize{5pt}{5pt}\(\xgno$} -- 
+        node [below=\shift, \colorpoint] {\fontsize{5pt}{5pt}$\xgno$} -- 
         (\xgno, \ygno) -- (0, \ygno) 
-        node [left, \colorpoint] {\fontsize{5pt}{5pt}\(\ygno$};
+        node [left, \colorpoint] {\fontsize{5pt}{5pt}$\ygno$};
   \filldraw (\xgno, \ygno) [\colorpoint] circle(1.5pt);
 }
 
@@ -375,21 +375,21 @@
     \pgfmathparse{round(10*(\fg))/10} \let\xoo\pgfmathresult
     \pgfmathparse{round(10*(\ff))/10} \let\xooo\pgfmathresult
     \begin{scope}[-latex, rounded corners=4]
-      \draw (\slx*6, +\sly*3) node [above] {\(\lab$}
+      \draw (\slx*6, +\sly*3) node [above] {$\lab$}
             (\slx*2, -\sly*2) rectangle ++ (\slx*8, \sly*5);
-      \draw (0, 0) -- (\slx*2, 0) node [midway, yshift=6pt] {\(x=\xo$}; 
+      \draw (0, 0) -- (\slx*2, 0) node [midway, yshift=6pt] {$x=\xo$}; 
       \draw (\slx*2, 0) -- (\slx*3, 0);
-      \draw (\slx*4, +\sly) node [above] {\(\labg$}
+      \draw (\slx*4, +\sly) node [above] {$\labg$}
             (\slx*3, -\sly) rectangle ++ (\latox, \latoy) 
-            node [midway] {\(\labgg$};
+            node [midway] {$\labgg$};
       \draw (\slx*5, 0) -- (\slx*7, 0) 
-            node [midway, yshift=6pt] {\(\labfa(\xo) = \xoo$};
+            node [midway, yshift=6pt] {$\labfa(\xo) = \xoo$};
       \draw (\slx*7, -\sly) rectangle ++ (\latox, \latoy) 
-            node [midway] {\(\labff$}
-            (\slx*8, +\sly) node [above] {\(\labf$};
+            node [midway] {$\labff$}
+            (\slx*8, +\sly) node [above] {$\labf$};
       \draw (\slx*9, 0) -- (\slx*10, 0); 
       \draw (\slx*10, 0) -- (\slx*12.5, 0) 
-            node [midway, yshift=6pt] {\(\labfg = \xooo$};
+            node [midway, yshift=6pt] {$\labfg = \xooo$};
     \end{scope}
   }
 }
@@ -405,8 +405,8 @@
 %   \def \griglia{#5}
 %   \draw[#5] (\xmi-0.3, \ymi-0.3) grid (\xma+0.3, \yma+0.3); % Griglia
 %   \begin{scope}[-{Stealth[length=2mm, open, round]}, black] % Assi
-%     \draw (\xmi-0.3, 0) -- (\xma+0.3, 0) node [below] {\(x$};
-%     \draw (0, \ymi-0.3) -- (0, \yma+0.3) node [left] {\(y$};
+%     \draw (\xmi-0.3, 0) -- (\xma+0.3, 0) node [below] {$x$};
+%     \draw (0, \ymi-0.3) -- (0, \yma+0.3) node [left] {$y$};
 %   \end{scope}
 % % \end{tikzpicture}
 % 
@@ -417,9 +417,9 @@
 % %   \def \ymi{#3}
 % %   \def \yma{#4}
 % %   \def \griglia{#5}
-% %   \coordinate [label=\(x$] (x) at (\xma, 0);     
+% %   \coordinate [label=$x$] (x) at (\xma, 0);     
 % %   \draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
-% %   \coordinate [label=\(y$] (y) at (0, \yma);	
+% %   \coordinate [label=$y$] (y) at (0, \yma);	
 % %   \draw [-{Stealth[length=2mm, open, round]}] (0, \ymi) -- (0, \yma);
 % %   \draw [#5] (\xmi, \ymi) grid (\xma, \yma);
 % % \end{tikzpicture}
@@ -436,9 +436,9 @@
 %   \def \vind{#6}
 %   \def \vdip{#7}
 %   \draw [#5] (\xmi, \ymi) grid (\xma, \yma);
-%   \coordinate [label=\(\vind$] (x) at (\xma, 0);     
+%   \coordinate [label=$\vind$] (x) at (\xma, 0);     
 %   \draw [-{Stealth[length=2mm, open, round]}] (\xmi, 0) -- (\xma, 0);
-%   \coordinate [label=\(\vdip$] (y) at (0, \yma);     
+%   \coordinate [label=$\vdip$] (y) at (0, \yma);     
 %   \draw [-{Stealth[length=2mm, open, round]}] (0, \ymi) -- (0, \yma);
 % }
 
@@ -448,7 +448,7 @@
 	\def \testo{#1}
 	\def \posizione{#2}
 	\def \parametri{#3}
-	\coordinate [label={ #3 \(\testo$}] (T) at (\posizione);
+	\coordinate [label={ #3 $\testo$}] (T) at (\posizione);
 }
 
 \newcommand{\angolodraw}[4]{% Disegna un arco.
@@ -500,7 +500,7 @@
 \begin{comment}
  \draw (1,0) -- (3,2);
 \foreach \i in {0,0.2,0.5,0.9,1}
-\node at (\((1,0)!\i!(3,2)$) {\i};
+\node at ($(1,0)!\i!(3,2)$) {\i};
 
 \begin{scope}[xshift=2.25*#1cm,yshift=2.25*#2cm]
  
@@ -512,27 +512,27 @@
 
 \newcommand{\rettdec}[2][x]{% Retta decrescente
   \def \val{#2}
-  \asse{-3}{+3}{0}{\(#1$}
+  \asse{-3}{+3}{0}{$#1$}
   \draw [-] [ultra thick,blue!50!black] (-3, 1.2) -- (0, 0);
   \draw [-] [ultra thick,red!50!black] (0, 0) -- (+3, -1.2);
-  \draw [black] (0, -.3) -- (0, +.8) node [above] {\(\val$};
+  \draw [black] (0, -.3) -- (0, +.8) node [above] {$\val$};
 }
 
 \newcommand{\rettcre}[2][x]{% Retta crescente
   \def \val{#2}
-  \asse{-3}{+3}{0}{\(#1$}
+  \asse{-3}{+3}{0}{$#1$}
   \draw [-] [ultra thick, red!50!black] (-3, -1.2) -- (0, 0);
   \draw [-] [ultra thick, blue!50!black] (0, 0) -- (+3, +1.2);
-  \draw [black] (0, -.3) -- (0, +.8) node [above] {\(\val$};
+  \draw [black] (0, -.3) -- (0, +.8) node [above] {$\val$};
 }
 
 \newcommand{\rettpos}[1][x]{% Retta positiva
-  \asse{-3}{+3}{0}{\(#1$}
+  \asse{-3}{+3}{0}{$#1$}
   \draw [-] [ultra thick, blue!50!black] (-3.3, +1) -- (+3.3, +1);
 }
 
 \newcommand{\rettneg}[1][x]{% Retta negativa
-  \asse{-3}{+3}{0}{\(#1$}
+  \asse{-3}{+3}{0}{$#1$}
   \draw [-] [ultra thick, red!50!black] (-3.3, -1) -- (+3.3, -1);
 }
 
@@ -545,9 +545,9 @@
 }
 
 \newcommand{\segni}[2]{% Retta crescente
-  \node [xshift=-30, yshift=-2, above] at (0, 0) {\(#1$};
+  \node [xshift=-30, yshift=-2, above] at (0, 0) {$#1$};
   \draw (0, .4) circle (3pt);
-  \node [xshift=30, yshift=-2, above] at (0, 0) {\(#2$};% xshift=+30: ERR!
+  \node [xshift=30, yshift=-2, above] at (0, 0) {$#2$};% xshift=+30: ERR!
 }
 
 \newcommand{\segnidec}[2][x]{% Retta decrescente
@@ -579,10 +579,10 @@
   \def \xf{4.5}
   \def \yi{-.5}
   \disegno{
-  \node at (0, 0) {\(\equazione$};
+  \node at (0, 0) {$\equazione$};
   \foreach \xe\lab [count = \cont]in \variabili
   \draw [-latex] (\xe, \yi) --  (\xe, \cont*\deltay) -- 
-                 (\xf, \cont*\deltay) node [right] {\(\lab$};
+                 (\xf, \cont*\deltay) node [right] {$\lab$};
     }
 }
 
@@ -625,20 +625,20 @@
   \def \labpunti{#6}
   \foreach \li [count = \i] in \labassi{
     \assex{-\dimx}{\dimx}{-\i*\dimy}
-    \node at (-\dimx, -\i*\dimy) (posy) [above left=-.2] {\(\li$};
+    \node at (-\dimx, -\i*\dimy) (posy) [above left=-.2] {$\li$};
   }
   \pgfmathparse{\dimx*2 / (\numpunti+1)} \let\largx\pgfmathresult
   \foreach \li [count = \i] in \labpunti{
     \draw (\i*\largx-\dimx, -\numassi * \dimy) -- (\i*\largx-\dimx, 0)
-          node [above] {\(\li$};
+          node [above] {$\li$};
   }
 }
 
 \newcommand{\segnitreassiduepunti}[7]{% Grafo calcolo del segno con tre assi
   % Esempio di chiamata:
   %% \segnitreassiduepunti{5}{1.2}
-  %%                      {\(8x-1$}{\(x+1$}{\(f(x)$}
-  %%                      {\(-1$}{\(\frac{1}{8}$}
+  %%                      {$8x-1$}{$x+1$}{$f(x)$}
+  %%                      {$-1$}{$\frac{1}{8}$}
   \def \dimx{#1}
   \def \dimy{#2}
   \def \primaesp{#3}
@@ -665,8 +665,8 @@
 disequazioni
   % Esempio di chiamata:
   %% \sistematreassitrepunti{5}{1.2}
-  %%                        {\(D_1$}{\(D_2$}{\(D_1 \wedge D_2$}
-  %%                        {\(-1$}{\(\frac{1}{8}$}{\(\frac{2}{7}$}
+  %%                        {$D_1$}{$D_2$}{$D_1 \wedge D_2$}
+  %%                        {$-1$}{$\frac{1}{8}$}{$\frac{2}{7}$}
   \def \dimx{#1}
   \def \dimy{#2}
   \def \primaesp{#3}
@@ -754,7 +754,7 @@ disequazioni
 % Evidenzia alcuni punti
   % \disegno{\evidenziapunti[red]{(2, 0)/+2, (5, 0)/+5}}}
   \foreach \punto\lab in {#2}{
-    \draw [#1, fill=#1] \punto circle (3pt) node [above, black] {\(\lab$};}
+    \draw [#1, fill=#1] \punto circle (3pt) node [above, black] {$\lab$};}
 }
 
 % \newcommand{\evidenziatuttomeno}[4][blue]{
@@ -780,8 +780,8 @@ disequazioni
 %   \evidenzia{(\posa, \posy)}{(\posb, \posy)}
   \evidenzia{(a)}{(b)}
 %   \draw [blue, thick, decorate, decoration=snake] (a) -- (b);
-  \draw[fill=\inta] (a) circle (3pt) node [above] {\(\labela$};
-  \draw[fill=\intb] (b) circle (3pt) node [above] {\(\labelb$};
+  \draw[fill=\inta] (a) circle (3pt) node [above] {$\labela$};
+  \draw[fill=\intb] (b) circle (3pt) node [above] {$\labelb$};
 }
 
 \newcommand{\intid}[7]{% Intervallo ]a; b[ con disegno e asse
@@ -846,7 +846,7 @@ disequazioni
   \def \lung{#1}
   \disegno{
     \assex{-\lung / 2}{+\lung / 2}{0}
-    \draw[white] (0, 0) node [above] {\(0$};
+    \draw[white] (0, 0) node [above] {$0$};
   }
 }
 
@@ -868,7 +868,7 @@ disequazioni
   \def \intp{#5}
     \coordinate (p) at (\posp, \posy);
     \draw [blue, thick, decorate, decoration=snake] (-\lung, \posy) -- (p);
-    \draw[fill=\intp] (p) circle (3pt) node [above] {\(\labelp$};
+    \draw[fill=\intp] (p) circle (3pt) node [above] {$\labelp$};
 }
 
 \newcommand{\rayr}[5]{% semiretta destra
@@ -880,7 +880,7 @@ disequazioni
   \def \intp{#5}
     \coordinate (p) at (\posp, \posy);
     \draw [blue, thick, decorate, decoration=snake] (p) -- (+\lung, \posy);
-    \draw[fill=\intp] (p) circle (3pt) node [above] {\(\labelp$};
+    \draw[fill=\intp] (p) circle (3pt) node [above] {$\labelp$};
 }
 
 \newcommand{\inte}[8]{% Intervallo esterno
@@ -899,39 +899,39 @@ disequazioni
 % \newcommand{\inticonasse}[8]{% Intervallo interno con asse
 %   % \disegno{\inticonasse{0}{-2}{+2}{a}{b}{white}{black}{x}}
 %   \inti{#1}{#2}{#3}{#4}{#5}{#6}{#7}
-%   \asse{#2-1}{#3+1}{#1}{\(#8$}
+%   \asse{#2-1}{#3+1}{#1}{$#8$}
 % }
 
 \newcommand{\inticonasse}[9]{% Intervallo interno con asse
   % orizzontale da (0, #1) a (#2, #1)
   % \disegno{\inticonasse{posy}{lung}{pa}{pb}{la}{lb}{filla}{fillb}{x}}
   \inti{#1}{#3}{#4}{#5}{#6}{#7}{#8}
-  \asse{0}{#2}{#1}{\(#9$}
+  \asse{0}{#2}{#1}{$#9$}
 }
 
 \newcommand{\raylconasse}[6]{% semiretta sinistra con asse
   % \disegno{\raylconasse{0}{5}{-2}{p}{white}{t}}
   \rayl{#1}{0-.3}{#3}{#4}{#5}
-  \asse{0}{#2}{#1}{\(#6$}
+  \asse{0}{#2}{#1}{$#6$}
 }
 
 \newcommand{\rayrconasse}[6]{% semiretta sinistra con asse
   % \disegno{\raylconasse{posy}{lung}{originesemiretta}{label}{fill}{x}}
   % \disegno{\raylconasse{0}{5}{-2}{p}{white}{}}
   \rayr{#1}{#2+.3}{#3}{#4}{#5}
-  \asse{0}{#2}{#1}{\(#6$}
+  \asse{0}{#2}{#1}{$#6$}
 }
 
 \newcommand{\allx}[3]{% per ogni x
   % \disegno{\allx{0}{10}{x}}
   \draw [blue, thick, decorate, decoration=snake] (-0.3, #1) -- (#2+0.3, #1);
-  \asse{0}{#2}{#1}{\(#3$}
+  \asse{0}{#2}{#1}{$#3$}
   \draw [opacity=0] (0, 0) -- (0, .6);
 }
 
 \newcommand{\emptyx}[3]{% non esiste x
   % \disegno{\raylconasse{0}{5}{-2}{}}
-  \asse{0}{#2}{#1}{\(#3$}
+  \asse{0}{#2}{#1}{$#3$}
   \draw [opacity=0] (0, 0) -- (0, .6);
 }
 
@@ -962,11 +962,11 @@ disequazioni
 %   \begin{tikzpicture}[x=5mm, y=5mm]
 
     \foreach \val [count = \ival] in \rigaa 
-      \node at (\ival*2, 0) {\(\val$};
+      \node at (\ival*2, 0) {$\val$};
     \foreach \val [count = \ival] in \rigab 
-      \node at (\ival*2, -1) {\(\val$};
+      \node at (\ival*2, -1) {$\val$};
     \foreach \val [count = \ival] in \rigac 
-    \node at (\ival*2, -2) {\(\val$};
+    \node at (\ival*2, -2) {$\val$};
 
     \begin{scope}[blue!50!black]
       \draw (3, .5) -- (3, -2.5);
@@ -1110,7 +1110,7 @@ disequazioni
 \newcommand{\grafofunzsx}[3]{% 
   % Funzione rappresentata come scatola nera a sinistra
   % esempio di chiamata:
-  % \disegno[10]{\grafofunzsx{add}{\(\graffa{+7,~+5}$}{\(+12$}}
+  % \disegno[10]{\grafofunzsx{add}{$\graffa{+7,~+5}$}{$+12$}}
   \def \nomef{#1}
   \def \argomento{#2}
   \def \risultato{#3}

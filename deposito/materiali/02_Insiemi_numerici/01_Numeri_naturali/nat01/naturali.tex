@@ -200,7 +200,7 @@ appositi, le cifre, e un sistema per rappresentarli:
 Il modo di scrivere i numeri dei romani risultava piuttosto complicato sia 
 nella scrittura dei numeri sia nell'esecuzione dei calcoli. 
 Il sistema moderno di scrittura dei numeri fa uso dei soli dieci 
-simboli:\quad 0\quad, 1,\quad 2,\quad 3,\quad 4,\quad 5,\quad 
+simboli:\quad 0,\quad 1,\quad 2,\quad 3,\quad 4,\quad 5,\quad 
 6,\quad 7,\quad 8,\quad 9,\quad che vengono detti \emph{cifre}.
 Un numero può essere rappresentato da una sequenza ordinata di cifre, 
 anche ripetute.
@@ -210,7 +210,7 @@ simbolo diverso ma si scrivono due cifre: il simbolo~1 a sinistra e il
 simbolo~0 a destra. 
 Per chiarire questo metodo utilizziamo un pallottoliere con aste 
 verticali capaci di contenere fino a~9 dischetti: 
-un'asta vuota rappresenta la cifra zero aggiungendo dischetti possiamo 
+un'asta vuota rappresenta la cifra zero, aggiungendo dischetti possiamo 
 arrivare alla cifra 9 e così abbiamo riempito tutta un'asta. 
 Se vogliamo aggiungere ancora un dischetto, svuotiamo tutta l'asta e ne 
 mettiamo uno sull'asta più a sinistra.
@@ -793,7 +793,7 @@ naturali} e presenta le seguenti proprietà:
 \end{itemize}
 
 Avendo queste proprietà, la struttura algebrica \(\coppia{\N}{\times}\) 
-viene chiamata \emph{monoide commutativo} (o \emph{abeliano}.
+viene chiamata \emph{monoide commutativo} (o \emph{abeliano}).
 
 % \begin{osservazione}{Struttura algebrica: \(\coppia{\N}{\times}\)}{}
 % \begin{itemize} [noitemsep]
@@ -1199,10 +1199,12 @@ degli esponenti.
 infatti:
 }
 \[a^m \cdot a^n = 
-  \underbrace{(a \cdot a \cdot \ldots \cdot a)}_{m \text{ volte}} \cdot 
-  \underbrace{(a \cdot a \cdot \ldots \cdot a)}_{n \text{ volte}} \cdot 
-  \underbrace{(a \cdot a \cdot a \cdot \ldots \cdot a)}_{p \text{ volte}} =
-  \underbrace{(a \cdot a \cdot a \cdot a \cdot a \cdot \ldots \cdot a 
+  (1 \cdot \underbrace{a \cdot a \cdot \ldots \cdot a}_{m \text{ volte}}) 
+\cdot 
+  (1 \cdot \underbrace{a \cdot a \cdot \ldots \cdot a}_{n \text{ volte}}) 
+\cdot 
+  (1 \cdot \underbrace{a \cdot a \cdot \ldots \cdot a}_{p \text{ volte}}) =
+  (1 \cdot \underbrace{a \cdot a \cdot a \cdot \ldots \cdot a 
   \cdot a)}_{m+n+p\text{ volte}} = a^{m+n+p}\]
 
 \vspace{-1.5em}
@@ -1219,9 +1221,9 @@ infatti:
 }
 \[
  a^m: a^n = \frac{a^m}{a^n}=
- \frac{\overbrace{\cancel{a} \cdot \cancel{a} \cdot \cancel{a} \cdot 
+ \frac{1 \cdot \overbrace{\cancel{a} \cdot \cancel{a} \cdot \cancel{a} \cdot 
                   \ldots \cdot a}^{m \text{ volte}}}
- {\underbrace{\cancel{a} \cdot \cancel{a} \cdot
+ {1 \cdot \underbrace{\cancel{a} \cdot \cancel{a} \cdot
                   \ldots \cdot \cancel{a}}_{n \text{ volte}}}=
  a^{m-n}
 \]
@@ -1237,13 +1239,14 @@ che ha per base la stessa base e per esponente il prodotto degli esponenti.
 }{
 infatti:
 }
-\[(a^m)^n =\overbrace{a^m\cdot a^m\cdot\ldots\cdot a^m}^{n\text{ volte}}%
- =\overbrace{\underbrace{(a\cdot a\cdot\ldots\cdot a)}_{m\text{ 
-volte}}\cdot%
-   \underbrace{(a\cdot a\cdot\ldots\cdot a)}_{m\text{ 
-volte}}\cdot\ldots\cdot%
-   \underbrace{(a\cdot a\cdot\ldots\cdot a)}_{m\text{ 
-volte}}}^{n\text{ volte}}%
+\[(a^m)^n =
+1 \cdot \overbrace{a^m\cdot a^m\cdot\ldots\cdot a^m}^{n\text{ volte}}%
+ =\overbrace{(1 \cdot \underbrace{a\cdot a\cdot\ldots\cdot a}_{m\text{ 
+volte}})\cdot%
+   (1 \cdot \underbrace{a\cdot a\cdot\ldots\cdot a}_{m\text{ 
+volte}})\cdot\ldots\cdot%
+   (1 \cdot \underbrace{a\cdot a\cdot\ldots\cdot a}_{m\text{ 
+volte}})}^{n\text{ volte}}%
    =a^{m\cdot n}\]
    
 \vspace{-1.5em}
@@ -1259,10 +1262,10 @@ esponente.
 infatti:
 }
 \[a^n \cdot b^n=
-  \underbrace{(a \cdot \ldots \cdot a)}_{n\text{ volte}} \cdot
-  \underbrace{(b \cdot \ldots \cdot b)}_{n\text{ volte}} \cdot
-  \underbrace{(c \cdot \ldots \cdot c)}_{n\text{ volte}}=
-  \underbrace{(a \cdot b \cdot c) \cdot (a \cdot b \cdot c) \cdot
+  (1 \cdot \underbrace{a \cdot \ldots \cdot a}_{n\text{ volte}}) \cdot
+  (1 \cdot \underbrace{b \cdot \ldots \cdot b}_{n\text{ volte}}) \cdot
+  (1 \cdot \underbrace{c \cdot \ldots \cdot c}_{n\text{ volte}})=
+  1 \cdot \underbrace{(a \cdot b \cdot c) \cdot (a \cdot b \cdot c) \cdot
               \ldots \cdot (a \cdot b \cdot c)}_{n\text{ volte}}=
    (a \cdot b \cdot c)^n\]
    
@@ -1279,9 +1282,9 @@ stesso esponente.
 infatti:
 }
 \[a^n : b^n = \frac{a^n}{b^n} = 
-  \frac{\overbrace{a\cdot a\cdot\ldots\cdot a}^{n\text{ volte}} }
-       {\underbrace{b\cdot b\cdot\ldots\cdot b}_{n\text{ volte}}}=
-  \underbrace{\frac{a}{b}\cdot \frac{a}{b}\cdot\ldots\cdot
+  \frac{1 \cdot \overbrace{a\cdot a\cdot\ldots\cdot a}^{n\text{ volte}} }
+       {1 \cdot \underbrace{b\cdot b\cdot\ldots\cdot b}_{n\text{ volte}}}=
+  1 \cdot \underbrace{\frac{a}{b}\cdot \frac{a}{b}\cdot\ldots\cdot
               \frac{a}{b}}_{n\text{ volte}}=
    \tonda{\frac{a}{b}}^n\]
 
@@ -1376,13 +1379,14 @@ macchine).
 La precedenza algebrica prevede che:
 
 \begin{enumerate} [nosep]
-\item prima si svolgono le espressioni nelle parentesi più interne; 
 \item in una espressione senza parentesi si svolgono 
 \emph{prima le potenze}, 
 \emph{poi moltiplicazioni e divisioni}, 
 \emph{infine addizioni e sottrazioni};
 \item le operazioni con la stessa precedenza si svolgono da sinistra verso 
-destra.
+destra;
+\item se ci sono parentesi, si svolgono prima le espressioni nelle parentesi 
+più interne. 
 \end{enumerate}
 
 \subsection{Soluzione con grafo ad albero}
@@ -1894,9 +1898,9 @@ Alcuni esempi di resto delle divisioni:
 % \ovalbox{\risolvii \ref{ese:1.2}, \ref{ese:1.3}, \ref{ese:1.4}, 
 %  \ref{ese:1.5}, \ref{ese:1.6}}\vspazio
 
-\subsection{Algoritmo della divisione intera}
+\subsection{Algoritmo della divisione in $\N$}
 
-Ripassiamo l'algoritmo della divisione intera per numeri a più cifre; 
+Ripassiamo l'algoritmo della divisione tra numeri naturali; 
 questo algoritmo risulterà particolarmente utile nel seguito.
 
 \vspace{-6pt}
@@ -2034,10 +2038,10 @@ Dopo queste osservazioni possiamo dare le seguenti definizioni:
 Un numero si dice \emph{primo} se ha esattamente due divisori. 
 \end{definizione}
 
-\begin{definizione}{}{}
-Un numero si dice \emph{quadrato} se è~0 o se ha un numero dispari di 
-divisori. 
-\end{definizione}
+% \begin{definizione}{}{}
+% Un numero si dice \emph{quadrato} se è~0 o se ha un numero dispari di 
+% divisori. 
+% \end{definizione}
 
 \begin{definizione}{}{}
 Un numero si dice \emph{composto} se ha più di due, ma non infiniti, 
@@ -2052,6 +2056,7 @@ divisori.
 \item 2 è l'unico numero primo pari.
 \item Un numero è primo quando non è divisibile per nessun numero 
 primo compreso tra~2 e la radice quadrata del numero.
+\item I numeri con un numero dispari di divisori, sono numeri quadrati.
 \end{itemize}
 \end{osservazioni}
 

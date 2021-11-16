@@ -59,11 +59,11 @@
   \labelwidth=3cm\hspace{%
 \labelsep}\emph{#1}%
 }
-% \newenvironment{enumeratea}{%
-%   \begin{enumerate}[label=\alph*\,)]%
-%     \spazielen}{%
-%   \end{enumerate}%
-% }
+\newenvironment{enumeratea}{%
+  \begin{enumerate}[label=\alph*\,)]%
+    \spazielen}{%
+  \end{enumerate}%
+}
 \newenvironment{enumerate*}{%
   \begin{enumerate}%
     \spazielen}{%
