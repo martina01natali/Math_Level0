@@ -83,6 +83,18 @@
 
 \end{comment}
 
+\newtcolorbox{mybox}[2][]{colback=red!5,
+colframe=red!75!black,fonttitle=\bfseries,
+colbacktitle=red!75!black,enhanced,
+attach boxed title to top center={yshift=-1mm},
+title={#2},#1}
+
+\newcommand{\inicapitolo}[1]{
+\begin{mybox}{In questo capitolo incontrerai:}
+#1
+\end{mybox}
+}
+
 \newtheorem{esercizio}{\color{Sepia}}[chapter]
 
 %--------------------------
@@ -203,60 +215,65 @@
 \newcommand{\croce}{\superscript{\dag}}
 \newcommand{\grado}{\ensuremath{{}^{\circ}}}
 \newcommand{\aC}{a.C.}
-\newsavebox{\boxa}
-\savebox{\boxa}[12pt][c]{\fbox{A}}
-\newcommand{\boxA}{\usebox{\boxa}}
-\newsavebox{\boxar}
-\savebox{\boxar}[12pt][c]{\fbox{AR}}
-\newcommand{\boxAR}{\usebox{\boxar}}
-\newsavebox{\boxas}
-\savebox{\boxas}[12pt][c]{\fbox{AS}}
-\newcommand{\boxAS}{\usebox{\boxas}}
-\newsavebox{\boxb}
-\savebox{\boxb}[12pt][c]{\fbox{B}}
-\newcommand{\boxB}{\usebox{\boxb}}
-\newsavebox{\boxc}
-\savebox{\boxc}[12pt][c]{\fbox{C}}
-\newcommand{\boxC}{\usebox{\boxc}}
-\newsavebox{\boxd}
-\savebox{\boxd}[12pt][c]{\fbox{D}}
-\newcommand{\boxD}{\usebox{\boxd}}
-\newsavebox{\boxdf}
-\savebox{\boxdf}[12pt][c]{\fbox{DF}}
-\newcommand{\boxDF}{\usebox{\boxdf}}
-\newsavebox{\boxdp}
-\savebox{\boxdp}[12pt][c]{\fbox{DP}}
-\newcommand{\boxDP}{\usebox{\boxdp}}
-\newsavebox{\boxe}
-\savebox{\boxe}[12pt][c]{\fbox{E}}
-\newcommand{\boxE}{\usebox{\boxe}}
-\newsavebox{\boxf}
-\savebox{\boxf}[12pt][c]{\fbox{F}}
-\newcommand{\boxF}{\usebox{\boxf}}
-\newsavebox{\boxi}
-\savebox{\boxi}[12pt][c]{\fbox{I}}
-\newcommand{\boxI}{\usebox{\boxi}}
-\newsavebox{\boxno}
-\savebox{\boxno}[12pt][c]{\fbox{No}}
-\newcommand{\boxNo}{\usebox{\boxno}}
-\newsavebox{\boxp}
-\savebox{\boxp}[12pt][c]{\fbox{P}}
-\newcommand{\boxP}{\usebox{\boxp}}
-\newsavebox{\boxr}
-\savebox{\boxr}[12pt][c]{\fbox{R}}
-\newcommand{\boxR}{\usebox{\boxr}}
-\newsavebox{\boxs}
-\savebox{\boxs}[12pt][c]{\fbox{S}}
-\newcommand{\boxS}{\usebox{\boxs}}
-\newsavebox{\boxsi}
-\savebox{\boxsi}[12pt][c]{\fbox{Sì}}
-\newcommand{\boxSi}{\usebox{\boxsi}}
-\newsavebox{\boxt}
-\savebox{\boxt}[12pt][c]{\fbox{T}}
-\newcommand{\boxT}{\usebox{\boxt}}
-\newsavebox{\boxv}
-\savebox{\boxv}[12pt][c]{\fbox{V}}
-\newcommand{\boxV}{\usebox{\boxv}}
+
+% Questo comando al posto di tutti quelli che seguono.
+\newcommand{\fcharbox}[1]{\framebox[12pt]{#1}}
+\newcommand{\verofalso}{\fcharbox{V}\quad\fcharbox{F}}
+
+% \newsavebox{\boxa}
+% \savebox{\boxa}[12pt][c]{\fbox{A}}
+% \newcommand{\boxA}{\usebox{\boxa}}
+% \newsavebox{\boxar}
+% \savebox{\boxar}[12pt][c]{\fbox{AR}}
+% \newcommand{\boxAR}{\usebox{\boxar}}
+% \newsavebox{\boxas}
+% \savebox{\boxas}[12pt][c]{\fbox{AS}}
+% \newcommand{\boxAS}{\usebox{\boxas}}
+% \newsavebox{\boxb}
+% \savebox{\boxb}[12pt][c]{\fbox{B}}
+% \newcommand{\boxB}{\usebox{\boxb}}
+% \newsavebox{\boxc}
+% \savebox{\boxc}[12pt][c]{\fbox{C}}
+% \newcommand{\boxC}{\usebox{\boxc}}
+% \newsavebox{\boxd}
+% \savebox{\boxd}[12pt][c]{\fbox{D}}
+% \newcommand{\boxD}{\usebox{\boxd}}
+% \newsavebox{\boxdf}
+% \savebox{\boxdf}[12pt][c]{\fbox{DF}}
+% \newcommand{\boxDF}{\usebox{\boxdf}}
+% \newsavebox{\boxdp}
+% \savebox{\boxdp}[12pt][c]{\fbox{DP}}
+% \newcommand{\boxDP}{\usebox{\boxdp}}
+% \newsavebox{\boxe}
+% \savebox{\boxe}[12pt][c]{\fbox{E}}
+% \newcommand{\boxE}{\usebox{\boxe}}
+% \newsavebox{\boxf}
+% \savebox{\boxf}[12pt][c]{\fbox{F}}
+% \newcommand{\boxF}{\usebox{\boxf}}
+% \newsavebox{\boxi}
+% \savebox{\boxi}[12pt][c]{\fbox{I}}
+% \newcommand{\boxI}{\usebox{\boxi}}
+% \newsavebox{\boxno}
+% \savebox{\boxno}[12pt][c]{\fbox{No}}
+% \newcommand{\boxNo}{\usebox{\boxno}}
+% \newsavebox{\boxp}
+% \savebox{\boxp}[12pt][c]{\fbox{P}}
+% \newcommand{\boxP}{\usebox{\boxp}}
+% \newsavebox{\boxr}
+% \savebox{\boxr}[12pt][c]{\fbox{R}}
+% \newcommand{\boxR}{\usebox{\boxr}}
+% \newsavebox{\boxs}
+% \savebox{\boxs}[12pt][c]{\fbox{S}}
+% \newcommand{\boxS}{\usebox{\boxs}}
+% \newsavebox{\boxsi}
+% \savebox{\boxsi}[12pt][c]{\fbox{Sì}}
+% \newcommand{\boxSi}{\usebox{\boxsi}}
+% \newsavebox{\boxt}
+% \savebox{\boxt}[12pt][c]{\fbox{T}}
+% \newcommand{\boxT}{\usebox{\boxt}}
+% \newsavebox{\boxv}
+% \savebox{\boxv}[12pt][c]{\fbox{V}}
+% \newcommand{\boxV}{\usebox{\boxv}}
 \endinput
 %%
 %% End of file `matc3.sty'.

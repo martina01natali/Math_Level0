@@ -4,6 +4,9 @@
 % Tutti i grafici per il capitolo interi.tex
 % 
 
+\def \poscolor{blue!70!black}
+\def \negcolor{red!70!black}
+
 \newcommand{\everest}{
 \begin{tikzpicture}[scale=.9]
   % Disegna Everest
@@ -60,6 +63,59 @@ node[below=2pt]{$B$};
 \end{tikzpicture}
 }
 
+\newcommand{\numeroevidenziato}[3]{
+  \def \nexpos{#1}
+  \def \nesegno{#2}
+  \def \nevalass{#3}
+  \begin{scope} [thick, font=\fontsize{18}{18}]
+    \draw
+      (\nexpos, 0) node [circle, inner sep=0pt, 
+                         draw=red!50!black]{$\nesegno$};
+    \draw
+      (\nexpos+1.4, 0) node [rectangle, inner sep=6pt, rounded corners=3pt, 
+                             draw=green!50!black]{$\nevalass$};
+  \end{scope}
+}
+
+\newcommand{\numerointero}{
+  \def \psegno{(-.5, 2)}
+  \def \pmodulo{(+1.5, -2)}
+  \disegno{
+    \numeroevidenziato{-3}{-}{7}
+    \numeroevidenziato{+3}{+}{5}
+    \draw \psegno node [above, red!50!black] {segno};
+    \draw \pmodulo node [below, green!50!black] {valore assoluto};
+    \draw [-latex, thick, red!50!black] 
+      \psegno to [out=215, in=90] (-3, .8);
+    \draw [-latex, thick, red!50!black] 
+      \psegno to [out=305, in=90] (+3, .8);
+    \draw [-latex, thick, green!50!black] 
+      \pmodulo to [out=135, in=-90] (-3+1.4, -.8);
+    \draw [-latex, thick, green!50!black] 
+      \pmodulo to [out=45, in=-90] (+3+1.4, -.8);
+  }
+}
+
+\newcommand{\addizioneesegno}{
+  \def \psegno{(0.7, 2)}
+  \def \psimbo{(0, -2)}
+  \def \csegno {red!50!black}
+  \def \csimbo {green!50!black}
+  \disegno{
+    \draw (0, 0) node {$(+2) ~+~ (+5) ~=~ +8$};
+    \draw \psegno node [above, \csegno] {segno del numero};
+    \begin{scope} [-latex, thick, \csegno] 
+      \draw \psegno to [out=215, in=90] (-2.7, +.5);
+      \draw \psegno to [out=270, in=90] (+0.1, +.5);
+      \draw \psegno to [out=305, in=90] (+2.6, +.5);
+    \end{scope}
+    \draw \psimbo node [below=2pt, \csimbo] {simbolo dell'operazione};
+    \begin{scope} [-latex, thick, \csimbo] 
+      \draw \psimbo to [out=90, in=270] (-1.1, -.3);
+    \end{scope}
+  }
+}
+
 \newcommand{\esec}{
 \begin{tikzpicture}
 
@@ -84,42 +140,77 @@ node[below=2pt]{$B$};
 \end{tikzpicture}
 }
 
-\newcommand{\sommaa}{
-\begin{tikzpicture}[decoration={markings,mark=between positions 0.7 and .9 
-step 30pt with {\arrow{stealth}}}]
-  \begin{scope}[thick,font=\scriptsize]
-   \draw[->] (-160pt,0)  - -  (110pt,0) node[above]{$\Z$};
-    \foreach \c in {-3,-2,...,1}{%
-     \draw[dotted, color=RedOrange,postaction={decorate}](\c,5pt)--(\c,5pt) 
-arc (180:0:0.5 and 0.5);}
-    \foreach \n in {-5,-4,...,0}{%	
-     \draw (\n,-3pt) -- (\n,3pt)   node [below=5pt] {$\n$};}
-    \foreach \m in {1,2,3}{%	
-     \draw (\m,-3pt) -- (\m,3pt)   node [below=5pt] {$+\m$};}
-
-  \end{scope}
- \end{tikzpicture}
+\newcommand{\asseint}[2]{
+  \def \minn{#1}
+  \def \maxn{#2}
+  \asse{\minn}{\maxn + .5}{0}{\dots}
+  \foreach \n in {\minn, ..., 0}{
+    \draw (\n, 0.1) -- (\n, -0.1) node [below] {\footnotesize $\n$};}
+  \foreach \n in {1, ..., +\maxn}{
+    \draw (\n, 0.1) -- (\n, -0.1) node [below] {\footnotesize $+\n$};}
 }
 
-\newcommand{\sommab}{
- \begin{tikzpicture}[decoration={markings,mark=between positions .3 and .5 
-step 30pt with {\arrowreversed{stealth}}}]
-  \begin{scope}[thick,font=\scriptsize]
-   \draw[->] (-160pt,0)  - -  (110pt,0) node[above]{$\Z$};
-    \foreach \c in {-4,-3,-2}{%
-     \draw[dotted, 
-color=CornflowerBlue,postaction={decorate}](\c,5pt)--(\c,5pt) arc (180:0:0.5 
-and 0.5);}
-    \foreach \n in {-5,-4,...,0}{%	
-     \draw (\n,-3pt) -- (\n,3pt)   node [below=5pt] {$\n$};}
-    \foreach \m in {1,2,3}{%	
-     \draw (\m,-3pt) -- (\m,3pt)   node [below=5pt] {$+\m$};}
-
-  \end{scope}
- \end{tikzpicture}
+\newcommand{\intaddline}[5]{
+  \def \intlinmi{#1}
+  \def \intlinma{#2}
+  \def \oa{#3}
+  \def \ob{#4}
+  \def \ris{#5}
+  \pgfmathparse{\ris -1} \let\last\pgfmathresult
+%   \def \maxn{9}
+  \def \oacolor{blue!60!black}
+  \def \obcolor{green!60!black}
+  \def \riscolor{orange!60!black}
+%   \disegno[10]{
+    \asseint{\intlinmi}{\intlinma}
+    \draw (\oa, -0.32) node [\oacolor] {\footnotesize $\boxed{\oa}$}
+          (\ris, -0.32) node [\riscolor] {\footnotesize $\boxed{\ris}$};
+    \foreach \c [count = \n]in {\oa,...,\last}{%
+      \draw [- latex, dotted, thick, color=\obcolor]
+           (\c, 0.2) arc (180:0:0.5 and 0.4);
+      \draw (\c+.5, 0.4) node [\obcolor] {\footnotesize $\n$};}
+%   }
 }
 
-% [table,text width=6mm, name=table, ampersand replacement=\&]
+\newcommand{\intsubline}[5]{
+  \def \intlinmi{#1}
+  \def \intlinma{#2}
+  \def \oa{#3}
+  \def \ob{#4}
+  \def \ris{#5}
+  \pgfmathparse{\ris +1} \let\last\pgfmathresult
+%   \def \maxn{9}
+  \def \oacolor{blue!60!black}
+  \def \obcolor{green!60!black}
+  \def \riscolor{orange!60!black}
+%   \disegno[10]{
+    \asseint{-6}{+6}
+    \draw (\oa, -0.32) node [\oacolor] {\footnotesize $\boxed{\oa}$}
+          (\ris, -0.32) node [\riscolor] {\footnotesize $\boxed{\ris}$};
+    \foreach \c [count = \n]in {\oa,...,\last}{%
+      \draw [- latex, dotted, thick, color=\obcolor]
+           (\c, 0.2) arc (0:180:0.5 and 0.4);
+      \draw (\c-.5, 0.4) node [\obcolor] {\footnotesize $\n$};}
+%   }
+}
+
+\newcommand{\intaddlinea}{
+  \disegno[10]{
+    \intaddline{-6}{+6}{-3}{+5}{+2}
+  }
+}
+
+\newcommand{\intaddlineb}{
+  \disegno[10]{
+    \intsubline{-6}{+6}{-1}{-3}{-4}
+  }
+}
+
+\newcommand{\intsublinea}{
+  \disegno[10]{
+    \intsubline{-6}{+6}{+5}{+7}{-2}
+  }
+}
 
 \newcommand{\sottrazione}{
 \begin{tikzpicture}
@@ -148,18 +239,68 @@ at (0,0)
 \end{tikzpicture}
 }
 
+\newcommand{\sommalgebrica}{
+  \def \intlinmi{-6}
+  \def \intlinma{+6}
+  \def \oa{-5}
+  \def \ob{+7}
+  \def \oc{-2}
+  \def \od{+6}
+  \def \oe{-3}
+  \def \of{-5}
+  \def \ris{-2}
+%   \pgfmathparse{\ris -1} \let\last\pgfmathresult
+  \def \oacolor{blue!60!black}
+  \def \obcolor{green!60!black}
+  \def \riscolor{orange!60!black}
+  \disegno[10]{
+    \asseint{\intlinmi}{\intlinma}
+    \draw (\oa, -0.32) node [\oacolor] {\footnotesize $\boxed{\oa}$}
+          (\ris, -0.32) node [\riscolor] {\footnotesize $\boxed{\ris}$};
+    \let \startval \oa
+    \pgfmathparse{\startval + \ob} \let\endval\pgfmathresult
+    \draw [-latex, \poscolor] (\startval, .3) to [out=70, in=110] 
+          node [below] {\ob} (\endval, .3);
+%     \node at (-3, -1) {\startval}; \node at (+3, -1) {\endval};
+    \let \startval \endval
+    \pgfmathparse{\startval + \oc} \let\endval\pgfmathresult
+    \draw [-latex, \negcolor] (\startval, .3) to [out=90, in=90] 
+          node [below] {\oc} (\endval, .3);
+    \let \startval \endval
+    \pgfmathparse{\startval + \od} \let\endval\pgfmathresult
+    \draw [-latex, \poscolor] (\startval, .3) to [out=80, in=100] 
+          node [below] {\od} (\endval, .3);
+    \let \startval \endval
+    \pgfmathparse{\startval + \oe} \let\endval\pgfmathresult
+    \draw [-latex, \negcolor] (\startval, .3) to [out=90, in=90] 
+          node [below] {\oe} (\endval, .3);
+    \let \startval \endval
+    \pgfmathparse{\startval + \of} \let\endval\pgfmathresult
+    \draw [-latex, \negcolor] (\startval, .3) to [out=90, in=90] 
+          node [below] {\of} (\endval, .3);
+  }
+}
+
 \newcommand{\moltsegni}{
-\begin{tikzpicture}[font=\Huge]
+\begin{tikzpicture}[font=\huge]
 
 \matrix (segni) [matrix of nodes, ampersand replacement=\&]{%
- $\cdot$ \& $+$  \& $-$\\
+ $\times$ \& $+$  \& $-$\\
  $+$ \& $+$  \&$-$\\
  $-$ \& $-$  \&$+$\\
 };
 
   \begin{scope}[thin, blue]
-    \draw (segni-2-1.north west)--(segni-2-3.north east);
-    \draw (segni-1-2.north west)--(segni-3-2.south west);
+%     foreach \i in {1, 2, 3}{ % non funziona!!
+%     \draw (segni-\i-1.south west)--(segni-\i-3.south east);
+%     \draw (segni-1-\i.north east)--(segni-3-\i.south east);
+%     }
+    \draw (segni-1-1.south west)--(segni-1-3.south east);
+    \draw (segni-2-1.south west)--(segni-2-3.south east);
+    \draw (segni-3-1.south west)--(segni-3-3.south east);
+    \draw (segni-1-1.north east)--(segni-3-1.south east);
+    \draw (segni-1-2.north east)--(segni-3-2.south east);
+    \draw (segni-1-3.north east)--(segni-3-3.south east);
   \end{scope}
 \end{tikzpicture}
 }

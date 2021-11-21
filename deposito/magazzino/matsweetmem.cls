@@ -74,9 +74,9 @@
     \spazielen}{%
   \end{itemize}%
 }
-\newenvironment{exrig}{%
-  \vskip2mm\hrule\vskip2mm}{%
-  \hrule\vskip2mm}
+% \newenvironment{exrig}{%
+%   \vskip2mm\hrule\vskip2mm}{%
+%   \hrule\vskip2mm}
 % \theoremstyle{definition}
 % \newtheorem{definizione}{Definizione}[chapter]
 % % \newshadetheorem{definizione}{Definizione}[chapter]

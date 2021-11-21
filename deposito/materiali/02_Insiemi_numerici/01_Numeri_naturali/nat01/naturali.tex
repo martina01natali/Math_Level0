@@ -6,18 +6,6 @@
 
 \chapter{Numeri naturali}
 
-\newtcolorbox{mybox}[2][]{colback=red!5,
-colframe=red!75!black,fonttitle=\bfseries,
-colbacktitle=red!75!black,enhanced,
-attach boxed title to top center={yshift=-1mm},
-title={#2},#1}
-
-\newcommand{\inicapitolo}[1]{
-\begin{mybox}{In questo capitolo incontrerai:}
-#1
-\end{mybox}
-}
-
 \inicapitolo{
 \begin{itemize}
 \item i numeri naturali;
@@ -524,7 +512,7 @@ successore per~5 volte.
 \centering
 \[3+5=8\]
 
-\addline
+\nataddline
 }{
  \centering
 \begin{inaccessibleblock}[Descrizione immagine: semiretta dei numeri 
@@ -616,7 +604,7 @@ procedendo a ritroso di~5 posizioni.
  \centering
  \[7-5=2 \stext{ perché } 2+5=7\]
  
-\subline
+\natsublinea
 }{
  \centering
 \begin{inaccessibleblock}[Descrizione immagine: semiretta dei naturali con 
@@ -635,7 +623,7 @@ usciamo dalla semiretta dei numeri naturali.
 \begin{inaccessibleblock}[Descrizione immagine: semiretta dei numeri reali 
 con spostamenti a sinistra oltre lo 0]
 
-\sublineb
+\natsublineb
 \end{inaccessibleblock}
 
 Questo corrisponde al fatto che se ho solo~5 oggetti non ne posso 
@@ -1061,22 +1049,24 @@ Solo se la sottrazione è a sinistra:
 
 \vspace{.5em}
 Se, però, la sottrazione è a destra:
+
+\vspace{-1.5em}
 \[120 : (5 - 3) = 120 : 2 = 60 ~\neq~ 
 120 : 5 - 120 : 3 = 24 - 40 = \stext{che non ha soluzione in \N}\]
 
 % \ovalbox{\risolvii \ref{ese:1.8}, \ref{ese:1.9}}
 
 Avendo queste proprietà, la struttura algebrica \(\terna{\N}{+}{\times}\) 
-viene chiamata \emph{semianello commutativo} (o \emph{abeliano}.
+viene chiamata \emph{semianello commutativo} (o \emph{abeliano}).
 
 \begin{osservazione}{}{}
 Nonostante la grande utilità dei numeri naturali e il fascino dei problemi 
 presenti nei naturali che non sono ancora risolti, una struttura a 
 semianello è piuttosto debole:
-non permette di risolvere equazioni del tipo \(ax +b = 0\).
-Nei prossimi capitoli introdurremo altri insiemi numerici che permettono di 
-risolvere problemi sempre più complessi, ma, per ora, approfondiamo ancora un 
-po' la conoscenza di \(\N\).
+non permette di risolvere neppure equazioni del tipo \(ax \mp b = 0\).
+% Nei prossimi capitoli introdurremo altri insiemi numerici che permettono di 
+% risolvere problemi sempre più complessi, ma, per ora, approfondiamo ancora 
+% un po' la conoscenza di \(\N\).
 \end{osservazione}
 
 
@@ -1097,14 +1087,16 @@ La \emph{potenza} di un numero naturale è una moltiplicazione che ha tutti
 i fattori uguali.
 
 \begin{definizione}{Potenza}{}
-Dati due numeri naturali~\(b\) e ~\(e\) \emph{non entrambi nulli},
+Dati due numeri naturali~~\(b\)~~e~~\(e\),~~\emph{non entrambi nulli}, 
 l'operazione di \emph{potenza} 
 associa un terzo numero~\(p\) che si ottiene moltiplicando~1 per 
 \(e\) fattori uguali a~\(b\):
+
+\vspace{-1em}
 \begin{inaccessibleblock}[Definizione di potenza come prodotti ripetuti.]
 \[\text{Se~} b = 0 \stext{e} e = 0 \quad b^e 
   \stext{non è definita \qquad altrimenti}
-  b^e = 1 \cdot \underbrace{b \cdot b \cdot \dots \cdot b}_{\text{e volte}} 
+  b^e = 1 \cdot \underbrace{b \cdot b \cdot \dots \cdot b}_{e~\text{ volte}} 
   = p\]
 Gli operandi si chiamano \emph{base} e \emph{esponente} mentre il 
 risultato si chiama \emph{potenza}.
@@ -1137,15 +1129,12 @@ risultato si chiama \emph{potenza}.
 %  \includegraphics[scale=0.35]{img/op_pot.png}
 }
 
-Da osservare che~\(0^0\) non è definito.
-
 \subsubsection{Funzione potenza}
 
-La potenza è una funzione che ha come \emph{argomento} una \emph{coppia 
-ordinata} di numeri naturali e dà come \emph{risultato} un \emph{numero 
-naturale}:
+La potenza è una funzione che ha come \emph{argomenti due numeri naturali} e 
+dà come \emph{risultato} un \emph{numero naturale}:
 
-\vspace{.5em}
+% \vspace{.5em}
 \affiancati{.49}{.49}{
 \begin{center}
 \begin{inaccessibleblock}
@@ -1186,6 +1175,12 @@ naturale}:
 }
 
 \subsection{Proprietà delle potenze}
+
+Nei numeri naturali, la potenza è una legge di composizione interna ma non è 
+né associativa, né commutativa.
+Presenta comunque cinque proprietà importanti perché verranno utilizzate 
+all'interno di altri argomenti che incontreremo in seguito come, ad esempio, 
+nel calcolo letterale e nello studio di funzioni esponenziali e logaritmiche.
 
 \paragraph{1. Il prodotto di più potenze con la stessa base} 
 è una potenza che ha per base la stessa base e per esponente la somma 
@@ -1287,6 +1282,8 @@ infatti:
   1 \cdot \underbrace{\frac{a}{b}\cdot \frac{a}{b}\cdot\ldots\cdot
               \frac{a}{b}}_{n\text{ volte}}=
    \tonda{\frac{a}{b}}^n\]
+
+% \pagebreak %--------------------------------------
 
 \bigskip %--------------------------------------
 
@@ -2108,9 +2105,9 @@ per~2 e per~3.
 e un numero maggiore di~10 è divisibile per~7 se la differenza, 
 in valore assoluto, fra il numero ottenuto togliendo la cifra delle unità 
 e il doppio della cifra delle unità è divisibile per~7.\\
-Il numero~252 è divisibile per~7, infatti~\( \modulo{25 -~2\cdot 2}=~21\) è 
+Il numero~252 è divisibile per~7, infatti~\( \valass{25 -~2\cdot 2}=~21\) è 
 multiplo di~7.\\
-Il numero~887 non è divisibile per~7, infatti~\(\modulo{88 -~2\cdot 7}=~74\) 
+Il numero~887 non è divisibile per~7, infatti~\(\valass{88 -~2\cdot 7}=~74\) 
 che non è divisibile per~7.
 \item[\textbf{8}:~] 0,~8,~16,~24,~32,~\dots,~200,~\dots,~992, sono 
 divisibili per~8 
@@ -2126,8 +2123,8 @@ ultima cifra è divisibile per~10.
 e un numero è divisibile per~11 se e solo se la differenza, 
 in valore assoluto, fra la somma delle cifre di posto pari e la somma delle 
 cifre di posto dispari è un numero divisibile per~11.\\
-Il numero~253 è divisibile per~11, infatti~\(\modulo{5-(2+3)} =~0\);\\
-Il numero~887 non è divisibile per~11, infatti~\(\modulo{8-(8+7)}=~7\).
+Il numero~253 è divisibile per~11, infatti~\(\valass{5-(2+3)} =~0\);\\
+Il numero~887 non è divisibile per~11, infatti~\(\valass{8-(8+7)}=~7\).
 \item[\textbf{12}:~] Un numero è divisibile per~12 se è 
 divisibile 
 per~3 e per~4.
