@@ -45,9 +45,7 @@ altri ancora <<la temperatura sarà di~\(-1\) grado>>.
 \affiancati{.49}{.49}{
 \begin{inaccessibleblock}[Rappresentazione del monte Everest e della fossa 
 delle Marianne]
-\everest
-%  \input{\folder lbr/fig001_everest.pgf}
-%  \caption{Il monte Everest e la fossa delle Marianne.}
+\scalebox{.9}{\everest}
 \label{fig:everest}
 \end{inaccessibleblock}
 }{
@@ -87,8 +85,7 @@ Ripetiamo l'operazione partendo dallo zero, ma con il verso di percorrenza
 a sinistra: ai punti trovati associamo gli interi negativi.
 
 \begin{center}
-\rettainteri
-%  \input{\folder lbr/fig002_rettainteri.pgf}
+\intrappgeo
 \end{center}
 
 Possiamo interpretare questi numeri come il numero di passi da fare sulla 
@@ -138,7 +135,7 @@ Concordi-discordi.
 
 \begin{definizione}{Valore assoluto}{}
 La funzione \emph{valore assoluto} (\(abs(n)\)) se riceve come argomento 
-un numero intero relativo dà come risultato un numero intero non negativo.
+un numero intero qualsiasi dà come risultato un numero intero non negativo.
 È definita come:
 \[abs(x) = 
 \sistema{-x & \stext{ se } & x < 0 \\ +x & \stext{ se } & x \geqslant 0}\]
@@ -155,8 +152,8 @@ matematico:
 
 \begin{esempio}{}{}
 Valore assoluto: \qquad
-\(\valass{+2}=2 \quad \valass{-5}=5 \quad 
-\valass{-73}=73 \quad \valass{+13}=13\)
+\(\valass{+2}=+2 \quad \valass{-5}=+5 \quad 
+\valass{-73}=+73 \quad \valass{+13}=+13\)
 \end{esempio}
 
 \begin{definizione}{}{}
@@ -172,12 +169,12 @@ Sono numeri opposti: \qquad \(+3\) e \(-3\) \quad \(+5\) e \(-5\)
 \end{esempio}
 
 Numeri opposti hanno lo stesso valore assoluto: \qquad 
-\(\valass{-17} = \valass{+17} = 17\)
+\(\valass{-17} = \valass{+17} = +17\)
 
 \section{Confronto di numeri relativi}
 \label{sec:int_confronto}
 
-Usando la rappresentazione dei numeri sulla retta l'ordinamento risulta più 
+Usando la rappresentazione dei numeri sulla retta l'ordinamento risulta 
 facile da verificare:
 il verso di percorrenza della retta (la freccia) indica la direzione nella 
 quale i numeri crescono.
@@ -194,21 +191,11 @@ Le seguenti tre regole permettono di confrontare due numeri interi qualunque.
 positivo è maggiore di~0;
 \item tra due numeri positivi il più grande è quello che ha valore 
 assoluto maggiore;
-% \item ogni numero negativo è minore di~0 e di ogni numero positivo;
 \item tra due numeri negativi il più grande è quello che ha valore 
 assoluto minore.
-% \item 0 è minore di ogni numero positivo e maggiore di ogni numero 
-% negativo.
 \end{enumerate}
 
 \end{definizione}
-
-% Per indicare che un numero è maggiore di un altro si usa separare i due 
-% numeri 
-% con il
-% simbolo~``\(>\)''; per indicare che il primo è minore del secondo si usa 
-% mettere 
-% tra i due numeri il simbolo~``\(<\)''.
 
 \begin{esempio}{}{}
 Confronta le seguenti coppie di numeri.
@@ -217,10 +204,11 @@ Confronta le seguenti coppie di numeri.
 valore assoluto maggiore;
 \item \(-1 > -3\): i due numeri sono negativi, il maggiore è~\(-1\) perché 
 ha valore assoluto minore;
-\item \(+4 > -2\): il numero positivo è maggiore del numero negativo;
+\item \(+4 > -5\): i numeri positivi sono maggiori dei numeri negativi;
 \item \(+4 > 0\): ogni numero positivo è maggiore di~0;
-\item \(0 > -2\): ogni numero negativo è minore di~0.
+\item \(0 > -3\): ogni numero negativo è minore di~0.
 \end{itemize*}
+\begin{center} \rettaconfronto \end{center}
 \end{esempio}
 
 % \vspazio\ovalbox{\risolvii \ref{ese:2.1}, \ref{ese:2.2}, \ref{ese:2.3}, 
@@ -305,7 +293,6 @@ il numero che ha valore assoluto maggiore è~\(-7\), quindi il risultato ha
 segno negativo.
 In definitiva~\((+3)+(-7)=-4\)
 \end{esempio}
-%\end{exrig}
 
 L'addizione si può rappresentare nella retta dei numeri come l'azione di 
 partire dal punto indicato dal primo operando e 
@@ -316,15 +303,10 @@ se è negativo ci si muove verso contrario.
 \begin{center}
 \intaddlinea
 
-% \sommaa
-%  \input{\folder lbr/fig004_somma1.pgf}
 \end{center}
 \[ (-1)+(-3) = -4\]
 \begin{center}
 \intaddlineb
-
-% \sommab
-%  \input{\folder lbr/fig005_somma2.pgf}
 \end{center}
 
 \subsubsection{Proprietà dell'addizione in \(\Z\)}
@@ -358,24 +340,32 @@ La nuova proprietà dell'addizione (l'esistenza dell'opposto di ogni numero)
 trasforma la sottrazione in un'operazione interna agli interi.
 Una funzione che per qualunque coppia di argomenti interi dà come risultato 
 un numero intero.
-
-Anzi, non solo la sottrazione si può sempre eseguire, ma addirittura non 
-servirà più\dots\\
+Anzi, non solo la sottrazione si può sempre eseguire, ma addirittura \dots 
+non servirà più!
 Ma andiamo con ordine.
+
+\vspace{-1em}
 \[(+5) - (+7) = -2 \stext{ perché } (-2) + (+7) = +5\]
 
 \intsublinea
 
-La sottrazione tra due numeri relativi si esegue facendo la somma del primo 
-numero con l'opposto del secondo.
+\begin{definizione}{Differenza in \(\Z\)}{}
+La differenza di due numeri relativi si ottiene aggiungendo al primo 
+numero l'opposto del secondo.
+
+\vspace{-2em}
+\[a - b = (+a) - (+b) = a + (-b) \sstext{perché:} 
+  (+a) + (-b) + (+b) = a + 0 = a\]
+\end{definizione}
+
 La funzione sottrazione è quindi definita per qualunque coppia ordinata di 
 numeri relativi.
 
-\bigskip
+\vspace{1em}
 \affiancati{.54}{.44}{
 \begin{esempio}{}{}
 Sottrazione di numeri relativi.
-\begin{enumerate} [label=(\alph*)]
+\begin{enumerate} [noitemsep, label=(\alph*)]
 \item \((+2)-(+3)=(+2)+(-3)=-1\)
 \item \((+3)-(-7)=(+3)+(+7)=+10\)
 % \item \((+1)-(+3)=(+1)+(-3)=-2\)
@@ -386,12 +376,8 @@ Sottrazione di numeri relativi.
 %\end{exrig}
 }{
 \begin{inaccessibleblock}[Figura: TODO]
-%  \begin{figure}[t]
 \centering
 \scalebox{.8}{\sottrazione}
-%  \input{\folder lbr/fig006_sottrazione.pgf}
-%  \caption{Esempio~2.9.a.}
-% \end{figure}
 \end{inaccessibleblock}
 }
 % \ovalbox{\risolvii \ref{ese:2.9}, \ref{ese:2.10}, \ref{ese:2.11}, 
@@ -412,8 +398,10 @@ utilizzando soltanto l'operazione di addizione e omettendo di scrivere
 il segno~``\(+\)'' dell'addizione. 
 Questo tipo di addizione tra numeri relativi si chiama somma algebrica.
 Facciamolo passo passo:
+
+\vspace{-1em}
 \[(-5)-(-7)+(-2)+(+6)-(+3)+(-5) =\]
-all'interno delle parentesi ci sono i segni dei numeri e fuori i simboli 
+all'interno delle parentesi ci sono i segni dei numeri e, fuori, i simboli 
 delle operazioni.\\
 Eliminiamo le sottrazioni trasformandole in addizioni 
 con l'opposto del sottraendo:
@@ -427,14 +415,12 @@ eliminiamo tutti i simboli di addizione e le parentesi:
 ottenendo così una somma algebrica dove i simboli di addizione sono 
 sottintesi: 
 
-\vspace{-.5em}
+\vspace{-1em}
 \begin{center}
-\(= -5\) \quad più \(+7\) \quad più \(-2\) \quad più \(+6\) 
-\quad più \(-3\) \quad più \(-5 =\)\\
+\(= -5\) \quad più \quad \(+7\) \quad più \quad \(-2\) \quad più \quad 
+\(+6\) \quad più \quad \(-3\) \quad più \quad \(-5 =\)\\
 \end{center}
 
-
-\bigskip
 Ora possiamo risolverla andando in ordine:
 \begin{enumerate} [nosep]
 \item sulla retta, partiamo da \(-5\);
@@ -515,8 +501,10 @@ di due numeri negativi deve essere un numero positivo.
 Possiamo sintetizzare quanto visto nella seguente
 
 \begin{definizione}{Prodotto di numeri relativi}{}
-Il \emph{prodotto di due numeri interi relativi} è il numero intero avente 
-come valore assoluto il prodotto dei valori assoluti dei fattori e come segno 
+Il \emph{prodotto di due numeri interi relativi} è~0 se uno dei due 
+fattori è~0, altrimenti è il numero intero avente 
+come valore assoluto il prodotto dei valori assoluti dei fattori e 
+come segno 
 il segno~``\(+\)'' se i fattori sono concordi,
 il segno~``\(-\)'' se i fattori sono discordi.
 \end{definizione}
@@ -536,6 +524,9 @@ e i numeri sono concordi, quindi: \((-20) \cdot (-4) = +80\).
 \item \((+8) \cdot (+7) =\) 
 il prodotto dei valori assoluti è \(8 \cdot 7 = 56\) 
 e i numeri sono concordi, quindi: \((+8) \cdot (+7) = +56\).
+\item \((+8) \cdot (0) =\) 
+\(+8\) e  \(0\) non sono né concordi né discordi dato che 0 non è né 
+positivo né negativo, ma il prodotto di un numero per~0 è sempre~0.
 \end{enumeratea}
 \end{esempio}
 
@@ -555,6 +546,7 @@ negativo se il segno meno è presente in un numero dispari di fattori
 mentre se il segno negativo è presente un numero pari di volte il prodotto 
 è positivo.
 
+\pagebreak %----------------------------------------
 \subsubsection{Proprietà della moltiplicazione in \(\Z\)}
 
 La moltiplicazione in \(\Z\) può essere vista come una funzione che ha per 

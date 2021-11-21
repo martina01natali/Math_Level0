@@ -8,59 +8,54 @@
 \def \negcolor{red!70!black}
 
 \newcommand{\everest}{
-\begin{tikzpicture}[scale=.9]
-  % Disegna Everest
-  \filldraw[fill=gray!70, draw=black] (0,0)-- (4mm,7mm)-- 
-(10mm,14mm)--(13mm,16mm)-- (15mm,19mm)--(17mm,17mm)--%
-	    (19mm,16.5mm)--(24mm,0);
-  % Disegna Fossa delle Marianne
-  \filldraw[fill=blue!70, 
-draw=black](28mm,0)--(31mm,-6mm)--(35mm,-8mm)--(37mm,-15mm)--(42mm,-20mm)-- 
-(49mm,-21mm)--%
-	    (51mm, -17mm)--(52mm, -5mm)--(55mm,0);
-  % Disegna il livello del mare 
-  \draw[thick] (-5mm,0) -- (60mm,0);
-
-  \begin{scope}[font=\scriptsize]
-    % Posiziona altezze
-    \node[left] (0)at (-5mm,0) {$0\unit{m}$};
-    \node [above](everest) at (15mm,19mm) {$+8\,855\unit{m}$};
-    \node [below](marianne) at (49mm,-21mm) {$-10\,916\unit{m}$};
-    % Posiziona etichette
-    \node (testo1) at (44mm,9.5mm) {Monte Everest};
-    \node (testo2) at (12mm,-5mm) {Livello  del mare};
-    \node (testo3) at (12mm,-12mm) {Fossa delle Marianne};
-  \end{scope}
-  % Disegna frecce
-  \draw[<-,red ] (everest) .. controls +(right:10mm) and +(up:10mm) .. 
-node[]{} (testo1);
-  \draw[<-, blue](0)..controls +(down:5mm) and +(left:19mm)..node[]{} 
-(testo2);
-  \draw[<-, brown](marianne)..controls +(left:10mm) and +(down:13mm)..node[]{} 
-(testo3);
-
-\end{tikzpicture}
+  \disegno{
+    % Disegna Everest
+    \filldraw[fill=gray!70, draw=black] 
+      (0,0) -- (4mm,7mm) -- (10mm,14mm) -- (13mm,16mm) -- 
+      (15mm,19mm) -- (17mm,17mm) -- (19mm,16.5mm) -- (24mm,0);
+    % Disegna Fossa delle Marianne
+    \filldraw[fill=blue!70, draw=black]
+      (28mm, 0) -- (31mm, -6mm) -- (35mm, -8mm) -- (37mm, -15mm) -- 
+      (42mm, -20mm) -- (49mm, -21mm) -- (51mm, -17mm) -- 
+      (52mm, -5mm) -- (55mm, 0);
+    % Disegna il livello del mare 
+    \draw[thick] (-5mm,0) -- (60mm,0);
+    \begin{scope}[font=\scriptsize]
+      % Posiziona altezze
+      \node[left] (0)at (-5mm,0) {$0\unit{m}$};
+      \node [above](everest) at (15mm,19mm) {$+8\,855\unit{m}$};
+      \node [below](marianne) at (49mm,-21mm) {$-10\,916\unit{m}$};
+      % Posiziona etichette
+      \node (testo1) at (44mm,9.5mm) {Monte Everest};
+      \node (testo2) at (12mm,-5mm) {Livello  del mare};
+      \node (testo3) at (12mm,-12mm) {Fossa delle Marianne};
+    \end{scope}
+    % Disegna frecce
+    \draw[<-,red ] (everest) .. controls +(right:10mm) and +(up:10mm) .. 
+      node[]{} (testo1);
+    \draw[<-, blue](0)..controls +(down:5mm) and +(left:19mm)..
+      node[]{} (testo2);
+    \draw[<-, brown](marianne)..controls +(left:10mm) and +(down:13mm)..
+      node[]{} (testo3);
+  }
 }
 
-\newcommand{\rettainteri}{
-\begin{tikzpicture}
-\begin{scope}[thick,font=\scriptsize]
-  \draw[->] (-160pt,0)  - -  (160pt,0) node[above]{$\Z$};	
-    \foreach \n in {-5,-4,...,0}{%
-      \draw (\n,-3pt) -- (\n,3pt)   node [below=5pt] {$\n$};		
-    }
+\newcommand{\asseint}[2]{
+  \def \minn{#1}
+  \def \maxn{#2}
+  \asse{\minn - .5}{\maxn + .5}{0}{\dots}
+  \draw (\minn - .5, 0) node [below] {\dots};
+  \foreach \n in {\minn, ..., 0}{
+    \draw (\n, 0.1) -- (\n, -0.1) node [below] {\footnotesize $\n$};}
+  \foreach \n in {1, ..., +\maxn}{
+    \draw (\n, 0.1) -- (\n, -0.1) node [below] {\footnotesize $+\n$};}
+}
 
-    \foreach \m in {1,2,...,5}{%
-      \draw (\m,-3pt) -- (\m,3pt) node [below=5pt]{+$\m$};
-    }
-  
-    \draw[|-|]node [below=22pt]{$A$}(0,-20pt)--(29pt,-20pt) 
-node[below=2pt]{$B$};
-
-    \node [right] at (+35pt,-20pt) {unit\`a};
-\end{scope}
-
-\end{tikzpicture}
+\newcommand{\intrappgeo}{
+  \disegno[10]{
+    \asseint{-6}{+6}
+    \draw[|-|] (0, -.8) -- (1, -.8) node [right, font=\scriptsize] {unità};
+  }
 }
 
 \newcommand{\numeroevidenziato}[3]{
@@ -68,12 +63,11 @@ node[below=2pt]{$B$};
   \def \nesegno{#2}
   \def \nevalass{#3}
   \begin{scope} [thick, font=\fontsize{18}{18}]
-    \draw
-      (\nexpos, 0) node [circle, inner sep=0pt, 
-                         draw=red!50!black]{$\nesegno$};
-    \draw
-      (\nexpos+1.4, 0) node [rectangle, inner sep=6pt, rounded corners=3pt, 
-                             draw=green!50!black]{$\nevalass$};
+    \draw (\nexpos, 0) 
+      node [circle, inner sep=0pt, draw=red!50!black]{$\nesegno$};
+    \draw (\nexpos+1.4, 0) 
+      node [rectangle, inner sep=6pt, rounded corners=3pt,
+            draw=green!50!black] {$\nevalass$};
   \end{scope}
 }
 
@@ -93,6 +87,14 @@ node[below=2pt]{$B$};
       \pmodulo to [out=135, in=-90] (-3+1.4, -.8);
     \draw [-latex, thick, green!50!black] 
       \pmodulo to [out=45, in=-90] (+3+1.4, -.8);
+  }
+}
+
+\newcommand{\rettaconfronto}{
+  \disegno[10]{
+    \asseint{-6}{+5}
+    \foreach \n in {-5, -3, -1, 0, +4}{
+      \draw (\n, -0.32) node [blue!50!black] {\footnotesize $\boxed{\n}$};}
   }
 }
 
@@ -116,40 +118,6 @@ node[below=2pt]{$B$};
   }
 }
 
-\newcommand{\esec}{
-\begin{tikzpicture}
-
-\begin{scope}[thick,font=\scriptsize]
-  \draw[->] (-220pt,0)  - -  (160pt,0) node[above]{$\Z$};	
-    \foreach \n in {-7,-6,...,-1}{%
-      \draw (\n,-3pt) -- (\n,3pt)   node [below=5pt] {};		
-    }
-
-    \foreach \m in {2,3,...,5}{%
-      \draw (\m,-3pt) -- (\m,3pt) node [below=5pt]{};
-    }
-
-    \foreach \x in {1}{%
-      \draw (\x,-3pt) -- (\x,3pt) node [below=5pt]{+$\x$};
-    }
-    
-    \foreach \y in {0}{%
-      \draw (\y,-3pt) -- (\y,3pt) node [below=5pt]{$\y$};
-    }
-\end{scope}
-\end{tikzpicture}
-}
-
-\newcommand{\asseint}[2]{
-  \def \minn{#1}
-  \def \maxn{#2}
-  \asse{\minn}{\maxn + .5}{0}{\dots}
-  \foreach \n in {\minn, ..., 0}{
-    \draw (\n, 0.1) -- (\n, -0.1) node [below] {\footnotesize $\n$};}
-  \foreach \n in {1, ..., +\maxn}{
-    \draw (\n, 0.1) -- (\n, -0.1) node [below] {\footnotesize $+\n$};}
-}
-
 \newcommand{\intaddline}[5]{
   \def \intlinmi{#1}
   \def \intlinma{#2}
@@ -157,11 +125,9 @@ node[below=2pt]{$B$};
   \def \ob{#4}
   \def \ris{#5}
   \pgfmathparse{\ris -1} \let\last\pgfmathresult
-%   \def \maxn{9}
   \def \oacolor{blue!60!black}
   \def \obcolor{green!60!black}
   \def \riscolor{orange!60!black}
-%   \disegno[10]{
     \asseint{\intlinmi}{\intlinma}
     \draw (\oa, -0.32) node [\oacolor] {\footnotesize $\boxed{\oa}$}
           (\ris, -0.32) node [\riscolor] {\footnotesize $\boxed{\ris}$};
@@ -169,7 +135,6 @@ node[below=2pt]{$B$};
       \draw [- latex, dotted, thick, color=\obcolor]
            (\c, 0.2) arc (180:0:0.5 and 0.4);
       \draw (\c+.5, 0.4) node [\obcolor] {\footnotesize $\n$};}
-%   }
 }
 
 \newcommand{\intsubline}[5]{
@@ -183,7 +148,6 @@ node[below=2pt]{$B$};
   \def \oacolor{blue!60!black}
   \def \obcolor{green!60!black}
   \def \riscolor{orange!60!black}
-%   \disegno[10]{
     \asseint{-6}{+6}
     \draw (\oa, -0.32) node [\oacolor] {\footnotesize $\boxed{\oa}$}
           (\ris, -0.32) node [\riscolor] {\footnotesize $\boxed{\ris}$};
@@ -191,7 +155,6 @@ node[below=2pt]{$B$};
       \draw [- latex, dotted, thick, color=\obcolor]
            (\c, 0.2) arc (0:180:0.5 and 0.4);
       \draw (\c-.5, 0.4) node [\obcolor] {\footnotesize $\n$};}
-%   }
 }
 
 \newcommand{\intaddlinea}{
@@ -213,30 +176,23 @@ node[below=2pt]{$B$};
 }
 
 \newcommand{\sottrazione}{
-\begin{tikzpicture}
-% \begin{scope}[font=\scriptsize]
-\matrix [matrix of math nodes,column sep={10mm,between origins},
-         ampersand replacement=\&] 
-at (0,0)
-{
-\node{(+2)}; \& \node[circle, draw=red](-){-}; \& \node[draw=blue,circle] 
-(3pos){(+3)} ;%
- \& \node{=}; \& \node{(+2)}; \& \node[circle, draw=red](+){+}; \& 
-\node[draw=blue,circle](3neg){(-3)};\\
-};
-
-
-\node (testo1) at (0, -15mm) {Cambio il numero $+3$ con il suo opposto $-3$};
-\node (testo2) at (0,15mm) {Cambio la sottrazione in addizione};
-% \end{scope}
-
- \draw[->,red ] (testo2) .. controls +(down:5mm) and +(up:10mm) .. (-) ;
- \draw[->,red ] (testo2) .. controls +(down:5mm) and +(up:10mm) .. (+) ;
-
- \draw[->,blue ] (testo1) .. controls +(up:10mm) and +(down:10mm) .. (3neg) ;
- \draw[->,blue ] (testo1) .. controls +(up:10mm) and +(down:10mm) .. (3pos) ;
-
-\end{tikzpicture}
+  \disegno{
+  \matrix [matrix of math nodes,column sep={10mm,between origins},
+          ampersand replacement=\&] 
+  at (0,0)
+  {\node{(+2)}; \& \node[circle, draw=red](-){-}; \& 
+   \node[draw=blue,circle] (3pos){(+3)};
+   \& \node{=}; \& \node{(+2)}; \& \node[circle, draw=red](+){+}; \& 
+   \node[draw=blue,circle](3neg){(-3)};\\};
+  \node (testo1) at (0, -15mm) {Cambio $+3$ con il suo opposto $-3$};
+  \node (testo2) at (0,15mm) {Cambio la sottrazione in addizione};
+  \draw[->,red ] (testo2) .. controls +(down:5mm) and +(up:10mm) .. (-);
+  \draw[->,red ] (testo2) .. controls +(down:5mm) and +(up:10mm) .. (+);
+  \draw[->,blue ] 
+    (testo1) .. controls +(up:10mm) and +(down:10mm) .. (3neg) ;
+  \draw[->,blue ] 
+    (testo1) .. controls +(up:10mm) and +(down:10mm) .. (3pos) ;
+  }
 }
 
 \newcommand{\sommalgebrica}{
@@ -249,7 +205,6 @@ at (0,0)
   \def \oe{-3}
   \def \of{-5}
   \def \ris{-2}
-%   \pgfmathparse{\ris -1} \let\last\pgfmathresult
   \def \oacolor{blue!60!black}
   \def \obcolor{green!60!black}
   \def \riscolor{orange!60!black}
@@ -282,26 +237,37 @@ at (0,0)
 }
 
 \newcommand{\moltsegni}{
-\begin{tikzpicture}[font=\huge]
+  \begin{tikzpicture}[font=\huge]
+    \matrix (segni) [matrix of nodes, ampersand replacement=\&]{%
+    $\times$ \& $+$  \& $-$\\
+    $+$ \& $+$  \&$-$\\
+    $-$ \& $-$  \&$+$\\
+    };
+    \begin{scope}[thin, blue]
+  %     foreach \i in {1, 2, 3}{ % non funziona!!
+  %     \draw (segni-\i-1.south west)--(segni-\i-3.south east);
+  %     \draw (segni-1-\i.north east)--(segni-3-\i.south east);
+  %     }
+      \draw (segni-1-1.south west)--(segni-1-3.south east);
+      \draw (segni-2-1.south west)--(segni-2-3.south east);
+      \draw (segni-3-1.south west)--(segni-3-3.south east);
+      \draw (segni-1-1.north east)--(segni-3-1.south east);
+      \draw (segni-1-2.north east)--(segni-3-2.south east);
+      \draw (segni-1-3.north east)--(segni-3-3.south east);
+    \end{scope}
+  \end{tikzpicture}
+}
 
-\matrix (segni) [matrix of nodes, ampersand replacement=\&]{%
- $\times$ \& $+$  \& $-$\\
- $+$ \& $+$  \&$-$\\
- $-$ \& $-$  \&$+$\\
-};
-
-  \begin{scope}[thin, blue]
-%     foreach \i in {1, 2, 3}{ % non funziona!!
-%     \draw (segni-\i-1.south west)--(segni-\i-3.south east);
-%     \draw (segni-1-\i.north east)--(segni-3-\i.south east);
-%     }
-    \draw (segni-1-1.south west)--(segni-1-3.south east);
-    \draw (segni-2-1.south west)--(segni-2-3.south east);
-    \draw (segni-3-1.south west)--(segni-3-3.south east);
-    \draw (segni-1-1.north east)--(segni-3-1.south east);
-    \draw (segni-1-2.north east)--(segni-3-2.south east);
-    \draw (segni-1-3.north east)--(segni-3-3.south east);
-  \end{scope}
-\end{tikzpicture}
+\newcommand{\esec}{
+  \def \minn{-6}
+  \def \maxn{+6}
+  \disegno[10]{
+    \asse{\minn - .5}{\maxn + .5}{0}{\dots}
+    \draw (\minn - .5, 0) node [below] {\dots};
+    \foreach \n in {\minn, ..., +\maxn}{
+      \draw (\n, 0.1) -- (\n, -0.1);}
+    \foreach \n in {0, +1}{
+      \draw (\n, -0.1) node [below] {\footnotesize $\n$};}
+  }
 }
 
