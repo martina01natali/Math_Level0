@@ -43,9 +43,9 @@ import sys, getopt
 import os
 
 DDIR = 'dist'
-SAFEDIR = [DDIR, 'copertine', '_ignore']
+SAFEDIR = [DDIR, 'copertine', '_ignore', 'html']
 EXTCLEAR = ('.4ct', '.4tc', '.aux', '.css', '.dvi', '.gnuplot',
-            '.html', '.idv', '.lg', '.log', '.svg',
+            '.html', '.idv', '.lg', '.log', '.svg', '.ps', '.listing',
             '.nav', '.out', '.snm', '.table', '.tmp', '.toc', '.xref')
 
 def topdf(filename, test, mono):

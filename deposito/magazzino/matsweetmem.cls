@@ -33,47 +33,6 @@
 % \small\normalfont\scshape{#1}%
 % }%
 % }
-\newcommand{\spazielen}{%
-  \setlength{\itemsep}{0pt}%
-  \setlength{\parskip}{0pt}%
-}
-\newcommand{\spazielenx}{%
-  \setlength{\itemsep}{0pt}%
-  \setlength{\parskip}{5pt}%
-}
-\renewcommand{\labelitemi}{%
-  \textcolor{Salmon}{\ding{225}}%
-}
-\renewcommand{\labelitemii}{%
-  \textcolor{Salmon}{\ding{224}}%
-}
-\renewcommand{\labelitemiii}{%
-  \textcolor{Salmon}{\ding{223}}%
-}
-\newenvironment{description*}{%
-  \begin{description}
-    \spazielen}%
-  {\end{description}%
-}
-\renewcommand{\descriptionlabel}[1]{%
-  \labelwidth=3cm\hspace{%
-\labelsep}\emph{#1}%
-}
-\newenvironment{enumeratea}{%
-  \begin{enumerate}[label=\alph*\,)]%
-    \spazielen}{%
-  \end{enumerate}%
-}
-\newenvironment{enumerate*}{%
-  \begin{enumerate}%
-    \spazielen}{%
-  \end{enumerate}%
-}
-\newenvironment{itemize*}{%
-  \begin{itemize}
-    \spazielen}{%
-  \end{itemize}%
-}
 % \newenvironment{exrig}{%
 %   \vskip2mm\hrule\vskip2mm}{%
 %   \hrule\vskip2mm}

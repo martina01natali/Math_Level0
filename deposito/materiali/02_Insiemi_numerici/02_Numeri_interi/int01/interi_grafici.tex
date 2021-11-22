@@ -176,6 +176,30 @@
 }
 
 \newcommand{\sottrazione}{
+  \def \psimbol{(-.7, +2.3)}
+  \def \psegnol{(1.5, -2.3)}
+  \def \xsimboa{-3.4}
+  \def \xsimbob{+3.3}
+  \def \xsegnoa{-1.7}
+  \def \xsegnob{+5.0}
+  \def \csegno {red!50!black}
+  \def \csimbo {green!50!black}
+  \disegno{
+    \draw (0, 0) node {\Large $(+2) ~-~ (+3) ~=~ (+2) ~+~ (-3)$};
+    \draw \psimbol node [above, \csimbo] 
+      {Cambio la sottrazione in addizione};
+    \begin{scope} [-latex, thick, \csimbo] 
+      \draw (\xsimboa, +.5) to [out=70, in=110] (\xsimbob, +.5);
+    \end{scope}
+    \draw \psegnol node [below=2pt, \csegno] 
+      {Cambio $+3$ con il suo opposto $-3$};
+    \begin{scope} [-latex, thick, \csegno] 
+      \draw (\xsegnoa, -.5) to [out=-70, in=-110] (\xsegnob, -.5);
+    \end{scope}
+  }
+}
+
+\newcommand{\sottrazionea}{
   \disegno{
   \matrix [matrix of math nodes,column sep={10mm,between origins},
           ampersand replacement=\&] 
